@@ -1,0 +1,36 @@
+#
+# Copyright (C) 2020 Paul G. Richardson
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+#SUBJECT                 | KIND      | CATEGORY             | FROM         | TO
+paleolithic              | Event     | Archaeological Age   | -3300000     | -11700
+mezolithic               | Event     | Archaeological Age   | -11500       | -8000
+neolithic                | Event     | Archaeological Age   | -10200       | -4500
+bronze-age               | Event     | Archaeological Age   | -3200        | -600
+iron-age                 | Event     | Archaeological Age   | -1200        | 800
+stone-henge              | Location  | Historical Feature   | -3100        | -1600
+great-dying              | Event     | Extinction Event     | -251941000   | -251880000
+huronian-glaciation      | Event     | UK Geological Period | -24000000000 | -2100000000
+cromerian-stage          | Event     | UK Geological Period | -800000      | -500000
+anglian-stage            | Event     | UK Geological Period | -478000      | -424000
+hoxnian-stage            | Event     | UK Geological Period | -424000      | -374000
+wolstonian-stage         | Event     | UK Geological Period | -352000      | -130000
+ipswichian-stage         | Event     | UK Geological Period | -130000      | -115000
+last-glacial-period      | Event     | UK Geological Period | -115000      | -11700
+homo-neanderthalensis    | Fauna     | Human Development    | -800000      | -40000
+homo-sapien              | Fauna     | Human Development    | -300000      | 2000
+late-devonian-extinction | Event     | Extinction Event     | -376000000   | -358900000
+charnia                  | Flora     | Early Plant Life     | -570000000   | -550000000

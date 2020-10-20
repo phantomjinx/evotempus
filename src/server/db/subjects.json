@@ -1,0 +1,18 @@
+{"_id":"paleolithic","from":-3300000,"kind":"Event","name":"Paleolithic","to":-11700,"version":0}
+{"_id":"stone-henge","from":-3100,"kind":"Location","name":"Stone Henge","to":-1600,"version":0}
+{"_id":"mezolithic","from":-11500,"kind":"Event","name":"Mezolithic","to":-8000,"version":0}
+{"_id":"neolithic","from":-10200,"kind":"Event","name":"Neolithic","to":-4500,"version":0}
+{"_id":"cromerian-stage","from":-800000,"kind":"Event","name":"Cromerian Stage","to":-500000,"version":0}
+{"_id":"great-dying","from":-251941000,"kind":"Event","name":"Great Dying","to":-251880000,"version":0}
+{"_id":"huronian-glaciation","from":-2.4E+10,"kind":"Event","name":"Huronian Glaciation","to":-2100000000,"version":0}
+{"_id":"iron-age","from":-1200,"kind":"Event","name":"Iron Age","to":800,"version":0}
+{"_id":"anglian-stage","from":-478000,"kind":"Event","name":"Anglian Stage","to":-424000,"version":0}
+{"_id":"bronze-age","from":-3200,"kind":"Event","name":"Bronze Age","to":-600,"version":0}
+{"_id":"hoxnian-stage","from":-424000,"kind":"Event","name":"Hoxnian Stage","to":-374000,"version":0}
+{"_id":"wolstonian-stage","from":-352000,"kind":"Event","name":"Wolstonian Stage","to":-130000,"version":0}
+{"_id":"ipswichian-stage","from":-130000,"kind":"Event","name":"Ipswichian Stage","to":-115000,"version":0}
+{"_id":"last-glacial-period","from":-115000,"kind":"Event","name":"Last Glacial Period","to":-11700,"version":0}
+{"_id":"homo-neanderthalensis","from":-800000,"kind":"Fauna","name":"Homo Neanderthalensis","to":-40000,"version":0}
+{"_id":"homo-sapien","from":-300000,"kind":"Fauna","name":"Homo Sapien","to":2000,"version":0}
+{"_id":"late-devonian-extinction","from":-376000000,"kind":"Event","name":"Late Devonian Extinction","to":-358900000,"version":0}
+{"_id":"charnia","from":-570000000,"kind":"Flora","name":"Charnia","to":-550000000,"version":0}

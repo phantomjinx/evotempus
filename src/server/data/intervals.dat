@@ -1,0 +1,196 @@
+#
+# Copyright (C) 2020 Paul G. Richardson
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+#INTERVAL            | KIND       | FROM         | TO           | PARENT                | CHILDREN
+precambrian          | SuperEon   | -4600000000  | -541000000   |                       | hadean, archean, proterozoic
+hadean               | Eon        | -4600000000  | -4000000000  | precambrian           |
+archean              | Eon        | -4000000000  | -2500000000  | precambrian           | eoarchean, paleoarchean, mesoarchean, neoarchean
+proterozoic          | Eon        | -2500000000  | -541000000   | precambrian           | paleoproterozoic, mesoproterozoic, neoproterozoic
+phanerozoic          | Eon        | -541000000   | 2000         |                       | paleozoic, mesozoic, cenozoic
+eoarchean            | Era        | -4000000000  | -3600000000  | archean               |
+paleoarchean         | Era        | -3600000000  | -3200000000  | archean               |
+mesoarchean          | Era        | -3200000000  | -2800000000  | archean               |
+neoarchean           | Era        | -2800000000  | -2500000000  | archean               |
+paleoproterozoic     | Era        | -2500000000  | -1600000000  | proterozoic           | siderian, rhyacian, orosirian, statherian
+mesoproterozoic      | Era        | -1600000000  | -1000000000  | proterozoic           | calymmian, ectasian, stenian
+neoproterozoic       | Era        | -1000000000  | -541000000   | proterozoic           | tonian, cryogenian, ediacaran
+paleozoic            | Era        | -541000000   | -252000000   | phanerozoic           | cambrian, ordovician, silurian, devonian, carboniferous, permian
+mesozoic             | Era        | -252000000   | -66000000    | phanerozoic           | triassic, jurassic, cretaceous
+cenozoic             | Era        | -66000000    | 2000         | phanerozoic           | paleogene, neogene, quarternary
+siderian             | Period     | -2500000000  | -2300000000  | paleoproterozoic      |
+rhyacian             | Period     | -2300000000  | -2050000000  | paleoproterozoic      |
+orosirian            | Period     | -2050000000  | -1800000000  | paleoproterozoic      |
+statherian           | Period     | -1800000000  | -1600000000  | paleoproterozoic      |
+calymmian            | Period     | -1600000000  | -1400000000  | mesoproterozoic       |
+ectasian             | Period     | -1400000000  | -1200000000  | mesoproterozoic       |
+stenian              | Period     | -1200000000  | -1000000000  | mesoproterozoic       |
+tonian               | Period     | -1000000000  | -850000000   | neoproterozoic        |
+cryogenian           | Period     | -850000000   | -635000000   | neoproterozoic        |
+ediacaran            | Period     | -635000000   | -541000000   | neoproterozoic        |
+cambrian             | Period     | -541000000   | -485400000   | paleozoic             | terreneuvian, cambrian-series-2, miaolingian, furongian
+ordovician           | Period     | -485400000   | -443800000   | paleozoic             | early-ordovician, middle-ordovician, late-ordovician
+silurian             | Period     | -443800000   | -419200000   | paleozoic             | llandovery, wenlock, ludlow, přídolí
+devonian             | Period     | -419200000   | -358900000   | paleozoic             | lower-devonian, middle-devonian, upper-devonian
+carboniferous        | Period     | -358900000   | -298900000   | paleozoic             | mississippian, pennsylvanian
+permian              | Period     | -298900000   | -251902000   | paleozoic             | cisuralian, guadalupian, lopingian
+triassic             | Period     | -251902000   | -201300000   | mesozoic              | lower-triassic, middle-triassic, upper-triassic
+jurassic             | Period     | -201300000   | -145000000   | mesozoic              | lower-jurassic, middle-jurassic, upper-jurassic
+cretaceous           | Period     | -145000000   | -66000000    | mesozoic              | early-cretaceous, late-cretaceous
+paleogene            | Period     | -66000000    | -23030000    | cenozoic              | paleocene, eocene, oligocene
+neogene              | Period     | -23030000    | -2580000     | cenozoic              | miocene, pliocene
+quarternary          | Period     | -2580000     | 2000         | cenozoic              | pleistocene, holocene
+mississippian        | Sub-Period | -358900000   | -323200000   | carboniferous         | lower-mississippian, middle-mississippian, upper-mississippian
+pennsylvanian        | Sub-Period | -323200000   | -298900000   | carboniferous         | lower-pennsylvanian, middle-pennsylvanian, upper-pennsylvanian
+cambrian-series-2    | Epoch      | -521000000   | -509000000   | cambrian              | stage-3, stage-4
+terreneuvian         | Epoch      | -541000000   | -521000000   | cambrian              | fortunian, stage-2
+miaolingian          | Epoch      | -509000000   | -497000000   | cambrian              | wuliuan, drumian, guzhangian
+furongian            | Epoch      | -497000000   | -485400000   | cambrian              | paibian, jiangshanian, stage-10
+early-ordovician     | Epoch      | -485400000   | -470000000   | ordovician            | tremadocian, floian
+middle-ordovician    | Epoch      | -470000000   | -458400000   | ordovician            | dapingian, darriwilian
+late-ordovician      | Epoch      | -458400000   | -443800000   | ordovician            | sandbian, katian, hirnantian
+llandovery           | Epoch      | -443800000   | -433400000   | silurian              | rhuddanian, aeronian, telychian
+wenlock              | Epoch      | -433400000   | -427400000   | silurian              | sheinwoodian, homerian
+ludlow               | Epoch      | -427400000   | -423000000   | silurian              | gorstian, ludfordian
+pridoli              | Epoch      | -423000000   | -419200000   | silurian              |
+lower-devonian       | Epoch      | -419200000   | -393000000   | devonian              | lochkovian, pragian, emsian
+middle-devonian      | Epoch      | -393000000   | -382700000   | devonian              | eifelian, givetian
+upper-devonian       | Epoch      | -382700000   | -358900000   | devonian              | frasnian, fammenian
+lower-mississippian  | Epoch      | -358900000   | -346700000   | mississippian         | tournaisian
+middle-mississippian | Epoch      | -346700000   | -330900000   | mississippian         | visean
+upper-mississippian  | Epoch      | -330900000   | -323200000   | mississippian         | serpukhovian
+lower-pennsylvanian  | Epoch      | -323200000   | -315200000   | pennsylvanian         | bashkirian
+middle-pennsylvanian | Epoch      | -315200000   | -307000000   | pennsylvanian         | mosocovian
+upper-pennsylvanian  | Epoch      | -307000000   | -298900000   | pennsylvanian         | kasimovian, gzhelian
+cisuralian           | Epoch      | -298900000   | -272950000   | permian               | asselian, sakmarian, artinskian, kungurian
+guadalupian          | Epoch      | -272950000   | -259100000   | permian               | roadian, wordian, capitanian
+lopingian            | Epoch      | -259100000   | -251902000   | permian               | wuchiapingian, changhsingian
+lower-triassic       | Epoch      | -251902000   | -247200000   | triassic              | induan, olenekian
+middle-triassic      | Epoch      | -247200000   | -237000000   | triassic              | anisian, ladinian
+upper-triassic       | Epoch      | -237000000   | -201300000   | triassic              | carnian, norian, rhaetian
+lower-jurassic       | Epoch      | -201300000   | -174100000   | jurassic              | hettangian, sinemurian, pliensbachian, toarchian
+middle-jurassic      | Epoch      | -174100000   | -163500000   | jurassic              | aalenian, bajocian, bathonian, callovian
+upper-jurassic       | Epoch      | -163500000   | -145000000   | jurassic              | oxfordian, kimmeridgian, tithonian
+early-cretaceous     | Epoch      | -145000000   | -100500000   | cretaceous            | berriasian, valanginian, hauterivian, barremian, aptian, albian
+late-cretaceous      | Epoch      | -100500000   | -66000000    | cretaceous            | cenomanian, turonian, coniacian, santonian, campanian, maastrichtian
+paleocene            | Epoch      | -66000000    | -56000000    | paleogene             | danian, selandian, thanetian
+eocene               | Epoch      | -56000000    | -33900000    | paleogene             | ypresian, lutetian, bartonian, priabonian
+oligocene            | Epoch      | -33900000    | -23030000    | paleogene             | rupelian, chattian
+miocene              | Epoch      | -23030000    | -5333000     | neogene               | aquitanian, burdigalian, langhian, serravallian, tortonian, messinian
+pliocene             | Epoch      | -5333000     | -2580000     | neogene               | zanclean, piacenzian
+pleistocene          | Epoch      | -2580000     | -11700       | quarternary           | gelasian, calabrian, chibanian, upper-pleistocene
+holocene             | Epoch      | -11700       | 2000         | quarternary           | greenlandian, northgrippian, meghalayan
+fortunian            | Age        | -541000000   | -529000000   | terreneuvian          |
+stage-2              | Age        | -529000000   | -521000000   | terreneuvian          |
+stage-3              | Age        | -521000000   | -514000000   | cambrian-series-2     |
+stage-4              | Age        | -514000000   | -509100000   | cambrian-series-2     |
+wuliuan              | Age        | -509100000   | -504500000   | miaolingian           |
+drumian              | Age        | -504500000   | -500500000   | miaolingian           |
+guzhangian           | Age        | -529000000   | -497000000   | miaolingian           |
+paibian              | Age        | -497000000   | -494000000   | furongian             |
+jiangshanian         | Age        | -494000000   | -489500000   | furongian             |
+stage-10             | Age        | -489500000   | -485400000   | furongian             |
+tremadocian          | Age        | -485400000   | -477700000   | early-ordovician      |
+floian               | Age        | -477700000   | -470000000   | early-ordovician      |
+dapingian            | Age        | -470000000   | -467300000   | middle-ordovician     |
+darriwilian          | Age        | -467300000   | -458400000   | middle-ordovician     |
+sandbian             | Age        | -458400000   | -453000000   | late-ordovician       |
+katian               | Age        | -453000000   | -445200000   | late-ordovician       |
+hirnantian           | Age        | -445200000   | -443800000   | late-ordovician       |
+rhuddanian           | Age        | -443800000   | -440800000   | llandovery            |
+aeronian             | Age        | -440800000   | -438500000   | llandovery            |
+telychian            | Age        | -438500000   | -433400000   | llandovery            |
+homerian             | Age        | -430500000   | -427400000   | wenlock               |
+sheinwoodian         | Age        | -433400000   | -430500000   | wenlock               |
+gorstian             | Age        | -427400000   | -425600000   | ludlow                |
+lochkovian           | Age        | -419200000   | -410800000   | lower-devonian        |
+ludfordian           | Age        | -425600000   | -423000000   | ludlow                |
+pragian              | Age        | -410800000   | -407600000   | lower-devonian        |
+emsian               | Age        | -407600000   | -393000000   | lower-devonian        |
+eifelian             | Age        | -393000000   | -387700000   | middle-devonian       |
+givetian             | Age        | -387700000   | -382700000   | middle-devonian       |
+frasnian             | Age        | -382700000   | -372200000   | upper-devonian        |
+fammenian            | Age        | -372200000   | -358900000   | upper-devonian        |
+tournaisian          | Age        | -358900000   | -346700000   | lower-mississippian   |
+visean               | Age        | -346700000   | -330900000   | middle-mississippian  |
+serpukhovian         | Age        | -330900000   | -323200000   | upper-mississippian   |
+bashkirian           | Age        | -323200000   | -315200000   | lower-pennsylvanian   |
+mosocovian           | Age        | -315200000   | -307000000   | middle-pennsylvanian  |
+kasimovian           | Age        | -307000000   | -303700000   | upper-pennsylvanian   |
+gzhelian             | Age        | -303700000   | -298900000   | upper-pennsylvanian   |
+asselian             | Age        | -298900000   | -295000000   | cisuralian            |
+sakmarian            | Age        | -295000000   | -290100000   | cisuralian            |
+artinskian           | Age        | -290100000   | -283500000   | cisuralian            |
+kungurian            | Age        | -283500000   | -272950000   | cisuralian            |
+roadian              | Age        | -272950000   | -268800000   | guadalupian           |
+wordian              | Age        | -268800000   | -265100000   | guadalupian           |
+capitanian           | Age        | -265100000   | -259100000   | guadalupian           |
+wuchiapingian        | Age        | -259100000   | -254140000   | lopingian             |
+changhsingian        | Age        | -254140000   | -251902000   | lopingian             |
+induan               | Age        | -251902000   | -251200000   | lower-triassic        |
+olenekian            | Age        | -251200000   | -247200000   | lower-triassic        |
+anisian              | Age        | -247200000   | -242000000   | middle-triassic       |
+ladinian             | Age        | -242000000   | -237000000   | middle-triassic       |
+carnian              | Age        | -237000000   | -227000000   | upper-triassic        |
+norian               | Age        | -227000000   | -208500000   | upper-triassic        |
+rhaetian             | Age        | -208500000   | -201300000   | upper-triassic        |
+hettangian           | Age        | -201300000   | -199300000   | lower-jurassic        |
+sinemurian           | Age        | -199300000   | -190800000   | lower-jurassic        |
+pliensbachian        | Age        | -190800000   | -182700000   | lower-jurassic        |
+toarchian            | Age        | -182700000   | -174100000   | lower-jurassic        |
+aalenian             | Age        | -174100000   | -170300000   | middle-jurassic       |
+bajocian             | Age        | -170300000   | -168300000   | middle-jurassic       |
+bathonian            | Age        | -168300000   | -166100000   | middle-jurassic       |
+callovian            | Age        | -166100000   | -163500000   | middle-jurassic       |
+oxfordian            | Age        | -163500000   | -157300000   | upper-jurassic        |
+kimmeridgian         | Age        | -157300000   | -152100000   | upper-jurassic        |
+tithonian            | Age        | -152100000   | -145000000   | upper-jurassic        |
+berriasian           | Age        | -145000000   | -139800000   | early-cretaceous      |
+valanginian          | Age        | -139800000   | -132900000   | early-cretaceous      |
+hauterivian          | Age        | -132900000   | -129400000   | early-cretaceous      |
+barremian            | Age        | -129400000   | -125000000   | early-cretaceous      |
+aptian               | Age        | -125000000   | -113000000   | early-cretaceous      |
+albian               | Age        | -113000000   | -100500000   | early-cretaceous      |
+cenomanian           | Age        | -100500000   | -93900000    | late-cretaceous       |
+turonian             | Age        | -93900000    | -89800000    | late-cretaceous       |
+coniacian            | Age        | -89800000    | -86300000    | late-cretaceous       |
+santonian            | Age        | -86300000    | -83600000    | late-cretaceous       |
+campanian            | Age        | -83600000    | -72100000    | late-cretaceous       |
+maastrichtian        | Age        | -72100000    | -66000000    | late-cretaceous       |
+danian               | Age        | -66000000    | -61600000    | paleocene             |
+selandian            | Age        | -61600000    | -59200000    | paleocene             |
+thanetian            | Age        | -59200000    | -56000000    | paleocene             |
+ypresian             | Age        | -56000000    | -47800000    | eocene                |
+lutetian             | Age        | -47800000    | -41200000    | eocene                |
+bartonian            | Age        | -41200000    | -37800000    | eocene                |
+priabonian           | Age        | -37800000    | -33900000    | eocene                |
+rupelian             | Age        | -33900000    | -27800000    | oligocene             |
+chattian             | Age        | -27800000    | -23030000    | oligocene             |
+aquitanian           | Age        | -23030000    | -20440000    | miocene               |
+burdigalian          | Age        | -20440000    | -15970000    | miocene               |
+langhian             | Age        | -15970000    | -13820000    | miocene               |
+serravallian         | Age        | -13820000    | -11630000    | miocene               |
+tortonian            | Age        | -11630000    | -7246000     | miocene               |
+messinian            | Age        | -7246000     | -5333000     | miocene               |
+zanclean             | Age        | -5333000     | -3600000     | pliocene              |
+piacenzian           | Age        | -3600000     | -2580000     | pliocene              |
+gelasian             | Age        | -2580000     | -1800000     | pleistocene           |
+calabrian            | Age        | -1800000     | -774000      | pleistocene           |
+chibanian            | Age        | -774000      | -129000      | pleistocene           |
+upper-pleistocene    | Age        | -129000      | -11700       | pleistocene           |
+greenlandian         | Age        | -11700       | -8200        | holocene              |
+northgrippian        | Age        | -8200        | -4200        | holocene              |
+meghalayan           | Age        | -4200        | 2000         | holocene              |

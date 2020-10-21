@@ -23,6 +23,7 @@ var SubjectSchema = new Schema({
     _id: {type: String, required: true},
     name: String,
     kind: {type: String, enum: ['Fauna', 'Flora', 'Event', 'Location']},
+    category: String,
     link: String,
     from: Number,
     to:   Number,
@@ -33,4 +34,4 @@ var SubjectSchema = new Schema({
 // define our subject model
 module.exports = {
   Subject: mongoose.model('Subject', SubjectSchema)
-}
+};

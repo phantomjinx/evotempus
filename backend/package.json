@@ -12,7 +12,7 @@
     "url": "git+https://github.com/phantomjinx/evotempus.git"
   },
   "author": "phantomjinx",
-  "license": "See LICENSE",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/phantomjinx/evotempus/issues"
   },
@@ -21,11 +21,19 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
-    "js-yaml": "^3.14.0",
     "method-override": "^3.0.0",
-    "minimist": "^1.2.5",
     "mongoose": "^5.10.9",
     "morgan": "^1.10.0",
     "n-readlines": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-jshint": "^2.1.0",
+    "gulp-load-plugins": "^2.0.5",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.12.0",
+    "jshint-stylish": "^2.2.1",
+    "nodemon": "^2.0.6"
   }
 }

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
+
 var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
@@ -34,4 +34,4 @@ var IntervalSchema = new Schema({
 // define our interval model
 module.exports = {
   Interval: mongoose.model('Interval', IntervalSchema)
-}
+};

@@ -1,4 +1,3 @@
-// server.js
 /*
  * Copyright (C) 2020 Paul G. Richardson
  *
@@ -27,11 +26,11 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const Subject = require('./models/subject').Subject;
 const Interval = require('./models/interval').Interval;
-const argv = require('minimist')(process.argv.slice(2));
 const logger = require('morgan');
-const yaml = require('js-yaml')
+const yaml = require('js-yaml');
 
-var environment = process.env.NODE_ENV;
+const environment = process.env.NODE_ENV;
+const doImport = process.env.IMPORT_DB;
 
 function displayName(id) {
   // Replace hypens with spaces
@@ -165,7 +164,7 @@ function importIntervals(file) {
   var liner = new readlines(file);
 
   var next;
-  while (next = liner.next()) {
+  while (next = liner.next()) { // jshint ignore:line
     line = next.toString('ascii');
 
     if (line.startsWith("#") || line.length == 0) {
@@ -238,7 +237,7 @@ function importSubjects(file) {
   var liner = new readlines(file);
 
   var next;
-  while (next = liner.next()) {
+  while (next = liner.next()) { // jshint ignore:line
     line = next.toString('ascii');
 
     if (line.startsWith("#") || line.length == 0) {
@@ -251,12 +250,80 @@ function importSubjects(file) {
   }
 }
 
-// command line arguments ====================================
+function importDbData(conn) {
+  if (!doImport) {
+    return;
+  }
 
-// Use -i to import the data into the database
-let doImport = false;
-if (argv.i)
-  doImport = true;
+  console.log('INFO: Importing schema');
+  conn.db.dropCollection('intervals', function(err, result) {
+    if (err) {
+      console.error("ERROR: Failed to drop intervals collection: %s", err);
+    }
+
+    conn.db.dropCollection('subjects', function(err, result) {
+      if (err) {
+        console.error("ERROR: Failed to drop subjects collection: %s", err);
+      }
+
+      console.log('INFO: Import from data directory');
+      // Import the data if required into database
+      importIntervals(path.resolve(__dirname, '..', dbConfig.intervals));
+      importSubjects(path.resolve(__dirname, '..', dbConfig.subjects));
+    });
+  });
+}
+
+function init() {
+  // Log middleware requests
+  app.use(logger('dev'));
+
+  // get all data/stuff of the body (POST) parameters
+  // parse application/json
+  app.use(bodyParser.json());
+
+  // parse application/vnd.api+json as json
+  app.use(bodyParser.json({
+    type: 'application/vnd.api+json'
+  }));
+
+  // parse application/x-www-form-urlencoded
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }));
+
+  // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
+  app.use(methodOverride('X-HTTP-Method-Override'));
+
+  // routes
+  const intervals = require('./api/intervals');
+  app.use('/api/intervals', intervals);
+
+  const subjects = require('./api/subjects');
+  app.use('/api/subjects', subjects);
+
+  // static content
+  switch (environment) {
+    case 'development':
+      console.log('INFO: ** DEV **');
+      app.use('/', express.static('./'));
+      break;
+    default:
+      console.log('INFO: ** PRODUCTION **');
+      break;
+  }
+
+  // startup app at http://localhost:{PORT}
+  app.listen(port, function() {
+    console.log('INFO: Server listening on port ' + port);
+    console.log('INFO: env = ' + app.get('env') +
+      '\n__dirname = ' + __dirname +
+      '\nprocess.cwd = ' + process.cwd());
+  });
+
+  // expose app
+  exports = module.exports = app;
+}
 
 // configuration ===========================================
 
@@ -284,74 +351,12 @@ conn.on('Error', function() {
 conn.once('open', function() {
   console.log('INFO: Connection established');
 
-  if (doImport) {
-    console.log('INFO: Importing schema')
-    conn.db.dropCollection('intervals', function(err, result) {
-      if (err) {
-        console.error("ERROR: Failed to drop intervals collection: %s", err);
-      }
+  try {
+    importDbData(conn);
 
-      conn.db.dropCollection('subjects', function(err, result) {
-        if (err) {
-          console.error("ERROR: Failed to drop subjects collection: %s", err);
-        }
-
-        console.log('INFO: Import from data directory')
-        // Import the data if required into database
-        importIntervals(path.resolve(__dirname, '..', dbConfig.intervals));
-        importSubjects(path.resolve(__dirname, '..', dbConfig.subjects));
-      });
-    });
-
-  } // End of doImport
-
-  // Log middleware requests
-  app.use(logger('dev'));
-
-  // get all data/stuff of the body (POST) parameters
-  // parse application/json
-  app.use(bodyParser.json());
-
-  // parse application/vnd.api+json as json
-  app.use(bodyParser.json({
-    type: 'application/vnd.api+json'
-  }));
-
-  // parse application/x-www-form-urlencoded
-  app.use(bodyParser.urlencoded({
-    extended: true
-  }));
-
-  // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
-  app.use(methodOverride('X-HTTP-Method-Override'));
-
-  // see ng-demos project for broadening out for production
-  switch (environment) {
-    case 'dev':
-    default:
-      console.log('INFO: ** DEV **');
-      console.log('INFO: serving from ' + './src/client/ and ./');
-      app.use('/', express.static('./src/client/'));
-      app.use('/', express.static('./'));
-      break;
+    init();
+  } catch (err) {
+    console.log(err);
+    conn.close();
   }
-
-  // routes ==================================================
-  require('./routes')(app); // configure our routes
-
-  // start app ===============================================
-  // startup our app at http://localhost:{PORT}
-  app.listen(port, function() {
-    console.log('INFO: Express server listening on port ' + port);
-    console.log('INFO: env = ' + app.get('env') +
-      '\n__dirname = ' + __dirname +
-      '\nprocess.cwd = ' + process.cwd());
-  });
-
-  // shoutout to the user
-  console.log('INFO: Server available on port ' + port);
-
-  // expose app
-  exports = module.exports = app;
-
 });

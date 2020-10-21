@@ -1,9 +1,10 @@
 {
-  "name": "evotempus",
-  "version": "1.0.0",
-  "description": "Visualization of the History of the Earth",
+  "name": "evotempus-server",
+  "version": "0.1.0",
   "main": "src/server.js",
   "scripts": {
+    "start": "node src/server.js",
+    "reset-start": "node src/server.js -i",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -21,6 +21,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const fs = require("fs");
+const path = require("path");
 const readlines = require('n-readlines');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
@@ -297,8 +298,8 @@ conn.once('open', function() {
 
         console.log('INFO: Import from data directory')
         // Import the data if required into database
-        importIntervals(dbConfig.intervals);
-        importSubjects(dbConfig.subjects);
+        importIntervals(path.resolve(__dirname, '..', dbConfig.intervals));
+        importSubjects(path.resolve(__dirname, '..', dbConfig.subjects));
       });
     });
 

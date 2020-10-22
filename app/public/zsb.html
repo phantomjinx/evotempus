@@ -1,0 +1,15 @@
+<head>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="/zsb.js"></script>
+</head>
+<body>
+    <svg></svg>
+
+    <script>
+      d3.json("/flare-2.json").then(function(data) {
+        console.log(data);
+        createViz(data);
+      });
+
+    </script>
+</body>

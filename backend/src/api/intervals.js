@@ -18,6 +18,7 @@
 const express = require('express');
 const router = express.Router();
 const Interval = require('../models/interval').Interval;
+const IntervalDesc = require('../models/intervaldesc').IntervalDesc;
 const mongoose = require('mongoose');
 const path = require('path');
 
@@ -34,11 +35,21 @@ router.get('/', (req, res) => {
 router.get('/:intervalId', (req, res) => {
   Interval.findById(
     { _id: req.params.intervalId }
-    ).then(intervals => res.json(intervals))
+  ).then(intervals => res.json(intervals))
+   .catch(err => {
+     console.log(err);
+     res.send(err);
+  });
+});
+
+router.get('/description/:intervalId', (req, res) => {
+  IntervalDesc.findOne(
+    { interval: req.params.intervalId }
+  ).then(intervalDesc => res.json(intervalDesc))
     .catch(err => {
       console.log(err);
       res.send(err);
-    });
+  });
 });
 
 router.get('/:parentId/children', (req, res) => {

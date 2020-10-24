@@ -21,4 +21,6 @@ DATABASE=evotempus
 
 mongoexport --collection=intervals --db=${DATABASE} --out=intervals.json
 
+mongoexport --collection=intervaldescs --db=${DATABASE} --out=intervaldescs.json
+
 mongoexport --collection=subjects  --db=${DATABASE} --out=subjects.json

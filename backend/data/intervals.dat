@@ -16,11 +16,12 @@
 #
 
 #INTERVAL            | KIND       | FROM         | TO           | PARENT                | CHILDREN
-precambrian          | SuperEon   | -4600000000  | -541000000   |                       | hadean, archean, proterozoic
+geological-timescale | Root       | -4600000000  | 2030         |                       | precambrian, phanerozoic
+precambrian          | SuperEon   | -4600000000  | -541000000   | geological-timescale  | hadean, archean, proterozoic
 hadean               | Eon        | -4600000000  | -4000000000  | precambrian           |
 archean              | Eon        | -4000000000  | -2500000000  | precambrian           | eoarchean, paleoarchean, mesoarchean, neoarchean
 proterozoic          | Eon        | -2500000000  | -541000000   | precambrian           | paleoproterozoic, mesoproterozoic, neoproterozoic
-phanerozoic          | Eon        | -541000000   | 2000         |                       | paleozoic, mesozoic, cenozoic
+phanerozoic          | Eon        | -541000000   | 2030         | geological-timescale  | paleozoic, mesozoic, cenozoic
 eoarchean            | Era        | -4000000000  | -3600000000  | archean               |
 paleoarchean         | Era        | -3600000000  | -3200000000  | archean               |
 mesoarchean          | Era        | -3200000000  | -2800000000  | archean               |
@@ -30,7 +31,7 @@ mesoproterozoic      | Era        | -1600000000  | -1000000000  | proterozoic   
 neoproterozoic       | Era        | -1000000000  | -541000000   | proterozoic           | tonian, cryogenian, ediacaran
 paleozoic            | Era        | -541000000   | -252000000   | phanerozoic           | cambrian, ordovician, silurian, devonian, carboniferous, permian
 mesozoic             | Era        | -252000000   | -66000000    | phanerozoic           | triassic, jurassic, cretaceous
-cenozoic             | Era        | -66000000    | 2000         | phanerozoic           | paleogene, neogene, quarternary
+cenozoic             | Era        | -66000000    | 2030         | phanerozoic           | paleogene, neogene, quarternary
 siderian             | Period     | -2500000000  | -2300000000  | paleoproterozoic      |
 rhyacian             | Period     | -2300000000  | -2050000000  | paleoproterozoic      |
 orosirian            | Period     | -2050000000  | -1800000000  | paleoproterozoic      |
@@ -52,7 +53,7 @@ jurassic             | Period     | -201300000   | -145000000   | mesozoic      
 cretaceous           | Period     | -145000000   | -66000000    | mesozoic              | early-cretaceous, late-cretaceous
 paleogene            | Period     | -66000000    | -23030000    | cenozoic              | paleocene, eocene, oligocene
 neogene              | Period     | -23030000    | -2580000     | cenozoic              | miocene, pliocene
-quarternary          | Period     | -2580000     | 2000         | cenozoic              | pleistocene, holocene
+quarternary          | Period     | -2580000     | 2030         | cenozoic              | pleistocene, holocene
 mississippian        | Sub-Period | -358900000   | -323200000   | carboniferous         | lower-mississippian, middle-mississippian, upper-mississippian
 pennsylvanian        | Sub-Period | -323200000   | -298900000   | carboniferous         | lower-pennsylvanian, middle-pennsylvanian, upper-pennsylvanian
 cambrian-series-2    | Epoch      | -521000000   | -509000000   | cambrian              | stage-3, stage-4
@@ -92,7 +93,7 @@ oligocene            | Epoch      | -33900000    | -23030000    | paleogene     
 miocene              | Epoch      | -23030000    | -5333000     | neogene               | aquitanian, burdigalian, langhian, serravallian, tortonian, messinian
 pliocene             | Epoch      | -5333000     | -2580000     | neogene               | zanclean, piacenzian
 pleistocene          | Epoch      | -2580000     | -11700       | quarternary           | gelasian, calabrian, chibanian, upper-pleistocene
-holocene             | Epoch      | -11700       | 2000         | quarternary           | greenlandian, northgrippian, meghalayan
+holocene             | Epoch      | -11700       | 2030         | quarternary           | greenlandian, northgrippian, meghalayan
 fortunian            | Age        | -541000000   | -529000000   | terreneuvian          |
 stage-2              | Age        | -529000000   | -521000000   | terreneuvian          |
 stage-3              | Age        | -521000000   | -514000000   | cambrian-series-2     |
@@ -113,11 +114,11 @@ hirnantian           | Age        | -445200000   | -443800000   | late-ordovicia
 rhuddanian           | Age        | -443800000   | -440800000   | llandovery            |
 aeronian             | Age        | -440800000   | -438500000   | llandovery            |
 telychian            | Age        | -438500000   | -433400000   | llandovery            |
-homerian             | Age        | -430500000   | -427400000   | wenlock               |
 sheinwoodian         | Age        | -433400000   | -430500000   | wenlock               |
+homerian             | Age        | -430500000   | -427400000   | wenlock               |
 gorstian             | Age        | -427400000   | -425600000   | ludlow                |
-lochkovian           | Age        | -419200000   | -410800000   | lower-devonian        |
 ludfordian           | Age        | -425600000   | -423000000   | ludlow                |
+lochkovian           | Age        | -419200000   | -410800000   | lower-devonian        |
 pragian              | Age        | -410800000   | -407600000   | lower-devonian        |
 emsian               | Age        | -407600000   | -393000000   | lower-devonian        |
 eifelian             | Age        | -393000000   | -387700000   | middle-devonian       |
@@ -193,4 +194,4 @@ chibanian            | Age        | -774000      | -129000      | pleistocene   
 upper-pleistocene    | Age        | -129000      | -11700       | pleistocene           |
 greenlandian         | Age        | -11700       | -8200        | holocene              |
 northgrippian        | Age        | -8200        | -4200        | holocene              |
-meghalayan           | Age        | -4200        | 2000         | holocene              |
+meghalayan           | Age        | -4200        | 2030         | holocene              |

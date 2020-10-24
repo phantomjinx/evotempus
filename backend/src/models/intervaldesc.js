@@ -19,18 +19,14 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var IntervalSchema = new Schema({
-    _id: {type: String, required: true},
-    name: String,
-    kind: {type: String, enum: ['Root', 'SuperEon', 'Eon', 'Era', 'Period', 'Sub-Period', 'Epoch', 'Age']},
-    from: Number,
-    to:   Number,
-    parent: { type: String, ref: 'Interval', index: true },
-    children: [{ type: String, ref: 'Interval' }]
+var IntervalDescSchema = new Schema({
+    interval: { type: String, ref: 'Interval', index: true },
+    description: String,
+    link: String
 },
 { versionKey: 'version' });
 
-// define our interval model
+// define our interval descrption model
 module.exports = {
-  Interval: mongoose.model('Interval', IntervalSchema)
+  IntervalDesc: mongoose.model('IntervalDesc', IntervalDescSchema)
 };

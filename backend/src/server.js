@@ -26,8 +26,9 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const Subject = require('./models/subject').Subject;
 const Interval = require('./models/interval').Interval;
+const IntervalDesc = require('./models/intervaldesc').IntervalDesc;
 const logger = require('morgan');
-const yaml = require('js-yaml');
+const cors = require('cors');
 
 const environment = process.env.NODE_ENV;
 const doImport = process.env.IMPORT_DB;
@@ -133,7 +134,7 @@ function createInterval(id, kind, from, to, parent, children) {
   }
 
   //
-  // Automatically deduplicates intervals
+  // Automatically deduplicates
   //
   Interval.findByIdAndUpdate(
     { _id: id },
@@ -157,29 +158,36 @@ function createInterval(id, kind, from, to, parent, children) {
     });
 }
 
-function importIntervals(file) {
+function createIntervalDesc(intervalId, link, description) {
+  //
+  // Ensure all whitespace is removed
+  //
+  intervalId = intervalId.trim();
+  // Append full url for wikipedia link
+  link = "https://en.wikipedia.org/wiki/" + link.trim();
+  description = description.trim();
 
-  console.log("Importing intervals from " + file);
-
-  var liner = new readlines(file);
-
-  var next;
-  while (next = liner.next()) { // jshint ignore:line
-    line = next.toString('ascii');
-
-    if (line.startsWith("#") || line.length == 0) {
-      continue;
+  //
+  // Automatically deduplicates
+  //
+  IntervalDesc.findOneAndUpdate(
+    { interval: intervalId },
+    { "$setOnInsert": { interval: intervalId, link: link, description: description } },
+    { upsert: true, new: true}
+  ).then((desc, err) => {
+    if (err) {
+      console.error("ERROR: Trying to findByOneAndUpdate interval description with %s: %s", intervalId, err);
+      return;
     }
 
-    var elements = line.split('|');
-
-    var children = [];
-    if (elements.length > 5) {
-      children = elements[5].split(",");
+    if (!desc) {
+      console.error("ERROR: Failed to find or create interval description with interval id %s", intervalId);
+      return;
     }
 
-    createInterval(elements[0], elements[1], elements[2], elements[3], elements[4], children);
-  }
+  }).catch((err) => {
+    console.error(err);
+  });
 }
 
 function createSubject(id, kind, category, from, to) {
@@ -208,7 +216,7 @@ function createSubject(id, kind, category, from, to) {
   }
 
   //
-  // Automatically deduplicates subjects
+  // Automatically deduplicates
   //
   Subject.findByIdAndUpdate(
     { _id: id },
@@ -228,6 +236,50 @@ function createSubject(id, kind, category, from, to) {
   }).catch((err) => {
     console.error(err);
   });
+}
+
+function importIntervals(file) {
+
+  console.log("Importing intervals from " + file);
+
+  var liner = new readlines(file);
+
+  var next;
+  while (next = liner.next()) { // jshint ignore:line
+    line = next.toString('ascii');
+
+    if (line.startsWith("#") || line.length == 0) {
+      continue;
+    }
+
+    var elements = line.split('|');
+
+    var children = [];
+    if (elements.length > 5) {
+      children = elements[5].split(",");
+    }
+
+    createInterval(elements[0], elements[1], elements[2], elements[3], elements[4], children);
+  }
+}
+
+function importIntervalDesc(file) {
+  console.log("Importing interval descrptions from " + file);
+
+  var liner = new readlines(file);
+
+  var next;
+  while (next = liner.next()) { // jshint ignore:line
+    line = next.toString('ascii');
+
+    if (line.startsWith("#") || line.length == 0) {
+      continue;
+    }
+
+    var elements = line.split('|');
+
+    createIntervalDesc(elements[0], elements[1], elements[2]);
+  }
 }
 
 function importSubjects(file) {
@@ -269,6 +321,7 @@ function importDbData(conn) {
       console.log('INFO: Import from data directory');
       // Import the data if required into database
       importIntervals(path.resolve(__dirname, '..', dbConfig.intervals));
+      importIntervalDesc(path.resolve(__dirname, '..', dbConfig.intervalDesc));
       importSubjects(path.resolve(__dirname, '..', dbConfig.subjects));
     });
   });
@@ -291,6 +344,9 @@ function init() {
   app.use(bodyParser.urlencoded({
     extended: true
   }));
+
+  // Cross Origin Support
+  app.use(cors());
 
   // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
   app.use(methodOverride('X-HTTP-Method-Override'));
@@ -331,7 +387,7 @@ function init() {
 let dbConfig = require('./config/db');
 
 // set our port
-let port = process.env.PORT || 6666;
+let port = process.env.PORT || 3001;
 
 // connect to our mongoDB database
 // (uncomment after you enter in your own credentials in config/db.js)

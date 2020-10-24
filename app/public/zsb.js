@@ -17,6 +17,11 @@ function createViz(data) {
     const root = d3.hierarchy(data)
       .sum(d => d.value)
       .sort((a, b) => b.value - a.value);
+
+    root.each(d => {
+      console.log("d.name: " + d.data.name + " value: " + d.value + " data value: " + d.data.value);
+    })
+
       return d3.partition()
         .size([2 * Math.PI, root.height + 1])
         (root);
@@ -103,7 +108,7 @@ function createViz(data) {
 
 function arcVisible(d) {
   const visible = d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0;
-  console.log(d.data.name + "\t(x0,y0): (" + d.x0, ", " + d.y0 + ")\t(x1,y1): (" + d.x1 + ", " + d.y1 + ")\tis visible: " + visible);
+  // console.log(d.data.name + "\t(x0,y0): (" + d.x0, ", " + d.y0 + ")\t(x1,y1): (" + d.x1 + ", " + d.y1 + ")\tis visible: " + visible);
   return visible;
   // return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0;
 }

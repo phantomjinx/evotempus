@@ -52,7 +52,7 @@ export default class IntervalVisual extends React.Component {
     //
     api.intervals()
       .then((res) => {
-        if (!res.data || res.data.length == 0) {
+        if (!res.data || res.data.length === 0) {
           this.logErrorState("Data failed to be fetched", new Error("Response data payload was empty."));
         } else {
           this.setState({
@@ -124,7 +124,7 @@ class IntervalSunburst extends React.Component {
         // get properly finished circles we should only consider
         // the leaf data only.
         //
-        return d.children.length == 0 ? (d.to - d.from) : 0;
+        return d.children.length === 0 ? (d.to - d.from) : 0;
       })
       .sort((a, b) => a.from - b.from);
 
@@ -240,12 +240,13 @@ class IntervalSunburst extends React.Component {
   // Click function for selection
   //
   handleClick(event, p) {
+    if (p === null || p === this.root) {
+      this.selected = this.parentLabel.datum();
+    } else {
+      this.selected = p;
+    }
 
-    const selected = p || this.root;
-    this.selected = selected.data._id;
-
-    console.log("Selected: " + this.selected);
-    this.props.onSelectedIntervalChange(this.selected);
+    this.props.onSelectedIntervalChange(this.selected.data);
   }
 
   //
@@ -419,7 +420,7 @@ class IntervalSunburst extends React.Component {
 
   render() {
     return (
-      <div id="evo-tempus-sb-div" className = "text-center">
+      <div id="evo-tempus-sb-div">
         <svg
           id ="evo-tempus-sb-svg"
           width = {this.props.width}

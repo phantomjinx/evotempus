@@ -2,13 +2,18 @@ import React from 'react';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
 import * as api from './api.js';
+import './Wiki.css';
 
 export default class Wiki extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.state = { loading: true };
+    const clickMsg = "To read more detail, click the wikipedia link in the footer.";
+    this.state = {
+      loading: true,
+      clickMsg: clickMsg
+    };
   }
 
   logErrorState(errorMsg, error) {
@@ -22,6 +27,7 @@ export default class Wiki extends React.Component {
 
   fetchDescription() {
     const interval = this.props.interval;
+    console.log(interval);
     if (!interval) {
       console.log("No interval selected");
       this.setState({
@@ -39,10 +45,9 @@ export default class Wiki extends React.Component {
       errorMsg: ''
     });
 
-    api.description(interval)
+    api.description(interval._id)
       .then((res) => {
-        console.log(res);
-        if (!res.data || res.data.length == 0) {
+        if (!res.data || res.data.length === 0) {
           this.logErrorState("Data failed to be fetched", new Error("Response data payload was empty."));
         } else {
           this.setState({
@@ -57,7 +62,6 @@ export default class Wiki extends React.Component {
   }
 
   componentDidMount() {
-    console.log("calling componentDidMount");
     this.fetchDescription();
   }
 
@@ -77,15 +81,42 @@ export default class Wiki extends React.Component {
 
     if (this.state.error) {
       return (
-        <ErrorMsg error = {this.state.error} errorMsg = {this.state.errorMsg}/>
+        <div id="wiki-article">
+          <ErrorMsg error = {this.state.error} errorMsg = {this.state.errorMsg}/>
+        </div>
       );
     }
 
-    return (
-      <div>
-        <p>{this.state.description}</p>
-        <p><a href={this.state.link}>{this.state.link}</a></p>
-      </div>
-    );
+    if (this.props.interval) {
+      return (
+        <div id="wiki-article">
+          <div id="wiki-header">
+            <h6 id="wiki-header-title">{this.props.interval.name}</h6>
+            <a id="wiki-header-logo" href="https://en.wikipedia.org/wiki/Geologic_time_scale"
+              target="_blank" rel="noopener noreferrer">
+              <img src="/geologic-clock.png" alt="geo-clock"/>
+            </a>
+          </div>
+          <div>
+            <div id="wiki-main">
+              <div id="wiki-main-inner">
+                <p>{this.state.description}</p>
+                <p id="wiki-main-inner-instruction">{this.state.clickMsg}</p>
+              </div>
+            </div>
+          </div>
+          <div id="wiki-footer">
+            <a id="wiki-footer-logo" href={this.state.link} target="_blank" rel="noopener noreferrer">
+              <img src="/wikipedia-logo-with-label.svg"/>
+            </a>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+        </div>
+      );
+    }
   }
 }

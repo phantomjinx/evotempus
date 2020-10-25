@@ -1,13 +1,13 @@
 {"_id":"paleolithic","category":"Archaeological Age","from":-3300000,"kind":"Event","name":"Paleolithic","to":-11700,"version":0}
-{"_id":"huronian-glaciation","category":"UK Geological Period","from":-2.4E+10,"kind":"Event","name":"Huronian Glaciation","to":-2100000000,"version":0}
-{"_id":"neolithic","category":"Archaeological Age","from":-10200,"kind":"Event","name":"Neolithic","to":-4500,"version":0}
-{"_id":"great-dying","category":"Extinction Event","from":-251941000,"kind":"Event","name":"Great Dying","to":-251880000,"version":0}
-{"_id":"anglian-stage","category":"UK Geological Period","from":-478000,"kind":"Event","name":"Anglian Stage","to":-424000,"version":0}
-{"_id":"bronze-age","category":"Archaeological Age","from":-3200,"kind":"Event","name":"Bronze Age","to":-600,"version":0}
-{"_id":"stone-henge","category":"Historical Feature","from":-3100,"kind":"Location","name":"Stone Henge","to":-1600,"version":0}
-{"_id":"iron-age","category":"Archaeological Age","from":-1200,"kind":"Event","name":"Iron Age","to":800,"version":0}
 {"_id":"mezolithic","category":"Archaeological Age","from":-11500,"kind":"Event","name":"Mezolithic","to":-8000,"version":0}
+{"_id":"stone-henge","category":"Historical Feature","from":-3100,"kind":"Location","name":"Stone Henge","to":-1600,"version":0}
+{"_id":"great-dying","category":"Extinction Event","from":-251941000,"kind":"Event","name":"Great Dying","to":-251880000,"version":0}
+{"_id":"iron-age","category":"Archaeological Age","from":-1200,"kind":"Event","name":"Iron Age","to":800,"version":0}
+{"_id":"huronian-glaciation","category":"UK Geological Period","from":-2.4E+10,"kind":"Event","name":"Huronian Glaciation","to":-2100000000,"version":0}
+{"_id":"bronze-age","category":"Archaeological Age","from":-3200,"kind":"Event","name":"Bronze Age","to":-600,"version":0}
 {"_id":"cromerian-stage","category":"UK Geological Period","from":-800000,"kind":"Event","name":"Cromerian Stage","to":-500000,"version":0}
+{"_id":"anglian-stage","category":"UK Geological Period","from":-478000,"kind":"Event","name":"Anglian Stage","to":-424000,"version":0}
+{"_id":"neolithic","category":"Archaeological Age","from":-10200,"kind":"Event","name":"Neolithic","to":-4500,"version":0}
 {"_id":"hoxnian-stage","category":"UK Geological Period","from":-424000,"kind":"Event","name":"Hoxnian Stage","to":-374000,"version":0}
 {"_id":"wolstonian-stage","category":"UK Geological Period","from":-352000,"kind":"Event","name":"Wolstonian Stage","to":-130000,"version":0}
 {"_id":"ipswichian-stage","category":"UK Geological Period","from":-130000,"kind":"Event","name":"Ipswichian Stage","to":-115000,"version":0}

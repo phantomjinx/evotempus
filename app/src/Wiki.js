@@ -27,9 +27,7 @@ export default class Wiki extends React.Component {
 
   fetchDescription() {
     const interval = this.props.interval;
-    console.log(interval);
     if (!interval) {
-      console.log("No interval selected");
       this.setState({
         loading: false,
         error: null,

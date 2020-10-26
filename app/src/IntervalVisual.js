@@ -96,6 +96,10 @@ class IntervalSunburst extends React.Component {
     // This binding is necessary to make `this` work in the callback
     this.handleDoubleClick = this.handleDoubleClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
+
+    this.clickTimer = 0;
+    this.clickDelay = 200;
+    this.clickPrevent = false;
   }
 
   componentDidMount() {
@@ -187,25 +191,35 @@ class IntervalSunburst extends React.Component {
   // Click function for zooming in and out
   //
   handleDoubleClick(event, p) {
+    //
+    // Prevent the single click firing when
+    // the used actually double-clicked. Stops
+    // needless updates out of the component
+    //
+    clearTimeout(this.clickTimer);
+    this.clickPrevent = true;
+
+    if (p === this.root) {
+      // Nothing to do. Already at root
+      return;
+    }
+
     const t = this.g.transition().duration(750);
 
     //
-    // The parent 'button' needs to be assigned the
-    // parent so that a zoom out effect will occur
+    // Used for clicking on the central globe to zoom back up.
+    // The globe (and so p) is the current root node so simply
+    // using it as-is will not cause a zoom-out operation. Thus,
+    // we have to reassign it to its own parent.
     //
+    if (p === this.parent.datum()) {
+      p = p.parent || this.root;
+    }
+
     this.parent
-      .datum(p.parent || this.root)
+      .datum(p || this.root)
       .text(d => d.data.name);
 
-    //
-    // The parent label needs to be assigned the currently clicked on item
-    // which is going to become the parent as it represents what is currently visible.
-    //
-    // Reason for the different between parent and parentLabel is that the current
-    // root of the graph is displayed in the middle but the act of clicking needs to
-    // generate a new graph with the parent of that current root hence this.parent needs
-    // to be assigned this new parent whilst parent Label be assigned the current root.
-    //
     this.parentLabel
       .datum(p || this.root)
       .transition(t)
@@ -234,19 +248,32 @@ class IntervalSunburst extends React.Component {
     this.labels.transition(t)
       .attr("fill-opacity", d => +this.labelVisible(d.target))
       .attrTween("transform", d => () => this.labelTransform(d.current));
+
+    this.props.onSelectedIntervalChange(p.data);
   }
 
   //
   // Click function for selection
   //
   handleClick(event, p) {
-    if (p === null || p === this.root) {
-      this.selected = this.parentLabel.datum();
-    } else {
-      this.selected = p;
-    }
+    //
+    // Put inside timer to allow for double-click
+    // event to determine if it should be fired
+    //
+    this.clickTimer = setTimeout(() => {
+      if (this.clickPrevent) {
+        this.clickPrevent = false;
+        return;
+      }
 
-    this.props.onSelectedIntervalChange(this.selected.data);
+      if (p === null || p === this.root) {
+        this.selected = this.parentLabel.datum();
+      } else {
+        this.selected = p;
+      }
+
+      this.props.onSelectedIntervalChange(this.selected.data);
+    }, this.clickDelay);
   }
 
   //
@@ -397,7 +424,7 @@ class IntervalSunburst extends React.Component {
     // Create a central circle for zooming out
     //
     this.parent = this.g.append("circle")
-      .datum(this.root)
+      .datum(this.parent || this.root)
       .attr("r", this.radius)
       .attr("fill", "url(#radialGradient)")
       .attr("pointer-events", "all")

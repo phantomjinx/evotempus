@@ -182,7 +182,7 @@ class IntervalSunburst extends React.Component {
   //
   labelTruncate(text) {
     const ellipsis = '...';
-    const length = 11;
+    const length = 7;
 
     return text.length <= length ? text : text.substring(0, length) + ellipsis;
   }
@@ -447,14 +447,14 @@ class IntervalSunburst extends React.Component {
 
   render() {
     return (
-      <div id="evo-tempus-sb-div">
+      <div id="interval-visual-sb">
         <svg
-          id ="evo-tempus-sb-svg"
+          id ="interval-visual-sb-svg"
           width = {this.props.width}
           height = {this.props.height}
           style = {
             {
-              font: "10px sans-serif",
+              font: "8pt sans-serif",
               backgroundColor: "#fff",
             }
           }

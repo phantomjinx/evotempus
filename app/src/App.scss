@@ -1,0 +1,37 @@
+$tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.75), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+
+.app {
+  margin-top: 4em;
+
+  .visual-row {
+    padding-left: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+footer {
+  border-top: solid;
+  border-color: lightgray;
+  border-width: thin;
+  margin-top: auto;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, lightgray, #ffffff 55%, #ffffff);
+
+  #app-footer-copyright {
+    float: left;
+    width: 70%;
+    margin-left: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 0.1em;
+    font-size: 8pt;
+    color: darker;
+  }
+
+  #app-footer-logo > img {
+    float: right;
+    height: 2em;
+  }
+}

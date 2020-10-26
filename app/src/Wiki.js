@@ -2,14 +2,14 @@ import React from 'react';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
 import * as api from './api.js';
-import './Wiki.css';
+import './Wiki.scss';
 
 export default class Wiki extends React.Component {
 
   constructor(props) {
     super(props);
 
-    const clickMsg = "To read more detail, click the wikipedia link in the footer.";
+    const clickMsg = "To read more detail, click the wikipedia icon";
     this.state = {
       loading: true,
       clickMsg: clickMsg
@@ -69,6 +69,10 @@ export default class Wiki extends React.Component {
     }
   }
 
+  present(year) {
+    return (year == 2030) ? new Date().getFullYear() : year;
+  }
+
   render() {
 
     if (this.state.loading) {
@@ -94,16 +98,15 @@ export default class Wiki extends React.Component {
               target="_blank" rel="noopener noreferrer">
               <img src="/geologic-clock.png" alt="geo-clock"/>
             </a>
+            <h6 id="wiki-header-dates">from {this.props.interval.from} to {this.present(this.props.interval.to)}</h6>
           </div>
-          <div>
-            <div id="wiki-main">
-              <div id="wiki-main-inner">
-                <p>{this.state.description}</p>
-                <p id="wiki-main-inner-instruction">{this.state.clickMsg}</p>
-              </div>
+          <div id="wiki-main">
+            <div id="wiki-main-inner">
+              <p>{this.state.description}</p>
             </div>
           </div>
           <div id="wiki-footer">
+            <p id="link-instruction">{this.state.clickMsg} &rarr;</p>
             <a id="wiki-footer-logo" href={this.state.link} target="_blank" rel="noopener noreferrer">
               <img src="/wikipedia-logo-with-label.svg"/>
             </a>

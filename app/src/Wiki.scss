@@ -22,16 +22,26 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.75), 0 6px 20px 0 rgba(0, 0, 0, 0.5)
 
     #wiki-header-title {
       float: left;
-      width: 70%;
+      width: 50%;
       font-weight: bold;
       margin-left: 0.7em;
       margin-top: 0.2em;
+    }
+
+    #ma-defn {
+      float: right;
+      font-style: italic;
+      font-size: 8pt;
+      margin-top: 0.25em;
+      margin-right: 0.75em;
+      margin-bottom: 0;
     }
 
     #wiki-header-dates {
       float:right;
       font-weight: bold;
       margin-top: 0.2em;
+      margin-right: 0.2em;
     }
 
     #wiki-header-logo > img {
@@ -67,11 +77,11 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.75), 0 6px 20px 0 rgba(0, 0, 0, 0.5)
     margin-right: 0.25em;
     font-size: 9pt;
 
-
     #link-instruction {
-      float: left;
+      float: right;
       font-style: italic;
       margin-left: 1em;
+      margin-top: 0.25em;
       margin-bottom: 0;
     }
 

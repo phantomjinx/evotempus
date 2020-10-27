@@ -14,9 +14,9 @@ import {color as d3Color} from 'd3-color';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
 import * as api from './api';
-import './IntervalVisual.scss';
+import './SubjectVisual.scss';
 
-export default class IntervalVisual extends React.Component {
+export default class SubjectVisual extends React.Component {
 
   constructor(props) {
     super(props);
@@ -34,7 +34,7 @@ export default class IntervalVisual extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    const errorMsg = "Error received from Interval sunburst";
+    const errorMsg = "Error received from Subject Visual";
     console.log("Error: " + errorMsg + "\n Detail: " + error);
     return {
       errorMsg: errorMsg,
@@ -47,15 +47,25 @@ export default class IntervalVisual extends React.Component {
     console.log(error);
   }
 
-  componentDidMount() {
+  fetchSubject() {
+    if (this.props.interval == null) {
+      console.log("No interval selected");
+      this.setState({
+        loading: false,
+        // data: null
+      })
+      return;
+    }
+
     //
-    // Fetch the interval data from the backend service
+    // Fetch the subject data from the backend service
     //
-    api.intervals()
+    api.subjects(this.props.interval.from, this.props.interval.to)
       .then((res) => {
         if (!res.data || res.data.length === 0) {
           this.logErrorState("Data failed to be fetched", new Error("Response data payload was empty."));
         } else {
+          console.log(res.data);
           this.setState({
             loading: false,
             data: res.data
@@ -64,6 +74,18 @@ export default class IntervalVisual extends React.Component {
       }).catch((err) => {
         this.logErrorState("Failed to fetch interval data", err);
       });
+  }
+
+  componentDidMount() {
+    this.fetchSubject();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.interval === this.props.interval) {
+      return;
+    }
+
+    this.fetchSubject();
   }
 
   render() {
@@ -115,10 +137,18 @@ class SubjectSwimLane extends React.Component {
   }
 
   render() {
-    return (
-      <div id="evo-tempus-sw-div">
-
-      </div>
-    );
+    if (this.props.data && this.props.data.length > 0) {
+      return (
+        <div id="evo-tempus-sw-div">
+          {this.props.data[0]._id} {this.props.data.length}
+        </div>
+      )
+    } else {
+      return (
+        <div id="evo-tempus-sw-div">
+          NONE
+        </div>
+      )
+    }
   }
 }

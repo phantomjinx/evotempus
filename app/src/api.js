@@ -28,3 +28,16 @@ export function description(intervalId) {
     },
   });
 }
+
+export function subjects(from, to) {
+  return instance({
+    'method':'GET',
+    'url':'/api/subjects',
+    'params': {
+      'from':from,
+      'to':to,
+      'outputsize':'compact',
+      'datatype':'json'
+    },
+  });
+}

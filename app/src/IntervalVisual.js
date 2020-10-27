@@ -14,6 +14,7 @@ import {color as d3Color} from 'd3-color';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
 import * as api from './api';
+import * as common from './common';
 
 export default class IntervalVisual extends React.Component {
 
@@ -33,7 +34,7 @@ export default class IntervalVisual extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    const errorMsg = "Error received from Interval sunburst";
+    const errorMsg = "Error received from Interval Visual";
     console.log("Error: " + errorMsg + "\n Detail: " + error);
     return {
       errorMsg: errorMsg,
@@ -136,12 +137,12 @@ class IntervalSunburst extends React.Component {
     // Format the display values of the from and to
     //
     root.each(d => {
-      const million = 1000000;
+
       const from = d.data.from;
       const to = d.data.to;
 
-      d.displayFrom = (Math.abs(from) > million) ? (from / million) + "Ma" : from;
-      d.displayTo = (Math.abs(to) > million) ? (to / million) + "Ma" : to;
+      d.displayFrom = common.displayYear(from);
+      d.displayTo = common.displayYear(to);
     });
 
     //

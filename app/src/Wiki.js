@@ -2,6 +2,7 @@ import React from 'react';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
 import * as api from './api.js';
+import * as common from './common';
 import './Wiki.scss';
 
 export default class Wiki extends React.Component {
@@ -9,10 +10,13 @@ export default class Wiki extends React.Component {
   constructor(props) {
     super(props);
 
+    const maDefn =
+      "<a href=\"https://en.wikipedia.org/wiki/Year#SI_prefix_multipliers\" target=\"_blank\" rel=\"noopener noreferrer\">(Ma: 1 million years)</a>";
     const clickMsg = "To read more detail, click the wikipedia icon";
     this.state = {
       loading: true,
-      clickMsg: clickMsg
+      clickMsg: clickMsg,
+      maDefn: maDefn
     };
   }
 
@@ -70,7 +74,15 @@ export default class Wiki extends React.Component {
   }
 
   present(year) {
-    return (year == 2030) ? new Date().getFullYear() : year;
+    return (year === 2030) ? new Date().getFullYear() : common.displayYear(year);
+  }
+
+  displayDefn() {
+    if (Math.abs(this.props.interval.from) > common.million || Math.abs(this.props.interval.to) > common.million) {
+      return this.state.maDefn;
+    }
+
+    return "";
   }
 
   render() {
@@ -98,7 +110,8 @@ export default class Wiki extends React.Component {
               target="_blank" rel="noopener noreferrer">
               <img src="/geologic-clock.png" alt="geo-clock"/>
             </a>
-            <h6 id="wiki-header-dates">from {this.props.interval.from} to {this.present(this.props.interval.to)}</h6>
+            <h6 id="wiki-header-dates">from {this.present(this.props.interval.from)} to {this.present(this.props.interval.to)}</h6>
+            <p id="ma-defn" dangerouslySetInnerHTML={{__html: this.displayDefn()}}/>
           </div>
           <div id="wiki-main">
             <div id="wiki-main-inner">
@@ -106,10 +119,10 @@ export default class Wiki extends React.Component {
             </div>
           </div>
           <div id="wiki-footer">
-            <p id="link-instruction">{this.state.clickMsg} &rarr;</p>
             <a id="wiki-footer-logo" href={this.state.link} target="_blank" rel="noopener noreferrer">
-              <img src="/wikipedia-logo-with-label.svg"/>
+              <img src="/wikipedia-logo-with-label.svg" alt="Wikipedia"/>
             </a>
+            <p id="link-instruction">{this.state.clickMsg} &rarr;</p>
           </div>
         </div>
       );

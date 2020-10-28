@@ -48,11 +48,17 @@ export default class SubjectVisual extends React.Component {
   }
 
   fetchSubject() {
+    this.setState({
+      loading: true,
+      errorMsg: "",
+      error: null,
+    })
+
     if (this.props.interval == null) {
       console.log("No interval selected");
       this.setState({
         loading: false,
-        // data: null
+        data: []
       })
       return;
     }
@@ -63,7 +69,10 @@ export default class SubjectVisual extends React.Component {
     api.subjects(this.props.interval.from, this.props.interval.to)
       .then((res) => {
         if (!res.data || res.data.length === 0) {
-          this.logErrorState("Data failed to be fetched", new Error("Response data payload was empty."));
+          this.setState({
+            loading: false,
+            data: []
+          })
         } else {
           console.log(res.data);
           this.setState({
@@ -134,19 +143,26 @@ class SubjectSwimLane extends React.Component {
     this.width = props.width || 300;
     this.height = props.height || 300;
 
+    //
+    // Select the existing svg created by the initial render
+    //
+    this.svg = d3Select('#subject-visual-sb-svg');
+
+
   }
 
   render() {
-    if (this.props.data && this.props.data.length > 0) {
+    if (!this.props.data || this.props.data.length == 0) {
       return (
         <div id="evo-tempus-sw-div">
-          {this.props.data[0]._id} {this.props.data.length}
+          HELLO
         </div>
       )
     } else {
       return (
         <div id="evo-tempus-sw-div">
-          NONE
+          {this.props.data[0]._id} {this.props.data.length}
+
         </div>
       )
     }

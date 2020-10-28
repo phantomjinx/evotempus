@@ -36,9 +36,9 @@ router.get('/', (req, res) => {
 
   Subject.find({
     $or: [
-      { to: {$gte: from, $lte: to} },                    // where to falls within range
-      { from: {$gte: from, $lte: to} },                  // where from falls within range
-      { $and: [{from: {$lte: from}}, {to: {$gte: to}}] } // where to->from is wider than range
+      { to: {$gt: from, $lte: to} },                     // where to falls within range
+      { from: {$gte: from, $lt: to} },                   // where from falls within range
+      { $and: [{from: {$lte: from}}, {to: {$gte: to}}] } // where from->to is wider than range
     ]
   }).sort({ "category": 1, "from": 1, "to": 1 })
     .then(subjects => res.json(subjects))

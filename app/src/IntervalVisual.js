@@ -291,7 +291,7 @@ class IntervalSunburst extends React.Component {
     //
     // Select the existing svg created by the initial render
     //
-    this.svg = d3Select('svg');
+    this.svg = d3Select('#interval-visual-sb-svg');
 
     //
     // Define the gradient of the central circle
@@ -453,6 +453,15 @@ class IntervalSunburst extends React.Component {
           id ="interval-visual-sb-svg"
           width = {this.props.width}
           height = {this.props.height}
+          viewBox = {
+            {
+              x: 0,
+              y: 0,
+              width: this.props.width,
+              height: this.props.height
+            }
+          }
+          preserveAspectRatio="xMidYMid meet"
           style = {
             {
               font: "8pt sans-serif",

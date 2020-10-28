@@ -24,7 +24,8 @@
     "react": "^17.0.0",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.0",
-    "react-scripts": "3.4.4"
+    "react-scripts": "3.4.4",
+    "react-tooltip": "^4.2.10"
   },
   "scripts": {
     "build": "react-app-env --env-file=config/${BUILD_ENV:production}.env build",

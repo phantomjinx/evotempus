@@ -29,7 +29,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
         <header>
           <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a className="navbar-brand mr-auto" href="/">EvoTempus: Dashboard of Earth History</a>
@@ -40,11 +40,11 @@ class App extends React.Component {
           </nav>
         </header>
         <main role="main">
-          <Container fluid className="app">
+          <Container fluid className="main-container">
             <Row className="visual-row">
-              <Col xs={5.5}>
+              <Col xs={5}>
                 <IntervalVisual
-                    width="450" height="450"
+                    width="400" height="400"
                     onSelectedIntervalChange={this.handleIntervalChange}
                 />
               </Col>
@@ -56,7 +56,7 @@ class App extends React.Component {
                 />
               </Col>
             </Row>
-            <Row>
+            <Row className="wiki-row">
               <Wiki
                 interval={this.state.interval}
               />

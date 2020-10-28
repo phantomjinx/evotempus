@@ -162,7 +162,26 @@ class SubjectSwimLane extends React.Component {
       return (
         <div id="evo-tempus-sw-div">
           {this.props.data[0]._id} {this.props.data.length}
-
+          <svg
+            id ="subject-visual-sb-svg"
+            width = {this.props.width}
+            height = {this.props.height}
+            viewBox = {
+              {
+                x: 0,
+                y: 0,
+                width: this.props.width,
+                height: this.props.height
+              }
+            }
+            preserveAspectRatio="xMidYMid meet"
+            style = {
+              {
+                font: "8pt sans-serif",
+                backgroundColor: "#fff000",
+              }
+            }
+          />
         </div>
       )
     }

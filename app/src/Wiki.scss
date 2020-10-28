@@ -1,4 +1,4 @@
-$tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.75), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+$tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
 #wiki-article {
   flex: 0 1 auto;
@@ -31,7 +31,7 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.75), 0 6px 20px 0 rgba(0, 0, 0, 0.5)
     #ma-defn {
       float: right;
       font-style: italic;
-      font-size: 8pt;
+      font-size: 9pt;
       margin-top: 0.25em;
       margin-right: 0.75em;
       margin-bottom: 0;
@@ -54,7 +54,7 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.75), 0 6px 20px 0 rgba(0, 0, 0, 0.5)
     display: flex;
     flex: 1 1 auto;
     overflow: auto;
-    font-size: 10pt;
+    font-size: 12pt;
     margin-left: 1em;
 
     #wiki-main-inner {

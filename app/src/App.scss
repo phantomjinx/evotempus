@@ -1,37 +1,65 @@
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.75), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 
-.app {
-  margin-top: 4em;
-
-  .visual-row {
-    padding-left: 1em;
-    margin-bottom: 1em;
-  }
+html, body {
+  height: 100%;
 }
 
-footer {
-  border-top: solid;
-  border-color: lightgray;
-  border-width: thin;
-  margin-top: auto;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(to bottom, lightgray, #ffffff 55%, #ffffff);
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 
-  #app-footer-copyright {
-    float: left;
-    width: 70%;
-    margin-left: 0.5em;
-    margin-top: 1em;
-    margin-bottom: 0.1em;
-    font-size: 8pt;
-    color: darker;
+  header {
+    flex: 0 0 auto;
+    min-height: 4em;
   }
 
-  #app-footer-logo > img {
-    float: right;
-    height: 2em;
+  main {
+    flex: 1 0 auto;
+    overflow: auto;
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+
+      .visual-row {
+        flex: 1 0 auto;
+        margin-bottom: 1em;
+      }
+
+      .wiki-row {
+        flex: 0 1 auto;
+        max-height: 40vh;
+        margin-top: auto;
+        margin-bottom: 1em;
+      }
+    }
+  }
+
+  footer {
+    flex-shrink: 0;
+    border-top: solid;
+    border-bottom: dashed;
+    border-color: lightgray;
+    border-width: thin;
+    margin-top: auto;
+    width: 100%;
+    background: linear-gradient(to bottom, lightgray, #ffffff 55%, #ffffff);
+
+    #app-footer-copyright {
+      float: left;
+      width: 70%;
+      margin-left: 0.5em;
+      margin-top: 1em;
+      margin-bottom: 0.1em;
+      font-size: 8pt;
+      color: darker;
+    }
+
+    #app-footer-logo > img {
+      float: right;
+      height: 2em;
+    }
   }
 }

@@ -15,6 +15,7 @@ import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
 import * as api from './api';
 import * as common from './common';
+import './IntervalVisual.scss';
 
 export default class IntervalVisual extends React.Component {
 
@@ -293,27 +294,27 @@ class IntervalSunburst extends React.Component {
     //
     this.svg = d3Select('#interval-visual-sb-svg');
 
+    const defs = this.svg.append("defs");
     //
     // Define the gradient of the central circle
     //
-    const radialGrad = this.svg.append("defs")
-      .append("radialGradient")
-	    .attr("id", "radialGradient")
+    const parentGradient = defs.append("radialGradient")
+	    .attr("id", "parentGradientient")
 	    .attr("cx", "30%")
 	    .attr("cy", "30%")
 	    .attr("r", "75%");
 
     //Append the color stops to the radial gradient
-    radialGrad.append("stop")
+    parentGradient.append("stop")
     	.attr("offset", "0%")
     	.attr("stop-color", "#ffffff");
-    radialGrad.append("stop")
+    parentGradient.append("stop")
     	.attr("offset", "50%")
     	.attr("stop-color", "#61dafb");
-    radialGrad.append("stop")
+    parentGradient.append("stop")
       .attr("offset", "90%")
       .attr("stop-color", "#1a8a7c");
-    radialGrad.append("stop")
+    parentGradient.append("stop")
     	.attr("offset",  "100%")
     	.attr("stop-color", "#164d21");
 
@@ -345,27 +346,24 @@ class IntervalSunburst extends React.Component {
     const color = d3ScaleOrdinal(d3Quantize(d3InterpolateRainbow, this.root.children.length + 3))
 
     //
-    // Build a fn for generating the arcs for each of the data block
-    // Needed for handleDoubleClicked as well.
+    // Create gradient definitions for all the segments so they are coloured differently
+    // using the 'color' above but also shade to white to give a sheen effect
     //
-    this.arc = d3Arc()
-      .startAngle(d => d.x0)
-      .endAngle(d => d.x1)
-      .padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.005))
-      .padRadius(this.radius * 1.5)
-      .innerRadius(d => d.y0 * this.radius)
-      .outerRadius(d => Math.max(d.y0 * this.radius, d.y1 * this.radius - 1));
-
-    //
-    // Draw the paths of the segments and colour them in
-    // Only those visible will be displayed
-    //
-    this.paths = this.g.append("g")
-      .selectAll("path")
+    const segmentGrads = defs.selectAll("redialGradient")
       .data(rootDescendents)
-      .join("path")
-      .attr("fill", d => {
-        //
+      .enter().append("radialGradient")
+      .attr("id", d => { return "gradient-" + d.id; })
+      .attr("cx", "30%")
+	    .attr("cy", "30%")
+	    .attr("r", "75%");
+
+    segmentGrads.append("stop")
+      .attr("offset", "0%")
+      .attr("stop-color", "white");
+    segmentGrads.append("stop")
+      .attr("offset", "75%")
+      .attr("stop-color", d => {
+
         // Finds the ultimate's parent colour
         // & tracks the depth
         //
@@ -385,7 +383,29 @@ class IntervalSunburst extends React.Component {
         }
 
         return c.toString();
-      })
+      });
+
+    //
+    // Build a fn for generating the arcs for each of the data block
+    // Needed for handleDoubleClicked as well.
+    //
+    this.arc = d3Arc()
+      .startAngle(d => d.x0)
+      .endAngle(d => d.x1)
+      .padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.005))
+      .padRadius(this.radius * 1.5)
+      .innerRadius(d => d.y0 * this.radius)
+      .outerRadius(d => Math.max(d.y0 * this.radius, d.y1 * this.radius - 1));
+
+    //
+    // Draw the paths of the segments and colour them in
+    // Only those visible will be displayed
+    //
+    this.paths = this.g.append("g")
+      .selectAll("path")
+      .data(rootDescendents)
+      .join("path")
+      .attr("fill", d => { return "url(#gradient-" + d.id + ")" })
       .attr("fill-opacity", d => this.arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
       .attr("d", d => this.arc(d.current))
       .on("click", this.handleClick);
@@ -396,10 +416,7 @@ class IntervalSunburst extends React.Component {
 
     //
     // Add titles to each segment
-    // TODO: will need to change the algorithm for our data
-    // format fn determines how to format a property - like printf
     //
-    // const format = d3Format(",d");
     this.paths.append("title")
       .text(d => {
         return d.data.name + "\n" + d.displayFrom + "  to  " + d.displayTo;
@@ -427,7 +444,7 @@ class IntervalSunburst extends React.Component {
     this.parent = this.g.append("circle")
       .datum(this.parent || this.root)
       .attr("r", this.radius)
-      .attr("fill", "url(#radialGradient)")
+      .attr("fill", "url(#parentGradientient)")
       .attr("pointer-events", "all")
       .style("cursor", "pointer")
       .text(d => d.data.name)
@@ -451,23 +468,8 @@ class IntervalSunburst extends React.Component {
       <div id="interval-visual-sb">
         <svg
           id ="interval-visual-sb-svg"
-          width = {this.props.width}
-          height = {this.props.height}
-          viewBox = {
-            {
-              x: 0,
-              y: 0,
-              width: this.props.width,
-              height: this.props.height
-            }
-          }
-          preserveAspectRatio="xMidYMid meet"
-          style = {
-            {
-              font: "8pt sans-serif",
-              backgroundColor: "#fff",
-            }
-          }
+          viewBox = {"0 0 " + this.props.width + " " + this.props.height}
+          preserveAspectRatio="xMidYMid slice"
         />
       </div>
     );

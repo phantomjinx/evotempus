@@ -1,0 +1,20 @@
+{
+  "name": "evotempus",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "cd app && yarn build:prod",
+    "init-app": "cd app && yarn install",
+    "heroku-postbuild": "npm run init-app && npm run build",
+    "start": "node backend/src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phantomjinx/evotempus.git"
+  },
+  "author": "phantomjinx",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/phantomjinx/evotempus/issues"
+  },
+  "homepage": "https://github.com/phantomjinx/evotempus#readme"
+}

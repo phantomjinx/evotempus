@@ -21,6 +21,7 @@ const Interval = require('../models/interval').Interval;
 const IntervalDesc = require('../models/intervaldesc').IntervalDesc;
 const mongoose = require('mongoose');
 const path = require('path');
+const wiki = require("wikijs").default;
 
 // intervals api route
 router.get('/', (req, res) => {
@@ -45,10 +46,56 @@ router.get('/:intervalId', (req, res) => {
 router.get('/description/:intervalId', (req, res) => {
   IntervalDesc.findOne(
     { interval: req.params.intervalId }
-  ).then(intervalDesc => res.json(intervalDesc))
-    .catch(err => {
-      console.log(err);
-      res.send(err);
+  )
+  .then(intervalDesc => {
+    if (intervalDesc == null) {
+      res.send("Error: No interval with id found");
+      return;
+    }
+
+    if (intervalDesc.description && intervalDesc.description.length > 0) {
+      console.log("Returning cached copy of summary");
+      res.json(intervalDesc);
+      return;
+    }
+
+    console.log("Fetching summary for the first time");
+    wiki()
+    .page(intervalDesc.linkId)
+      .then(page => page.summary())
+        .then(summary => {
+          intervalDesc.description = summary;
+          res.json(intervalDesc);
+
+          //
+          // Cache the description in the database
+          //
+          IntervalDesc.findByIdAndUpdate(
+            { _id: intervalDesc._id },
+            { "$set": { description : intervalDesc.description } },
+            { upsert: true, new: true}
+          ).then((desc, err) => {
+            console.log("Updated description");
+            if (err) {
+              console.error("ERROR: Trying to findByIdAndUpdate interval description with %s: %s", intervalDesc._id, err);
+              return;
+            }
+
+            console.log(desc);
+
+          }).catch((err) => {
+            console.error(err);
+          });
+
+        })
+      .catch(err => {
+        console.log(err);
+        res.send(err);
+      });
+  })
+  .catch(err => {
+    console.log(err);
+    res.send(err);
   });
 });
 

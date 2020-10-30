@@ -3,7 +3,8 @@ var gulp = require('gulp'),
   path = require('path'),
   jshint = require('gulp-jshint'),
   nodemon = require('gulp-nodemon'),
-  gulpLoadPlugins = require('gulp-load-plugins');
+  gulpLoadPlugins = require('gulp-load-plugins'),
+  pretty = require('pino').pretty;
 
 var plugins = gulpLoadPlugins({});
 var config = {
@@ -16,33 +17,27 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-// Will refresh data in the database
-gulp.task('full-start', gulp.series(['jshint'], (done) => {
-  nodemon({
-      watch: 'src',
-      script: 'src/server.js',
-      ext: 'js',
-      env: {
-        'NODE_ENV': 'development',
-        'IMPORT_DB': true
-      },
-      tasks: ['jshint'],
-      done: done
-    })
-    .on('restart', () => {
-      console.log('Server refreshed');
-    })
-}));
-
 gulp.task('default', gulp.series(['jshint'], (done) => {
   nodemon({
       watch: 'src',
       script: 'src/server.js',
+      env: {
+        'NODE_ENV': 'development',
+        'MONGODB_URI': 'mongodb://localhost/evotempus',
+        'PORT': 3001
+      },
       ext: 'js',
       tasks: ['jshint'],
       done: done
     })
+    .on('readable', function() { // the `readable` event indicates that data is ready to pick up
+      this.stdout.pipe(pretty()).pipe(process.stdout);
+			this.stderr.pipe(pretty()).pipe(process.stdout);
+      this.stdout.pipe(pretty()).pipe(gulp.dest('server.log'));
+      this.stderr.pipe(pretty()).pipe(gulp.dest('server.log'));
+    })
     .on('restart', () => {
       console.log('Server refreshed');
-    })
-}));
+    });
+  })
+);

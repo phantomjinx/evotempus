@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "reset-start": "node src/server.js -i",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
@@ -21,12 +19,14 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-pino-logger": "^5.0.0",
     "fs": "0.0.1-security",
     "method-override": "^3.0.0",
     "mongoose": "^5.10.9",
-    "morgan": "^1.10.0",
     "n-readlines": "^1.0.0",
-    "request": "^2.88.2"
+    "pino": "^6.7.0",
+    "request": "^2.88.2",
+    "wikijs": "^6.0.1"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
@@ -36,6 +36,7 @@
     "gulp-util": "^3.0.8",
     "jshint": "^2.12.0",
     "jshint-stylish": "^2.2.1",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "pino-pretty": "^4.3.0"
   }
 }

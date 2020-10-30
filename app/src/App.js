@@ -1,9 +1,6 @@
 import React from 'react';
+import 'font-awesome/css/font-awesome.min.css';
 import './App.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Wiki from './Wiki.js';
 import IntervalVisual from './IntervalVisual.js';
 import SubjectVisual from './SubjectVisual.js';
@@ -29,39 +26,35 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        <header>
-          <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a className="navbar-brand mr-auto" href="/">EvoTempus: Dashboard of Earth History</a>
-            <form className="form-inline mt-2 mt-md-0">
-              <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
-              <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-          </nav>
+      <div className="app grid-container">
+        <header className="header">
+          <h3 className="header-title">EvoTempus: Dashboard of Earth History</h3>
+          <form className="header-search form-inline">
+            <input className="form-control search-term" type="text" placeholder="Search" aria-label="Search"/>
+            <button className="fa fa-search search-button" type="submit"/>
+          </form>
         </header>
-        <main role="main">
-          <Container fluid className="main-container">
-            <Row className="visual-row">
-              <Col xs={5}>
-                <IntervalVisual
-                    width="400" height="400"
-                    onSelectedIntervalChange={this.handleIntervalChange}
-                />
-              </Col>
-              <Col md="auto">
-                <SubjectVisual
-                  width="600" height="600"
-                  interval={this.state.interval}
-                  onSelectedSubjectChange={this.handleSubjectChange}
-                />
-              </Col>
-            </Row>
-            <Row className="wiki-row">
-              <Wiki
-                interval={this.state.interval}
+        <main className="main">
+          <div className="main-visual">
+            <div className="interval-visual">
+              <IntervalVisual
+                width="400" height="400"
+                onSelectedIntervalChange={this.handleIntervalChange}
               />
-            </Row>
-          </Container>
+            </div>
+            <div className="subject-visual">
+              <SubjectVisual
+                width="400" height="800"
+                interval={this.state.interval}
+                onSelectedSubjectChange={this.handleSubjectChange}
+              />
+            </div>
+          </div>
+          <div className="wiki-card">
+            <Wiki
+              interval={this.state.interval}
+            />
+          </div>
         </main>
         <footer className="footer">
           <p id="app-footer-copyright">

@@ -27,11 +27,15 @@ const methodOverride = require('method-override');
 const Subject = require('./models/subject').Subject;
 const Interval = require('./models/interval').Interval;
 const IntervalDesc = require('./models/intervaldesc').IntervalDesc;
-const logger = require('morgan');
 const cors = require('cors');
+const loggerUtils = require('./logger');
+const logger = loggerUtils.logger;
+const expressLogger = loggerUtils.expressLogger;
 
-const environment = process.env.NODE_ENV;
-const doImport = process.env.IMPORT_DB;
+const environment = process.env.NODE_ENV || 'development';
+const doImport = process.env.IMPORT_DB || true;
+const mongoDbURI = process.env.MONGODB_URI || 'mongodb://localhost/evotempus';
+const port = process.env.PORT || 3000;
 
 function displayName(id) {
   // Replace hypens with spaces
@@ -66,12 +70,12 @@ function findOrCreateParent(parentId, child) {
     { upsert: true, new: true}
   ).then((parent, err) => {
     if (err) {
-      console.error("ERROR: Trying to findByIdAndUpdate interval with %s: %s", parentId, err);
+      logger.error("ERROR: Trying to findByIdAndUpdate interval with %s: %s", parentId, err);
       return;
     }
 
     if (!parent) {
-      console.error("ERROR: Failed to find or create interval with id %s", parentId);
+      logger.error("ERROR: Failed to find or create interval with id %s", parentId);
       return;
     }
 
@@ -79,7 +83,7 @@ function findOrCreateParent(parentId, child) {
 
     Interval.updateOne({ _id: child._id }, { parent: parent._id }, {runValidators: 'true'}).then((uChild, err) => {
       if (err) {
-        console.error("ERROR: Child update for %s: %s", child._id, err);
+        logger.error("ERROR: Child update for %s: %s", child._id, err);
         return;
       }
     });
@@ -119,18 +123,16 @@ function createInterval(id, kind, from, to, parent, children) {
     //
     to = parseNumber(to);
   } catch (e) {
-    console.error(e);
+    logger.error(e);
     return;
   }
 
   //
   // Only insert a children array if not empty
   //
-  var insert;
+  var set = { name: name, kind: kind, from: from, to: to};
   if (children.length > 0) {
-    insert = { _id: id, name: name, kind: kind, from: from, to: to, children: children };
-  } else {
-    insert = { _id: id, name: name, kind: kind, from: from, to: to};
+    set.children = children;
   }
 
   //
@@ -138,23 +140,26 @@ function createInterval(id, kind, from, to, parent, children) {
   //
   Interval.findByIdAndUpdate(
     { _id: id },
-    { "$setOnInsert": insert },
+    {
+      "$set": set,
+      "$setOnInsert": { _id: id }
+    },
     { upsert: true, new: true}
   ).then((interval, err) => {
       if (err) {
-        console.error("ERROR: Trying to findByIdAndUpdate interval with %s: %s", id, err);
+        logger.error("ERROR: Trying to findByIdAndUpdate interval with %s: %s", id, err);
         return;
       }
 
       if (!interval) {
-        console.error("ERROR: Failed to find or create interval with id %s", id);
+        logger.error("ERROR: Failed to find or create interval with id %s", id);
         return;
       }
 
       findOrCreateParent(parent, interval);
 
     }).catch((err) => {
-      console.error(err);
+      logger.error(err);
     });
 }
 
@@ -163,30 +168,31 @@ function createIntervalDesc(intervalId, link, description) {
   // Ensure all whitespace is removed
   //
   intervalId = intervalId.trim();
-  // Append full url for wikipedia link
-  link = "https://en.wikipedia.org/wiki/" + link.trim();
-  description = description.trim();
+  linkId = link.trim();
 
   //
   // Automatically deduplicates
   //
   IntervalDesc.findOneAndUpdate(
     { interval: intervalId },
-    { "$setOnInsert": { interval: intervalId, link: link, description: description } },
+    {
+      "$set": { linkId: linkId, link: link },
+      "$setOnInsert": { interval: intervalId }
+    },
     { upsert: true, new: true}
   ).then((desc, err) => {
     if (err) {
-      console.error("ERROR: Trying to findByOneAndUpdate interval description with %s: %s", intervalId, err);
+      logger.error("ERROR: Trying to findByOneAndUpdate interval description with %s: %s", intervalId, err);
       return;
     }
 
     if (!desc) {
-      console.error("ERROR: Failed to find or create interval description with interval id %s", intervalId);
+      logger.error("ERROR: Failed to find or create interval description with interval id %s", intervalId);
       return;
     }
 
   }).catch((err) => {
-    console.error(err);
+    logger.error(err);
   });
 }
 
@@ -211,7 +217,7 @@ function createSubject(id, kind, category, from, to) {
     //
     to = parseNumber(to);
   } catch (e) {
-    console.error(e);
+    logger.error(e);
     return;
   }
 
@@ -220,27 +226,29 @@ function createSubject(id, kind, category, from, to) {
   //
   Subject.findByIdAndUpdate(
     { _id: id },
-    { "$setOnInsert": { _id: id, name: name, kind: kind, category: category, from: from, to: to } },
+    {
+      "$set":         { name: name, kind: kind, category: category, from: from, to: to },
+      "$setOnInsert": { _id: id }
+    },
     { upsert: true, new: true}
   ).then((subject, err) => {
     if (err) {
-      console.error("ERROR: Trying to findByIdAndUpdate subject with %s: %s", id, err);
+      logger.error("ERROR: Trying to findByIdAndUpdate subject with %s: %s", id, err);
       return;
     }
 
     if (!subject) {
-      console.error("ERROR: Failed to find or create subject with id %s", id);
+      logger.error("ERROR: Failed to find or create subject with id %s", id);
       return;
     }
 
   }).catch((err) => {
-    console.error(err);
+    logger.error(err);
   });
 }
 
 function importIntervals(file) {
-
-  console.log("Importing intervals from " + file);
+  logger.debug("Importing intervals from " + file);
 
   var liner = new readlines(file);
 
@@ -264,7 +272,7 @@ function importIntervals(file) {
 }
 
 function importIntervalDesc(file) {
-  console.log("Importing interval descrptions from " + file);
+  logger.debug("Importing interval descrptions from " + file);
 
   var liner = new readlines(file);
 
@@ -283,8 +291,7 @@ function importIntervalDesc(file) {
 }
 
 function importSubjects(file) {
-
-  console.log("Importing subjects from " + file);
+  logger.debug("Importing subjects from " + file);
 
   var liner = new readlines(file);
 
@@ -307,29 +314,16 @@ function importDbData(conn) {
     return;
   }
 
-  console.log('INFO: Importing schema');
-  conn.db.dropCollection('intervals', function(err, result) {
-    if (err) {
-      console.error("ERROR: Failed to drop intervals collection: %s", err);
-    }
-
-    conn.db.dropCollection('subjects', function(err, result) {
-      if (err) {
-        console.error("ERROR: Failed to drop subjects collection: %s", err);
-      }
-
-      console.log('INFO: Import from data directory');
-      // Import the data if required into database
-      importIntervals(path.resolve(__dirname, '..', dbConfig.intervals));
-      importIntervalDesc(path.resolve(__dirname, '..', dbConfig.intervalDesc));
-      importSubjects(path.resolve(__dirname, '..', dbConfig.subjects));
-    });
-  });
+  logger.debug('INFO: Import from data directory');
+  // Import the data if required into database
+  importIntervals(path.resolve(__dirname, '..', dbConfig.intervals));
+  importIntervalDesc(path.resolve(__dirname, '..', dbConfig.intervalDesc));
+  importSubjects(path.resolve(__dirname, '..', dbConfig.subjects));
 }
 
 function init() {
   // Log middleware requests
-  app.use(logger('dev'));
+  app.use(expressLogger);
 
   // get all data/stuff of the body (POST) parameters
   // parse application/json
@@ -361,20 +355,19 @@ function init() {
   // static content
   switch (environment) {
     case 'development':
-      console.log('INFO: ** DEV **');
+      logger.info('INFO: ** DEV **');
       app.use('/', express.static('./'));
       break;
     default:
-      console.log('INFO: ** PRODUCTION **');
+      logger.info('INFO: ** PRODUCTION **');
+      appBuild = path.resolve(__dirname, '..', '..', 'app/build');
+      app.use('/', express.static(appBuild));
       break;
   }
 
   // startup app at http://localhost:{PORT}
   app.listen(port, function() {
-    console.log('INFO: Server listening on port ' + port);
-    console.log('INFO: env = ' + app.get('env') +
-      '\n__dirname = ' + __dirname +
-      '\nprocess.cwd = ' + process.cwd());
+    logger.info('INFO: Server listening on port ' + port);
   });
 
   // expose app
@@ -386,9 +379,6 @@ function init() {
 // config files
 let dbConfig = require('./config/db');
 
-// set our port
-let port = process.env.PORT || 3001;
-
 // connect to our mongoDB database
 // (uncomment after you enter in your own credentials in config/db.js)
 let opts = {
@@ -397,22 +387,22 @@ let opts = {
   useFindAndModify: false,
   useCreateIndex: true
 };
-mongoose.connect(dbConfig.url, opts);
+mongoose.connect(mongoDbURI, opts);
 let conn = mongoose.connection;
 
 conn.on('Error', function() {
-  console.error('ERROR: Database connection failed.');
+  logger.error('ERROR: Database connection failed.');
 });
 
 conn.once('open', function() {
-  console.log('INFO: Connection established');
+  logger.info('INFO: Connection established');
 
   try {
     importDbData(conn);
 
     init();
   } catch (err) {
-    console.log(err);
+    logger.error(err);
     conn.close();
   }
 });

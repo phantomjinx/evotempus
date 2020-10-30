@@ -95,6 +95,9 @@ class IntervalSunburst extends React.Component {
   constructor(props) {
     super(props);
 
+
+    this.svgId = 'interval-visual-component-svg';
+
     // This binding is necessary to make `this` work in the callback
     this.handleDoubleClick = this.handleDoubleClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -285,14 +288,14 @@ class IntervalSunburst extends React.Component {
   renderSunburst(props, data) {
     data = data ? data : this.props.data;
 
-    this.width = props.width || 300;
-    this.height = props.height || 300;
+    this.width = props.width;
+    this.height = props.height;
     this.radius = (Math.min(this.width, this.height) / 6);
 
     //
     // Select the existing svg created by the initial render
     //
-    this.svg = d3Select('#interval-visual-sb-svg');
+    this.svg = d3Select('#' + this.svgId);
 
     const defs = this.svg.append("defs");
     //
@@ -465,9 +468,9 @@ class IntervalSunburst extends React.Component {
 
   render() {
     return (
-      <div id="interval-visual-sb">
+      <div id="interval-visual-component">
         <svg
-          id ="interval-visual-sb-svg"
+          id = { this.svgId }
           viewBox = {"0 0 " + this.props.width + " " + this.props.height}
           preserveAspectRatio="xMidYMid slice"
         />

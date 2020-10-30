@@ -125,6 +125,8 @@ class SubjectSwimLane extends React.Component {
   constructor(props) {
     super(props);
 
+    this.svgId = 'subject-visual-component-svg';
+
     // This binding is necessary to make `this` work in the callback
     // this.handleClick = this.handleClick.bind(this);
   }
@@ -146,7 +148,7 @@ class SubjectSwimLane extends React.Component {
     //
     // Select the existing svg created by the initial render
     //
-    this.svg = d3Select('#subject-visual-sb-svg');
+    this.svg = d3Select('#' + this.svgId);
 
 
   }
@@ -160,10 +162,10 @@ class SubjectSwimLane extends React.Component {
       )
     } else {
       return (
-        <div id="evo-tempus-sw-div">
+        <div className="subject-visual-component">
           {this.props.data[0]._id} {this.props.data.length}
           <svg
-            id ="subject-visual-sb-svg"
+            id = { this.svgId }
             width = {this.props.width}
             height = {this.props.height}
             viewBox = {
@@ -181,7 +183,26 @@ class SubjectSwimLane extends React.Component {
                 backgroundColor: "#fff000",
               }
             }
-          />
+          >
+            <rect width="300" height="100"
+              style={
+                {
+                  fill: "rgb(0,0,255)",
+                  strokeWidth:3,
+                  stroke:"rgb(0,0,0)"
+                }
+              }
+            />
+          </svg>
+          <p>HELLO WORLD!</p>
+          <p>HELLO WORLD!</p>
+          <p>HELLO WORLD!</p>
+          <p>HELLO WORLD!</p>
+          <p>HELLO WORLD!</p>
+          <p>HELLO WORLD!</p>
+          <p>HELLO WORLD!</p>
+          <p>HELLO WORLD!</p>
+          <p>HELLO WORLD!</p>
         </div>
       )
     }

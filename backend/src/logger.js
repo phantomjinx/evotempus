@@ -14,19 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+const pino = require('pino');
+const logger = pino({ level: process.env.LOG_LEVEL || 'info' });
+const expressLogger = require('express-pino-logger')({
+  logger: logger
+});
 
-var mongoose = require('mongoose');
-
-var Schema = mongoose.Schema;
-
-var IntervalDescSchema = new Schema({
-    interval: { type: String, ref: 'Interval', index: true },
-    linkId: String,
-    description: String // Empty by default but used to cache data as its queried
-},
-{ versionKey: 'version' });
-
-// define our interval descrption model
-module.exports = {
-  IntervalDesc: mongoose.model('IntervalDesc', IntervalDescSchema)
-};
+module.exports = { expressLogger, logger };

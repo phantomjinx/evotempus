@@ -1,44 +1,119 @@
-$tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.75), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+$main-visual-height: 65vh;
+$search-bar-color: #ab8dcc;
+$tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
-html, body {
-  height: 100%;
-}
+@font-face { font-family: blackchancery; src: url('/fonts/black-chancery.ttf'); }
+@font-face { font-family: firasans; src: url('/fonts/firasans/FiraSans-Regular.ttf'); }
 
 .app {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  background-color: honeydew;
   min-height: 100vh;
   min-height: -webkit-fill-available;
+  grid-template-rows: auto minmax(40vh, 1fr) auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
 
-  header {
-    flex: 0 0 auto;
-    min-height: 4em;
-  }
+  .header {
+    grid-area: header;
+    background-color: darkslategray;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.75em;
+    padding-left: 1em;
+    padding-right: 1em;
 
-  main {
-    flex: 1 0 auto;
-    overflow: auto;
+    .header-title {
+      margin-top: 0;
+      margin-bottom: 0.25em;
+      color: white;
+      text-shadow: 0.05em 0.05em darkgray;
+      font-size: 24pt;
+      font-family: blackchancery;
+    }
 
-    .main-container {
+    .header-search {
+      position: relative;
       display: flex;
-      flex-direction: column;
+    }
 
-      .visual-row {
-        flex: 1 0 auto;
-        margin-bottom: 1em;
-      }
+    .search-term {
+      width: 100%;
+      border: 0.2em solid $search-bar-color;
+      border-right: none;
+      padding: 0.25em;
+      height: 1.3em;
+      border-radius: 0.25em 0 0 0.25em;
+      outline: none;
+      color: gray;
+    }
 
-      .wiki-row {
-        flex: 0 1 auto;
-        max-height: 40vh;
-        margin-top: auto;
-        margin-bottom: 1em;
-      }
+    .search-term:focus{
+      color: $search-bar-color;
+    }
+
+    .search-button {
+      width: 2em;
+      height: 2em;
+      border: 0.2em solid $search-bar-color;
+      background: $search-bar-color;
+      text-align: center;
+      color: #fff;
+      border-radius: 0 0.25em 0.25em 0;
+      cursor: pointer;
+      font-size: 15pt;
     }
   }
 
-  footer {
-    flex-shrink: 0;
+  .main {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-gap: 1em;
+    grid-template-areas:
+      "main-visual"
+      "wiki-card";
+    width: calc(100% - 3em);
+    margin-left: 1em;
+    margin-right: 1em;
+
+    .main-visual {
+      grid-area: main-visual;
+      display: grid;
+      grid-template-columns: 30% 1fr;
+      grid-template-rows: minmax(0, $main-visual-height);
+      grid-gap: 2em;
+      grid-template-areas:
+        "interval subject";
+      margin-top: 0.5em;
+      // overflow: auto;
+
+      .interval-visual {
+        grid-area: interval;
+        overflow: auto;
+        background-color: white;
+        box-shadow: $tile-shadow;
+      }
+
+      .subject-visual {
+        grid-area: subject;
+        overflow: auto;
+        background-color: white;
+        box-shadow: $tile-shadow;
+      }
+    }
+
+    .wiki-card {
+      grid-area: wiki-card;
+      margin-bottom: 1em;
+      background-color: white;
+    }
+  }
+
+  .footer {
+    grid-area: footer;
     border-top: solid;
     border-bottom: dashed;
     border-color: lightgray;

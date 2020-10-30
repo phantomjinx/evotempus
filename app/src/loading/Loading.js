@@ -6,22 +6,11 @@ class Loading extends React.Component {
   render() {
     return (
       <div className="loading">
-        <div className="spinner infinity" id="infinity">
-          <div className="half">
-            <div className="marker"></div>
-            <div className="marker"></div>
-            <div className="marker"></div>
-            <div className="marker"></div>
-            <div className="marker"></div>
-            <div className="marker"></div>
-          </div>
-          <div className="half">
-            <div className="marker"></div>
-            <div className="marker"></div>
-            <div className="marker"></div>
-            <div className="marker"></div>
-            <div className="marker"></div>
-            <div className="marker"></div>
+        <div class="spinner sphere" id="sphere">
+          <div class="inner">
+            <div class="disc"></div>
+            <div class="disc"></div>
+            <div class="disc"></div>
           </div>
         </div>
       </div>

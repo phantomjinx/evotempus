@@ -147,9 +147,9 @@ export default class Wiki extends React.Component {
         <div id="wiki-article">
           <div id="wiki-header">
             <h3 id="wiki-header-title">{this.props.interval.name}</h3>
-            {headerLogo}
-            <h3 id="wiki-header-dates">from {this.present(this.props.interval.from)} to {this.present(this.props.interval.to)}</h3>
             <p id="ma-defn" dangerouslySetInnerHTML={{__html: this.displayDefn()}}/>
+            <h3 id="wiki-header-dates">from {this.present(this.props.interval.from)} to {this.present(this.props.interval.to)}</h3>
+            {headerLogo}
           </div>
           <div id="wiki-main">
             <div id="wiki-main-inner">

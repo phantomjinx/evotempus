@@ -1,40 +1,40 @@
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
 #wiki-article {
-  flex: 0 1 auto;
   display: flex;
   width: 100%;
-  max-height: 25vh; // Governs the max height of the wiki-card and stop app from scrolling
   flex-direction: column;
   box-shadow: $tile-shadow;
   font-family: firasans;
-  font-size: 18pt;
+  background-color: white;
 
   #wiki-header {
     flex: 0 1 auto;
+    display: flex;
     border-bottom: solid;
     border-color: lightgray;
     border-width: thin;
-    margin-top: 0.5em;
+    margin-top: 0.1em;
     margin-left: 0.2em;
     margin-right: 0.25em;
-    margin-bottom: 0.25em;
+    margin-bottom: 0.2em;
+    white-space: nowrap;
+    font-size: 16pt;
 
     h3 {
       margin-bottom: 0;
     }
 
     #wiki-header-title {
-      float: left;
-      width: 50%;
+      flex: 1 1 auto;
       font-weight: bold;
       margin-left: 0.7em;
       margin-top: 0.2em;
-      font-size: 20pt;
+      margin-right: 0.25em;
     }
 
     #ma-defn {
-      float: right;
+      flex: 0 1 auto;
       font-style: italic;
       font-size: 10pt;
       margin-top: 1.25em;
@@ -43,23 +43,29 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     }
 
     #wiki-header-dates {
-      float:right;
+      flex: 0 1 auto;
       font-weight: bold;
       margin-top: 0.2em;
       margin-right: 0.2em;
     }
 
-    #wiki-header-logo > img {
-      float: right;
-      height: 1.5em;
+    #wiki-header-logo {
+      flex: 0 1 auto;
+
+      img {
+        height: 1.5em;
+      }
     }
   }
 
   #wiki-main {
     display: flex;
-    flex: 1 1 auto;
+    flex: 1 0 auto;
     overflow: auto;
     margin-left: 1em;
+    min-height: 6em;
+    max-height: 6em;
+    font-size: 14pt;
 
     #wiki-main-inner {
       margin-bottom: 0.25em;
@@ -80,7 +86,7 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
   }
 
   #wiki-footer {
-    flex: 0 1 0;
+    flex: 0 0 0;
     padding-top: 0.1em;
     border-top: solid;
     border-color: lightgray;

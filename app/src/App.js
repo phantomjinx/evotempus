@@ -35,25 +35,27 @@ class App extends React.Component {
           </form>
         </header>
         <main className="main">
-          <div className="main-visual">
-            <div className="interval-visual">
-              <IntervalVisual
-                width="400" height="400"
-                onSelectedIntervalChange={this.handleIntervalChange}
-              />
+          <div className="inner-main">
+            <div className="main-visual">
+              <div className="interval-visual">
+                <IntervalVisual
+                  width="400" height="400"
+                  onSelectedIntervalChange={this.handleIntervalChange}
+                />
+              </div>
+              <div className="subject-visual">
+                <SubjectVisual
+                  width="400" height="800"
+                  interval={this.state.interval}
+                  onSelectedSubjectChange={this.handleSubjectChange}
+                />
+              </div>
             </div>
-            <div className="subject-visual">
-              <SubjectVisual
-                width="400" height="800"
+            <div className="wiki-card">
+              <Wiki
                 interval={this.state.interval}
-                onSelectedSubjectChange={this.handleSubjectChange}
               />
             </div>
-          </div>
-          <div className="wiki-card">
-            <Wiki
-              interval={this.state.interval}
-            />
           </div>
         </main>
         <footer className="footer">

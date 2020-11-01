@@ -8,9 +8,9 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 .app {
   display: grid;
   background-color: honeydew;
-  min-height: 100vh;
+  height: 100vh;
   min-height: -webkit-fill-available;
-  grid-template-rows: auto minmax(40vh, 1fr) auto;
+  grid-template-rows: 4em minmax(40vh, 1fr) auto;
   grid-template-areas:
     "header"
     "main"
@@ -24,18 +24,23 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     padding-top: 0.75em;
     padding-left: 1em;
     padding-right: 1em;
+    overflow-x: auto;
 
     .header-title {
+      flex: 1 1 auto;
       margin-top: 0;
       margin-bottom: 0.25em;
+      margin-right: 2em;
       color: white;
       text-shadow: 0.05em 0.05em darkgray;
       font-size: 24pt;
       font-family: blackchancery;
+      white-space: nowrap;
     }
 
     .header-search {
-      position: relative;
+      flex: 0 1 auto;
+      min-width: 6em;
       display: flex;
     }
 
@@ -69,46 +74,49 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
   .main {
     grid-area: main;
-    display: grid;
-    grid-template-rows: 1fr auto;
-    grid-gap: 1em;
-    grid-template-areas:
-      "main-visual"
-      "wiki-card";
-    width: calc(100% - 3em);
-    margin-left: 1em;
-    margin-right: 1em;
+    overflow: auto;
+    margin-bottom: 0.5em;
 
-    .main-visual {
-      grid-area: main-visual;
+    .inner-main {
       display: grid;
-      grid-template-columns: 30% 1fr;
-      grid-template-rows: minmax(0, $main-visual-height);
-      grid-gap: 2em;
+      grid-template-rows: 1fr minmax(10em, 12em);
+      grid-gap: 1em;
       grid-template-areas:
-        "interval subject";
-      margin-top: 0.5em;
-      // overflow: auto;
+        "main-visual"
+        "wiki-card";
+      width: calc(100% - 3em);
+      margin-left: 1em;
+      margin-right: 1em;
 
-      .interval-visual {
-        grid-area: interval;
-        overflow: auto;
-        background-color: white;
-        box-shadow: $tile-shadow;
+      .main-visual {
+        grid-area: main-visual;
+        display: grid;
+        grid-template-columns: 30% 1fr;
+        grid-template-rows: minmax(0, $main-visual-height);
+        grid-gap: 2em;
+        grid-template-areas:
+          "interval subject";
+          margin-top: 0.5em;
+
+        .interval-visual {
+          grid-area: interval;
+          overflow: auto;
+          background-color: white;
+          box-shadow: $tile-shadow;
+        }
+
+        .subject-visual {
+          grid-area: subject;
+          overflow: auto;
+          background-color: white;
+          box-shadow: $tile-shadow;
+        }
       }
 
-      .subject-visual {
-        grid-area: subject;
-        overflow: auto;
-        background-color: white;
-        box-shadow: $tile-shadow;
+      .wiki-card {
+        grid-area: wiki-card;
+        margin-bottom: 1em;
       }
-    }
-
-    .wiki-card {
-      grid-area: wiki-card;
-      margin-bottom: 1em;
-      background-color: white;
     }
   }
 

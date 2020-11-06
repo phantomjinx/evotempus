@@ -11,14 +11,13 @@ export default class Wiki extends React.Component {
     super(props);
 
     this.wikiLink = "https://en.wikipedia.org/wiki/";
-    this.state = {
-      linkId : 'Geologic_time_scale'
-    }
 
     const maDefn =
       "<a href=\"" + this.wikiLink + "Year#SI_prefix_multipliers\" target=\"_blank\" rel=\"noopener noreferrer\">(Ma: 1 million years)</a>";
     const clickMsg = "To read more further, please click here";
+
     this.state = {
+      linkId : 'Geologic_time_scale',
       loading: true,
       clickMsg: clickMsg,
       maDefn: maDefn
@@ -78,10 +77,6 @@ export default class Wiki extends React.Component {
     }
   }
 
-  present(year) {
-    return (year === 2030) ? new Date().getFullYear() : common.displayYear(year);
-  }
-
   displayDefn() {
     if (Math.abs(this.props.interval.from) > common.million || Math.abs(this.props.interval.to) > common.million) {
       return this.state.maDefn;
@@ -113,12 +108,16 @@ export default class Wiki extends React.Component {
         <div id="wiki-article">
           <div id="wiki-header">
             {headerLogo}
+            <p id="ma-defn" className="disappear"/>
+            <h3 id="wiki-header-dates" className="disappear"></h3>
+            <h3 id="wiki-header-title" className="disappear"></h3>
           </div>
           <div id="wiki-main">
             <div id="wiki-main-inner">
-              <div id="wiki-loading">
+              <div id="wiki-loading" className="fade-in">
                 <Loading/>
               </div>
+              <div id="wiki-text" className="disappear"/>
             </div>
           </div>
           {footer}
@@ -134,7 +133,10 @@ export default class Wiki extends React.Component {
           </div>
           <div id="wiki-main">
             <div id="wiki-main-inner">
-              <ErrorMsg error = {this.state.error} errorMsg = {this.state.errorMsg}/>
+              <div id="wiki-loading" className="disappear"/>
+              <div id="wiki-text" className="fade-in">
+                <ErrorMsg error = {this.state.error} errorMsg = {this.state.errorMsg}/>
+              </div>
             </div>
           </div>
           {footer}
@@ -146,14 +148,17 @@ export default class Wiki extends React.Component {
       return (
         <div id="wiki-article">
           <div id="wiki-header">
-            <h3 id="wiki-header-title">{this.props.interval.name}</h3>
-            <p id="ma-defn" dangerouslySetInnerHTML={{__html: this.displayDefn()}}/>
-            <h3 id="wiki-header-dates">from {this.present(this.props.interval.from)} to {this.present(this.props.interval.to)}</h3>
             {headerLogo}
+            <p id="ma-defn" className="fade-in" dangerouslySetInnerHTML={{__html: this.displayDefn()}}/>
+            <h3 id="wiki-header-dates" className="fade-in">from {common.present(this.props.interval.from)} to {common.present(this.props.interval.to)}</h3>
+            <h3 id="wiki-header-title" className="fade-in">{this.props.interval.name}</h3>
           </div>
           <div id="wiki-main">
             <div id="wiki-main-inner">
-              <p>{this.state.description}</p>
+              <div id="wiki-loading" className="disappear"/>
+              <div id="wiki-text" className="fade-in">
+                <p>{this.state.description}</p>
+              </div>
             </div>
           </div>
           {footer}

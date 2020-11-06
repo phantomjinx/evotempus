@@ -1,15 +1,10 @@
 import React from 'react';
-import isEqual from 'lodash/isEqual';
-import {hierarchy as d3Hierarchy, stratify as d3Stratify, partition as d3Partition} from 'd3-hierarchy';
+import {stratify as d3Stratify, partition as d3Partition} from 'd3-hierarchy';
 import {interpolate as d3Interpolate, quantize as d3Quantize} from 'd3-interpolate';
 import {select as d3Select} from 'd3-selection';
-import {scaleLinear as d3ScaleLinear, scaleSqrt as d3ScaleSqrt} from 'd3-scale';
 import {scaleOrdinal as d3ScaleOrdinal} from 'd3-scale';
 import {interpolateRainbow as d3InterpolateRainbow} from 'd3-scale-chromatic';
 import {arc as d3Arc} from 'd3-shape';
-import {json as d3Json} from 'd3-fetch';
-import {transition as d3Transition} from 'd3-transition';
-import {format as d3Format} from 'd3-format';
 import {color as d3Color} from 'd3-color';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
@@ -70,7 +65,9 @@ export default class IntervalVisual extends React.Component {
   render() {
     if (this.state.loading) {
       return (
-        <Loading/>
+        <div className="interval-visual-loading">
+          <Loading/>
+        </div>
       );
     }
 
@@ -108,7 +105,7 @@ class IntervalSunburst extends React.Component {
   }
 
   componentDidMount() {
-    this.renderSunburst(this.props);
+    this.renderInterval(this.props);
   }
 
   //
@@ -136,18 +133,6 @@ class IntervalSunburst extends React.Component {
         return d.children.length === 0 ? (d.to - d.from) : 0;
       })
       .sort((a, b) => a.from - b.from);
-
-    //
-    // Format the display values of the from and to
-    //
-    root.each(d => {
-
-      const from = d.data.from;
-      const to = d.data.to;
-
-      d.displayFrom = common.displayYear(from);
-      d.displayTo = common.displayYear(to);
-    });
 
     //
     // Effectively calling partition(root)
@@ -285,12 +270,8 @@ class IntervalSunburst extends React.Component {
   // Renders the sunburst once the data has been
   // successfully retrieved from the database
   //
-  renderSunburst(props, data) {
-    data = data ? data : this.props.data;
-
-    this.width = props.width;
-    this.height = props.height;
-    this.radius = (Math.min(this.width, this.height) / 6);
+  renderInterval(props) {
+    this.radius = (Math.min(this.props.width, this.props.height) / 6);
 
     //
     // Select the existing svg created by the initial render
@@ -302,7 +283,7 @@ class IntervalSunburst extends React.Component {
     // Define the gradient of the central circle
     //
     const parentGradient = defs.append("radialGradient")
-	    .attr("id", "parentGradientient")
+	    .attr("id", "parentGradient")
 	    .attr("cx", "30%")
 	    .attr("cy", "30%")
 	    .attr("r", "75%");
@@ -325,12 +306,12 @@ class IntervalSunburst extends React.Component {
     // Append the main g ready for population
     //
     this.g = this.svg.append("g")
-      .attr("transform", `translate(${this.width / 2},${this.width / 2})`);
+      .attr("transform", `translate(${this.props.width / 2},${this.props.width / 2})`);
 
     //
     // Start to structure the data according to a partition heirarchical layout
     //
-    this.root = this.partition(data);
+    this.root = this.partition(this.props.data);
 
     //
     // Copies the entire datum to itself
@@ -422,7 +403,7 @@ class IntervalSunburst extends React.Component {
     //
     this.paths.append("title")
       .text(d => {
-        return d.data.name + "\n" + d.displayFrom + "  to  " + d.displayTo;
+        return d.data.name + "\n" + common.displayYear(d.from) + "  to  " + common.displayYear(d.to);
       });
 
     //
@@ -447,7 +428,7 @@ class IntervalSunburst extends React.Component {
     this.parent = this.g.append("circle")
       .datum(this.parent || this.root)
       .attr("r", this.radius)
-      .attr("fill", "url(#parentGradientient)")
+      .attr("fill", "url(#parentGradient)")
       .attr("pointer-events", "all")
       .style("cursor", "pointer")
       .text(d => d.data.name)

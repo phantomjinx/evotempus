@@ -1,4 +1,29 @@
 $max-height: 65vh;
+$font: 10pt firasans;
+$bg-border-color: #ab8dcc;
+
+.subject-visual-loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 5em;
+}
 
 .subject-visual-component {
+  margin-top: 1em;
+
+  #subject-visual-component-svg {
+    font: $font;
+
+    .subject-container {
+
+      .axis {
+        font: $font;
+      }
+
+      .laneBackground {
+        stroke-width: 1;
+        stroke: $bg-border-color;
+      }
+    }
+  }
 }

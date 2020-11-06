@@ -1,19 +1,30 @@
 import React from 'react';
 import isEqual from 'lodash/isEqual';
-import {hierarchy as d3Hierarchy, stratify as d3Stratify, partition as d3Partition} from 'd3-hierarchy';
-import {interpolate as d3Interpolate, quantize as d3Quantize} from 'd3-interpolate';
-import {select as d3Select} from 'd3-selection';
-import {scaleLinear as d3ScaleLinear, scaleSqrt as d3ScaleSqrt} from 'd3-scale';
-import {scaleOrdinal as d3ScaleOrdinal} from 'd3-scale';
-import {interpolateRainbow as d3InterpolateRainbow} from 'd3-scale-chromatic';
-import {arc as d3Arc} from 'd3-shape';
+import {axisTop as d3AxisTop} from 'd3-axis';
+import {
+  range as d3Range,
+  ascending as d3Ascending,
+  extent as d3Extent} from 'd3-array';
+import {format as d3Format} from 'd3-format';
+import {timeHour as d3TimeHour} from 'd3-time';
+import {
+  scaleOrdinal as d3ScaleOrdinal,
+  scaleLinear as d3ScaleLinear } from 'd3-scale';
+import {
+  schemeCategory10 as d3SchemeCategory10,
+  schemePastel1 as d3SchemePastel1
+} from 'd3-scale-chromatic';
+import {
+  namespace as d3Namespace,
+  namespaces as d3Namespaces,
+  select as d3Select} from 'd3-selection';
+import {zoom as d3Zoom} from 'd3-zoom'
 import {json as d3Json} from 'd3-fetch';
 import {transition as d3Transition} from 'd3-transition';
-import {format as d3Format} from 'd3-format';
-import {color as d3Color} from 'd3-color';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
 import * as api from './api';
+import * as common from './common';
 import './SubjectVisual.scss';
 
 export default class SubjectVisual extends React.Component {
@@ -47,7 +58,7 @@ export default class SubjectVisual extends React.Component {
     console.log(error);
   }
 
-  fetchSubject() {
+  fetchSubjects() {
     this.setState({
       loading: true,
       errorMsg: "",
@@ -58,7 +69,7 @@ export default class SubjectVisual extends React.Component {
       console.log("No interval selected");
       this.setState({
         loading: false,
-        data: []
+        subjects: []
       })
       return;
     }
@@ -71,13 +82,12 @@ export default class SubjectVisual extends React.Component {
         if (!res.data || res.data.length === 0) {
           this.setState({
             loading: false,
-            data: []
+            subjects: []
           })
         } else {
-          console.log(res.data);
           this.setState({
             loading: false,
-            data: res.data
+            subjects: res.data
           })
         }
       }).catch((err) => {
@@ -86,7 +96,7 @@ export default class SubjectVisual extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchSubject();
+    this.fetchSubjects();
   }
 
   componentDidUpdate(prevProps) {
@@ -94,14 +104,22 @@ export default class SubjectVisual extends React.Component {
       return;
     }
 
-    this.fetchSubject();
+    this.fetchSubjects();
   }
 
   render() {
     if (this.state.loading) {
       return (
-        <Loading/>
+        <div className="subject-visual-loading">
+          <Loading/>
+        </div>
       );
+    }
+
+    if (! this.state.subjects || this.state.subjects.length === 0) {
+      return (
+        <div>Nothing Selected - TODO!</div>
+      )
     }
 
     if (this.state.error) {
@@ -115,10 +133,13 @@ export default class SubjectVisual extends React.Component {
         width = {this.props.width}
         height = {this.props.height}
         onSelectedSubjectChange = {this.props.onSelectedSubjectChange}
-        data = {this.state.data}/>
+        interval = {this.props.interval}
+        subjects = {this.state.subjects}/>
     );
   }
 }
+
+const LANE_HEIGHT = 25;
 
 class SubjectSwimLane extends React.Component {
 
@@ -135,74 +156,303 @@ class SubjectSwimLane extends React.Component {
     this.renderSwimlanes(this.props);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.interval !== prevProps.interval) {
+      this.renderSwimlanes(this.props);
+    }
+  }
+
+  addSubjectToLane(lanes, subject) {
+    let laneId = 0;
+    if (lanes.length === 0) {
+      lanes[laneId] = [];
+    }
+
+    //
+    // Find the index of a lane where the subject does not overlap
+    //
+    for (laneId = 0; laneId < lanes.length; laneId++) {
+      const lane = lanes[laneId];
+      let overlaps = false;
+
+      for (let i = 0; i < lane.length; i++) {
+        let s = lane[i];
+
+        if (subject.limitTo > s.limitFrom && subject.limitTo <= s.limitTo) {
+          // where subject.limitTo falls within s.range
+          overlaps = true;
+          break;
+        }
+
+        if (subject.limitFrom >= s.limitFrom && subject.limitFrom < s.limitTo) {
+          // where subject.limitFrom falls within s.range
+          overlaps = true;
+          break;
+        }
+
+        if ((subject.limitFrom <= s.limitFrom && subject.limitTo >= s.limitTo)) {
+          // where subject.range is wider than s.range
+          overlaps = true;
+          break;
+        }
+      }
+
+      if (! overlaps) {
+        break; // Can use this lane due to no overlap
+      }
+    }
+
+    //
+    // If laneId identified a lane with no overlap then
+    // a lane will already exist. Otherwise, a lane will
+    // not yet exist so create it.
+    //
+    if (!lanes[laneId]) {
+      lanes[laneId] = [];
+    }
+
+    //
+    // Add the subject to the lane
+    //
+    lanes[laneId].push(subject);
+  }
+
+  chartify(interval, rawSubjects) {
+    //
+    // Base object to return results
+    //
+    const chartData = {
+      headers: [],
+      lanes: [],
+      subjects: []
+    };
+
+    // let laneId = 0;
+    const headerMap = new Map();
+
+    const subjects = [...rawSubjects]
+      .sort((a, b) => {
+        return a.from - b.from;
+      })
+      .forEach((subject, i) => {
+        //
+        // Limit subject from to value of interval from
+        //
+        subject.limitFrom = (subject.from < interval.from) ? interval.from : subject.from;
+
+        //
+        // Limit subject to to value of interval to
+        //
+        subject.limitTo = (subject.to > interval.to) ? interval.to : subject.to;
+
+        const laneKind = subject.kind;
+        //
+        // Create a lane if not already exists
+        //
+        let lanes = headerMap.get(laneKind);
+        if (! lanes) {
+          lanes = [];
+          headerMap.set(laneKind, lanes);
+        }
+
+        this.addSubjectToLane(lanes, subject);
+      });
+
+    //
+    // Iterate back through the header map to flatten
+    // the lanes for adding into chartdata
+    //
+    headerMap.forEach((lanes, header) => {
+      let headerStartsIdx = 0;
+
+      for (let i = 0; i < lanes.length; i++) {
+        const lane = lanes[i];
+
+        const laneId = chartData.lanes.length;
+        if (i === 0) {
+          // Identify the first lane of the header group
+          headerStartsIdx = laneId;
+        }
+
+        for (let j = 0; j < lane.length; j++) {
+          const subject = lane[j];
+          subject.laneId = laneId;
+          subject.headerId = chartData.headers.length;
+          chartData.subjects.push(subject);
+        }
+
+        chartData.lanes.push({
+          id: laneId,
+          headerId: chartData.headers.length,
+          headerLane: (headerStartsIdx === laneId),
+          subjects: lane.length
+        });
+      }
+
+      chartData.headers.push({
+        name: header,
+        lanes: lanes.length,
+        headerStartsIdx: headerStartsIdx
+      });
+    });
+
+    return chartData;
+  }
+
+  //
+  // Calculate the width of the subject's timeline bar
+  // using the passed-in xfn that governs the conversion
+  // from actual year to point on the x-scale
+  //
+  calcWidth(subject, xfn) {
+    const x1 = d3Format(".1f")(xfn(subject.limitFrom));
+    const x2 = d3Format(".1f")(xfn(subject.limitTo));
+    const w = x2 - x1;
+    return w;
+  }
+
   //
   // Renders the swimlanes once the data has been
   // successfully retrieved from the database
   //
-  renderSwimlanes(props, data) {
-    data = data ? data : this.props.data;
+  renderSwimlanes(props) {
+    this.chartData = this.chartify(props.interval, props.subjects);
+    console.log(this.chartData);
 
-    this.width = props.width || 300;
-    this.height = props.height || 300;
+    const margin = {top: 20, right: 30, bottom: 15, left: 80};
+    const width = props.width - margin.left - margin.right;
+    const height = (this.chartData.lanes.length + 1) * LANE_HEIGHT;
+    const minFraction = parseFloat(width * 0.005);
+
+    const subjectColorCycle = d3ScaleOrdinal(d3SchemeCategory10);
+    const laneColorCycle = d3ScaleOrdinal(d3SchemePastel1);
 
     //
     // Select the existing svg created by the initial render
     //
     this.svg = d3Select('#' + this.svgId);
 
+    this.svg.append('defs')
+      .append('clipPath')
+	    .attr('id', 'clip')
+	    .append('rect')
+		  .attr('width', margin.left + width + margin.right)
+		  .attr('height', margin.top + height + margin.bottom);
 
+    this.gchart = this.svg.append("g")
+      .attr('transform', "translate(" + margin.left + "," + margin.top + ")")
+      .attr('class', "subject-container")
+      .attr('width', width)
+	    .attr('height', height);
+
+    const x = d3ScaleLinear()
+      .domain([props.interval.from, props.interval.to]).nice()
+      .range([0, width]);
+
+    const yExt = d3Extent(this.chartData.lanes, d => { return d.id; });
+    const y = d3ScaleLinear()
+      .domain([yExt[0], yExt[1] + 1])
+      .range([0, height]);
+
+    // draw the x axis
+    const xDateAxis = d3AxisTop(x)
+	    .tickFormat(d => { return common.displayYear(d) });
+      // .tickValues([props.interval.from, 0, props.interval.to]);
+
+    this.gchart.append('g')
+     .attr("class", "axis")
+     .call(xDateAxis);
+
+    // draw the lanes for the chart
+    this.gchart.append('g')
+      .selectAll('.laneLines')
+      .data(this.chartData.lanes)
+      .enter()
+      .append('line')
+      .attr('x1', 0)
+      .attr('y1', d => { return d3Format(".1f")((y(d.id)) + 0.5); })
+      .attr('x2', width)
+      .attr('y2', d => { return d3Format(".1f")((y(d.id)) + 0.5); })
+      .attr('stroke', d => { return d.headerLane ? 'black' : 'lightgray' });
+
+    // draw the lane text
+    this.gchart.append('g')
+      .selectAll('.laneText')
+      .data(this.chartData.headers)
+      .enter().append('text')
+      .text(d => { return d.name; })
+      .attr('text-anchor', 'end')
+      .attr('class', 'laneText')
+      .attr('x', -10)
+      .attr('y', d => {
+        const y1 = d3Format(".1f")((y(d.headerStartsIdx)) + 0.5);
+        const yn = d3Format(".1f")((y(d.headerStartsIdx + (d.lanes / 2))) + 0.5);
+        const fontHeight = 5;
+
+        return parseFloat(yn) + fontHeight;
+      });
+
+    // Paint the backgrounds of the lanes
+    this.gchart.append('g')
+      .selectAll('.laneBackground')
+      .data(this.chartData.headers)
+      .enter().append('rect')
+      .attr('class', 'laneBackground')
+      .attr('x', 0)
+      .attr('y', d => { return d3Format(".1f")((y(d.headerStartsIdx)) + 0.5); })
+      .attr('width', width)
+      .attr('height', d => {
+        const y1 = d3Format(".1f")((y(d.headerStartsIdx)) + 0.5);
+        const yn = d3Format(".1f")((y(d.headerStartsIdx + d.lanes)) + 0.5);
+        return yn - y1;
+      })
+      .attr('fill', d => { return laneColorCycle(d.name); })
+      .attr('fill-opacity', 0.3);
+
+    // Add the data items
+    this.subjectItems = this.gchart.append('g')
+      .selectAll('.subjects')
+      .data(this.chartData.subjects)
+      .enter()
+      .append(d => {
+        const w = this.calcWidth(d, x);
+        const shape = w < minFraction ? 'circle' : 'rect';
+        return document.createElementNS(d3Namespaces.svg, shape);
+      })
+      .attr('cx', d => { return parseFloat(d3Format(".1f")(x(d.limitFrom))) + parseFloat(minFraction / 2) })
+      .attr('cy', d => { return parseFloat(d3Format(".1f")((y(d.laneId)) + 0.5)) + parseFloat(LANE_HEIGHT / 2) })
+      .attr('r', d => { return (minFraction / 2) })
+      .attr('x', d => { return d3Format(".1f")(x(d.limitFrom)) })
+      .attr('y', d => { return d3Format(".1f")((y(d.laneId)) + 0.5)})
+      .attr('width', d => {
+        const w = this.calcWidth(d, x);
+        return w < 1 ? 1 : w;
+      })
+      .attr('height', LANE_HEIGHT)
+      .style('fill', d => { return subjectColorCycle(d.category); });
+
+    // Add the data text labels
+    this.subjectItems.append("title")
+      .text(d => {
+        return d.name + "\n" + common.displayYear(d.from) + "  to  " + common.displayYear(d.to);
+      });
   }
 
   render() {
-    if (!this.props.data || this.props.data.length == 0) {
+    if (!this.props.subjects || this.props.subjects.length === 0) {
       return (
-        <div id="evo-tempus-sw-div">
+        <div className="subject-visual-component">
           HELLO
         </div>
       )
     } else {
       return (
         <div className="subject-visual-component">
-          {this.props.data[0]._id} {this.props.data.length}
           <svg
             id = { this.svgId }
-            width = {this.props.width}
-            height = {this.props.height}
-            viewBox = {
-              {
-                x: 0,
-                y: 0,
-                width: this.props.width,
-                height: this.props.height
-              }
-            }
+            viewBox = {"0 0 " + this.props.width + " " + this.props.height}
             preserveAspectRatio="xMidYMid meet"
-            style = {
-              {
-                font: "8pt sans-serif",
-                backgroundColor: "#fff000",
-              }
-            }
-          >
-            <rect width="300" height="100"
-              style={
-                {
-                  fill: "rgb(0,0,255)",
-                  strokeWidth:3,
-                  stroke:"rgb(0,0,0)"
-                }
-              }
-            />
-          </svg>
-          <p>HELLO WORLD!</p>
-          <p>HELLO WORLD!</p>
-          <p>HELLO WORLD!</p>
-          <p>HELLO WORLD!</p>
-          <p>HELLO WORLD!</p>
-          <p>HELLO WORLD!</p>
-          <p>HELLO WORLD!</p>
-          <p>HELLO WORLD!</p>
-          <p>HELLO WORLD!</p>
+          />
         </div>
       )
     }

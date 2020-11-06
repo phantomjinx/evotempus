@@ -15,23 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var mongoose = require('mongoose');
+// modules =================================================
+const fs = require("fs");
+const path = require("path");
+const wiki = require("wikijs").default;
 
-var Schema = mongoose.Schema;
-
-var SubjectSchema = new Schema({
-    _id: {type: String, required: true},
-    name: String,
-    kind: {type: String, enum: ['Fauna', 'Flora', 'Event']},
-    category: String,
-    link: String,
-    from: Number,
-    to:   Number,
-    icon: String
-},
-{ versionKey: 'version' });
-
-// define our subject model
-module.exports = {
-  Subject: mongoose.model('Subject', SubjectSchema)
-};
+wiki()
+    .page('Proterozoic')
+    .then(page => page.summary())
+    .then(summary => console.log(summary));

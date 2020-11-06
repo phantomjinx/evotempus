@@ -4,6 +4,7 @@ import './App.scss';
 import Wiki from './Wiki.js';
 import IntervalVisual from './IntervalVisual.js';
 import SubjectVisual from './SubjectVisual.js';
+import * as common from './common';
 
 class App extends React.Component {
 
@@ -45,7 +46,7 @@ class App extends React.Component {
               </div>
               <div className="subject-visual">
                 <SubjectVisual
-                  width="400" height="800"
+                  width="1200" height="400"
                   interval={this.state.interval}
                   onSelectedSubjectChange={this.handleSubjectChange}
                 />
@@ -60,7 +61,7 @@ class App extends React.Component {
         </main>
         <footer className="footer">
           <p id="app-footer-copyright">
-            &copy; P. G. Richardson 2020 - Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL 3.0 or later</a>
+            &copy; P. G. Richardson {common.present(2030)} - Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL 3.0 or later</a>
           </p>
           <a id="app-footer-logo" href="https://en.wikipedia.org/wiki/Geologic_time_scale"
             target="_blank" rel="noopener noreferrer">

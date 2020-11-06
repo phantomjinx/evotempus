@@ -8,9 +8,19 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
   font-family: firasans;
   background-color: white;
 
+  .disappear {
+    opacity: 0;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transition: opacity 0.5s 0.5s;
+  }
+
   #wiki-header {
     flex: 0 1 auto;
     display: flex;
+    direction: rtl;
     border-bottom: solid;
     border-color: lightgray;
     border-width: thin;
@@ -26,27 +36,27 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     }
 
     #wiki-header-title {
-      flex: 1 1 auto;
+      flex: 0 1 auto;
       font-weight: bold;
       margin-left: 0.7em;
       margin-top: 0.2em;
       margin-right: 0.25em;
     }
 
+    #wiki-header-dates {
+      flex: 1 1 auto;
+      font-weight: bold;
+      margin-top: 0.2em;
+      margin-right: 0.2em;
+    }
+
     #ma-defn {
       flex: 0 1 auto;
       font-style: italic;
       font-size: 10pt;
-      margin-top: 1.25em;
+      margin-top: 1em;
       margin-right: 0.75em;
       margin-bottom: 0;
-    }
-
-    #wiki-header-dates {
-      flex: 0 1 auto;
-      font-weight: bold;
-      margin-top: 0.2em;
-      margin-right: 0.2em;
     }
 
     #wiki-header-logo {
@@ -74,13 +84,14 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
       #wiki-loading {
         display: flex;
         justify-content: center;
-        margin-top: auto;
-        margin-bottom: auto;
+        margin-top: 0.7em;
       }
 
-      p {
-        margin-right: 0.2em;
-        margin-block-start: 0;
+      #wiki-text {
+        p {
+          margin-right: 0.2em;
+          margin-block-start: 0;
+        }
       }
     }
   }

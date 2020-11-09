@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   handleSubjectChange(subject) {
-    console.log("Subject: ", subject ? subject.id : "none")
+    console.log("Subject: ", subject ? subject.id : "none");
     // this.setState({ interval: interval });
   }
 

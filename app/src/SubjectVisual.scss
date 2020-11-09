@@ -1,6 +1,7 @@
 $max-height: 65vh;
 $font: 10pt firasans;
 $bg-border-color: #ab8dcc;
+$tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
 .subject-visual-loading {
   display: flex;
@@ -9,7 +10,20 @@ $bg-border-color: #ab8dcc;
 }
 
 .subject-visual-component {
+  display: flex;
+  justify-content: center;
   margin-top: 1em;
+
+  .subject-visual-nocontent {
+    font-weight: bold;
+    border-radius: 1em;
+    border: 0.15em solid #000;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-top: 5em;
+    box-shadow: $tile-shadow;
+    background-color: #fffbdc;
+  }
 
   #subject-visual-component-svg {
     font: $font;

@@ -233,6 +233,7 @@ class IntervalSunburst extends React.Component {
         return t => d.current = i(t);
       })
       .attr("fill-opacity", d => this.arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0)
+      .attr("stroke-opacity", d => this.arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0)
       .attrTween("d", d => () => this.arc(d.current));
 
     this.labels.transition(t)
@@ -391,6 +392,9 @@ class IntervalSunburst extends React.Component {
       .join("path")
       .attr("fill", d => { return "url(#gradient-" + d.id + ")" })
       .attr("fill-opacity", d => this.arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
+      .attr("stroke", "#4d4d4d")
+      .attr("stroke-width", "1")
+      .attr("stroke-opacity", d => this.arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
       .attr("d", d => this.arc(d.current))
       .on("click", this.handleClick);
 
@@ -403,7 +407,7 @@ class IntervalSunburst extends React.Component {
     //
     this.paths.append("title")
       .text(d => {
-        return d.data.name + "\n" + common.displayYear(d.from) + "  to  " + common.displayYear(d.to);
+        return d.data.name + "\n" + common.displayYear(d.data.from) + "  to  " + common.displayYear(d.data.to);
       });
 
     //

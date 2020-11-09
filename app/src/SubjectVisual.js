@@ -116,12 +116,6 @@ export default class SubjectVisual extends React.Component {
       );
     }
 
-    if (! this.state.subjects || this.state.subjects.length === 0) {
-      return (
-        <div>Nothing Selected - TODO!</div>
-      )
-    }
-
     if (this.state.error) {
       return (
         <ErrorMsg error = {this.state.error} errorMsg = {this.state.errorMsg}/>
@@ -316,6 +310,10 @@ class SubjectSwimLane extends React.Component {
   // successfully retrieved from the database
   //
   renderSwimlanes(props) {
+    if (! props.interval) {
+      return;
+    }
+
     this.chartData = this.chartify(props.interval, props.subjects);
     console.log(this.chartData);
 
@@ -439,22 +437,30 @@ class SubjectSwimLane extends React.Component {
   }
 
   render() {
-    if (!this.props.subjects || this.props.subjects.length === 0) {
+    if (! this.props.interval) {
       return (
-        <div className="subject-visual-component">
-          HELLO
-        </div>
+        <div className="subject-visual-component"/>
       )
-    } else {
+    }
+
+    if (! this.props.subjects || this.props.subjects.length === 0) {
       return (
         <div className="subject-visual-component">
-          <svg
-            id = { this.svgId }
-            viewBox = {"0 0 " + this.props.width + " " + this.props.height}
-            preserveAspectRatio="xMidYMid meet"
-          />
+          <div className="subject-visual-nocontent">
+            <p>No content available for the {this.props.interval.name} {this.props.interval.kind}</p>
+          </div>
         </div>
       )
     }
+
+    return (
+      <div className="subject-visual-component">
+        <svg
+          id = { this.svgId }
+          viewBox = {"0 0 " + this.props.width + " " + this.props.height}
+          preserveAspectRatio="xMidYMid meet"
+        />
+      </div>
+    )
   }
 }

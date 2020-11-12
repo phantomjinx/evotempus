@@ -15,33 +15,33 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-#SUBJECT                 | KIND      | CATEGORY             | FROM         | TO
-paleolithic              | Event     | Archaeological Age   | -3300000     | -11700
-mezolithic               | Event     | Archaeological Age   | -11500       | -8000
-neolithic                | Event     | Archaeological Age   | -10200       | -1700
-bronze-age               | Event     | Archaeological Age   | -3200        | -600
-iron-age                 | Event     | Archaeological Age   | -1200        | 800
-stone-henge              | Event     | Historical Feature   | -3100        | -1600
-great-dying              | Event     | Extinction Event     | -251941000   | -251880000
-huronian-glaciation      | Event     | UK Geological Period | -24000000000 | -2100000000
-cromerian-stage          | Event     | UK Geological Period | -800000      | -500000
-anglian-stage            | Event     | UK Geological Period | -478000      | -424000
-hoxnian-stage            | Event     | UK Geological Period | -424000      | -374000
-wolstonian-stage         | Event     | UK Geological Period | -352000      | -130000
-ipswichian-stage         | Event     | UK Geological Period | -130000      | -115000
-last-glacial-period      | Event     | UK Geological Period | -115000      | -11700
-homo-neanderthalensis    | Fauna     | Human Development    | -800000      | -40000
-homo-sapien              | Fauna     | Human Development    | -300000      | 2000
-late-devonian-extinction | Event     | Extinction Event     | -376000000   | -358900000
-charnia                  | Flora     | Early Plant Life     | -570000000   | -550000000
-tyrannosaurus            | Fauna     | Dinosaurs            | -68000000    | -66000000
-tarbosaurus              | Fauna     | Dinosaurs            | -70000000    | -66000000
-struthiomimus            | Fauna     | Dinosaurs            | -75000000    | -66000000
-rajasaurus               | Fauna     | Dinosaurs            | -69000000    | -69000000
-rahiolisaurus            | Fauna     | Dinosaurs            | -72100000    | -66000000
-ornithomimus             | Fauna     | Dinosaurs            | -75500000    | -66000000
-gallimimus               | Fauna     | Dinosaurs            | -70000000    | -70000000
-albertosaurus            | Fauna     | Dinosaurs            | -71000000    | -68000000
-protoceratops            | Fauna     | Dinosaurs            | -83500000    | -70600000
-triceratops              | Fauna     | Dinosaurs            | -68000000    | -66000000
-dreadnoughtus            | Fauna     | Dinosaurs            | -86300000    | -66000000
+#SUBJECT                 | KIND      | CATEGORY             | FROM         | TO           | LINK ID
+paleolithic              | Event     | Archaeological Age   | -3300000     | -11700       | Paleolithic
+mezolithic               | Event     | Archaeological Age   | -11500       | -8000        | Mezolithic
+neolithic                | Event     | Archaeological Age   | -10200       | -1700        | Neolithic
+bronze-age               | Event     | Archaeological Age   | -3200        | -600         | Bronze_Age
+iron-age                 | Event     | Archaeological Age   | -1200        | 800          | Iron_Age
+stone-henge              | Event     | Historical Feature   | -3100        | -1600        | Stonehenge
+great-dying              | Event     | Extinction Event     | -251941000   | -251880000   | Permian–Triassic_extinction_event
+huronian-glaciation      | Event     | UK Geological Period | -2400000000  | -2100000000  | Huronian_glaciation
+cromerian-stage          | Event     | UK Geological Period | -800000      | -500000      | Cromerian_Stage
+anglian-stage            | Event     | UK Geological Period | -478000      | -424000      | Anglian_Stage
+hoxnian-stage            | Event     | UK Geological Period | -424000      | -374000      | Hoxnian_Stage
+wolstonian-stage         | Event     | UK Geological Period | -352000      | -130000      | Wolstonian_Stage
+ipswichian-stage         | Event     | UK Geological Period | -130000      | -115000      | Eemian
+last-glacial-period      | Event     | UK Geological Period | -115000      | -11700       | Last_Glacial_Period
+homo-neanderthalensis    | Fauna     | Human Development    | -800000      | -40000       | Neanderthal
+homo-sapien              | Fauna     | Human Development    | -300000      | 2000         | Human
+late-devonian-extinction | Event     | Extinction Event     | -376000000   | -358900000   | Late_Devonian_extinction
+charnia                  | Flora     | Early Plant Life     | -570000000   | -550000000   | Charnia
+tyrannosaurus            | Fauna     | Dinosaurs            | -68000000    | -66000000    | Tyrannosaurus
+tarbosaurus              | Fauna     | Dinosaurs            | -70000000    | -66000000    | Tarbosaurus
+struthiomimus            | Fauna     | Dinosaurs            | -75000000    | -66000000    | Struthiomimus
+rajasaurus               | Fauna     | Dinosaurs            | -69000000    | -69000000    | Rajasaurus
+rahiolisaurus            | Fauna     | Dinosaurs            | -72100000    | -66000000    | Rahiolisaurus
+ornithomimus             | Fauna     | Dinosaurs            | -75500000    | -66000000    | Ornithomimus
+gallimimus               | Fauna     | Dinosaurs            | -70000000    | -70000000    | Gallimimus
+albertosaurus            | Fauna     | Dinosaurs            | -71000000    | -68000000    | Albertosaurus
+protoceratops            | Fauna     | Dinosaurs            | -83500000    | -70600000    | Protoceratops
+triceratops              | Fauna     | Dinosaurs            | -68000000    | -66000000    | Triceratops
+dreadnoughtus            | Fauna     | Dinosaurs            | -86300000    | -66000000    | Dreadnoughtus

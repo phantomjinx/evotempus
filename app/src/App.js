@@ -14,15 +14,27 @@ class App extends React.Component {
     this.state = { interval: null };
 
     this.handleIntervalChange = this.handleIntervalChange.bind(this);
+    this.handleSubjectChange = this.handleSubjectChange.bind(this);
   }
 
   handleIntervalChange(interval) {
-    this.setState({ interval: interval });
+    this.setState({
+      interval: interval,
+      selected: {
+        type: 'interval',
+        item: interval
+      }
+    });
   }
 
   handleSubjectChange(subject) {
-    console.log("Subject: ", subject ? subject.id : "none");
-    // this.setState({ interval: interval });
+    console.log("Subject: ", subject ? subject._id : "none");
+    this.setState({
+      selected: {
+        type: 'subject',
+        item: subject
+      }
+    });
   }
 
   render() {
@@ -54,7 +66,7 @@ class App extends React.Component {
             </div>
             <div className="wiki-card">
               <Wiki
-                interval={this.state.interval}
+                topic={this.state.selected}
               />
             </div>
           </div>

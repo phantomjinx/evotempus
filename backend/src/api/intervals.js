@@ -18,18 +18,20 @@
 const express = require('express');
 const router = express.Router();
 const Interval = require('../models/interval').Interval;
-const IntervalDesc = require('../models/intervaldesc').IntervalDesc;
 const mongoose = require('mongoose');
 const path = require('path');
 const wiki = require("wikijs").default;
+const topic = require('./topics');
+const loggerUtils = require('../logger');
+const logger = loggerUtils.logger;
 
 // intervals api route
 router.get('/', (req, res) => {
   Interval.find()
     .then(intervals => res.json(intervals))
     .catch(err => {
-      console.log(err);
-      res.send(err);
+      logger.error("Failed to find any intervals", err);
+      res.status(500).send(err);
     });
 });
 
@@ -38,64 +40,8 @@ router.get('/:intervalId', (req, res) => {
     { _id: req.params.intervalId }
   ).then(intervals => res.json(intervals))
    .catch(err => {
-     console.log(err);
-     res.send(err);
-  });
-});
-
-router.get('/description/:intervalId', (req, res) => {
-  IntervalDesc.findOne(
-    { interval: req.params.intervalId }
-  )
-  .then(intervalDesc => {
-    if (intervalDesc == null) {
-      res.send("Error: No interval with id found");
-      return;
-    }
-
-    if (intervalDesc.description && intervalDesc.description.length > 0) {
-      console.log("Returning cached copy of summary");
-      res.json(intervalDesc);
-      return;
-    }
-
-    console.log("Fetching summary for the first time");
-    wiki()
-    .page(intervalDesc.linkId)
-      .then(page => page.summary())
-        .then(summary => {
-          intervalDesc.description = summary;
-          res.json(intervalDesc);
-
-          //
-          // Cache the description in the database
-          //
-          IntervalDesc.findByIdAndUpdate(
-            { _id: intervalDesc._id },
-            { "$set": { description : intervalDesc.description } },
-            { upsert: true, new: true}
-          ).then((desc, err) => {
-            console.log("Updated description");
-            if (err) {
-              console.error("ERROR: Trying to findByIdAndUpdate interval description with %s: %s", intervalDesc._id, err);
-              return;
-            }
-
-            console.log(desc);
-
-          }).catch((err) => {
-            console.error(err);
-          });
-
-        })
-      .catch(err => {
-        console.log(err);
-        res.send(err);
-      });
-  })
-  .catch(err => {
-    console.log(err);
-    res.send(err);
+     logger.error("Failed to find interval id %s", req.params.intervalId, err);
+     res.status(500).send(err);
   });
 });
 
@@ -112,14 +58,18 @@ router.get('/:parentId/children', (req, res) => {
     ).then(children => {
       res.json(children);
     }).catch(err => {
-      console.log(err);
-      res.send(err);
+      logger.error("Failed to find any children for interval %s", req.params.parentId, err);
+      res.status(500).send(err);
     });
 
   }).catch(err => {
-      console.log(err);
-      res.send(err);
+      logger.error(err);
+      res.status(500).send(err);
     });
+});
+
+router.get('/description/:intervalId', (req, res) => {
+  topic.description(res, 'Interval', req.params.intervalId);
 });
 
 module.exports = router;

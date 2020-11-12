@@ -2,6 +2,7 @@
 
 module.exports = {
     intervals: 'data/intervals.dat',
-    intervalDesc: 'data/intervaldesc.dat',
-    subjects:  'data/subjects.dat'
+    intervalTopics: 'data/interval-topics.dat',
+    subjects:  'data/subjects.dat',
+    subjectTopics: 'data/subject-topics.dat',
 };

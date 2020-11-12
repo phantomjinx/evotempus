@@ -18,10 +18,10 @@ export function intervals() {
   });
 }
 
-export function description(intervalId) {
+export function description(topicType, topicId) {
   return instance({
     'method':'GET',
-    'url':'/api/intervals/description/' + intervalId,
+    'url':'/api/' + topicType + 's/description/' + topicId,
     'params': {
       'outputsize':'compact',
       'datatype':'json'

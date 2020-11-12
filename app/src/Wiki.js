@@ -34,8 +34,9 @@ export default class Wiki extends React.Component {
   }
 
   fetchDescription() {
-    const interval = this.props.interval;
-    if (!interval) {
+    const topic = this.props.topic;
+    console.log(topic);
+    if (!topic) {
       this.setState({
         loading: false,
         error: null,
@@ -51,7 +52,7 @@ export default class Wiki extends React.Component {
       errorMsg: ''
     });
 
-    api.description(interval._id)
+    api.description(topic.type, topic.item._id)
       .then((res) => {
         if (!res.data || res.data.length === 0) {
           this.logErrorState("Description cannot be displayed", new Error("No description could be loaded."));
@@ -63,7 +64,7 @@ export default class Wiki extends React.Component {
           })
         }
       }).catch((err) => {
-        this.logErrorState("Failed to fetch interval data", err);
+        this.logErrorState("Failed to fetch description", err);
       });
   }
 
@@ -72,17 +73,29 @@ export default class Wiki extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.interval !== prevProps.interval) {
+    if (this.props.topic !== prevProps.topic) {
       this.fetchDescription();
     }
   }
 
   displayDefn() {
-    if (Math.abs(this.props.interval.from) > common.million || Math.abs(this.props.interval.to) > common.million) {
+    if (! this.props.topic) {
+      return "";
+    }
+
+    if (Math.abs(this.props.topic.item.from) > common.million || Math.abs(this.props.topic.item.to) > common.million) {
       return this.state.maDefn;
     }
 
     return "";
+  }
+
+  displayDates() {
+    if (! this.props.topic) {
+      return "";
+    }
+
+    return "from " + common.present(this.props.topic.item.from) + " to " + common.present(this.props.topic.item.to);
   }
 
   render() {
@@ -92,6 +105,15 @@ export default class Wiki extends React.Component {
         target="_blank" rel="noopener noreferrer">
         <img src="/geologic-clock.png" alt="geo-clock"/>
       </a>
+    )
+
+    const header = (
+      <div id="wiki-header">
+        {headerLogo}
+        <p id="ma-defn" className="fade-in" dangerouslySetInnerHTML={{__html: this.displayDefn()}}/>
+        <h3 id="wiki-header-dates" className="fade-in">{this.displayDates()}</h3>
+        <h3 id="wiki-header-title" className="fade-in">{this.props.topic ? this.props.topic.item.name : ""}</h3>
+      </div>
     )
 
     const footer = (
@@ -128,9 +150,7 @@ export default class Wiki extends React.Component {
     if (this.state.error) {
       return (
         <div id="wiki-article">
-          <div id="wiki-header">
-            {headerLogo}
-          </div>
+          {header}
           <div id="wiki-main">
             <div id="wiki-main-inner">
               <div id="wiki-loading" className="disappear"/>
@@ -144,15 +164,10 @@ export default class Wiki extends React.Component {
       );
     }
 
-    if (this.props.interval) {
+    if (this.props.topic) {
       return (
         <div id="wiki-article">
-          <div id="wiki-header">
-            {headerLogo}
-            <p id="ma-defn" className="fade-in" dangerouslySetInnerHTML={{__html: this.displayDefn()}}/>
-            <h3 id="wiki-header-dates" className="fade-in">from {common.present(this.props.interval.from)} to {common.present(this.props.interval.to)}</h3>
-            <h3 id="wiki-header-title" className="fade-in">{this.props.interval.name}</h3>
-          </div>
+          {header}
           <div id="wiki-main">
             <div id="wiki-main-inner">
               <div id="wiki-loading" className="disappear"/>

@@ -337,7 +337,7 @@ class IntervalSunburst extends React.Component {
     const segmentGrads = defs.selectAll("redialGradient")
       .data(rootDescendents)
       .enter().append("radialGradient")
-      .attr("id", d => { return "gradient-" + d.id; })
+      .attr("id", d => "gradient-" + d.id)
       .attr("cx", "30%")
 	    .attr("cy", "30%")
 	    .attr("r", "75%");
@@ -390,7 +390,7 @@ class IntervalSunburst extends React.Component {
       .selectAll("path")
       .data(rootDescendents)
       .join("path")
-      .attr("fill", d => { return "url(#gradient-" + d.id + ")" })
+      .attr("fill", d => "url(#gradient-" + d.id + ")")
       .attr("fill-opacity", d => this.arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
       .attr("stroke", "#4d4d4d")
       .attr("stroke-width", "1")

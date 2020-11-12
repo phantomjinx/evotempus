@@ -66,7 +66,6 @@ export default class SubjectVisual extends React.Component {
     })
 
     if (this.props.interval == null) {
-      console.log("No interval selected");
       this.setState({
         loading: false,
         subjects: []
@@ -143,7 +142,7 @@ class SubjectSwimLane extends React.Component {
     this.svgId = 'subject-visual-component-svg';
 
     // This binding is necessary to make `this` work in the callback
-    // this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -230,6 +229,11 @@ class SubjectSwimLane extends React.Component {
       })
       .forEach((subject, i) => {
         //
+        // Preserve original datum for export from component
+        //
+        subject.current = Object.assign({}, subject);
+
+        //
         // Limit subject from to value of interval from
         //
         subject.limitFrom = (subject.from < interval.from) ? interval.from : subject.from;
@@ -294,6 +298,18 @@ class SubjectSwimLane extends React.Component {
   }
 
   //
+  // Click function for selection
+  //
+  handleClick(event, d) {
+    if (!d) {
+      return;
+    }
+
+    this.selected = d;
+    this.props.onSelectedSubjectChange(this.selected.current);
+  }
+
+  //
   // Calculate the width of the subject's timeline bar
   // using the passed-in xfn that governs the conversion
   // from actual year to point on the x-scale
@@ -315,7 +331,6 @@ class SubjectSwimLane extends React.Component {
     }
 
     this.chartData = this.chartify(props.interval, props.subjects);
-    console.log(this.chartData);
 
     const margin = {top: 20, right: 30, bottom: 15, left: 80};
     const width = props.width - margin.left - margin.right;
@@ -347,14 +362,14 @@ class SubjectSwimLane extends React.Component {
       .domain([props.interval.from, props.interval.to]).nice()
       .range([0, width]);
 
-    const yExt = d3Extent(this.chartData.lanes, d => { return d.id; });
+    const yExt = d3Extent(this.chartData.lanes, d => d.id);
     const y = d3ScaleLinear()
       .domain([yExt[0], yExt[1] + 1])
       .range([0, height]);
 
     // draw the x axis
     const xDateAxis = d3AxisTop(x)
-	    .tickFormat(d => { return common.displayYear(d) });
+	    .tickFormat(d => common.displayYear(d));
       // .tickValues([props.interval.from, 0, props.interval.to]);
 
     this.gchart.append('g')
@@ -368,17 +383,17 @@ class SubjectSwimLane extends React.Component {
       .enter()
       .append('line')
       .attr('x1', 0)
-      .attr('y1', d => { return d3Format(".1f")((y(d.id)) + 0.5); })
+      .attr('y1', d => d3Format(".1f")((y(d.id)) + 0.5))
       .attr('x2', width)
-      .attr('y2', d => { return d3Format(".1f")((y(d.id)) + 0.5); })
-      .attr('stroke', d => { return d.headerLane ? 'black' : 'lightgray' });
+      .attr('y2', d => d3Format(".1f")((y(d.id)) + 0.5))
+      .attr('stroke', d => d.headerLane ? 'black' : 'lightgray');
 
     // draw the lane text
     this.gchart.append('g')
       .selectAll('.laneText')
       .data(this.chartData.headers)
       .enter().append('text')
-      .text(d => { return d.name; })
+      .text(d => d.name)
       .attr('text-anchor', 'end')
       .attr('class', 'laneText')
       .attr('x', -10)
@@ -397,14 +412,14 @@ class SubjectSwimLane extends React.Component {
       .enter().append('rect')
       .attr('class', 'laneBackground')
       .attr('x', 0)
-      .attr('y', d => { return d3Format(".1f")((y(d.headerStartsIdx)) + 0.5); })
+      .attr('y', d => d3Format(".1f")((y(d.headerStartsIdx)) + 0.5))
       .attr('width', width)
       .attr('height', d => {
         const y1 = d3Format(".1f")((y(d.headerStartsIdx)) + 0.5);
         const yn = d3Format(".1f")((y(d.headerStartsIdx + d.lanes)) + 0.5);
         return yn - y1;
       })
-      .attr('fill', d => { return laneColorCycle(d.name); })
+      .attr('fill', d => laneColorCycle(d.name))
       .attr('fill-opacity', 0.3);
 
     // Add the data items
@@ -417,23 +432,35 @@ class SubjectSwimLane extends React.Component {
         const shape = w < minFraction ? 'circle' : 'rect';
         return document.createElementNS(d3Namespaces.svg, shape);
       })
-      .attr('cx', d => { return parseFloat(d3Format(".1f")(x(d.limitFrom))) + parseFloat(minFraction / 2) })
-      .attr('cy', d => { return parseFloat(d3Format(".1f")((y(d.laneId)) + 0.5)) + parseFloat(LANE_HEIGHT / 2) })
-      .attr('r', d => { return (minFraction / 2) })
-      .attr('x', d => { return d3Format(".1f")(x(d.limitFrom)) })
-      .attr('y', d => { return d3Format(".1f")((y(d.laneId)) + 0.5)})
+      .attr('id', d => "subject-" + d._id)
+      .attr('cx', d => parseFloat(d3Format(".1f")(x(d.limitFrom))) + parseFloat(minFraction / 2))
+      .attr('cy', d => parseFloat(d3Format(".1f")((y(d.laneId)) + 0.5)) + parseFloat(LANE_HEIGHT / 2))
+      .attr('r', d => (minFraction / 1.5))
+      .attr('x', d => d3Format(".1f")(x(d.limitFrom)))
+      .attr('y', d => d3Format(".1f")((y(d.laneId)) + 0.5))
       .attr('width', d => {
         const w = this.calcWidth(d, x);
         return w < 1 ? 1 : w;
       })
       .attr('height', LANE_HEIGHT)
-      .style('fill', d => { return subjectColorCycle(d.category); });
+      .style('fill', d => subjectColorCycle(d.category))
+      .on("click", this.handleClick)
+      .on("mouseover", (event, datum) => {
+        const d = d3Select("#" + event.target.id);
+        if (d) {
+          d.classed('subject-hover', true);
+        }
+      })
+      .on("mouseout", (event, datum) => {
+        const d = d3Select("#" + event.target.id);
+        if (d) {
+          d.classed('subject-hover', false);
+        }
+      });
 
     // Add the data text labels
     this.subjectItems.append("title")
-      .text(d => {
-        return d.name + "\n" + common.displayYear(d.from) + "  to  " + common.displayYear(d.to);
-      });
+      .text(d => d.name + "\n" + common.displayYear(d.from) + "  to  " + common.displayYear(d.to));
   }
 
   render() {

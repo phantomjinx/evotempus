@@ -26,7 +26,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const Subject = require('./models/subject').Subject;
 const Interval = require('./models/interval').Interval;
-const IntervalDesc = require('./models/intervaldesc').IntervalDesc;
+const Topic = require('./models/topic').Topic;
 const cors = require('cors');
 const loggerUtils = require('./logger');
 const logger = loggerUtils.logger;
@@ -163,31 +163,32 @@ function createInterval(id, kind, from, to, parent, children) {
     });
 }
 
-function createIntervalDesc(intervalId, link, description) {
+function createTopic(id, topicTgt, linkId) {
   //
   // Ensure all whitespace is removed
   //
-  intervalId = intervalId.trim();
-  linkId = link.trim();
+  id = id.trim();
+  topicTgt = topicTgt.trim();
+  linkId = linkId.trim();
 
   //
   // Automatically deduplicates
   //
-  IntervalDesc.findOneAndUpdate(
-    { interval: intervalId },
+  Topic.findOneAndUpdate(
+    { topic: id },
     {
-      "$set": { linkId: linkId, link: link },
-      "$setOnInsert": { interval: intervalId }
+      "$set": { linkId: linkId, topicTarget: topicTgt},
+      "$setOnInsert": { topic: id }
     },
     { upsert: true, new: true}
-  ).then((desc, err) => {
+  ).then((topic, err) => {
     if (err) {
-      logger.error("ERROR: Trying to findByOneAndUpdate interval description with %s: %s", intervalId, err);
+      logger.error("ERROR: Trying to findByOneAndUpdate description with %s: %s", id, err);
       return;
     }
 
-    if (!desc) {
-      logger.error("ERROR: Failed to find or create interval description with interval id %s", intervalId);
+    if (!topic) {
+      logger.error("ERROR: Failed to find or create description with id %s", id);
       return;
     }
 
@@ -271,7 +272,7 @@ function importIntervals(file) {
   }
 }
 
-function importIntervalDesc(file) {
+function importTopics(file, topicTarget) {
   logger.debug("Importing interval descrptions from " + file);
 
   var liner = new readlines(file);
@@ -286,7 +287,7 @@ function importIntervalDesc(file) {
 
     var elements = line.split('|');
 
-    createIntervalDesc(elements[0], elements[1], elements[2]);
+    createTopic(elements[0], topicTarget, elements[1]);
   }
 }
 
@@ -304,8 +305,16 @@ function importSubjects(file) {
     }
 
     var elements = line.split('|');
+    const id = elements[0];
+    const kind = elements[1];
+    const category = elements[2];
+    const from = elements[3];
+    const to = elements[4];
+    const linkId = elements[5];
 
-    createSubject(elements[0], elements[1], elements[2], elements[3], elements[4]);
+    createSubject(id, kind, category, from, to);
+
+    createTopic(id, "Subject", linkId);
   }
 }
 
@@ -317,7 +326,7 @@ function importDbData(conn) {
   logger.debug('INFO: Import from data directory');
   // Import the data if required into database
   importIntervals(path.resolve(__dirname, '..', dbConfig.intervals));
-  importIntervalDesc(path.resolve(__dirname, '..', dbConfig.intervalDesc));
+  importTopics(path.resolve(__dirname, '..', dbConfig.intervalTopics), "Interval");
   importSubjects(path.resolve(__dirname, '..', dbConfig.subjects));
 }
 
@@ -351,6 +360,9 @@ function init() {
 
   const subjects = require('./api/subjects');
   app.use('/api/subjects', subjects);
+
+  const topics = require('./api/topics');
+  app.use('/api/topics', topics.router);
 
   // static content
   switch (environment) {

@@ -19,8 +19,17 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var IntervalDescSchema = new Schema({
-    interval: { type: String, ref: 'Interval', index: true },
+var TopicSchema = new Schema({
+    topic: {
+      type: String,
+      refPath: 'topicTarget',
+      index: true
+    },
+    topicTarget: {
+      type: String,
+      required: true,
+      enum: [ 'Interval', 'Subject' ]
+    },
     linkId: String,
     description: String // Empty by default but used to cache data as its queried
 },
@@ -28,5 +37,5 @@ var IntervalDescSchema = new Schema({
 
 // define our interval descrption model
 module.exports = {
-  IntervalDesc: mongoose.model('IntervalDesc', IntervalDescSchema)
+  Topic: mongoose.model('Topic', TopicSchema)
 };

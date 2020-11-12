@@ -1,0 +1,197 @@
+#
+# Copyright (C) 2020 Paul G. Richardson
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+#ID                      | LINK ID
+geological-timescale     | Geologic_time_scale
+precambrian              | Precambrian
+hadean                   | Hadean
+archean                  | Archean
+proterozoic              | Proterozoic
+phanerozoic              | Phanerozoic
+eoarchean                | Eoarchean
+paleoarchean             | Paleoarchean
+mesoarchean              | Mesoarchean
+neoarchean               | Neoarchean
+paleoproterozoic         | Paleoproterozoic
+mesoproterozoic          | Mesoproterozoic
+neoproterozoic           | Neoproterozoic
+paleozoic                | Paleozoic
+mesozoic                 | Mesozoic
+cenozoic                 | Cenozoic
+siderian                 | Siderian
+rhyacian                 | Rhyacian
+orosirian                | Orosirian
+statherian               | Statherian
+calymmian                | Calymmian
+ectasian                 | Ectasian
+stenian                  | Stenian
+tonian                   | Tonian
+cryogenian               | Cryogenian
+ediacaran                | Ediacaran
+cambrian                 | Cambrian
+ordovician               | Ordovician
+silurian                 | Silurian
+devonian                 | Devonian
+carboniferous            | Carboniferous
+permian                  | Permian
+triassic                 | Triassic
+jurassic                 | Jurassic
+cretaceous               | Cretaceous
+paleogene                | Paleogene
+neogene                  | Neogene
+quarternary              | Quarternary
+mississippian            | Mississippian_(geology)
+pennsylvanian            | Pennsylvanian_(geology)
+cambrian-series-2        | Cambrian_Series_2
+terreneuvian             | Terreneuvian
+miaolingian              | Miaolingian
+furongian                | Furongian
+early-ordovician         | Ordovician#Subdivisions
+middle-ordovician        | Ordovician#Subdivisions
+late-ordovician          | Ordovician#Subdivisions
+llandovery               | Silurian#Subdivisions
+wenlock                  | Silurian#Subdivisions
+ludlow                   | Silurian#Subdivisions
+pridoli                  | Pridoli
+lower-devonian           | Devonian#subdivisions
+middle-devonian          | Devonian#subdivisions
+upper-devonian           | Devonian#subdivisions
+lower-mississippian      | Mississippian_(geology)#Subdivisions
+middle-mississippian     | Mississippian_(geology)#Subdivisions
+upper-mississippian      | Mississippian_(geology)#Subdivisions
+lower-pennsylvanian      | Pennsylvanian_(geology)#Subdivisions
+middle-pennsylvanian     | Pennsylvanian_(geology)#Subdivisions
+upper-pennsylvanian      | Pennsylvanian_(geology)#Subdivisions
+cisuralian               | Cisuralian
+guadalupian              | Guadalupian
+lopingian                | Lopingian
+lower-triassic           | Early_Triassic
+middle-triassic          | Middle-triassic
+upper-triassic           | Late_Triassic
+lower-jurassic           | Early_Jurassic
+middle-jurassic          | Middle_Jurassic
+upper-jurassic           | Late_Jurassic
+early-cretaceous         | Early_Cretaceous
+late-cretaceous          | Late_Cretaceous
+paleocene                | Paleocene
+eocene                   | Eocene
+oligocene                | Oligocene
+miocene                  | Miocene
+pliocene                 | Pliocene
+pleistocene              | Pleistocene
+holocene                 | Holocene
+fortunian                | Fortunian
+stage-2                  | Cambrian_Stage_2
+stage-3                  | Cambrian_Stage_3
+stage-4                  | Cambrian_Stage_4
+wuliuan                  | Wuliuan
+drumian                  | Drumian
+guzhangian               | Guzhangian
+paibian                  | Paibian
+jiangshanian             | Jiangshanian
+stage-10                 | Cambrian_Stage_10
+tremadocian              | Tremadocian
+floian                   | Floian
+dapingian                | Dapingian
+darriwilian              | Darriwilian
+sandbian                 | Sandbian
+katian                   | Katian
+hirnantian               | Hirnantian
+rhuddanian               | Rhuddanian
+aeronian                 | Aeronian
+telychian                | Telychian
+sheinwoodian             | Sheinwoodian
+homerian                 | Homerian
+gorstian                 | Gorstian
+ludfordian               | Ludfordian
+lochkovian               | Lochkovian
+pragian                  | Pragian
+emsian                   | Emsian
+eifelian                 | Eifelian
+givetian                 | Givetian
+frasnian                 | Frasnian
+fammenian                | Fammenian
+tournaisian              | Tournaisian
+visean                   | Visean
+serpukhovian             | Serpukhovian
+bashkirian               | Bashkirian
+mosocovian               | Moscovian_(Carboniferous
+kasimovian               | Kasimovian
+gzhelian                 | Gzhelian
+asselian                 | Asselian
+sakmarian                | Sakmarian
+artinskian               | Artinskian
+kungurian                | Kungurian
+roadian                  | Roadian
+wordian                  | Wordian
+capitanian               | Capitanian
+wuchiapingian            | Wuchiapingian
+changhsingian            | Changhsingian
+induan                   | Induan
+olenekian                | Olenekian
+anisian                  | Anisian
+ladinian                 | Ladinian
+carnian                  | Carnian
+norian                   | Norian
+rhaetian                 | Rhaetian
+hettangian               | Hettangian
+sinemurian               | Sinemurian
+pliensbachian            | Pliensbachian
+toarchian                | Toarchian
+aalenian                 | Aalenian
+bajocian                 | Bajocian
+bathonian                | Bathonian
+callovian                | Callovian
+oxfordian                | Oxfordian_(stage
+kimmeridgian             | Kimmeridgian
+tithonian                | Tithonian
+berriasian               | Berriasian
+valanginian              | Valanginian
+hauterivian              | Hauterivian
+barremian                | Barremian
+aptian                   | Aptian
+albian                   | Albian
+cenomanian               | Cenomanian
+turonian                 | Turonian
+coniacian                | Coniacian
+santonian                | Santonian
+campanian                | Campanian
+maastrichtian            | Maastrichtian
+danian                   | Danian
+selandian                | Selandian
+thanetian                | Thanetian
+ypresian                 | Ypresian
+lutetian                 | Lutetian
+bartonian                | Bartonian
+priabonian               | Priabonian
+rupelian                 | Rupelian
+chattian                 | Chattian
+aquitanian               | Aquitanian_(stage
+burdigalian              | Burdigalian
+langhian                 | Langhian
+serravallian             | Serravallian
+tortonian                | Tortonian
+messinian                | Messinian
+zanclean                 | Zanclean
+piacenzian               | Piacenzian
+gelasian                 | Gelasian
+calabrian                | Calabrian_(stage
+chibanian                | Chibanian
+upper-pleistocene        | Late_Pleistocene
+greenlandian             | Greenlandian
+northgrippian            | Northgrippian
+meghalayan               | Meghalayan

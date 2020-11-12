@@ -20,6 +20,7 @@ const router = express.Router();
 const Subject = require('../models/subject').Subject;
 const mongoose = require('mongoose');
 const path = require('path');
+const topic = require('./topics');
 
 // subjects api route
 router.get('/', (req, res) => {
@@ -44,7 +45,7 @@ router.get('/', (req, res) => {
     .then(subjects => res.json(subjects))
     .catch(err => {
       console.log(err);
-      res.send(err);
+      res.status(500).send(err);
     });
 });
 
@@ -54,8 +55,12 @@ router.get('/:subjectId', (req, res) => {
     ).then(subjects => res.json(subjects))
     .catch(err => {
       console.log(err);
-      res.send(err);
+      res.status(500).send(err);
     });
+});
+
+router.get('/description/:subjectId', (req, res) => {
+  topic.description(res, 'Subject', req.params.subjectId);
 });
 
 module.exports = router;

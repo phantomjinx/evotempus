@@ -35,7 +35,6 @@ export default class Wiki extends React.Component {
 
   fetchDescription() {
     const topic = this.props.topic;
-    console.log(topic);
     if (!topic) {
       this.setState({
         loading: false,

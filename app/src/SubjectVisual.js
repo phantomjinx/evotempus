@@ -132,8 +132,6 @@ export default class SubjectVisual extends React.Component {
   }
 }
 
-const LANE_HEIGHT = 25;
-
 class SubjectSwimLane extends React.Component {
 
   constructor(props) {
@@ -161,6 +159,7 @@ class SubjectSwimLane extends React.Component {
       lanes[laneId] = [];
     }
 
+    const buffer = Math.abs(0.1 * Math.max(subject.limitFrom, subject.limitTo));
     //
     // Find the index of a lane where the subject does not overlap
     //
@@ -171,19 +170,22 @@ class SubjectSwimLane extends React.Component {
       for (let i = 0; i < lane.length; i++) {
         let s = lane[i];
 
-        if (subject.limitTo > s.limitFrom && subject.limitTo <= s.limitTo) {
+        const bufferedFrom = subject.limitFrom - buffer;
+        const bufferedTo = subject.limitTo + buffer;
+
+        if (bufferedTo > s.limitFrom && bufferedFrom <= s.limitTo) {
           // where subject.limitTo falls within s.range
           overlaps = true;
           break;
         }
 
-        if (subject.limitFrom >= s.limitFrom && subject.limitFrom < s.limitTo) {
+        if (bufferedFrom >= s.limitFrom && bufferedFrom < s.limitTo) {
           // where subject.limitFrom falls within s.range
           overlaps = true;
           break;
         }
 
-        if ((subject.limitFrom <= s.limitFrom && subject.limitTo >= s.limitTo)) {
+        if (bufferedFrom <= s.limitFrom && bufferedTo >= s.limitTo) {
           // where subject.range is wider than s.range
           overlaps = true;
           break;
@@ -211,6 +213,7 @@ class SubjectSwimLane extends React.Component {
   }
 
   chartify(interval, rawSubjects) {
+
     //
     // Base object to return results
     //
@@ -310,15 +313,47 @@ class SubjectSwimLane extends React.Component {
   }
 
   //
-  // Calculate the width of the subject's timeline bar
-  // using the passed-in xfn that governs the conversion
-  // from actual year to point on the x-scale
+  // Calculate the X co-ordinate of the subject's timeline bar
+  // using the passed-in xScale that governs the conversion
+  // from actual year to point on the x-scale.
+  // This takes into account subjects whose from date is lower
+  // than tha minimum of the scale's domain (inc. nice()) hence
+  // ensures the bar is pinned accordinly.
   //
-  calcWidth(subject, xfn) {
-    const x1 = d3Format(".1f")(xfn(subject.limitFrom));
-    const x2 = d3Format(".1f")(xfn(subject.limitTo));
-    const w = x2 - x1;
-    return w;
+  calcX(subject, xScale) {
+    const min = xScale.domain()[0];
+    const x1 = subject.from < min ? min : subject.limitFrom;
+
+    return d3Format(".1f")(xScale(x1));
+  }
+
+  //
+  // calculate height from y co-ordinates of this subject(n) & subject(n+1)
+  //
+  calcHeight(subject, yScale) {
+    const m1 = d3Format(".1f")((yScale(subject.laneId)) + 3);
+    const m2 = d3Format(".1f")((yScale(subject.laneId + 1)) - 2);
+    return m2 - m1;
+  }
+
+  //
+  // Calculate the width of the subject's timeline bar
+  // using the passed-in xScale that governs the conversion
+  // from actual year to point on the x-scale.
+  // This takes into account subjects whose range exceeds the
+  // minimum and/or maximum of the scale's domain hence ensures
+  // the bar is pinned accordingly.
+  //
+  calcWidth(subject, xScale) {
+
+    const min = xScale.domain()[0];
+    const max = xScale.domain()[1];
+
+    const x1 = subject.from < min ? min : subject.limitFrom;
+    const x2 = subject.to > max ? max : subject.limitTo;
+
+    const w = d3Format(".1f")(xScale(x2)) - d3Format(".1f")(xScale(x1));
+    return w < 1 ? 1 : w; // Have a minimum of 1 so at least something is visible
   }
 
   //
@@ -330,47 +365,58 @@ class SubjectSwimLane extends React.Component {
       return;
     }
 
-    this.chartData = this.chartify(props.interval, props.subjects);
+    const parentDiv = d3Select('.subject-visual');
+    if (!parentDiv || !parentDiv.node()) {
+      return;
+    }
 
+    const boundingRect = parentDiv.node().getBoundingClientRect();
     const margin = {top: 20, right: 30, bottom: 15, left: 80};
-    const width = props.width - margin.left - margin.right;
-    const height = (this.chartData.lanes.length + 1) * LANE_HEIGHT;
-    const minFraction = parseFloat(width * 0.005);
-
-    const subjectColorCycle = d3ScaleOrdinal(d3SchemeCategory10);
-    const laneColorCycle = d3ScaleOrdinal(d3SchemePastel1);
+    const svgWidth = boundingRect.width - 80;
+    const svgHeight = boundingRect.height - 80;
 
     //
     // Select the existing svg created by the initial render
     //
     this.svg = d3Select('#' + this.svgId);
+    this.svg
+      .attr('viewBox', "0 0 " + svgWidth + " " + svgHeight);
 
-    this.svg.append('defs')
-      .append('clipPath')
-	    .attr('id', 'clip')
-	    .append('rect')
-		  .attr('width', margin.left + width + margin.right)
-		  .attr('height', margin.top + height + margin.bottom);
+    this.width = svgWidth - margin.left - margin.right;
+    this.height = svgHeight - margin.top - margin.bottom;
+    this.minDuration = parseFloat(this.width * 0.005);
+
+    this.chartData = this.chartify(props.interval, props.subjects);
+
+    const laneHeight  = svgHeight / (this.chartData.lanes.length)
+    const subjectColorCycle = d3ScaleOrdinal(d3SchemeCategory10);
+    const laneColorCycle = d3ScaleOrdinal(d3SchemePastel1);
+
+    // this.svg.append('defs')
+    //   .append('clipPath')
+	  //   .attr('id', 'clip')
+	  //   .append('rect')
+		//   .attr('width', margin.left + this.width + margin.right)
+		//   .attr('height', margin.top + this.height + margin.bottom);
 
     this.gchart = this.svg.append("g")
       .attr('transform', "translate(" + margin.left + "," + margin.top + ")")
       .attr('class', "subject-container")
-      .attr('width', width)
-	    .attr('height', height);
+      .attr('width', this.width)
+	    .attr('height', this.height);
 
-    const x = d3ScaleLinear()
+    const xScale = d3ScaleLinear()
       .domain([props.interval.from, props.interval.to]).nice()
-      .range([0, width]);
+      .range([0, this.width]);
 
     const yExt = d3Extent(this.chartData.lanes, d => d.id);
-    const y = d3ScaleLinear()
+    const yScale = d3ScaleLinear()
       .domain([yExt[0], yExt[1] + 1])
-      .range([0, height]);
+      .range([0, this.height]);
 
     // draw the x axis
-    const xDateAxis = d3AxisTop(x)
+    const xDateAxis = d3AxisTop(xScale)
 	    .tickFormat(d => common.displayYear(d));
-      // .tickValues([props.interval.from, 0, props.interval.to]);
 
     this.gchart.append('g')
      .attr("class", "axis")
@@ -383,9 +429,9 @@ class SubjectSwimLane extends React.Component {
       .enter()
       .append('line')
       .attr('x1', 0)
-      .attr('y1', d => d3Format(".1f")((y(d.id)) + 0.5))
-      .attr('x2', width)
-      .attr('y2', d => d3Format(".1f")((y(d.id)) + 0.5))
+      .attr('y1', d => d3Format(".1f")((yScale(d.id)) + 0.5))
+      .attr('x2', this.width)
+      .attr('y2', d => d3Format(".1f")((yScale(d.id)) + 0.5))
       .attr('stroke', d => d.headerLane ? 'black' : 'lightgray');
 
     // draw the lane text
@@ -398,8 +444,8 @@ class SubjectSwimLane extends React.Component {
       .attr('class', 'laneText')
       .attr('x', -10)
       .attr('y', d => {
-        const y1 = d3Format(".1f")((y(d.headerStartsIdx)) + 0.5);
-        const yn = d3Format(".1f")((y(d.headerStartsIdx + (d.lanes / 2))) + 0.5);
+        const y1 = d3Format(".1f")((yScale(d.headerStartsIdx)) + 0.5);
+        const yn = d3Format(".1f")((yScale(d.headerStartsIdx + (d.lanes / 2))) + 0.5);
         const fontHeight = 5;
 
         return parseFloat(yn) + fontHeight;
@@ -412,11 +458,11 @@ class SubjectSwimLane extends React.Component {
       .enter().append('rect')
       .attr('class', 'laneBackground')
       .attr('x', 0)
-      .attr('y', d => d3Format(".1f")((y(d.headerStartsIdx)) + 0.5))
-      .attr('width', width)
+      .attr('y', d => d3Format(".1f")((yScale(d.headerStartsIdx)) + 0.5))
+      .attr('width', this.width)
       .attr('height', d => {
-        const y1 = d3Format(".1f")((y(d.headerStartsIdx)) + 0.5);
-        const yn = d3Format(".1f")((y(d.headerStartsIdx + d.lanes)) + 0.5);
+        const y1 = d3Format(".1f")((yScale(d.headerStartsIdx)) + 0.5);
+        const yn = d3Format(".1f")((yScale(d.headerStartsIdx + d.lanes)) + 0.5);
         return yn - y1;
       })
       .attr('fill', d => laneColorCycle(d.name))
@@ -428,21 +474,19 @@ class SubjectSwimLane extends React.Component {
       .data(this.chartData.subjects)
       .enter()
       .append(d => {
-        const w = this.calcWidth(d, x);
-        const shape = w < minFraction ? 'circle' : 'rect';
+        // const w = this.calcWidth(d, xScale);
+        // const shape = w < minDuration ? 'circle' : 'rect';
+        const shape = 'rect';
         return document.createElementNS(d3Namespaces.svg, shape);
       })
       .attr('id', d => "subject-" + d._id)
-      .attr('cx', d => parseFloat(d3Format(".1f")(x(d.limitFrom))) + parseFloat(minFraction / 2))
-      .attr('cy', d => parseFloat(d3Format(".1f")((y(d.laneId)) + 0.5)) + parseFloat(LANE_HEIGHT / 2))
-      .attr('r', d => (minFraction / 1.5))
-      .attr('x', d => d3Format(".1f")(x(d.limitFrom)))
-      .attr('y', d => d3Format(".1f")((y(d.laneId)) + 0.5))
-      .attr('width', d => {
-        const w = this.calcWidth(d, x);
-        return w < 1 ? 1 : w;
-      })
-      .attr('height', LANE_HEIGHT)
+      .attr('cx', d => parseFloat(d3Format(".1f")(xScale(d.limitFrom))) + parseFloat(this.minDuration / 2))
+      .attr('cy', d => parseFloat(d3Format(".1f")((yScale(d.laneId)) + 0.5)) + parseFloat(laneHeight / 2))
+      .attr('r', d => (this.minDuration / 2))
+      .attr('x', d => this.calcX(d, xScale))
+      .attr('y', d => d3Format(".1f")((yScale(d.laneId)) + 3))
+      .attr('width', d => this.calcWidth(d, xScale))
+      .attr('height', d => this.calcHeight(d, yScale))
       .style('fill', d => subjectColorCycle(d.category))
       .on("click", this.handleClick)
       .on("mouseover", (event, datum) => {
@@ -484,7 +528,6 @@ class SubjectSwimLane extends React.Component {
       <div className="subject-visual-component">
         <svg
           id = { this.svgId }
-          viewBox = {"0 0 " + this.props.width + " " + this.props.height}
           preserveAspectRatio="xMidYMid meet"
         />
       </div>

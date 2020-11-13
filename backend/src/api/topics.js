@@ -59,6 +59,7 @@ const description = (res, type, id) => {
       return;
     }
 
+    logger.debug("Topic linkId: " + topic.linkId);
     wiki()
       .page(topic.linkId)
         .then(page => page.summary())

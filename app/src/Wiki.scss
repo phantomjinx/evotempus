@@ -50,15 +50,6 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
       margin-right: 0.2em;
     }
 
-    #ma-defn {
-      flex: 0 1 auto;
-      font-style: italic;
-      font-size: 10pt;
-      margin-top: 1em;
-      margin-right: 0.75em;
-      margin-bottom: 0;
-    }
-
     #wiki-header-logo {
       flex: 0 1 auto;
 
@@ -98,6 +89,8 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
   #wiki-footer {
     flex: 0 0 0;
+    display: flex;
+    direction: rtl;
     padding-top: 0.1em;
     border-top: solid;
     border-color: lightgray;
@@ -106,7 +99,16 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     margin-right: 0.25em;
     font-size: 9pt;
 
+    #unit-defn {
+      flex: 1 1 auto;
+      text-align: left;
+      margin-left: 1em;
+      margin-top: 0.4em;
+      margin-bottom: 0;
+    }
+
     #link-instruction {
+      flex: 0 1 auto;
       float: right;
       font-style: italic;
       margin-left: 1em;
@@ -115,6 +117,7 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     }
 
     #wiki-footer-logo {
+      flex: 0 1 auto;
       float: right;
       height: 2em;
 

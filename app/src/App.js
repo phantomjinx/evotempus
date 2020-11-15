@@ -29,7 +29,6 @@ class App extends React.Component {
   }
 
   handleSubjectChange(subject) {
-    console.log("Subject: ", subject ? subject._id : "none");
     this.setState({
       selected: {
         type: 'subject',

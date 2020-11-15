@@ -22,7 +22,7 @@ var Schema = mongoose.Schema;
 var SubjectSchema = new Schema({
     _id: {type: String, required: true},
     name: String,
-    kind: {type: String, enum: ['Fauna', 'Flora', 'Event']},
+    kind: {type: String, enum: ['Fauna', 'Flora', 'Geology', 'Event']},
     category: String,
     link: String,
     from: Number,

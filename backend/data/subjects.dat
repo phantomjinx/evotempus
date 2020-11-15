@@ -15,33 +15,41 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-#SUBJECT                 | KIND      | CATEGORY             | FROM         | TO           | LINK ID
-paleolithic              | Event     | Archaeological Age   | -3300000     | -11700       | Paleolithic
-mezolithic               | Event     | Archaeological Age   | -11500       | -8000        | Mezolithic
-neolithic                | Event     | Archaeological Age   | -10200       | -1700        | Neolithic
-bronze-age               | Event     | Archaeological Age   | -3200        | -600         | Bronze_Age
-iron-age                 | Event     | Archaeological Age   | -1200        | 800          | Iron_Age
-stone-henge              | Event     | Historical Feature   | -3100        | -1600        | Stonehenge
-great-dying              | Event     | Extinction Event     | -251941000   | -251880000   | Permian-Triassic_extinction_event
-huronian-glaciation      | Event     | UK Geological Period | -2400000000  | -2100000000  | Huronian_glaciation
-cromerian-stage          | Event     | UK Geological Period | -800000      | -500000      | Cromerian_Stage
-anglian-stage            | Event     | UK Geological Period | -478000      | -424000      | Anglian_Stage
-hoxnian-stage            | Event     | UK Geological Period | -424000      | -374000      | Hoxnian_Stage
-wolstonian-stage         | Event     | UK Geological Period | -352000      | -130000      | Wolstonian_Stage
-ipswichian-stage         | Event     | UK Geological Period | -130000      | -115000      | Eemian
-last-glacial-period      | Event     | UK Geological Period | -115000      | -11700       | Last_Glacial_Period
-homo-neanderthalensis    | Fauna     | Human Development    | -800000      | -40000       | Neanderthal
-homo-sapien              | Fauna     | Human Development    | -300000      | 2000         | Human
-late-devonian-extinction | Event     | Extinction Event     | -376000000   | -358900000   | Late_Devonian_extinction
-charnia                  | Flora     | Early Plant Life     | -570000000   | -550000000   | Charnia
-tyrannosaurus            | Fauna     | Dinosaurs            | -68000000    | -66000000    | Tyrannosaurus
-tarbosaurus              | Fauna     | Dinosaurs            | -70000000    | -66000000    | Tarbosaurus
-struthiomimus            | Fauna     | Dinosaurs            | -75000000    | -66000000    | Struthiomimus
-rajasaurus               | Fauna     | Dinosaurs            | -69000000    | -69000000    | Rajasaurus
-rahiolisaurus            | Fauna     | Dinosaurs            | -72100000    | -66000000    | Rahiolisaurus
-ornithomimus             | Fauna     | Dinosaurs            | -75500000    | -66000000    | Ornithomimus
-gallimimus               | Fauna     | Dinosaurs            | -70000000    | -70000000    | Gallimimus
-albertosaurus            | Fauna     | Dinosaurs            | -71000000    | -68000000    | Albertosaurus
-protoceratops            | Fauna     | Dinosaurs            | -83500000    | -70600000    | Protoceratops
-triceratops              | Fauna     | Dinosaurs            | -68000000    | -66000000    | Triceratops
-dreadnoughtus            | Fauna     | Dinosaurs            | -86300000    | -66000000    | Dreadnoughtus
+#SUBJECT                 | KIND      | CATEGORY                   | FROM          | TO           | LINK ID
+theia-collision          | Event     | Astronomical Collision     | -4533000000   | -4480000000  | Giant-impact_hypothesis
+moon-crust-formation     | Event     | Astronomical Geology       | -4533000000   | -3920000000  | Pre-Nectarian
+earliest-water-on-earth  | Event     | Geological Development     | -4280000000   | -3800000000  | Origin_of_water_on_Earth#History_of_water_on_Earth
+abiogenesis              | Event     | Biological Development     | -4280000000   | -3500000000  | Abiogenesis
+oldest-known-rock        | Geology   | Geological Development     | -4031000000   | -3058000000  | Acasta_Gneiss
+late-heavy-bombardment   | Event     | Astronomical Collision     | -4100000000   | -3800000000  | Late_Heavy_Bombardment
+great-oxidation-event    | Event     | Extinction Event           | -2400000000   | -2000000000  | Great_Oxidation_Event
+huronian-glaciation      | Event     | Geological Development     | -2400000000   | -2100000000  | Huronian_glaciation
+charnia                  | Flora     | Early Plant Life           | -570000000    | -550000000   | Charnia
+cambrian-explosion       | Event     | Biological Development     | -541000000    | -516000000   | Cambrian_explosion
+late-devonian-extinction | Event     | Extinction Event           | -376000000    | -358900000   | Late_Devonian_extinction
+great-dying              | Event     | Extinction Event           | -251941000    | -251880000   | Permian-Triassic_extinction_event
+dreadnoughtus            | Fauna     | Dinosaurs                  | -86300000     | -66000000    | Dreadnoughtus
+protoceratops            | Fauna     | Dinosaurs                  | -83500000     | -70600000    | Protoceratops
+ornithomimus             | Fauna     | Dinosaurs                  | -75500000     | -66000000    | Ornithomimus
+struthiomimus            | Fauna     | Dinosaurs                  | -75000000     | -66000000    | Struthiomimus
+rahiolisaurus            | Fauna     | Dinosaurs                  | -72100000     | -66000000    | Rahiolisaurus
+albertosaurus            | Fauna     | Dinosaurs                  | -71000000     | -68000000    | Albertosaurus
+gallimimus               | Fauna     | Dinosaurs                  | -70000000     | -70000000    | Gallimimus
+tarbosaurus              | Fauna     | Dinosaurs                  | -70000000     | -66000000    | Tarbosaurus
+rajasaurus               | Fauna     | Dinosaurs                  | -69000000     | -69000000    | Rajasaurus
+tyrannosaurus            | Fauna     | Dinosaurs                  | -68000000     | -66000000    | Tyrannosaurus
+triceratops              | Fauna     | Dinosaurs                  | -68000000     | -66000000    | Triceratops
+paleolithic              | Event     | Archaeological Age         | -3300000      | -11700       | Paleolithic
+cromerian-stage          | Event     | UK Geological Period       | -800000       | -500000      | Cromerian_Stage
+anglian-stage            | Event     | UK Geological Period       | -478000       | -424000      | Anglian_Stage
+hoxnian-stage            | Event     | UK Geological Period       | -424000       | -374000      | Hoxnian_Stage
+wolstonian-stage         | Event     | UK Geological Period       | -352000       | -130000      | Wolstonian_Stage
+ipswichian-stage         | Event     | UK Geological Period       | -130000       | -115000      | Eemian
+last-glacial-period      | Event     | UK Geological Period       | -115000       | -11700       | Last_Glacial_Period
+homo-neanderthalensis    | Fauna     | Human Development          | -800000       | -40000       | Neanderthal
+homo-sapien              | Fauna     | Human Development          | -300000       |  2000        | Human
+mezolithic               | Event     | Archaeological Age         | -11500        | -8000        | Mezolithic
+neolithic                | Event     | Archaeological Age         | -10200        | -1700        | Neolithic
+bronze-age               | Event     | Archaeological Age         | -3200         | -600         | Bronze_Age
+iron-age                 | Event     | Archaeological Age         | -1200         |  800         | Iron_Age
+stone-henge              | Event     | Historical Feature         | -3100         | -1600        | Stonehenge

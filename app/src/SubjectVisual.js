@@ -21,6 +21,7 @@ import {
 import {zoom as d3Zoom} from 'd3-zoom'
 import {json as d3Json} from 'd3-fetch';
 import {transition as d3Transition} from 'd3-transition';
+import 'font-awesome/css/font-awesome.min.css';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
 import * as api from './api';
@@ -169,9 +170,14 @@ class SubjectSwimLane extends React.Component {
 
     this.svgId = 'subject-visual-component-svg';
     this.margins = { top: 20, right: 30, bottom: 15, left: 80 };
+    this.state = {
+      legendVisible: false
+    };
 
     // This binding is necessary to make `this` work in the callback
-    this.handleClick = this.handleClick.bind(this);
+    this.handleLegendClick = this.handleLegendClick.bind(this);
+    this.toggleLegend = this.toggleLegend.bind(this);
+    this.handleVisualClick = this.handleVisualClick.bind(this);
   }
 
   componentDidMount() {
@@ -182,6 +188,18 @@ class SubjectSwimLane extends React.Component {
     if (this.props !== prevProps) {
       this.renderSwimlanes(this.props);
     }
+  }
+
+  handleLegendClick(event) {
+    console.log("clicked");
+    this.toggleLegend();
+    event.stopPropagation();
+  }
+
+  toggleLegend() {
+    this.setState({
+      legendVisible: !this.state.legendVisible
+    });
   }
 
   addSubjectToLane(lanes, subject) {
@@ -251,11 +269,13 @@ class SubjectSwimLane extends React.Component {
     const chartData = {
       headers: [],
       lanes: [],
-      subjects: []
+      subjects: [],
+      categories: []
     };
 
     // let laneId = 0;
     const headerMap = new Map();
+    const categorySet = new Set();
 
     const subjects = [...rawSubjects]
       .sort((a, b) => {
@@ -288,7 +308,11 @@ class SubjectSwimLane extends React.Component {
         }
 
         this.addSubjectToLane(lanes, subject);
+
+        categorySet.add(subject.category);
       });
+
+    chartData.categories = Array.from(categorySet);
 
     //
     // Iterate back through the header map to flatten
@@ -334,7 +358,7 @@ class SubjectSwimLane extends React.Component {
   //
   // Click function for selection
   //
-  handleClick(event, d) {
+  handleVisualClick(event, d) {
     if (!d) {
       return;
     }
@@ -411,7 +435,6 @@ class SubjectSwimLane extends React.Component {
 
     this.gchart = this.svg
       .append('g')
-      .attr("id", d => { return d })
       .attr("class", "subject-container")
       .attr('transform', "translate(" + this.margins.left + "," + this.margins.top + ")")
       .attr('width', this.innerWidth)
@@ -502,7 +525,7 @@ class SubjectSwimLane extends React.Component {
       .attr('width', d => this.calcWidth(d, xScale))
       .attr('height', d => this.calcHeight(d, yScale))
       .style('fill', d => subjectColorCycle(d.category))
-      .on("click", this.handleClick)
+      .on("click", this.handleVisualClick)
       .on("mouseover", (event, datum) => {
         const d = d3Select("#" + event.target.id);
         if (d) {
@@ -519,6 +542,39 @@ class SubjectSwimLane extends React.Component {
     // Add the data text labels
     this.subjectItems.append("title")
       .text(d => d.name + "\n" + common.displayYear(d.from) + "  to  " + common.displayYear(d.to));
+
+    this.legendSvg = d3Select("#subject-visual-legend-content-svg");
+
+    // Remove all legend containers on refresh
+    this.legendSvg.selectAll('.legend-container').remove();
+
+    this.legendG = this.legendSvg
+      .append('g')
+      .attr("class", "legend-container");
+
+
+    const size = this.innerWidth / 40;
+    this.legendG
+      .selectAll("subject-visual-legend-dots")
+      .data(this.chartData.categories)
+      .enter()
+      .append("rect")
+      .attr("x", 0)
+      .attr("y", (d, i) => { return i * (size + (size * 0.75)) })
+      .attr("width", size)
+      .attr("height", size)
+      .style("fill", d => { return subjectColorCycle(d) });
+
+    this.legendG
+      .selectAll("subject-visual-legend-text")
+      .data(this.chartData.categories)
+      .enter()
+      .append("text")
+      .attr("x", size * 1.2)
+      .attr("y", (d, i) => { return i * (size + (size * 0.75)) + 5 })
+      .text(d => d)
+      .attr("text-anchor", "start")
+      .attr("alignment-baseline", "hanging");
   }
 
   render() {
@@ -540,6 +596,25 @@ class SubjectSwimLane extends React.Component {
 
     return (
       <div className="subject-visual-component">
+        <div className="subject-visual-button">
+          <a id="subject-visual-legend-btn" className="fa fa-bars" onClick={this.handleLegendClick}/>
+        </div>
+        <div id="subject-visual-legend" className={this.state.legendVisible ? 'show' : 'hide'}>
+          <a href="#"
+            className="subject-visual-legend-closebtn fa fa-times"
+            onClick={this.toggleLegend}>
+          </a>
+          <div className="subject-visual-legend-content">
+            <p id="subject-visual-legend-content-svg-title">Legend</p>
+            <svg
+              id="subject-visual-legend-content-svg"
+              width = {this.props.width * 0.25}
+              height = {this.props.height * 0.75}
+              viewBox = { "0 0 " + (this.props.width * 0.25) + " " + this.props.height }
+              dominant-baseline = "hanging"
+              />
+          </div>
+        </div>
         <svg
           id = { this.svgId }
           width = {this.props.width}

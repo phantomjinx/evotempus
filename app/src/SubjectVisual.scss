@@ -10,6 +10,7 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
 .subject-visual-component {
+  position: relative;
   display: flex;
   justify-content: center;
   margin-top: 1em;
@@ -23,6 +24,52 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     margin-top: 5em;
     box-shadow: $tile-shadow;
     background-color: #fffbdc;
+  }
+
+  #subject-visual-legend {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: white;
+    // transition: transform .3s cubic-bezier(0, .52, 0, 1);
+    height: 100%;
+    z-index: 1000;
+    transition: 0.5s;
+    width: 0;
+
+    .subject-visual-legend-closebtn {
+      float:right;
+      margin-top: 0.5em;
+      margin-right: 1em;
+      text-decoration: none;
+      text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px slategray;
+      color: #efefef;
+      font-size: 14pt;
+    }
+
+    .subject-visual-legend-content {
+      display: flex;
+      flex-direction: column;
+      margin-top: 2em;
+      margin-left: 0.5em;
+
+      #subject-visual-legend-content-svg-title {
+        flex: 1 1 auto;
+        margin-left: 1.5em;
+        font-weight: bold;
+      }
+    }
+  }
+
+  #subject-visual-legend.hide {
+    width: 0;
+    overflow: hidden;
+  }
+
+  #subject-visual-legend.show {
+    width: 30%;
+    overflow: hidden;
+    box-shadow: $tile-shadow;
   }
 
   #subject-visual-component-svg {

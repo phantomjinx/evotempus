@@ -473,16 +473,8 @@ class SubjectSwimLane extends React.Component {
       .selectAll('.subjects')
       .data(this.chartData.subjects)
       .enter()
-      .append(d => {
-        // const w = this.calcWidth(d, xScale);
-        // const shape = w < minDuration ? 'circle' : 'rect';
-        const shape = 'rect';
-        return document.createElementNS(d3Namespaces.svg, shape);
-      })
+      .append('rect')
       .attr('id', d => "subject-" + d._id)
-      .attr('cx', d => parseFloat(d3Format(".1f")(xScale(d.limitFrom))) + parseFloat(this.minDuration / 2))
-      .attr('cy', d => parseFloat(d3Format(".1f")((yScale(d.laneId)) + 0.5)) + parseFloat(laneHeight / 2))
-      .attr('r', d => (this.minDuration / 2))
       .attr('x', d => this.calcX(d, xScale))
       .attr('y', d => d3Format(".1f")((yScale(d.laneId)) + 3))
       .attr('width', d => this.calcWidth(d, xScale))

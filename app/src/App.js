@@ -13,6 +13,7 @@ class App extends React.Component {
 
     this.state = { interval: null };
 
+    this.subjectVisualRef = React.createRef();
     this.handleIntervalChange = this.handleIntervalChange.bind(this);
     this.handleSubjectChange = this.handleSubjectChange.bind(this);
   }
@@ -56,9 +57,9 @@ class App extends React.Component {
                   onSelectedIntervalChange={this.handleIntervalChange}
                 />
               </div>
-              <div className="subject-visual">
+              <div className="subject-visual" ref={this.subjectVisualRef}>
                 <SubjectVisual
-                  width="1200" height="400"
+                  parent = { this.subjectVisualRef }
                   interval={this.state.interval}
                   onSelectedSubjectChange={this.handleSubjectChange}
                 />

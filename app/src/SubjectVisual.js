@@ -33,6 +33,8 @@ export default class SubjectVisual extends React.Component {
     super(props);
 
     this.state = { loading: true };
+
+    this.handleResize = this.handleResize.bind(this);
   }
 
   logErrorState(errorMsg, error) {
@@ -94,8 +96,35 @@ export default class SubjectVisual extends React.Component {
       });
   }
 
+  dimensions() {
+    // const parentDiv = d3Select('.subject-visual');
+    if (!this.props.parent || !this.props.parent.current) {
+      return;
+    }
+
+    const boundingRect = this.props.parent.current.getBoundingClientRect();
+    const width = boundingRect.width - 80;
+    const height = boundingRect.height - 40;
+
+    this.setState({
+      width: width,
+      height: height
+    });
+  }
+
+  handleResize() {
+    // console.log('resized to: ', window.innerWidth, 'x', window.innerHeight);
+    this.dimensions();
+  }
+
   componentDidMount() {
+    this.dimensions();
     this.fetchSubjects();
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
   }
 
   componentDidUpdate(prevProps) {
@@ -103,6 +132,7 @@ export default class SubjectVisual extends React.Component {
       return;
     }
 
+    this.dimensions();
     this.fetchSubjects();
   }
 
@@ -123,8 +153,8 @@ export default class SubjectVisual extends React.Component {
 
     return (
       <SubjectSwimLane
-        width = {this.props.width}
-        height = {this.props.height}
+        width = {this.state.width}
+        height = {this.state.height}
         onSelectedSubjectChange = {this.props.onSelectedSubjectChange}
         interval = {this.props.interval}
         subjects = {this.state.subjects}/>
@@ -138,6 +168,7 @@ class SubjectSwimLane extends React.Component {
     super(props);
 
     this.svgId = 'subject-visual-component-svg';
+    this.margins = { top: 20, right: 30, bottom: 15, left: 80 };
 
     // This binding is necessary to make `this` work in the callback
     this.handleClick = this.handleClick.bind(this);
@@ -148,7 +179,7 @@ class SubjectSwimLane extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.interval !== prevProps.interval) {
+    if (this.props !== prevProps) {
       this.renderSwimlanes(this.props);
     }
   }
@@ -365,54 +396,45 @@ class SubjectSwimLane extends React.Component {
       return;
     }
 
-    const parentDiv = d3Select('.subject-visual');
-    if (!parentDiv || !parentDiv.node()) {
-      return;
-    }
-
-    const boundingRect = parentDiv.node().getBoundingClientRect();
-    const margin = {top: 20, right: 30, bottom: 15, left: 80};
-    const svgWidth = boundingRect.width - 80;
-    const svgHeight = boundingRect.height - 80;
-
-    //
-    // Select the existing svg created by the initial render
-    //
-    this.svg = d3Select('#' + this.svgId);
-    this.svg
-      .attr('viewBox', "0 0 " + svgWidth + " " + svgHeight);
-
-    this.width = svgWidth - margin.left - margin.right;
-    this.height = svgHeight - margin.top - margin.bottom;
-    this.minDuration = parseFloat(this.width * 0.005);
+    this.innerWidth = props.width - this.margins.left - this.margins.right;
+    this.innerHeight = props.height - this.margins.top - this.margins.bottom;
 
     this.chartData = this.chartify(props.interval, props.subjects);
 
-    const laneHeight  = svgHeight / (this.chartData.lanes.length)
     const subjectColorCycle = d3ScaleOrdinal(d3SchemeCategory10);
     const laneColorCycle = d3ScaleOrdinal(d3SchemePastel1);
 
-    // this.svg.append('defs')
-    //   .append('clipPath')
-	  //   .attr('id', 'clip')
-	  //   .append('rect')
-		//   .attr('width', margin.left + this.width + margin.right)
-		//   .attr('height', margin.top + this.height + margin.bottom);
+    this.svg = d3Select('#' + this.svgId);
 
-    this.gchart = this.svg.append("g")
-      .attr('transform', "translate(" + margin.left + "," + margin.top + ")")
-      .attr('class', "subject-container")
-      .attr('width', this.width)
-	    .attr('height', this.height);
+    // Remove all subject-containers on refresh
+    this.svg.selectAll('.subject-container').remove();
+
+    this.gchart = this.svg
+      .append('g')
+      .attr("id", d => { return d })
+      .attr("class", "subject-container")
+      .attr('transform', "translate(" + this.margins.left + "," + this.margins.top + ")")
+      .attr('width', this.innerWidth)
+	    .attr('height', this.innerHeight);
 
     const xScale = d3ScaleLinear()
       .domain([props.interval.from, props.interval.to]).nice()
-      .range([0, this.width]);
+      .range([0, this.innerWidth]);
 
     const yExt = d3Extent(this.chartData.lanes, d => d.id);
+
+    //
+    // Restrict the height of the lanes to a maximum of a 1/3 of the height
+    // since the bars being too wide look odd. We calculate the height of
+    // a lane then compare it to a 1/3 of the height. If wider then then, the
+    // maximum range is designated a 1/3 of the height.
+    //
+    const laneHeight = this.innerHeight / this.chartData.lanes.length;
+    const maxLaneHeight = (this.innerHeight / 3);
+    const upperRange = laneHeight > maxLaneHeight ? maxLaneHeight : this.innerHeight;
     const yScale = d3ScaleLinear()
       .domain([yExt[0], yExt[1] + 1])
-      .range([0, this.height]);
+      .range([0, upperRange]);
 
     // draw the x axis
     const xDateAxis = d3AxisTop(xScale)
@@ -430,7 +452,7 @@ class SubjectSwimLane extends React.Component {
       .append('line')
       .attr('x1', 0)
       .attr('y1', d => d3Format(".1f")((yScale(d.id)) + 0.5))
-      .attr('x2', this.width)
+      .attr('x2', this.innerWidth)
       .attr('y2', d => d3Format(".1f")((yScale(d.id)) + 0.5))
       .attr('stroke', d => d.headerLane ? 'black' : 'lightgray');
 
@@ -459,7 +481,7 @@ class SubjectSwimLane extends React.Component {
       .attr('class', 'laneBackground')
       .attr('x', 0)
       .attr('y', d => d3Format(".1f")((yScale(d.headerStartsIdx)) + 0.5))
-      .attr('width', this.width)
+      .attr('width', this.innerWidth)
       .attr('height', d => {
         const y1 = d3Format(".1f")((yScale(d.headerStartsIdx)) + 0.5);
         const yn = d3Format(".1f")((yScale(d.headerStartsIdx + d.lanes)) + 0.5);
@@ -520,6 +542,9 @@ class SubjectSwimLane extends React.Component {
       <div className="subject-visual-component">
         <svg
           id = { this.svgId }
+          width = {this.props.width}
+          height = {this.props.height}
+          viewBox = { "0 0 " + this.props.width + " " + this.props.height }
           preserveAspectRatio="xMidYMid meet"
         />
       </div>

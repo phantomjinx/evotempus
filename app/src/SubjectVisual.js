@@ -10,6 +10,7 @@ import {timeHour as d3TimeHour} from 'd3-time';
 import {
   scaleOrdinal as d3ScaleOrdinal,
   scaleLinear as d3ScaleLinear } from 'd3-scale';
+import {color as d3Color} from 'd3-color';
 import {
   schemeCategory10 as d3SchemeCategory10,
   schemePastel1 as d3SchemePastel1
@@ -430,8 +431,29 @@ class SubjectSwimLane extends React.Component {
 
     this.svg = d3Select('#' + this.svgId);
 
-    // Remove all subject-containers on refresh
+    // Remove all defs & subject-containers on refresh
+    this.svg.selectAll('defs').remove();
     this.svg.selectAll('.subject-container').remove();
+
+    const defs = this.svg.append("defs");
+
+    //
+    // Create gradient definitions for all the subject categories so they are coloured differently.
+    //
+    const subjectGrads = defs.selectAll("radialGradient")
+      .data(this.chartData.categories)
+      .enter().append("radialGradient")
+      .attr("id", d => "gradient-" + common.identifier(d))
+      .attr("cx", "50%")
+      .attr("cy", "50%")
+      .attr("r", "85%");
+
+    subjectGrads.append("stop")
+      .attr("offset", "0%")
+      .attr("stop-color", d => d3Color(subjectColorCycle(d)).brighter().brighter());
+    subjectGrads.append("stop")
+      .attr("offset", "90%")
+      .attr("stop-color", d => subjectColorCycle(d));
 
     this.gchart = this.svg
       .append('g')
@@ -524,7 +546,8 @@ class SubjectSwimLane extends React.Component {
       .attr('y', d => d3Format(".1f")((yScale(d.laneId)) + 3))
       .attr('width', d => this.calcWidth(d, xScale))
       .attr('height', d => this.calcHeight(d, yScale))
-      .style('fill', d => subjectColorCycle(d.category))
+      // .style('fill', d => subjectColorCycle(d.category))
+      .attr("fill", d => "url(#gradient-" + common.identifier(d.category) + ")")
       .on("click", this.handleVisualClick)
       .on("mouseover", (event, datum) => {
         const d = d3Select("#" + event.target.id);
@@ -543,6 +566,9 @@ class SubjectSwimLane extends React.Component {
     this.subjectItems.append("title")
       .text(d => d.name + "\n" + common.displayYear(d.from) + "  to  " + common.displayYear(d.to));
 
+    //
+    // Create the legend for the category colours
+    //
     this.legendSvg = d3Select("#subject-visual-legend-content-svg");
 
     // Remove all legend containers on refresh
@@ -551,7 +577,6 @@ class SubjectSwimLane extends React.Component {
     this.legendG = this.legendSvg
       .append('g')
       .attr("class", "legend-container");
-
 
     const size = this.innerWidth / 40;
     this.legendG
@@ -563,7 +588,7 @@ class SubjectSwimLane extends React.Component {
       .attr("y", (d, i) => { return i * (size + (size * 0.75)) })
       .attr("width", size)
       .attr("height", size)
-      .style("fill", d => { return subjectColorCycle(d) });
+      .attr("fill", d => "url(#gradient-" + common.identifier(d) + ")");
 
     this.legendG
       .selectAll("subject-visual-legend-text")
@@ -571,7 +596,7 @@ class SubjectSwimLane extends React.Component {
       .enter()
       .append("text")
       .attr("x", size * 1.2)
-      .attr("y", (d, i) => { return i * (size + (size * 0.75)) + 5 })
+      .attr("y", (d, i) => { return i * (size + (size * 0.75)) + 2 })
       .text(d => d)
       .attr("text-anchor", "start")
       .attr("alignment-baseline", "hanging");
@@ -611,7 +636,7 @@ class SubjectSwimLane extends React.Component {
               width = {this.props.width * 0.25}
               height = {this.props.height * 0.75}
               viewBox = { "0 0 " + (this.props.width * 0.25) + " " + this.props.height }
-              dominant-baseline = "hanging"
+              dominantBaseline = "hanging"
               />
           </div>
         </div>

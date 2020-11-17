@@ -177,13 +177,33 @@ class IntervalSunburst extends React.Component {
     return text.length <= length ? text : text.substring(0, length) + ellipsis;
   }
 
+  displaySelectionOutline(node, select) {
+    if (! node) {
+      return;
+    }
+
+    const theClass = select ? "path-selected" : "path-unselected";
+
+    //
+    // If zoomed in then the clicked-on object may be the central circle
+    // so need to identify if this is the case. Otherwise find the path
+    // using the data id.
+    //
+    // Note: this.parent is a selection so first need to find its first 'node'
+    //       then get its data.
+    //
+    const id = this.parent.datum().data === node.data ? '#parent-circle' : '#path-' + node.data._id;
+
+    d3Select(id).attr('class', theClass);
+  }
+
   //
   // Click function for zooming in and out
   //
   handleDoubleClick(event, p) {
     //
     // Prevent the single click firing when
-    // the used actually double-clicked. Stops
+    // the user actually double-clicked. Stops
     // needless updates out of the component
     //
     clearTimeout(this.clickTimer);
@@ -194,6 +214,9 @@ class IntervalSunburst extends React.Component {
       return;
     }
 
+    const origSelected = this.selected;
+    this.displaySelectionOutline(this.selected, false);
+
     const t = this.g.transition().duration(750);
 
     //
@@ -201,6 +224,8 @@ class IntervalSunburst extends React.Component {
     // The globe (and so p) is the current root node so simply
     // using it as-is will not cause a zoom-out operation. Thus,
     // we have to reassign it to its own parent.
+    //
+    // ie. is p the node in the parent selection
     //
     if (p === this.parent.datum()) {
       p = p.parent || this.root;
@@ -215,11 +240,18 @@ class IntervalSunburst extends React.Component {
       .transition(t)
       .text(d => d.data.name);
 
-    this.root.each(d => d.target = {
-      x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-      x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-      y0: Math.max(0, d.y0 - p.depth),
-      y1: Math.max(0, d.y1 - p.depth)
+    this.root.each(d => {
+      d.target = {
+        x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+        x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+        y0: Math.max(0, d.y0 - p.depth),
+        y1: Math.max(0, d.y1 - p.depth)
+      };
+      //
+      // Updates the visible field in all nodes in accordance with the
+      // logic of arcVisible
+      //
+      d.visible = this.arcVisible(d.target);
     });
 
     //
@@ -232,15 +264,18 @@ class IntervalSunburst extends React.Component {
         const i = d3Interpolate(d.current, d.target);
         return t => d.current = i(t);
       })
-      .attr("fill-opacity", d => this.arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0)
-      .attr("stroke-opacity", d => this.arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0)
+      .attr("fill-opacity", d => d.visible ? (d.children ? 0.6 : 0.4) : 0)
+      .attr("stroke-opacity", d => d.visible ? (d.children ? 0.6 : 0.4) : 0)
       .attrTween("d", d => () => this.arc(d.current));
 
     this.labels.transition(t)
       .attr("fill-opacity", d => +this.labelVisible(d.target))
       .attrTween("transform", d => () => this.labelTransform(d.current));
 
-    this.props.onSelectedIntervalChange(p.data);
+    //
+    // Try and reselect the currently selected if still visible
+    //
+    this.handleClick(null, origSelected);
   }
 
   //
@@ -257,13 +292,20 @@ class IntervalSunburst extends React.Component {
         return;
       }
 
-      if (p === null || p === this.root) {
+      this.displaySelectionOutline(this.selected, false);
+
+      if (!p || !p.visible || p === this.root) {
         this.selected = this.parentLabel.datum();
       } else {
         this.selected = p;
       }
 
-      this.props.onSelectedIntervalChange(this.selected.data);
+      this.displaySelectionOutline(this.selected, true);
+
+      if (this.selected) {
+        this.props.onSelectedIntervalChange(this.selected.data);
+      }
+
     }, this.clickDelay);
   }
 
@@ -279,29 +321,6 @@ class IntervalSunburst extends React.Component {
     //
     this.svg = d3Select('#' + this.svgId);
 
-    const defs = this.svg.append("defs");
-    //
-    // Define the gradient of the central circle
-    //
-    const parentGradient = defs.append("radialGradient")
-	    .attr("id", "parentGradient")
-	    .attr("cx", "30%")
-	    .attr("cy", "30%")
-	    .attr("r", "75%");
-
-    //Append the color stops to the radial gradient
-    parentGradient.append("stop")
-    	.attr("offset", "0%")
-    	.attr("stop-color", "#ffffff");
-    parentGradient.append("stop")
-    	.attr("offset", "50%")
-    	.attr("stop-color", "#61dafb");
-    parentGradient.append("stop")
-      .attr("offset", "90%")
-      .attr("stop-color", "#1a8a7c");
-    parentGradient.append("stop")
-    	.attr("offset",  "100%")
-    	.attr("stop-color", "#164d21");
 
     //
     // Append the main g ready for population
@@ -315,9 +334,21 @@ class IntervalSunburst extends React.Component {
     this.root = this.partition(this.props.data);
 
     //
-    // Copies the entire datum to itself
+    // Build a fn for colouring the data block different colours depending on location
     //
-    this.root.each(d => d.current = d);
+    const color = d3ScaleOrdinal(d3Quantize(d3InterpolateRainbow, this.root.children.length + 3))
+
+    this.root.each(d => {
+      //
+      // Copies the entire datum to itself
+      //
+      d.current = d;
+
+      //
+      // Cache the result of arcVisible for quick reads later
+      //
+      d.visible = this.arcVisible(d.current);
+    });
 
     //
     // The descendants of the root node in a flat array
@@ -326,22 +357,23 @@ class IntervalSunburst extends React.Component {
     const rootDescendents = this.root.descendants().slice(1);
 
     //
-    // Build a fn for colouring the data block different colours depending on location
+    // Configure the svg definitions for the colour gradients
     //
-    const color = d3ScaleOrdinal(d3Quantize(d3InterpolateRainbow, this.root.children.length + 3))
+    const defs = this.svg.append("defs");
 
+    //
+    // Generate a radial gradient
     //
     // Create gradient definitions for all the segments so they are coloured differently
     // using the 'color' above but also shade to white to give a sheen effect
     //
-    const segmentGrads = defs.selectAll("redialGradient")
+    const segmentGrads = defs.selectAll("radialGradient")
       .data(rootDescendents)
       .enter().append("radialGradient")
       .attr("id", d => "gradient-" + d.id)
       .attr("cx", "30%")
-	    .attr("cy", "30%")
-	    .attr("r", "75%");
-
+      .attr("cy", "30%")
+      .attr("r", "75%");
     segmentGrads.append("stop")
       .attr("offset", "0%")
       .attr("stop-color", "white");
@@ -349,26 +381,50 @@ class IntervalSunburst extends React.Component {
       .attr("offset", "75%")
       .attr("stop-color", d => {
 
-        // Finds the ultimate's parent colour
-        // & tracks the depth
-        //
-        let depth = 0;
-        while (d.depth > 1) {
-          d = d.parent;
-          depth++;
-        }
+      //
+      // Finds the ultimate's parent colour & tracks the depth
+      //
+      let depth = 0;
+      while (d.depth > 1) {
+        d = d.parent;
+        depth++;
+      }
 
-        //
-        // Gets the parent node colour then
-        // darkens according to the level of depth
-        //
-        let c = d3Color(color(d.data.name))
-        for (let i = 0; i < depth; ++i) {
-          c = c.darker();
-        }
+      //
+      // Gets the parent node colour then
+      // darkens according to the level of depth
+      //
+      let c = d3Color(color(d.data.name))
+      for (let i = 0; i < depth; ++i) {
+        c = c.darker();
+      }
 
-        return c.toString();
-      });
+      return c.toString();
+    });
+
+    //
+    // Define the gradient of the central circle
+    //
+    const parentGradient = defs.append("radialGradient")
+    .attr("id", "parentGradient")
+    .attr("cx", "30%")
+    .attr("cy", "30%")
+    .attr("r", "75%");
+
+    //Append the color stops to the radial gradient
+    parentGradient.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", "#ffffff");
+    parentGradient.append("stop")
+    .attr("offset", "50%")
+    .attr("stop-color", "#61dafb");
+    parentGradient.append("stop")
+    .attr("offset", "90%")
+    .attr("stop-color", "#1a8a7c");
+    parentGradient.append("stop")
+    .attr("offset",  "100%")
+    .attr("stop-color", "#164d21");
+
 
     //
     // Build a fn for generating the arcs for each of the data block
@@ -390,11 +446,11 @@ class IntervalSunburst extends React.Component {
       .selectAll("path")
       .data(rootDescendents)
       .join("path")
+      .attr('id', d => 'path-' + d.id)
+      .attr('class', 'path-unselected')
       .attr("fill", d => "url(#gradient-" + d.id + ")")
-      .attr("fill-opacity", d => this.arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
-      .attr("stroke", "#4d4d4d")
-      .attr("stroke-width", "1")
-      .attr("stroke-opacity", d => this.arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
+      .attr("fill-opacity", d => d.visible ? (d.children ? 0.6 : 0.4) : 0)
+      .attr("stroke-opacity", d => d.visible ? (d.children ? 0.6 : 0.4) : 0)
       .attr("d", d => this.arc(d.current))
       .on("click", this.handleClick);
 
@@ -431,6 +487,8 @@ class IntervalSunburst extends React.Component {
     //
     this.parent = this.g.append("circle")
       .datum(this.parent || this.root)
+      .attr('id', 'parent-circle')
+      .attr('class', 'path-unselected')
       .attr("r", this.radius)
       .attr("fill", "url(#parentGradient)")
       .attr("pointer-events", "all")

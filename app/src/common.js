@@ -15,3 +15,7 @@ export function displayYear(year) {
 export function present(year) {
   return (year === 2030) ? new Date().getFullYear() : displayYear(year);
 }
+
+export function identifier(text) {
+  return text.replace(/\s/g, '-').toLowerCase();
+}

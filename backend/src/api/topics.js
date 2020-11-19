@@ -29,8 +29,9 @@ router.get('/', (req, res) => {
   Topic.find()
     .then(topics => res.json(topics))
     .catch(err => {
-      logger.error("Failed to find any topics", err);
-      res.status(500).send(err);
+      const msg = "Failed to find any topics";
+      logger.error(err, msg);
+      res.status(500).send(new Error(msg, err));
     });
 });
 
@@ -39,8 +40,9 @@ router.get('/:topicType/:topicId', (req, res) => {
     { topic: req.params.topicId, topicTarget: req.params.topicType }
   ).then(topics => res.json(topics))
    .catch(err => {
-     logger.error("Failed to find topic with id %s", req.params.topicId, err);
-     res.status(500).send(err);
+     const msg = "Failed to find topic with id " + req.params.topicId;
+     logger.error(err, msg);
+     res.status(500).send(new Error(msg, err));
   });
 });
 
@@ -81,17 +83,19 @@ const description = (res, type, id) => {
               }
 
             }).catch((err) => {
-              logger.error("Failed to update database with new summary", err);
+              logger.error(err, "Failed to update database with new summary");
             });
           })
           .catch(err => {
-            logger.error("Failed to get wiki summary", err);
-            res.status(500).send(err);
+            const msg = "Failed to get wiki summary";
+            logger.error(err, msg);
+            res.status(500).send(new Error(msg, err));
           });
   })
   .catch(err => {
-    logger.error("Failed to find interval id " + req.params.intervalId, err);
-    res.status(500).send(err);
+    const msg = "Failed to find interval id " + req.params.intervalId;
+    logger.error(err, msg);
+    res.status(500).send(new Error(msg, err));
   });
 };
 

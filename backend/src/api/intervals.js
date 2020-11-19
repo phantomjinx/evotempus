@@ -40,8 +40,9 @@ router.get('/:intervalId', (req, res) => {
     { _id: req.params.intervalId }
   ).then(intervals => res.json(intervals))
    .catch(err => {
-     logger.error("Failed to find interval id %s", req.params.intervalId, err);
-     res.status(500).send(err);
+     const msg = "Failed to find interval id " + req.params.intervalId;
+     logger.error(err, msg);
+     res.status(500).send(new Error(msg, err));
   });
 });
 
@@ -58,13 +59,15 @@ router.get('/:parentId/children', (req, res) => {
     ).then(children => {
       res.json(children);
     }).catch(err => {
-      logger.error("Failed to find any children for interval %s", req.params.parentId, err);
-      res.status(500).send(err);
+      const msg = "Failed to find any children for interval " + req.params.parentId;
+      logger.error(err, msg);
+      res.status(500).send(new Error(msg, err));
     });
 
   }).catch(err => {
-      logger.error(err);
-      res.status(500).send(err);
+      const msg = "Failed to find interval id " + req.params.parentId;
+      logger.error(err, msg);
+      res.status(500).send(new Error(msg, err));
     });
 });
 

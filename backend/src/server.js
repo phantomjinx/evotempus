@@ -70,7 +70,7 @@ function findOrCreateParent(parentId, child) {
     { upsert: true, new: true}
   ).then((parent, err) => {
     if (err) {
-      logger.error("ERROR: Trying to findByIdAndUpdate interval with %s: %s", parentId, err);
+      logger.error(err, "ERROR: Trying to findByIdAndUpdate interval with %s", parentId);
       return;
     }
 
@@ -83,7 +83,7 @@ function findOrCreateParent(parentId, child) {
 
     Interval.updateOne({ _id: child._id }, { parent: parent._id }, {runValidators: 'true'}).then((uChild, err) => {
       if (err) {
-        logger.error("ERROR: Child update for %s: %s", child._id, err);
+        logger.error(err, "ERROR: Child update for %s: %s", child._id);
         return;
       }
     });
@@ -147,7 +147,7 @@ function createInterval(id, kind, from, to, parent, children) {
     { upsert: true, new: true}
   ).then((interval, err) => {
       if (err) {
-        logger.error("ERROR: Trying to findByIdAndUpdate interval with %s: %s", id, err);
+        logger.error(err, "ERROR: Trying to findByIdAndUpdate interval with %s", id);
         return;
       }
 
@@ -183,7 +183,7 @@ function createTopic(id, topicTgt, linkId) {
     { upsert: true, new: true}
   ).then((topic, err) => {
     if (err) {
-      logger.error("ERROR: Trying to findByOneAndUpdate description with %s: %s", id, err);
+      logger.error(err, "ERROR: Trying to findByOneAndUpdate description with %s", id);
       return;
     }
 
@@ -198,6 +198,8 @@ function createTopic(id, topicTgt, linkId) {
 }
 
 function createSubject(id, kind, category, from, to) {
+
+  logger.debug("Creating subject: id: " + id + " kind: " + kind + " category: " + category + " from: " + from + " to: " + to);
 
   //
   // Ensure all whitespace is removed
@@ -234,7 +236,7 @@ function createSubject(id, kind, category, from, to) {
     { upsert: true, new: true}
   ).then((subject, err) => {
     if (err) {
-      logger.error("ERROR: Trying to findByIdAndUpdate subject with %s: %s", id, err);
+      logger.error(err, "ERROR: Trying to findByIdAndUpdate subject with %s", id);
       return;
     }
 
@@ -399,14 +401,16 @@ let opts = {
   useFindAndModify: false,
   useCreateIndex: true
 };
+
+mongoose.set('debug', true);
 mongoose.connect(mongoDbURI, opts);
 let conn = mongoose.connection;
 
-conn.on('Error', function() {
+conn.on('Error', () => {
   logger.error('ERROR: Database connection failed.');
 });
 
-conn.once('open', function() {
+conn.once('open', () => {
   logger.info('INFO: Connection established');
 
   try {

@@ -24,7 +24,8 @@ gulp.task('default', gulp.series(['jshint'], (done) => {
       env: {
         'NODE_ENV': 'development',
         'MONGODB_URI': 'mongodb://localhost/evotempus',
-        'PORT': 3001
+        'PORT': 3001,
+        'LOG_LEVEL': 'debug'
       },
       ext: 'js',
       tasks: ['jshint'],

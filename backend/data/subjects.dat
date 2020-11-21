@@ -1,4 +1,3 @@
-#
 # Copyright (C) 2020 Paul G. Richardson
 #
 # This program is free software: you can redistribute it and/or modify
@@ -15,41 +14,62 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-#SUBJECT                 | KIND      | CATEGORY                   | FROM          | TO           | LINK ID
-theia-collision          | Event     | Astronomical Collision     | -4533000000   | -4480000000  | Giant-impact_hypothesis
-moon-crust-formation     | Event     | Astronomical Geology       | -4533000000   | -3920000000  | Pre-Nectarian
-earliest-water-on-earth  | Event     | Geological Development     | -4280000000   | -3800000000  | Origin_of_water_on_Earth#History_of_water_on_Earth
-abiogenesis              | Event     | Biological Development     | -4280000000   | -3500000000  | Abiogenesis
-oldest-known-rock        | Geology   | Geological Development     | -4031000000   | -3058000000  | Acasta_Gneiss
-late-heavy-bombardment   | Event     | Astronomical Collision     | -4100000000   | -3800000000  | Late_Heavy_Bombardment
-great-oxidation-event    | Event     | Extinction Event           | -2400000000   | -2000000000  | Great_Oxidation_Event
-huronian-glaciation      | Event     | Geological Development     | -2400000000   | -2100000000  | Huronian_glaciation
-charnia                  | Flora     | Early Plant Life           | -570000000    | -550000000   | Charnia
-cambrian-explosion       | Event     | Biological Development     | -541000000    | -516000000   | Cambrian_explosion
-late-devonian-extinction | Event     | Extinction Event           | -376000000    | -358900000   | Late_Devonian_extinction
-great-dying              | Event     | Extinction Event           | -251941000    | -251880000   | Permian-Triassic_extinction_event
-dreadnoughtus            | Fauna     | Dinosaurs                  | -86300000     | -66000000    | Dreadnoughtus
-protoceratops            | Fauna     | Dinosaurs                  | -83500000     | -70600000    | Protoceratops
-ornithomimus             | Fauna     | Dinosaurs                  | -75500000     | -66000000    | Ornithomimus
-struthiomimus            | Fauna     | Dinosaurs                  | -75000000     | -66000000    | Struthiomimus
-rahiolisaurus            | Fauna     | Dinosaurs                  | -72100000     | -66000000    | Rahiolisaurus
-albertosaurus            | Fauna     | Dinosaurs                  | -71000000     | -68000000    | Albertosaurus
-gallimimus               | Fauna     | Dinosaurs                  | -70000000     | -70000000    | Gallimimus
-tarbosaurus              | Fauna     | Dinosaurs                  | -70000000     | -66000000    | Tarbosaurus
-rajasaurus               | Fauna     | Dinosaurs                  | -69000000     | -69000000    | Rajasaurus
-tyrannosaurus            | Fauna     | Dinosaurs                  | -68000000     | -66000000    | Tyrannosaurus
-triceratops              | Fauna     | Dinosaurs                  | -68000000     | -66000000    | Triceratops
-paleolithic              | Event     | Archaeological Age         | -3300000      | -11700       | Paleolithic
-cromerian-stage          | Event     | UK Geological Period       | -800000       | -500000      | Cromerian_Stage
-anglian-stage            | Event     | UK Geological Period       | -478000       | -424000      | Anglian_Stage
-hoxnian-stage            | Event     | UK Geological Period       | -424000       | -374000      | Hoxnian_Stage
-wolstonian-stage         | Event     | UK Geological Period       | -352000       | -130000      | Wolstonian_Stage
-ipswichian-stage         | Event     | UK Geological Period       | -130000       | -115000      | Eemian
-last-glacial-period      | Event     | UK Geological Period       | -115000       | -11700       | Last_Glacial_Period
-homo-neanderthalensis    | Fauna     | Human Development          | -800000       | -40000       | Neanderthal
-homo-sapien              | Fauna     | Human Development          | -300000       |  2000        | Human
-mezolithic               | Event     | Archaeological Age         | -11500        | -8000        | Mezolithic
-neolithic                | Event     | Archaeological Age         | -10200        | -1700        | Neolithic
-bronze-age               | Event     | Archaeological Age         | -3200         | -600         | Bronze_Age
-iron-age                 | Event     | Archaeological Age         | -1200         |  800         | Iron_Age
-stone-henge              | Event     | Historical Feature         | -3100         | -1600        | Stonehenge
+#SUBJECT                                 | KIND      | CATEGORY                   | FROM          | TO           | LINK ID
+theia-collision                          | Event     | Astronomical Collision     | -4533000000   | -4480000000  | Giant-impact_hypothesis
+moon-crust-formation                     | Geology   | Astronomical Geology       | -4533000000   | -3920000000  | Pre-Nectarian
+nuvvuagittuq-greenstone-belt             | Geology   | Geological Development     | -4388000000   | -3750000000  | Nuvvuagittuq_Greenstone_Belt
+earliest-water-on-earth                  | Event     | Biological Development     | -4280000000   | -3800000000  | Origin_of_water_on_Earth#History_of_water_on_Earth
+abiogenesis                              | Event     | Biological Development     | -4280000000   | -3500000000  | Abiogenesis
+acasta-gneiss                            | Geology   | Geological Development     | -4031000000   | -3058000000  | Acasta_Gneiss
+late-heavy-bombardment                   | Event     | Astronomical Collision     | -4100000000   | -3800000000  | Late_Heavy_Bombardment
+isua-greenstone-belt                     | Geology   | Geological Development     | -3800000000   | -3700000000  | Isua_Greenstone_Belt
+vaalbara-supercontinent                  | Geology   | Continental Drift          | -3636000000   | -2803000000  | Vaalbara
+earliest-form-of-life                    | Event     | Biological Development     | -3500000000   | -3480000000  | Microbial_mat
+evolution-of-photosynthesis              | Event     | Biological Development     | -3500000000   | -2000000000  | Evolution_of_photosynthesis
+pongola-glaciation                       | Event     | Climatic Development       | -2900000000   | -2500000000  | Pongola_glaciation
+ur-supercontinent                        | Geology   | Continental Drift          | -2803000000   | -2408000000  | Ur_(continent)
+kenorland-supercontinent                 | Geology   | Continental Drift          | -2780000000   | -2100000000  | Kenorland
+colombia-supercontinent                  | Geology   | Continental Drift          | -2500000000   | -2100000000  | Columbia_(supercontinent)
+great-oxidation-event                    | Event     | Extinction Event           | -2400000000   | -2000000000  | Great_Oxidation_Event
+huronian-glaciation                      | Event     | Climatic Development       | -2400000000   | -2100000000  | Huronian_glaciation
+arctica-supercontinent                   | Geology   | Continental Drift          | -2114000000   | -1995000000  | Arctica
+emergence-of-eukaryotes                  | Event     | Biological Development     | -2100000000   | -1600000000  | Eukaryote
+francevillian-biota                      | Fauna     | Early Form of Life         | -2150000000   | -2050000000  | Francevillian_biota
+atlantica-supercontinent                 | Geology   | Continental Drift          | -1991000000   | -1124000000  | Atlantica
+rodinia-supercontinent                   | Geology   | Continental Drift          | -1130000000   | -750000000   | Rodinia
+sturtian-glaciation                      | Event     | Climatic Development       | -715000000    | -680000000   | Sturtian_glaciation
+marinoan-glaciation                      | Event     | Climatic Development       | -650000000    | -635000000   | Marinoan_glaciation
+earliest-complex-multicellular-organisms | Event     | Biological Development     | -600000000    | -542000000   | Ediacaran_biota
+pannotia-supercontinent                  | Geology   | Continental Drift          | -633000000    | -573000000   | Pannotia
+gaskiers-glaciation                      | Geology   | Geological Development     | -579880000    | -579630000   | Gaskiers_glaciation
+charnia                                  | Fauna     | Early Form of Life         | -570000000    | -550000000   | Charnia
+gondwana-supercontinent                  | Geology   | Continental Drift          | -550000000    | -175000000   | Gondwana
+cambrian-explosion                       | Event     | Biological Development     | -541000000    | -516000000   | Cambrian_explosion
+late-devonian-extinction                 | Event     | Extinction Event           | -376000000    | -358900000   | Late_Devonian_extinction
+pangaea-supercontinent                   | Geology   | Continental Drift          | -336000000    | -175000000   | Pangaea
+great-dying                              | Event     | Extinction Event           | -251941000    | -251880000   | Permian-Triassic_extinction_event
+dreadnoughtus                            | Fauna     | Dinosaurs                  | -86300000     | -66000000    | Dreadnoughtus
+protoceratops                            | Fauna     | Dinosaurs                  | -83500000     | -70600000    | Protoceratops
+ornithomimus                             | Fauna     | Dinosaurs                  | -75500000     | -66000000    | Ornithomimus
+struthiomimus                            | Fauna     | Dinosaurs                  | -75000000     | -66000000    | Struthiomimus
+rahiolisaurus                            | Fauna     | Dinosaurs                  | -72100000     | -66000000    | Rahiolisaurus
+albertosaurus                            | Fauna     | Dinosaurs                  | -71000000     | -68000000    | Albertosaurus
+gallimimus                               | Fauna     | Dinosaurs                  | -70000000     | -70000000    | Gallimimus
+tarbosaurus                              | Fauna     | Dinosaurs                  | -70000000     | -66000000    | Tarbosaurus
+rajasaurus                               | Fauna     | Dinosaurs                  | -69000000     | -69000000    | Rajasaurus
+tyrannosaurus                            | Fauna     | Dinosaurs                  | -68000000     | -66000000    | Tyrannosaurus
+triceratops                              | Fauna     | Dinosaurs                  | -68000000     | -66000000    | Triceratops
+paleolithic                              | Event     | Archaeological Age         | -3300000      | -11700       | Paleolithic
+cromerian-stage                          | Event     | UK Climatic Development    | -800000       | -500000      | Cromerian_Stage
+anglian-stage                            | Event     | UK Climatic Development    | -478000       | -424000      | Anglian_Stage
+hoxnian-stage                            | Event     | UK Climatic Development    | -424000       | -374000      | Hoxnian_Stage
+wolstonian-stage                         | Event     | UK Climatic Development    | -352000       | -130000      | Wolstonian_Stage
+ipswichian-stage                         | Event     | UK Climatic Development    | -130000       | -115000      | Eemian
+last-glacial-period                      | Event     | UK Climatic Development    | -115000       | -11700       | Last_Glacial_Period
+homo-neanderthalensis                    | Fauna     | Human Development          | -800000       | -40000       | Neanderthal
+homo-sapien                              | Fauna     | Human Development          | -300000       |  2000        | Human
+mezolithic                               | Event     | Archaeological Age         | -11500        | -8000        | Mezolithic
+neolithic                                | Event     | Archaeological Age         | -10200        | -1700        | Neolithic
+bronze-age                               | Event     | Archaeological Age         | -3200         | -600         | Bronze_Age
+iron-age                                 | Event     | Archaeological Age         | -1200         |  800         | Iron_Age
+stone-henge                              | Event     | Historical Feature         | -3100         | -1600        | Stonehenge

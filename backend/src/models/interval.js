@@ -25,10 +25,12 @@ var IntervalSchema = new Schema({
     kind: {type: String, enum: ['Root', 'SuperEon', 'Eon', 'Era', 'Period', 'Sub-Period', 'Epoch', 'Age']},
     from: Number,
     to:   Number,
-    parent: { type: String, ref: 'Interval', index: true },
+    parent: { type: String, ref: 'Interval' },
     children: [{ type: String, ref: 'Interval' }]
 },
 { versionKey: 'version' });
+
+IntervalSchema.index({ name: 'text', kind: 'text' });
 
 // define our interval model
 module.exports = {

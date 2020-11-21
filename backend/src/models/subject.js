@@ -31,6 +31,8 @@ var SubjectSchema = new Schema({
 },
 { versionKey: 'version' });
 
+SubjectSchema.index({ name: 'text', kind: 'text', category: 'text' });
+
 // define our subject model
 module.exports = {
   Subject: mongoose.model('Subject', SubjectSchema)

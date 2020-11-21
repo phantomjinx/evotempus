@@ -80,7 +80,7 @@ export default class SubjectVisual extends React.Component {
     //
     // Fetch the subject data from the backend service
     //
-    api.subjects(this.props.interval.from, this.props.interval.to)
+    api.subjectsWithin(this.props.interval.from, this.props.interval.to)
       .then((res) => {
         if (!res.data || res.data.length === 0) {
           this.setState({
@@ -159,6 +159,7 @@ export default class SubjectVisual extends React.Component {
         height = {this.state.height}
         onSelectedSubjectChange = {this.props.onSelectedSubjectChange}
         interval = {this.props.interval}
+        subject = {this.props.subject}
         subjects = {this.state.subjects}/>
     );
   }
@@ -186,13 +187,20 @@ class SubjectSwimLane extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props !== prevProps) {
-      this.renderSwimlanes(this.props);
+    if (this.props.subject && this.props.subject.owner === this.svgId) {
+      // We called for this update with our own clicks so no need to update
+      return;
     }
+
+    if (prevProps.subject === this.props.subject &&
+       prevProps.interval === this.props.interval) {
+      return;
+    }
+
+    this.renderSwimlanes(this.props);
   }
 
   handleLegendClick(event) {
-    console.log("clicked");
     this.toggleLegend();
     event.stopPropagation();
   }
@@ -206,19 +214,29 @@ class SubjectSwimLane extends React.Component {
   addSubjectToLane(lanes, subject) {
     let laneId = 0;
     if (lanes.length === 0) {
-      lanes[laneId] = [];
+      lanes[laneId] = {
+        category: subject.category,
+        subjects: []
+      }
     }
 
-    const buffer = Math.abs(0.1 * Math.max(subject.limitFrom, subject.limitTo));
+    const buffer = Math.abs(0.01 * Math.max(subject.limitFrom, subject.limitTo));
     //
     // Find the index of a lane where the subject does not overlap
     //
     for (laneId = 0; laneId < lanes.length; laneId++) {
       const lane = lanes[laneId];
+      const laneCategory = lane.category;
+      const laneSubjects = lane.subjects;
+
       let overlaps = false;
 
-      for (let i = 0; i < lane.length; i++) {
-        let s = lane[i];
+      if (laneCategory !== subject.category) {
+        continue;
+      }
+
+      for (let i = 0; i < laneSubjects.length; i++) {
+        let s = laneSubjects[i];
 
         const bufferedFrom = subject.limitFrom - buffer;
         const bufferedTo = subject.limitTo + buffer;
@@ -253,13 +271,16 @@ class SubjectSwimLane extends React.Component {
     // not yet exist so create it.
     //
     if (!lanes[laneId]) {
-      lanes[laneId] = [];
+      lanes[laneId] = {
+        category: subject.category,
+        subjects: []
+      }
     }
 
     //
     // Add the subject to the lane
     //
-    lanes[laneId].push(subject);
+    lanes[laneId].subjects.push(subject);
   }
 
   chartify(interval, rawSubjects) {
@@ -331,8 +352,8 @@ class SubjectSwimLane extends React.Component {
           headerStartsIdx = laneId;
         }
 
-        for (let j = 0; j < lane.length; j++) {
-          const subject = lane[j];
+        for (let j = 0; j < lane.subjects.length; j++) {
+          const subject = lane.subjects[j];
           subject.laneId = laneId;
           subject.headerId = chartData.headers.length;
           chartData.subjects.push(subject);
@@ -356,6 +377,16 @@ class SubjectSwimLane extends React.Component {
     return chartData;
   }
 
+  displaySelectionOutline(node, select) {
+    if (!node) {
+      return;
+    }
+
+    const id = '#subject-' + node._id;
+    d3Select(id).classed('subject-outline-hover', false);
+    d3Select(id).classed('subject-outline-clicked', select);
+  }
+
   //
   // Click function for selection
   //
@@ -364,7 +395,14 @@ class SubjectSwimLane extends React.Component {
       return;
     }
 
+    this.displaySelectionOutline(this.selected, false);
     this.selected = d;
+
+    this.displaySelectionOutline(this.selected, true);
+    //
+    // Tag the data with this as the owner
+    //
+    this.selected.current.owner = this.svgId;
     this.props.onSelectedSubjectChange(this.selected.current);
   }
 
@@ -409,7 +447,34 @@ class SubjectSwimLane extends React.Component {
     const x2 = subject.to > max ? max : subject.limitTo;
 
     const w = d3Format(".1f")(xScale(x2)) - d3Format(".1f")(xScale(x1));
-    return w < 1 ? 1 : w; // Have a minimum of 1 so at least something is visible
+    return w < 5 ? 5 : w; // Have a minimum of 5 so at least something is visible
+  }
+
+  //
+  // Walk the subjects and select the chosen subject
+  //
+  traverseToSubject(subject) {
+    if (! subject) {
+      return;
+    }
+
+    //
+    // Find the actual subject in our hierarchy
+    //
+    let visSubject = null;
+    for (const s of this.chartData.subjects.values()) {
+      if (s._id === this.props.subject._id) {
+        visSubject = s; // Found it!
+        break;
+      }
+    }
+
+    if (! visSubject) {
+      console.log("Error: Cannot proceed due to failure to find navigated subject");
+      return;
+    }
+
+    this.handleVisualClick(null, visSubject);
   }
 
   //
@@ -546,19 +611,22 @@ class SubjectSwimLane extends React.Component {
       .attr('y', d => d3Format(".1f")((yScale(d.laneId)) + 3))
       .attr('width', d => this.calcWidth(d, xScale))
       .attr('height', d => this.calcHeight(d, yScale))
-      // .style('fill', d => subjectColorCycle(d.category))
-      .attr("fill", d => "url(#gradient-" + common.identifier(d.category) + ")")
+      .attr('rx', "5")
+      .attr("fill", d => {
+        const w = this.calcWidth(d, xScale);
+        return (w <= 5) ? subjectColorCycle(d.category) : "url(#gradient-" + common.identifier(d.category) + ")";
+      })
       .on("click", this.handleVisualClick)
       .on("mouseover", (event, datum) => {
         const d = d3Select("#" + event.target.id);
         if (d) {
-          d.classed('subject-hover', true);
+          d.classed('subject-outline-hover', true);
         }
       })
       .on("mouseout", (event, datum) => {
         const d = d3Select("#" + event.target.id);
         if (d) {
-          d.classed('subject-hover', false);
+          d.classed('subject-outline-hover', this.selected === datum);
         }
       });
 
@@ -600,6 +668,12 @@ class SubjectSwimLane extends React.Component {
       .text(d => d)
       .attr("text-anchor", "start")
       .attr("alignment-baseline", "hanging");
+
+      //
+      // After complete rendering if a subject
+      // has been assigned then traverse to it
+      //
+      this.traverseToSubject(this.props.subject);
   }
 
   render() {

@@ -1,5 +1,4 @@
 $main-visual-height: 65vh;
-$search-bar-color: #ab8dcc;
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
 @font-face { font-family: blackchancery; src: url('/fonts/black-chancery.ttf'); }
@@ -36,39 +35,6 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
       font-size: 24pt;
       font-family: blackchancery;
       white-space: nowrap;
-    }
-
-    .header-search {
-      flex: 0 1 auto;
-      min-width: 6em;
-      display: flex;
-    }
-
-    .search-term {
-      width: 100%;
-      border: 0.2em solid $search-bar-color;
-      border-right: none;
-      padding: 0.25em;
-      height: 1.3em;
-      border-radius: 0.25em 0 0 0.25em;
-      outline: none;
-      color: gray;
-    }
-
-    .search-term:focus{
-      color: $search-bar-color;
-    }
-
-    .search-button {
-      width: 2em;
-      height: 2em;
-      border: 0.2em solid $search-bar-color;
-      background: $search-bar-color;
-      text-align: center;
-      color: #fff;
-      border-radius: 0 0.25em 0.25em 0;
-      cursor: pointer;
-      font-size: 15pt;
     }
   }
 

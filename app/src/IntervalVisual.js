@@ -81,6 +81,7 @@ export default class IntervalVisual extends React.Component {
       <IntervalSunburst
         width = {this.props.width}
         height = {this.props.height}
+        interval={this.props.interval}
         onSelectedIntervalChange = {this.props.onSelectedIntervalChange}
         data = {this.state.data}/>
     );
@@ -108,6 +109,19 @@ class IntervalSunburst extends React.Component {
     this.renderInterval(this.props);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.interval === this.props.interval) {
+      return;
+    }
+
+    if (this.props.interval && this.props.interval.owner === this.svgId) {
+      // We called for this update with our own clicks so no need to update
+      return;
+    }
+
+    this.renderInterval(this.props);
+  }
+
   //
   // Makes a hierarchy of the json data
   // then partitions it ready for layout
@@ -132,7 +146,14 @@ class IntervalSunburst extends React.Component {
         //
         return d.children.length === 0 ? (d.to - d.from) : 0;
       })
-      .sort((a, b) => a.from - b.from);
+      .sort((a, b) => {
+        //
+        // Whereas sum above uses the actual data objects, sort does not.
+        // Therefore, we have to use ...data.from rather than ...from.
+        //
+        const r = a.data.from - b.data.from;
+        return r;
+      });
 
     //
     // Effectively calling partition(root)
@@ -303,10 +324,56 @@ class IntervalSunburst extends React.Component {
       this.displaySelectionOutline(this.selected, true);
 
       if (this.selected) {
+        //
+        // Tag the data with this as the owner
+        //
+        this.selected.data.owner = this.svgId;
         this.props.onSelectedIntervalChange(this.selected.data);
       }
 
     }, this.clickDelay);
+  }
+
+  //
+  // Walk the hierarchy and 'zoom' into the chosen interval
+  //
+  traverseToInterval(interval) {
+    if (! interval) {
+      return;
+    }
+
+    //
+    // Find the actual interval in our hierarchy
+    //
+    let visInterval = null;
+    this.root.each(d => {
+      if (visInterval) {
+        return; // Already done
+      }
+
+      if (d.id === this.props.interval._id) {
+        visInterval = d; // Found it!
+      }
+    });
+
+    if (! visInterval) {
+      console.log("Error: Cannot proceed due to failure to find navigated interval");
+      return;
+    }
+
+    if (visInterval.children) {
+      //
+      // Has children so can become the central circle
+      //
+      this.handleDoubleClick(null, visInterval);
+    } else {
+      //
+      // No children so select its parent instead then
+      // highlight it to display its information
+      //
+      this.handleDoubleClick(null, visInterval.parent);
+      this.handleClick(null, visInterval);
+    }
   }
 
   //
@@ -321,11 +388,15 @@ class IntervalSunburst extends React.Component {
     //
     this.svg = d3Select('#' + this.svgId);
 
+    // Remove all defs & subject-containers on refresh
+    this.svg.selectAll('defs').remove();
+    this.svg.selectAll('.interval-container').remove();
 
     //
     // Append the main g ready for population
     //
     this.g = this.svg.append("g")
+      .attr("class", "interval-container")
       .attr("transform", `translate(${this.props.width / 2},${this.props.width / 2})`);
 
     //
@@ -507,6 +578,12 @@ class IntervalSunburst extends React.Component {
       .style("font-weight", "bold")
       .attr("dy", "0.35em")
       .text(d => d.data.name)
+
+    //
+    // After complete rendering if an interval
+    // has been assigned then traverse to it
+    //
+    this.traverseToInterval(this.props.interval);
   }
 
   render() {

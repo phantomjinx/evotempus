@@ -1,6 +1,7 @@
 import React from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import './App.scss';
+import Search from './Search.js';
 import Wiki from './Wiki.js';
 import IntervalVisual from './IntervalVisual.js';
 import SubjectVisual from './SubjectVisual.js';
@@ -11,7 +12,10 @@ class App extends React.Component {
   constructor (props) {
     super(props);
 
-    this.state = { interval: null };
+    this.state = {
+      interval: undefined,
+      subject: undefined
+    };
 
     this.subjectVisualRef = React.createRef();
     this.handleIntervalChange = this.handleIntervalChange.bind(this);
@@ -21,7 +25,8 @@ class App extends React.Component {
   handleIntervalChange(interval) {
     this.setState({
       interval: interval,
-      selected: {
+      subject: undefined, // New interval so reset subject
+      topicTarget: {
         type: 'interval',
         item: interval
       }
@@ -29,8 +34,10 @@ class App extends React.Component {
   }
 
   handleSubjectChange(subject) {
+    console.log("handling Subject Change = " + subject._id);
     this.setState({
-      selected: {
+      subject: subject,
+      topicTarget: {
         type: 'subject',
         item: subject
       }
@@ -42,10 +49,10 @@ class App extends React.Component {
       <div className="app grid-container">
         <header className="header">
           <h3 className="header-title">EvoTempus: Dashboard of Earth History</h3>
-          <form className="header-search form-inline">
-            <input className="form-control search-term" type="text" placeholder="Search" aria-label="Search"/>
-            <button className="fa fa-search search-button" type="submit"/>
-          </form>
+          <Search
+            onSelectedIntervalChange={this.handleIntervalChange}
+            onSelectedSubjectChange={this.handleSubjectChange}
+          />
         </header>
         <main className="main">
           <div className="inner-main">
@@ -53,6 +60,7 @@ class App extends React.Component {
               <div className="interval-visual">
                 <IntervalVisual
                   width="400" height="400"
+                  interval={this.state.interval}
                   onSelectedIntervalChange={this.handleIntervalChange}
                 />
               </div>
@@ -60,13 +68,14 @@ class App extends React.Component {
                 <SubjectVisual
                   parent = { this.subjectVisualRef }
                   interval={this.state.interval}
+                  subject={this.state.subject}
                   onSelectedSubjectChange={this.handleSubjectChange}
                 />
               </div>
             </div>
             <div className="wiki-card">
               <Wiki
-                topic={this.state.selected}
+                topic={this.state.topicTarget}
               />
             </div>
           </div>

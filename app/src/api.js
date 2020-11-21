@@ -19,6 +19,31 @@ export function intervals() {
   });
 }
 
+export function intervalById(id) {
+  return instance({
+    'method':'GET',
+    'url':'/api/intervals/' + id,
+    'params': {
+      'outputsize':'compact',
+      'datatype':'json'
+    },
+  });
+}
+
+export function intervalEncloses(from, to) {
+  return instance({
+    'method':'GET',
+    'url':'/api/intervals',
+    'params': {
+      'from': from,
+      'to': to,
+      'limited': true, // Ensures that the single narrowest interval is returned
+      'outputsize':'compact',
+      'datatype':'json'
+    },
+  });
+}
+
 export function description(topicType, topicId) {
   return instance({
     'method':'GET',
@@ -30,13 +55,36 @@ export function description(topicType, topicId) {
   });
 }
 
-export function subjects(from, to) {
+export function subjectById(id) {
+  return instance({
+    'method':'GET',
+    'url':'/api/subjects/' + id,
+    'params': {
+      'outputsize':'compact',
+      'datatype':'json'
+    },
+  });
+}
+
+export function subjectsWithin(from, to) {
   return instance({
     'method':'GET',
     'url':'/api/subjects',
     'params': {
       'from':from,
       'to':to,
+      'outputsize':'compact',
+      'datatype':'json'
+    },
+  });
+}
+
+export function search(searchTerm) {
+  return instance({
+    'method':'GET',
+    'url':'/api/search',
+    'params': {
+      'query':searchTerm,
       'outputsize':'compact',
       'datatype':'json'
     },

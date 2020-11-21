@@ -366,6 +366,9 @@ function init() {
   const topics = require('./api/topics');
   app.use('/api/topics', topics.router);
 
+  const search = require('./api/search');
+  app.use('/api/search', search);
+
   // static content
   switch (environment) {
     case 'development':
@@ -399,12 +402,37 @@ let opts = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
   useFindAndModify: false,
-  useCreateIndex: true
+  useCreateIndex: true,
+  autoIndex: true
 };
 
 mongoose.set('debug', true);
 mongoose.connect(mongoDbURI, opts);
 let conn = mongoose.connection;
+
+Interval.on('index', function(err) {
+  if (err) {
+    logger.error(err, 'Interval index error');
+  } else {
+    logger.info('Interval indexing complete');
+  }
+});
+
+Subject.on('index', function(err) {
+  if (err) {
+    logger.error(err, 'Subject index error');
+  } else {
+    logger.info('Subject indexing complete');
+  }
+});
+
+Topic.on('index', err => {
+  if (err) {
+    logger.error(err, 'Topic index error');
+  } else {
+    logger.info('Topic indexing complete');
+  }
+});
 
 conn.on('Error', () => {
   logger.error('ERROR: Database connection failed.');

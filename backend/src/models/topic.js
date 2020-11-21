@@ -23,7 +23,6 @@ var TopicSchema = new Schema({
     topic: {
       type: String,
       refPath: 'topicTarget',
-      index: true
     },
     topicTarget: {
       type: String,
@@ -34,6 +33,8 @@ var TopicSchema = new Schema({
     description: String // Empty by default but used to cache data as its queried
 },
 { versionKey: 'version' });
+
+TopicSchema.index({ topic: 'text', description: 'text' });
 
 // define our interval descrption model
 module.exports = {

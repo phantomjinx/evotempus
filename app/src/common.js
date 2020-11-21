@@ -19,3 +19,17 @@ export function present(year) {
 export function identifier(text) {
   return text.replace(/\s/g, '-').toLowerCase();
 }
+
+export function idToTitle(id) {
+  // Replace hypens with spaces
+  const name = id.replace(/-/g, " ");
+
+  // Capitalize all words
+  const s = name.toLowerCase().split(' ');
+  for (var i = 0; i < s.length; i++) {
+    // Assign it back to the array
+    s[i] = s[i].charAt(0).toUpperCase() + s[i].substring(1);
+  }
+
+  return s.join(' ');
+}

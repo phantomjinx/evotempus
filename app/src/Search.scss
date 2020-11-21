@@ -1,0 +1,103 @@
+$search-bar-color: #ab8dcc;
+$tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+
+.evo-search {
+  .search-box {
+    .search-form {
+      flex: 0 1 auto;
+      min-width: 6em;
+      display: flex;
+
+      .search-term {
+        width: 100%;
+        border: 0.2em solid $search-bar-color;
+        border-right: none;
+        padding: 0.25em;
+        height: 1.3em;
+        border-radius: 0.25em 0 0 0.25em;
+        outline: none;
+        color: gray;
+      }
+
+      .search-term:focus{
+        color: $search-bar-color;
+      }
+
+      .search-button {
+        width: 2em;
+        height: 2em;
+        border: 0.2em solid $search-bar-color;
+        background: $search-bar-color;
+        text-align: center;
+        color: #fff;
+        border-radius: 0 0.25em 0.25em 0;
+        cursor: pointer;
+        font-size: 15pt;
+      }
+    }
+  }
+
+  .search-results-waiting {
+    cursor: progress;
+  }
+
+  .search-results-show {
+    transform: translateX(0%);
+    cursor: pointer;
+  }
+
+  .search-results-hide {
+    transform: translateX(100%);
+    cursor: pointer;
+  }
+
+  .search-results {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 30em;
+    transition: .3s ease-out;
+    margin-top: 4em;
+    margin-bottom: 1.5em;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: $tile-shadow;
+
+    .search-results-inner {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      overflow: auto;
+      padding: 1em;
+
+      .search-results-closebtn {
+        float:right;
+        margin-top: 0.5em;
+        margin-right: 1em;
+        text-decoration: none;
+        text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px slategray;
+        color: #efefef;
+        font-size: 14pt;
+      }
+
+      .search-results-content {
+        clear: both;
+
+        ul:before{
+          content:attr(aria-label);
+          font-size: 120%;
+          font-weight: bold;
+          margin-left: -1em;
+        }
+
+        .ul-no-show {
+          display: none;
+        }
+      }
+    }
+  }
+}

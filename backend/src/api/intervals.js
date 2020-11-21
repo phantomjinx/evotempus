@@ -27,11 +27,50 @@ const logger = loggerUtils.logger;
 
 // intervals api route
 router.get('/', (req, res) => {
-  Interval.find()
-    .then(intervals => res.json(intervals))
-    .catch(err => {
-      logger.error("Failed to find any intervals", err);
-      res.status(500).send(err);
+
+  const from = req.query.from;
+  const to = req.query.to;
+  const limited = req.query.limited;
+
+  const filter = {};
+  if (from && to) {
+    filter.from = { $lte: from };
+    filter.to = { $gte: to };
+  } else if (from) {
+    filter.from = { $lte: from };
+  } else if (to) {
+    filter.to = { $gte: to };
+  }
+
+  logger.debug("Intervals being run with filter: " + JSON.stringify(filter));
+
+  Interval.find(
+    filter
+  ).then(intervals => {
+
+    if (intervals.length <= 1) {
+      res.json(intervals);
+    } else if ((from || to) && limited === 'true') {
+      //
+      // Find the interval closest to the from and to
+      //
+      let theInterval = intervals[0];
+      for (let i = 1; i < intervals.length; ++i) {
+        const a = intervals[i];
+
+        const d1 = theInterval.to - theInterval.from;
+        const d2 = a.to - a.from;
+        theInterval = d1 <= d2 ? theInterval : a;
+      }
+
+      res.json([theInterval]);
+    } else {
+      res.json(intervals)
+    }
+  }).catch(err => {
+      const msg = "Failed to find any intervals";
+      logger.error(err, msg);
+      res.status(500).send(new Error(msg, err));
     });
 });
 

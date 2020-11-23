@@ -92,9 +92,9 @@ export default class Search extends React.Component {
   }
 
   resultsMsg(intervals, subjects, topics) {
-    const total = intervals ? intervals.length : 0 +
-                  subjects ? subjects.length : 0 +
-                  topics ? topics.length : 0;
+    const total = (intervals ? intervals.length : 0) +
+                  (subjects ? subjects.length : 0) +
+                  (topics ? topics.length : 0);
     return "Found " + total + " results";
   }
 

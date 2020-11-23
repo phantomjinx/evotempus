@@ -1,18 +1,38 @@
 import React from 'react';
 import './Search.scss';
 import ErrorMsg from './ErrorMsg.js';
+import Tabs from "./Tabs.js";
 import * as api from './api';
 import * as common from './common';
+import Pagination from "react-pagination-js";
+import "react-pagination-js/dist/styles.css"; // import css
 
 export default class Search extends React.Component {
 
   constructor (props) {
     super(props);
 
+    this.totalPerPage = 10;
+    this.pageFn = {
+      interval: (newPage) => {
+        this.setState({ intervalPage: newPage });
+      },
+      subject: (newPage) => {
+        this.setState({ subjectPage: newPage });
+      },
+      topic: (newPage) => {
+        this.setState({ topicPage: newPage });
+      }
+    };
+
     this.state = {
       searchTerm: '',
+      msg: '',
+      error: undefined,
+      intervalPage: 1,
+      subjectPage: 1,
+      topicPage: 1,
       results: {
-        msg: '',
         intervals: [],
         subjects: [],
         topics: []
@@ -40,33 +60,42 @@ export default class Search extends React.Component {
       .then((res) => {
         if (!res.data || res.data.length === 0) {
           this.setState({
-            results: { msg : "No results found" },
+            msg : "No results found",
             resultsClass: 'search-results-show'
           })
         } else {
 
-          const total = res.data.intervals.length + res.data.subjects.length + res.data.topics.length;
           this.setState({
+            msg: this.resultsMsg(res.data.intervals, res.data.subjects, res.data.topics),
+            msgClass: "search-msg-info",
+            intervalPage: 1,
+            subjectPage: 1,
+            topicPage: 1,
             results: {
-              msg: "Found " + total + " results",
               intervals: res.data.intervals,
               subjects: res.data.subjects,
-              topics: res.data.topics
+              topics: res.data.topics,
             },
             resultsClass: 'search-results-show'
           })
         }
       }).catch((err) => {
         this.setState({
-          results: {
-            msg: "An error occurred whilst searching",
-            error: err
-          },
+          msg: "An error occurred whilst searching",
+          msgClass: "search-msg-error",
+          error: err,
           resultsClass: 'search-results-show'
         })
       });
 
     event.preventDefault();
+  }
+
+  resultsMsg(intervals, subjects, topics) {
+    const total = intervals ? intervals.length : 0 +
+                  subjects ? subjects.length : 0 +
+                  topics ? topics.length : 0;
+    return "Found " + total + " results";
   }
 
   handleChange(event) {
@@ -82,6 +111,10 @@ export default class Search extends React.Component {
       event.preventDefault();
     }
 
+    this.setState({
+      msg: this.resultsMsg(this.state.results.intervals, this.state.results.subjects, this.state.results.topics)
+    });
+
     switch (target.fieldType) {
       case 'interval':
         this.props.onSelectedIntervalChange(target);
@@ -91,7 +124,7 @@ export default class Search extends React.Component {
           .then((res) => {
             if (!res.data || res.data.length === 0) {
               this.setState({
-                results: { msg : "Error: Cannot navigate to a parent interval of the subject" }
+                msg : "Error: Cannot navigate to a parent interval of the subject"
               })
             } else {
               //
@@ -102,10 +135,9 @@ export default class Search extends React.Component {
             }
           }).catch((err) => {
             this.setState({
-              results: {
-                msg: "An error occurred whilst trying to navigate to subject",
-                error: err
-              }
+              msg: "An error occurred whilst trying to navigate to subject",
+              msgClass: "search-msg-error",
+              error: err
             })
           });
 
@@ -116,7 +148,7 @@ export default class Search extends React.Component {
             .then((res) => {
               if (!res.data) {
                 this.setState({
-                  results: { msg : "Error: Cannot navigate to a parent subject of the description" }
+                  msg : "Error: Cannot navigate to a parent subject of the description"
                 })
               } else {
                 //
@@ -128,10 +160,9 @@ export default class Search extends React.Component {
               }
             }).catch((err) => {
               this.setState({
-                results: {
-                  msg: "An error occurred whilst trying to navigate to description",
-                  error: err
-                }
+                msg: "An error occurred whilst trying to navigate to description",
+                msgClass: "search-msg-info",
+                error: err
               })
             });
 
@@ -140,7 +171,7 @@ export default class Search extends React.Component {
             .then((res) => {
               if (!res.data) {
                 this.setState({
-                  results: { msg : "Error: Cannot navigate to a parent interval of the description" }
+                  msg : "Error: Cannot navigate to a parent interval of the description"
                 })
               } else {
                 //
@@ -152,28 +183,38 @@ export default class Search extends React.Component {
               }
             }).catch((err) => {
               this.setState({
-                results: {
-                  msg: "An error occurred whilst trying to navigate to description",
-                  error: err
-                }
+                msg: "An error occurred whilst trying to navigate to description",
+                msgClass: "search-msg-error",
+                error: err
               })
             });
         }
 
         break;
       default:
-        console.log("Cannot navigate to unknown result");
+        this.setState({
+          msg: "Cannot navigate to unknown result",
+          msgClass: "search-msg-error"
+        });
     }
   }
 
-  resultBlock(title, type, content) {
-    if (!content || content.length === 0) {
-      return '';
-    }
+  hasResults() {
+    return this.state.results.intervals.length > 0 ||
+        this.state.results.subjects.length > 0 ||
+        this.state.results.topics.length > 0;
+  }
 
-    const myclass = "search-results-content-" + title.toLowerCase();
-    const items = [];
-    for (const value of content.values()) {
+  resultBlock(title, type, results) {
+    const myClass = "search-results-content-" + title.toLowerCase();
+    let items = [];
+
+    if (results.length === 0) {
+      items.push(
+        <p className="search-results-content-none-found">No results found for this category.</p>
+      )
+    }
+    for (const value of results.values()) {
       //
       // Add a type field to help with navigation
       //
@@ -189,9 +230,26 @@ export default class Search extends React.Component {
       );
     }
 
+    let paginate = '';
+    if (items.length > this.totalPerPage) {
+      const currentPage = type + 'Page';
+      const offset = (this.state[currentPage] - 1) * this.totalPerPage;
+      items = items.slice(offset, offset + this.totalPerPage);
+      paginate = (
+        <Pagination
+          currentPage={this.state[currentPage]}
+          totalSize={results.length}
+          sizePerPage={this.totalPerPage}
+          changeCurrentPage={this.pageFn[type]}
+          theme="circle"
+        />
+      );
+    }
+
     return (
-      <div className={myclass}>
-        <ul aria-label={title}>
+      <div label={title} className={myClass}>
+        {paginate}
+        <ul className="search-results-content-items">
           {items}
         </ul>
       </div>
@@ -223,7 +281,7 @@ export default class Search extends React.Component {
       </div>
     );
 
-    if (this.state.results.error) {
+    if (this.state.error) {
       return (
         <div className="evo-search">
           {searchBox}
@@ -231,12 +289,23 @@ export default class Search extends React.Component {
             <div className="search-results-inner">
               {closeButton}
               <div className="search-results-content">
-                <ErrorMsg error = {this.state.results.error} errorMsg = {this.state.results.msg}/>
+                <ErrorMsg error = {this.state.error} errorMsg = {this.state.msg}/>
               </div>
             </div>
           </div>
         </div>
       );
+    }
+
+    let resultsTabs = '';
+    if (this.hasResults()) {
+      resultsTabs = (
+        <Tabs>
+          {this.resultBlock("Geological Intervals", "interval", this.state.results.intervals)}
+          {this.resultBlock("Historical Subjects", "subject", this.state.results.subjects)}
+          {this.resultBlock("Descriptions", "topic", this.state.results.topics)}
+        </Tabs>
+      )
     }
 
     return (
@@ -246,11 +315,8 @@ export default class Search extends React.Component {
           <div className="search-results-inner">
             {closeButton}
             <div className="search-results-content">
-              <h3>{this.state.results.msg}</h3>
-
-              {this.resultBlock("Geological Intervals", "interval", this.state.results.intervals)}
-              {this.resultBlock("Historical Subjects", "subject", this.state.results.subjects)}
-              {this.resultBlock("Descriptions", "topic", this.state.results.topics)}
+              <h3 className={this.state.msgClass}>{this.state.msg}</h3>
+              {resultsTabs}
             </div>
           </div>
         </div>

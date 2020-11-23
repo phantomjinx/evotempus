@@ -26,6 +26,7 @@
     "node-sass": "^4.14.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-pagination-js": "^2.0.0",
     "react-scripts": "3.4.4",
     "react-tooltip": "^4.2.10"
   },

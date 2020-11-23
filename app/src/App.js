@@ -23,9 +23,13 @@ class App extends React.Component {
   }
 
   handleIntervalChange(interval) {
+    //
+    // Although makes sense to reset subject here, it creates a race condition
+    // where the search navigation 'clicks' on the description then this refreshes
+    // and cancels it.
+    //
     this.setState({
       interval: interval,
-      subject: undefined, // New interval so reset subject
       topicTarget: {
         type: 'interval',
         item: interval
@@ -34,7 +38,6 @@ class App extends React.Component {
   }
 
   handleSubjectChange(subject) {
-    console.log("handling Subject Change = " + subject._id);
     this.setState({
       subject: subject,
       topicTarget: {

@@ -1,0 +1,37 @@
+$tab-color: #4c8585;
+$tab-content-color: #ab8dcc;
+
+.tabs {
+  .tab-list {
+    border-bottom: 1px solid $tab-color;
+    padding-left: 0;
+    margin-bottom: 0;
+    text-align: center;
+    background-image: linear-gradient(white, $tab-color);
+
+    .tab-list-item {
+      display: inline-block;
+      list-style: none;
+      margin-bottom: -1px;
+      padding: 0.5rem 0.75rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .tab-list-active {
+      background-image: linear-gradient($tab-color, white);
+      border: solid $tab-color;
+      border-width: 1px 1px 0 1px;
+    }
+  }
+
+  .tab-content {
+    margin-top: 0;
+    padding-top: 1em;
+    background-image: linear-gradient($tab-content-color 0.2em, transparent 0.8em, transparent 100%);
+
+    ul {
+      margin-top: 0;
+    }
+  }
+}

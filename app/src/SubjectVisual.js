@@ -399,6 +399,7 @@ class SubjectSwimLane extends React.Component {
     this.selected = d;
 
     this.displaySelectionOutline(this.selected, true);
+
     //
     // Tag the data with this as the owner
     //
@@ -470,7 +471,12 @@ class SubjectSwimLane extends React.Component {
     }
 
     if (! visSubject) {
-      console.log("Error: Cannot proceed due to failure to find navigated subject");
+      //
+      // Possible that subject is out-of-date and not in this visual
+      // so don't try and click, just quietly ignore. If we reset in
+      // App when interval is changed then race condition occurs that
+      // stop descriptions being shown from navigation
+      //
       return;
     }
 

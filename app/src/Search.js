@@ -241,7 +241,7 @@ export default class Search extends React.Component {
           totalSize={results.length}
           sizePerPage={this.totalPerPage}
           changeCurrentPage={this.pageFn[type]}
-          theme="circle"
+          theme="border-bottom"
         />
       );
     }

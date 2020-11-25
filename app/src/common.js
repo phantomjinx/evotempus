@@ -38,6 +38,13 @@ export var colorRange = [
   "#4cb9cc", "#4f2f94", "#5128a1", "#5d2594"
 ];
 
+var kindHints = {
+  Event:    '#def3fd',
+  Fauna:    '#fddfdf',
+  Flora:    '#defde0',
+  Geology:  '#b5b1b1'
+}
+
 var categoryHints = {
   "Geological Development":   '#5b5753',
   "Biological Development":   '#00571b',
@@ -45,8 +52,8 @@ var categoryHints = {
   "Continental Drift":        '#32007a',
   "Climatic Development":     '#0084a2',
   "Extinction Event":         '#d30084',
-  "Early Form of Life":       '#36543d',
-  "Astronomical Geology":     '#b19578',
+  "Early Form of Life":       '#694a30',
+  "Astronomical Geology":     '#705270',
   "Dinosaurs":                '#16a500',
   "Archaeological Age":       '#cc6600',
   "Human Development":        '#ff9cc4',
@@ -56,13 +63,22 @@ var categoryHints = {
   "Trees":                    '#893f17'
 }
 
+export function calcKindColours(kinds) {
+  const colours = [];
+  let i = 20;
+  for (const kind of kinds.values()) {
+    const hint = kindHints[kind];
+    colours.push(hint ? hint : colorRange[i++]);
+  }
+  return colours;
+}
 
-export function calculateColourRange(categories) {
+export function calcCategoryColours(categories) {
   const colours = [];
   let i = 0;
   for (const category of categories.values()) {
     const hint = categoryHints[category];
-    colours.push(hint ? hint : colorRange[i]);
+    colours.push(hint ? hint : colorRange[i++]);
   }
   return colours;
 }

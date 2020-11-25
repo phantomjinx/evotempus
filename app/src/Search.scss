@@ -85,12 +85,13 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
       .search-results-content {
         clear: both;
 
-        .react-pagination-js-circle {
+        [class^="react-pagination-js-"] {
           float: right;
         }
 
         .search-results-content-items {
           clear: both;
+          margin-top: 1em;
 
           li {
             margin-top: 0.75em;

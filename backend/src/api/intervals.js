@@ -65,7 +65,7 @@ router.get('/', (req, res) => {
 
       res.json([theInterval]);
     } else {
-      res.json(intervals)
+      res.json(intervals);
     }
   }).catch(err => {
       const msg = "Failed to find any intervals";

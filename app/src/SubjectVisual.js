@@ -12,7 +12,6 @@ import {
   scaleLinear as d3ScaleLinear } from 'd3-scale';
 import {color as d3Color} from 'd3-color';
 import {
-  schemeCategory10 as d3SchemeCategory10,
   schemePastel1 as d3SchemePastel1
 } from 'd3-scale-chromatic';
 import {
@@ -60,6 +59,25 @@ export default class SubjectVisual extends React.Component {
 
   componentDidCatch(error, info) {
     console.log(error);
+  }
+
+  //
+  // Fetch the all the categories from the backend service
+  // This needs to be done once then retained and passed to the subject Swimlane component
+  //
+  fetchCategories() {
+    api.subjectCategories()
+      .then((res) => {
+        if (!res.data || res.data.length === 0) {
+          this.logErrorState("Failed to fetch categories be fetched", new Error("Response data payload was empty."));
+        } else {
+          this.setState({
+            categories: res.data
+          })
+        }
+      }).catch((err) => {
+        this.logErrorState("Failed to fetch interval data", err);
+      });
   }
 
   fetchSubjects() {
@@ -121,6 +139,7 @@ export default class SubjectVisual extends React.Component {
 
   componentDidMount() {
     this.dimensions();
+    this.fetchCategories();
     this.fetchSubjects();
     window.addEventListener('resize', this.handleResize);
   }
@@ -160,7 +179,8 @@ export default class SubjectVisual extends React.Component {
         onSelectedSubjectChange = {this.props.onSelectedSubjectChange}
         interval = {this.props.interval}
         subject = {this.props.subject}
-        subjects = {this.state.subjects}/>
+        subjects = {this.state.subjects}
+        categories = {this.state.categories}/>
     );
   }
 }
@@ -341,6 +361,10 @@ class SubjectSwimLane extends React.Component {
     // the lanes for adding into chartdata
     //
     headerMap.forEach((lanes, header) => {
+      // Sort the lanes to ensure all those in same category are together
+      lanes = lanes.sort((a, b) => {
+        return a.category.localeCompare(b.category);
+      });
       let headerStartsIdx = 0;
 
       for (let i = 0; i < lanes.length; i++) {
@@ -497,7 +521,12 @@ class SubjectSwimLane extends React.Component {
 
     this.chartData = this.chartify(props.interval, props.subjects);
 
-    const subjectColorCycle = d3ScaleOrdinal(d3SchemeCategory10);
+    const colorRange = common.calculateColourRange(props.categories);
+
+    const subjectColorCycle = d3ScaleOrdinal()
+      .domain(props.categories)
+      .range(colorRange);
+
     const laneColorCycle = d3ScaleOrdinal(d3SchemePastel1);
 
     this.svg = d3Select('#' + this.svgId);

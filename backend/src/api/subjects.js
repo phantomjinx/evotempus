@@ -49,6 +49,24 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/categories', (req, res) => {
+
+  Subject.find({})
+    .select({category: 1, _id: 0})
+    .then(results => {
+      const categories = new Set();
+      for (const result of results.values()) {
+        categories.add(result.category);
+      }
+
+      res.json(Array.from(categories));
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send(err);
+    });
+});
+
 router.get('/:subjectId', (req, res) => {
   Subject.findById(
     { _id: req.params.subjectId }

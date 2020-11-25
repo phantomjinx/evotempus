@@ -79,6 +79,17 @@ export function subjectsWithin(from, to) {
   });
 }
 
+export function subjectCategories() {
+  return instance({
+    'method':'GET',
+    'url':'/api/subjects/categories',
+    'params': {
+      'outputsize':'compact',
+      'datatype':'json'
+    },
+  });
+}
+
 export function search(searchTerm) {
   return instance({
     'method':'GET',

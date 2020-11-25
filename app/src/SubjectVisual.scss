@@ -15,6 +15,10 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
   justify-content: center;
   margin-top: 1em;
 
+  .subject-visual-button {
+    cursor: pointer;
+  }
+
   .subject-visual-nocontent {
     font-weight: bold;
     border-radius: 1em;

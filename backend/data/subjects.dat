@@ -21,6 +21,7 @@ nuvvuagittuq-greenstone-belt             | Geology   | Geological Development   
 earliest-water-on-earth                  | Event     | Biological Development     | -4280000000   | -3800000000  | Origin_of_water_on_Earth#History_of_water_on_Earth
 abiogenesis                              | Event     | Biological Development     | -4280000000   | -3500000000  | Abiogenesis
 acasta-gneiss                            | Geology   | Geological Development     | -4031000000   | -3058000000  | Acasta_Gneiss
+laurentia-craton                         | Geology   | Continental Drift          | -4031000000   | 2030         | Laurentia
 late-heavy-bombardment                   | Event     | Astronomical Collision     | -4100000000   | -3800000000  | Late_Heavy_Bombardment
 isua-greenstone-belt                     | Geology   | Geological Development     | -3800000000   | -3700000000  | Isua_Greenstone_Belt
 vaalbara-supercontinent                  | Geology   | Continental Drift          | -3636000000   | -2803000000  | Vaalbara
@@ -29,25 +30,38 @@ evolution-of-photosynthesis              | Event     | Biological Development   
 pongola-glaciation                       | Event     | Climatic Development       | -2900000000   | -2500000000  | Pongola_glaciation
 ur-supercontinent                        | Geology   | Continental Drift          | -2803000000   | -2408000000  | Ur_(continent)
 kenorland-supercontinent                 | Geology   | Continental Drift          | -2780000000   | -2100000000  | Kenorland
-colombia-supercontinent                  | Geology   | Continental Drift          | -2500000000   | -2100000000  | Columbia_(supercontinent)
+peak-of-iron-band-formations             | Geology   | Geological Development     | -2800000000   | -2500000000  | Banded_iron_formation
 great-oxidation-event                    | Event     | Extinction Event           | -2400000000   | -2000000000  | Great_Oxidation_Event
 huronian-glaciation                      | Event     | Climatic Development       | -2400000000   | -2100000000  | Huronian_glaciation
+bushveld-igneous-complex                 | Geology   | Geological Development     | -2100000000   | -2000000000  | Bushveld_Igneous_Complex
 arctica-supercontinent                   | Geology   | Continental Drift          | -2114000000   | -1995000000  | Arctica
+nena-paleo-continent                     | Geology   | Continental Drift          | -1900000000   | -1800000000  | Nena_(supercontinent)
 emergence-of-eukaryotes                  | Event     | Biological Development     | -2100000000   | -1600000000  | Eukaryote
 francevillian-biota                      | Fauna     | Early Form of Life         | -2150000000   | -2050000000  | Francevillian_biota
+vredefort-asteroid-impact                | Event     | Astronomical Collision     | -2027000000   | -2019000000  | Vredefort_crater
+baltica-paleo-continent                  | Geology   | Continental Drift          | -2000000000   | -385000000   | Baltica
 atlantica-supercontinent                 | Geology   | Continental Drift          | -1991000000   | -1124000000  | Atlantica
+sudbury-asteroid-impact                  | Event     | Astronomical Collision     | -1849740000   | -1848930000  | Sudbury_Basin
+colombia-supercontinent                  | Geology   | Continental Drift          | -1820000000   | -1350000000  | Columbia_(supercontinent)
 rodinia-supercontinent                   | Geology   | Continental Drift          | -1130000000   | -750000000   | Rodinia
 sturtian-glaciation                      | Event     | Climatic Development       | -715000000    | -680000000   | Sturtian_glaciation
 marinoan-glaciation                      | Event     | Climatic Development       | -650000000    | -635000000   | Marinoan_glaciation
 earliest-complex-multicellular-organisms | Event     | Biological Development     | -600000000    | -542000000   | Ediacaran_biota
 pannotia-supercontinent                  | Geology   | Continental Drift          | -633000000    | -573000000   | Pannotia
+lapetus-ocean                            | Geology   | Marine Continental Drift   | -600000000    | -400000000   | Iapetus_Ocean
 gaskiers-glaciation                      | Geology   | Geological Development     | -579880000    | -579630000   | Gaskiers_glaciation
 charnia                                  | Fauna     | Early Form of Life         | -570000000    | -550000000   | Charnia
 gondwana-supercontinent                  | Geology   | Continental Drift          | -550000000    | -175000000   | Gondwana
 cambrian-explosion                       | Event     | Biological Development     | -541000000    | -516000000   | Cambrian_explosion
+laurasia-supercontinent                  | Geology   | Continental Drift          | -425000000    | -200000000   | Laurasia
 late-devonian-extinction                 | Event     | Extinction Event           | -376000000    | -358900000   | Late_Devonian_extinction
 pangaea-supercontinent                   | Geology   | Continental Drift          | -336000000    | -175000000   | Pangaea
 great-dying                              | Event     | Extinction Event           | -251941000    | -251880000   | Permian-Triassic_extinction_event
+proto-tethys-ocean                       | Geology   | Marine Continental Drift   | -550000000    | -330000000   | Proto-Tethys_Ocean
+paleo-tethys-ocean                       | Geology   | Marine Continental Drift   | -500000000    | -200000000   | Paleo-Tethys_Ocean
+tethys-ocean                             | Geology   | Marine Continental Drift   | -250000000    | -50000000    | Tethys_Ocean
+manicouagan-reservoir-asteroid-impact    | Event     | Astronomical Collision     | -215000000    | -213000000   | Manicouagan_Reservoir
+pine-tree-genus                          | Flora     | Trees                      | -130000000    | 2030         | Pinaceae
 dreadnoughtus                            | Fauna     | Dinosaurs                  | -86300000     | -66000000    | Dreadnoughtus
 protoceratops                            | Fauna     | Dinosaurs                  | -83500000     | -70600000    | Protoceratops
 ornithomimus                             | Fauna     | Dinosaurs                  | -75500000     | -66000000    | Ornithomimus
@@ -59,6 +73,10 @@ tarbosaurus                              | Fauna     | Dinosaurs                
 rajasaurus                               | Fauna     | Dinosaurs                  | -69000000     | -69000000    | Rajasaurus
 tyrannosaurus                            | Fauna     | Dinosaurs                  | -68000000     | -66000000    | Tyrannosaurus
 triceratops                              | Fauna     | Dinosaurs                  | -68000000     | -66000000    | Triceratops
+deccan-traps                             | Geology   | Geological Development     | -66250000     | -65500000    | Deccan_Traps
+chicxulub-asteroid-impact                | Event     | Astronomical Collision     | -66054000     | -66032000    | Chicxulub_crater
+end-of-the-dinosaurs                     | Event     | Extinction Event           | -66000000     | -65000000    | Cretaceous-Paleogene_extinction_event
+boltyish-asteroid-impact                 | Event     | Astronomical Collision     | -65810000     | -64530000    | Boltysh_crater
 paleolithic                              | Event     | Archaeological Age         | -3300000      | -11700       | Paleolithic
 cromerian-stage                          | Event     | UK Climatic Development    | -800000       | -500000      | Cromerian_Stage
 anglian-stage                            | Event     | UK Climatic Development    | -478000       | -424000      | Anglian_Stage

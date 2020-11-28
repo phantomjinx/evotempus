@@ -18,8 +18,11 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     margin-right: 1em;
     text-decoration: none;
     text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px slategray;
-    color: #efefef;
-    font-size: 14px;
+    color: #a7a7a7;
+    font-size: 14pt;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
   }
 
   .subject-visual-legend-content {

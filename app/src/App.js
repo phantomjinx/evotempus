@@ -5,6 +5,7 @@ import Search from './Search.js';
 import Wiki from './Wiki.js';
 import IntervalVisual from './IntervalVisual.js';
 import SubjectVisual from './SubjectVisual.js';
+import HelpPage from './HelpPage.js';
 import * as common from './common';
 
 class App extends React.Component {
@@ -13,6 +14,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      help: true,
       interval: undefined,
       subject: undefined
     };
@@ -20,6 +22,7 @@ class App extends React.Component {
     this.subjectVisualRef = React.createRef();
     this.handleIntervalChange = this.handleIntervalChange.bind(this);
     this.handleSubjectChange = this.handleSubjectChange.bind(this);
+    this.toggleHelp = this.toggleHelp.bind(this);
   }
 
   handleIntervalChange(interval) {
@@ -33,7 +36,8 @@ class App extends React.Component {
       topicTarget: {
         type: 'interval',
         item: interval
-      }
+      },
+      help: false
     });
   }
 
@@ -47,7 +51,33 @@ class App extends React.Component {
     });
   }
 
+  toggleHelp(show) {
+    this.setState({
+      help: show
+    });
+
+    console.log("help: " + this.state.help);
+  }
+
   render() {
+    const subjectViz = (
+      <SubjectVisual
+        parent = { this.subjectVisualRef }
+        interval={this.state.interval}
+        subject={this.state.subject}
+        onSelectedSubjectChange={this.handleSubjectChange}
+      />
+    )
+
+    const showHelp = (
+      <HelpPage
+        onToggleHelp={this.toggleHelp}
+      />
+    )
+
+    const subjectVisual = this.state.help ? showHelp : subjectViz;
+    console.log("Rendering app again");
+
     return (
       <div className="app grid-container">
         <header className="header">
@@ -61,6 +91,9 @@ class App extends React.Component {
           <div className="inner-main">
             <div className="main-visual">
               <div className="interval-visual">
+                <div className="interval-visual-help">
+                  <button id="interval-visual-help-btn" className="fa fa-question-circle" onClick={() => this.toggleHelp(true)}/>
+                </div>
                 <IntervalVisual
                   width="400" height="400"
                   interval={this.state.interval}
@@ -68,12 +101,7 @@ class App extends React.Component {
                 />
               </div>
               <div className="subject-visual" ref={this.subjectVisualRef}>
-                <SubjectVisual
-                  parent = { this.subjectVisualRef }
-                  interval={this.state.interval}
-                  subject={this.state.subject}
-                  onSelectedSubjectChange={this.handleSubjectChange}
-                />
+                {subjectVisual}
               </div>
             </div>
             <div className="wiki-card">

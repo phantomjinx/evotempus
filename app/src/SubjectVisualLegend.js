@@ -120,10 +120,10 @@ export default class SubjectVisualLegend extends React.Component {
   render() {
     return (
       <div id="subject-visual-legend" className={this.props.visible ? 'show' : 'hide'}>
-        <a href="#"
+        <button
           className="subject-visual-legend-closebtn fa fa-times"
           onClick={this.props.onToggleLegend}>
-        </a>
+        </button>
         <div className="subject-visual-legend-content">
           <p id="subject-visual-legend-title">Legend</p>
           <div className="subject-visual-legend-paginated">

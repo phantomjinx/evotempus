@@ -116,7 +116,7 @@ export default class Wiki extends React.Component {
         <a id="wiki-footer-logo" href={this.wikiLink + this.state.linkId} target="_blank" rel="noopener noreferrer">
           <img src="/wikipedia-logo-with-label.svg" alt="Wikipedia"/>
         </a>
-        <p id="link-instruction">{this.state.clickMsg} &rarr;</p>
+        <p id="link-instruction">&rarr; {this.state.clickMsg}</p>
 
         <p id="unit-defn" className="fade-in">
           <a href={this.wikiLink + "Year#SI_prefix_multipliers"} target="_blank" rel="noopener noreferrer">
@@ -136,8 +136,8 @@ export default class Wiki extends React.Component {
           <div id="wiki-header">
             {headerLogo}
             <p id="ma-defn" className="disappear"/>
-            <h3 id="wiki-header-dates" className="disappear"></h3>
-            <h3 id="wiki-header-title" className="disappear"></h3>
+            <h3 id="wiki-header-dates" className="disappear">None</h3>
+            <h3 id="wiki-header-title" className="disappear">None</h3>
           </div>
           <div id="wiki-main">
             <div id="wiki-main-inner">

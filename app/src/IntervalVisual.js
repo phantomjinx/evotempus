@@ -1,7 +1,7 @@
 import React from 'react';
 import {stratify as d3Stratify, partition as d3Partition} from 'd3-hierarchy';
 import {interpolate as d3Interpolate, quantize as d3Quantize} from 'd3-interpolate';
-import {select as d3Select} from 'd3-selection';
+import {select as d3Select, selection as d3Selection} from 'd3-selection';
 import {scaleOrdinal as d3ScaleOrdinal} from 'd3-scale';
 import {interpolateRainbow as d3InterpolateRainbow} from 'd3-scale-chromatic';
 import {arc as d3Arc} from 'd3-shape';
@@ -203,8 +203,6 @@ class IntervalSunburst extends React.Component {
       return;
     }
 
-    const theClass = select ? "path-selected" : "path-unselected";
-
     //
     // If zoomed in then the clicked-on object may be the central circle
     // so need to identify if this is the case. Otherwise find the path
@@ -215,7 +213,8 @@ class IntervalSunburst extends React.Component {
     //
     const id = this.parent.datum().data === node.data ? '#parent-circle' : '#path-' + node.data._id;
 
-    d3Select(id).attr('class', theClass);
+    d3Select(id).classed('path-selected', select);
+    d3Select(id).classed('path-unselected', !select);
   }
 
   //
@@ -288,6 +287,9 @@ class IntervalSunburst extends React.Component {
       .attr("fill-opacity", d => d.visible ? (d.children ? 0.6 : 0.4) : 0)
       .attr("stroke-opacity", d => d.visible ? (d.children ? 0.6 : 0.4) : 0)
       .attrTween("d", d => () => this.arc(d.current));
+
+    this.paths
+      .classed('path-invisible', d => ! d.visible);
 
     this.labels.transition(t)
       .attr("fill-opacity", d => +this.labelVisible(d.target))
@@ -518,7 +520,8 @@ class IntervalSunburst extends React.Component {
       .data(rootDescendents)
       .join("path")
       .attr('id', d => 'path-' + d.id)
-      .attr('class', 'path-unselected')
+      .classed('path-unselected', true)
+      .classed('path-invisible', d => ! d.visible)
       .attr("fill", d => "url(#gradient-" + d.id + ")")
       .attr("fill-opacity", d => d.visible ? (d.children ? 0.6 : 0.4) : 0)
       .attr("stroke-opacity", d => d.visible ? (d.children ? 0.6 : 0.4) : 0)
@@ -557,9 +560,9 @@ class IntervalSunburst extends React.Component {
     // Create a central circle for zooming out
     //
     this.parent = this.g.append("circle")
-      .datum(this.parent || this.root)
+      .datum(this.root)
       .attr('id', 'parent-circle')
-      .attr('class', 'path-unselected')
+      .classed('path-unselected', true)
       .attr("r", this.radius)
       .attr("fill", "url(#parentGradient)")
       .attr("pointer-events", "all")

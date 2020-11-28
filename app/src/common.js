@@ -39,10 +39,10 @@ export var colorRange = [
 ];
 
 var kindHints = {
-  Event:    '#def3fd',
-  Fauna:    '#fddfdf',
-  Flora:    '#defde0',
-  Geology:  '#b5b1b1'
+  Event:    '#a2e0fe',
+  Fauna:    '#ebaaaa',
+  Flora:    '#a3e6a7',
+  Geology:  '#9c8e8e'
 }
 
 var categoryHints = {
@@ -56,8 +56,8 @@ var categoryHints = {
   "Astronomical Geology":     '#705270',
   "Dinosaurs":                '#16a500',
   "Archaeological Age":       '#cc6600',
-  "Human Development":        '#ff9cc4',
-  "UK Climatic Development":  '#4db6ce',
+  "Human Development":        '#fa599a',
+  "UK Climatic Development":  '#1a6f83',
   "Historical Feature":       '#e6b800',
   "Marine Continental Drift": '#2d2fff',
   "Trees":                    '#893f17'

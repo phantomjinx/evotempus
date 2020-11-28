@@ -1,0 +1,48 @@
+$help-color: #ab8dcc;
+$font: bold 16px firasans;
+
+.help-page {
+  position: relative;
+  padding: 1em 1em 0.5em 1em;
+  font: $font;
+  z-index: 2;
+
+  .help-page-closebtn {
+    float:right;
+    margin-bottom: 0.5em;
+    margin-right: 1em;
+    text-decoration: none;
+    text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px slategray;
+    color: #a7a7a7;
+    font-size: 14pt;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+
+  .help-page-content {
+    clear: both;
+  }
+
+  h3 {
+    background-color: $help-color;
+    color: white;
+    padding-left: 0.25em;
+  }
+}
+
+.help-page:before {
+  content: ' ';
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/geologic-clock.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.1;
+}

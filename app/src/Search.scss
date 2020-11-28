@@ -78,8 +78,11 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
         margin-right: 1em;
         text-decoration: none;
         text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px slategray;
-        color: #efefef;
+        color: #a7a7a7;
         font-size: 14pt;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
       }
 
       .search-results-content {
@@ -92,12 +95,25 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
         .search-results-content-items {
           clear: both;
           margin-top: 1em;
+          list-style-image: url('/geologic-clock-icon.png');
 
           li {
             margin-top: 0.75em;
 
-            a {
-              text-decoration: none;
+            .link-button {
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              display: inline;
+              margin: 0;
+              padding: 0;
+              color: blue;
+              font-family: firasans;
+            }
+
+            .link-button:hover,
+            .link-button:focus {
+              text-decoration: underline;
             }
           }
         }

@@ -1,26 +1,13 @@
 import React from 'react';
-import isEqual from 'lodash/isEqual';
 import {axisTop as d3AxisTop} from 'd3-axis';
-import {
-  range as d3Range,
-  ascending as d3Ascending,
-  extent as d3Extent} from 'd3-array';
+import {extent as d3Extent} from 'd3-array';
 import {format as d3Format} from 'd3-format';
-import {timeHour as d3TimeHour} from 'd3-time';
 import {
   scaleOrdinal as d3ScaleOrdinal,
   scaleLinear as d3ScaleLinear } from 'd3-scale';
 import {color as d3Color} from 'd3-color';
 import {
-  schemePastel1 as d3SchemePastel1
-} from 'd3-scale-chromatic';
-import {
-  namespace as d3Namespace,
-  namespaces as d3Namespaces,
   select as d3Select} from 'd3-selection';
-import {zoom as d3Zoom} from 'd3-zoom'
-import {json as d3Json} from 'd3-fetch';
-import {transition as d3Transition} from 'd3-transition';
 import 'font-awesome/css/font-awesome.min.css';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
@@ -153,7 +140,7 @@ export default class SubjectVisual extends React.Component {
     lanes[laneId].subjects.push(subject);
   }
 
-  chartify(interval, rawSubjects) {
+  chartify(interval, subjects) {
     //
     // Base object to return results
     //
@@ -167,7 +154,7 @@ export default class SubjectVisual extends React.Component {
     const headerMap = new Map();
     const categorySet = new Set();
 
-    const subjects = [...rawSubjects]
+    subjects
     .sort((a, b) => {
       return a.from - b.from;
     })
@@ -263,10 +250,10 @@ export default class SubjectVisual extends React.Component {
       error: null,
     })
 
-    if (this.props.interval == null) {
+    if (! this.props.interval) {
       this.setState({
         loading: false,
-        subjects: []
+        data: undefined
       })
       return;
     }
@@ -279,7 +266,7 @@ export default class SubjectVisual extends React.Component {
         if (!res.data || res.data.length === 0) {
           this.setState({
             loading: false,
-            subjects: []
+            data: undefined
           })
         } else {
 
@@ -288,7 +275,6 @@ export default class SubjectVisual extends React.Component {
 
           this.setState({
             loading: false,
-            subjects: subjects,
             data: data
           })
         }
@@ -448,7 +434,7 @@ class SubjectSwimLane extends React.Component {
   // using the passed-in xScale that governs the conversion
   // from actual year to point on the x-scale.
   // This takes into account subjects whose from date is lower
-  // than tha minimum of the scale's domain (inc. nice()) hence
+  // than the minimum of the scale's domain (inc. nice()) hence
   // ensures the bar is pinned accordinly.
   //
   calcX(subject, xScale) {
@@ -540,12 +526,56 @@ class SubjectSwimLane extends React.Component {
     }
   }
 
+  createIntervalBounds(parent, from, to, xScale, yScale, yMax) {
+
+    const min = xScale.domain()[0];
+    const max = xScale.domain()[1];
+
+    const fromX = d3Format(".1f")(xScale(from));
+    const toX = d3Format(".1f")(xScale(to));
+    const minX = d3Format(".1f")(xScale(min));
+    const maxX = d3Format(".1f")(xScale(max));
+    const maxY = d3Format(".1f")(yScale(yMax));
+
+    const lowerGroup = parent.append('g')
+      .attr('id', 'lower-interval-bounds');
+
+    lowerGroup.append('line')
+      .attr('x1', fromX).attr('y1', 0)
+      .attr('x2', fromX).attr('y2', maxY)
+      .attr('stroke', 'black')
+      .attr('stroke-width', 2)
+      .attr('stroke-dasharray', '5,5');
+
+    lowerGroup.append('rect')
+      .attr('x', 0).attr('y', 0)
+      .attr('width', (fromX - minX)).attr('height', maxY)
+      .attr('fill', 'darkgray')
+      .attr('fill-opacity', 0.5);
+
+    const upperGroup = parent.append('g')
+      .attr('id', 'upper-interval-bounds');
+
+    upperGroup.append('line')
+      .attr('x1', toX).attr('y1', 0)
+      .attr('x2', toX).attr('y2', maxY)
+      .attr('stroke', 'black')
+      .attr('stroke-width', 2)
+      .attr('stroke-dasharray', '5,5');
+
+    lowerGroup.append('rect')
+      .attr('x', toX).attr('y', 0)
+      .attr('width', (maxX - toX)).attr('height', maxY)
+      .attr('fill', 'darkgray')
+      .attr('fill-opacity', 0.3);
+  }
+
   //
   // Renders the swimlanes once the data has been
   // successfully retrieved from the database
   //
   renderSwimlanes() {
-    if (! this.props.data) {
+    if (! this.props.data || ! this.props.interval) {
       return;
     }
 
@@ -596,11 +626,11 @@ class SubjectSwimLane extends React.Component {
     //
     const laneHeight = this.innerHeight / this.props.data.lanes.length;
     const maxLaneHeight = (this.innerHeight / 3);
-    const fontHeight = (this.innerHeight * 0.2);
     const upperRange = laneHeight > maxLaneHeight ? maxLaneHeight : this.innerHeight;
     const yScale = d3ScaleLinear()
       .domain([yExt[0], yExt[1] + 1])
       .range([0, upperRange]);
+
 
     // draw the x axis
     const xDateAxis = d3AxisTop(xScale)
@@ -629,10 +659,9 @@ class SubjectSwimLane extends React.Component {
       .enter().append('text')
       .text(d => d.name)
       .attr('text-anchor', 'end')
-      .attr('class', 'laneText')
+      .classed('laneText', true)
       .attr('x', -10)
       .attr('y', d => {
-        const y1 = d3Format(".1f")((yScale(d.headerStartsIdx)) + 0.5);
         const yn = d3Format(".1f")((yScale(d.headerStartsIdx + (d.lanes / 2))) + 0.5);
         const fontHeight = 6;
 
@@ -644,7 +673,7 @@ class SubjectSwimLane extends React.Component {
       .selectAll('.laneBackground')
       .data(this.props.data.headers)
       .enter().append('rect')
-      .attr('class', 'laneBackground')
+      .classed('laneBackground', true)
       .attr('x', 0)
       .attr('y', d => d3Format(".1f")((yScale(d.headerStartsIdx)) + 0.5))
       .attr('width', this.innerWidth)
@@ -691,6 +720,14 @@ class SubjectSwimLane extends React.Component {
       .text(d => d.name + "\n" + common.displayYear(d.from) + "  to  " + common.displayYear(d.to));
 
     //
+    // draw the lower and upper demarcation boundaries
+    //
+    this.createIntervalBounds(this.gchart,
+      this.props.interval.from,
+      this.props.interval.to,
+      xScale, yScale, this.props.data.lanes.length);
+
+    //
     // After complete rendering if a subject
     // has been assigned then traverse to it
     //
@@ -717,7 +754,7 @@ class SubjectSwimLane extends React.Component {
     return (
       <div className="subject-visual-component">
         <div className="subject-visual-button">
-          <a id="subject-visual-legend-btn" className="fa fa-bars" onClick={this.handleLegendClick}/>
+          <button id="subject-visual-legend-btn" className="fa fa-bars" onClick={this.handleLegendClick}/>
         </div>
         <SubjectVisualLegend
           width = { this.props.width }

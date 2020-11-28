@@ -1,3 +1,4 @@
+$help-color: #ab8dcc;
 $main-visual-height: 65vh;
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
@@ -65,10 +66,31 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
           margin-top: 0.5em;
 
         .interval-visual {
+          position: relative;
           grid-area: interval;
           overflow: auto;
           background-color: white;
           box-shadow: $tile-shadow;
+
+          .interval-visual-help {
+            position: absolute;
+            left: 0.5em;
+            top: 0.5em;
+
+            #interval-visual-help-btn {
+              cursor: pointer;
+              border: none;
+              font-size: 18pt;
+              color: $help-color;
+              background-color: transparent;
+              box-shadow: $tile-shadow;
+            }
+
+            #interval-visual-help-btn:active {
+              color: white;
+              background-color: $help-color;
+            }
+          }
         }
 
         .subject-visual {

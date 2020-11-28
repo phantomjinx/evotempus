@@ -9,6 +9,7 @@ $max-height: 65vh;
 #interval-visual-component {
   max-height: $max-height;
   max-width: $max-height;
+  margin-top: 2em;
 
   #interval-visual-component-svg {
     max-height: $max-height;
@@ -24,6 +25,10 @@ $max-height: 65vh;
     .path-selected {
       stroke: black;
       stroke-width: 2;
+    }
+
+    .path-invisible {
+      pointer-events: none;
     }
   }
 }

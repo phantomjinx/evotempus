@@ -223,9 +223,9 @@ export default class Search extends React.Component {
       const label = value.topic ? value.topic : value.name;
       items.push(
         <li key={value._id}>
-          <a href="#" onClick={this.handleNavigate.bind(this, value)}>
+          <button className="link-button" onClick={this.handleNavigate.bind(this, value)}>
             {common.idToTitle(label)}
-          </a>
+          </button>
         </li>
       );
     }
@@ -274,10 +274,10 @@ export default class Search extends React.Component {
 
     const closeButton = (
       <div>
-        <a href="#"
+        <button
           className="search-results-closebtn fa fa-times"
           onClick={this.closeSearchResults}>
-        </a>
+        </button>
       </div>
     );
 

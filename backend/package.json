@@ -21,6 +21,7 @@
     "express": "^4.17.1",
     "express-pino-logger": "^5.0.0",
     "fs": "0.0.1-security",
+    "helmet": "^4.2.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.10.9",
     "n-readlines": "^1.0.0",

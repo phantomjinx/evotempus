@@ -17,6 +17,7 @@
 
 // modules =================================================
 const express = require('express');
+const helmet = require("helmet");
 const mongoose = require('mongoose');
 const app = express();
 const fs = require("fs");
@@ -335,6 +336,9 @@ function importDbData(conn) {
 function init() {
   // Log middleware requests
   app.use(expressLogger);
+
+  // Heightens security providing headers
+  app.use(helmet());
 
   // get all data/stuff of the body (POST) parameters
   // parse application/json

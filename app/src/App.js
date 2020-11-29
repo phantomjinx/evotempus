@@ -56,7 +56,6 @@ class App extends React.Component {
       help: show
     });
 
-    console.log("help: " + this.state.help);
   }
 
   render() {
@@ -76,7 +75,6 @@ class App extends React.Component {
     )
 
     const subjectVisual = this.state.help ? showHelp : subjectViz;
-    console.log("Rendering app again");
 
     return (
       <div className="app grid-container">

@@ -1,7 +1,7 @@
 import React from 'react';
 import {stratify as d3Stratify, partition as d3Partition} from 'd3-hierarchy';
 import {interpolate as d3Interpolate, quantize as d3Quantize} from 'd3-interpolate';
-import {select as d3Select, selection as d3Selection} from 'd3-selection';
+import {select as d3Select} from 'd3-selection';
 import {scaleOrdinal as d3ScaleOrdinal} from 'd3-scale';
 import {interpolateRainbow as d3InterpolateRainbow} from 'd3-scale-chromatic';
 import {arc as d3Arc} from 'd3-shape';

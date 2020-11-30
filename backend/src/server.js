@@ -17,6 +17,7 @@
 
 // modules =================================================
 const express = require('express');
+const session = require('express-session');
 const helmet = require("helmet");
 const mongoose = require('mongoose');
 const app = express();
@@ -339,6 +340,12 @@ function init() {
 
   // Heightens security providing headers
   app.use(helmet());
+
+  // Change the default session name
+  app.use(session({
+    secret: 'secret',
+    name: 'evotempus'
+  }));
 
   // get all data/stuff of the body (POST) parameters
   // parse application/json

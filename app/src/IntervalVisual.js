@@ -1,6 +1,11 @@
 import React from 'react';
 import {stratify as d3Stratify, partition as d3Partition} from 'd3-hierarchy';
 import {interpolate as d3Interpolate, quantize as d3Quantize} from 'd3-interpolate';
+//
+// Not referenced directly but required. Otherwise, x.transition()
+// errors as "not a function"
+// eslint-disable-next-line
+import {transition as d3Transition} from 'd3-transition';
 import {select as d3Select} from 'd3-selection';
 import {scaleOrdinal as d3ScaleOrdinal} from 'd3-scale';
 import {interpolateRainbow as d3InterpolateRainbow} from 'd3-scale-chromatic';

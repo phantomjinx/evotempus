@@ -26,7 +26,9 @@ late-heavy-bombardment                   | Event     | Astronomical Collision   
 isua-greenstone-belt                     | Geology   | Geological Development     | -3800000000   | -3700000000  | Isua_Greenstone_Belt
 vaalbara-supercontinent                  | Geology   | Continental Drift          | -3636000000   | -2803000000  | Vaalbara
 earliest-form-of-life                    | Event     | Biological Development     | -3500000000   | -3480000000  | Microbial_mat
+barberton-greenstone-belt                | Geology   | Geological Development     | -3500000000   | -3200000000  | Barberton_Greenstone_Belt
 evolution-of-photosynthesis              | Event     | Biological Development     | -3500000000   | -2000000000  | Evolution_of_photosynthesis
+barberton-asteroid-impact                | Event     | Astronomical Collision     | -3255000000   | -3265000000  | Barberton_Greenstone_Belt
 pongola-glaciation                       | Event     | Climatic Development       | -2900000000   | -2500000000  | Pongola_glaciation
 ur-supercontinent                        | Geology   | Continental Drift          | -2803000000   | -2408000000  | Ur_(continent)
 kenorland-supercontinent                 | Geology   | Continental Drift          | -2780000000   | -2100000000  | Kenorland
@@ -35,15 +37,18 @@ great-oxidation-event                    | Event     | Extinction Event         
 huronian-glaciation                      | Event     | Climatic Development       | -2400000000   | -2100000000  | Huronian_glaciation
 bushveld-igneous-complex                 | Geology   | Geological Development     | -2100000000   | -2000000000  | Bushveld_Igneous_Complex
 arctica-supercontinent                   | Geology   | Continental Drift          | -2114000000   | -1995000000  | Arctica
-nena-paleo-continent                     | Geology   | Continental Drift          | -1900000000   | -1800000000  | Nena_(supercontinent)
 emergence-of-eukaryotes                  | Event     | Biological Development     | -2100000000   | -1600000000  | Eukaryote
 francevillian-biota                      | Fauna     | Early Form of Life         | -2150000000   | -2050000000  | Francevillian_biota
 vredefort-asteroid-impact                | Event     | Astronomical Collision     | -2027000000   | -2019000000  | Vredefort_crater
 baltica-paleo-continent                  | Geology   | Continental Drift          | -2000000000   | -385000000   | Baltica
 atlantica-supercontinent                 | Geology   | Continental Drift          | -1991000000   | -1124000000  | Atlantica
+nena-paleo-continent                     | Geology   | Continental Drift          | -1900000000   | -1800000000  | Nena_(supercontinent)
 sudbury-asteroid-impact                  | Event     | Astronomical Collision     | -1849740000   | -1848930000  | Sudbury_Basin
 colombia-supercontinent                  | Geology   | Continental Drift          | -1820000000   | -1350000000  | Columbia_(supercontinent)
-rodinia-supercontinent                   | Geology   | Continental Drift          | -1130000000   | -750000000   | Rodinia
+transscandinavian-igneous-belt           | Geology   | Geological Development     | -1810000000   | -1650000000  | Transscandinavian_Igneous_Belt
+boring-billion                           | Geology   | Geological Development     | -1800000000   | -800000000   | Boring_Billion
+jotnian-sediments                        | Geology   | Geological Development     | -1600000000   | -1260000000  | Jotnian
+bangiomorpha                             | Flora     | Early Form of Life         | -1064000000   | -1030000000  | Bangiomorpha
 sturtian-glaciation                      | Event     | Climatic Development       | -715000000    | -680000000   | Sturtian_glaciation
 marinoan-glaciation                      | Event     | Climatic Development       | -650000000    | -635000000   | Marinoan_glaciation
 earliest-complex-multicellular-organisms | Event     | Biological Development     | -600000000    | -542000000   | Ediacaran_biota

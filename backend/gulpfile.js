@@ -19,11 +19,12 @@ gulp.task('jshint', function() {
 
 gulp.task('default', gulp.series(['jshint'], (done) => {
   nodemon({
-      watch: 'src',
+      watch: ['src', 'data'],
       script: 'src/server.js',
       env: {
         'NODE_ENV': 'development',
         'MONGODB_URI': 'mongodb://localhost/evotempus',
+        'DROP_COLLECTIONS': true,
         'PORT': 3001,
         'LOG_LEVEL': 'debug'
       },

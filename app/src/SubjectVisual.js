@@ -50,7 +50,7 @@ export default class SubjectVisual extends React.Component {
   }
 
   //
-  // Fetch the all the categories from the backend service
+  // Fetch all the categories from the backend service
   // This needs to be done once then retained and passed to the subject Swimlane component
   //
   fetchCategories() {
@@ -60,7 +60,7 @@ export default class SubjectVisual extends React.Component {
           this.logErrorState("Failed to fetch categories be fetched", new Error("Response data payload was empty."));
         } else {
           this.setState({
-            categories: res.data
+            allCategories: res.data
           })
         }
       }).catch((err) => {
@@ -344,7 +344,7 @@ export default class SubjectVisual extends React.Component {
         onSelectedSubjectChange = {this.props.onSelectedSubjectChange}
         interval = {this.props.interval}
         subject = {this.props.subject}
-        categories = {this.state.categories}
+        allCategories = {this.state.allCategories}
         data = {this.state.data}
         />
     );
@@ -404,7 +404,7 @@ class SubjectSwimLane extends React.Component {
       return;
     }
 
-    const id = '#subject-' + node._id;
+    const id = '#subject-' + common.identifier(node._id);
     d3Select(id).classed('subject-outline-hover', false);
     d3Select(id).classed('subject-outline-clicked', select);
   }
@@ -575,7 +575,7 @@ class SubjectSwimLane extends React.Component {
   // successfully retrieved from the database
   //
   renderSwimlanes() {
-    if (! this.props.data || ! this.props.interval) {
+    if (! this.props.data || ! this.props.interval || ! this.props.allCategories) {
       return;
     }
 
@@ -583,8 +583,8 @@ class SubjectSwimLane extends React.Component {
     this.innerHeight = this.props.height - this.margins.top - this.margins.bottom;
 
     const subjectColorCycle = d3ScaleOrdinal()
-      .domain(this.props.categories)
-      .range(common.calcCategoryColours(this.props.categories));
+      .domain(this.props.allCategories)
+      .range(common.calcCategoryColours(this.props.allCategories));
 
     const headerNames = [];
     for (const h of this.props.data.headers) {
@@ -691,7 +691,7 @@ class SubjectSwimLane extends React.Component {
       .data(this.props.data.subjects)
       .enter()
       .append('rect')
-      .attr('id', d => "subject-" + d._id)
+      .attr('id', d => "subject-" + common.identifier(d._id))
       .attr('x', d => this.calcX(d, xScale))
       .attr('y', d => d3Format(".1f")((yScale(d.laneId)) + 3))
       .attr('width', d => this.calcWidth(d, xScale))
@@ -703,13 +703,13 @@ class SubjectSwimLane extends React.Component {
       })
       .on("click", this.handleVisualClick)
       .on("mouseover", (event, datum) => {
-        const d = d3Select("#" + event.target.id);
+        const d = d3Select("#" + common.identifier(event.target.id));
         if (d) {
           d.classed('subject-outline-hover', true);
         }
       })
       .on("mouseout", (event, datum) => {
-        const d = d3Select("#" + event.target.id);
+        const d = d3Select("#" + common.identifier(event.target.id));
         if (d) {
           d.classed('subject-outline-hover', this.selected === datum);
         }

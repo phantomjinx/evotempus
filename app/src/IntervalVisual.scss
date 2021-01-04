@@ -20,11 +20,13 @@ $max-height: 65vh;
     .path-unselected {
       stroke: #4d4d4d;
       stroke-width: 1;
+      cursor: grab;
     }
 
     .path-selected {
       stroke: black;
       stroke-width: 2;
+      cursor: grabbing;
     }
 
     .path-invisible {

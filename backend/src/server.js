@@ -322,6 +322,20 @@ function importSubjects(file) {
   }
 }
 
+function cleanDb(conn) {
+  if (process.env.DROP_COLLECTIONS !== 'true') {
+    return Promise.resolve('Dropping collections not enabled');
+  }
+
+  logger.debug('INFO: Dropping collections from database');
+
+  const promInt = conn.db.dropCollection('intervals');
+  const promSub = conn.db.dropCollection('subjects');
+  const promTop = conn.db.dropCollection('topics');
+
+  return Promise.all([promInt, promSub, promTop]);
+}
+
 function importDbData(conn) {
   if (!doImport) {
     return;
@@ -417,7 +431,7 @@ let opts = {
   autoIndex: true
 };
 
-mongoose.set('debug', true);
+mongoose.set('debug', process.env.LOG_LEVEL === 'debug');
 mongoose.connect(mongoDbURI, opts);
 let conn = mongoose.connection;
 
@@ -453,9 +467,16 @@ conn.once('open', () => {
   logger.info('INFO: Connection established');
 
   try {
-    importDbData(conn);
+    cleanDb(conn).then(answer => {
+      logger.debug(answer);
+      logger.debug("INFO: Database cleaning complete");
 
-    init();
+      importDbData(conn);
+
+      init();
+    });
+
+
   } catch (err) {
     logger.error(err);
     conn.close();

@@ -39,8 +39,8 @@ statherian           | Period     | -1800000000  | -1600000000  | paleoproterozo
 calymmian            | Period     | -1600000000  | -1400000000  | mesoproterozoic       |
 ectasian             | Period     | -1400000000  | -1200000000  | mesoproterozoic       |
 stenian              | Period     | -1200000000  | -1000000000  | mesoproterozoic       |
-tonian               | Period     | -1000000000  | -850000000   | neoproterozoic        |
-cryogenian           | Period     | -850000000   | -635000000   | neoproterozoic        |
+tonian               | Period     | -1000000000  | -720000000   | neoproterozoic        |
+cryogenian           | Period     | -720000000   | -635000000   | neoproterozoic        |
 ediacaran            | Period     | -635000000   | -541000000   | neoproterozoic        |
 cambrian             | Period     | -541000000   | -485400000   | paleozoic             | terreneuvian, cambrian-series-2, miaolingian, furongian
 ordovician           | Period     | -485400000   | -443800000   | paleozoic             | early-ordovician, middle-ordovician, late-ordovician
@@ -56,8 +56,8 @@ neogene              | Period     | -23030000    | -2580000     | cenozoic      
 quarternary          | Period     | -2580000     | 2030         | cenozoic              | pleistocene, holocene
 mississippian        | Sub-Period | -358900000   | -323200000   | carboniferous         | lower-mississippian, middle-mississippian, upper-mississippian
 pennsylvanian        | Sub-Period | -323200000   | -298900000   | carboniferous         | lower-pennsylvanian, middle-pennsylvanian, upper-pennsylvanian
-cambrian-series-2    | Epoch      | -521000000   | -509000000   | cambrian              | stage-3, stage-4
 terreneuvian         | Epoch      | -541000000   | -521000000   | cambrian              | fortunian, stage-2
+cambrian-series-2    | Epoch      | -521000000   | -509000000   | cambrian              | stage-3, stage-4
 miaolingian          | Epoch      | -509000000   | -497000000   | cambrian              | wuliuan, drumian, guzhangian
 furongian            | Epoch      | -497000000   | -485400000   | cambrian              | paibian, jiangshanian, stage-10
 early-ordovician     | Epoch      | -485400000   | -470000000   | ordovician            | tremadocian, floian

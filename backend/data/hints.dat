@@ -1,0 +1,37 @@
+#
+# Copyright (C) 2020 Paul G. Richardson
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+#NAME                    | TYPE     | COLOUR
+Event                    | Kind     | #a2e0fe
+Fauna                    | Kind     | #ebaaaa
+Flora                    | Kind     | #a3e6a7
+Geology                  | Kind     | #9c8e8e
+Geological Development   | Category | #5b5753
+Biological Development   | Category | #00571b
+Astronomical Collision   | Category | #940321
+Continental Drift        | Category | #32007a
+Climatic Development     | Category | #0084a2
+Extinction Event         | Category | #d30084
+Early Form of Life       | Category | #694a30
+Astronomical Geology     | Category | #705270
+Dinosaurs                | Category | #16a500
+Archaeological Age       | Category | #cc6600
+Human Development        | Category | #fa599a
+UK Climatic Development  | Category | #1a6f83
+Historical Feature       | Category | #e6b800
+Marine Continental Drift | Category | #2d2fff
+Trees                    | Category | #893f17

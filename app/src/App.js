@@ -6,6 +6,7 @@ import Wiki from './Wiki.js';
 import IntervalVisual from './IntervalVisual.js';
 import SubjectVisual from './SubjectVisual.js';
 import HelpPage from './HelpPage.js';
+import * as api from './api';
 import * as common from './common';
 
 class App extends React.Component {
@@ -23,6 +24,27 @@ class App extends React.Component {
     this.handleIntervalChange = this.handleIntervalChange.bind(this);
     this.handleSubjectChange = this.handleSubjectChange.bind(this);
     this.toggleHelp = this.toggleHelp.bind(this);
+  }
+
+  //
+  // Fetch all the hints from the backend service
+  // This needs to be done once then retained in common.js
+  //
+  fetchHints() {
+    api.hints()
+      .then((res) => {
+        if (!res.data || res.data.length === 0) {
+          this.logErrorState("Failed to fetch hints", new Error("Response data payload was empty."));
+        } else {
+          common.setHints(res.data);
+        }
+      }).catch((err) => {
+        this.logErrorState("Failed to fetch hints data", err);
+      });
+  }
+
+  componentDidMount() {
+    this.fetchHints();
   }
 
   handleIntervalChange(interval) {

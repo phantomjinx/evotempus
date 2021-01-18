@@ -1,4 +1,3 @@
-
 export var million = 1000000;
 export var thousand = 1000;
 
@@ -38,36 +37,17 @@ export var colorRange = [
   "#4cb9cc", "#4f2f94", "#5128a1", "#5d2594"
 ];
 
-var kindHints = {
-  Event:    '#a2e0fe',
-  Fauna:    '#ebaaaa',
-  Flora:    '#a3e6a7',
-  Geology:  '#9c8e8e'
-}
-
-var categoryHints = {
-  "Geological Development":   '#5b5753',
-  "Biological Development":   '#00571b',
-  "Astronomical Collision":   '#940321',
-  "Continental Drift":        '#32007a',
-  "Climatic Development":     '#0084a2',
-  "Extinction Event":         '#d30084',
-  "Early Form of Life":       '#694a30',
-  "Astronomical Geology":     '#705270',
-  "Dinosaurs":                '#16a500',
-  "Archaeological Age":       '#cc6600',
-  "Human Development":        '#fa599a',
-  "UK Climatic Development":  '#1a6f83',
-  "Historical Feature":       '#e6b800',
-  "Marine Continental Drift": '#2d2fff',
-  "Trees":                    '#893f17'
+var hints = {};
+export function setHints(h) {
+  console.log(h);
+  hints = h;
 }
 
 export function calcKindColours(kinds) {
   const colours = [];
   let i = 20;
   for (const kind of kinds.values()) {
-    const hint = kindHints[kind];
+    const hint = hints[kind];
     colours.push(hint ? hint : colorRange[i++]);
   }
   return colours;
@@ -77,7 +57,7 @@ export function calcCategoryColours(categories) {
   const colours = [];
   let i = 0;
   for (const category of categories.values()) {
-    const hint = categoryHints[category];
+    const hint = hints[category];
     colours.push(hint ? hint : colorRange[i++]);
   }
   return colours;

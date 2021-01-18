@@ -357,7 +357,7 @@ class SubjectSwimLane extends React.Component {
     super(props);
 
     this.svgId = 'subject-visual-component-svg';
-    this.margins = { top: 30, right: 30, bottom: 15, left: 80 };
+    this.margins = { top: 30, right: 50, bottom: 15, left: 80 };
     this.state = {
       legendVisible: false
     };
@@ -634,6 +634,7 @@ class SubjectSwimLane extends React.Component {
 
     // draw the x axis
     const xDateAxis = d3AxisTop(xScale)
+      .ticks(7)
 	    .tickFormat(d => common.displayYear(d));
 
     this.gchart.append('g')

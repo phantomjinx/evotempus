@@ -29,6 +29,7 @@ const methodOverride = require('method-override');
 const Subject = require('./models/subject').Subject;
 const Interval = require('./models/interval').Interval;
 const Topic = require('./models/topic').Topic;
+const Hint = require('./models/hints').Hint;
 const cors = require('cors');
 const loggerUtils = require('./logger');
 const logger = loggerUtils.logger;
@@ -53,10 +54,10 @@ function displayName(id) {
   return s.join(' ');
 }
 
-function parseNumber(numStr) {
+function parseNumber(numStr, id) {
   n = parseInt(numStr.trim());
   if (isNaN(n)) {
-    throw "ERROR: Cannot convert 'from' value: " + numStr.trim();
+    throw "ERROR: Cannot convert 'from' value: " + numStr.trim() + " for id: " + id;
   }
 
   return n;
@@ -118,12 +119,12 @@ function createInterval(id, kind, from, to, parent, children) {
     //
     // Convert the from date to number
     //
-    from = parseNumber(from);
+    from = parseNumber(from, id);
 
     //
     // Convert the to date to number
     //
-    to = parseNumber(to);
+    to = parseNumber(to, id);
   } catch (e) {
     logger.error(e);
     return;
@@ -215,12 +216,12 @@ function createSubject(id, kind, category, from, to) {
     //
     // Convert the from date to number
     //
-    from = parseNumber(from);
+    from = parseNumber(from, id);
 
     //
     // Convert the to date to number
     //
-    to = parseNumber(to);
+    to = parseNumber(to, id);
   } catch (e) {
     logger.error(e);
     return;
@@ -244,6 +245,43 @@ function createSubject(id, kind, category, from, to) {
 
     if (!subject) {
       logger.error("ERROR: Failed to find or create subject with id %s", id);
+      return;
+    }
+
+  }).catch((err) => {
+    logger.error(err);
+  });
+}
+
+function createHint(id, type, colour) {
+
+  logger.debug("Creating hint: id: " + id + " type: " + type + " colour: " + colour);
+
+  //
+  // Ensure all whitespace is removed
+  //
+  id = id.trim();
+  type = type.trim();
+  colour = colour.trim();
+
+  //
+  // Automatically deduplicates
+  //
+  Hint.findByIdAndUpdate(
+    { _id: id },
+    {
+      "$set":         { type: type, colour: colour },
+      "$setOnInsert": { _id: id }
+    },
+    { upsert: true, new: true}
+  ).then((hint, err) => {
+    if (err) {
+      logger.error(err, "ERROR: Trying to findByIdAndUpdate hint with %s", id);
+      return;
+    }
+
+    if (!hint) {
+      logger.error("ERROR: Failed to find or create hint with id %s", id);
       return;
     }
 
@@ -277,7 +315,7 @@ function importIntervals(file) {
 }
 
 function importTopics(file, topicTarget) {
-  logger.debug("Importing interval descrptions from " + file);
+  logger.debug("Importing topic descriptions from " + file);
 
   var liner = new readlines(file);
 
@@ -292,6 +330,25 @@ function importTopics(file, topicTarget) {
     var elements = line.split('|');
 
     createTopic(elements[0], topicTarget, elements[1]);
+  }
+}
+
+function importHints(file) {
+  logger.debug("Importing hints from " + file);
+
+  var liner = new readlines(file);
+
+  var next;
+  while (next = liner.next()) { // jshint ignore:line
+    line = next.toString('ascii');
+
+    if (line.startsWith("#") || line.length == 0) {
+      continue;
+    }
+
+    var elements = line.split('|');
+
+    createHint(elements[0], elements[1], elements[2]);
   }
 }
 
@@ -346,6 +403,7 @@ function importDbData(conn) {
   importIntervals(path.resolve(__dirname, '..', dbConfig.intervals));
   importTopics(path.resolve(__dirname, '..', dbConfig.intervalTopics), "Interval");
   importSubjects(path.resolve(__dirname, '..', dbConfig.subjects));
+  importHints(path.resolve(__dirname, '..', dbConfig.hints));
 }
 
 function init() {
@@ -358,7 +416,9 @@ function init() {
   // Change the default session name
   app.use(session({
     secret: 'secret',
-    name: 'evotempus'
+    name: 'evotempus',
+    resave: true,
+    saveUninitialized: true
   }));
 
   // get all data/stuff of the body (POST) parameters
@@ -390,6 +450,9 @@ function init() {
 
   const topics = require('./api/topics');
   app.use('/api/topics', topics.router);
+
+  const hints = require('./api/hints');
+  app.use('/api/hints', hints);
 
   const search = require('./api/search');
   app.use('/api/search', search);
@@ -439,7 +502,7 @@ Interval.on('index', function(err) {
   if (err) {
     logger.error(err, 'Interval index error');
   } else {
-    logger.info('Interval indexing complete');
+    logger.debug('Interval indexing complete');
   }
 });
 
@@ -447,7 +510,7 @@ Subject.on('index', function(err) {
   if (err) {
     logger.error(err, 'Subject index error');
   } else {
-    logger.info('Subject indexing complete');
+    logger.debug('Subject indexing complete');
   }
 });
 
@@ -455,7 +518,7 @@ Topic.on('index', err => {
   if (err) {
     logger.error(err, 'Topic index error');
   } else {
-    logger.info('Topic indexing complete');
+    logger.debug('Topic indexing complete');
   }
 });
 

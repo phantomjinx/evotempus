@@ -101,3 +101,14 @@ export function search(searchTerm) {
     },
   });
 }
+
+export function hints() {
+  return instance({
+    'method':'GET',
+    'url':'/api/hints',
+    'params': {
+      'outputsize':'compact',
+      'datatype':'json'
+    },
+  });
+}

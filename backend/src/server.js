@@ -411,7 +411,12 @@ function init() {
   app.use(expressLogger);
 
   // Heightens security providing headers
-  app.use(helmet());
+  // Disable security policy for now as cannot get it working
+  app.use(
+    helmet({
+      contentSecurityPolicy: false,
+    })
+  );
 
   // Change the default session name
   app.use(session({

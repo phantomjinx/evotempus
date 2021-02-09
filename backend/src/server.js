@@ -411,20 +411,21 @@ function init() {
   app.use(expressLogger);
 
   // Heightens security providing headers
-  // Disable security policy for now as cannot get it working
-  app.use(
-    helmet({
-      contentSecurityPolicy: false,
-    })
-  );
+  app.use(helmet());
 
   // Change the default session name
-  app.use(session({
+  // and restrict cookie
+  const sessionConfig = {
     secret: 'secret',
     name: 'evotempus',
-    resave: true,
-    saveUninitialized: true
-  }));
+    resave: false,
+    saveUninitialized: true,
+    cookie : {
+      sameSite: 'strict',
+    }
+  };
+
+  app.use(session(sessionConfig));
 
   // get all data/stuff of the body (POST) parameters
   // parse application/json

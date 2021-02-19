@@ -38,9 +38,11 @@ export var colorRange = [
 ];
 
 var hints = {};
-export function setHints(h) {
-  console.log(h);
-  hints = h;
+export function setHints(hintArr) {
+  hints = {};
+  for (const h of hintArr.values()) {
+    hints[h._id] = h.colour;
+  }
 }
 
 export function calcKindColours(kinds) {

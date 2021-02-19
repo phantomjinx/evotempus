@@ -71,7 +71,7 @@ pannotia-supercontinent                  | Geology   | Continental Drift        
 earliest-complex-multicellular-organisms | Event     | Biological Development     | -600000000    | -542000000   | Ediacaran_biota
 lapetus-ocean                            | Geology   | Marine Continental Drift   | -600000000    | -400000000   | Iapetus_Ocean
 dickinsonia                              | Fauna     | Marine Life                | -600000000    | -541000000   | Dickinsonia
-gaskiers-glaciation                      | Geology   | Geological Development     | -579880000    | -579630000   | Gaskiers_glaciation
+gaskiers-glaciation                      | Event     | Climatic Development       | -579880000    | -579630000   | Gaskiers_glaciation
 avalon-explosion                         | Fauna     | Biological Development     | -575000000    | -550000000   | Avalon_explosion
 fractofusus                              | Fauna     | Marine Life                | -575000000    | -541000000   | Fractofusus_misrai
 charnia                                  | Fauna     | Marine Life                | -570000000    | -541000000   | Charnia
@@ -146,21 +146,21 @@ paranthropus-boisei                      | Fauna     | Human Development        
 paranthropus-robustus                    | Fauna     | Human Development          | -2000000      | -600000      | Paranthropus_robustus
 australopithecus-sediba                  | Fauna     | Human Development          | -1980000      | -1950000     | Australopithecus_sediba
 homo-erectus                             | Fauna     | Human Development          | -2000000      | -600000      | Homo_ergaster
-cromerian-stage                          | Event     | UK Climatic Development    | -800000       | -500000      | Cromerian_Stage
+cromerian-stage                          | Event     | Climatic Development       | -800000       | -500000      | Cromerian_Stage
 homo-heidelbergensis                     | Fauna     | Human Development          | -600000       | -200000      | Homo_heidelbergensis
-anglian-stage                            | Event     | UK Climatic Development    | -478000       | -424000      | Anglian_Stage
+anglian-stage                            | Event     | Climatic Development       | -478000       | -424000      | Anglian_Stage
 homo-neanderthalensis                    | Fauna     | Human Development          | -430000       | -40000       | Neanderthal
-hoxnian-stage                            | Event     | UK Climatic Development    | -424000       | -374000      | Hoxnian_Stage
-wolstonian-stage                         | Event     | UK Climatic Development    | -352000       | -130000      | Wolstonian_Stage
+hoxnian-stage                            | Event     | Climatic Development       | -424000       | -374000      | Hoxnian_Stage
+wolstonian-stage                         | Event     | Climatic Development       | -352000       | -130000      | Wolstonian_Stage
 homo-naledi                              | Fauna     | Human Development          | -335000       | -236000      | Homo_naledi
 quaternary-extinction                    | Event     | Extinction Event           | -130000       | -8000        | Quaternary_extinction
-ipswichian-stage                         | Event     | UK Climatic Development    | -130000       | -115000      | Eemian
-last-glacial-period                      | Event     | UK Climatic Development    | -115000       | -11700       | Last_Glacial_Period
+ipswichian-stage                         | Event     | Climatic Development       | -130000       | -115000      | Eemian
+last-glacial-period                      | Event     | Climatic Development       | -115000       | -11700       | Last_Glacial_Period
 homo-sapien                              | Fauna     | Human Development          | -300000       |  2000        | Human
 laschamp-event                           | Event     | Geological Development     | -41400        | -40900       | Laschamp_event
 mezolithic                               | Event     | Archaeological Age         | -11500        | -8000        | Mezolithic
 neolithic                                | Event     | Archaeological Age         | -10200        | -1700        | Neolithic
 holocene-extinction                      | Event     | Extinction Event           | -10000        | 2030         | Holocene_extinction
 bronze-age                               | Event     | Archaeological Age         | -3200         | -600         | Bronze_Age
-iron-age                                 | Event     | Archaeological Age         | -1200         |  800         | Iron_Age
 stone-henge                              | Event     | Historical Feature         | -3100         | -1600        | Stonehenge
+iron-age                                 | Event     | Archaeological Age         | -1200         |  800         | Iron_Age

@@ -26,6 +26,14 @@ class App extends React.Component {
     this.toggleHelp = this.toggleHelp.bind(this);
   }
 
+  logErrorState(errorMsg, error) {
+    console.log("Error: " + errorMsg + "\n Detail: " + error);
+    this.setState({
+      errorMsg: errorMsg,
+      error: error
+    });
+  }
+
   //
   // Fetch all the hints from the backend service
   // This needs to be done once then retained in common.js

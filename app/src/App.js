@@ -1,5 +1,8 @@
 import React from 'react';
 import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import './App.scss';
 import Search from './Search.js';
 import Wiki from './Wiki.js';
@@ -108,13 +111,20 @@ class App extends React.Component {
 
     return (
       <div className="app grid-container">
-        <header className="header">
-          <h3 className="header-title">EvoTempus: Dashboard of Earth History</h3>
-          <Search
-            onSelectedIntervalChange={this.handleIntervalChange}
-            onSelectedSubjectChange={this.handleSubjectChange}
-          />
-        </header>
+        <nav className="header navbar navbar-expand-lg">
+          <a className="header-title" href="#">EvoTempus</a>
+          <a className="header-title collapse navbar-collapse" href="#">Dashboard of Earth History</a>
+          <button id="collapsible" className="navbar-toggler fa fa-bars" type="button" data-toggle="collapse"
+                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                  aria-expanded="false" aria-label="Toggle navigation">
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <Search
+              onSelectedIntervalChange={this.handleIntervalChange}
+              onSelectedSubjectChange={this.handleSubjectChange}
+            />
+          </div>
+        </nav>
         <main className="main">
           <div className="inner-main">
             <div className="main-visual">

@@ -10,7 +10,7 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
   background-color: honeydew;
   height: 100vh;
   min-height: -webkit-fill-available;
-  grid-template-rows: 4em minmax(40vh, 1fr) auto;
+  grid-template-rows: auto minmax(40vh, 1fr) auto;
   grid-template-areas:
     "header"
     "main"
@@ -18,12 +18,13 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
   .header {
     grid-area: header;
+    font-size: calc(18px + (40 - 18) * ((100vw - 320px) / (1920 - 320)));
+    padding-top: 0.25em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     background-color: darkslategray;
     display: flex;
     justify-content: space-between;
-    padding-top: 0.75em;
-    padding-left: 1em;
-    padding-right: 1em;
     overflow-x: auto;
 
     .header-title {
@@ -33,9 +34,14 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
       margin-right: 2em;
       color: #fafafa;
       text-shadow: 1px 1px 2px black, 0 0 25px #ab8dcc, 0 0 5px darkblue;
-      font-size: 24pt;
       font-family: blackchancery;
       white-space: nowrap;
+      text-decoration: none;
+    }
+
+    #collapsible {
+      padding: 0;
+      color: white;
     }
   }
 

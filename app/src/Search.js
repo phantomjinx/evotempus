@@ -261,7 +261,7 @@ export default class Search extends React.Component {
       <div className="search-box">
         <form className="search-form form-inline" onSubmit={this.handleSearch}>
           <input className="form-control search-term"
-            type="text"
+            type="search"
             placeholder="Search"
             aria-label="Search"
             value={this.state.searchTerm}
@@ -315,7 +315,7 @@ export default class Search extends React.Component {
           <div className="search-results-inner">
             {closeButton}
             <div className="search-results-content">
-              <h3 className={this.state.msgClass}>{this.state.msg}</h3>
+              <p className={this.state.msgClass}>{this.state.msg}</p>
               {resultsTabs}
             </div>
           </div>

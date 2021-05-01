@@ -1,7 +1,30 @@
+@import "bootstrap/scss/_functions.scss";
+@import "bootstrap/scss/_variables.scss";
+@import "bootstrap/scss/_mixins.scss";
+
 $search-bar-color: #ab8dcc;
 $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
+@include media-breakpoint-between(xs, md) {
+  .evo-search {
+    .search-results {
+      width: 90%;
+    }
+  }
+}
+
+@include media-breakpoint-between(lg, xl) {
+  .evo-search {
+    .search-results {
+      width: 50%;
+    }
+  }
+}
+
 .evo-search {
+  float: right;
+  margin-left: auto;
+
   .search-box {
     .search-form {
       flex: 0 1 auto;
@@ -9,7 +32,7 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
       display: flex;
 
       .search-term {
-        width: 100%;
+        width: unset !important;
         border: 0.2em solid $search-bar-color;
         border-right: none;
         padding: 0.25em;
@@ -54,9 +77,8 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
     top: 0;
     bottom: 0;
     right: 0;
-    width: 35%;
     transition: .3s ease-out;
-    margin-top: 4em;
+    margin-top: 1em;
     margin-bottom: 1.5em;
     background-color: white;
     z-index: 1000;
@@ -70,7 +92,6 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
       right: 0;
       background: white;
       overflow: auto;
-      padding: 1em;
 
       .search-results-closebtn {
         float:right;
@@ -87,6 +108,8 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
 
       .search-results-content {
         clear: both;
+        font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
+        padding: 1em;
 
         [class^="react-pagination-js-"] {
           float: right;
@@ -120,6 +143,7 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
 
         .search-msg-info {
           color: blue;
+          font-weight: bold;
         }
 
         .search-msg-error {

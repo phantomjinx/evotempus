@@ -11,6 +11,7 @@ import {scaleOrdinal as d3ScaleOrdinal} from 'd3-scale';
 import {interpolateRainbow as d3InterpolateRainbow} from 'd3-scale-chromatic';
 import {arc as d3Arc} from 'd3-shape';
 import {color as d3Color} from 'd3-color';
+import {zoom as d3Zoom} from 'd3-zoom';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
 import * as api from './api';
@@ -22,7 +23,11 @@ export default class IntervalVisual extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { loading: true };
+    this.state = {
+      loading: true,
+      width: -1,
+      height: -1
+    };
   }
 
   logErrorState(errorMsg, error) {
@@ -44,11 +49,27 @@ export default class IntervalVisual extends React.Component {
     };
   }
 
+  dimensions() {
+    if (!this.props.parent || !this.props.parent.current) {
+      return;
+    }
+
+    const boundingRect = this.props.parent.current.getBoundingClientRect();
+    const width = boundingRect.width;
+    const height = boundingRect.height;
+
+    this.setState({
+      width: width,
+      height: height
+    });
+  }
+
   componentDidCatch(error, info) {
     console.log(error);
   }
 
   componentDidMount() {
+    this.dimensions();
     //
     // Fetch the interval data from the backend service
     //
@@ -67,8 +88,15 @@ export default class IntervalVisual extends React.Component {
       });
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.state.width === -1 || this.state.height === -1) {
+      console.log("IntervalVisual:componentDidUpdate");
+      this.dimensions();
+    }
+  }
+
   render() {
-    if (this.state.loading) {
+    if (this.state.loading || this.state.width === -1 || this.state.height === -1) {
       return (
         <div className="interval-visual-loading">
           <Loading/>
@@ -84,8 +112,8 @@ export default class IntervalVisual extends React.Component {
 
     return (
       <IntervalSunburst
-        width = {this.props.width}
-        height = {this.props.height}
+        width = {this.state.width}
+        height = {this.state.height}
         interval={this.props.interval}
         onSelectedIntervalChange = {this.props.onSelectedIntervalChange}
         data = {this.state.data}/>
@@ -100,10 +128,22 @@ class IntervalSunburst extends React.Component {
 
 
     this.svgId = 'interval-visual-component-svg';
+    this.zoomSystem = {
+      scale : {
+        viewPort: 5,
+        svg: 1
+      },
+      x: -1,
+      y: -1,
+      ox: -1,
+      oy: -1
+    };
 
     // This binding is necessary to make `this` work in the callback
     this.handleDoubleClick = this.handleDoubleClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.scaleCanvas = this.scaleCanvas.bind(this);
+    this.centreTranslation = this.centreTranslation.bind(this);
 
     this.clickTimer = 0;
     this.clickDelay = 200;
@@ -124,6 +164,7 @@ class IntervalSunburst extends React.Component {
       return;
     }
 
+    console.log("componentDidUpdate:renderInterval")
     this.renderInterval(this.props);
   }
 
@@ -335,6 +376,7 @@ class IntervalSunburst extends React.Component {
         // Tag the data with this as the owner
         //
         this.selected.data.owner = this.svgId;
+        console.log("Updating owner of interval");
         this.props.onSelectedIntervalChange(this.selected.data);
       }
 
@@ -383,12 +425,32 @@ class IntervalSunburst extends React.Component {
     }
   }
 
+  scaleCanvas(transform) {
+    // Initial position
+    this.zoomSystem.ox = (this.props.width * this.zoomSystem.scale.viewPort) / 2;
+    this.zoomSystem.oy = (this.props.height * this.zoomSystem.scale.viewPort) / 2;
+
+    this.zoomSystem.x = this.zoomSystem.ox + transform.x;
+    this.zoomSystem.y = this.zoomSystem.oy + transform.y;
+    this.zoomSystem.scale.svg = transform.k;
+
+    return `translate (${transform.x},${transform.y}) scale(${this.zoomSystem.scale.svg})`;
+  }
+
+  centreTranslation() {
+    var centreX = (this.props.width * this.zoomSystem.scale.viewPort) / 2;
+    var centreY = (this.props.height * this.zoomSystem.scale.viewPort) / 2;
+    return "translate(" + centreX + "," + centreY + ")";
+  }
+
   //
   // Renders the sunburst once the data has been
   // successfully retrieved from the database
   //
   renderInterval(props) {
-    this.radius = (Math.min(this.props.width, this.props.height) / 6);
+    console.log("renderInterval: " + this.props.width + ", " + this.props.height);
+    this.radius = (Math.min(this.props.width, this.props.height) * 0.80);
+    console.log("Radius: " + this.radius);
 
     //
     // Select the existing svg created by the initial render
@@ -403,8 +465,17 @@ class IntervalSunburst extends React.Component {
     // Append the main g ready for population
     //
     this.g = this.svg.append("g")
-      .attr("class", "interval-container")
-      .attr("transform", `translate(${this.props.width / 2},${this.props.width / 2})`);
+      .attr("id", "interval-container")
+      .attr("class", "interval-container");
+
+    this.svg.call(d3Zoom()
+        .scaleExtent([1, 8])
+        // .translateExtent([[0, 0], [w, h]])
+        // .extent([[0, 0], [w, h]])
+        .on("zoom", ({transform}) => {
+          this.g.attr("transform", this.scaleCanvas(transform));
+        }))
+        .on("dblclick.zoom", null);
 
     //
     // Start to structure the data according to a partition heirarchical layout
@@ -521,6 +592,9 @@ class IntervalSunburst extends React.Component {
     // Only those visible will be displayed
     //
     this.paths = this.g.append("g")
+      .attr("id", "int-segment-container")
+      .attr("class", "int-segment-container")
+      .attr("transform", this.centreTranslation())
       .selectAll("path")
       .data(rootDescendents)
       .join("path")
@@ -549,8 +623,11 @@ class IntervalSunburst extends React.Component {
     // Position labels for each of the segments
     //
     this.labels = this.g.append("g")
+      .attr("id", "int-label-container")
+      .attr("class", "int-label-container")
       .attr("pointer-events", "none")
       .attr("text-anchor", "middle")
+      .attr("transform", this.centreTranslation())
       .style("user-select", "none")
       .style("font-weight", "bold")
       .selectAll("text")
@@ -573,6 +650,7 @@ class IntervalSunburst extends React.Component {
       .attr("pointer-events", "all")
       .style("cursor", "pointer")
       .text(d => d.data.name)
+      .attr("transform", this.centreTranslation())
       .on("dblclick", this.handleDoubleClick)
       .on("click", this.handleClick);
 
@@ -586,6 +664,7 @@ class IntervalSunburst extends React.Component {
       .style("font-weight", "bold")
       .attr("dy", "0.35em")
       .text(d => d.data.name)
+      .attr("transform", this.centreTranslation());
 
     //
     // After complete rendering if an interval
@@ -595,11 +674,14 @@ class IntervalSunburst extends React.Component {
   }
 
   render() {
+    console.log("render: " + this.props.width + ", " + this.props.height);
     return (
       <div id="interval-visual-component">
         <svg
+          width = { this.props.width }
+          height = { this.props.height }
           id = { this.svgId }
-          viewBox = {"0 0 " + this.props.width + " " + this.props.height}
+          viewBox = {"0 0 " + (this.props.width * this.zoomSystem.scale.viewPort) + " " + (this.props.height * this.zoomSystem.scale.viewPort)}
           preserveAspectRatio="xMidYMid slice"
         />
       </div>

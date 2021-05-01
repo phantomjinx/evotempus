@@ -1,14 +1,64 @@
+@import "bootstrap/scss/_functions.scss";
+@import "bootstrap/scss/_variables.scss";
+@import "bootstrap/scss/_mixins.scss";
+
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
-#wiki-article {
+@include media-breakpoint-between(xs, md) {
+  #wiki-container {
+    max-height: 100vh;
+
+    #wiki-header {
+      font-size: 3vw;
+
+      #wiki-header-logo {
+        display: none;
+      }
+
+      #wiki-closebtn {
+        flex: 0 1 auto;
+        text-decoration: none;
+        text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px slategray;
+        color: #a7a7a7;
+        font-size: 14pt;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+    }
+
+    #wiki-main {
+      max-height: 55vh;
+      height: 55vh;
+    }
+  }
+}
+
+@include media-breakpoint-between(lg, xl) {
+  #wiki-container {
+    #wiki-header {
+      #wiki-closebtn {
+        display: none;
+      }
+    }
+
+    #wiki-main {
+      max-height: 6em;
+      height: 6em;
+    }
+  }
+}
+
+#wiki-container {
   display: flex;
-  width: 100%;
   flex-direction: column;
   box-shadow: $tile-shadow;
   font-family: firasans;
   background-color: white;
+  padding-left: 0.2em;
 
   .disappear {
+    display: none !important;
     opacity: 0;
   }
 
@@ -20,34 +70,26 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
   #wiki-header {
     flex: 0 1 auto;
     display: flex;
-    direction: rtl;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     border-bottom: solid;
     border-color: lightgray;
     border-width: thin;
     margin-top: 0.1em;
-    margin-left: 0.2em;
     margin-right: 0.25em;
     margin-bottom: 0.2em;
     white-space: nowrap;
-    font-size: 16pt;
-
-    h3 {
-      margin-bottom: 0;
-    }
 
     #wiki-header-title {
-      flex: 0 1 auto;
-      font-weight: bold;
-      margin-left: 0.7em;
-      margin-top: 0.2em;
-      margin-right: 0.25em;
-    }
-
-    #wiki-header-dates {
-      flex: 1 1 auto;
+      flex: 1 1 90vw;
       font-weight: bold;
       margin-top: 0.2em;
-      margin-right: 0.2em;
+      margin-bottom: 0;
+      max-width: 90vw;
+      width: 90vw;
+      overflow-x: auto;
+      word-break: normal;
+      white-space: normal;
     }
 
     #wiki-header-logo {
@@ -63,9 +105,6 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     display: flex;
     flex: 1 0 auto;
     overflow: auto;
-    margin-left: 1em;
-    min-height: 6em;
-    max-height: 6em;
     font-size: 14pt;
 
     #wiki-main-inner {
@@ -75,10 +114,18 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
       #wiki-loading {
         display: flex;
         justify-content: center;
-        margin-top: 0.7em;
+        height: 100%;
+
+        .loading {
+          margin: auto;
+        }
       }
 
       #wiki-text {
+        text-align: justify;
+        margin-left: 0.2em;
+        margin-right: 0.5em;
+
         p {
           margin-right: 0.2em;
           margin-block-start: 0;
@@ -95,16 +142,22 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     border-top: solid;
     border-color: lightgray;
     border-width: thin;
-    margin-left: 0.2em;
     margin-right: 0.25em;
     font-size: 9pt;
 
     #unit-defn {
       flex: 1 1 auto;
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
       text-align: left;
-      margin-left: 1em;
+      margin-left: 0.5em;
       margin-top: 0.4em;
       margin-bottom: 0;
+
+      span {
+        padding-right: 0.5em;
+      }
     }
 
     #link-instruction {

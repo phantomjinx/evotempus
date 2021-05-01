@@ -20,12 +20,17 @@ class App extends React.Component {
     this.state = {
       help: true,
       interval: undefined,
-      subject: undefined
+      subject: undefined,
+      wikiVisible: false,
+      wikiPosition: "interval"
     };
 
+    this.intervalVisualRef = React.createRef();
     this.subjectVisualRef = React.createRef();
     this.handleIntervalChange = this.handleIntervalChange.bind(this);
     this.handleSubjectChange = this.handleSubjectChange.bind(this);
+    this.handleWikiClick = this.handleWikiClick.bind(this);
+    this.toggleWiki = this.toggleWiki.bind(this);
     this.toggleHelp = this.toggleHelp.bind(this);
   }
 
@@ -59,13 +64,20 @@ class App extends React.Component {
   }
 
   handleIntervalChange(interval) {
+    if (interval && this.state.interval && interval._id === this.state.interval._id) {
+      // Nothing to do
+      return;
+    }
+
     //
-    // Although makes sense to reset subject here, it creates a race condition
-    // where the search navigation 'clicks' on the description then this refreshes
-    // and cancels it.
+    // Reset the subject since the interval may not contain it.
+    // Keeping it puts 'focus' back on to it when the interval
+    // has been changed. To restore such focus, handleSubjectChange
+    // should be called after this.
     //
     this.setState({
       interval: interval,
+      subject: null,
       topicTarget: {
         type: 'interval',
         item: interval
@@ -84,6 +96,31 @@ class App extends React.Component {
     });
   }
 
+  /*
+   * Used by the mobile version to open the wiki
+   *
+   * type: determines which button was clicked to open the wiki (interval or subject)
+   */
+  handleWikiClick(event, type) {
+    this.toggleWiki(event, type);
+    event.stopPropagation();
+  }
+
+  /*
+   * Used when display in mobile and the wiki is a dialog
+   * displayed using the wiki button
+   */
+  toggleWiki(event, type) {
+    if (!type) {
+      type = this.state.wikiPosition;
+    }
+
+    this.setState({
+      wikiVisible: !this.state.wikiVisible,
+      wikiPosition: type
+    });
+  }
+
   toggleHelp(show) {
     this.setState({
       help: show
@@ -92,6 +129,15 @@ class App extends React.Component {
   }
 
   render() {
+    const intervalVisual = (
+      <IntervalVisual
+        parent = { this.intervalVisualRef }
+        width="312" height="185"
+        interval={this.state.interval}
+        onSelectedIntervalChange={this.handleIntervalChange}
+      />
+    )
+
     const subjectViz = (
       <SubjectVisual
         parent = { this.subjectVisualRef }
@@ -125,30 +171,33 @@ class App extends React.Component {
             />
           </div>
         </nav>
-        <main className="main">
-          <div className="inner-main">
-            <div className="main-visual">
-              <div className="interval-visual">
-                <div className="interval-visual-help">
-                  <button id="interval-visual-help-btn" className="fa fa-question-circle" onClick={() => this.toggleHelp(true)}/>
-                </div>
-                <IntervalVisual
-                  width="400" height="400"
-                  interval={this.state.interval}
-                  onSelectedIntervalChange={this.handleIntervalChange}
-                />
-              </div>
-              <div className="subject-visual" ref={this.subjectVisualRef}>
-                {subjectVisual}
-              </div>
-            </div>
-            <div className="wiki-card">
-              <Wiki
-                topic={this.state.topicTarget}
-              />
+        <div className="interval-visual-group">
+          <div className="interval-visual-help">
+            <button id="interval-visual-help-btn" className="fa fa-question-circle" onClick={() => this.toggleHelp(true)}/>
+          </div>
+          <div className="interval-visual" ref={this.intervalVisualRef}>
+            {intervalVisual}
+            <div id="interval-wiki-card-btn-container" className={this.state.topicTarget && this.state.topicTarget.type === 'interval' ? 'show' : 'hide'}>
+              <button id="interval-wiki-card-btn" onClick={(event) => this.handleWikiClick(event, "interval")}>
+                <img src="/wikipedia-logo-v2.svg" alt="W"/>
+              </button>
             </div>
           </div>
-        </main>
+        </div>
+        <div className="subject-visual" ref={this.subjectVisualRef}>
+          {subjectVisual}
+          <div id="subject-wiki-card-btn-container" className={this.state.topicTarget && this.state.topicTarget.type === 'subject' ? 'show' : 'hide'}>
+            <button id="subject-wiki-card-btn" onClick={(event) => this.handleWikiClick(event, "subject")}>
+              <img src="/wikipedia-logo-v2.svg" alt="W"/>
+            </button>
+          </div>
+        </div>
+        <div id="wiki-card" className={`${this.state.wikiVisible ? 'show' : 'hide'} ${this.state.wikiPosition}`}>
+          <Wiki
+            topic={this.state.topicTarget}
+            onToggleWiki = {this.toggleWiki}
+          />
+        </div>
         <footer className="footer">
           <p id="app-footer-copyright">
             &copy; P. G. Richardson {common.present(2030)} - Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL 3.0 or later</a>

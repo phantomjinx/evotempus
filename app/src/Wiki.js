@@ -12,7 +12,7 @@ export default class Wiki extends React.Component {
 
     this.wikiLink = "https://en.wikipedia.org/wiki/";
 
-    const clickMsg = "To read more further, please click here";
+    const clickMsg = "To read further, click here";
 
     this.state = {
       linkId : 'Geologic_time_scale',
@@ -94,6 +94,12 @@ export default class Wiki extends React.Component {
     return "from " + common.present(this.props.topic.item.from) + " to " + common.present(this.props.topic.item.to);
   }
 
+  displayHeaderTitle() {
+    var title = this.props.topic ? this.props.topic.item.name : "";
+    var dates = this.displayDates();
+    return title + " " + dates;
+  }
+
   render() {
 
     const headerLogo = (
@@ -103,11 +109,22 @@ export default class Wiki extends React.Component {
       </a>
     )
 
+    const headerText = (
+      <p id="wiki-header-title" className="fade-in">{this.displayHeaderTitle()}</p>
+    )
+
+    const headerButton = (
+      <button
+        id="wiki-closebtn" className="fa fa-times"
+        onClick={this.props.onToggleWiki}>
+      </button>
+    )
+
     const header = (
       <div id="wiki-header">
+        {headerButton}
         {headerLogo}
-        <h3 id="wiki-header-dates" className="fade-in">{this.displayDates()}</h3>
-        <h3 id="wiki-header-title" className="fade-in">{this.props.topic ? this.props.topic.item.name : ""}</h3>
+        {headerText}
       </div>
     )
 
@@ -119,22 +136,26 @@ export default class Wiki extends React.Component {
         <p id="link-instruction">&rarr; {this.state.clickMsg}</p>
 
         <p id="unit-defn" className="fade-in">
-          <a href={this.wikiLink + "Year#SI_prefix_multipliers"} target="_blank" rel="noopener noreferrer">
-            Ma: 1 million years
-          </a>
-          &nbsp;&nbsp;&nbsp;
-          <a href={this.wikiLink + "Year#SI_prefix_multipliers"} target="_blank" rel="noopener noreferrer">
-            ka: 1 thousand years
-          </a>
+          <span>
+            <a href={this.wikiLink + "Year#SI_prefix_multipliers"} target="_blank" rel="noopener noreferrer">
+              Ma: 1 million years
+            </a>
+          </span>
+          <span>
+            <a href={this.wikiLink + "Year#SI_prefix_multipliers"} target="_blank" rel="noopener noreferrer">
+              ka: 1 thousand years
+            </a>
+          </span>
         </p>
       </div>
     )
 
     if (this.state.loading) {
       return (
-        <div id="wiki-article">
+        <div id="wiki-container">
           <div id="wiki-header">
             {headerLogo}
+            {headerButton}
             <p id="ma-defn" className="disappear"/>
             <h3 id="wiki-header-dates" className="disappear">None</h3>
             <h3 id="wiki-header-title" className="disappear">None</h3>
@@ -154,7 +175,7 @@ export default class Wiki extends React.Component {
 
     if (this.state.error) {
       return (
-        <div id="wiki-article">
+        <div id="wiki-container">
           {header}
           <div id="wiki-main">
             <div id="wiki-main-inner">
@@ -171,7 +192,7 @@ export default class Wiki extends React.Component {
 
     if (this.props.topic) {
       return (
-        <div id="wiki-article">
+        <div id="wiki-container">
           {header}
           <div id="wiki-main">
             <div id="wiki-main-inner">

@@ -284,6 +284,8 @@ export default class SubjectVisual extends React.Component {
   }
 
   dimensions() {
+    console.log("Subjec Parent: ");
+    console.log(this.props.parent);
     if (!this.props.parent || !this.props.parent.current) {
       return;
     }
@@ -318,6 +320,7 @@ export default class SubjectVisual extends React.Component {
       return;
     }
 
+    console.log("SubjectVisual:componentDidUpdate");
     this.dimensions();
     this.fetchSubjects();
   }

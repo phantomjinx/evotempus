@@ -1,20 +1,154 @@
+@import "bootstrap/scss/_functions.scss";
+@import "bootstrap/scss/_variables.scss";
+@import "bootstrap/scss/_mixins.scss";
+
 $help-color: #ab8dcc;
 $main-visual-height: 65vh;
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
+$app-height: 100vh;
+$app-left-margin: 1vh;
+$app-right-margin: 2vh;
+
 @font-face { font-family: blackchancery; src: url('/fonts/black-chancery.ttf'); }
 @font-face { font-family: firasans; src: url('/fonts/firasans/FiraSans-Regular.ttf'); }
 
+@mixin component-wiki-card-btn {
+  position: absolute;
+  left: 0.5em;
+  bottom: 0.5em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  box-shadow: $tile-shadow;
+
+  img {
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
+
+@include media-breakpoint-between(xs, md) {
+
+  .app {
+    grid-template-rows: auto 30vh 1fr auto;
+    grid-template-columns: 100vw;
+    grid-template-areas:
+      "header"
+      "interval-visual-group"
+      "subject-visual"
+      "footer";
+
+    .interval-visual-group {
+      margin-right: $app-right-margin;
+
+      #interval-wiki-card-btn-container.hide {
+        display: none;
+      }
+
+      #interval-wiki-card-btn-container.show {
+        display: block;
+      }
+
+      #interval-wiki-card-btn-container {
+        #interval-wiki-card-btn {
+          @include component-wiki-card-btn;
+        }
+      }
+    }
+
+    .subject-visual {
+      position: relative;
+      margin-left: $app-left-margin;
+
+      #subject-wiki-card-btn-container.hide {
+        display: none;
+      }
+
+      #subject-wiki-card-btn-container.show {
+        display: block;
+      }
+
+      #subject-wiki-card-btn-container {
+        #subject-wiki-card-btn {
+          @include component-wiki-card-btn;
+        }
+      }
+    }
+
+    #wiki-card {
+      position: absolute;
+      width: 100%;
+      max-height: 66vh;
+      z-index: 1000;
+      webkit-transition: left .5s linear, bottom 0.1s linear .5s, top .1s linear .5s;
+      -moz-transition: left .5s linear, bottom 0.1s linear .5s, top .1s linear .5s;
+      -ms-transition: left .5s linear, bottom 0.1s linear .5s, top .1s linear .5s;
+      -o-transition: left .5s linear, bottom 0.1s linear .5s, top .1s linear .5s;
+      transition: left .5s linear, bottom 0.1s linear .5s, top .1s linear .5s;
+    }
+
+    #wiki-card.hide {
+      left: calc(105vw * -1);
+    }
+
+    #wiki-card.show {
+      left: 0;
+    }
+
+    #wiki-card.interval {
+      top: 0;
+      bottom: unset;
+    }
+
+    #wiki-card.subject {
+      top: unset;
+      bottom: 0;
+    }
+
+    .footer {
+      font-size: 0.2em;
+      margin-top: 0.2em;
+    }
+  }
+}
+
+@include media-breakpoint-between(lg, xl) {
+  .app {
+    grid-template-rows: auto 1fr auto 3vh;
+    grid-template-columns: 30vw 1fr;
+    grid-template-areas:
+      "header header"
+      "interval-visual-group subject-visual"
+      "wiki-card wiki-card"
+      "footer footer";
+
+    #interval-wiki-card-btn-container,
+    #subject-wiki-card-btn-container {
+      display: none;
+    }
+
+    #wiki-card {
+      grid-area: wiki-card;
+      margin-left: $app-left-margin;
+      margin-right: $app-right-margin;
+    }
+
+    .footer {
+      font-size: 0.5em;
+    }
+  }
+}
+
 .app {
+  overflow-y: hidden;
   display: grid;
   background-color: honeydew;
-  height: 100vh;
+  height: $app-height;
   min-height: -webkit-fill-available;
-  grid-template-rows: auto minmax(40vh, 1fr) auto;
-  grid-template-areas:
-    "header"
-    "main"
-    "footer";
+  grid-gap: 1vh;
 
   .header {
     grid-area: header;
@@ -45,73 +179,45 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     }
   }
 
-  .main {
-    grid-area: main;
-    overflow: auto;
-    margin-bottom: 0.5em;
+  .interval-visual-group {
+    position: relative;
+    grid-area: interval-visual-group;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: $tile-shadow;
+    margin-left: $app-left-margin;
 
-    .inner-main {
-      display: grid;
-      grid-template-rows: 1fr minmax(10em, 12em);
-      grid-gap: 1em;
-      grid-template-areas:
-        "main-visual"
-        "wiki-card";
-      width: calc(100% - 3em);
-      margin-left: 1em;
-      margin-right: 1em;
+    .interval-visual-help {
+      position: absolute;
+      left: 0.5em;
+      top: 0.5em;
 
-      .main-visual {
-        grid-area: main-visual;
-        display: grid;
-        grid-template-columns: 30% 1fr;
-        grid-template-rows: minmax(0, $main-visual-height);
-        grid-gap: 2em;
-        grid-template-areas:
-          "interval subject";
-          margin-top: 0.5em;
-
-        .interval-visual {
-          position: relative;
-          grid-area: interval;
-          overflow: auto;
-          background-color: white;
-          box-shadow: $tile-shadow;
-
-          .interval-visual-help {
-            position: absolute;
-            left: 0.5em;
-            top: 0.5em;
-
-            #interval-visual-help-btn {
-              cursor: pointer;
-              border: none;
-              font-size: 18pt;
-              color: $help-color;
-              background-color: transparent;
-              box-shadow: $tile-shadow;
-            }
-
-            #interval-visual-help-btn:active {
-              color: white;
-              background-color: $help-color;
-            }
-          }
-        }
-
-        .subject-visual {
-          grid-area: subject;
-          overflow: auto;
-          background-color: white;
-          box-shadow: $tile-shadow;
-        }
+      #interval-visual-help-btn {
+        cursor: pointer;
+        border: none;
+        font-size: 1.5rem;
+        color: $help-color;
+        background-color: transparent;
+        box-shadow: $tile-shadow;
       }
 
-      .wiki-card {
-        grid-area: wiki-card;
-        margin-bottom: 1em;
+      #interval-visual-help-btn:active {
+        color: white;
+        background-color: $help-color;
       }
     }
+
+    .interval-visual {
+      height: 95%;
+    }
+  }
+
+  .subject-visual {
+    grid-area: subject-visual;
+    overflow: auto;
+    background-color: white;
+    box-shadow: $tile-shadow;
+    margin-right: $app-right-margin;
   }
 
   .footer {
@@ -120,23 +226,21 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     border-bottom: dashed;
     border-color: lightgray;
     border-width: thin;
-    margin-top: auto;
     width: 100%;
     background: linear-gradient(to bottom, lightgray, #ffffff 55%, #ffffff);
+    padding-top: 0.5vh;
 
     #app-footer-copyright {
       float: left;
       width: 70%;
       margin-left: 0.5em;
-      margin-top: 1em;
-      margin-bottom: 0.1em;
-      font-size: 8pt;
+      margin-bottom: 0;
       color: darkslategray;
     }
 
     #app-footer-logo > img {
       float: right;
-      height: 2em;
+      height: 2vh;
     }
   }
 }

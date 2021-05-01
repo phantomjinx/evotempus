@@ -11,7 +11,7 @@ export default class HelpPage extends React.Component {
           onClick={() => this.props.onToggleHelp(false)}>
         </button>
         <div className="help-page-content">
-          <h3>Introduction</h3>
+          <h4>Introduction</h4>
           <p>Welcome to EvoTempus!</p>
           <p>
             A tool for indexing the evolution of Planet Earth, from its birth 4.5 billion years. Its easy to get confused over

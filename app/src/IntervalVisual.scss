@@ -37,6 +37,8 @@ $max-height: 65vh;
 #interval-visual-component {
   max-height: $max-height;
   max-width: $max-height;
+  margin-left: auto;
+  margin-right: auto;
 
   #interval-visual-component-svg {
     font-family: firasans;

@@ -133,7 +133,8 @@ export default class Wiki extends React.Component {
         <a id="wiki-footer-logo" href={this.wikiLink + this.state.linkId} target="_blank" rel="noopener noreferrer">
           <img src="/wikipedia-logo-with-label.svg" alt="Wikipedia"/>
         </a>
-        <p id="link-instruction">&rarr; {this.state.clickMsg}</p>
+        <p id="link-instruction-arrow">&rarr;</p>
+        <p id="link-instruction-text">{this.state.clickMsg}</p>
 
         <p id="unit-defn" className="fade-in">
           <span>

@@ -20,7 +20,7 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
         text-decoration: none;
         text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px slategray;
         color: #a7a7a7;
-        font-size: 14pt;
+        font-size: 2vh;
         background-color: transparent;
         border: none;
         cursor: pointer;
@@ -29,7 +29,6 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
     #wiki-main {
       max-height: 55vh;
-      height: 55vh;
     }
   }
 }
@@ -44,7 +43,6 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
     #wiki-main {
       max-height: 6em;
-      height: 6em;
     }
   }
 }
@@ -105,7 +103,8 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     display: flex;
     flex: 1 0 auto;
     overflow: auto;
-    font-size: 14pt;
+    font-size: 2vh;
+    margin-bottom: 0.2em;
 
     #wiki-main-inner {
       margin-bottom: 0.25em;
@@ -150,29 +149,36 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
       display: flex;
       flex-direction: row-reverse;
       flex-wrap: wrap;
-      text-align: left;
       margin-left: 0.5em;
-      margin-top: 0.4em;
-      margin-bottom: 0;
+      margin-top: auto;
+      margin-bottom: auto;
 
       span {
         padding-right: 0.5em;
       }
     }
 
-    #link-instruction {
+    #link-instruction-arrow {
       flex: 0 1 auto;
-      float: right;
+      margin-left: 0.2em;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    #link-instruction-text {
+      flex: 0 1 auto;
+      text-align: center;
       font-style: italic;
       margin-left: 1em;
-      margin-top: 0.4em;
-      margin-bottom: 0;
+      margin-top: auto;
+      margin-bottom: auto;
     }
 
     #wiki-footer-logo {
       flex: 0 1 auto;
       float: right;
-      height: 2em;
+      margin-top: auto;
+      margin-bottom: auto;
 
       img {
         height: 2em;

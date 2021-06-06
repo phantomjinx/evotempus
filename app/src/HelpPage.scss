@@ -6,29 +6,43 @@ $font: bold 16px firasans;
   padding: 1em 1em 0.5em 1em;
   font: $font;
   z-index: 2;
+  height: 100%;
+  overflow: auto;
 
-  .help-page-closebtn {
-    float:right;
-    margin-bottom: 0.5em;
-    margin-right: 1em;
-    text-decoration: none;
-    text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px slategray;
-    color: #a7a7a7;
-    font-size: 14pt;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-  }
 
   .help-page-content {
     clear: both;
+
+    .help-page-bold {
+      background-color: $help-color;
+      color: white;
+      padding-left: 0.25em;
+    }
+
+    .help-page-title {
+      display: flex;
+      margin-bottom: 0.5em;
+
+      .help-page-title-text {
+        flex: 1 1 auto;
+        margin-bottom: 0;
+      }
+
+      .help-page-closebtn {
+        flex: 0 0 auto;
+        margin-left: 5%;
+        margin-right: 1%;
+        text-decoration: none;
+        text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px slategray;
+        color: #a7a7a7;
+        font-size: 14pt;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+      }
+    }
   }
 
-  h4 {
-    background-color: $help-color;
-    color: white;
-    padding-left: 0.25em;
-  }
 }
 
 .help-page:before {

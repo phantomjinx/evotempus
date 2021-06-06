@@ -4,10 +4,12 @@ import {extent as d3Extent} from 'd3-array';
 import {format as d3Format} from 'd3-format';
 import {
   scaleOrdinal as d3ScaleOrdinal,
-  scaleLinear as d3ScaleLinear } from 'd3-scale';
+  scaleLinear as d3ScaleLinear
+} from 'd3-scale';
 import {color as d3Color} from 'd3-color';
-import {
-  select as d3Select} from 'd3-selection';
+import {zoom as d3Zoom} from 'd3-zoom';
+import {select as d3Select} from 'd3-selection';
+import {interpolateRound as d3InterpolateRound} from 'd3-interpolate';
 import 'font-awesome/css/font-awesome.min.css';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
@@ -360,7 +362,12 @@ class SubjectSwimLane extends React.Component {
     super(props);
 
     this.svgId = 'subject-visual-component-svg';
-    this.margins = { top: 30, right: 50, bottom: 15, left: 80 };
+    this.zoomSystem = {
+      viewPort: 5,
+      innerWidth: 0,
+      innerHeight: 0
+    };
+    this.margins = { top: 0, right: 0, bottom: 0, left: 0 };
     this.state = {
       legendVisible: false
     };
@@ -442,17 +449,17 @@ class SubjectSwimLane extends React.Component {
   //
   calcX(subject, xScale) {
     const min = xScale.domain()[0];
-    const x1 = subject.from < min ? min : subject.limitFrom;
 
-    return d3Format(".1f")(xScale(x1));
+    const x1 = subject.from < min ? min : subject.from;
+    return parseFloat(xScale(x1));
   }
 
   //
   // calculate height from y co-ordinates of this subject(n) & subject(n+1)
   //
   calcHeight(subject, yScale) {
-    const m1 = d3Format(".1f")((yScale(subject.laneId)) + 3);
-    const m2 = d3Format(".1f")((yScale(subject.laneId + 1)) - 2);
+    const m1 = parseFloat(yScale(subject.laneId) + 3);
+    const m2 = parseFloat(yScale(subject.laneId + 1) - 2);
     return m2 - m1;
   }
 
@@ -469,10 +476,10 @@ class SubjectSwimLane extends React.Component {
     const min = xScale.domain()[0];
     const max = xScale.domain()[1];
 
-    const x1 = subject.from < min ? min : subject.limitFrom;
-    const x2 = subject.to > max ? max : subject.limitTo;
+    const x1 = subject.from < min ? min : subject.from;
+    const x2 = subject.to > max ? max : subject.to;
 
-    const w = d3Format(".1f")(xScale(x2)) - d3Format(".1f")(xScale(x1));
+    const w = parseFloat(xScale(x2)) - parseFloat(xScale(x1));
     return w < 5 ? 5 : w; // Have a minimum of 5 so at least something is visible
   }
 
@@ -529,48 +536,93 @@ class SubjectSwimLane extends React.Component {
     }
   }
 
-  createIntervalBounds(parent, from, to, xScale, yScale, yMax) {
-
-    const min = xScale.domain()[0];
-    const max = xScale.domain()[1];
-
-    const fromX = d3Format(".1f")(xScale(from));
-    const toX = d3Format(".1f")(xScale(to));
-    const minX = d3Format(".1f")(xScale(min));
-    const maxX = d3Format(".1f")(xScale(max));
-    const maxY = d3Format(".1f")(yScale(yMax));
+  createIntervalBounds(parent, from, to, xScale, yScale) {
 
     const lowerGroup = parent.append('g')
-      .attr('id', 'lower-interval-bounds');
+      .attr('id', 'lower-interval-bounds')
+      .attr('clip-path', 'url(#data-clip)');
 
     lowerGroup.append('line')
-      .attr('x1', fromX).attr('y1', 0)
-      .attr('x2', fromX).attr('y2', maxY)
+      .classed('lowerIntervalBoundLine', true)
       .attr('stroke', 'black')
       .attr('stroke-width', 2)
-      .attr('stroke-dasharray', '5,5');
+      .attr('stroke-dasharray', '5,5')
+      .attr("transform", this.centreTranslation());
 
     lowerGroup.append('rect')
-      .attr('x', 0).attr('y', 0)
-      .attr('width', (fromX - minX)).attr('height', maxY)
+      .classed('lowerIntervalBoundBlock', true)
       .attr('fill', 'darkgray')
-      .attr('fill-opacity', 0.5);
+      .attr('fill-opacity', 0.3)
+      .attr("transform", this.centreTranslation());
 
     const upperGroup = parent.append('g')
-      .attr('id', 'upper-interval-bounds');
+      .attr('id', 'upper-interval-bounds')
+      .attr('clip-path', 'url(#data-clip)');
 
     upperGroup.append('line')
-      .attr('x1', toX).attr('y1', 0)
-      .attr('x2', toX).attr('y2', maxY)
+      .classed('upperIntervalBoundLine', true)
       .attr('stroke', 'black')
       .attr('stroke-width', 2)
-      .attr('stroke-dasharray', '5,5');
+      .attr('stroke-dasharray', '5,5')
+      .attr("transform", this.centreTranslation());
 
-    lowerGroup.append('rect')
-      .attr('x', toX).attr('y', 0)
-      .attr('width', (maxX - toX)).attr('height', maxY)
+    upperGroup.append('rect')
+      .classed('upperIntervalBoundBlock', true)
       .attr('fill', 'darkgray')
-      .attr('fill-opacity', 0.3);
+      .attr('fill-opacity', 0.3)
+      .attr("transform", this.centreTranslation());
+
+    this.updateIntervalBounds(parent, from, to, xScale, yScale);
+  }
+
+  updateIntervalBounds(parent, from, to, xScale, yScale) {
+    const xsMin = xScale.domain()[0];
+    const xsMax = xScale.domain()[1];
+    const ysMin = yScale.domain()[0];
+    const ysMax = yScale.domain()[1];
+
+    const fromX = parseFloat(xScale(from));
+    const toX = parseFloat(xScale(to));
+    const minX = parseFloat(xScale(xsMin));
+    const maxX = parseFloat(xScale(xsMax));
+    const minY = parseFloat(yScale(ysMin));
+    const maxY = parseFloat(yScale(ysMax));
+
+    parent
+      .select('.lowerIntervalBoundLine')
+      .attr('x1', fromX)
+      .attr('y1', minY)
+      .attr('x2', fromX)
+      .attr('y2', maxY);
+
+    parent
+      .select('.lowerIntervalBoundBlock')
+      .attr('x', minX)
+      .attr('y', minY)
+      .attr('width', (fromX - minX))
+      .attr('height', maxY);
+
+    parent
+      .select('.upperIntervalBoundLine')
+      .attr('x1', toX)
+      .attr('y1', minY)
+      .attr('x2', toX)
+      .attr('y2', maxY);
+
+    parent
+      .select('.upperIntervalBoundBlock')
+      .attr('x', toX)
+      .attr('y', minY)
+      .attr('width', (maxX - toX))
+      .attr('height', maxY);
+  }
+
+  scaleCanvas(transform) {
+    return `translate (${transform.x},${transform.y}) scale(${transform.k})`;
+  }
+
+  centreTranslation() {
+    return "translate(" + this.margins.left + "," + this.margins.top + ")";
   }
 
   //
@@ -582,8 +634,15 @@ class SubjectSwimLane extends React.Component {
       return;
     }
 
-    this.innerWidth = this.props.width - this.margins.left - this.margins.right;
-    this.innerHeight = this.props.height - this.margins.top - this.margins.bottom;
+    this.margins = {
+      top: ((this.props.height / 10) * this.zoomSystem.viewPort),
+      right: ((this.props.width / 20) * this.zoomSystem.viewPort),
+      bottom: ((this.props.height / 20) * this.zoomSystem.viewPort),
+      left: ((this.props.width / 8) * this.zoomSystem.viewPort)
+    };
+
+    this.zoomSystem.innerWidth = (this.props.width * this.zoomSystem.viewPort) - this.margins.left - this.margins.right;
+    this.zoomSystem.innerHeight = (this.props.height * this.zoomSystem.viewPort) - this.margins.top - this.margins.bottom;
 
     const subjectColorCycle = d3ScaleOrdinal()
       .domain(this.props.allCategories)
@@ -608,16 +667,29 @@ class SubjectSwimLane extends React.Component {
     this.generateGradient(defs, this.props.data.categories, subjectColorCycle);
     this.generateGradient(defs, headerNames, laneColorCycle);
 
+    defs.append('clipPath')
+      .attr('id', 'data-clip')
+      .append('rect')
+      .attr('x', this.margins.left)
+      .attr('y', this.margins.top)
+      .attr('width', this.zoomSystem.innerWidth)
+      .attr('height', this.zoomSystem.innerHeight);
+
+    defs.append('clipPath')
+      .attr('id', 'label-clip')
+      .append('rect')
+      .attr('x', -10)
+      .attr('y', this.margins.top)
+      .attr('width', this.zoomSystem.innerWidth)
+      .attr('height', this.zoomSystem.innerHeight);
+
     this.gchart = this.svg
       .append('g')
-      .attr("class", "subject-container")
-      .attr('transform', "translate(" + this.margins.left + "," + this.margins.top + ")")
-      .attr('width', this.innerWidth)
-	    .attr('height', this.innerHeight);
+      .attr("class", "subject-container");
 
     const xScale = d3ScaleLinear()
       .domain([this.props.interval.from, this.props.interval.to]).nice()
-      .range([0, this.innerWidth]);
+      .range([0, this.zoomSystem.innerWidth]);
 
     const yExt = d3Extent(this.props.data.lanes, d => d.id);
 
@@ -627,63 +699,73 @@ class SubjectSwimLane extends React.Component {
     // a lane then compare it to a 1/3 of the height. If wider then then, the
     // maximum range is designated a 1/3 of the height.
     //
-    const laneHeight = this.innerHeight / this.props.data.lanes.length;
-    const maxLaneHeight = (this.innerHeight / 3);
-    const upperRange = laneHeight > maxLaneHeight ? maxLaneHeight : this.innerHeight;
+    const laneHeight = this.zoomSystem.innerHeight / this.props.data.lanes.length;
+    const maxLaneHeight = (this.zoomSystem.innerHeight / 3);
+    const upperRange = laneHeight > maxLaneHeight ? maxLaneHeight : this.zoomSystem.innerHeight;
     const yScale = d3ScaleLinear()
       .domain([yExt[0], yExt[1] + 1])
       .range([0, upperRange]);
-
 
     // draw the x axis
     const xDateAxis = d3AxisTop(xScale)
       .ticks(7)
 	    .tickFormat(d => common.displayYear(d));
 
-    this.gchart.append('g')
-     .attr("class", "axis")
-     .call(xDateAxis);
+    this.gxAxis = this.gchart.append('g')
+      .attr("id", "time-axis")
+      .attr("class", "axis")
+      .attr("transform", this.centreTranslation())
+      .call(xDateAxis);
 
     // draw the lanes for the chart
     this.gchart.append('g')
+      .attr("id", "lane-lines")
+      .attr('clip-path', 'url(#data-clip)')
       .selectAll('.laneLines')
       .data(this.props.data.lanes)
-      .enter()
-      .append('line')
-      .attr('x1', 0)
-      .attr('y1', d => d3Format(".1f")((yScale(d.id)) + 0.5))
-      .attr('x2', this.innerWidth)
-      .attr('y2', d => d3Format(".1f")((yScale(d.id)) + 0.5))
+      .join('line')
+      .classed('laneLines', true)
+      .attr('x1', 10)
+      .attr('y1', d => parseFloat(yScale(d.id) + 0.5))
+      .attr('x2', this.zoomSystem.innerWidth)
+      .attr('y2', d => parseFloat(yScale(d.id) + 0.5))
+      .attr("transform", this.centreTranslation())
       .attr('stroke', d => d.headerLane ? 'black' : 'lightgray');
 
     // draw the lane text
     this.gchart.append('g')
+      .attr("id", "lane-names")
+      .attr('clip-path', 'url(#label-clip)')
       .selectAll('.laneText')
       .data(this.props.data.headers)
-      .enter().append('text')
+      .join('text')
       .text(d => d.name)
       .attr('text-anchor', 'end')
+      .attr("transform", this.centreTranslation())
       .classed('laneText', true)
       .attr('x', -10)
       .attr('y', d => {
-        const yn = d3Format(".1f")((yScale(d.headerStartsIdx + (d.lanes / 2))) + 0.5);
-        const fontHeight = 6;
+        const yn = parseFloat((yScale(d.headerStartsIdx + (d.lanes / 2))) + 0.5);
+        const fontHeight = 30;
 
         return parseFloat(yn) + fontHeight;
       });
 
     // Paint the backgrounds of the lanes
     this.gchart.append('g')
+      .attr("id", "lane-backgrounds")
+      .attr('clip-path', 'url(#data-clip)')
       .selectAll('.laneBackground')
       .data(this.props.data.headers)
-      .enter().append('rect')
+      .join("rect")
       .classed('laneBackground', true)
       .attr('x', 0)
-      .attr('y', d => d3Format(".1f")((yScale(d.headerStartsIdx)) + 0.5))
-      .attr('width', this.innerWidth)
+      .attr('y', d => parseFloat((yScale(d.headerStartsIdx)) + 0.5))
+      .attr("transform", this.centreTranslation())
+      .attr('width', this.zoomSystem.innerWidth)
       .attr('height', d => {
-        const y1 = d3Format(".1f")((yScale(d.headerStartsIdx)) + 0.5);
-        const yn = d3Format(".1f")((yScale(d.headerStartsIdx + d.lanes)) + 0.5);
+        const y1 = parseFloat((yScale(d.headerStartsIdx)) + 0.5);
+        const yn = parseFloat((yScale(d.headerStartsIdx + d.lanes)) + 0.5);
         return yn - y1;
       })
       .attr('fill', d => "url(#gradient-" + common.identifier(d.name) + ")")
@@ -691,33 +773,24 @@ class SubjectSwimLane extends React.Component {
 
     // Add the data items
     this.subjectItems = this.gchart.append('g')
+      .attr("id", "subjects")
+      .attr('clip-path', 'url(#data-clip)')
       .selectAll('.subjects')
       .data(this.props.data.subjects)
-      .enter()
-      .append('rect')
+      .join("rect")
       .attr('id', d => "subject-" + common.identifier(d._id))
+      .classed('subjects', true)
       .attr('x', d => this.calcX(d, xScale))
-      .attr('y', d => d3Format(".1f")((yScale(d.laneId)) + 3))
+      .attr('y', d => parseFloat((yScale(d.laneId)) + 3))
       .attr('width', d => this.calcWidth(d, xScale))
       .attr('height', d => this.calcHeight(d, yScale))
       .attr('rx', "5")
+      .attr("transform", this.centreTranslation())
       .attr("fill", d => {
         const w = this.calcWidth(d, xScale);
         return (w <= 5) ? subjectColorCycle(d.category) : "url(#gradient-" + common.identifier(d.category) + ")";
       })
-      .on("click", this.handleVisualClick)
-      .on("mouseover", (event, datum) => {
-        const d = d3Select("#" + common.identifier(event.target.id));
-        if (d) {
-          d.classed('subject-outline-hover', true);
-        }
-      })
-      .on("mouseout", (event, datum) => {
-        const d = d3Select("#" + common.identifier(event.target.id));
-        if (d) {
-          d.classed('subject-outline-hover', this.selected === datum);
-        }
-      });
+      .on("click", this.handleVisualClick);
 
     // Add the data text labels
     this.subjectItems.append("title")
@@ -727,9 +800,64 @@ class SubjectSwimLane extends React.Component {
     // draw the lower and upper demarcation boundaries
     //
     this.createIntervalBounds(this.gchart,
-      this.props.interval.from,
-      this.props.interval.to,
-      xScale, yScale, this.props.data.lanes.length);
+      this.props.interval.from, this.props.interval.to, xScale, yScale);
+
+    this.svg.call(d3Zoom()
+      .scaleExtent([1, 100000])
+      .on("zoom", ({transform}) => {
+        //
+        // Adjusts the scale of the chart to allow the zoom
+        //
+        // this.gchart.attr("transform", this.scaleCanvas(transform));
+
+        const zx = transform.rescaleX(xScale).interpolate(d3InterpolateRound);
+        const zy = transform.rescaleY(yScale).interpolate(d3InterpolateRound);
+
+        // Update the x axis
+        this.gxAxis.call(xDateAxis.scale(zx));
+
+        // Update the subjects
+        this.subjectItems
+          .attr('x', d => this.calcX(d, zx))
+          .attr('y', d => parseFloat(zy(d.laneId) + 3))
+          .attr('width', d => this.calcWidth(d, zx))
+          .attr('height', d => this.calcHeight(d, zy));
+
+        // Update the lane backgrounds
+        this.gchart
+          .selectAll('.laneBackground')
+          .attr('x', 0)
+          .attr('y', d => parseFloat(zy(d.headerStartsIdx) + 0.5))
+          .attr('width', this.zoomSystem.innerWidth)
+          .attr('height', d => {
+            let y1 = parseFloat(zy(d.headerStartsIdx)) + 0.5;
+            let yn = parseFloat(zy(d.headerStartsIdx + d.lanes) + 0.5);
+            return yn - y1;
+          });
+
+        // Update the lane text
+        this.gchart
+          .selectAll('.laneText')
+          .attr('x', -10)
+          .attr('y', d => {
+            let yn = parseFloat(zy(d.headerStartsIdx + (d.lanes / 2))) + 0.5;
+            const fontHeight = 30;
+            return yn + fontHeight;
+          });
+
+        // Update the lane lines
+        this.gchart
+          .selectAll('.laneLines')
+          .attr('x1', 10)
+          .attr('y1', d => parseFloat(zy(d.id) + 0.5))
+          .attr('x2', this.zoomSystem.innerWidth)
+          .attr('y2', d => parseFloat(zy(d.id) + 0.5));
+
+        // Update the interval boundaries
+        this.updateIntervalBounds(this.gchart,
+          this.props.interval.from, this.props.interval.to, zx, zy);
+      }))
+      .on("dblclick.zoom", null);
 
     //
     // After complete rendering if a subject
@@ -769,9 +897,9 @@ class SubjectSwimLane extends React.Component {
         />
         <svg
           id = { this.svgId }
-          width = { this.props.width * 0.9 }
-          height = { this.props.height * 0.9 }
-          viewBox = { "0 0 " + this.props.width + " " + this.props.height }
+          width = { this.props.width }
+          height = { this.props.height }
+          viewBox = { "0 0 " + (this.props.width * this.zoomSystem.viewPort) + " " + (this.props.height * this.zoomSystem.viewPort)}
           preserveAspectRatio="xMidYMid slice"
         />
       </div>

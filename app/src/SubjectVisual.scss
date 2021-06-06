@@ -1,5 +1,5 @@
 $max-height: 65vh;
-$font: bold 18px firasans;
+$font: bold calc(max(5vw, 5vh)) firasans;
 $bg-border-color: #2e035e;
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 $clicked-shadow: drop-shadow(0px 0px 15px yellow);
@@ -20,6 +20,9 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
   padding-bottom: 0.5em;
 
   #subject-visual-legend-btn {
+    position: absolute;
+    left: 1vw;
+    top: 1vw;
     padding-top: 0.25em;
     padding-bottom: 0.25em;
     cursor: pointer;
@@ -48,6 +51,19 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
         font: $font;
       }
 
+      #subjects {
+        rect {
+          cursor: pointer;
+        }
+        rect:hover,
+        rect:focus {
+          stroke-width: 4;
+          stroke: orange;
+          filter: $hover-shadow;
+          cursor: grab;
+        }
+      }
+
       .laneBackground {
         stroke-width: 1;
         stroke: $bg-border-color;
@@ -58,13 +74,6 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
         stroke: yellow !important;
         filter: $clicked-shadow !important;
         cursor: grabbing;
-      }
-
-      .subject-outline-hover {
-        stroke-width: 4;
-        stroke: orange;
-        filter: $hover-shadow;
-        cursor: grab;
       }
     }
   }

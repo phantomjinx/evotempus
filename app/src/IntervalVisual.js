@@ -128,16 +128,7 @@ class IntervalSunburst extends React.Component {
 
 
     this.svgId = 'interval-visual-component-svg';
-    this.zoomSystem = {
-      scale : {
-        viewPort: 5,
-        svg: 1
-      },
-      x: -1,
-      y: -1,
-      ox: -1,
-      oy: -1
-    };
+    this.zoomSystem = { viewPort: 5, ox: -1, oy: -1 };
 
     // This binding is necessary to make `this` work in the callback
     this.handleDoubleClick = this.handleDoubleClick.bind(this);
@@ -426,21 +417,11 @@ class IntervalSunburst extends React.Component {
   }
 
   scaleCanvas(transform) {
-    // Initial position
-    this.zoomSystem.ox = (this.props.width * this.zoomSystem.scale.viewPort) / 2;
-    this.zoomSystem.oy = (this.props.height * this.zoomSystem.scale.viewPort) / 2;
-
-    this.zoomSystem.x = this.zoomSystem.ox + transform.x;
-    this.zoomSystem.y = this.zoomSystem.oy + transform.y;
-    this.zoomSystem.scale.svg = transform.k;
-
-    return `translate (${transform.x},${transform.y}) scale(${this.zoomSystem.scale.svg})`;
+    return `translate (${transform.x},${transform.y}) scale(${transform.k})`;
   }
 
   centreTranslation() {
-    var centreX = (this.props.width * this.zoomSystem.scale.viewPort) / 2;
-    var centreY = (this.props.height * this.zoomSystem.scale.viewPort) / 2;
-    return "translate(" + centreX + "," + centreY + ")";
+    return "translate(" + this.zoomSystem.ox + "," + this.zoomSystem.oy + ")";
   }
 
   //
@@ -449,6 +430,9 @@ class IntervalSunburst extends React.Component {
   //
   renderInterval(props) {
     console.log("renderInterval: " + this.props.width + ", " + this.props.height);
+
+    this.zoomSystem.ox = (this.props.width * this.zoomSystem.viewPort) / 2;
+    this.zoomSystem.oy = (this.props.height * this.zoomSystem.viewPort) / 2;
     this.radius = (Math.min(this.props.width, this.props.height) * 0.80);
     console.log("Radius: " + this.radius);
 
@@ -470,8 +454,6 @@ class IntervalSunburst extends React.Component {
 
     this.svg.call(d3Zoom()
         .scaleExtent([1, 8])
-        // .translateExtent([[0, 0], [w, h]])
-        // .extent([[0, 0], [w, h]])
         .on("zoom", ({transform}) => {
           this.g.attr("transform", this.scaleCanvas(transform));
         }))
@@ -681,7 +663,7 @@ class IntervalSunburst extends React.Component {
           width = { this.props.width }
           height = { this.props.height }
           id = { this.svgId }
-          viewBox = {"0 0 " + (this.props.width * this.zoomSystem.scale.viewPort) + " " + (this.props.height * this.zoomSystem.scale.viewPort)}
+          viewBox = { "0 0 " + (this.props.width * this.zoomSystem.viewPort) + " " + (this.props.height * this.zoomSystem.viewPort)}
           preserveAspectRatio="xMidYMid slice"
         />
       </div>

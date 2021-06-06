@@ -134,6 +134,7 @@ $app-right-margin: 2vh;
       grid-area: wiki-card;
       margin-left: $app-left-margin;
       margin-right: $app-right-margin;
+      min-height: 20vh;
     }
 
     .footer {
@@ -214,7 +215,7 @@ $app-right-margin: 2vh;
 
   .subject-visual {
     grid-area: subject-visual;
-    overflow: auto;
+    overflow: hidden;
     background-color: white;
     box-shadow: $tile-shadow;
     margin-right: $app-right-margin;

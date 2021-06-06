@@ -6,19 +6,21 @@ export default class HelpPage extends React.Component {
   render() {
     return (
       <div className="help-page">
-        <button
-          className="help-page-closebtn fa fa-times"
-          onClick={() => this.props.onToggleHelp(false)}>
-        </button>
         <div className="help-page-content">
-          <h4>Introduction</h4>
-          <p>Welcome to EvoTempus!</p>
+          <div className="help-page-title">
+            <h5 className="help-page-title-text help-page-bold">Introduction</h5>
+            <button
+              className="help-page-closebtn fa fa-times"
+              onClick={() => this.props.onToggleHelp(false)}>
+            </button>
+          </div>
+          <p>Welcome to EvoTempus.</p>
           <p>
             A tool for indexing the evolution of Planet Earth, from its birth 4.5 billion years. Its easy to get confused over
             dates and names of ages so this tool associates them by providing timelines within the context of the planetary geological
             intervals. If you've ever wondered how the Stone Age (Paleolithic) relates to the Cenozoic then this should help.
           </p>
-          <h3>Usage</h3>
+          <h5 className="help-page-bold">Usage</h5>
           <p>
             The visualization on the left illustrates Earth's geological intervals. Starting at the top, in a clockwise fashion,
             it displays the chronological sequence from oldest to youngest. The sequence nearest the centre contains the parent

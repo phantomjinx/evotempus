@@ -90,7 +90,6 @@ export default class IntervalVisual extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.state.width === -1 || this.state.height === -1) {
-      console.log("IntervalVisual:componentDidUpdate");
       this.dimensions();
     }
   }
@@ -155,7 +154,6 @@ class IntervalSunburst extends React.Component {
       return;
     }
 
-    console.log("componentDidUpdate:renderInterval")
     this.renderInterval(this.props);
   }
 
@@ -367,7 +365,6 @@ class IntervalSunburst extends React.Component {
         // Tag the data with this as the owner
         //
         this.selected.data.owner = this.svgId;
-        console.log("Updating owner of interval");
         this.props.onSelectedIntervalChange(this.selected.data);
       }
 
@@ -430,12 +427,10 @@ class IntervalSunburst extends React.Component {
   // successfully retrieved from the database
   //
   renderInterval(props) {
-    console.log("renderInterval: " + this.props.width + ", " + this.props.height);
 
     this.zoomSystem.ox = (this.props.width * this.zoomSystem.viewPort) / 2;
     this.zoomSystem.oy = (this.props.height * this.zoomSystem.viewPort) / 2;
     this.radius = (Math.min(this.props.width, this.props.height) * 0.80);
-    console.log("Radius: " + this.radius);
 
     //
     // Select the existing svg created by the initial render
@@ -657,7 +652,6 @@ class IntervalSunburst extends React.Component {
   }
 
   render() {
-    console.log("render: " + this.props.width + ", " + this.props.height);
     return (
       <div id="interval-visual-component">
         <svg

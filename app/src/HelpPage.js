@@ -16,37 +16,48 @@ export default class HelpPage extends React.Component {
           </div>
           <p>Welcome to EvoTempus.</p>
           <p>
-            A tool for indexing the evolution of Planet Earth, from its birth 4.5 billion years. Its easy to get confused over
-            dates and names of ages so this tool associates them by providing timelines within the context of the planetary geological
-            intervals. If you've ever wondered how the Stone Age (Paleolithic) relates to the Cenozoic then this should help.
+            An index of the evolution of Planet Earth, from its birth 4.5 billion years. Its easy to get confused over
+            dates and names of ages so this attempts to provide context using the time scale of the planetary geological
+            intervals. Ever wondered how the Stone Age (Paleolithic) relates to the Cenozoic? Hopefully this should help.
           </p>
           <h5 className="help-page-bold">Usage</h5>
           <p>
-            The visualization on the left illustrates Earth's geological intervals. Starting at the top, in a clockwise fashion,
-            it displays the chronological sequence from oldest to youngest. The sequence nearest the centre contains the parent
-            intervals of those farther out, eg. the PreCambrian encapsulates the Hadean, Archaen and Proterozoic.
+            The circular visualization illustrates Earth's geological intervals, as classified by
+            the <a href="https://stratigraphy.org" target="_blank" rel="noopener noreferrer">International Commission on Stratigraphy</a>.
+            Starting at the top, moving clockwise, it displays the chronological sequence of ages from oldest to youngest.
+            Those intervals nearest the centre are parents of the intervals further out, eg. the PreCambrian encapsulates the
+            Hadean, Archaen and Proterozoic.
           </p>
           <p>
-            <em>Double-clicking</em> an interval will zoom in and make it the central root of all other intervals displayed. Only
-            intervals with sub-intervals can be zoomed into, eg. the Archaen can be zoomed into while the Hadean cannot.
-            A <em>double-click</em> on the central sphere will zoom out again.
+            Should the visualization be a too small then zooming and panning are available using the default methods of the device.
           </p>
           <p>
-            A <em>single-click</em> on an interval selects it, leading to:
+            <em>Double-Clicking</em> an interval will expand it, making it the central parent of the other child intervals displayed.
+            Only those intervals with child-intervals can be expanded, eg. the Archaen can be navigated into while the Hadean cannot.
+            A <em>Double-Click</em> on the central parent will collapse it to its own parent.
+          </p>
+          <p>
+            A <em>Single-Click</em> on an interval selects it, leading to:
           </p>
           <ul>
             <li>
-              A timeline detailing subjects (Events, Geological, Faunal and Floral) is displayed. All the subjects occurred within
+              A timeline visualization of subjects (Events, Geological, Faunal and Floral) being displayed. All the subjects occurred within
               the limits of the geological interval, although some may begin in prior intervals and/or end in subsequent intervals.
             </li>
             <li>
-              A pane is displayed beneath providing an explanation of the interval selected. The text is retrieved from the
-              requisite page on <a href="https://www.wikipedia.org">Wikipedia</a> and its line is provided at the bottom-right
-              corner of the pane.
+              A pane is displayed providing an explanation of the interval selected. On smaller screens, a buttton is provided
+              instead, which when pressed with display the pane as a slide-in window. The content is a brief summary description of
+              the interval, according to <a href="https://www.wikipedia.org">Wikipedia</a>. The whole Wikipedia article can be accessed
+              using the button at the bottom-right of the pane.
             </li>
           </ul>
           <p>
-            A single click on any subject in the timelines, selects it and likewise provides a description in the pane beneath.
+            A <em>Single-Click</em> on any subject in the timeline visualization, selects it and displays a description in the same way as clicking
+            an inteval.
+          </p>
+          <p>
+            A Search box is available for finding any intervals, subjects or descriptions by keyword. A slide-in pane will display the search
+            results and a <em>Single-Click</em>  will navigate to the target in the visualizations.
           </p>
         </div>
       </div>

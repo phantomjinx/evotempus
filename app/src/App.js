@@ -143,6 +143,7 @@ class App extends React.Component {
         parent = { this.subjectVisualRef }
         interval={this.state.interval}
         subject={this.state.subject}
+        onSelectedIntervalChange={this.handleIntervalChange}
         onSelectedSubjectChange={this.handleSubjectChange}
       />
     )

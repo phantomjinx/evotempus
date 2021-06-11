@@ -34,6 +34,8 @@ export default class HelpPage extends React.Component {
           <p>
             <em>Double-Clicking</em> an interval will expand it, making it the central parent of the other child intervals displayed.
             Only those intervals with child-intervals can be expanded, eg. the Archaen can be navigated into while the Hadean cannot.
+          </p>
+          <p>
             A <em>Double-Click</em> on the central parent will collapse it to its own parent.
           </p>
           <p>
@@ -54,6 +56,11 @@ export default class HelpPage extends React.Component {
           <p>
             A <em>Single-Click</em> on any subject in the timeline visualization, selects it and displays a description in the same way as clicking
             an inteval.
+          </p>
+          <p>
+            A <em>Double-Click</em> on any subject in the timeline visualization will attempt to present it in the most accurate geological interval
+            according to the subject's date range. If the subject happens to cross boundaries then this can result in the geological interval being
+            the base &quot;Geological Timescale&quot;.
           </p>
           <p>
             A Search box is available for finding any intervals, subjects or descriptions by keyword. A slide-in pane will display the search

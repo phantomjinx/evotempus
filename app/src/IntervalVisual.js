@@ -406,6 +406,7 @@ class IntervalSunburst extends React.Component {
       // Has children so can become the central circle
       //
       this.handleDoubleClick(null, visInterval);
+      this.handleClick(null, visInterval);
     } else {
       //
       // No children so select its parent instead then

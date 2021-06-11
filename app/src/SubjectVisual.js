@@ -351,6 +351,7 @@ export default class SubjectVisual extends React.Component {
         width = {this.state.width}
         height = {this.state.height}
         onSelectedSubjectChange = {this.props.onSelectedSubjectChange}
+        onSelectedIntervalChange = {this.props.onSelectedIntervalChange}
         interval = {this.props.interval}
         subject = {this.props.subject}
         allCategories = {this.state.allCategories}
@@ -381,6 +382,7 @@ class SubjectSwimLane extends React.Component {
     this.handleLegendClick = this.handleLegendClick.bind(this);
     this.toggleLegend = this.toggleLegend.bind(this);
     this.handleVisualClick = this.handleVisualClick.bind(this);
+    this.handleVisualDoubleClick = this.handleVisualDoubleClick.bind(this);
   }
 
   componentDidMount() {
@@ -412,6 +414,10 @@ class SubjectSwimLane extends React.Component {
       return;
     }
 
+    if (this.selected == d) {
+      return;
+    }
+
     this.displaySelectionOutline(this.selected, false);
     this.selected = d;
 
@@ -422,6 +428,37 @@ class SubjectSwimLane extends React.Component {
     //
     this.selected.current.owner = this.svgId;
     this.props.onSelectedSubjectChange(this.selected.current);
+  }
+
+  handleVisualDoubleClick(event, d) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    if (!d) {
+      return;
+    }
+
+    api.intervalEncloses(d.from, d.to)
+      .then((res) => {
+        if (!res.data || res.data.length === 0) {
+          this.setState({
+            msg : "Error: Cannot navigate to a direct parent interval of the subject"
+          })
+        } else {
+          //
+          // Selected the returned interval
+          //
+          this.props.onSelectedIntervalChange(res.data[0]);
+          this.props.onSelectedSubjectChange(d);
+        }
+      }).catch((err) => {
+        this.setState({
+          msg: "An error occurred whilst trying to navigate to subject",
+          msgClass: "search-msg-error",
+          error: err
+        })
+      });
   }
 
   handleLegendClick(event) {
@@ -764,7 +801,8 @@ class SubjectSwimLane extends React.Component {
       .classed('subjects', true)
       .attr('rx', "5")
       .attr("transform", this.marginTranslation())
-      .on("click", this.handleVisualClick);
+      .on("click", this.handleVisualClick)
+      .on("dblclick", this.handleVisualDoubleClick);
 
     // Add the data text labels
     this.subjectItems.append("title")

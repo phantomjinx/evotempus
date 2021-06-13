@@ -132,6 +132,9 @@ class IntervalSunburst extends React.Component {
     // This binding is necessary to make `this` work in the callback
     this.handleDoubleClick = this.handleDoubleClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.navigate = this.navigate.bind(this);
+    this.select = this.select.bind(this);
+
     this.scaleCanvas = this.scaleCanvas.bind(this);
     this.centreTranslation = this.centreTranslation.bind(this);
 
@@ -252,19 +255,8 @@ class IntervalSunburst extends React.Component {
     d3Select(id).classed('path-unselected', !select);
   }
 
-  //
-  // Click function for zooming in and out
-  //
-  handleDoubleClick(event, p) {
-    //
-    // Prevent the single click firing when
-    // the user actually double-clicked. Stops
-    // needless updates out of the component
-    //
-    clearTimeout(this.clickTimer);
-    this.clickPrevent = true;
-
-    if (p === this.root) {
+  navigate(interval) {
+    if (interval === this.root) {
       // Nothing to do. Already at root
       return;
     }
@@ -282,25 +274,25 @@ class IntervalSunburst extends React.Component {
     //
     // ie. is p the node in the parent selection
     //
-    if (p === this.parent.datum()) {
-      p = p.parent || this.root;
+    if (interval === this.parent.datum()) {
+      interval = interval.parent || this.root;
     }
 
     this.parent
-      .datum(p || this.root)
+      .datum(interval || this.root)
       .text(d => d.data.name);
 
     this.parentLabel
-      .datum(p || this.root)
+      .datum(interval || this.root)
       .transition(t)
       .text(d => d.data.name);
 
     this.root.each(d => {
       d.target = {
-        x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-        x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-        y0: Math.max(0, d.y0 - p.depth),
-        y1: Math.max(0, d.y1 - p.depth)
+        x0: Math.max(0, Math.min(1, (d.x0 - interval.x0) / (interval.x1 - interval.x0))) * 2 * Math.PI,
+        x1: Math.max(0, Math.min(1, (d.x1 - interval.x0) / (interval.x1 - interval.x0))) * 2 * Math.PI,
+        y0: Math.max(0, d.y0 - interval.depth),
+        y1: Math.max(0, d.y1 - interval.depth)
       };
       //
       // Updates the visible field in all nodes in accordance with the
@@ -333,7 +325,44 @@ class IntervalSunburst extends React.Component {
     //
     // Try and reselect the currently selected if still visible
     //
-    this.handleClick(null, origSelected);
+    this.select(origSelected);
+  }
+
+  //
+  // Click function for zooming in and out
+  //
+  handleDoubleClick(event, p) {
+    //
+    // Prevent the single click firing when
+    // the user actually double-clicked. Stops
+    // needless updates out of the component
+    //
+    clearTimeout(this.clickTimer);
+    this.clickPrevent = true;
+
+    // Navigate to the interval
+    this.navigate(p);
+  }
+
+  select(interval) {
+    this.displaySelectionOutline(this.selected, false);
+
+    if (!interval || !interval.visible || interval === this.root) {
+      this.selected = this.parentLabel.datum();
+    } else {
+      this.selected = interval;
+    }
+
+
+    this.displaySelectionOutline(this.selected, true);
+
+    if (this.selected) {
+      //
+      // Tag the data with this as the owner
+      //
+      this.selected.data.owner = this.svgId;
+      this.props.onSelectedIntervalChange(this.selected.data);
+    }
   }
 
   //
@@ -350,23 +379,7 @@ class IntervalSunburst extends React.Component {
         return;
       }
 
-      this.displaySelectionOutline(this.selected, false);
-
-      if (!p || !p.visible || p === this.root) {
-        this.selected = this.parentLabel.datum();
-      } else {
-        this.selected = p;
-      }
-
-      this.displaySelectionOutline(this.selected, true);
-
-      if (this.selected) {
-        //
-        // Tag the data with this as the owner
-        //
-        this.selected.data.owner = this.svgId;
-        this.props.onSelectedIntervalChange(this.selected.data);
-      }
+      this.select(p);
 
     }, this.clickDelay);
   }
@@ -384,12 +397,9 @@ class IntervalSunburst extends React.Component {
     //
     let visInterval = null;
     this.root.each(d => {
-      if (visInterval) {
-        return; // Already done
-      }
-
       if (d.id === this.props.interval._id) {
         visInterval = d; // Found it!
+        return;
       }
     });
 
@@ -402,16 +412,16 @@ class IntervalSunburst extends React.Component {
       //
       // Has children so can become the central circle
       //
-      this.handleDoubleClick(null, visInterval);
-      this.handleClick(null, visInterval);
+      this.navigate(visInterval);
     } else {
       //
       // No children so select its parent instead then
       // highlight it to display its information
       //
-      this.handleDoubleClick(null, visInterval.parent);
-      this.handleClick(null, visInterval);
+      this.navigate(visInterval.parent);
     }
+
+    this.select(visInterval);
   }
 
   scaleCanvas(transform) {

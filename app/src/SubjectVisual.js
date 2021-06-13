@@ -379,6 +379,10 @@ class SubjectSwimLane extends React.Component {
     this.toggleLegend = this.toggleLegend.bind(this);
     this.handleVisualClick = this.handleVisualClick.bind(this);
     this.handleVisualDoubleClick = this.handleVisualDoubleClick.bind(this);
+
+    this.clickTimer = 0;
+    this.clickDelay = 200;
+    this.clickPrevent = false;
   }
 
   componentDidMount() {
@@ -406,27 +410,46 @@ class SubjectSwimLane extends React.Component {
   // Click function for selection
   //
   handleVisualClick(event, d) {
-    if (!d) {
-      return;
-    }
-
-    if (this.selected == d) {
-      return;
-    }
-
-    this.displaySelectionOutline(this.selected, false);
-    this.selected = d;
-
-    this.displaySelectionOutline(this.selected, true);
-
     //
-    // Tag the data with this as the owner
+    // Put inside timer to allow for double-click
+    // event to determine if it should be fired
     //
-    this.selected.current.owner = this.svgId;
-    this.props.onSelectedSubjectChange(this.selected.current);
+    this.clickTimer = setTimeout(() => {
+      if (this.clickPrevent) {
+        this.clickPrevent = false;
+        return;
+      }
+
+      if (!d) {
+        return;
+      }
+
+      if (this.selected === d) {
+        return;
+      }
+
+      this.displaySelectionOutline(this.selected, false);
+      this.selected = d;
+
+      this.displaySelectionOutline(this.selected, true);
+
+      //
+      // Tag the data with this as the owner
+      //
+      this.selected.current.owner = this.svgId;
+      this.props.onSelectedSubjectChange(this.selected.current);
+    }, this.clickDelay);
   }
 
   handleVisualDoubleClick(event, d) {
+    //
+    // Prevent the single click firing when
+    // the user actually double-clicked. Stops
+    // needless updates out of the component
+    //
+    clearTimeout(this.clickTimer);
+    this.clickPrevent = true;
+
     if (event) {
       event.preventDefault();
     }

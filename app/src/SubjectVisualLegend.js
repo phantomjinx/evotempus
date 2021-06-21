@@ -21,10 +21,12 @@ export default class SubjectVisualLegend extends React.Component {
     };
 
     this.handlePageClick = this.handlePageClick.bind(this);
+    this.filterCategory = this.filterCategory.bind(this);
+    this.isFilteredCategory = this.isFilteredCategory.bind(this);
   }
 
   //
-  // Allows for the categories to be nicely re-rendered
+  // Allows for the category names to be nicely re-rendered
   // as the height of the page gets resized.
   // Uses a ceiling of 10 to only ever shown 10 items on
   // a single page
@@ -56,25 +58,46 @@ export default class SubjectVisualLegend extends React.Component {
     })
   }
 
+  filterCategory(e, name) {
+    console.log("Filtering the category ");
+    console.log(name);
+    console.log(e.target.checked);
+
+    this.props.onUpdateFilterCategory([name], e.target.checked);
+  }
+
+  isFilteredCategory(name) {
+    const category = this.props.categories.find(category => {
+      return category.name === name;
+    });
+
+    return category != null ? category.filtered : false;
+  }
+
   paginateLegend() {
-    const colorRange = common.calcCategoryColours(this.props.categories);
+    const colorRange = common.calcCategoryColours(this.props.names);
 
     let items = [];
-    if (this.props.categories.length === 0) {
+    if (this.props.names.length === 0) {
       items.push(
         <p className="subject-legend-content-none-found">No categories to display</p>
       )
     }
 
-    const height = (this.props.height * 0.75) / 15;
+    const height = (this.props.height * 0.5) / this.state.totalPerPage;
 
-    for (let i = 0; i < this.props.categories.length; ++i) {
-      const category = this.props.categories[i];
+    for (let i = 0; i < this.props.names.length; ++i) {
+      const category = this.props.names[i];
       const colour = colorRange[i];
 
       items.push(
         <li key={category}>
-          <span>
+          <label className="category-checkbox-label">
+            <input type = "checkbox"
+              defaultChecked = { this.isFilteredCategory(category) }
+              onChange = {e => {}}
+              onClick = {(event) => this.filterCategory(event, category)}>
+            </input>
             <svg height = {height} width = {height}>
               <defs>
                 <radialGradient cx = "50%" cy = "50%" r = "85%"
@@ -83,10 +106,14 @@ export default class SubjectVisualLegend extends React.Component {
                   <stop offset = "90%" stopColor = {colour}/>
                 </radialGradient>
               </defs>
-              <rect width = {height} height = {height} fill = {"url(#legend-gradient-" + common.identifier(category) + ")"}/>
+              <rect
+                width = {height}
+                height = {height}
+                fill = {"url(#legend-gradient-" + common.identifier(category) + ")"}
+              />
             </svg>
-            {category}
-          </span>
+            <span>{category}</span>
+          </label>
         </li>
       );
     }
@@ -99,7 +126,7 @@ export default class SubjectVisualLegend extends React.Component {
       paginate = (
         <Pagination
           currentPage={this.state.currentPage}
-          totalSize={this.props.categories.length}
+          totalSize={this.props.names.length}
           sizePerPage={this.state.totalPerPage}
           changeCurrentPage={this.handlePageClick}
           theme="border-bottom"
@@ -120,12 +147,13 @@ export default class SubjectVisualLegend extends React.Component {
   render() {
     return (
       <div id="subject-visual-legend" className={this.props.visible ? 'show' : 'hide'}>
-        <button
-          className="subject-visual-legend-closebtn fa fa-times"
-          onClick={this.props.onToggleLegend}>
-        </button>
         <div className="subject-visual-legend-content">
-          <p id="subject-visual-legend-title">Legend</p>
+          <div className="subject-visual-legend-title-row">
+            <button
+              className="subject-visual-legend-closebtn fa fa-times"
+              onClick={this.props.onToggleLegend}>
+            </button>
+          </div>
           <div className="subject-visual-legend-paginated">
             {this.paginateLegend()}
           </div>

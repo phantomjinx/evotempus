@@ -55,25 +55,6 @@ export default class SubjectVisual extends React.Component {
     console.log(error);
   }
 
-  //
-  // Fetch all the categories from the backend service
-  // This needs to be done once then retained and passed to the subject Swimlane component
-  //
-  fetchCategories() {
-    api.subjectCategories()
-      .then((res) => {
-        if (!res.data || res.data.length === 0) {
-          this.logErrorState("Failed to fetch categories be fetched", new Error("Response data payload was empty."));
-        } else {
-          this.setState({
-            allCategories: res.data
-          })
-        }
-      }).catch((err) => {
-        this.logErrorState("Failed to fetch interval data", err);
-      });
-  }
-
   addSubjectToLane(lanes, subject) {
     let laneId = 0;
     if (lanes.length === 0) {
@@ -146,7 +127,7 @@ export default class SubjectVisual extends React.Component {
     lanes[laneId].subjects.push(subject);
   }
 
-  chartify(interval, subjects) {
+  chartify(interval, subjects, dataCategories) {
     //
     // Base object to return results
     //
@@ -154,7 +135,7 @@ export default class SubjectVisual extends React.Component {
       headers: [],
       lanes: [],
       subjects: [],
-      categories: []
+      categoryNames: []
     };
 
     const headerMap = new Map();
@@ -165,6 +146,24 @@ export default class SubjectVisual extends React.Component {
       return a.from - b.from;
     })
     .forEach((subject, i) => {
+
+      const subjCategory = dataCategories.find(category => {
+        return category.name === subject.category;
+      });
+
+      //
+      // Add the category whether filtered or not so
+      // the legend can list it
+      //
+      categorySet.add(subjCategory.name);
+
+      //
+      // Do we consider the subject
+      //
+      if (subjCategory.filtered === true) {
+        return;
+      }
+
       //
       // Preserve original datum for export from component
       //
@@ -191,11 +190,9 @@ export default class SubjectVisual extends React.Component {
       }
 
       this.addSubjectToLane(lanes, subject);
-
-      categorySet.add(subject.category);
     });
 
-    chartData.categories = Array.from(categorySet);
+    chartData.categoryNames = Array.from(categorySet);
 
     //
     // Sort the headers alphabetically
@@ -276,7 +273,7 @@ export default class SubjectVisual extends React.Component {
           })
         } else {
           const subjects = res.data;
-          const data = this.chartify(this.props.interval, subjects);
+          const data = this.chartify(this.props.interval, subjects, this.props.categories);
 
           this.setState({
             loading: false,
@@ -309,7 +306,6 @@ export default class SubjectVisual extends React.Component {
 
   componentDidMount() {
     this.dimensions();
-    this.fetchCategories();
     this.fetchSubjects();
     window.addEventListener('resize', this.handleResize);
   }
@@ -319,7 +315,8 @@ export default class SubjectVisual extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.interval === this.props.interval) {
+    if (prevProps.interval === this.props.interval &&
+        prevProps.categories === this.props.categories) {
       return;
     }
 
@@ -348,9 +345,12 @@ export default class SubjectVisual extends React.Component {
         height = {this.state.height}
         onSelectedSubjectChange = {this.props.onSelectedSubjectChange}
         onSelectedIntervalChange = {this.props.onSelectedIntervalChange}
+        onUpdateCategoryFilter = {this.props.onUpdateCategoryFilter}
+        onUpdateLegendVisible = {this.props.onUpdateLegendVisible}
         interval = {this.props.interval}
         subject = {this.props.subject}
-        allCategories = {this.state.allCategories}
+        categories = {this.props.categories}
+        legendVisible = {this.props.legendVisible}
         data = {this.state.data}
         />
     );
@@ -370,13 +370,12 @@ class SubjectSwimLane extends React.Component {
       scale: 1
     };
     this.margins = { top: 0, right: 0, bottom: 0, left: 0 };
-    this.state = {
-      legendVisible: false
-    };
 
     // This binding is necessary to make `this` work in the callback
     this.handleLegendClick = this.handleLegendClick.bind(this);
     this.toggleLegend = this.toggleLegend.bind(this);
+    this.categoryNames = this.categoryNames.bind(this);
+    this.resetCategories = this.resetCategories.bind(this);
     this.handleVisualClick = this.handleVisualClick.bind(this);
     this.handleVisualDoubleClick = this.handleVisualDoubleClick.bind(this);
 
@@ -399,12 +398,22 @@ class SubjectSwimLane extends React.Component {
        prevProps.interval === this.props.interval &&
        prevProps.width === this.props.width &&
        prevProps.height === this.props.height) {
+
+       //
+       // Check legend visible state (done in renderSwimlanes())
+       // if a change had occurred.
+       //
+       if (prevProps.legendVisible !== this.props.legendVisible) {
+         this.setState({
+           legendVisible: this.props.legendVisible
+         })
+       };
+
       return;
     }
 
     this.renderSwimlanes();
   }
-
 
   //
   // Click function for selection
@@ -486,9 +495,31 @@ class SubjectSwimLane extends React.Component {
   }
 
   toggleLegend() {
-    this.setState({
-      legendVisible: !this.state.legendVisible
+    this.props.onUpdateLegendVisible(!this.props.legendVisible);
+  }
+
+  //
+  // Get an array of category names from the
+  // array of category objects
+  //
+  categoryNames() {
+    let names = [];
+    this.props.categories.forEach(category => {
+      names.push(category.name);
     });
+
+    return names;
+  }
+
+  //
+  // Reset all categories back to visible
+  //
+  resetCategories(event) {
+    this.props.onUpdateCategoryFilter(this.categoryNames(), false);
+
+    if (event) {
+      event.preventDefault();
+    }
   }
 
   //
@@ -687,7 +718,7 @@ class SubjectSwimLane extends React.Component {
   // successfully retrieved from the database
   //
   renderSwimlanes() {
-    if (! this.props.data || ! this.props.interval || ! this.props.allCategories) {
+    if (! this.props.data || ! this.props.interval || ! this.props.categories) {
       return;
     }
 
@@ -701,9 +732,10 @@ class SubjectSwimLane extends React.Component {
     this.zoomSystem.innerWidth = (this.props.width * this.zoomSystem.viewPort) - this.margins.left - this.margins.right;
     this.zoomSystem.innerHeight = (this.props.height * this.zoomSystem.viewPort) - this.margins.top - this.margins.bottom;
 
+    let categoryNames = this.categoryNames();
     this.subjectColorCycle = d3ScaleOrdinal()
-      .domain(this.props.allCategories)
-      .range(common.calcCategoryColours(this.props.allCategories));
+      .domain(categoryNames)
+      .range(common.calcCategoryColours(categoryNames));
 
     const headerNames = [];
     for (const h of this.props.data.headers) {
@@ -721,7 +753,7 @@ class SubjectSwimLane extends React.Component {
 
     const defs = this.svg.append("defs");
 
-    this.createGradient(defs, this.props.data.categories, this.subjectColorCycle);
+    this.createGradient(defs, this.props.data.categoryNames, this.subjectColorCycle);
     this.createGradient(defs, headerNames, laneColorCycle);
 
     defs.append('clipPath')
@@ -888,6 +920,13 @@ class SubjectSwimLane extends React.Component {
     // has been assigned then traverse to it
     //
     this.traverseToSubject(this.props.subject);
+
+    //
+    // Determine whether to re-open the legend
+    //
+    this.setState({
+      legendVisible: this.props.legendVisible
+    })
   }
 
   //
@@ -957,6 +996,9 @@ class SubjectSwimLane extends React.Component {
         <div className="subject-visual-component">
           <div className="subject-visual-nocontent">
             <p>No content available for the {this.props.interval.name} {this.props.interval.kind}</p>
+            <p>
+              <a href="" onClick={(e) => this.resetCategories(e)}>Click</a> to reset category filters
+            </p>
           </div>
         </div>
       )
@@ -970,9 +1012,11 @@ class SubjectSwimLane extends React.Component {
         <SubjectVisualLegend
           width = { this.props.width }
           height = { this.props.height }
-          visible = { this.state.legendVisible }
+          visible = { this.props.legendVisible }
           onToggleLegend = {this.toggleLegend}
-          categories = { this.props.data.categories }
+          categories = { this.props.categories }
+          names = { this.props.data.categoryNames }
+          onUpdateFilterCategory={this.props.onUpdateCategoryFilter}
         />
         <svg
           id = { this.svgId }

@@ -1,7 +1,27 @@
+@import "bootstrap/scss/_functions.scss";
+@import "bootstrap/scss/_variables.scss";
+@import "bootstrap/scss/_mixins.scss";
+
 $max-height: 65vh;
 $font: bold 12px firasans;
 $bg-border-color: #2e035e;
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+$transition-show: max-width 0.3s linear, opacity 0.3s linear, color 0.7s linear 0.3s;
+$transition-hide: color 0.3s linear, opacity 0.3s linear 0.3s, max-width 0.3s linear 0.3s;
+
+@include media-breakpoint-between(xs, md) {
+
+  #subject-visual-legend.show {
+    max-width: 70%;
+  }
+}
+
+@include media-breakpoint-between(lg, xl) {
+
+  #subject-visual-legend.show {
+    max-width: 30%;
+  }
+}
 
 #subject-visual-legend {
   position: absolute;
@@ -10,53 +30,86 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
   background-color: white;
   height: 100%;
   z-index: 1000;
-  transition: 0.5s;
-
-  .subject-visual-legend-closebtn {
-    float:right;
-    margin-top: 0.5em;
-    margin-right: 1em;
-    text-decoration: none;
-    text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px slategray;
-    color: #a7a7a7;
-    font-size: 14pt;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
+  overflow: hidden;
 
   .subject-visual-legend-content {
     display: flex;
     flex-direction: column;
-    margin-top: 2em;
-    margin-left: 0.5em;
-    width: 20em;
+    height: 100%;
 
-    #subject-visual-legend-title {
-      flex: 1 1 auto;
-      margin-left: 1.5em;
-      font-weight: bold;
+    .subject-visual-legend-title-row {
+      margin-top: 0.2em;
+      margin-bottom: 0.2em;
+
+      .subject-visual-legend-closebtn {
+        float:right;
+        margin-right: 0.5em;
+        text-decoration: none;
+        text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px slategray;
+        color: #a7a7a7;
+        font-size: 14pt;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
     }
 
     [class^="react-pagination-js-"] {
       float: right;
-      padding-bottom: 1em;
+      padding-bottom: 2em;
     }
 
-    .subject-visual-legend-items {
-      clear: both;
-      margin-top: 2em;
+    .subject-visual-legend-paginated {
+      display: flex;
+      align-items: center;
+      height: 100%;
 
-      li {
-        list-style-type: none;
-        // font-size: 25pt;
+      .subject-visual-legend-items {
+        clear: both;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
 
-        span {
-          display: inline-flex;
-          align-items: center;
+        li {
+          list-style-type: none;
 
-          svg {
-            margin-right: 0.75em;
+          .category-checkbox-label {
+            display: block;
+            position: relative;
+            cursor: pointer;
+
+            svg {
+              display: inline-block;
+              vertical-align: middle;
+              margin-bottom: .2em;
+              width: 2em;
+              height: 2em;
+
+              rect {
+                transition: fill .4s linear;
+              }
+            }
+
+            span {
+              padding-left: 0.2em;
+            }
+
+            input[type="checkbox"] {
+              position: absolute;
+              width: 2em;
+              height: 2em;
+              opacity: 0.00001;
+              cursor: pointer;
+            }
+
+            input[type="checkbox"]:checked + svg rect {
+              fill: #eee;
+              stroke: black;
+            }
+
+            input[type="checkbox"]:checked + svg + span {
+              color: #aaaaaa;
+            }
           }
         }
       }
@@ -65,15 +118,24 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
 #subject-visual-legend.hide {
-  width: 0;
-  overflow: hidden;
+  max-width: 0;
+  opacity: 0;
   color: white;
+  box-shadow: none;
+  webkit-transition: $transition-hide;
+  -moz-transition: $transition-hide;
+  -ms-transition: $transition-hide;
+  -o-transition: $transition-hide;
+  transition: $transition-hide;
 }
 
 #subject-visual-legend.show {
-  width: 30%;
-  overflow: hidden;
   opacity: 1;
   color: black;
   box-shadow: $tile-shadow;
+  webkit-transition: $transition-show;
+  -moz-transition: $transition-show;
+  -ms-transition: $transition-show;
+  -o-transition: $transition-show;
+  transition: $transition-show;
 }

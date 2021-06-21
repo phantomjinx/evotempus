@@ -55,12 +55,17 @@ export default class HelpPage extends React.Component {
           </ul>
           <p>
             A <em>Single-Click</em> on any subject in the timeline visualization, selects it and displays a description in the same way as clicking
-            an inteval.
+            an interval.
           </p>
           <p>
             A <em>Double-Click</em> on any subject in the timeline visualization will attempt to present it in the most accurate geological interval
             according to the subject's date range. If the subject happens to cross boundaries then this can result in the geological interval being
             the base &quot;Geological Timescale&quot;.
+          </p>
+          <p>
+            Click the menu button on the timeline visualization to display the labels of the subjects&apos; category. Subjects belonging to these
+            categories can be filtered out of the timeline visualization by clicking each of these labels. The subjects can be restored with a
+            second click. This filtering is maintained while clicking on subjects or on geolical intervals. 
           </p>
           <p>
             A Search box is available for finding any intervals, subjects or descriptions by keyword. A slide-in pane will display the search

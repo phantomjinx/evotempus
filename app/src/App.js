@@ -20,7 +20,13 @@ class App extends React.Component {
     this.state = {
       help: true,
       interval: undefined,
+      /*
+       * empty array of category objects
+       * with schema { id (string), name (string), filtered (boolean) }
+       */
+      categories: [],
       subject: undefined,
+      legendVisible: false,
       wikiVisible: false,
       wikiPosition: "interval"
     };
@@ -29,6 +35,8 @@ class App extends React.Component {
     this.subjectVisualRef = React.createRef();
     this.handleIntervalChange = this.handleIntervalChange.bind(this);
     this.handleSubjectChange = this.handleSubjectChange.bind(this);
+    this.updateCategoryFilter = this.updateCategoryFilter.bind(this);
+    this.onUpdateLegendVisible = this.onUpdateLegendVisible.bind(this);
     this.handleWikiClick = this.handleWikiClick.bind(this);
     this.toggleWiki = this.toggleWiki.bind(this);
     this.toggleHelp = this.toggleHelp.bind(this);
@@ -59,8 +67,36 @@ class App extends React.Component {
       });
   }
 
+  //
+  // Fetch all the categories from the backend service
+  // This needs to be done once then retained and passed to the subject Swimlane component
+  //
+  fetchCategories() {
+    api.subjectCategories()
+      .then((res) => {
+        if (!res.data || res.data.length === 0) {
+          this.logErrorState("Failed to fetch categories be fetched", new Error("Response data payload was empty."));
+        } else {
+          let catObjs = [];
+          for (const category of res.data.values()) {
+            catObjs.push({
+              name: category,
+              filtered: false
+            });
+          }
+
+          this.setState({
+            categories: catObjs
+          })
+        }
+      }).catch((err) => {
+        this.logErrorState("Failed to fetch interval data", err);
+      });
+  }
+
   componentDidMount() {
     this.fetchHints();
+    this.fetchCategories();
   }
 
   handleIntervalChange(interval) {
@@ -83,6 +119,42 @@ class App extends React.Component {
         item: interval
       },
       help: false
+    });
+  }
+
+  updateCategoryFilter(names, filter) {
+    if (!names || names.length === 0) {
+      return;
+    }
+
+    let copyCategories = [...this.state.categories];
+
+    names.forEach(name => {
+      const idx = this.state.categories.findIndex(category => {
+        return category.name === name;
+      })
+
+      if (idx === -1) {
+        return;
+      }
+
+      let copyCat = {
+        ...copyCategories[idx],
+        filtered: filter
+      }
+
+      copyCategories[idx] = copyCat;
+    });
+
+    this.setState({
+      categories: copyCategories
+    });
+  }
+
+  onUpdateLegendVisible(visible) {
+    console.log("Setting legend visible state: " + visible);
+    this.setState({
+      legendVisible: visible
     });
   }
 
@@ -143,8 +215,12 @@ class App extends React.Component {
         parent = { this.subjectVisualRef }
         interval={this.state.interval}
         subject={this.state.subject}
+        categories={this.state.categories}
+        legendVisible={this.state.legendVisible}
         onSelectedIntervalChange={this.handleIntervalChange}
         onSelectedSubjectChange={this.handleSubjectChange}
+        onUpdateCategoryFilter={this.updateCategoryFilter}
+        onUpdateLegendVisible={this.onUpdateLegendVisible}
       />
     )
 

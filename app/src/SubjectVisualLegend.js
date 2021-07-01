@@ -59,10 +59,6 @@ export default class SubjectVisualLegend extends React.Component {
   }
 
   filterCategory(e, name) {
-    console.log("Filtering the category ");
-    console.log(name);
-    console.log(e.target.checked);
-
     this.props.onUpdateFilterCategory([name], e.target.checked);
   }
 
@@ -156,6 +152,12 @@ export default class SubjectVisualLegend extends React.Component {
           </div>
           <div className="subject-visual-legend-paginated">
             {this.paginateLegend()}
+          </div>
+          <div className="subject-visual-legend-footer">
+            <p>
+              Click on each icon to exclude the category.<br/>
+              Click again to restore.
+            </p>
           </div>
         </div>
       </div>

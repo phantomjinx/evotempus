@@ -6,8 +6,8 @@ $max-height: 65vh;
 $font: bold 12px firasans;
 $bg-border-color: #2e035e;
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
-$transition-show: max-width 0.3s linear, opacity 0.3s linear, color 0.7s linear 0.3s;
-$transition-hide: color 0.3s linear, opacity 0.3s linear 0.3s, max-width 0.3s linear 0.3s;
+$transition-show: max-width 0.3s linear, opacity 0.1s linear, color 0.3s linear 0.1s;
+$transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s linear 0.1s;
 
 @include media-breakpoint-between(xs, md) {
 
@@ -113,6 +113,13 @@ $transition-hide: color 0.3s linear, opacity 0.3s linear 0.3s, max-width 0.3s li
           }
         }
       }
+    }
+
+    .subject-visual-legend-footer {
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+      font-size: x-small;
+      font-style: italic;
     }
   }
 }

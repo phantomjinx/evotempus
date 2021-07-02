@@ -131,7 +131,7 @@ export default class SubjectVisualLegend extends React.Component {
     }
 
     return (
-      <div>
+      <div className="subject-visual-legend-paginate">
         {paginate}
         <ul className="subject-visual-legend-items">
           {items}
@@ -150,14 +150,14 @@ export default class SubjectVisualLegend extends React.Component {
               onClick={this.props.onToggleLegend}>
             </button>
           </div>
-          <div className="subject-visual-legend-paginated">
-            {this.paginateLegend()}
-          </div>
-          <div className="subject-visual-legend-footer">
+          <div className="subject-visual-legend-text">
             <p>
               Click on each icon to exclude the category.<br/>
               Click again to restore.
             </p>
+          </div>
+          <div className="subject-visual-legend-paginated">
+            {this.paginateLegend()}
           </div>
         </div>
       </div>

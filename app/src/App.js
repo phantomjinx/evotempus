@@ -152,7 +152,6 @@ class App extends React.Component {
   }
 
   onUpdateLegendVisible(visible) {
-    console.log("Setting legend visible state: " + visible);
     this.setState({
       legendVisible: visible
     });
@@ -193,11 +192,10 @@ class App extends React.Component {
     });
   }
 
-  toggleHelp(show) {
+  toggleHelp() {
     this.setState({
-      help: show
+      help: ! this.state.help
     });
-
   }
 
   render() {
@@ -235,8 +233,8 @@ class App extends React.Component {
     return (
       <div className="app grid-container">
         <nav className="header navbar navbar-expand-lg">
-          <a className="header-title" href="#">EvoTempus</a>
-          <a className="header-title collapse navbar-collapse" href="#">Dashboard of Earth History</a>
+          <p className="header-title">EvoTempus</p>
+          <p className="header-title collapse navbar-collapse">Dashboard of Earth History</p>
           <button id="collapsible" className="navbar-toggler fa fa-bars" type="button" data-toggle="collapse"
                   data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                   aria-expanded="false" aria-label="Toggle navigation">
@@ -250,7 +248,7 @@ class App extends React.Component {
         </nav>
         <div className="interval-visual-group">
           <div className="interval-visual-help">
-            <button id="interval-visual-help-btn" className="fa fa-question-circle" onClick={() => this.toggleHelp(true)}/>
+            <button id="interval-visual-help-btn" className="fa fa-question-circle" onClick={() => this.toggleHelp()}/>
           </div>
           <div className="interval-visual" ref={this.intervalVisualRef}>
             {intervalVisual}

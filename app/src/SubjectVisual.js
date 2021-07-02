@@ -5,7 +5,6 @@ import {
   max as d3Max,
   min as d3Min
 } from 'd3-array';
-import {format as d3Format} from 'd3-format';
 import {
   scaleOrdinal as d3ScaleOrdinal,
   scaleLinear as d3ScaleLinear
@@ -877,7 +876,6 @@ class SubjectSwimLane extends React.Component {
         //
         const ysMin = yScale(d3Min(this.props.data.lanes, d => d.id)); // domain can be smaller, due to nice()
         const ysMax = yScale(d3Max(this.props.data.lanes, d => d.id) + 1); // domain can be longer, due to nice()
-        const height = ysMax - ysMin;
 
         if (transform.k <= this.zoomSystem.scale) {
           //
@@ -997,7 +995,7 @@ class SubjectSwimLane extends React.Component {
           <div className="subject-visual-nocontent">
             <p>No content available for the {this.props.interval.name} {this.props.interval.kind}</p>
             <p>
-              <a href="" onClick={(e) => this.resetCategories(e)}>Click</a> to reset category filters
+              <button className="subject-visual-reset-button" onClick={(e) => this.resetCategories(e)}>Click</button> to reset category filters
             </p>
           </div>
         </div>

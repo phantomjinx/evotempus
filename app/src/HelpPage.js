@@ -22,14 +22,14 @@ export default class HelpPage extends React.Component {
           </p>
           <h5 className="help-page-bold">Usage</h5>
           <p>
-            The circular visualization illustrates Earth's geological intervals, as classified by
+            The circular visual illustrates Earth's geological intervals, as classified by
             the <a href="https://stratigraphy.org" target="_blank" rel="noopener noreferrer">International Commission on Stratigraphy</a>.
             Starting at the top, moving clockwise, it displays the chronological sequence of ages from oldest to youngest.
             Those intervals nearest the centre are parents of the intervals further out, eg. the PreCambrian encapsulates the
             Hadean, Archaen and Proterozoic.
           </p>
           <p>
-            Should the visualization be a too small then zooming and panning are available using the default methods of the device.
+            Zooming and panning are available using the default methods of the display device, eg. pinching on a tablet.
           </p>
           <p>
             <em>Double-Clicking</em> an interval will expand it, making it the central parent of the other child intervals displayed.
@@ -63,14 +63,23 @@ export default class HelpPage extends React.Component {
             the base &quot;Geological Timescale&quot;.
           </p>
           <p>
-            Click the menu button on the timeline visualization to display the labels of the subjects&apos; category. Subjects belonging to these
-            categories can be filtered out of the timeline visualization by clicking each of these labels. The subjects can be restored with a
-            second click. This filtering is maintained while clicking on subjects or on geolical intervals. 
+            Click the menu button on the timeline visual to display the labels of the subjects&apos; category. Subjects belonging to these
+            categories can be filtered out of the timeline visual by clicking each of these labels. The subjects can be restored with a
+            second click. This filtering is maintained while clicking on subjects or on geolical intervals.
           </p>
           <p>
             A Search box is available for finding any intervals, subjects or descriptions by keyword. A slide-in pane will display the search
-            results and a <em>Single-Click</em>  will navigate to the target in the visualizations.
+            results and a <em>Single-Click</em>  will navigate to the target in the visuals.
           </p>
+          <h5 className="help-page-bold">Contributing</h5>
+          <p>
+            The source code and data for this project is available on <a href="https://github.com/phantomjinx/evotempus">github</a> and licensed
+            under the <a href="https://github.com/phantomjinx/evotempus/blob/master/LICENSE">GPLv3</a>.
+          </p>
+          <p>
+            If you find a bug or would like to add some data points then please do not hesitate to file an issue or post a pull-request.
+          </p>
+          <p>Thanks.</p>
         </div>
       </div>
     )

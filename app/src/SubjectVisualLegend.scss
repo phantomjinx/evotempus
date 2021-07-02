@@ -13,6 +13,7 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
 
   #subject-visual-legend.show {
     max-width: 70%;
+    min-width: 40%;
   }
 }
 
@@ -20,6 +21,7 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
 
   #subject-visual-legend.show {
     max-width: 30%;
+    min-width: 30%;
   }
 }
 
@@ -56,66 +58,70 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
 
     [class^="react-pagination-js-"] {
       float: right;
-      padding-bottom: 2em;
+      padding-bottom: 0.5em;
     }
 
     .subject-visual-legend-paginated {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       height: 100%;
 
-      .subject-visual-legend-items {
-        clear: both;
-        padding-left: 0.5em;
-        padding-right: 0.5em;
-        font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
+      .subject-visual-legend-paginate {
+        width: 100%;
 
-        li {
-          list-style-type: none;
+        .subject-visual-legend-items {
+          clear: both;
+          padding-left: 0.5em;
+          padding-right: 0.5em;
+          font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
 
-          .category-checkbox-label {
-            display: block;
-            position: relative;
-            cursor: pointer;
+          li {
+            list-style-type: none;
 
-            svg {
-              display: inline-block;
-              vertical-align: middle;
-              margin-bottom: .2em;
-              width: 2em;
-              height: 2em;
-
-              rect {
-                transition: fill .4s linear;
-              }
-            }
-
-            span {
-              padding-left: 0.2em;
-            }
-
-            input[type="checkbox"] {
-              position: absolute;
-              width: 2em;
-              height: 2em;
-              opacity: 0.00001;
+            .category-checkbox-label {
+              display: block;
+              position: relative;
               cursor: pointer;
-            }
 
-            input[type="checkbox"]:checked + svg rect {
-              fill: #eee;
-              stroke: black;
-            }
+              svg {
+                display: inline-block;
+                vertical-align: middle;
+                margin-bottom: .2em;
+                width: 2em;
+                height: 2em;
 
-            input[type="checkbox"]:checked + svg + span {
-              color: #aaaaaa;
+                rect {
+                  transition: fill .4s linear;
+                }
+              }
+
+              span {
+                padding-left: 0.2em;
+              }
+
+              input[type="checkbox"] {
+                position: absolute;
+                width: 2em;
+                height: 2em;
+                opacity: 0.00001;
+                cursor: pointer;
+              }
+
+              input[type="checkbox"]:checked + svg rect {
+                fill: #eee;
+                stroke: black;
+              }
+
+              input[type="checkbox"]:checked + svg + span {
+                color: #aaaaaa;
+              }
             }
           }
         }
       }
     }
 
-    .subject-visual-legend-footer {
+    .subject-visual-legend-text {
       margin-left: 0.5em;
       margin-right: 0.5em;
       font-size: x-small;

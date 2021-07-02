@@ -21,9 +21,8 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
 
   #subject-visual-legend-btn {
     position: absolute;
-    left: 1vw;
-    top: 1vw;
-    padding-top: 0.25em;
+    left: 0.5em;
+    top: 0.5em;
     padding-bottom: 0.25em;
     cursor: pointer;
     background-color: transparent;
@@ -33,6 +32,7 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
 
   .subject-visual-nocontent {
     font-weight: bold;
+    text-align: center;
     border-radius: 1em;
     border: 0.15em solid #000;
     padding-left: 0.5em;
@@ -40,6 +40,17 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
     margin-top: 5em;
     box-shadow: $tile-shadow;
     background-color: #fffbdc;
+
+    .subject-visual-reset-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline;
+      margin: 0;
+      padding: 0;
+      color: blue;
+      font-family: firasans;
+    }
   }
 
   #subject-visual-component-svg {

@@ -111,6 +111,8 @@ export default class Search extends React.Component {
       event.preventDefault();
     }
 
+    this.closeSearchResults();
+
     this.setState({
       msg: this.resultsMsg(this.state.results.intervals, this.state.results.subjects, this.state.results.topics)
     });

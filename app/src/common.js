@@ -1,7 +1,7 @@
 export var million = 1000000;
 export var thousand = 1000;
 
-export var colorRange = [
+export var colourRange = [
   "#18c61a", "#2706de", "#8d070c", "#24b7f1", "#fb7fdd", "#224d22", "#d6a401", "#0c3e9a", "#cea194", "#17c28a",
   "#6c304f", "#0f4a61", "#94b743", "#fe8d5a", "#603d04", "#aaa1f9", "#790288", "#79b6af", "#fb88a3", "#202ebc",
   "#c1aa5f", "#4e4236", "#aaa8c6", "#8cb77c", "#fd8f11", "#752e25", "#53c153", "#443f6e", "#da95ce", "#85025c",
@@ -41,8 +41,19 @@ var hints = {};
 export function setHints(hintArr) {
   hints = {};
   for (const h of hintArr.values()) {
-    hints[h._id] = h.colour;
+    hints[h._id] = {
+      colour: h.colour,
+      link: h.link
+    };
   }
+}
+
+export function hasHintColour(hint) {
+  return hint && hint.colour && hint.colour.length > 0;
+}
+
+export function hasHintLink(hint) {
+  return hint && hint.link && hint.link.length > 0;
 }
 
 export function calcKindColours(kinds) {
@@ -50,7 +61,7 @@ export function calcKindColours(kinds) {
   let i = 20;
   for (const kind of kinds.values()) {
     const hint = hints[kind];
-    colours.push(hint ? hint : colorRange[i++]);
+    colours.push(hasHintColour(hint) ? hint.colour : colourRange[i++]);
   }
   return colours;
 }
@@ -60,7 +71,7 @@ export function calcCategoryColours(categories) {
   let i = 0;
   for (const category of categories.values()) {
     const hint = hints[category];
-    colours.push(hint ? hint : colorRange[i++]);
+    colours.push(hasHintColour(hint) ? hint.colour : colourRange[i++]);
   }
   return colours;
 }

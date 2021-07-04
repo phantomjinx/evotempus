@@ -23,6 +23,7 @@ var HintSchema = new Schema({
     _id: {type: String, required: true},
     type: String,
     colour: String,
+    link: String
 },
 { versionKey: 'version' });
 

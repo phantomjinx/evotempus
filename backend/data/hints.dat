@@ -15,30 +15,50 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-#NAME                    | TYPE     | COLOUR
-Event                    | Kind     | #a2e0fe
-Fauna                    | Kind     | #ebaaaa
-Flora                    | Kind     | #a3e6a7
-Geology                  | Kind     | #9c8e8e
-Geological Development   | Category | #5b5753
-Biological Development   | Category | #00571b
-Astronomical Collision   | Category | #940321
-Continental Drift        | Category | #32007a
-Climatic Development     | Category | #0084a2
-Extinction Event         | Category | #d30084
-Early Form of Life       | Category | #694a30
-Astronomical Geology     | Category | #705270
-Dinosaurs                | Category | #16a500
-Archaeological Age       | Category | #cc6600
-Human Development        | Category | #fa599a
-Historical Feature       | Category | #e6b800
-Marine Continental Drift | Category | #2d2fff
-Trees                    | Category | #893f17
-Marine Life              | Category | #33e0ff
-Early Amphibian          | Category | #00b675
-Reptile                  | Category | #4cd500
-Marine Reptile           | Category | #1e9479
-Flying Reptile           | Category | #f5881b
-Arthropod                | Category | #3b1d00
-Insect                   | Category | #143f29
-Land Tetrapod            | Category | #40271c
+#NAME                    | TYPE     | COLOUR  | LINK ID                | COMMENT
+Event                    | Kind     | #ff8686 | <>                     | Light red
+Celestial Event          | Category | #000000 | Celestial_event        | Black
+Climate Changes          | Category | #939ac0 | Timeline_of_glaciation | Whitish blue
+Biological Development   | Category | #00571b | Evolution              | Dark green
+Extinction Event         | Category | #ff0000 | Extinction_event       | Red
+Archaeological Age       | Category | #cc003a | Three-age_system       | Reddish pink
+Arcaheological Feature   | Category | #e6b800 | Archaeology            | Yellow
+Ecological Migration     | Category | #00e229 | Migration_(ecology)    | Light green
+Geological Change        | Category | #543ed8 | <>                     | Purple
+#
+#
+Fauna                    | Kind     | #b36229 | Fauna                  | Light shade brown
+Agnatha                  | Category | <>      | Agnatha
+Amphibian                | Category | #007347 | Amphibian              | Greeny blue
+Arthropod                | Category | #3b1d00 | Arthropod
+Bilaterian               | Category | <>      | Bilateria
+Cephalopod               | Category | <>      | Cephalopod
+Cnidaria                 | Category | <>      | Cnidaria
+Dinosaur                 | Category | #a57800 | Dinosaur               | Light shade brown
+Early Form of Life       | Category | #694a30 | Evolution              | Light shade brown
+Amoebozoa                | Category | <>      | Amoebozoa
+Fish                     | Category | #ababab | Fish                   | Silver
+Flying Reptile           | Category | #f5881b | Pterosaur
+Hominid                  | Category | #763831 | Hominidae              | Pinky brown
+Insect                   | Category | #143f29 | Insect
+Marine Reptile           | Category | #1e9479 | Marine_reptile
+Porifera                 | Category | #205192 | Porifera               | Shade blue
+Proarticulata            | Category | #5478a7 | Proarticulata          | Shade blue
+Rangeomorpha             | Category | <>      | Rangeomorpha
+Reptile                  | Category | #4cd500 | Reptile
+Synapsid                 | Category | #63342e | Synapsid
+Therapsid                | Category | #765450 | Therapsid
+Birds                    | Category | #f98e1b | Bird                   | Orange
+Mammals                  | CATEGORY | #600d03 | Mammal                 | Brown
+#
+#
+Flora                    | Kind     | #fff54d | Flora                  | Light yellow
+Spermatophyte            | Category | #893f17 | Spermatophytes         | Brown
+Algae                    | Category | #901236 | Algae                  | Dark red
+#
+#
+Geology                  | Kind     | #919191 | Geology                | Light grey
+Celestial Geology        | Category | #1b1b1b | <>                     | Not quite black
+Geological Development   | Category | #5b5753 | <>                     | Grey
+Continental Drift        | Category | #372c21 | Continental_drift      | Dark brown
+Marine Geology           | Category | #2d2fff | Marine_geology         | Dark blue

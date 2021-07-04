@@ -40,6 +40,13 @@ const doImport = process.env.IMPORT_DB || true;
 const mongoDbURI = process.env.MONGODB_URI || 'mongodb://localhost/evotempus';
 const port = process.env.PORT || 3000;
 
+function terminate() {
+  if (conn) {
+    conn.close();
+  }
+  process.exit(1);
+}
+
 function displayName(id) {
   // Replace hypens with spaces
   name = id.replace(/-/g, " ");
@@ -74,12 +81,12 @@ function findOrCreateParent(parentId, child) {
   ).then((parent, err) => {
     if (err) {
       logger.error(err, "ERROR: Trying to findByIdAndUpdate interval with %s", parentId);
-      return;
+      terminate();
     }
 
     if (!parent) {
       logger.error("ERROR: Failed to find or create interval with id %s", parentId);
-      return;
+      terminate();
     }
 
     var objId = parent._id;
@@ -87,7 +94,7 @@ function findOrCreateParent(parentId, child) {
     Interval.updateOne({ _id: child._id }, { parent: parent._id }, {runValidators: 'true'}).then((uChild, err) => {
       if (err) {
         logger.error(err, "ERROR: Child update for %s: %s", child._id);
-        return;
+        terminate();
       }
     });
   });
@@ -127,7 +134,7 @@ function createInterval(id, kind, from, to, parent, children) {
     to = parseNumber(to, id);
   } catch (e) {
     logger.error(e);
-    return;
+    terminate();
   }
 
   //
@@ -151,18 +158,19 @@ function createInterval(id, kind, from, to, parent, children) {
   ).then((interval, err) => {
       if (err) {
         logger.error(err, "ERROR: Trying to findByIdAndUpdate interval with %s", id);
-        return;
+        terminate();
       }
 
       if (!interval) {
         logger.error("ERROR: Failed to find or create interval with id %s", id);
-        return;
+        terminate();
       }
 
       findOrCreateParent(parent, interval);
 
     }).catch((err) => {
       logger.error(err);
+      terminate();
     });
 }
 
@@ -187,16 +195,17 @@ function createTopic(id, topicTgt, linkId) {
   ).then((topic, err) => {
     if (err) {
       logger.error(err, "ERROR: Trying to findByOneAndUpdate description with %s", id);
-      return;
+      terminate();
     }
 
     if (!topic) {
       logger.error("ERROR: Failed to find or create description with id %s", id);
-      return;
+      terminate();
     }
 
   }).catch((err) => {
     logger.error(err);
+    terminate();
   });
 }
 
@@ -204,15 +213,15 @@ function createSubject(id, kind, category, from, to) {
 
   logger.debug("Creating subject: id: " + id + " kind: " + kind + " category: " + category + " from: " + from + " to: " + to);
 
-  //
-  // Ensure all whitespace is removed
-  //
-  id = id.trim();
-  name = displayName(id);
-  kind = kind.trim();
-  category = category.trim();
-
   try {
+    //
+    // Ensure all whitespace is removed
+    //
+    id = id.trim();
+    name = displayName(id);
+    kind = kind.trim();
+    category = category.trim();
+
     //
     // Convert the from date to number
     //
@@ -224,7 +233,7 @@ function createSubject(id, kind, category, from, to) {
     to = parseNumber(to, id);
   } catch (e) {
     logger.error(e);
-    return;
+    terminate();
   }
 
   //
@@ -240,29 +249,44 @@ function createSubject(id, kind, category, from, to) {
   ).then((subject, err) => {
     if (err) {
       logger.error(err, "ERROR: Trying to findByIdAndUpdate subject with %s", id);
-      return;
+      terminate();
     }
 
     if (!subject) {
       logger.error("ERROR: Failed to find or create subject with id %s", id);
-      return;
+      terminate();
     }
 
   }).catch((err) => {
     logger.error(err);
+    terminate();
   });
 }
 
-function createHint(id, type, colour) {
+function createHint(id, type, colour, link) {
 
-  logger.debug("Creating hint: id: " + id + " type: " + type + " colour: " + colour);
+  logger.debug("Creating hint: id: " + id + " type: " + type + " colour: " + colour + " link: " + link);
 
-  //
-  // Ensure all whitespace is removed
-  //
-  id = id.trim();
-  type = type.trim();
-  colour = colour.trim();
+  try {
+    //
+    // Ensure all whitespace is removed
+    //
+    id = id.trim();
+    type = type.trim();
+    colour = colour.trim();
+    link = link.trim();
+
+    if (colour == "<>") {
+      colour = "";
+    }
+
+    if (link == "<>") {
+      link = "";
+    }
+  } catch (e) {
+    logger.error(e);
+    terminate();
+  }
 
   //
   // Automatically deduplicates
@@ -270,23 +294,24 @@ function createHint(id, type, colour) {
   Hint.findByIdAndUpdate(
     { _id: id },
     {
-      "$set":         { type: type, colour: colour },
+      "$set":         { type: type, colour: colour, link: link },
       "$setOnInsert": { _id: id }
     },
     { upsert: true, new: true}
   ).then((hint, err) => {
     if (err) {
       logger.error(err, "ERROR: Trying to findByIdAndUpdate hint with %s", id);
-      return;
+      terminate();
     }
 
     if (!hint) {
       logger.error("ERROR: Failed to find or create hint with id %s", id);
-      return;
+      terminate();
     }
 
   }).catch((err) => {
     logger.error(err);
+    terminate();
   });
 }
 
@@ -348,7 +373,7 @@ function importHints(file) {
 
     var elements = line.split('|');
 
-    createHint(elements[0], elements[1], elements[2]);
+    createHint(elements[0], elements[1], elements[2], elements[3]);
   }
 }
 
@@ -407,6 +432,8 @@ function importDbData(conn) {
 }
 
 function init() {
+  logger.debug("INFO: Initialising the server application on port " + port);
+
   // Log middleware requests
   app.use(expressLogger);
 
@@ -507,6 +534,7 @@ let conn = mongoose.connection;
 Interval.on('index', function(err) {
   if (err) {
     logger.error(err, 'Interval index error');
+    terminate();
   } else {
     logger.debug('Interval indexing complete');
   }
@@ -515,6 +543,7 @@ Interval.on('index', function(err) {
 Subject.on('index', function(err) {
   if (err) {
     logger.error(err, 'Subject index error');
+    terminate();
   } else {
     logger.debug('Subject indexing complete');
   }
@@ -523,6 +552,7 @@ Subject.on('index', function(err) {
 Topic.on('index', err => {
   if (err) {
     logger.error(err, 'Topic index error');
+    terminate();
   } else {
     logger.debug('Topic indexing complete');
   }
@@ -530,10 +560,11 @@ Topic.on('index', err => {
 
 conn.on('Error', () => {
   logger.error('ERROR: Database connection failed.');
+  terminate();
 });
 
 conn.once('open', () => {
-  logger.info('INFO: Connection established');
+  logger.info('INFO: Connection established to database on ' + conn.host + ":" + conn.port);
 
   try {
     cleanDb(conn).then(answer => {
@@ -548,6 +579,6 @@ conn.once('open', () => {
 
   } catch (err) {
     logger.error(err);
-    conn.close();
+    terminate();
   }
 });

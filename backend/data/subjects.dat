@@ -24,7 +24,7 @@ late-heavy-bombardment                   | Event     | Celestial Event          
 acasta-gneiss                            | Geology   | Geological Development     | -4031000000   | -3058000000  | Acasta_Gneiss
 laurentia-craton                         | Geology   | Continental Drift          | -4031000000   | 2030         | Laurentia
 isua-greenstone-belt                     | Geology   | Geological Development     | -3800000000   | -3700000000  | Isua_Greenstone_Belt
-last-universal-common-ancestor           | Fauna     | Early Form of Life         | -3800000000   | -3500000000  | Last_universal_common_ancestor
+last-universal-common-ancestor           | Animal    | Early Form of Life         | -3800000000   | -3500000000  | Last_universal_common_ancestor
 vaalbara-supercontinent                  | Geology   | Continental Drift          | -3636000000   | -2803000000  | Vaalbara
 barberton-greenstone-belt                | Geology   | Geological Development     | -3500000000   | -3200000000  | Barberton_Greenstone_Belt
 earliest-form-of-life                    | Event     | Biological Development     | -3500000000   | -3480000000  | Microbial_mat
@@ -36,7 +36,7 @@ peak-of-iron-band-formations             | Geology   | Geological Development   
 kenorland-supercontinent                 | Geology   | Continental Drift          | -2780000000   | -2100000000  | Kenorland
 great-oxidation-event                    | Event     | Extinction Event           | -2400000000   | -2000000000  | Great_Oxidation_Event
 huronian-glaciation                      | Event     | Climate Changes            | -2400000000   | -2100000000  | Huronian_glaciation
-francevillian-biota                      | Fauna     | Early Form of Life         | -2150000000   | -2050000000  | Francevillian_biota
+francevillian-biota                      | Animal    | Early Form of Life         | -2150000000   | -2050000000  | Francevillian_biota
 arctica-supercontinent                   | Geology   | Continental Drift          | -2114000000   | -1995000000  | Arctica
 bushveld-igneous-complex                 | Geology   | Geological Development     | -2100000000   | -2000000000  | Bushveld_Igneous_Complex
 emergence-of-eukaryotes                  | Event     | Biological Development     | -2100000000   | -1600000000  | Eukaryote
@@ -55,277 +55,277 @@ shawinigan-orogeny                       | Geology   | Geological Development   
 midcontinent-rift-system                 | Geology   | Geological Development     | -1100000000   | -1097800000  | Midcontinent_Rift_System
 rodinia-supercontinent                   | Geology   | Continental Drift          | -1100000000   | -633000000   | Rodinia
 ottawan-orogeny                          | Geology   | Geological Development     | -1090000000   | -1020000000  | Grenville_orogeny
-bangiomorpha                             | Flora     | Algae                      | -1064000000   | -1030000000  | Bangiomorpha
+bangiomorpha                             | Plant     | Algae                      | -1064000000   | -1030000000  | Bangiomorpha
 rigolet-orogeny                          | Geology   | Geological Development     | -1010000000   | -980000000   | Grenville_orogeny
 pan-african-ocean                        | Geology   | Marine Geology             | -987500000    | -605000000   | Pan-African_Ocean
 pan-african-orogeny                      | Geology   | Geological Development     | -950000000    | -550000000   | Pan-African_orogeny
-aspidella                                | Fauna     | Early Form of Life         | -770000000    | -550000000   | Aspidella
-otavia-antiqua-sponge                    | Fauna     | Porifera                   | -760000000    | -550000000   | Otavia
+aspidella                                | Animal    | Early Form of Life         | -770000000    | -550000000   | Aspidella
+otavia-antiqua-sponge                    | Animal    | Porifera                   | -760000000    | -550000000   | Otavia
 panthalassa-ocean                        | Geology   | Marine Geology             | -750000000    | -173000000   | Panthalassa
-arcellinida                              | Fauna     | Amoebozoa                  | -720000000    | 2030         | Arcellinida
+arcellinida                              | Animal    | Amoebozoa                  | -720000000    | 2030         | Arcellinida
 sturtian-glaciation                      | Event     | Climate Changes            | -715000000    | -680000000   | Sturtian_glaciation
 marinoan-glaciation                      | Event     | Climate Changes            | -650000000    | -635000000   | Marinoan_glaciation
 doushantuo-formation                     | Geology   | Geological Development     | -635000000    | -531000000   | Doushantuo_Formation
-jellyfish                                | Fauna     | Cnidaria                   | -635000000    | 2030         | Jellyfish
-sponges                                  | Fauna     | Porifera                   | -635000000    | 2030         | Sponge
+jellyfish                                | Animal    | Cnidaria                   | -635000000    | 2030         | Jellyfish
+sponges                                  | Animal    | Porifera                   | -635000000    | 2030         | Sponge
 pannotia-supercontinent                  | Geology   | Continental Drift          | -633000000    | -573000000   | Pannotia
-dickinsonia                              | Fauna     | Proarticulata              | -600000000    | -541000000   | Dickinsonia
+dickinsonia                              | Animal    | Proarticulata              | -600000000    | -541000000   | Dickinsonia
 earliest-complex-multicellular-organisms | Event     | Biological Development     | -600000000    | -542000000   | Ediacaran_biota
 lapetus-ocean                            | Geology   | Marine Geology             | -600000000    | -400000000   | Iapetus_Ocean
 gaskiers-glaciation                      | Event     | Climate Changes            | -579880000    | -579630000   | Gaskiers_glaciation
 avalon-explosion                         | Event     | Biological Development     | -575000000    | -550000000   | Avalon_explosion
-fractofusus                              | Fauna     | Rangeomorpha               | -575000000    | -541000000   | Fractofusus_misrai
-charnia                                  | Fauna     | Rangeomorpha               | -570000000    | -541000000   | Charnia
-charniodiscus                            | Fauna     | Rangeomorpha               | -565000000    | -555000000   | Charniodiscus
-kimberella                               | Fauna     | Bilaterian                 | -558000000    | -541000000   | Kimberella
+fractofusus                              | Animal    | Rangeomorpha               | -575000000    | -541000000   | Fractofusus_misrai
+charnia                                  | Animal    | Rangeomorpha               | -570000000    | -541000000   | Charnia
+charniodiscus                            | Animal    | Rangeomorpha               | -565000000    | -555000000   | Charniodiscus
+kimberella                               | Animal    | Bilaterian                 | -558000000    | -541000000   | Kimberella
 gondwana-supercontinent                  | Geology   | Continental Drift          | -550000000    | -175000000   | Gondwana
 proto-tethys-ocean                       | Geology   | Marine Geology             | -550000000    | -330000000   | Proto-Tethys_Ocean
-small-shelly-fauna                       | Fauna     | Early Form of Life         | -547000000    | -520000000   | Small_shelly_fauna
+small-shelly-fauna                       | Animal    | Early Form of Life         | -547000000    | -520000000   | Small_shelly_fauna
 ediacaran-extinction                     | Event     | Extinction Event           | -542000000    | -541000000   | End-Ediacaran_extinction
-treptichnus-pedum                        | Fauna     | Early Form of Life         | -542000000    | -99700000    | Treptichnus_pedum
+treptichnus-pedum                        | Animal    | Early Form of Life         | -542000000    | -99700000    | Treptichnus_pedum
 cambrian-explosion                       | Event     | Biological Development     | -541000000    | -516000000   | Cambrian_explosion
-coral                                    | Fauna     | Cnidaria                   | -535000000    | 2030         | Coral
-haikouichthys                            | Fauna     | Agnatha                    | -535000000    | -520000000   | Haikouichthys
-archaeocyathids                          | Fauna     | Porifera                   | -530000000    | -490000000   | Archaeocyathids
-trilobite                                | Fauna     | Arthropod                  | -521000000    | -251902000   | Trilobite
-anomalocaris                             | Fauna     | Arthropod                  | -520000000    | -499000000   | Anomalocaris
+coral                                    | Animal    | Cnidaria                   | -535000000    | 2030         | Coral
+haikouichthys                            | Animal    | Agnatha                    | -535000000    | -520000000   | Haikouichthys
+archaeocyathids                          | Animal    | Porifera                   | -530000000    | -490000000   | Archaeocyathids
+trilobite                                | Animal    | Arthropoda                 | -521000000    | -251902000   | Trilobite
+anomalocaris                             | Animal    | Arthropoda                 | -520000000    | -499000000   | Anomalocaris
 end-botomian-extinction                  | Event     | Extinction Event           | -513000000    | -509000000   | End-Botomian_mass_extinction
 dresbachian-extinction                   | Event     | Extinction Event           | -502000000    | -501000000   | Dresbachian_extinction_event
 paleo-tethys-ocean                       | Geology   | Marine Geology             | -500000000    | -200000000   | Paleo-Tethys_Ocean
 cambrian-ordovician-extinction           | Event     | Extinction Event           | -488000000    | -487000000   | Cambrian-Ordovician_extinction_event
-endocerida                               | Fauna     | Cephalopod                 | -477700000    | -443800000   | Endocerida
-eurypterid                               | Fauna     | Arthropod                  | -467300000    | -251900000   | Eurypterid
-fusulinida                               | Fauna     | Eukaryota                  | -443800000    | -251941000   | Fusulinida
+endocerida                               | Animal    | Cephalopod                 | -477700000    | -443800000   | Endocerida
+eurypterid                               | Animal    | Arthropoda                 | -467300000    | -251900000   | Eurypterid
+fusulinida                               | Micro     | Retaria                    | -443800000    | -251941000   | Fusulinida
 ireviken-extinction                      | Event     | Extinction Event           | -435700000    | -431100000   | Ireviken_event
-pterygotus                               | Fauna     | Arthropod                  | -428000000    | -372200000   | Pterygotus
+pterygotus                               | Animal    | Arthropoda                 | -428000000    | -372200000   | Pterygotus
 mulde-extinction                         | Event     | Extinction Event           | -427500000    | -436500000   | Mulde_event
 laurasia-supercontinent                  | Geology   | Continental Drift          | -425000000    | -200000000   | Laurasia
 lau-extinction                           | Event     | Extinction Event           | -420500000    | -419500000   | Lau_event
-lungfish                                 | Fauna     | Fish                       | -419200000    | 2030         | Lungfish
-brontoscorpio                            | Fauna     | Arthropod                  | -416000000    | -412300000   | Brontoscorpio
-cephalaspis                              | Fauna     | Fish                       | -415000000    | -398000000   | Cephalaspis
-jaekelopterus                            | Fauna     | Arthropod                  | -410800000    | -402500000   | Jaekelopterus
-alkenopterus                             | Fauna     | Arthropod                  | -409000000    | -402500000   | Alkenopterus
-adelophthalmus                           | Fauna     | Arthropod                  | -407600000    | -283500000   | Adelophthalmus
-eusthenopteron                           | Fauna     | Fish                       | -385000000    | -377000000   | Eusthenopteron
-panderichthys                            | Fauna     | Fish                       | -385000000    | -377000000   | Panderichthys
-stethacanthus                            | Fauna     | Fish                       | -382700000    | -298900000   | Stethacanthus
-tiktaalik                                | Fauna     | Fish                       | -380000000    | -370000000   | Tiktaalik
+lungfish                                 | Animal    | Fish                       | -419200000    | 2030         | Lungfish
+brontoscorpio                            | Animal    | Arthropoda                 | -416000000    | -412300000   | Brontoscorpio
+cephalaspis                              | Animal    | Fish                       | -415000000    | -398000000   | Cephalaspis
+jaekelopterus                            | Animal    | Arthropoda                 | -410800000    | -402500000   | Jaekelopterus
+alkenopterus                             | Animal    | Arthropoda                 | -409000000    | -402500000   | Alkenopterus
+adelophthalmus                           | Animal    | Arthropoda                 | -407600000    | -283500000   | Adelophthalmus
+eusthenopteron                           | Animal    | Fish                       | -385000000    | -377000000   | Eusthenopteron
+panderichthys                            | Animal    | Fish                       | -385000000    | -377000000   | Panderichthys
+stethacanthus                            | Animal    | Fish                       | -382700000    | -298900000   | Stethacanthus
+tiktaalik                                | Animal    | Fish                       | -380000000    | -370000000   | Tiktaalik
 late-devonian-extinction                 | Event     | Extinction Event           | -376000000    | -358900000   | Late_Devonian_extinction
-hyneria                                  | Fauna     | Fish                       | -372200000    | -358900000   | Hyneria
-acanthostega                             | Fauna     | Amphibian                  | -365000000    | -360000000   | Acanthostega
-hynerpeton                               | Fauna     | Amphibian                  | -365000000    | -363000000   | Hynerpeton
-ichthyostega                             | Fauna     | Amphibian                  | -365000000    | -360000000   | Ichthyostega
-conifer                                  | Flora     | Trees                      | -358900000    | 2030         | Conifer
-arthropleura                             | Fauna     | Arthropod                  | -345000000    | -295000000   | Arthropleura
+hyneria                                  | Animal    | Fish                       | -372200000    | -358900000   | Hyneria
+acanthostega                             | Animal    | Amphibian                  | -365000000    | -360000000   | Acanthostega
+hynerpeton                               | Animal    | Amphibian                  | -365000000    | -363000000   | Hynerpeton
+ichthyostega                             | Animal    | Amphibian                  | -365000000    | -360000000   | Ichthyostega
+conifer                                  | Plant     | Pinophyta                  | -358900000    | 2030         | Conifer
+arthropleura                             | Animal    | Arthropoda                 | -345000000    | -295000000   | Arthropleura
 pangaea-supercontinent                   | Geology   | Continental Drift          | -336000000    | -175000000   | Pangaea
-proterogyrinus                           | Fauna     | Amphibian                  | -331000000    | -323000000   | Proterogyrinus
-mesothelae                               | Fauna     | Arthropod                  | -323200000    | 2030         | Mesothelae
-petrolacosaurus                          | Fauna     | Reptile                    | -323200000    | -298900000   | Petrolacosaurus
+proterogyrinus                           | Animal    | Amphibian                  | -331000000    | -323000000   | Proterogyrinus
+mesothelae                               | Animal    | Arthropoda                 | -323200000    | 2030         | Mesothelae
+petrolacosaurus                          | Animal    | Reptile                    | -323200000    | -298900000   | Petrolacosaurus
 carboniferous-rainforest-collapse        | Event     | Extinction Event           | -305500000    | -304500000   | Carboniferous_rainforest_collapse
-meganeura                                | Fauna     | Insect                     | -305000000    | -299000000   | Meganeura
-edaphosaurus                             | Fauna     | Synapsid                   | -303400000    | -272500000   | Edaphosaurus
-seymouria                                | Fauna     | Amphibian                  | -298900000    | -290000000   | Seymouria
-dimetrodon                               | Fauna     | Synapsid                   | -295000000    | -272000000   | Dimetrodon
+meganeura                                | Animal    | Insect                     | -305000000    | -299000000   | Meganeura
+edaphosaurus                             | Animal    | Synapsid                   | -303400000    | -272500000   | Edaphosaurus
+seymouria                                | Animal    | Amphibian                  | -298900000    | -290000000   | Seymouria
+dimetrodon                               | Animal    | Synapsid                   | -295000000    | -272000000   | Dimetrodon
 olsons-extinction                        | Event     | Extinction Event           | -273500000    | -272500000   | Olson's_Extinction
-rhinesuchus                              | Fauna     | Amphibian                  | -272950000    | -259100000   | Rhinesuchus
-damselfly                                | Fauna     | Insect                     | -271000000    | 2030         | Damselfly
+rhinesuchus                              | Animal    | Amphibian                  | -272950000    | -259100000   | Rhinesuchus
+damselfly                                | Animal    | Insect                     | -271000000    | 2030         | Damselfly
 capitanian-mass-extinction               | Event     | Extinction Event           | -262000000    | -260000000   | Capitanian_mass_extinction_event
-gorgonops                                | Fauna     | Therapsid                  | -260000000    | -254000000   | Gorgonops
-hybodus                                  | Fauna     | Fish                       | -260000000    | -66000000    | Hybodus
-diictodon                                | Fauna     | Therapsid                  | -259800000    | -254100000   | Diictodon
-scutosaurus                              | Fauna     | Reptile                    | -259100000    | -251900000   | Scutosaurus
-euchambersia                             | Fauna     | Therapsid                  | -256000000    | -255000000   | Euchambersia
-lystrosaurus                             | Fauna     | Therapsid                  | -255000000    | -250000000   | Lystrosaurus
-proterosuchus                            | Fauna     | Reptile                    | -252000000    | -250000000   | Proterosuchus
+gorgonops                                | Animal    | Therapsid                  | -260000000    | -254000000   | Gorgonops
+hybodus                                  | Animal    | Fish                       | -260000000    | -66000000    | Hybodus
+diictodon                                | Animal    | Therapsid                  | -259800000    | -254100000   | Diictodon
+scutosaurus                              | Animal    | Reptile                    | -259100000    | -251900000   | Scutosaurus
+euchambersia                             | Animal    | Therapsid                  | -256000000    | -255000000   | Euchambersia
+lystrosaurus                             | Animal    | Therapsid                  | -255000000    | -250000000   | Lystrosaurus
+proterosuchus                            | Animal    | Reptile                    | -252000000    | -250000000   | Proterosuchus
 great-dying                              | Event     | Extinction Event           | -251978000    | -251490000   | Permian-Triassic_extinction_event
-cricket                                  | Fauna     | Insect                     | -251902000    | 2030         | Cricket_(insect)
+cricket                                  | Animal    | Insect                     | -251902000    | 2030         | Cricket_(insect)
 siberian-traps                           | Geology   | Geological Development     | -251500000    | -250000000   | Siberian_Traps
-thrinaxodon                              | Fauna     | Therapsid                  | -251000000    | -247000000   | Thrinaxodon
-ichthyosaur                              | Fauna     | Marine Reptile             | -250000000    | -90000000    | Ichthyosaur
+thrinaxodon                              | Animal    | Therapsid                  | -251000000    | -247000000   | Thrinaxodon
+ichthyosaur                              | Animal    | Marine Reptile             | -250000000    | -90000000    | Ichthyosaur
 tethys-ocean                             | Geology   | Marine Geology             | -250000000    | -50000000    | Tethys_Ocean
-perisphinctes                            | Fauna     | Cephalopod                 | -247200000    | -237000000   | Perisphinctes
-euparkeria                               | Fauna     | Reptile                    | -245000000    | -230000000   | Euparkeria
-traversodontidae                         | Fauna     | Therapsid                  | -245000000    | -201300000   | Traversodontidae
-leptolepis                               | Fauna     | Fish                       | -242000000    | -112600000   | Leptolepis
-mesolimulus                              | Fauna     | Arthropod                  | -242000000    | -93900000    | Mesolimulus
+perisphinctes                            | Animal    | Cephalopod                 | -247200000    | -237000000   | Perisphinctes
+euparkeria                               | Animal    | Reptile                    | -245000000    | -230000000   | Euparkeria
+traversodontidae                         | Animal    | Therapsid                  | -245000000    | -201300000   | Traversodontidae
+leptolepis                               | Animal    | Fish                       | -242000000    | -112600000   | Leptolepis
+mesolimulus                              | Animal    | Arthropoda                 | -242000000    | -93900000    | Mesolimulus
 carnian-pluvial-event                    | Event     | Extinction Event           | -234000000    | -232000000   | Carnian_Pluvial_Event
-peteinosaurus                            | Fauna     | Flying Reptile             | -221000000    | -210000000   | Peteinosaurus
-postosuchus                              | Fauna     | Reptile                    | -221000000    | -203000000   | Postosuchus
-placerias                                | Fauna     | Therapsid                  | -220000000    | -216000000   | Placerias
+peteinosaurus                            | Animal    | Flying Reptile             | -221000000    | -210000000   | Peteinosaurus
+postosuchus                              | Animal    | Reptile                    | -221000000    | -203000000   | Postosuchus
+placerias                                | Animal    | Therapsid                  | -220000000    | -216000000   | Placerias
 manicouagan-reservoir-asteroid-impact    | Event     | Celestial Event            | -215000000    | -213000000   | Manicouagan_Reservoir
-plateosaurus                             | Fauna     | Dinosaur                   | -214000000    | -204000000   | Plateosaurus
-coelophysis                              | Fauna     | Dinosaur                   | -212000000    | -196000000   | Coelophysis
-plesiosauroidea                          | Fauna     | Marine Reptile             | -210000000    | -66000000    | Plesiosauroidea
-pliosauroidea                            | Fauna     | Marine Reptile             | -208000000    | -893000000   | Pliosauroidea
-cylindroteuthis                          | Fauna     | Cephalopod                 | -201300000    | -145000000   | Cylindroteuthis
-dragonfly                                | Fauna     | Insect                     | -201300000    | 2030         | Dragonfly
+plateosaurus                             | Animal    | Dinosaur                   | -214000000    | -204000000   | Plateosaurus
+coelophysis                              | Animal    | Dinosaur                   | -212000000    | -196000000   | Coelophysis
+plesiosauroidea                          | Animal    | Marine Reptile             | -210000000    | -66000000    | Plesiosauroidea
+pliosauroidea                            | Animal    | Marine Reptile             | -208000000    | -893000000   | Pliosauroidea
+cylindroteuthis                          | Animal    | Cephalopod                 | -201300000    | -145000000   | Cylindroteuthis
+dragonfly                                | Animal    | Insect                     | -201300000    | 2030         | Dragonfly
 triassic-jurassic-extinction             | Event     | Extinction Event           | -201300000    | -201290000   | Triassic-Jurassic_extinction_event
-wasp                                     | Fauna     | Insect                     | -201300000    | 2030         | Wasp
+wasp                                     | Animal    | Insect                     | -201300000    | 2030         | Wasp
 toarcian-turnover                        | Event     | Extinction Event           | -183500000    | -182500000   | Toarcian_turnover
-cryptoclidus                             | Fauna     | Marine Reptile             | -166000000    | -160000000   | Cryptoclidus
-liopleurodon                             | Fauna     | Marine Reptile             | -166000000    | -155000000   | Liopleurodon
-ophthalmosaurus                          | Fauna     | Marine Reptile             | -165000000    | -160000000   | Ophthalmosaurus
-eustreptospondylus                       | Fauna     | Dinosaur                   | -163000000    | -154000000   | Eustreptospondylus
-allosaurus                               | Fauna     | Dinosaur                   | -155000000    | -145000000   | Allosaurus
-dryosaurus                               | Fauna     | Dinosaur                   | -155000000    | -145000000   | Dryosaurus
-stegosaurus                              | Fauna     | Dinosaur                   | -155000000    | -150000000   | Stegosaurus
-brachiosaurus                            | Fauna     | Dinosaur                   | -154000000    | -153000000   | Brachiosaurus
-diplodocus                               | Fauna     | Dinosaur                   | -154000000    | -152000000   | Diplodocus
-ornitholestes                            | Fauna     | Dinosaur                   | -154000000    | -154000000   | Ornitholestes
-anurognathus                             | Fauna     | Flying Reptile             | -150800000    | -148500000   | Anurognathus
-archaeopteryx                            | Fauna     | Bird                       | -150800000    | -148500000   | Archaeopteryx
-pterodactylus                            | Fauna     | Flying Reptile             | -150800000    | -148500000   | Pterodactylus
-rhamphorhynchus                          | Fauna     | Flying Reptile             | -150800000    | -148500000   | Rhamphorhynchus
-saurophthirus                            | Fauna     | Insect                     | -145000000    | -100500000   | Saurophthirus
-utahraptor                               | Fauna     | Dinosaur                   | -139000000    | -134600000   | Utahraptor
-pine-tree-genus                          | Flora     | Trees                      | -130000000    | 2030         | Pinaceae
-polacanthus                              | Fauna     | Dinosaur                   | -130000000    | -125000000   | Polacanthus
-bark-beetle                              | Fauna     | Insect                     | -129400000    | 2030         | Bark_beetle
-dakotadon                                | Fauna     | Dinosaur                   | -129400000    | -125000000   | Dakotadon
-iguanodon                                | Fauna     | Dinosaur                   | -126000000    | -122000000   | Iguanodon
-koolasuchus                              | Fauna     | Amphibian                  | -120500000    | -119500000   | Koolasuchus
+cryptoclidus                             | Animal    | Marine Reptile             | -166000000    | -160000000   | Cryptoclidus
+liopleurodon                             | Animal    | Marine Reptile             | -166000000    | -155000000   | Liopleurodon
+ophthalmosaurus                          | Animal    | Marine Reptile             | -165000000    | -160000000   | Ophthalmosaurus
+eustreptospondylus                       | Animal    | Dinosaur                   | -163000000    | -154000000   | Eustreptospondylus
+allosaurus                               | Animal    | Dinosaur                   | -155000000    | -145000000   | Allosaurus
+dryosaurus                               | Animal    | Dinosaur                   | -155000000    | -145000000   | Dryosaurus
+stegosaurus                              | Animal    | Dinosaur                   | -155000000    | -150000000   | Stegosaurus
+brachiosaurus                            | Animal    | Dinosaur                   | -154000000    | -153000000   | Brachiosaurus
+diplodocus                               | Animal    | Dinosaur                   | -154000000    | -152000000   | Diplodocus
+ornitholestes                            | Animal    | Dinosaur                   | -154000000    | -154000000   | Ornitholestes
+anurognathus                             | Animal    | Flying Reptile             | -150800000    | -148500000   | Anurognathus
+archaeopteryx                            | Animal    | Bird                       | -150800000    | -148500000   | Archaeopteryx
+pterodactylus                            | Animal    | Flying Reptile             | -150800000    | -148500000   | Pterodactylus
+rhamphorhynchus                          | Animal    | Flying Reptile             | -150800000    | -148500000   | Rhamphorhynchus
+saurophthirus                            | Animal    | Insect                     | -145000000    | -100500000   | Saurophthirus
+utahraptor                               | Animal    | Dinosaur                   | -139000000    | -134600000   | Utahraptor
+pine-tree                                | Plant     | Pinophyta                  | -130000000    | 2030         | Pinaceae
+polacanthus                              | Animal    | Dinosaur                   | -130000000    | -125000000   | Polacanthus
+bark-beetle                              | Animal    | Insect                     | -129400000    | 2030         | Bark_beetle
+dakotadon                                | Animal    | Dinosaur                   | -129400000    | -125000000   | Dakotadon
+iguanodon                                | Animal    | Dinosaur                   | -126000000    | -122000000   | Iguanodon
+koolasuchus                              | Animal    | Amphibian                  | -120500000    | -119500000   | Koolasuchus
 aptian_extinction                        | Event     | Extinction Event           | -117500000    | -115500000   | Aptian_extinction
-deinonychus                              | Fauna     | Dinosaur                   | -115000000    | -108000000   | Deinonychus
-leaellynasaura                           | Fauna     | Dinosaur                   | -113000000    | -110000000   | Leaellynasaura
-tapejara                                 | Fauna     | Flying Reptile             | -112500000    | -111500000   | Tapejara_wellnhoferi
-gecko                                    | Fauna     | Reptile                    | -110000000    | 2030         | Gecko
-sea-turtle                               | Fauna     | Marine Reptile             | -110000000    | 2030         | Sea_turtle
-muttaburrasaurus                         | Fauna     | Dinosaur                   | -107000000    | -103000000   | Muttaburrasaurus
-giant-wētā                               | Fauna     | Arthropod                  | -106000000    | 2030         | Giant_wētā
-ornithocheirus                           | Fauna     | Flying Reptile             | -105000000    | -100000000   | Ornithocheirus
-gypsonictops                             | Fauna     | Mammal                     | -100500000    | -66000000    | Gypsonictops
-meniscoessus                             | Fauna     | Mammal                     | -100500000    | -66000000    | Meniscoessus
-steropodon                               | Fauna     | Mammal                     | -100500000    | -93300000    | Steropodon
+deinonychus                              | Animal    | Dinosaur                   | -115000000    | -108000000   | Deinonychus
+leaellynasaura                           | Animal    | Dinosaur                   | -113000000    | -110000000   | Leaellynasaura
+tapejara                                 | Animal    | Flying Reptile             | -112500000    | -111500000   | Tapejara_wellnhoferi
+gecko                                    | Animal    | Reptile                    | -110000000    | 2030         | Gecko
+sea-turtle                               | Animal    | Marine Reptile             | -110000000    | 2030         | Sea_turtle
+muttaburrasaurus                         | Animal    | Dinosaur                   | -107000000    | -103000000   | Muttaburrasaurus
+giant-wētā                               | Animal    | Arthropoda                 | -106000000    | 2030         | Giant_wētā
+ornithocheirus                           | Animal    | Flying Reptile             | -105000000    | -100000000   | Ornithocheirus
+gypsonictops                             | Animal    | Mammal                     | -100500000    | -66000000    | Gypsonictops
+meniscoessus                             | Animal    | Mammal                     | -100500000    | -66000000    | Meniscoessus
+steropodon                               | Animal    | Mammal                     | -100500000    | -93300000    | Steropodon
 cenomanian-turonian-boundary-event       | Event     | Extinction Event           | -100100000    | -82900000    | Cenomanian-Turonian_boundary_event
-plesiopleurodon                          | Fauna     | Marine Reptile             | -98500000     | -97500000    | Plesiopleurodon
-dreadnoughtus                            | Fauna     | Dinosaur                   | -86300000     | -66000000    | Dreadnoughtus
-pteranodon                               | Fauna     | Flying Reptile             | -86000000     | -84500000    | Pteranodon
-dinilysia                                | Fauna     | Reptile                    | -85500000     | -84500000    | Dinilysia
-nyctosaurus                              | Fauna     | Flying Reptile             | -85000000     | -84500000    | Nyctosaurus
-protoceratops                            | Fauna     | Dinosaur                   | -83500000     | -70600000    | Protoceratops
-deinosuchus                              | Fauna     | Reptile                    | -82000000     | -73000000    | Deinosuchus
-dromaeosaurus                            | Fauna     | Dinosaur                   | -80000000     | -69100000    | Dromaeosaurus
-ornithomimus                             | Fauna     | Dinosaur                   | -75500000     | -66000000    | Ornithomimus
-struthiomimus                            | Fauna     | Dinosaur                   | -75000000     | -66000000    | Struthiomimus
-velociraptor                             | Fauna     | Dinosaur                   | -75000000     | -71000000    | Velociraptor
-didelphodon                              | Fauna     | Mammal                     | -73000000     | -66000000    | Didelphodon
-rahiolisaurus                            | Fauna     | Dinosaur                   | -72100000     | -66000000    | Rahiolisaurus
-iberomesornis                            | Fauna     | Bird                       | -72000000     | 2030         | Iberomesornis
-albertosaurus                            | Fauna     | Dinosaur                   | -71000000     | -68000000    | Albertosaurus
-hylidae                                  | Fauna     | Amphibian                  | -70600000     | 2030         | Hylidae
-gallimimus                               | Fauna     | Dinosaur                   | -70000000     | -70000000    | Gallimimus
-tarbosaurus                              | Fauna     | Dinosaur                   | -70000000     | -66000000    | Tarbosaurus
-rajasaurus                               | Fauna     | Dinosaur                   | -69000000     | -69000000    | Rajasaurus
-ankylosaurus                             | Fauna     | Dinosaur                   | -68000000     | -66000000    | Ankylosaurus
-edmontosaurus                            | Fauna     | Dinosaur                   | -68000000     | -66000000    | Edmontosaurus_annectens
-quetzalcoatlus                           | Fauna     | Flying Reptile             | -68000000     | -66000000    | Quetzalcoatlus
-thescelosaurus                           | Fauna     | Dinosaur                   | -68000000     | -66000000    | Thescelosaurus
-torosaurus                               | Fauna     | Dinosaur                   | -68000000     | -66000000    | Torosaurus
-triceratops                              | Fauna     | Dinosaur                   | -68000000     | -66000000    | Triceratops
-triceratops                              | Fauna     | Dinosaur                   | -68000000     | -66000000    | Triceratops
-tyrannosaurus                            | Fauna     | Dinosaur                   | -68000000     | -66000000    | Tyrannosaurus
+plesiopleurodon                          | Animal    | Marine Reptile             | -98500000     | -97500000    | Plesiopleurodon
+dreadnoughtus                            | Animal    | Dinosaur                   | -86300000     | -66000000    | Dreadnoughtus
+pteranodon                               | Animal    | Flying Reptile             | -86000000     | -84500000    | Pteranodon
+dinilysia                                | Animal    | Reptile                    | -85500000     | -84500000    | Dinilysia
+nyctosaurus                              | Animal    | Flying Reptile             | -85000000     | -84500000    | Nyctosaurus
+protoceratops                            | Animal    | Dinosaur                   | -83500000     | -70600000    | Protoceratops
+deinosuchus                              | Animal    | Reptile                    | -82000000     | -73000000    | Deinosuchus
+dromaeosaurus                            | Animal    | Dinosaur                   | -80000000     | -69100000    | Dromaeosaurus
+ornithomimus                             | Animal    | Dinosaur                   | -75500000     | -66000000    | Ornithomimus
+struthiomimus                            | Animal    | Dinosaur                   | -75000000     | -66000000    | Struthiomimus
+velociraptor                             | Animal    | Dinosaur                   | -75000000     | -71000000    | Velociraptor
+didelphodon                              | Animal    | Mammal                     | -73000000     | -66000000    | Didelphodon
+rahiolisaurus                            | Animal    | Dinosaur                   | -72100000     | -66000000    | Rahiolisaurus
+iberomesornis                            | Animal    | Bird                       | -72000000     | 2030         | Iberomesornis
+albertosaurus                            | Animal    | Dinosaur                   | -71000000     | -68000000    | Albertosaurus
+hylidae                                  | Animal    | Amphibian                  | -70600000     | 2030         | Hylidae
+gallimimus                               | Animal    | Dinosaur                   | -70000000     | -70000000    | Gallimimus
+tarbosaurus                              | Animal    | Dinosaur                   | -70000000     | -66000000    | Tarbosaurus
+rajasaurus                               | Animal    | Dinosaur                   | -69000000     | -69000000    | Rajasaurus
+ankylosaurus                             | Animal    | Dinosaur                   | -68000000     | -66000000    | Ankylosaurus
+edmontosaurus                            | Animal    | Dinosaur                   | -68000000     | -66000000    | Edmontosaurus_annectens
+quetzalcoatlus                           | Animal    | Flying Reptile             | -68000000     | -66000000    | Quetzalcoatlus
+thescelosaurus                           | Animal    | Dinosaur                   | -68000000     | -66000000    | Thescelosaurus
+torosaurus                               | Animal    | Dinosaur                   | -68000000     | -66000000    | Torosaurus
+triceratops                              | Animal    | Dinosaur                   | -68000000     | -66000000    | Triceratops
+triceratops                              | Animal    | Dinosaur                   | -68000000     | -66000000    | Triceratops
+tyrannosaurus                            | Animal    | Dinosaur                   | -68000000     | -66000000    | Tyrannosaurus
 deccan-traps                             | Geology   | Geological Development     | -66250000     | -65500000    | Deccan_Traps
 chicxulub-asteroid-impact                | Event     | Celestial Event            | -66054000     | -66032000    | Chicxulub_crater
-arctocyonidae                            | Fauna     | Mammal                     | -66000000     | -50000000    | Arctocyonidae
-chriacus                                 | Fauna     | Mammal                     | -66000000     | -33900000    | Chriacus
+arctocyonidae                            | Animal    | Mammal                     | -66000000     | -50000000    | Arctocyonidae
+chriacus                                 | Animal    | Mammal                     | -66000000     | -33900000    | Chriacus
 cretaceous-paleogene-extinction          | Event     | Extinction Event           | -66000000     | -65000000    | Cretaceous-Paleogene_extinction_event
-dissacus                                 | Fauna     | Mammal                     | -66000000     | -50300000    | Dissacus
-purgatorius                              | Fauna     | Mammal                     | -66000000     | -63000000    | Purgatorius
-triisodontidae                           | Fauna     | Mammal                     | -66000000     | -33900000    | Triisodontidae
-yantanglestes                            | Fauna     | Mammal                     | -66000000     | -56000000    | Yantanglestes
+dissacus                                 | Animal    | Mammal                     | -66000000     | -50300000    | Dissacus
+purgatorius                              | Animal    | Mammal                     | -66000000     | -63000000    | Purgatorius
+triisodontidae                           | Animal    | Mammal                     | -66000000     | -33900000    | Triisodontidae
+yantanglestes                            | Animal    | Mammal                     | -66000000     | -56000000    | Yantanglestes
 boltyish-asteroid-impact                 | Event     | Celestial Event            | -65810000     | -64530000    | Boltysh_crater
-ankalagon                                | Fauna     | Mammal                     | -63300000     | -60200000    | Ankalagon_saurognathus
-hukoutherium                             | Fauna     | Mammal                     | -61600000     | -41200000    | Hukoutherium
-jiangxia                                 | Fauna     | Mammal                     | -61600000     | -56000000    | Jiangxia_(mammal)
-miacis                                   | Fauna     | Mammal                     | -59200000     | -33900000    | Miacis
-pachyaena                                | Fauna     | Mammal                     | -59200000     | -47800000    | Pachyaena
-uintacyon                                | Fauna     | Mammal                     | -59200000     | -41200000    | Uintacyon
-sinonyx                                  | Fauna     | Mammal                     | -57000000     | -56000000    | Sinonyx
-palaeonictis                             | Fauna     | Mammal                     | -56200000     | -50500000    | Palaeonictis
-butterflies                              | Fauna     | Insect                     | -56000000     | 2030         | Butterfly
-dormaalocyon                             | Fauna     | Mammal                     | -56000000     | -47800000    | Dormaalocyon
-eofelis                                  | Fauna     | Mammal                     | -56000000     | -20440000    | Eofelis
-gastornis                                | Fauna     | Bird                       | -56000000     | -45000000    | Gastornis
-godinotia                                | Fauna     | Mammal                     | -56000000     | -47800000    | Godinotia
-gracilocyon                              | Fauna     | Mammal                     | -56000000     | -47800000    | Gracilocyon
-hapalodectes                             | Fauna     | Mammal                     | -56000000     | -47800000    | Hapalodectes
-hapalorestes                             | Fauna     | Mammal                     | -56000000     | -41200000    | Hapalorestes
-kentisuchus                              | Fauna     | Reptile                    | -56000000     | -47800000    | Kentisuchus
-mesonyx                                  | Fauna     | Mammal                     | -56000000     | -33900000    | Mesonyx
-messelogale                              | Fauna     | Mammal                     | -56000000     | -37800000    | Messelogale
-metahapalodectes                         | Fauna     | Mammal                     | -56000000     | -33900000    | Metahapalodectes
-miocyon                                  | Fauna     | Mammal                     | -56000000     | -37800000    | Miocyon
-mongolestes                              | Fauna     | Mammal                     | -56000000     | -23030000    | Mongolestes
-oxyaena                                  | Fauna     | Mammal                     | -56000000     | -50300000    | Oxyaena
-paramiacis                               | Fauna     | Mammal                     | -56000000     | -33900000    | Paramiacis
-propalaeotherium                         | Fauna     | Mammal                     | -56000000     | -33900000    | Propalaeotherium
-quercygale                               | Fauna     | Mammal                     | -56000000     | -33900000    | Quercygale
-vassacyon                                | Fauna     | Mammal                     | -56000000     | -41200000    | Vassacyon
-vulpavus                                 | Fauna     | Mammal                     | -56000000     | -37800000    | Vulpavus
-machaeroides                             | Fauna     | Mammal                     | -54900000     | -46200000    | Machaeroides
-mesonyx                                  | Fauna     | Mammal                     | -51800000     | -51700000    | Mesonyx
-cynohyaenodon                            | Fauna     | Mammal                     | -50800000     | -37800000    | Cynohyaenodon
-eurotherium                              | Fauna     | Mammal                     | -50800000     | -41200000    | Eurotherium
-patriofelis                              | Fauna     | Mammal                     | -50500000     | -39700000    | Patriofelis
-titanomyrma                              | Fauna     | Insect                     | -50500000     | -48500000    | Titanomyrma
-leptictidium                             | Fauna     | Mammal                     | -50000000     | -35000000    | Leptictidium
-paroodectes                              | Fauna     | Mammal                     | -48600000     | -40400000    | Paroodectes
-sarkastodon                              | Fauna     | Mammal                     | -48600000     | –37200000    | Sarkastodon
-ambulocetus                              | Fauna     | Marine Mammal              | -48000000     | -47000000    | Ambulocetus
-palaeopython                             | Fauna     | Reptile                    | -48000000     | -34000000    | Palaeopython
-dawsonicyon                              | Fauna     | Mammal                     | -47800000     | -37800000    | Dawsonicyon
-eurotamandua                             | Fauna     | Mammal                     | -47800000     | -46300000    | Eurotamandua
-lohoodon                                 | Fauna     | Mammal                     | -47800000     | -37800000    | Lohoodon
-mongolonyx                               | Fauna     | Mammal                     | -47800000     | -27800000    | Mongolonyx
-synoplotherium                           | Fauna     | Mammal                     | -47800000     | -33900000    | Synoplotherium
-lycophocyon                              | Fauna     | Mammal                     | -43000000     | -40000000    | Lycophocyon
-hyaenodon                                | Fauna     | Mammal                     | -42000000     | -15970000    | Hyaenodon
-harpagolestes                            | Fauna     | Mammal                     | -41200000     | -33900000    | Harpagolestes
-honanodon                                | Fauna     | Mammal                     | -41200000     | -33900000    | Honanodon
-great-american-interchange               | Event     | Faunal Migration           | -40000000     | -12000       | Great_American_Interchange
-guilestes                                | Fauna     | Mammal                     | -37800000     | -33900000    | Guilestes
-maofelis                                 | Fauna     | Mammal                     | -37800000     | -33900000    | Maofelis
-dinictis                                 | Fauna     | Mammal                     | -37200000     | -20400000    | Dinictis
-entelodont                               | Fauna     | Mammal                     | -37200000     | -19000000    | Entelodont
-hoplophoneus                             | Fauna     | Mammal                     | -35000000     | -29000000    | Hoplophoneus
+ankalagon                                | Animal    | Mammal                     | -63300000     | -60200000    | Ankalagon_saurognathus
+hukoutherium                             | Animal    | Mammal                     | -61600000     | -41200000    | Hukoutherium
+jiangxia                                 | Animal    | Mammal                     | -61600000     | -56000000    | Jiangxia_(mammal)
+miacis                                   | Animal    | Mammal                     | -59200000     | -33900000    | Miacis
+pachyaena                                | Animal    | Mammal                     | -59200000     | -47800000    | Pachyaena
+uintacyon                                | Animal    | Mammal                     | -59200000     | -41200000    | Uintacyon
+sinonyx                                  | Animal    | Mammal                     | -57000000     | -56000000    | Sinonyx
+palaeonictis                             | Animal    | Mammal                     | -56200000     | -50500000    | Palaeonictis
+butterflies                              | Animal    | Insect                     | -56000000     | 2030         | Butterfly
+dormaalocyon                             | Animal    | Mammal                     | -56000000     | -47800000    | Dormaalocyon
+eofelis                                  | Animal    | Mammal                     | -56000000     | -20440000    | Eofelis
+gastornis                                | Animal    | Bird                       | -56000000     | -45000000    | Gastornis
+godinotia                                | Animal    | Mammal                     | -56000000     | -47800000    | Godinotia
+gracilocyon                              | Animal    | Mammal                     | -56000000     | -47800000    | Gracilocyon
+hapalodectes                             | Animal    | Mammal                     | -56000000     | -47800000    | Hapalodectes
+hapalorestes                             | Animal    | Mammal                     | -56000000     | -41200000    | Hapalorestes
+kentisuchus                              | Animal    | Reptile                    | -56000000     | -47800000    | Kentisuchus
+mesonyx                                  | Animal    | Mammal                     | -56000000     | -33900000    | Mesonyx
+messelogale                              | Animal    | Mammal                     | -56000000     | -37800000    | Messelogale
+metahapalodectes                         | Animal    | Mammal                     | -56000000     | -33900000    | Metahapalodectes
+miocyon                                  | Animal    | Mammal                     | -56000000     | -37800000    | Miocyon
+mongolestes                              | Animal    | Mammal                     | -56000000     | -23030000    | Mongolestes
+oxyaena                                  | Animal    | Mammal                     | -56000000     | -50300000    | Oxyaena
+paramiacis                               | Animal    | Mammal                     | -56000000     | -33900000    | Paramiacis
+propalaeotherium                         | Animal    | Mammal                     | -56000000     | -33900000    | Propalaeotherium
+quercygale                               | Animal    | Mammal                     | -56000000     | -33900000    | Quercygale
+vassacyon                                | Animal    | Mammal                     | -56000000     | -41200000    | Vassacyon
+vulpavus                                 | Animal    | Mammal                     | -56000000     | -37800000    | Vulpavus
+machaeroides                             | Animal    | Mammal                     | -54900000     | -46200000    | Machaeroides
+mesonyx                                  | Animal    | Mammal                     | -51800000     | -51700000    | Mesonyx
+cynohyaenodon                            | Animal    | Mammal                     | -50800000     | -37800000    | Cynohyaenodon
+eurotherium                              | Animal    | Mammal                     | -50800000     | -41200000    | Eurotherium
+patriofelis                              | Animal    | Mammal                     | -50500000     | -39700000    | Patriofelis
+titanomyrma                              | Animal    | Insect                     | -50500000     | -48500000    | Titanomyrma
+leptictidium                             | Animal    | Mammal                     | -50000000     | -35000000    | Leptictidium
+paroodectes                              | Animal    | Mammal                     | -48600000     | -40400000    | Paroodectes
+sarkastodon                              | Animal    | Mammal                     | -48600000     | -37200000    | Sarkastodon
+ambulocetus                              | Animal    | Marine Mammal              | -48000000     | -47000000    | Ambulocetus
+palaeopython                             | Animal    | Reptile                    | -48000000     | -34000000    | Palaeopython
+dawsonicyon                              | Animal    | Mammal                     | -47800000     | -37800000    | Dawsonicyon
+eurotamandua                             | Animal    | Mammal                     | -47800000     | -46300000    | Eurotamandua
+lohoodon                                 | Animal    | Mammal                     | -47800000     | -37800000    | Lohoodon
+mongolonyx                               | Animal    | Mammal                     | -47800000     | -27800000    | Mongolonyx
+synoplotherium                           | Animal    | Mammal                     | -47800000     | -33900000    | Synoplotherium
+lycophocyon                              | Animal    | Mammal                     | -43000000     | -40000000    | Lycophocyon
+hyaenodon                                | Animal    | Mammal                     | -42000000     | -15970000    | Hyaenodon
+harpagolestes                            | Animal    | Mammal                     | -41200000     | -33900000    | Harpagolestes
+honanodon                                | Animal    | Mammal                     | -41200000     | -33900000    | Honanodon
+great-american-interchange               | Event     | Migration                  | -40000000     | -12000       | Great_American_Interchange
+guilestes                                | Animal    | Mammal                     | -37800000     | -33900000    | Guilestes
+maofelis                                 | Animal    | Mammal                     | -37800000     | -33900000    | Maofelis
+dinictis                                 | Animal    | Mammal                     | -37200000     | -20400000    | Dinictis
+entelodont                               | Animal    | Mammal                     | -37200000     | -19000000    | Entelodont
+hoplophoneus                             | Animal    | Mammal                     | -35000000     | -29000000    | Hoplophoneus
 eocene-oligocene-extinction              | Event     | Extinction Event           | -34100000     | -33600000    | Eocene-Oligocene_extinction_event
-nanosmilus                               | Fauna     | Mammal                     | -33900000     | -27800000    | Nanosmilus
-palaeogale                               | Fauna     | Mammal                     | -33900000     | -15970000    | Palaeogale
-pogonodon                                | Fauna     | Mammal                     | -33900000     | -23030000    | Pogonodon
-quercylurus                              | Fauna     | Mammal                     | -33900000     | -23030000    | Quercylurus
-nimravus                                 | Fauna     | Mammal                     | -33300000     | -26300000    | Nimravus
-dinaelurus                               | Fauna     | Mammal                     | -30800000     | -20600000    | Dinaelurus
-dinailurictis                            | Fauna     | Mammal                     | -27800000     | -23030000    | Dinailurictis
-hyainailouros                            | Fauna     | Mammal                     | -23030000     | -5333000     | Hyainailouros
-tuatara                                  | Fauna     | Reptile                    | -19000000     | 2030         | Tuatara
+nanosmilus                               | Animal    | Mammal                     | -33900000     | -27800000    | Nanosmilus
+palaeogale                               | Animal    | Mammal                     | -33900000     | -15970000    | Palaeogale
+pogonodon                                | Animal    | Mammal                     | -33900000     | -23030000    | Pogonodon
+quercylurus                              | Animal    | Mammal                     | -33900000     | -23030000    | Quercylurus
+nimravus                                 | Animal    | Mammal                     | -33300000     | -26300000    | Nimravus
+dinaelurus                               | Animal    | Mammal                     | -30800000     | -20600000    | Dinaelurus
+dinailurictis                            | Animal    | Mammal                     | -27800000     | -23030000    | Dinailurictis
+hyainailouros                            | Animal    | Mammal                     | -23030000     | -5333000     | Hyainailouros
+tuatara                                  | Animal    | Reptile                    | -19000000     | 2030         | Tuatara
 middle-miocene-disruption                | Event     | Extinction Event           | -14500000     | -13500000    | Middle_Miocene_disruption
-ardipithecus-kadabba                     | Fauna     | Hominid                    | -6500000      | -5500000     | Ardipithecus_kadabba
-ardipithecus-ramidus                     | Fauna     | Hominid                    | -4510000      | -4320000     | Ardipithecus_ramidus
-australopithecus-anamensis               | Fauna     | Hominid                    | -4200000      | -3800000     | Australopithecus_anamensis
-australopithecus-afarensis               | Fauna     | Hominid                    | -3900000      | -2900000     | Australopithecus_afarensis
-australopithecus-africanus               | Fauna     | Hominid                    | -3670000      | -2000000     | Australopithecus_africanus
-australopithecus-bahrelghazali           | Fauna     | Hominid                    | -3500000      | -2800000     | Australopithecus_bahrelghazali
-australopithecus-deyiremeda              | Fauna     | Hominid                    | -3500000      | -3300000     | Australopithecus_deyiremeda
-kenyanthropus                            | Fauna     | Hominid                    | -3500000      | -3200000     | Kenyanthropus
+ardipithecus-kadabba                     | Animal    | Hominid                    | -6500000      | -5500000     | Ardipithecus_kadabba
+ardipithecus-ramidus                     | Animal    | Hominid                    | -4510000      | -4320000     | Ardipithecus_ramidus
+australopithecus-anamensis               | Animal    | Hominid                    | -4200000      | -3800000     | Australopithecus_anamensis
+australopithecus-afarensis               | Animal    | Hominid                    | -3900000      | -2900000     | Australopithecus_afarensis
+australopithecus-africanus               | Animal    | Hominid                    | -3670000      | -2000000     | Australopithecus_africanus
+australopithecus-bahrelghazali           | Animal    | Hominid                    | -3500000      | -2800000     | Australopithecus_bahrelghazali
+australopithecus-deyiremeda              | Animal    | Hominid                    | -3500000      | -3300000     | Australopithecus_deyiremeda
+kenyanthropus                            | Animal    | Hominid                    | -3500000      | -3200000     | Kenyanthropus
 paleolithic                              | Event     | Archaeological Age         | -3300000      | -11700       | Paleolithic
-ld-350-1                                 | Fauna     | Hominid                    | -2800000      | -2750000     | LD_350-1
-paranthropus-aethiopicus                 | Fauna     | Hominid                    | -2700000      | -2300000     | Paranthropus_aethiopicus
-australopithecus-garhi                   | Fauna     | Hominid                    | -2600000      | -2500000     | Australopithecus_garhi
-homo-habilis                             | Fauna     | Hominid                    | -2310000      | -1650000     | Homo_habilis
-homo-rudolfensis                         | Fauna     | Hominid                    | -2310000      | -1550000     | Homo_rudolfensis
-paranthropus-boisei                      | Fauna     | Hominid                    | -2300000      | -1340000     | Paranthropus_boisei
-homo-erectus                             | Fauna     | Hominid                    | -2000000      | -600000      | Homo_ergaster
-paranthropus-robustus                    | Fauna     | Hominid                    | -2000000      | -600000      | Paranthropus_robustus
-australopithecus-sediba                  | Fauna     | Hominid                    | -1980000      | -1950000     | Australopithecus_sediba
+ld-350-1                                 | Animal    | Hominid                    | -2800000      | -2750000     | LD_350-1
+paranthropus-aethiopicus                 | Animal    | Hominid                    | -2700000      | -2300000     | Paranthropus_aethiopicus
+australopithecus-garhi                   | Animal    | Hominid                    | -2600000      | -2500000     | Australopithecus_garhi
+homo-habilis                             | Animal    | Hominid                    | -2310000      | -1650000     | Homo_habilis
+homo-rudolfensis                         | Animal    | Hominid                    | -2310000      | -1550000     | Homo_rudolfensis
+paranthropus-boisei                      | Animal    | Hominid                    | -2300000      | -1340000     | Paranthropus_boisei
+homo-erectus                             | Animal    | Hominid                    | -2000000      | -600000      | Homo_ergaster
+paranthropus-robustus                    | Animal    | Hominid                    | -2000000      | -600000      | Paranthropus_robustus
+australopithecus-sediba                  | Animal    | Hominid                    | -1980000      | -1950000     | Australopithecus_sediba
 cromerian-stage                          | Event     | Climate Changes            | -800000       | -500000      | Cromerian_Stage
-homo-heidelbergensis                     | Fauna     | Hominid                    | -600000       | -200000      | Homo_heidelbergensis
+homo-heidelbergensis                     | Animal    | Hominid                    | -600000       | -200000      | Homo_heidelbergensis
 anglian-stage                            | Event     | Climate Changes            | -478000       | -424000      | Anglian_Stage
-homo-neanderthalensis                    | Fauna     | Hominid                    | -430000       | -40000       | Neanderthal
+homo-neanderthalensis                    | Animal    | Hominid                    | -430000       | -40000       | Neanderthal
 hoxnian-stage                            | Event     | Climate Changes            | -424000       | -374000      | Hoxnian_Stage
 wolstonian-stage                         | Event     | Climate Changes            | -352000       | -130000      | Wolstonian_Stage
-homo-naledi                              | Fauna     | Hominid                    | -335000       | -236000      | Homo_naledi
-homo-sapien                              | Fauna     | Hominid                    | -300000       |  2000        | Human
+homo-naledi                              | Animal    | Hominid                    | -335000       | -236000      | Homo_naledi
+homo-sapien                              | Animal    | Hominid                    | -300000       |  2000        | Human
 ipswichian-stage                         | Event     | Climate Changes            | -130000       | -115000      | Eemian
 quaternary-extinction                    | Event     | Extinction Event           | -130000       | -8000        | Quaternary_extinction
 last-glacial-period                      | Event     | Climate Changes            | -115000       | -11700       | Last_Glacial_Period

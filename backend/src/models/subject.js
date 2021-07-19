@@ -16,14 +16,35 @@
  */
 
 var mongoose = require('mongoose');
+const Hint = require('./hints').Hint;
 
 var Schema = mongoose.Schema;
 
 var SubjectSchema = new Schema({
     _id: {type: String, required: true},
     name: String,
-    kind: {type: String, enum: ['Fauna', 'Flora', 'Geology', 'Event']},
-    category: String,
+    kind: {
+      type: String,
+      validate: {
+        validator: function(v) {
+          return Hint.findOne({
+            _id: v,
+            type: 'Kind'
+          });
+        },
+        message: props => `${props.value} is an invalid Kind`
+      }
+    },
+    category: {
+      type: String,
+      validate: {
+        validator: function(v) {
+          return Hint.findById(v);
+        },
+        message: props => `${props.value} is an invalid Category`
+      },
+      required: true
+    },
     link: String,
     from: Number,
     to:   Number,

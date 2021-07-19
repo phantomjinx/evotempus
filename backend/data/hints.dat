@@ -15,51 +15,117 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-#NAME                    | TYPE     | COLOUR  | LINK ID                | COMMENT
-Event                    | Kind     | #ff8686 | <>                     | Light red
-Celestial Event          | Category | #000000 | Celestial_event        | Black
-Climate Changes          | Category | #939ac0 | Timeline_of_glaciation | Whitish blue
-Biological Development   | Category | #00571b | Evolution              | Dark green
-Extinction Event         | Category | #ff0000 | Extinction_event       | Red
-Archaeological Age       | Category | #cc003a | Three-age_system       | Reddish pink
-Arcaheological Feature   | Category | #e6b800 | Archaeology            | Yellow
-Ecological Migration     | Category | #00e229 | Migration_(ecology)    | Light green
-Geological Change        | Category | #543ed8 | <>                     | Purple
-#
-#
-Fauna                    | Kind     | #b36229 | Fauna                  | Light shade brown
-Agnatha                  | Category | <>      | Agnatha
-Amphibian                | Category | #007347 | Amphibian              | Greeny blue
-Arthropod                | Category | #3b1d00 | Arthropod
-Bilaterian               | Category | <>      | Bilateria
-Cephalopod               | Category | <>      | Cephalopod
-Cnidaria                 | Category | <>      | Cnidaria
-Dinosaur                 | Category | #a57800 | Dinosaur               | Light shade brown
-Early Form of Life       | Category | #694a30 | Evolution              | Light shade brown
-Amoebozoa                | Category | <>      | Amoebozoa
-Fish                     | Category | #ababab | Fish                   | Silver
-Flying Reptile           | Category | #f5881b | Pterosaur
-Hominid                  | Category | #763831 | Hominidae              | Pinky brown
-Insect                   | Category | #143f29 | Insect
-Marine Reptile           | Category | #1e9479 | Marine_reptile
-Porifera                 | Category | #205192 | Porifera               | Shade blue
-Proarticulata            | Category | #5478a7 | Proarticulata          | Shade blue
-Rangeomorpha             | Category | <>      | Rangeomorpha
-Reptile                  | Category | #4cd500 | Reptile
-Synapsid                 | Category | #63342e | Synapsid
-Therapsid                | Category | #765450 | Therapsid
-Bird                     | Category | #f98e1b | Bird                   | Orange
-Mammal                   | Category | #600d03 | Mammal                 | Brown
-Marine Mammal            | Category | #006764 | Marine_mammal          | Green blue
-#
-#
-Flora                    | Kind     | #fff54d | Flora                  | Light yellow
-Spermatophyte            | Category | #893f17 | Spermatophytes         | Brown
-Algae                    | Category | #901236 | Algae                  | Dark red
-#
-#
-Geology                  | Kind     | #919191 | Geology                | Light grey
-Celestial Geology        | Category | #1b1b1b | <>                     | Not quite black
-Geological Development   | Category | #5b5753 | <>                     | Grey
-Continental Drift        | Category | #372c21 | Continental_drift      | Dark brown
-Marine Geology           | Category | #2d2fff | Marine_geology         | Dark blue
+#NAME                    | TYPE     | PARENT  | COLOUR  | LINK ID                | COMMENT
+Animal                   | Kind     | <>      | #b36229 | Animal                 | Light shade brown
+Event                    | Kind     | <>      | #ff8686 | <>                     | Light red
+Geology                  | Kind     | <>      | #919191 | Geology                | Light grey
+Micro                    | Kind     | <>      | #00FF00 | Protist                | Light shade brown
+Plant                    | Kind     | <>      | #fff54d | Plant                  | Light yellow
+Agmata                   | Category | Animal  | <>      | Agmata
+Agnatha                  | Category | Animal  | <>      | Agnatha
+Algae                    | Category | Plant   | #901236 | Algae                  | Dark red
+Amoebozoa                | Category | Animal  | <>      | Amoebozoa
+Amphibian                | Category | Animal  | #007347 | Amphibian              | Greeny blue
+Aneurophytophyta         | Category | Plant   | <>      | <>
+Angiospermae             | Category | Plant   | <>      | Flowering_plant
+Annelida                 | Category | Animal  | <>      | Annelida
+Anthocerophyta           | Category | Plant   | <>      | Anthocerophyta
+Archaeological Feature   | Category | Event   | #e6b800 | Archaeology            | Yellow
+Archaeological Age       | Category | Event   | #cc003a | Three-age_system       | Reddish pink
+Arthropoda               | Category | Animal  | #3b1d00 | Arthropod
+Bilaterian               | Category | Animal  | <>      | Bilateria
+Biological Development   | Category | Event   | #00571b | Evolution              | Dark green
+Bird                     | Category | Animal  | #f98e1b | Bird                   | Orange
+Brachiopoda              | Category | Animal  | <>      | Brachiopoda
+Bryophyta                | Category | Plant   | <>      | Bryophyta
+Bryozoa                  | Category | Animal  | <>      | Bryozoa
+Celestial Event          | Category | Event   | #000000 | Celestial_event        | Black
+Celestial Geology        | Category | Geology | #1b1b1b | <>                     | Not quite black
+Cephalopod               | Category | Animal  | <>      | Cephalopod
+Cercozoa                 | Category | Micro   | <>      | Cercozoa
+Chaetognatha             | Category | Animal  | <>      | Chaetognatha
+Charophyta               | Category | Plant   | <>      | Charophyta
+Chlorophyta              | Category | Plant   | <>      | Chlorophyta
+Chordata                 | Category | Animal  | <>      | Chordata
+Ciliophora               | Category | Micro   | <>      | Ciliophora
+Cladoxylophyta           | Category | Plant   | <>      | <>
+Climate Changes          | Category | Event   | #939ac0 | Timeline_of_glaciation | Whitish blue
+Cnidaria                 | Category | Animal  | <>      | Cnidaria
+Coniferophyta            | Category | Plant   | <>      | Conifer
+Continental Drift        | Category | Geology | #372c21 | Continental_drift      | Dark brown
+Ctenophora               | Category | Animal  | <>      | Ctenophora
+Cyanobacteria            | Category | Micro   | <>      | Cyanobacteria
+Cycadeoideophyta         | Category | Plant   | <>      | <>
+Cycadophyta              | Category | Plant   | <>      | Cycadophyta
+Dinosaur                 | Category | Animal  | #a57800 | Dinosaur               | Light shade brown
+Early Form of Life       | Category | Animal  | #694a30 | Evolution              | Light shade brown
+Echinodermata            | Category | Animal  | <>      | Echinodermata
+Ecological Migration     | Category | Event   | #00e229 | Migration_(ecology)    | Light green
+Entoprocta               | Category | Animal  | <>      | Entoprocta
+Equisetophyta            | Category | Plant   | <>      | Equisetophyta
+Extinction Event         | Category | Event   | #ff0000 | Extinction_event       | Red
+Filicophyta              | Category | Plant   | <>      | Fern
+Fish                     | Category | Animal  | #ababab | Fish                   | Silver
+Flying Reptile           | Category | Animal  | #f5881b | Pterosaur
+Foraminifera             | Category | Micro   | <>      | Foraminifera
+Geological Change        | Category | Event   | #543ed8 | <>                     | Purple
+Geological Development   | Category | Geology | #5b5753 | <>                     | Grey
+Ginkgophyta              | Category | Plant   | <>      | Ginkgophyta
+Gnetophyta               | Category | Plant   | <>      | Gnetophyta
+Gymnospermophyta         | Category | Plant   | <>      | Gymnospermophyta
+Haptophyta               | Category | Plant   | <>      | Haptophyta
+Hemichordata             | Category | Animal  | <>      | Hemichordata
+Hominid                  | Category | Animal  | #763831 | Hominidae              | Pinky brown
+Hyolitha                 | Category | Animal  | <>      | Hyolitha
+Insect                   | Category | Animal  | #143f29 | Insect
+Isoetophyta              | Category | Plant   | <>      | <>
+Lophotrochozoa           | Category | Animal  | <>      | Lophotrochozoa
+Lycophyta                | Category | Plant   | <>      | Lycophyta
+Lycopodophyta            | Category | Plant   | <>      | Lycophyta
+Magnoliophyta            | Category | Plant   | <>      | Magnoliophyta
+Mammal                   | Category | Animal  | #600d03 | Mammal                 | Brown
+Marine Geology           | Category | Geology | #2d2fff | Marine_geology         | Dark blue
+Marine Mammal            | Category | Animal  | #006764 | Marine_mammal          | Green blue
+Marine Reptile           | Category | Animal  | #1e9479 | Marine_reptile
+Migration                | Category | Event   | <>      | Biotic_interchange
+Mollusca                 | Category | Animal  | <>      | Mollusca
+Myzozoa                  | Category | Micro   | <>      | Myzozoa
+Nematoda                 | Category | Animal  | <>      | Nematoda
+Nematomorpha             | Category | Animal  | <>      | Nematomorpha
+Nemertea                 | Category | Animal  | <>      | Nemertea
+Ochrophyta               | Category | Plant   | <>      | Ochrophyta
+Onychophora              | Category | Animal  | <>      | Onychophora
+Peltaspermophyta         | Category | Plant   | <>      | <>
+Petalonamae              | Category | Animal  | <>      | Petalonamae
+Pezizomycotina           | Category | Fungi   | <>      | Pezizomycotina
+Phaeophyta               | Category | Plant   | <>      | Phaeophyta
+Phoronida                | Category | Animal  | <>      | Phoronida
+Pinophyta                | Category | Plant   | <>      | Pinophyta
+Platyhelminthes          | Category | Animal  | <>      | Platyhelminthes
+Pogonophora              | Category | Animal  | <>      | Siboglinidae
+Porifera                 | Category | Animal  | #205192 | Porifera               | Shade blue
+Prasinophyta             | Category | Plant   | <>      | <>
+Priapulida               | Category | Animal  | <>      | Priapulida
+Proarticulata            | Category | Animal  | #5478a7 | Proarticulata          | Shade blue
+Progymnospermophyta      | Category | Plant   | <>      | Progymnospermophyta
+Psilophytophyta          | Category | Plant   | <>      | <>
+Pteridophyta             | Category | Plant   | <>      | Pteridophyta
+Pteridospermophyta       | Category | Plant   | <>      | Pteridospermophyta
+Radiolaria               | Category | Micro   | <>      | Radiolaria
+Rangeomorpha             | Category | Animal  | <>      | Rangeomorpha
+Reptile                  | Category | Animal  | #4cd500 | Reptile
+Retaria                  | Category | Micro   | <>      | Retaria
+Rhizopodea               | Category | Micro   | <>      | Amoeba
+Rhodophyta               | Category | Plant   | <>      | Rhodophyta
+Rotifera                 | Category | Animal  | <>      | Rotifera
+Sarcodina                | Category | Micro   | <>      | Amoeba
+Sarcomastigophora        | Category | Micro   | <>      | Sarcomastigophora
+Sipuncula                | Category | Animal  | <>      | Sipuncula
+Spermatophyta            | Category | Plant   | #893f17 | Spermatophyte          | Brown
+Sphenophyta              | Category | Plant   | <>      | Sphenophyta
+Synapsid                 | Category | Animal  | #63342e | Synapsid
+Thallophyta              | Category | Plant   | <>      | Thallophyta
+Therapsid                | Category | Animal  | #765450 | Therapsid
+Tracheophyta             | Category | Plant   | <>      | Tracheophyta
+Vetulicolia              | Category | Animal  | <>      | Vetulicolia
+Zosterophyllophyta       | Category | Plant   | <>      | Zosterophyllophyta

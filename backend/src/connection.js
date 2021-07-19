@@ -15,20 +15,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var mongoose = require('mongoose');
-
-var Schema = mongoose.Schema;
-
-var HintSchema = new Schema({
-    _id: {type: String, required: true},
-    type:  {type: String, enum: ['Kind', 'Category']},
-    parent: {type: String, ref: 'Hint'},
-    colour: String,
-    link: String
-},
-{ versionKey: 'version' });
-
-// define our interval model
-module.exports = {
-  Hint: mongoose.model('Hint', HintSchema)
+var evoDb = {
+  conn: null,
+  options: {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+    autoIndex: true
+  },
+  terminate: function() {
+    if (evoDb.conn) {
+      evoDb.conn.close();
+    }
+    process.exit(1);
+  }
 };
+
+
+module.exports = evoDb;

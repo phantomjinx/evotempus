@@ -1,0 +1,52 @@
+#[["records",1,"cid"],"col:4878"]
+#[["records",1,"idn"],"Lilloettia aff. boesei"]
+#[["records",1,"idr"],3]
+#[["records",1,"tdf"],"species not entered"]
+#[["records",1,"tna"],"Lilloettia"]
+#[["records",1,"rnk"],5]
+#[["records",1,"tid"],"txn:15117"]
+#[["records",1,"oei"],"Temaikan"]
+#[["records",1,"eag"],175.6]
+#[["records",1,"lag"],161.2]
+#[["records",1,"rid"],"ref:294"]
+#[["records",1,"phl"],"Mollusca"]
+#[["records",1,"cll"],"Cephalopoda"]
+#[["records",1,"odl"],"Ammonitida"]
+#[["records",1,"fml"],"Sphaeroceratidae"]
+#[["records",1,"gnl"],"Lilloettia"]
+#[["records",1,"jco"],"aragonite"]
+#[["records",1,"pm1"],"gp_mid"]
+#[["records",1,"pln"],82.88]
+#[["records",1,"pla"],-79.33]
+#[["records",1,"gpl"],"806"]
+#[["records",1,"env"],"marine indet."]
+
+# cid: collection_no   [basic       - The identifier of the collection, if any, with which this specimen is associated
+# idn: identified_name [basic]      - The taxonomic name by which this occurrence was identified. This field will be omitted for responses in the compact voabulary if it is identical to the value of accepted_name.
+# idr: identified_rank [basic]      - The taxonomic rank of the identified name, if this can be determined. This field will be omitted for responses in the compact voabulary if it is identical to the value of accepted_rank.
+# tdf: difference 	   [basic]      - If the identified name is different from the accepted name, this field gives the reason why. This field will be present if, for example, the identified name is a junior synonym or nomen dubium, or if the species has been recombined, or if the identification is misspelled.
+# tna: accepted_name 	 [basic]      - The value of this field will be the accepted taxonomic name corresponding to the identified name.
+# rnk: accepted_rank 	 [basic]      - The taxonomic rank of the accepted name. This may be different from the identified rank if the identified name is a nomen dubium or otherwise invalid, or if the identified name has not been fully entered into the taxonomic hierarchy of this database.
+# tid: accepted_no 	   [basic]      - The unique identifier of the accepted taxonomic name in this database.
+# oei: early_interval  [basic]      - The specific geologic time range associated with this occurrence (not necessarily a standard interval), or the interval that begins the range if late_interval is also given
+# eag: max_ma 		     [basic]      - The early bound of the geologic time range associated with this occurrence (in Ma)
+# lag: min_ma        	 [basic]      - The late bound of the geologic time range associated with this occurrence (in Ma)
+# rid: reference_no 	 [basic]      - The identifier of the reference from which this data was entered
+# phl: phylum 	     	 [class]      - The name of the phylum in which this occurrence is classified.
+# phn: phylum_no 	   	 [classext]   - The identifier of the phylum in which this occurrence is classified. This is only included with the block classext.
+# cli: class 	    	   [class]      - The name of the class in which this occurrence is classified.
+# cln: class_no 	   	 [classext]   - The identifier of the class in which this occurrence is classified. This is only included with the block classext.
+# odl: order 	   	     [class]      - The name of the order in which this occurrence is classified.
+# odn: order_no 	 	   [classext]   - The identifier of the order in which this occurrence is classified. This is only included with the block classext.
+# fml: family 	     	 [class]      - The name of the family in which this occurrence is classified.
+# fmn: family_no 	     [classext]   - The identifier of the family in which this occurrence is classified. This is only included with the block classext.
+# gnl: genus 	     	   [class]      - The name of the genus in which this occurrence is classified. If the block subgenus is specified, this will include the subgenus name if any.
+# gnn: genus_no      	 [classext]   - The identifier of the genus in which this occurrence is classified
+# sgn: subgenus_no 	 	 [classext]   - The identifier of the subgenus in which this occurrence is classified, if any.
+# idg: primary_name 	 [ident]      - The taxonomic name (less species) by which this occurrence was identified. This is often a genus, but may be a higher taxon.
+# jco: composition     [taphonomy]  - The composition of the skeletal parts of this organism
+# pm1: paleoloc 	     [paleomodel] - The primary model specified by the parameter pgm. This field will only be included if more than one model is indicated.
+# pln: paleolng 	   	 [paleoloc]   - The paleolongitude of the collection, evaluated according to the primary model indicated by the parameter pgm.
+# pla: paleolat 	 	   [paleoloc]   - The paleolatitude of the collection, evaluated according to the primary model indicated by the parameter pgm.
+# gpl: geoplate 	     [paleoloc]   - The identifier of the geological plate on which the collection lies, evaluated according to the primary model indicated by the parameter pgm. This might be either a number or a string.
+# env: environment 	   [env]        - The paleoenvironment associated with the collection site

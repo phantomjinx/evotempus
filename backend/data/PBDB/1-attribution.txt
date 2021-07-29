@@ -1,0 +1,9 @@
+The data were downloaded from the Paleobiology Database (https://paleobiodb.org) on 8th July, 2021
+using the following parameters:
+  taxon_reso: genus
+  interval: [NAMED GEOLOGICAL TIME PERIOD | xMa],[NAMED GEOLOGICAL TIME PERIOD | xMa]
+  time_rule: overlap
+  show: class,taphonomy,paleoloc,geo
+
+The data includes records from all collections spanning the GSA Geological Time Scale so impractical to cite all the
+contributors individually so please extend my thanks to all contributors.

@@ -1,0 +1,46 @@
+Chaperia
+- Removal of Mollusca entries
+- Widen periods to largest range
+  -33900000     | -5333000
+  -19000000     | -15900000
+  -1630000      | -340000
+  -33900000     | -5333000
+  -1630000      | -340000
+  -2588000      | -11700
+  -------------------------
+  -33900000     | -11700
+
+Liaoxia
+- 2 separate genii recorded: 1 flowering plant & 1 insect
+- Liaoxia Chenii
+- Liaoxia Longa
+- Differentiate with species names
+
+Robinia
+- 2 separate genii recorded: 1 plant & 1 sponge
+- Use Sub-Taxon
+- Robinia Striatopunctata
+- Robinia Californica
+- Wiki refers to plant only so use taxon for sponge
+- Widen periods to largest range
+- Plant
+  -23030000     | -5333000
+  -20430000     | -13600000
+  -33900000     | -5333000
+  -66000000     | -56000000
+  -------------------------
+  -66000000     | -5333000
+- Sponge
+  -23030000     | -5333000     | Tax:204036
+  -41300000     | -38000000    | Robinia
+  -20440000     | -15970000    | Robinia
+  -33900000     | -5333000     | Robinia
+  -66000000     | -56000000    | Robinia
+  -----------------------------------------
+  -66000000     | -5333000     | Tax:204036
+
+Kinkaidia
+- 2 separate genii recorded: 1 snail & 1 coral
+- Renamed to
+  - Kinkaidia Anthozoa: coral
+  - Kinkaidia Gastropoda: snail

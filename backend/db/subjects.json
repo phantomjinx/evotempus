@@ -1,18 +1,250 @@
-{"_id":"paleolithic","category":"Archaeological Age","from":-3300000,"kind":"Event","name":"Paleolithic","to":-11700,"version":0}
-{"_id":"mezolithic","category":"Archaeological Age","from":-11500,"kind":"Event","name":"Mezolithic","to":-8000,"version":0}
-{"_id":"stone-henge","category":"Historical Feature","from":-3100,"kind":"Location","name":"Stone Henge","to":-1600,"version":0}
-{"_id":"great-dying","category":"Extinction Event","from":-251941000,"kind":"Event","name":"Great Dying","to":-251880000,"version":0}
-{"_id":"iron-age","category":"Archaeological Age","from":-1200,"kind":"Event","name":"Iron Age","to":800,"version":0}
-{"_id":"huronian-glaciation","category":"UK Geological Period","from":-2.4E+10,"kind":"Event","name":"Huronian Glaciation","to":-2100000000,"version":0}
-{"_id":"bronze-age","category":"Archaeological Age","from":-3200,"kind":"Event","name":"Bronze Age","to":-600,"version":0}
-{"_id":"cromerian-stage","category":"UK Geological Period","from":-800000,"kind":"Event","name":"Cromerian Stage","to":-500000,"version":0}
-{"_id":"anglian-stage","category":"UK Geological Period","from":-478000,"kind":"Event","name":"Anglian Stage","to":-424000,"version":0}
-{"_id":"neolithic","category":"Archaeological Age","from":-10200,"kind":"Event","name":"Neolithic","to":-4500,"version":0}
-{"_id":"hoxnian-stage","category":"UK Geological Period","from":-424000,"kind":"Event","name":"Hoxnian Stage","to":-374000,"version":0}
-{"_id":"wolstonian-stage","category":"UK Geological Period","from":-352000,"kind":"Event","name":"Wolstonian Stage","to":-130000,"version":0}
-{"_id":"ipswichian-stage","category":"UK Geological Period","from":-130000,"kind":"Event","name":"Ipswichian Stage","to":-115000,"version":0}
-{"_id":"last-glacial-period","category":"UK Geological Period","from":-115000,"kind":"Event","name":"Last Glacial Period","to":-11700,"version":0}
-{"_id":"homo-neanderthalensis","category":"Human Development","from":-800000,"kind":"Fauna","name":"Homo Neanderthalensis","to":-40000,"version":0}
-{"_id":"homo-sapien","category":"Human Development","from":-300000,"kind":"Fauna","name":"Homo Sapien","to":2000,"version":0}
+{"_id":"theia-collision","category":"Celestial Event","from":-4.533E+09,"kind":"Event","name":"Theia Collision","to":-4.48E+09,"version":0}
+{"_id":"moon-crust-formation","category":"Celestial Geology","from":-4.533E+09,"kind":"Geology","name":"Moon Crust Formation","to":-3.92E+09,"version":0}
+{"_id":"nuvvuagittuq-greenstone-belt","category":"Geological Development","from":-4.388E+09,"kind":"Geology","name":"Nuvvuagittuq Greenstone Belt","to":-3.75E+09,"version":0}
+{"_id":"earliest-water-on-earth","category":"Biological Development","from":-4.28E+09,"kind":"Event","name":"Earliest Water On Earth","to":-3.8E+09,"version":0}
+{"_id":"abiogenesis","category":"Biological Development","from":-4.28E+09,"kind":"Event","name":"Abiogenesis","to":-3.5E+09,"version":0}
+{"_id":"acasta-gneiss","category":"Geological Development","from":-4.031E+09,"kind":"Geology","name":"Acasta Gneiss","to":-3.058E+09,"version":0}
+{"_id":"laurentia-craton","category":"Continental Drift","from":-4.031E+09,"kind":"Geology","name":"Laurentia Craton","to":2030,"version":0}
+{"_id":"late-heavy-bombardment","category":"Celestial Event","from":-4.1E+09,"kind":"Event","name":"Late Heavy Bombardment","to":-3.8E+09,"version":0}
+{"_id":"isua-greenstone-belt","category":"Geological Development","from":-3.8E+09,"kind":"Geology","name":"Isua Greenstone Belt","to":-3.7E+09,"version":0}
+{"_id":"last-universal-common-ancestor","category":"Early Form of Life","from":-3.8E+09,"kind":"Fauna","name":"Last Universal Common Ancestor","to":-3.5E+09,"version":0}
+{"_id":"vaalbara-supercontinent","category":"Continental Drift","from":-3.636E+09,"kind":"Geology","name":"Vaalbara Supercontinent","to":-2.803E+09,"version":0}
+{"_id":"earliest-form-of-life","category":"Biological Development","from":-3.5E+09,"kind":"Event","name":"Earliest Form Of Life","to":-3.48E+09,"version":0}
+{"_id":"barberton-greenstone-belt","category":"Geological Development","from":-3.5E+09,"kind":"Geology","name":"Barberton Greenstone Belt","to":-3.2E+09,"version":0}
+{"_id":"evolution-of-photosynthesis","category":"Biological Development","from":-3.5E+09,"kind":"Event","name":"Evolution Of Photosynthesis","to":-2000000000,"version":0}
+{"_id":"barberton-asteroid-impact","category":"Celestial Event","from":-3.255E+09,"kind":"Event","name":"Barberton Asteroid Impact","to":-3.265E+09,"version":0}
+{"_id":"pongola-glaciation","category":"Climate Changes","from":-2.9E+09,"kind":"Event","name":"Pongola Glaciation","to":-2.5E+09,"version":0}
+{"_id":"ur-supercontinent","category":"Continental Drift","from":-2.803E+09,"kind":"Geology","name":"Ur Supercontinent","to":-2.408E+09,"version":0}
+{"_id":"kenorland-supercontinent","category":"Continental Drift","from":-2.78E+09,"kind":"Geology","name":"Kenorland Supercontinent","to":-2100000000,"version":0}
+{"_id":"peak-of-iron-band-formations","category":"Geological Development","from":-2.8E+09,"kind":"Geology","name":"Peak Of Iron Band Formations","to":-2.5E+09,"version":0}
+{"_id":"great-oxidation-event","category":"Extinction Event","from":-2.4E+09,"kind":"Event","name":"Great Oxidation Event","to":-2000000000,"version":0}
+{"_id":"huronian-glaciation","category":"Climate Changes","from":-2.4E+09,"kind":"Event","name":"Huronian Glaciation","to":-2100000000,"version":0}
+{"_id":"bushveld-igneous-complex","category":"Geological Development","from":-2100000000,"kind":"Geology","name":"Bushveld Igneous Complex","to":-2000000000,"version":0}
+{"_id":"arctica-supercontinent","category":"Continental Drift","from":-2114000000,"kind":"Geology","name":"Arctica Supercontinent","to":-1995000000,"version":0}
+{"_id":"emergence-of-eukaryotes","category":"Biological Development","from":-2100000000,"kind":"Event","name":"Emergence Of Eukaryotes","to":-1600000000,"version":0}
+{"_id":"francevillian-biota","category":"Early Form of Life","from":-2.15E+09,"kind":"Fauna","name":"Francevillian Biota","to":-2050000000,"version":0}
+{"_id":"vredefort-asteroid-impact","category":"Celestial Event","from":-2027000000,"kind":"Event","name":"Vredefort Asteroid Impact","to":-2019000000,"version":0}
+{"_id":"baltica-paleo-continent","category":"Continental Drift","from":-2000000000,"kind":"Geology","name":"Baltica Paleo Continent","to":-385000000,"version":0}
+{"_id":"atlantica-supercontinent","category":"Continental Drift","from":-1991000000,"kind":"Geology","name":"Atlantica Supercontinent","to":-1124000000,"version":0}
+{"_id":"nena-paleo-continent","category":"Continental Drift","from":-1900000000,"kind":"Geology","name":"Nena Paleo Continent","to":-1800000000,"version":0}
+{"_id":"sudbury-asteroid-impact","category":"Celestial Event","from":-1849740000,"kind":"Event","name":"Sudbury Asteroid Impact","to":-1848930000,"version":0}
+{"_id":"colombia-supercontinent","category":"Continental Drift","from":-1820000000,"kind":"Geology","name":"Colombia Supercontinent","to":-1350000000,"version":0}
+{"_id":"transscandinavian-igneous-belt","category":"Geological Development","from":-1810000000,"kind":"Geology","name":"Transscandinavian Igneous Belt","to":-1650000000,"version":0}
+{"_id":"boring-billion","category":"Geological Development","from":-1800000000,"kind":"Geology","name":"Boring Billion","to":-800000000,"version":0}
+{"_id":"jotnian-sediments","category":"Geological Development","from":-1600000000,"kind":"Geology","name":"Jotnian Sediments","to":-1260000000,"version":0}
+{"_id":"mirovia-ocean","category":"Marine Geology","from":-1380000000,"kind":"Geology","name":"Mirovia Ocean","to":-600000000,"version":0}
+{"_id":"elzevirian-orogeny","category":"Geological Development","from":-1240000000,"kind":"Geology","name":"Elzevirian Orogeny","to":-1220000000,"version":0}
+{"_id":"shawinigan-orogeny","category":"Geological Development","from":-1190000000,"kind":"Geology","name":"Shawinigan Orogeny","to":-1140000000,"version":0}
+{"_id":"midcontinent-rift-system","category":"Geological Development","from":-1100000000,"kind":"Geology","name":"Midcontinent Rift System","to":-1097800000,"version":0}
+{"_id":"rodinia-supercontinent","category":"Continental Drift","from":-1100000000,"kind":"Geology","name":"Rodinia Supercontinent","to":-633000000,"version":0}
+{"_id":"ottawan-orogeny","category":"Geological Development","from":-1090000000,"kind":"Geology","name":"Ottawan Orogeny","to":-1020000000,"version":0}
+{"_id":"bangiomorpha","category":"Algae","from":-1064000000,"kind":"Flora","name":"Bangiomorpha","to":-1030000000,"version":0}
+{"_id":"rigolet-orogeny","category":"Geological Development","from":-1010000000,"kind":"Geology","name":"Rigolet Orogeny","to":-980000000,"version":0}
+{"_id":"pan-african-ocean","category":"Marine Geology","from":-987500000,"kind":"Geology","name":"Pan African Ocean","to":-605000000,"version":0}
+{"_id":"pan-african-orogeny","category":"Geological Development","from":-950000000,"kind":"Geology","name":"Pan African Orogeny","to":-550000000,"version":0}
+{"_id":"aspidella","category":"Early Form of Life","from":-770000000,"kind":"Fauna","name":"Aspidella","to":-550000000,"version":0}
+{"_id":"otavia-antiqua-sponge","category":"Porifera","from":-760000000,"kind":"Fauna","name":"Otavia Antiqua Sponge","to":-550000000,"version":0}
+{"_id":"panthalassa-ocean","category":"Marine Geology","from":-750000000,"kind":"Geology","name":"Panthalassa Ocean","to":-173000000,"version":0}
+{"_id":"arcellinida","category":"Amoebozoa","from":-720000000,"kind":"Fauna","name":"Arcellinida","to":2030,"version":0}
+{"_id":"sturtian-glaciation","category":"Climate Changes","from":-715000000,"kind":"Event","name":"Sturtian Glaciation","to":-680000000,"version":0}
+{"_id":"marinoan-glaciation","category":"Climate Changes","from":-650000000,"kind":"Event","name":"Marinoan Glaciation","to":-635000000,"version":0}
+{"_id":"sponges","category":"Porifera","from":-635000000,"kind":"Fauna","name":"Sponges","to":2030,"version":0}
+{"_id":"jellyfish","category":"Cnidaria","from":-635000000,"kind":"Fauna","name":"Jellyfish","to":2030,"version":0}
+{"_id":"doushantuo-formation","category":"Geological Development","from":-635000000,"kind":"Geology","name":"Doushantuo Formation","to":-531000000,"version":0}
+{"_id":"pannotia-supercontinent","category":"Continental Drift","from":-633000000,"kind":"Geology","name":"Pannotia Supercontinent","to":-573000000,"version":0}
+{"_id":"earliest-complex-multicellular-organisms","category":"Biological Development","from":-600000000,"kind":"Event","name":"Earliest Complex Multicellular Organisms","to":-542000000,"version":0}
+{"_id":"lapetus-ocean","category":"Marine Geology","from":-600000000,"kind":"Geology","name":"Lapetus Ocean","to":-400000000,"version":0}
+{"_id":"dickinsonia","category":"Proarticulata","from":-600000000,"kind":"Fauna","name":"Dickinsonia","to":-541000000,"version":0}
+{"_id":"gaskiers-glaciation","category":"Climate Changes","from":-579880000,"kind":"Event","name":"Gaskiers Glaciation","to":-579630000,"version":0}
+{"_id":"avalon-explosion","category":"Biological Development","from":-575000000,"kind":"Event","name":"Avalon Explosion","to":-550000000,"version":0}
+{"_id":"fractofusus","category":"Rangeomorpha","from":-575000000,"kind":"Fauna","name":"Fractofusus","to":-541000000,"version":0}
+{"_id":"charnia","category":"Rangeomorpha","from":-570000000,"kind":"Fauna","name":"Charnia","to":-541000000,"version":0}
+{"_id":"charniodiscus","category":"Rangeomorpha","from":-565000000,"kind":"Fauna","name":"Charniodiscus","to":-555000000,"version":0}
+{"_id":"kimberella","category":"Bilaterian","from":-558000000,"kind":"Fauna","name":"Kimberella","to":-541000000,"version":0}
+{"_id":"proto-tethys-ocean","category":"Marine Geology","from":-550000000,"kind":"Geology","name":"Proto Tethys Ocean","to":-330000000,"version":0}
+{"_id":"gondwana-supercontinent","category":"Continental Drift","from":-550000000,"kind":"Geology","name":"Gondwana Supercontinent","to":-175000000,"version":0}
+{"_id":"ediacaran-extinction","category":"Extinction Event","from":-542000000,"kind":"Event","name":"Ediacaran Extinction","to":-541000000,"version":0}
+{"_id":"small-shelly-fauna","category":"Early Form of Life","from":-547000000,"kind":"Fauna","name":"Small Shelly Fauna","to":-520000000,"version":0}
+{"_id":"treptichnus-pedum","category":"Early Form of Life","from":-542000000,"kind":"Fauna","name":"Treptichnus Pedum","to":-99700000,"version":0}
+{"_id":"cambrian-explosion","category":"Biological Development","from":-541000000,"kind":"Event","name":"Cambrian Explosion","to":-516000000,"version":0}
+{"_id":"coral","category":"Cnidaria","from":-535000000,"kind":"Fauna","name":"Coral","to":2030,"version":0}
+{"_id":"haikouichthys","category":"Agnatha","from":-535000000,"kind":"Fauna","name":"Haikouichthys","to":-520000000,"version":0}
+{"_id":"archaeocyathids","category":"Porifera","from":-530000000,"kind":"Fauna","name":"Archaeocyathids","to":-490000000,"version":0}
+{"_id":"trilobite","category":"Arthropod","from":-521000000,"kind":"Fauna","name":"Trilobite","to":-251902000,"version":0}
+{"_id":"anomalocaris","category":"Arthropod","from":-520000000,"kind":"Fauna","name":"Anomalocaris","to":-499000000,"version":0}
+{"_id":"end-botomian-extinction","category":"Extinction Event","from":-513000000,"kind":"Event","name":"End Botomian Extinction","to":-509000000,"version":0}
+{"_id":"dresbachian-extinction","category":"Extinction Event","from":-502000000,"kind":"Event","name":"Dresbachian Extinction","to":-501000000,"version":0}
+{"_id":"paleo-tethys-ocean","category":"Marine Geology","from":-500000000,"kind":"Geology","name":"Paleo Tethys Ocean","to":-200000000,"version":0}
+{"_id":"cambrian-ordovician-extinction","category":"Extinction Event","from":-488000000,"kind":"Event","name":"Cambrian Ordovician Extinction","to":-487000000,"version":0}
+{"_id":"endocerida","category":"Cephalopod","from":-477700000,"kind":"Fauna","name":"Endocerida","to":-443800000,"version":0}
+{"_id":"eurypterid","category":"Arthropod","from":-467300000,"kind":"Fauna","name":"Eurypterid","to":-251900000,"version":0}
+{"_id":"fusulinida","category":"Eukaryota","from":-443800000,"kind":"Fauna","name":"Fusulinida","to":-251941000,"version":0}
+{"_id":"ireviken-extinction","category":"Extinction Event","from":-435700000,"kind":"Event","name":"Ireviken Extinction","to":-431100000,"version":0}
+{"_id":"pterygotus","category":"Arthropod","from":-428000000,"kind":"Fauna","name":"Pterygotus","to":-372200000,"version":0}
+{"_id":"mulde-extinction","category":"Extinction Event","from":-427500000,"kind":"Event","name":"Mulde Extinction","to":-436500000,"version":0}
+{"_id":"laurasia-supercontinent","category":"Continental Drift","from":-425000000,"kind":"Geology","name":"Laurasia Supercontinent","to":-200000000,"version":0}
+{"_id":"lau-extinction","category":"Extinction Event","from":-420500000,"kind":"Event","name":"Lau Extinction","to":-419500000,"version":0}
+{"_id":"lungfish","category":"Fish","from":-419200000,"kind":"Fauna","name":"Lungfish","to":2030,"version":0}
+{"_id":"brontoscorpio","category":"Arthropod","from":-416000000,"kind":"Fauna","name":"Brontoscorpio","to":-412300000,"version":0}
+{"_id":"cephalaspis","category":"Fish","from":-415000000,"kind":"Fauna","name":"Cephalaspis","to":-398000000,"version":0}
+{"_id":"jaekelopterus","category":"Arthropod","from":-410800000,"kind":"Fauna","name":"Jaekelopterus","to":-402500000,"version":0}
+{"_id":"alkenopterus","category":"Arthropod","from":-409000000,"kind":"Fauna","name":"Alkenopterus","to":-402500000,"version":0}
+{"_id":"adelophthalmus","category":"Arthropod","from":-407600000,"kind":"Fauna","name":"Adelophthalmus","to":-283500000,"version":0}
+{"_id":"panderichthys","category":"Fish","from":-385000000,"kind":"Fauna","name":"Panderichthys","to":-377000000,"version":0}
+{"_id":"eusthenopteron","category":"Fish","from":-385000000,"kind":"Fauna","name":"Eusthenopteron","to":-377000000,"version":0}
+{"_id":"stethacanthus","category":"Fish","from":-382700000,"kind":"Fauna","name":"Stethacanthus","to":-298900000,"version":0}
+{"_id":"tiktaalik","category":"Fish","from":-380000000,"kind":"Fauna","name":"Tiktaalik","to":-370000000,"version":0}
 {"_id":"late-devonian-extinction","category":"Extinction Event","from":-376000000,"kind":"Event","name":"Late Devonian Extinction","to":-358900000,"version":0}
-{"_id":"charnia","category":"Early Plant Life","from":-570000000,"kind":"Flora","name":"Charnia","to":-550000000,"version":0}
+{"_id":"hyneria","category":"Fish","from":-372200000,"kind":"Fauna","name":"Hyneria","to":-358900000,"version":0}
+{"_id":"hynerpeton","category":"Amphibian","from":-365000000,"kind":"Fauna","name":"Hynerpeton","to":-363000000,"version":0}
+{"_id":"acanthostega","category":"Amphibian","from":-365000000,"kind":"Fauna","name":"Acanthostega","to":-360000000,"version":0}
+{"_id":"ichthyostega","category":"Amphibian","from":-365000000,"kind":"Fauna","name":"Ichthyostega","to":-360000000,"version":0}
+{"_id":"conifer","category":"Trees","from":-358900000,"kind":"Flora","name":"Conifer","to":2030,"version":0}
+{"_id":"arthropleura","category":"Arthropod","from":-345000000,"kind":"Fauna","name":"Arthropleura","to":-295000000,"version":0}
+{"_id":"pangaea-supercontinent","category":"Continental Drift","from":-336000000,"kind":"Geology","name":"Pangaea Supercontinent","to":-175000000,"version":0}
+{"_id":"proterogyrinus","category":"Amphibian","from":-331000000,"kind":"Fauna","name":"Proterogyrinus","to":-323000000,"version":0}
+{"_id":"petrolacosaurus","category":"Reptile","from":-323200000,"kind":"Fauna","name":"Petrolacosaurus","to":-298900000,"version":0}
+{"_id":"mesothelae","category":"Arthropod","from":-323200000,"kind":"Fauna","name":"Mesothelae","to":2030,"version":0}
+{"_id":"carboniferous-rainforest-collapse","category":"Extinction Event","from":-305500000,"kind":"Event","name":"Carboniferous Rainforest Collapse","to":-304500000,"version":0}
+{"_id":"meganeura","category":"Insect","from":-305000000,"kind":"Fauna","name":"Meganeura","to":-299000000,"version":0}
+{"_id":"edaphosaurus","category":"Synapsid","from":-303400000,"kind":"Fauna","name":"Edaphosaurus","to":-272500000,"version":0}
+{"_id":"olsons-extinction","category":"Extinction Event","from":-273500000,"kind":"Event","name":"Olsons Extinction","to":-272500000,"version":0}
+{"_id":"capitanian-mass-extinction","category":"Extinction Event","from":-262000000,"kind":"Event","name":"Capitanian Mass Extinction","to":-260000000,"version":0}
+{"_id":"seymouria","category":"Amphibian","from":-298900000,"kind":"Fauna","name":"Seymouria","to":-290000000,"version":0}
+{"_id":"dimetrodon","category":"Synapsid","from":-295000000,"kind":"Fauna","name":"Dimetrodon","to":-272000000,"version":0}
+{"_id":"rhinesuchus","category":"Amphibian","from":-272950000,"kind":"Fauna","name":"Rhinesuchus","to":-259100000,"version":0}
+{"_id":"damselfly","category":"Insect","from":-271000000,"kind":"Fauna","name":"Damselfly","to":2030,"version":0}
+{"_id":"gorgonops","category":"Therapsid","from":-260000000,"kind":"Fauna","name":"Gorgonops","to":-254000000,"version":0}
+{"_id":"hybodus","category":"Fish","from":-260000000,"kind":"Fauna","name":"Hybodus","to":-66000000,"version":0}
+{"_id":"diictodon","category":"Therapsid","from":-259800000,"kind":"Fauna","name":"Diictodon","to":-254100000,"version":0}
+{"_id":"scutosaurus","category":"Reptile","from":-259100000,"kind":"Fauna","name":"Scutosaurus","to":-251900000,"version":0}
+{"_id":"euchambersia","category":"Therapsid","from":-256000000,"kind":"Fauna","name":"Euchambersia","to":-255000000,"version":0}
+{"_id":"lystrosaurus","category":"Therapsid","from":-255000000,"kind":"Fauna","name":"Lystrosaurus","to":-250000000,"version":0}
+{"_id":"proterosuchus","category":"Reptile","from":-252000000,"kind":"Fauna","name":"Proterosuchus","to":-250000000,"version":0}
+{"_id":"great-dying","category":"Extinction Event","from":-251978000,"kind":"Event","name":"Great Dying","to":-251490000,"version":0}
+{"_id":"siberian-traps","category":"Geological Development","from":-251500000,"kind":"Geology","name":"Siberian Traps","to":-250000000,"version":0}
+{"_id":"thrinaxodon","category":"Therapsid","from":-251000000,"kind":"Fauna","name":"Thrinaxodon","to":-247000000,"version":0}
+{"_id":"tethys-ocean","category":"Marine Geology","from":-250000000,"kind":"Geology","name":"Tethys Ocean","to":-50000000,"version":0}
+{"_id":"ichthyosaur","category":"Marine Reptile","from":-250000000,"kind":"Fauna","name":"Ichthyosaur","to":-90000000,"version":0}
+{"_id":"perisphinctes","category":"Cephalopod","from":-247200000,"kind":"Fauna","name":"Perisphinctes","to":-237000000,"version":0}
+{"_id":"euparkeria","category":"Reptile","from":-245000000,"kind":"Fauna","name":"Euparkeria","to":-230000000,"version":0}
+{"_id":"traversodontidae","category":"Therapsid","from":-245000000,"kind":"Fauna","name":"Traversodontidae","to":-201300000,"version":0}
+{"_id":"leptolepis","category":"Fish","from":-242000000,"kind":"Fauna","name":"Leptolepis","to":-112600000,"version":0}
+{"_id":"mesolimulus","category":"Arthropod","from":-242000000,"kind":"Fauna","name":"Mesolimulus","to":-93900000,"version":0}
+{"_id":"carnian-pluvial-event","category":"Extinction Event","from":-234000000,"kind":"Event","name":"Carnian Pluvial Event","to":-232000000,"version":0}
+{"_id":"postosuchus","category":"Reptile","from":-221000000,"kind":"Fauna","name":"Postosuchus","to":-203000000,"version":0}
+{"_id":"peteinosaurus","category":"Flying Reptile","from":-221000000,"kind":"Fauna","name":"Peteinosaurus","to":-210000000,"version":0}
+{"_id":"placerias","category":"Therapsid","from":-220000000,"kind":"Fauna","name":"Placerias","to":-216000000,"version":0}
+{"_id":"manicouagan-reservoir-asteroid-impact","category":"Celestial Event","from":-215000000,"kind":"Event","name":"Manicouagan Reservoir Asteroid Impact","to":-213000000,"version":0}
+{"_id":"plateosaurus","category":"Dinosaur","from":-214000000,"kind":"Fauna","name":"Plateosaurus","to":-204000000,"version":0}
+{"_id":"coelophysis","category":"Dinosaur","from":-212000000,"kind":"Fauna","name":"Coelophysis","to":-196000000,"version":0}
+{"_id":"plesiosauroidea","category":"Marine Reptile","from":-210000000,"kind":"Fauna","name":"Plesiosauroidea","to":-66000000,"version":0}
+{"_id":"pliosauroidea","category":"Marine Reptile","from":-208000000,"kind":"Fauna","name":"Pliosauroidea","to":-893000000,"version":0}
+{"_id":"triassic-jurassic-extinction","category":"Extinction Event","from":-201300000,"kind":"Event","name":"Triassic Jurassic Extinction","to":-201290000,"version":0}
+{"_id":"cylindroteuthis","category":"Cephalopod","from":-201300000,"kind":"Fauna","name":"Cylindroteuthis","to":-145000000,"version":0}
+{"_id":"dragonfly","category":"Insect","from":-201300000,"kind":"Fauna","name":"Dragonfly","to":2030,"version":0}
+{"_id":"wasp","category":"Insect","from":-201300000,"kind":"Fauna","name":"Wasp","to":2030,"version":0}
+{"_id":"toarcian-turnover","category":"Extinction Event","from":-183500000,"kind":"Event","name":"Toarcian Turnover","to":-182500000,"version":0}
+{"_id":"liopleurodon","category":"Marine Reptile","from":-166000000,"kind":"Fauna","name":"Liopleurodon","to":-155000000,"version":0}
+{"_id":"cryptoclidus","category":"Marine Reptile","from":-166000000,"kind":"Fauna","name":"Cryptoclidus","to":-160000000,"version":0}
+{"_id":"ophthalmosaurus","category":"Marine Reptile","from":-165000000,"kind":"Fauna","name":"Ophthalmosaurus","to":-160000000,"version":0}
+{"_id":"eustreptospondylus","category":"Dinosaur","from":-163000000,"kind":"Fauna","name":"Eustreptospondylus","to":-154000000,"version":0}
+{"_id":"stegosaurus","category":"Dinosaur","from":-155000000,"kind":"Fauna","name":"Stegosaurus","to":-150000000,"version":0}
+{"_id":"dryosaurus","category":"Dinosaur","from":-155000000,"kind":"Fauna","name":"Dryosaurus","to":-145000000,"version":0}
+{"_id":"allosaurus","category":"Dinosaur","from":-155000000,"kind":"Fauna","name":"Allosaurus","to":-145000000,"version":0}
+{"_id":"brachiosaurus","category":"Dinosaur","from":-154000000,"kind":"Fauna","name":"Brachiosaurus","to":-153000000,"version":0}
+{"_id":"diplodocus","category":"Dinosaur","from":-154000000,"kind":"Fauna","name":"Diplodocus","to":-152000000,"version":0}
+{"_id":"ornitholestes","category":"Dinosaur","from":-154000000,"kind":"Fauna","name":"Ornitholestes","to":-154000000,"version":0}
+{"_id":"archaeopteryx","category":"Birds","from":-150800000,"kind":"Fauna","name":"Archaeopteryx","to":-148500000,"version":0}
+{"_id":"anurognathus","category":"Flying Reptile","from":-150800000,"kind":"Fauna","name":"Anurognathus","to":-148500000,"version":0}
+{"_id":"rhamphorhynchus","category":"Flying Reptile","from":-150800000,"kind":"Fauna","name":"Rhamphorhynchus","to":-148500000,"version":0}
+{"_id":"pterodactylus","category":"Flying Reptile","from":-150800000,"kind":"Fauna","name":"Pterodactylus","to":-148500000,"version":0}
+{"_id":"saurophthirus","category":"Insect","from":-145000000,"kind":"Fauna","name":"Saurophthirus","to":-100500000,"version":0}
+{"_id":"utahraptor","category":"Dinosaur","from":-139000000,"kind":"Fauna","name":"Utahraptor","to":-134600000,"version":0}
+{"_id":"polacanthus","category":"Dinosaur","from":-130000000,"kind":"Fauna","name":"Polacanthus","to":-125000000,"version":0}
+{"_id":"pine-tree-genus","category":"Trees","from":-130000000,"kind":"Flora","name":"Pine Tree Genus","to":2030,"version":0}
+{"_id":"dakotadon","category":"Dinosaur","from":-129400000,"kind":"Fauna","name":"Dakotadon","to":-125000000,"version":0}
+{"_id":"bark-beetle","category":"Insect","from":-129400000,"kind":"Fauna","name":"Bark Beetle","to":2030,"version":0}
+{"_id":"iguanodon","category":"Dinosaur","from":-126000000,"kind":"Fauna","name":"Iguanodon","to":-122000000,"version":0}
+{"_id":"koolasuchus","category":"Amphibian","from":-120500000,"kind":"Fauna","name":"Koolasuchus","to":-119500000,"version":0}
+{"_id":"aptian_extinction","category":"Extinction Event","from":-117500000,"kind":"Event","name":"Aptian_extinction","to":-115500000,"version":0}
+{"_id":"deinonychus","category":"Dinosaur","from":-115000000,"kind":"Fauna","name":"Deinonychus","to":-108000000,"version":0}
+{"_id":"leaellynasaura","category":"Dinosaur","from":-113000000,"kind":"Fauna","name":"Leaellynasaura","to":-110000000,"version":0}
+{"_id":"tapejara","category":"Flying Reptile","from":-112500000,"kind":"Fauna","name":"Tapejara","to":-111500000,"version":0}
+{"_id":"sea-turtle","category":"Marine Reptile","from":-110000000,"kind":"Fauna","name":"Sea Turtle","to":2030,"version":0}
+{"_id":"muttaburrasaurus","category":"Dinosaur","from":-107000000,"kind":"Fauna","name":"Muttaburrasaurus","to":-103000000,"version":0}
+{"_id":"giant-wD\u0013tD\u0001","category":"Arthropod","from":-106000000,"kind":"Fauna","name":"Giant Wd\u0013td\u0001","to":2030,"version":0}
+{"_id":"ornithocheirus","category":"Flying Reptile","from":-105000000,"kind":"Fauna","name":"Ornithocheirus","to":-100000000,"version":0}
+{"_id":"steropodon","category":"Mammal","from":-100500000,"kind":"Fauna","name":"Steropodon","to":-93300000,"version":0}
+{"_id":"cenomanian-turonian-boundary-event","category":"Extinction Event","from":-100100000,"kind":"Event","name":"Cenomanian Turonian Boundary Event","to":-82900000,"version":0}
+{"_id":"plesiopleurodon","category":"Marine Reptile","from":-98500000,"kind":"Fauna","name":"Plesiopleurodon","to":-97500000,"version":0}
+{"_id":"dreadnoughtus","category":"Dinosaur","from":-86300000,"kind":"Fauna","name":"Dreadnoughtus","to":-66000000,"version":0}
+{"_id":"pteranodon","category":"Flying Reptile","from":-86000000,"kind":"Fauna","name":"Pteranodon","to":-84500000,"version":0}
+{"_id":"nyctosaurus","category":"Flying Reptile","from":-85000000,"kind":"Fauna","name":"Nyctosaurus","to":-84500000,"version":0}
+{"_id":"dinilysia","category":"Reptile","from":-85500000,"kind":"Fauna","name":"Dinilysia","to":-84500000,"version":0}
+{"_id":"protoceratops","category":"Dinosaur","from":-83500000,"kind":"Fauna","name":"Protoceratops","to":-70600000,"version":0}
+{"_id":"deinosuchus","category":"Reptile","from":-82000000,"kind":"Fauna","name":"Deinosuchus","to":-73000000,"version":0}
+{"_id":"velociraptor","category":"Dinosaur","from":-75000000,"kind":"Fauna","name":"Velociraptor","to":-71000000,"version":0}
+{"_id":"ornithomimus","category":"Dinosaur","from":-75500000,"kind":"Fauna","name":"Ornithomimus","to":-66000000,"version":0}
+{"_id":"struthiomimus","category":"Dinosaur","from":-75000000,"kind":"Fauna","name":"Struthiomimus","to":-66000000,"version":0}
+{"_id":"didelphodon","category":"Mammal","from":-73000000,"kind":"Fauna","name":"Didelphodon","to":-66000000,"version":0}
+{"_id":"rahiolisaurus","category":"Dinosaur","from":-72100000,"kind":"Fauna","name":"Rahiolisaurus","to":-66000000,"version":0}
+{"_id":"iberomesornis","category":"Birds","from":-72000000,"kind":"Fauna","name":"Iberomesornis","to":2030,"version":0}
+{"_id":"albertosaurus","category":"Dinosaur","from":-71000000,"kind":"Fauna","name":"Albertosaurus","to":-68000000,"version":0}
+{"_id":"gallimimus","category":"Dinosaur","from":-70000000,"kind":"Fauna","name":"Gallimimus","to":-70000000,"version":0}
+{"_id":"tarbosaurus","category":"Dinosaur","from":-70000000,"kind":"Fauna","name":"Tarbosaurus","to":-66000000,"version":0}
+{"_id":"rajasaurus","category":"Dinosaur","from":-69000000,"kind":"Fauna","name":"Rajasaurus","to":-69000000,"version":0}
+{"_id":"tyrannosaurus","category":"Dinosaur","from":-68000000,"kind":"Fauna","name":"Tyrannosaurus","to":-66000000,"version":0}
+{"_id":"thescelosaurus","category":"Dinosaur","from":-68000000,"kind":"Fauna","name":"Thescelosaurus","to":-66000000,"version":0}
+{"_id":"triceratops","category":"Dinosaur","from":-68000000,"kind":"Fauna","name":"Triceratops","to":-66000000,"version":0}
+{"_id":"edmontosaurus","category":"Dinosaur","from":-68000000,"kind":"Fauna","name":"Edmontosaurus","to":-66000000,"version":0}
+{"_id":"dromaeosaurus","category":"Dinosaur","from":-80000000,"kind":"Fauna","name":"Dromaeosaurus","to":-69100000,"version":0}
+{"_id":"ankylosaurus","category":"Dinosaur","from":-68000000,"kind":"Fauna","name":"Ankylosaurus","to":-66000000,"version":0}
+{"_id":"torosaurus","category":"Dinosaur","from":-68000000,"kind":"Fauna","name":"Torosaurus","to":-66000000,"version":0}
+{"_id":"quetzalcoatlus","category":"Flying Reptile","from":-68000000,"kind":"Fauna","name":"Quetzalcoatlus","to":-66000000,"version":0}
+{"_id":"deccan-traps","category":"Geological Development","from":-66250000,"kind":"Geology","name":"Deccan Traps","to":-65500000,"version":0}
+{"_id":"chicxulub-asteroid-impact","category":"Celestial Event","from":-66054000,"kind":"Event","name":"Chicxulub Asteroid Impact","to":-66032000,"version":0}
+{"_id":"purgatorius","category":"Mammal","from":-66000000,"kind":"Fauna","name":"Purgatorius","to":-63000000,"version":0}
+{"_id":"cretaceous-paleogene-extinction","category":"Extinction Event","from":-66000000,"kind":"Event","name":"Cretaceous Paleogene Extinction","to":-65000000,"version":0}
+{"_id":"boltyish-asteroid-impact","category":"Celestial Event","from":-65810000,"kind":"Event","name":"Boltyish Asteroid Impact","to":-64530000,"version":0}
+{"_id":"butterflies","category":"Insect","from":-56000000,"kind":"Fauna","name":"Butterflies","to":2030,"version":0}
+{"_id":"great-american-interchange","category":"Faunal Migration","from":-40000000,"kind":"Event","name":"Great American Interchange","to":-12000,"version":0}
+{"_id":"eocene-oligocene-extinction","category":"Extinction Event","from":-34100000,"kind":"Event","name":"Eocene Oligocene Extinction","to":-33600000,"version":0}
+{"_id":"tuatara","category":"Reptile","from":-19000000,"kind":"Fauna","name":"Tuatara","to":2030,"version":0}
+{"_id":"middle-miocene-disruption","category":"Extinction Event","from":-14500000,"kind":"Event","name":"Middle Miocene Disruption","to":-13500000,"version":0}
+{"_id":"ardipithecus-kadabba","category":"Hominid","from":-6500000,"kind":"Fauna","name":"Ardipithecus Kadabba","to":-5500000,"version":0}
+{"_id":"ardipithecus-ramidus","category":"Hominid","from":-4510000,"kind":"Fauna","name":"Ardipithecus Ramidus","to":-4320000,"version":0}
+{"_id":"australopithecus-anamensis","category":"Hominid","from":-4200000,"kind":"Fauna","name":"Australopithecus Anamensis","to":-3800000,"version":0}
+{"_id":"australopithecus-afarensis","category":"Hominid","from":-3900000,"kind":"Fauna","name":"Australopithecus Afarensis","to":-2900000,"version":0}
+{"_id":"australopithecus-africanus","category":"Hominid","from":-3670000,"kind":"Fauna","name":"Australopithecus Africanus","to":-2000000,"version":0}
+{"_id":"australopithecus-deyiremeda","category":"Hominid","from":-3500000,"kind":"Fauna","name":"Australopithecus Deyiremeda","to":-3300000,"version":0}
+{"_id":"kenyanthropus","category":"Hominid","from":-3500000,"kind":"Fauna","name":"Kenyanthropus","to":-3200000,"version":0}
+{"_id":"australopithecus-bahrelghazali","category":"Hominid","from":-3500000,"kind":"Fauna","name":"Australopithecus Bahrelghazali","to":-2800000,"version":0}
+{"_id":"paleolithic","category":"Archaeological Age","from":-3300000,"kind":"Event","name":"Paleolithic","to":-11700,"version":0}
+{"_id":"ld-350-1","category":"Hominid","from":-2800000,"kind":"Fauna","name":"Ld 350 1","to":-2750000,"version":0}
+{"_id":"paranthropus-aethiopicus","category":"Hominid","from":-2700000,"kind":"Fauna","name":"Paranthropus Aethiopicus","to":-2300000,"version":0}
+{"_id":"australopithecus-garhi","category":"Hominid","from":-2600000,"kind":"Fauna","name":"Australopithecus Garhi","to":-2500000,"version":0}
+{"_id":"homo-habilis","category":"Hominid","from":-2310000,"kind":"Fauna","name":"Homo Habilis","to":-1650000,"version":0}
+{"_id":"homo-rudolfensis","category":"Hominid","from":-2310000,"kind":"Fauna","name":"Homo Rudolfensis","to":-1550000,"version":0}
+{"_id":"paranthropus-boisei","category":"Hominid","from":-2300000,"kind":"Fauna","name":"Paranthropus Boisei","to":-1340000,"version":0}
+{"_id":"paranthropus-robustus","category":"Hominid","from":-2000000,"kind":"Fauna","name":"Paranthropus Robustus","to":-600000,"version":0}
+{"_id":"australopithecus-sediba","category":"Hominid","from":-1980000,"kind":"Fauna","name":"Australopithecus Sediba","to":-1950000,"version":0}
+{"_id":"homo-erectus","category":"Hominid","from":-2000000,"kind":"Fauna","name":"Homo Erectus","to":-600000,"version":0}
+{"_id":"cromerian-stage","category":"Climate Changes","from":-800000,"kind":"Event","name":"Cromerian Stage","to":-500000,"version":0}
+{"_id":"homo-heidelbergensis","category":"Hominid","from":-600000,"kind":"Fauna","name":"Homo Heidelbergensis","to":-200000,"version":0}
+{"_id":"anglian-stage","category":"Climate Changes","from":-478000,"kind":"Event","name":"Anglian Stage","to":-424000,"version":0}
+{"_id":"homo-neanderthalensis","category":"Hominid","from":-430000,"kind":"Fauna","name":"Homo Neanderthalensis","to":-40000,"version":0}
+{"_id":"hoxnian-stage","category":"Climate Changes","from":-424000,"kind":"Event","name":"Hoxnian Stage","to":-374000,"version":0}
+{"_id":"wolstonian-stage","category":"Climate Changes","from":-352000,"kind":"Event","name":"Wolstonian Stage","to":-130000,"version":0}
+{"_id":"homo-naledi","category":"Hominid","from":-335000,"kind":"Fauna","name":"Homo Naledi","to":-236000,"version":0}
+{"_id":"quaternary-extinction","category":"Extinction Event","from":-130000,"kind":"Event","name":"Quaternary Extinction","to":-8000,"version":0}
+{"_id":"ipswichian-stage","category":"Climate Changes","from":-130000,"kind":"Event","name":"Ipswichian Stage","to":-115000,"version":0}
+{"_id":"last-glacial-period","category":"Climate Changes","from":-115000,"kind":"Event","name":"Last Glacial Period","to":-11700,"version":0}
+{"_id":"homo-sapien","category":"Hominid","from":-300000,"kind":"Fauna","name":"Homo Sapien","to":2000,"version":0}
+{"_id":"laschamp-event","category":"Geological Change","from":-41400,"kind":"Event","name":"Laschamp Event","to":-40900,"version":0}
+{"_id":"mezolithic","category":"Archaeological Age","from":-11500,"kind":"Event","name":"Mezolithic","to":-8000,"version":0}
+{"_id":"neolithic","category":"Archaeological Age","from":-10200,"kind":"Event","name":"Neolithic","to":-1700,"version":0}
+{"_id":"holocene-extinction","category":"Extinction Event","from":-10000,"kind":"Event","name":"Holocene Extinction","to":2030,"version":0}
+{"_id":"bronze-age","category":"Archaeological Age","from":-3200,"kind":"Event","name":"Bronze Age","to":-600,"version":0}
+{"_id":"stone-henge","category":"Archaeological Feature","from":-3100,"kind":"Event","name":"Stone Henge","to":-1600,"version":0}
+{"_id":"iron-age","category":"Archaeological Age","from":-1200,"kind":"Event","name":"Iron Age","to":800,"version":0}

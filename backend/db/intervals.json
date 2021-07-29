@@ -12,7 +12,7 @@
 {"_id":"mesoproterozoic","children":["calymmian","ectasian","stenian"],"from":-1600000000,"kind":"Era","name":"Mesoproterozoic","to":-1000000000,"version":0,"parent":"proterozoic"}
 {"_id":"neoproterozoic","children":["tonian","cryogenian","ediacaran"],"from":-1000000000,"kind":"Era","name":"Neoproterozoic","to":-541000000,"version":0,"parent":"proterozoic"}
 {"_id":"paleozoic","children":["cambrian","ordovician","silurian","devonian","carboniferous","permian"],"from":-541000000,"kind":"Era","name":"Paleozoic","to":-252000000,"version":0,"parent":"phanerozoic"}
-{"_id":"mesozoic","children":["triassic","jurassic","cretaceous"],"from":-252000000,"kind":"Era","name":"Mesozoic","to":-66000000,"version":0,"parent":"phanerozoic"}
+{"_id":"mesozoic","children":["triassic","jurassic","cretaceous"],"from":-251902000,"kind":"Era","name":"Mesozoic","to":-66000000,"version":0,"parent":"phanerozoic"}
 {"_id":"cenozoic","children":["paleogene","neogene","quarternary"],"from":-66000000,"kind":"Era","name":"Cenozoic","to":2030,"version":0,"parent":"phanerozoic"}
 {"_id":"siderian","from":-2.5E+09,"kind":"Period","name":"Siderian","to":-2.3E+09,"version":0,"parent":"paleoproterozoic"}
 {"_id":"rhyacian","from":-2.3E+09,"kind":"Period","name":"Rhyacian","to":-2050000000,"version":0,"parent":"paleoproterozoic"}
@@ -21,8 +21,8 @@
 {"_id":"calymmian","from":-1600000000,"kind":"Period","name":"Calymmian","to":-1400000000,"version":0,"parent":"mesoproterozoic"}
 {"_id":"ectasian","from":-1400000000,"kind":"Period","name":"Ectasian","to":-1200000000,"version":0,"parent":"mesoproterozoic"}
 {"_id":"stenian","from":-1200000000,"kind":"Period","name":"Stenian","to":-1000000000,"version":0,"parent":"mesoproterozoic"}
-{"_id":"tonian","from":-1000000000,"kind":"Period","name":"Tonian","to":-850000000,"version":0,"parent":"neoproterozoic"}
-{"_id":"cryogenian","from":-850000000,"kind":"Period","name":"Cryogenian","to":-635000000,"version":0,"parent":"neoproterozoic"}
+{"_id":"tonian","from":-1000000000,"kind":"Period","name":"Tonian","to":-720000000,"version":0,"parent":"neoproterozoic"}
+{"_id":"cryogenian","from":-720000000,"kind":"Period","name":"Cryogenian","to":-635000000,"version":0,"parent":"neoproterozoic"}
 {"_id":"ediacaran","from":-635000000,"kind":"Period","name":"Ediacaran","to":-541000000,"version":0,"parent":"neoproterozoic"}
 {"_id":"cambrian","children":["terreneuvian","cambrian-series-2","miaolingian","furongian"],"from":-541000000,"kind":"Period","name":"Cambrian","to":-485400000,"version":0,"parent":"paleozoic"}
 {"_id":"ordovician","children":["early-ordovician","middle-ordovician","late-ordovician"],"from":-485400000,"kind":"Period","name":"Ordovician","to":-443800000,"version":0,"parent":"paleozoic"}
@@ -38,8 +38,8 @@
 {"_id":"quarternary","children":["pleistocene","holocene"],"from":-2580000,"kind":"Period","name":"Quarternary","to":2030,"version":0,"parent":"cenozoic"}
 {"_id":"mississippian","children":["lower-mississippian","middle-mississippian","upper-mississippian"],"from":-358900000,"kind":"Sub-Period","name":"Mississippian","to":-323200000,"version":0,"parent":"carboniferous"}
 {"_id":"pennsylvanian","children":["lower-pennsylvanian","middle-pennsylvanian","upper-pennsylvanian"],"from":-323200000,"kind":"Sub-Period","name":"Pennsylvanian","to":-298900000,"version":0,"parent":"carboniferous"}
-{"_id":"cambrian-series-2","children":["stage-3","stage-4"],"from":-521000000,"kind":"Epoch","name":"Cambrian Series 2","to":-509000000,"version":0,"parent":"cambrian"}
 {"_id":"terreneuvian","children":["fortunian","stage-2"],"from":-541000000,"kind":"Epoch","name":"Terreneuvian","to":-521000000,"version":0,"parent":"cambrian"}
+{"_id":"cambrian-series-2","children":["stage-3","stage-4"],"from":-521000000,"kind":"Epoch","name":"Cambrian Series 2","to":-509000000,"version":0,"parent":"cambrian"}
 {"_id":"miaolingian","children":["wuliuan","drumian","guzhangian"],"from":-509000000,"kind":"Epoch","name":"Miaolingian","to":-497000000,"version":0,"parent":"cambrian"}
 {"_id":"furongian","children":["paibian","jiangshanian","stage-10"],"from":-497000000,"kind":"Epoch","name":"Furongian","to":-485400000,"version":0,"parent":"cambrian"}
 {"_id":"early-ordovician","children":["tremadocian","floian"],"from":-485400000,"kind":"Epoch","name":"Early Ordovician","to":-470000000,"version":0,"parent":"ordovician"}

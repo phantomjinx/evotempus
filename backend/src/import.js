@@ -15,9 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+ /* jshint node: true */
+ "use strict";
+
 const loggerUtils = require('./logger');
 const logger = loggerUtils.logger;
 const readlines = require('n-readlines');
+const fs = require("fs");
+const pathlib = require("path");
 const utils = require('./utils.js');
 const evoDb = require('./connection.js');
 const Subject = require('./models/subject').Subject;
@@ -69,15 +74,15 @@ function createInterval(id, kind, from, to, parent, children) {
   // Ensure all whitespace is removed
   //
   id = id.trim();
-  name = utils.displayName(id);
+  const name = utils.displayName(id);
   kind = kind.trim();
   parent = parent.trim();
 
   //
-  // Check the children for empty elements
+  // Check the children for empty recValue
   //
   var c = [];
-  for (i = 0; i < children.length; i++) {
+  for (let i = 0; i < children.length; i++) {
     children[i] = children[i].trim();
     if (children[i].length > 0) {
       c.push(children[i]);
@@ -115,7 +120,7 @@ function createInterval(id, kind, from, to, parent, children) {
   //
   // Automatically deduplicates
   //
-  Interval.findByIdAndUpdate({
+  return Interval.findByIdAndUpdate({
     _id: id
   }, {
     "$set": set,
@@ -125,23 +130,7 @@ function createInterval(id, kind, from, to, parent, children) {
   }, {
     upsert: true,
     new: true
-  }).then((interval, err) => {
-    if (err) {
-      logger.error(err, "ERROR: Trying to findByIdAndUpdate interval with %s", id);
-      evoDb.terminate();
-    }
-
-    if (!interval) {
-      logger.error("ERROR: Failed to find or create interval with id %s", id);
-      evoDb.terminate();
-    }
-
-    findOrCreateIntervalParent(parent, interval);
-
-  }).catch((err) => {
-    logger.error("ERROR: " + err);
-    evoDb.terminate();
-  });
+  }).exec();
 }
 
 function createTopic(id, topicTgt, linkId) {
@@ -155,7 +144,7 @@ function createTopic(id, topicTgt, linkId) {
   //
   // Automatically deduplicates
   //
-  Topic.findOneAndUpdate({
+  return Topic.findOneAndUpdate({
     topic: id
   }, {
     "$set": {
@@ -168,21 +157,7 @@ function createTopic(id, topicTgt, linkId) {
   }, {
     upsert: true,
     new: true
-  }).then((topic, err) => {
-    if (err) {
-      logger.error(err, "ERROR: Trying to findByOneAndUpdate description with %s", id);
-      evoDb.terminate();
-    }
-
-    if (!topic) {
-      logger.error("ERROR: Failed to find or create description with id %s", id);
-      evoDb.terminate();
-    }
-
-  }).catch((err) => {
-    logger.error("ERROR: " + err);
-    evoDb.terminate();
-  });
+  }).exec();
 }
 
 function createSubject(id, kind, category, from, to) {
@@ -193,7 +168,7 @@ function createSubject(id, kind, category, from, to) {
   // Ensure all whitespace is removed
   //
   id = id.trim();
-  name = utils.displayName(id);
+  const name = utils.displayName(id);
   kind = kind.trim();
   category = category.trim();
 
@@ -210,7 +185,7 @@ function createSubject(id, kind, category, from, to) {
   //
   // Automatically deduplicates
   //
-  Subject.findByIdAndUpdate({
+  return Subject.findByIdAndUpdate({
     _id: id
   }, {
     "$set": {
@@ -227,21 +202,7 @@ function createSubject(id, kind, category, from, to) {
     upsert: true,
     new: true,
     runValidators: true
-  }).then((subject, err) => {
-    if (err) {
-      logger.error(err, "ERROR: Trying to findByIdAndUpdate subject with %s", id);
-      evoDb.terminate();
-    }
-
-    if (!subject) {
-      logger.error("ERROR: Failed to find or create subject with id %s", id);
-      evoDb.terminate();
-    }
-
-  }).catch((err) => {
-    logger.error("ERROR: " + err);
-    evoDb.terminate();
-  });
+  }).exec();
 }
 
 function createHint(id, type, parent, colour, link) {
@@ -276,7 +237,7 @@ function createHint(id, type, parent, colour, link) {
   //
   // Automatically deduplicates
   //
-  Hint.findByIdAndUpdate({
+  return Hint.findByIdAndUpdate({
     _id: id
   }, {
     "$set": {
@@ -291,109 +252,123 @@ function createHint(id, type, parent, colour, link) {
   }, {
     upsert: true,
     new: true
-  }).then((hint, err) => {
-    if (err) {
-      logger.error(err, "ERROR: Trying to findByIdAndUpdate hint with %s", id);
-      evoDb.terminate();
-    }
-
-    if (!hint) {
-      logger.error("ERROR: Failed to find or create hint with id %s", id);
-      evoDb.terminate();
-    }
-
-  }).catch((err) => {
-    logger.error("ERROR: " + err);
-    evoDb.terminate();
-  });
+  }).exec();
 }
 
-function importIntervals(file) {
-  logger.debug("Importing intervals from " + file);
+async function importReader(path, expectedCols, importPromise) {
+  const liner = new readlines(path);
 
-  var liner = new readlines(file);
-
-  var next;
+  let next;
+  let promises = [];
   while (next = liner.next()) { // jshint ignore:line
-    line = next.toString('ascii');
+    const line = next.toString('ascii');
 
     if (line.startsWith("#") || line.length == 0) {
       continue;
     }
 
-    var elements = line.split('|');
+    const recValue = line.split('|');
+    if (recValue.length < expectedCols) {
+      logger.error("ERROR: Number of columns in record is smaller than expected: " + line);
+      evoDb.terminate();
+    }
 
+    const p = importPromise(recValue);
+    if (p == null) {
+      logger.error("ERROR: Undefined promise return from callback: ", recValue);
+      evoDb.terminate();
+    }
+    promises.push(p);
+
+    if (promises.length == 200) {
+      logger.debug("INFO: Resolving batch of updates for " + path);
+      const values = await Promise.all(promises);
+      promises = [];
+    }
+  }
+
+  if (promises.length > 0) {
+    logger.debug("INFO: Resolving final batch of updates for " + path);
+    const values = await Promise.all(promises);
+    promises = [];
+  }
+
+  logger.debug("INFO: Completed importing data from " + path);
+}
+
+async function importContent(pathOrPaths, expectedCols, importPromise) {
+  let paths = [];
+  if (Array.isArray(pathOrPaths)) {
+    paths = paths.concat(pathOrPaths);
+  } else {
+    paths.push(pathOrPaths);
+  }
+
+  for (let i = 0; i < paths.length; i++) {
+    const fullPath = pathlib.resolve(__dirname, '..', paths[i]);
+    if (fs.statSync(fullPath).isDirectory()) {
+      const files = fs.readdirSync(fullPath);
+      for (let j = 0; i < files.length; j++) {
+        if (pathlib.extname(files[j]) == ".dat") {
+          await importReader(pathlib.resolve(fullPath, files[j]), expectedCols, importPromise);
+        }
+      }
+    } else {
+      await importReader(fullPath, expectedCols, importPromise);
+    }
+  }
+
+}
+
+async function importIntervals(pathOrPaths) {
+  var importer = function(recValue) {
     var children = [];
-    if (elements.length > 5) {
-      children = elements[5].split(",");
+    if (recValue.length > 5) {
+      children = recValue[5].split(",");
     }
 
-    createInterval(elements[0], elements[1], elements[2], elements[3], elements[4], children);
-  }
+    return createInterval(recValue[0], recValue[1], recValue[2], recValue[3], recValue[4], children);
+  };
+
+  await importContent(pathOrPaths, 5, importer);
+  logger.debug("INFO: import of intervals complete");
 }
 
-function importTopics(file, topicTarget) {
-  logger.debug("Importing topic descriptions from " + file);
+async function importTopics(pathOrPaths, topicTarget) {
+  var importer = function(recValue) {
+    return createTopic(recValue[0], topicTarget, recValue[1]);
+  };
 
-  var liner = new readlines(file);
-
-  var next;
-  while (next = liner.next()) { // jshint ignore:line
-    line = next.toString('ascii');
-
-    if (line.startsWith("#") || line.length == 0) {
-      continue;
-    }
-
-    var elements = line.split('|');
-
-    createTopic(elements[0], topicTarget, elements[1]);
-  }
+  await importContent(pathOrPaths, 2, importer);
+  logger.debug("INFO: import of topics complete");
 }
 
-function importHints(file) {
-  logger.debug("Importing hints from " + file);
+async function importHints(pathOrPaths) {
+  var importer = function(recValue) {
+    return createHint(recValue[0], recValue[1], recValue[2], recValue[3], recValue[4]);
+  };
 
-  var liner = new readlines(file);
-
-  var next;
-  while (next = liner.next()) { // jshint ignore:line
-    line = next.toString('ascii');
-
-    if (line.startsWith("#") || line.length == 0) {
-      continue;
-    }
-
-    var elements = line.split('|');
-
-    createHint(elements[0], elements[1], elements[2], elements[3], elements[4]);
-  }
+  await importContent(pathOrPaths, 5, importer);
+  logger.debug("INFO: import of hints complete");
 }
 
-function importSubjects(file) {
-  logger.debug("Importing subjects from " + file);
+function importSubjectCb(recValue) {
+  const id = recValue[0];
+  const kind = recValue[1];
+  const category = recValue[2];
+  const from = recValue[3];
+  const to = recValue[4];
+  const linkId = recValue[5];
 
-  var liner = new readlines(file);
 
-  var next;
-  while (next = liner.next()) { // jshint ignore:line
-    line = next.toString('ascii');
+  const p1 = createSubject(id, kind, category, from, to);
+  const p2 = createTopic(id, "Subject", linkId);
+  return Promise.all([p1, p2]);
+}
 
-    if (line.startsWith("#") || line.length == 0) {
-      continue;
-    }
-
-    var elements = line.split('|');
-    const id = elements[0];
-    const kind = elements[1];
-    const category = elements[2];
-    const from = elements[3];
-    const to = elements[4];
-    const linkId = elements[5];
-
-    createSubject(id, kind, category, from, to);
-    createTopic(id, "Subject", linkId);
-  }
+async function importSubjects(pathOrPaths) {
+  await importContent(pathOrPaths, 6, importSubjectCb);
+  logger.debug("INFO: import of subjects complete");
 }
 
 module.exports = { importIntervals, importTopics, importHints, importSubjects };

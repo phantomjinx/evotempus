@@ -30,7 +30,7 @@ var SubjectSchema = new Schema({
           return Hint.findOne({
             _id: v,
             type: 'Kind'
-          });
+          }).exec();
         },
         message: props => `${props.value} is an invalid Kind`
       }

@@ -3,7 +3,6 @@
 module.exports = {
     intervals: 'data/intervals.dat',
     intervalTopics: 'data/interval-topics.dat',
-    subjects:  'data/subjects.dat',
-    subjectTopics: 'data/subject-topics.dat',
+    subjects:  ['data/subjects.dat', 'data/PBDB-EVO'],
     hints: 'data/hints.dat'
 };

@@ -15,13 +15,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/* jshint node: true */
+"use strict";
+
 // modules =================================================
 const express = require('express');
 const session = require('express-session');
 const helmet = require("helmet");
 const mongoose = require('mongoose');
 const app = express();
-const fs = require("fs");
 const path = require("path");
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
@@ -62,9 +64,11 @@ async function cleanDb(conn) {
         await evoDb.conn.db.dropCollection(collections[i].name);
     }
   }
+
+  logger.debug('INFO: Dropping collections from database completed');
 }
 
-function importDbData(conn) {
+async function importDbData(conn) {
   if (!doImport) {
     return;
   }
@@ -72,10 +76,18 @@ function importDbData(conn) {
   try {
     logger.debug('INFO: Import from data directory');
     // Import the data if required into database
-    importing.importIntervals(path.resolve(__dirname, '..', dbConfig.intervals));
-    importing.importTopics(path.resolve(__dirname, '..', dbConfig.intervalTopics), "Interval");
-    importing.importHints(path.resolve(__dirname, '..', dbConfig.hints));
-    importing.importSubjects(path.resolve(__dirname, '..', dbConfig.subjects));
+    await importing.importIntervals(dbConfig.intervals);
+    logger.debug('INFO: Completed import of intervals');
+
+    await importing.importTopics(dbConfig.intervalTopics, "Interval");
+    logger.debug('INFO: Completed import of intervals topics');
+
+    await importing.importHints(dbConfig.hints);
+    logger.debug('INFO: Completed import of hints');
+
+    await importing.importSubjects(dbConfig.subjects);
+    logger.debug('INFO: Completed import of subjects');
+
   } catch (err) {
     logger.error(err);
     evoDb.terminate();
@@ -149,7 +161,7 @@ function init() {
       break;
     default:
       logger.info('INFO: ** PRODUCTION **');
-      appBuild = path.resolve(__dirname, '..', '..', 'app/build');
+      var appBuild = path.resolve(__dirname, '..', '..', 'app/build');
       app.use('/', express.static(appBuild));
       break;
   }
@@ -192,18 +204,30 @@ evoDb.conn.on('Error', () => {
   evoDb.terminate();
 });
 
-evoDb.conn.once('open', () => {
-  logger.info('INFO: Connection established to database on ' + evoDb.conn.host + ":" + evoDb.conn.port);
+//
+// Detect unhandled promise rejections
+//
+process.on('unhandledRejection', (err) => {
+  logger.error(err);
+  evoDb.terminate();
+});
 
+async function prepareDatabase() {
   try {
-    cleanDb(evoDb.conn);
+    await cleanDb(evoDb.conn);
     logger.debug("INFO: Database cleaning complete");
 
-    importDbData(evoDb.conn);
+    await importDbData(evoDb.conn);
+    logger.debug("INFO: Database importing complete");
 
     init();
   } catch (err) {
     logger.error(err);
     evoDb.terminate();
   }
+}
+
+evoDb.conn.once('open', () => {
+  logger.info('INFO: Connection established to database on ' + evoDb.conn.host + ":" + evoDb.conn.port);
+  prepareDatabase();
 });

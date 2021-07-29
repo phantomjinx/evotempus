@@ -54,7 +54,7 @@ do
     >> "${PBDBEVO}/${filename}.tmp"
 
   # Fix any duplicate mistakes
-  sed -i 's/Plant Plant/Plant/g' "${PBDBEVO}/${filename}.tmp"
+  sed -i 's/Plant Plant/Plant     /g' "${PBDBEVO}/${filename}.tmp"
 
   echo "Checking wiki links available for $(cat "${PBDBEVO}/${filename}.tmp" | wc -l) entries ..."
   ./check-wiki-link.sh "${PBDBEVO}/${filename}.tmp" > "${PBDBEVO}/${filename}.dat"

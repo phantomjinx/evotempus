@@ -1,7 +1,7 @@
 Abrekia                                  | Animal    | Brachiopoda                | -251300000    | -247200000   | Abrekia
 Abrekites                                | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Abrekopsis                               | Animal    | Mollusca                   | -251300000    | -247200000   | <>
-Acanthotriletes                          | Plant| Lycophyta                  | -252170000    | -251300000   | <>
+Acanthotriletes                          | Plant     | Lycophyta                  | -252170000    | -251300000   | <>
 Acerastea                                | Animal    | Chordata                   | -252170000    | -251200000   | <>
 Acicularia                               | Plant     | Chlorophyta                | -251300000    | -247200000   | Acicularia
 Aclisina                                 | Animal    | Mollusca                   | -251300000    | -247200000   | <>
@@ -44,7 +44,7 @@ Angolaichthys                            | Animal    | Chordata                 
 Angusaurus                               | Animal    | Chordata                   | -251300000    | -247200000   | Angusaurus
 Anisicyrtis                              | Micro     | Radiolaria                 | -251300000    | -247200000   | <>
 Ankitokazocaris                          | Animal    | Arthropoda                 | -251300000    | -247200000   | <>
-Annalepis                                | Plant| Lycophyta                  | -252170000    | -247200000   | <>
+Annalepis                                | Plant     | Lycophyta                  | -252170000    | -247200000   | <>
 Annularia                                | Plant     | Sphenophyta                | -252170000    | -247200000   | Annularia
 Anodontophora                            | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Anomia                                   | Animal    | Mollusca                   | -252170000    | -251300000   | Anomia
@@ -210,7 +210,7 @@ Chordites                                | Plant     | Ochrophyta               
 Chuluaria                                | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Churkites                                | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Cidaris                                  | Animal    | Echinodermata              | -252170000    | -201300000   | Cidaris
-Cidarophyton                             | Plant| Lycophyta                  | -252170000    | -251200000   | <>
+Cidarophyton                             | Plant     | Lycophyta                  | -252170000    | -251200000   | <>
 Citrella                                 | Animal    | Arthropoda                 | -251300000    | -247200000   | <>
 Cladophlebis                             | Plant     | Pteridophyta               | -251300000    | -242000000   | Cladophlebis
 Claraia                                  | Animal    | Mollusca                   | -251300000    | -247200000   | Claraia
@@ -317,7 +317,7 @@ Dobrogeria                               | Animal    | Chordata                 
 Donaldina                                | Animal    | Mollusca                   | -251300000    | -247200000   | Donaldina
 Dorikranites                             | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Dromotectum                              | Animal    | Chordata                   | -252170000    | -247200000   | Dromotectum
-Duckworthia                              | Plant| Lycophyta                  | -252170000    | -251200000   | <>
+Duckworthia                              | Plant     | Lycophyta                  | -252170000    | -251200000   | <>
 Dunedinites                              | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Duotaxis                                 | Micro     | Foraminifera               | -252170000    | -251300000   | <>
 Duplisuggestus                           | Animal    | Chordata                   | -251300000    | -247200000   | <>
@@ -468,7 +468,7 @@ Hedenstroemia                            | Animal    | Mollusca                 
 Hegleria                                 | Micro     | Radiolaria                 | -252170000    | -247200000   | <>
 Heibergites                              | Animal    | Mollusca                   | -252170000    | -251300000   | <>
 Helicampodus                             | Animal    | Chordata                   | -252170000    | -251300000   | <>
-Helicorhiza                              | Plant| Lycophyta                  | -252170000    | -251200000   | <>
+Helicorhiza                              | Plant     | Lycophyta                  | -252170000    | -251200000   | <>
 Hellenites                               | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Helmolepis                               | Animal    | Chordata                   | -251300000    | -247200000   | Helmolepis
 Hemigordius                              | Micro     | Foraminifera               | -252170000    | -251300000   | <>
@@ -896,9 +896,9 @@ Plectambonites                           | Animal    | Brachiopoda              
 Plegiocidaris                            | Animal    | Echinodermata              | -252170000    | -201300000   | Plegiocidaris
 Plenoentactinia                          | Micro     | Radiolaria                 | -251300000    | -247200000   | <>
 Plesioperleidus                          | Animal    | Chordata                   | -251300000    | -247200000   | Plesioperleidus
-Pleurocaulis                             | Plant| Lycophyta                  | -252170000    | -251200000   | <>
+Pleurocaulis                             | Plant     | Lycophyta                  | -252170000    | -251200000   | <>
 Pleurogyronites                          | Animal    | Mollusca                   | -252170000    | -251300000   | <>
-Pleuromeia                               | Plant| Lycophyta                  | -251300000    | -247200000   | Pleuromeia
+Pleuromeia                               | Plant     | Lycophyta                  | -251300000    | -247200000   | Pleuromeia
 Pleuromya                                | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Pleuronautilus                           | Animal    | Mollusca                   | -251300000    | -247200000   | Pleuronautilus
 Pleuronectites                           | Animal    | Mollusca                   | -251300000    | -247200000   | <>

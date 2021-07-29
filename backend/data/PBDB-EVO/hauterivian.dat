@@ -207,7 +207,7 @@ Axosmilia                                | Animal    | Cnidaria                 
 Baabdasaurus                             | Animal    | Chordata                   | -130000000    | -125450000   | <>
 Baculatisporites                         | Plant     | Pteridophyta               | -130000000    | -125450000   | <>
 Baculites                                | Animal    | Mollusca                   | -145000000    | -66000000    | Baculites
-Bacutriletes                             | Plant| Lycophyta                  | -130000000    | -122460000   | <>
+Bacutriletes                             | Plant     | Lycophyta                  | -130000000    | -122460000   | <>
 Baetylus                                 | Animal    | Arthropoda                 | -130000000    | -125450000   | Baetylus
 Baiera                                   | Plant     | Ginkgophyta                | -145000000    | -100500000   | Baiera
 Baieropsis                               | Plant     | Pteridophyta               | -145000000    | -100500000   | <>
@@ -760,7 +760,7 @@ Equisetosporites                         | Plant     | Cycadophyta              
 Equisetum                                | Plant     | Sphenophyta                | -140200000    | -130000000   | Equisetum
 Eriphyla                                 | Animal    | Mollusca                   | -136400000    | -130000000   | Eriphyla
 Eriptycha                                | Animal    | Mollusca                   | -163500000    | -66000000    | <>
-Erlansonisporites                        | Plant| Lycophyta                  | -130000000    | -113000000   | <>
+Erlansonisporites                        | Plant     | Lycophyta                  | -130000000    | -113000000   | <>
 Eryma                                    | Animal    | Arthropoda                 | -136400000    | -130000000   | Eryma
 Etcheslepas                              | Animal    | Arthropoda                 | -136400000    | -130000000   | <>
 Ethmorhabdus                             | Plant     | Haptophyta                 | -136400000    | -130000000   | <>
@@ -1016,7 +1016,7 @@ Huatingicorixa                           | Animal    | Arthropoda               
 Huaxiacinectus                           | Animal    | Arthropoda                 | -132900000    | -129400000   | <>
 Huaxiagnathus                            | Animal    | Chordata                   | -130000000    | -122460000   | Huaxiagnathus
 Hudlestonella                            | Animal    | Mollusca                   | -132900000    | -129400000   | <>
-Hughesisporites                          | Plant| Lycophyta                  | -130000000    | -122460000   | <>
+Hughesisporites                          | Plant     | Lycophyta                  | -130000000    | -122460000   | <>
 Hulkepholis                              | Animal    | Chordata                   | -130000000    | -125450000   | Hulkepholis
 Humptulipsia                             | Animal    | Mollusca                   | -136400000    | -130000000   | <>
 Hybodus                                  | Animal    | Chordata                   | -145000000    | -100500000   | Hybodus
@@ -1067,8 +1067,8 @@ Isocrania                                | Animal    | Brachiopoda              
 Isocrinus                                | Animal    | Echinodermata              | -130000000    | -125450000   | <>
 Isocyprina                               | Animal    | Mollusca                   | -139800000    | -129400000   | <>
 Isodomella                               | Animal    | Mollusca                   | -132900000    | -129400000   | <>
-Isoetes                                  | Plant| Lycophyta                  | -130000000    | -125450000   | Isoetes
-Isoetites                                | Plant| Lycophyta                  | -145000000    | -130000000   | <>
+Isoetes                                  | Plant     | Lycophyta                  | -130000000    | -125450000   | Isoetes
+Isoetites                                | Plant     | Lycophyta                  | -145000000    | -130000000   | <>
 Isognomon                                | Animal    | Mollusca                   | -136400000    | -130000000   | Isognomon
 Istiodactylus                            | Animal    | Chordata                   | -130000000    | -122460000   | Istiodactylus
 Istriloculina                            | Micro     | Foraminifera               | -130000000    | -125450000   | <>
@@ -1394,7 +1394,7 @@ Miliola                                  | Micro     | Foraminifera             
 Milleporidium                            | Animal    | Porifera                   | -132900000    | -129400000   | <>
 Milqartis                                | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Mimamontsecia                            | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
-Minerisporites                           | Plant| Lycophyta                  | -130000000    | -113000000   | <>
+Minerisporites                           | Plant     | Lycophyta                  | -130000000    | -113000000   | <>
 Minisauripus                             | Animal    | Chordata                   | -145000000    | -125000000   | Minisauripus
 Minyohelea                               | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Mirifusus                                | Micro     | Radiolaria                 | -130000000    | -122460000   | <>

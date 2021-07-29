@@ -7,7 +7,7 @@ Acanthocircus                            | Micro     | Radiolaria               
 Acanthoscapha                            | Animal    | Arthropoda                 | -235000000    | -232000000   | <>
 Acanthosphaera                           | Micro     | Radiolaria                 | -235000000    | -232000000   | Acanthosphaera
 Acanthotheelia                           | Animal    | Echinodermata              | -235000000    | -232000000   | Acanthotheelia
-Acanthotriletes                          | Plant| Lycophyta                  | -237000000    | -201300000   | <>
+Acanthotriletes                          | Plant     | Lycophyta                  | -237000000    | -201300000   | <>
 Acanthotropites                          | Animal    | Mollusca                   | -232000000    | -221500000   | <>
 Accintisporites                          | Plant     | Gymnospermophyta           | -235000000    | -232000000   | <>
 Achistrum                                | Animal    | Echinodermata              | -235000000    | -232000000   | Achistrum
@@ -122,7 +122,7 @@ Anisactinella                            | Animal    | Brachiopoda              
 Anisicyrtis                              | Micro     | Radiolaria                 | -247200000    | -235000000   | <>
 Anisocardia                              | Animal    | Mollusca                   | -237000000    | -228000000   | <>
 Ankylosuchus                             | Animal    | Chordata                   | -237000000    | -201300000   | Ankylosuchus
-Annalepis                                | Plant| Lycophyta                  | -237000000    | -201300000   | <>
+Annalepis                                | Plant     | Lycophyta                  | -237000000    | -201300000   | <>
 Annulariopsis                            | Plant     | Sphenophyta                | -237000000    | -201300000   | <>
 Annulicorona                             | Animal    | Chordata                   | -235000000    | -232000000   | Annulicorona
 Annulotriassocampe                       | Micro     | Radiolaria                 | -232000000    | -215560000   | <>
@@ -245,7 +245,7 @@ Azendohsaurus                            | Animal    | Chordata                 
 Azyga                                    | Animal    | Mollusca                   | -237000000    | -228000000   | <>
 Babuskaya                                | Animal    | Arthropoda                 | -237000000    | -228000000   | <>
 Bacchites                                | Animal    | Mollusca                   | -232000000    | -221500000   | Bacchites
-Bacutriletes                             | Plant| Lycophyta                  | -247200000    | -201300000   | <>
+Bacutriletes                             | Plant     | Lycophyta                  | -247200000    | -201300000   | <>
 Badiotella                               | Animal    | Mollusca                   | -235000000    | -232000000   | <>
 Badiotites                               | Animal    | Mollusca                   | -235000000    | -232000000   | Badiotites
 Bagualosaurus                            | Animal    | Chordata                   | -237000000    | -208500000   | Bagualosaurus
@@ -815,7 +815,7 @@ Fanthalamia                              | Animal    | Porifera                 
 Fedaiella                                | Animal    | Mollusca                   | -235000000    | -232000000   | Fedaiella
 Felberia                                 | Animal    | Chordata                   | -235000000    | -232000000   | <>
 Ferganiscus                              | Animal    | Chordata                   | -237000000    | -228000000   | <>
-Ferganodendron                           | Plant| Lycophyta                  | -242000000    | -228000000   | <>
+Ferganodendron                           | Plant     | Lycophyta                  | -242000000    | -228000000   | <>
 Ferresium                                | Micro     | Radiolaria                 | -237000000    | -228000000   | <>
 Feruglioa                                | Plant     | Tracheophyta               | -237000000    | -201300000   | <>
 Filamussium                              | Animal    | Mollusca                   | -237000000    | -201300000   | <>
@@ -1031,7 +1031,7 @@ Horaffia                                 | Animal    | Chordata                 
 Hoyenella                                | Micro     | Foraminifera               | -242000000    | -235000000   | <>
 Hozmadia                                 | Micro     | Radiolaria                 | -237000000    | -208500000   | <>
 Hudsonelpidia                            | Animal    | Chordata                   | -237000000    | -201300000   | Hudsonelpidia
-Hughesisporites                          | Plant| Lycophyta                  | -247200000    | -201300000   | <>
+Hughesisporites                          | Plant     | Lycophyta                  | -247200000    | -201300000   | <>
 Huglusphaera                             | Micro     | Radiolaria                 | -232000000    | -221500000   | <>
 Hukouscytina                             | Animal    | Arthropoda                 | -237000000    | -201300000   | <>
 Hungarella                               | Animal    | Arthropoda                 | -235000000    | -232000000   | <>
@@ -1080,7 +1080,7 @@ Isocardioides                            | Animal    | Mollusca                 
 Isochirotherium                          | Animal    | Chordata                   | -242000000    | -228000000   | <>
 Isocrinus                                | Animal    | Echinodermata              | -232000000    | -221500000   | <>
 Isocyprina                               | Animal    | Mollusca                   | -237000000    | -201300000   | <>
-Isoetodendron                            | Plant| Lycophyta                  | -237000000    | -228000000   | <>
+Isoetodendron                            | Plant     | Lycophyta                  | -237000000    | -228000000   | <>
 Isognomon                                | Animal    | Mollusca                   | -235000000    | -232000000   | Isognomon
 Israelites                               | Animal    | Mollusca                   | -242000000    | -235000000   | Israelites
 Ixalerpeton                              | Animal    | Chordata                   | -237000000    | -228000000   | Ixalerpeton
@@ -1757,7 +1757,7 @@ Plegiocidaris                            | Animal    | Echinodermata            
 Plesiothornipus                          | Animal    | Chordata                   | -237000000    | -201300000   | <>
 Pleuracanthus                            | Animal    | Chordata                   | -242000000    | -235000000   | Pleuracanthus
 Pleurofrechites                          | Animal    | Mollusca                   | -242000000    | -235000000   | <>
-Pleuromeia                               | Plant| Lycophyta                  | -237000000    | -201300000   | Pleuromeia
+Pleuromeia                               | Plant     | Lycophyta                  | -237000000    | -201300000   | Pleuromeia
 Pleuromya                                | Animal    | Mollusca                   | -235000000    | -232000000   | <>
 Pleuronautilus                           | Animal    | Mollusca                   | -232000000    | -221500000   | Pleuronautilus
 Pleuronectites                           | Animal    | Mollusca                   | -237000000    | -228000000   | <>

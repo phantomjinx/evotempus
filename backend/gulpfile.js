@@ -21,6 +21,7 @@ gulp.task('default', gulp.series(['jshint'], (done) => {
   nodemon({
       watch: ['src', 'data/*.dat'],
       script: 'src/server.js',
+      exec: 'node --inspect',
       env: {
         'NODE_ENV': 'development',
         'MONGODB_URI': 'mongodb://localhost/evotempus',

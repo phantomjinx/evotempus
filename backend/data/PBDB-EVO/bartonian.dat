@@ -303,7 +303,7 @@ Arcopagia                                | Animal    | Mollusca                 
 Arcoperna                                | Animal    | Mollusca                   | -41300000     | -38000000    | <>
 Arcopsis                                 | Animal    | Mollusca                   | -56000000     | -33900000    | <>
 Arcoscalpellum                           | Animal    | Arthropoda                 | -41300000     | -38000000    | <>
-Arctica                                  | Animal    | Mollusca                   | -48600000     | -37200000    | Arctica
+Arctica                                  | Animal    | Mollusca                   | -48600000     | -37200000    | Arctica_(bivalve)
 Arctomelon                               | Animal    | Mollusca                   | -41300000     | -33900000    | Arctomelon
 Arctotitan                               | Animal    | Chordata                   | -56000000     | -33900000    | <>
 Arcuatula                                | Animal    | Mollusca                   | -41300000     | -38000000    | Arcuatula
@@ -596,7 +596,7 @@ Cainocrinus                              | Animal    | Echinodermata            
 Cainotherium                             | Animal    | Chordata                   | -56000000     | -33900000    | Cainotherium
 Calamagras                               | Animal    | Chordata                   | -41300000     | -38000000    | <>
 Calamophyllia                            | Animal    | Cnidaria                   | -48600000     | -37200000    | <>
-Calamus                                  | Plant     | Angiospermae               | -41300000     | -38000000    | Calamus
+Calamus Arecaceae                        | Plant     | Angiospermae               | -41300000     | -38000000    | Calamus_(palm)
 Calappa                                  | Animal    | Arthropoda                 | -66000000     | 2030         | Calappa
 Calappilia                               | Animal    | Arthropoda                 | -41300000     | -38000000    | Calappilia
 Callianassa                              | Animal    | Arthropoda                 | -41300000     | -38000000    | Callianassa
@@ -608,7 +608,7 @@ Callista                                 | Animal    | Mollusca                 
 Callistoe                                | Animal    | Chordata                   | -47800000     | -38000000    | <>
 Callithaca                               | Animal    | Mollusca                   | -56000000     | -33900000    | <>
 Callucina                                | Animal    | Mollusca                   | -41300000     | -38000000    | <>
-Calophyllum                              | Plant     | Spermatophyta              | -66000000     | -2588000     | Calophyllum
+Calophyllum Calophyllaceae	              | Plant     | Spermatophyta              | -66000000     | -2588000     | Calophyllum
 Calorebama                               | Animal    | Mollusca                   | -41300000     | -38000000    | <>
 Calorhadia                               | Animal    | Mollusca                   | -41300000     | -33900000    | <>
 Calvina                                  | Animal    | Bryozoa                    | -48600000     | -37200000    | <>
@@ -624,7 +624,7 @@ Campanile                                | Animal    | Mollusca                 
 Campanorco                               | Animal    | Chordata                   | -41300000     | -38000000    | Campanorco
 Camponotus                               | Animal    | Arthropoda                 | -48600000     | -40400000    | Camponotus
 Canaanimys                               | Animal    | Chordata                   | -48600000     | -37200000    | Canaanimys
-Canarium                                 | Plant     | Spermatophyta              | -48600000     | -37200000    | Canarium
+Canarium Burseraceae                     | Plant     | Spermatophyta              | -48600000     | -37200000    | Canarium
 Cancellaria                              | Animal    | Mollusca                   | -41300000     | -38000000    | Cancellaria
 Cancer                                   | Animal    | Arthropoda                 | -41300000     | -38000000    | Cancer
 Cancris                                  | Micro     | Foraminifera               | -41300000     | -33900000    | <>
@@ -847,7 +847,7 @@ Columbella                               | Animal    | Mollusca                 
 Columbellopsis                           | Animal    | Mollusca                   | -41300000     | -38000000    | Columbellopsis
 Colwellia                                | Animal    | Mollusca                   | -41300000     | -38000000    | Colwellia
 Cominella                                | Animal    | Mollusca                   | -41300000     | -38000000    | Cominella
-Comptonia                                | Plant     | Spermatophyta              | -47800000     | -38000000    | Comptonia
+Comptonia Peregrina                      | Plant     | Spermatophyta              | -47800000     | -38000000    | Comptonia_(plant)
 Comptosia                                | Animal    | Arthropoda                 | -48600000     | -40400000    | Comptosia
 Concavisporites                          | Plant     | Pteridophyta               | -55800000     | -23030000    | <>
 Conchocele                               | Animal    | Mollusca                   | -41300000     | -23030000    | <>
@@ -943,7 +943,7 @@ Cryptolucina                             | Animal    | Mollusca                 
 Cryptomanis                              | Animal    | Chordata                   | -48600000     | -37200000    | <>
 Cryptomya                                | Animal    | Mollusca                   | -47800000     | -38000000    | <>
 Cryptoryctes                             | Animal    | Chordata                   | -40400000     | -33900000    | <>
-Cryptospira                              | Animal    | Mollusca                   | -41300000     | -38000000    | Cryptospira
+Cryptospira Marginellidae                | Animal    | Mollusca                   | -41300000     | -38000000    | Cryptospira
 Cryptotopos                              | Animal    | Chordata                   | -41300000     | -38000000    | <>
 Ctenocheles                              | Animal    | Arthropoda                 | -46200000     | -40400000    | <>
 Ctenoides                                | Animal    | Mollusca                   | -41300000     | -38000000    | Ctenoides
@@ -1040,7 +1040,7 @@ Cytheropteron                            | Animal    | Arthropoda               
 Cytherura                                | Animal    | Arthropoda                 | -41300000     | -38000000    | <>
 Dacrycarpites                            | Plant     | Coniferophyta              | -48600000     | -33900000    | <>
 Dacrycarpus                              | Plant     | Coniferophyta              | -100500000    | -33900000    | Dacrycarpus
-Dacrydium                                | Plant     | Coniferophyta              | -48600000     | -33900000    | Dacrydium
+Dacrydium Podocarpaceae                  | Plant     | Coniferophyta              | -48600000     | -33900000    | Dacrydium
 Dacrydiumites                            | Plant     | Coniferophyta              | -100500000    | -23030000    | <>
 Dacrytherium                             | Animal    | Chordata                   | -41300000     | -38000000    | <>
 Dactylopora                              | Plant     | Chlorophyta                | -41300000     | -38000000    | <>
@@ -1177,7 +1177,7 @@ Dracaenosaurus                           | Animal    | Chordata                 
 Drazinderetes                            | Animal    | Chordata                   | -41300000     | -38000000    | <>
 Dreissena                                | Animal    | Mollusca                   | -56000000     | -33900000    | Dreissena
 Drillia                                  | Animal    | Mollusca                   | -41300000     | -38000000    | Drillia
-Drimys                                   | Plant     | Spermatophyta              | -55800000     | -5333000     | Drimys
+Drimys Winteraceae                       | Plant     | Spermatophyta              | -55800000     | -5333000     | Drimys
 Dromilites                               | Animal    | Arthropoda                 | -66000000     | -23030000    | <>
 Dromiopsis                               | Animal    | Arthropoda                 | -56000000     | -33900000    | <>
 Droseridites                             | Plant     | Spermatophyta              | -56000000     | -28400000    | Droseridites
@@ -1460,9 +1460,9 @@ Favitricolporites                        | Plant     | Spermatophyta            
 Fayoumaster                              | Animal    | Echinodermata              | -48600000     | -33900000    | <>
 Fibularia                                | Animal    | Echinodermata              | -41300000     | -38000000    | Fibularia
 Ficopsis                                 | Animal    | Mollusca                   | -41300000     | -38000000    | Ficopsis
-Ficus                                    | Animal    | Mollusca                   | -41300000     | -38000000    | Ficus
+Ficus Ficidae                            | Animal    | Mollusca                   | -41300000     | -38000000    | Ficus_(gastropod)
 Ficusocorbula                            | Animal    | Mollusca                   | -41300000     | -38000000    | <>
-Ficus                                    | Plant     | Spermatophyta              | -41300000     | -38000000    | Ficus
+Ficus Moraceae                           | Plant     | Spermatophyta              | -41300000     | -38000000    | Ficus
 Figularia                                | Animal    | Bryozoa                    | -41300000     | -38000000    | <>
 Filicites                                | Plant     | Pteridophyta               | -55800000     | -2588000     | <>
 Fimbria                                  | Animal    | Mollusca                   | -41300000     | -38000000    | Fimbria
@@ -1476,7 +1476,7 @@ Flabellum                                | Animal    | Cnidaria                 
 Floribella                               | Animal    | Mollusca                   | -41300000     | -38000000    | Floribella
 Floridina                                | Animal    | Bryozoa                    | -41300000     | -38000000    | <>
 Florilus                                 | Micro     | Foraminifera               | -48600000     | -37200000    | <>
-Florissantia                             | Plant     | Spermatophyta              | -48600000     | -33900000    | Florissantia
+Florissantia Malvaceae                   | Plant     | Spermatophyta              | -48600000     | -33900000    | Florissantia_(plant)
 Flustra                                  | Animal    | Bryozoa                    | -41300000     | -38000000    | Flustra
 Folindusia                               | Animal    | Arthropoda                 | -41300000     | -38000000    | <>
 Forficula                                | Animal    | Arthropoda                 | -48600000     | -40400000    | Forficula
@@ -3440,7 +3440,7 @@ Rissoa                                   | Animal    | Mollusca                 
 Rissoina                                 | Animal    | Mollusca                   | -41300000     | -38000000    | Rissoina
 Robiacina                                | Animal    | Chordata                   | -41300000     | -38000000    | <>
 Robiatherium                             | Animal    | Chordata                   | -41300000     | -38000000    | <>
-Robinia Striatopunctata                  | Animal    | Porifera                   | -66000000     | -5333000     | Tax:204036
+Robinia Camerospongiidae                 | Animal    | Porifera                   | -66000000     | -5333000     | <>
 Robulus                                  | Micro     | Foraminifera               | -41300000     | -38000000    | <>
 Rooneyia                                 | Animal    | Chordata                   | -40400000     | -37200000    | Rooneyia
 Rosalina                                 | Micro     | Foraminifera               | -55800000     | -37200000    | Rosalina

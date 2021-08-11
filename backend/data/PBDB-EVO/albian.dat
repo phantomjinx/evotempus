@@ -262,7 +262,7 @@ Arcopagella                              | Animal    | Mollusca                 
 Arcopagia                                | Animal    | Mollusca                   | -113000000    | -100500000   | <>
 Arcoscalpellum                           | Animal    | Arthropoda                 | -105300000    | -99600000    | <>
 Arcthoplites                             | Animal    | Mollusca                   | -109000000    | -105300000   | Arcthoplites
-Arctica                                  | Animal    | Mollusca                   | -105300000    | -93900000    | Arctica
+Arctica                                  | Animal    | Mollusca                   | -105300000    | -93900000    | Arctica_(bivalve)
 Arctostrea                               | Animal    | Mollusca                   | -113000000    | -100500000   | <>
 Arcuatoscalpellum                        | Animal    | Arthropoda                 | -105300000    | -99600000    | <>
 Ardatermes                               | Animal    | Arthropoda                 | -113000000    | -100500000   | <>
@@ -679,7 +679,7 @@ Comophyllia                              | Animal    | Cnidaria                 
 Comoseris                                | Animal    | Cnidaria                   | -113000000    | -100500000   | <>
 Complexastrea                            | Animal    | Cnidaria                   | -122460000    | -100500000   | <>
 Componocancer                            | Animal    | Arthropoda                 | -105300000    | -99600000    | Componocancer
-Comptonia                                | Animal    | Echinodermata              | -113000000    | -100500000   | Comptonia
+Comptonia Goniasteridae                  | Animal    | Echinodermata              | -113000000    | -100500000   | Comptonia_(sea_star)
 Compunctiotypus                          | Animal    | Arthropoda                 | -113000000    | -100500000   | <>
 Concavisporites                          | Plant     | Pteridophyta               | -105300000    | -93500000    | <>
 Concavissimisporites                     | Plant     | Pteridophyta               | -105300000    | -93500000    | <>
@@ -1237,7 +1237,7 @@ Ferganemys                               | Animal    | Chordata                 
 Ferrojapyx                               | Animal    | Arthropoda                 | -122460000    | -112030000   | <>
 Ficheuria                                | Animal    | Mollusca                   | -105300000    | -99600000    | <>
 Ficophyllum                              | Plant     | Angiospermae               | -109000000    | -99600000    | <>
-Ficus                                    | Plant     | Spermatophyta              | -105300000    | -93900000    | Ficus
+Ficus Moraceae                           | Plant     | Spermatophyta              | -105300000    | -93900000    | Ficus
 Filisparsa                               | Animal    | Bryozoa                    | -105300000    | -99600000    | <>
 Fimbria                                  | Animal    | Mollusca                   | -112030000    | -109000000   | Fimbria
 Flabellammina                            | Micro     | Foraminifera               | -105300000    | -99600000    | <>
@@ -3500,7 +3500,7 @@ Zhamoidellum                             | Micro     | Radiolaria               
 Zhangolestes                             | Animal    | Chordata                   | -125000000    | -93900000    | <>
 Zhuravlevia                              | Animal    | Mollusca                   | -122460000    | -112030000   | <>
 Zifondium                                | Micro     | Radiolaria                 | -105300000    | -99600000    | <>
-Zittelina                                | Animal    | Brachiopoda                | -150800000    | -100500000   | Zittelina
+zittelina-kingenidae                     | Animal    | Brachiopoda                | -150800000    | -100500000   | Kingenidae
 Zizyphus                                 | Plant     | Spermatophyta              | -113000000    | -93900000    | Zizyphus
 Zlichomphalina                           | Animal    | Mollusca                   | -105300000    | -99600000    | <>
 Zlivisporis                              | Plant     | Bryophyta                  | -105300000    | -93500000    | <>

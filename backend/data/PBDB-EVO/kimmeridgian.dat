@@ -3,7 +3,7 @@ Acaeniotylopsis                          | Micro     | Radiolaria               
 Acanthochaetetes                         | Animal    | Porifera                   | -157300000    | -152100000   | <>
 Acanthochirana                           | Animal    | Arthropoda                 | -155700000    | -150800000   | Acanthochirana
 Acanthocircus                            | Micro     | Radiolaria                 | -155700000    | -150800000   | <>
-Acanthodiscus                            | Animal    | Mollusca                   | -163500000    | -145000000   | Acanthodiscus
+Acanthodiscus Neocomitidae               | Animal    | Mollusca                   | -163500000    | -145000000   | Acanthodiscus
 Acanthogyra                              | Animal    | Cnidaria                   | -155700000    | -150800000   | <>
 Acanthorhynchia                          | Animal    | Brachiopoda                | -157300000    | -152100000   | <>
 Acanthosphaera                           | Micro     | Radiolaria                 | -155700000    | -150800000   | Acanthosphaera
@@ -48,7 +48,7 @@ Afrovenator                              | Animal    | Chordata                 
 Agathammina                              | Micro     | Foraminifera               | -157300000    | -152100000   | <>
 Agathis                                  | Plant     | Pinophyta                  | -163500000    | -145000000   | Agathis
 Aguilerella                              | Animal    | Mollusca                   | -155700000    | -150800000   | <>
-Ainia                                    | Animal    | Chordata                   | -155700000    | -150800000   | Ainia
+Ainia                                    | Animal    | Chordata                   | -155700000    | -150800000   | <>
 Aka                                      | Animal    | Porifera                   | -155700000    | -150800000   | Aka
 Alcovasaurus                             | Animal    | Chordata                   | -157300000    | -145000000   | Alcovasaurus
 Algites                                  | Plant     | Phaeophyta                 | -157300000    | -145000000   | <>
@@ -146,7 +146,7 @@ Archaeotrigon                            | Animal    | Chordata                 
 Arcomya                                  | Animal    | Mollusca                   | -157300000    | -145000000   | <>
 Arcomytilus                              | Animal    | Mollusca                   | -155700000    | -150800000   | <>
 Arcoperna                                | Animal    | Mollusca                   | -161200000    | -155700000   | <>
-Arctica                                  | Animal    | Mollusca                   | -155700000    | -145000000   | Arctica
+Arctica                                  | Animal    | Mollusca                   | -155700000    | -145000000   | Arctica_(bivalve)
 Arctostrea                               | Animal    | Mollusca                   | -163500000    | -152100000   | <>
 Ardeadactylus                            | Animal    | Chordata                   | -155700000    | -150800000   | Ardeadactylus
 Ardeosaurus                              | Animal    | Chordata                   | -155700000    | -150800000   | Ardeosaurus
@@ -409,7 +409,7 @@ Clathropteris                            | Plant     | Pteridophyta             
 Clausastrea                              | Animal    | Cnidaria                   | -155700000    | -150800000   | <>
 Cliona                                   | Animal    | Porifera                   | -161200000    | -155700000   | Cliona
 Clypeina                                 | Plant     | Chlorophyta                | -155700000    | -140200000   | <>
-Clypeus                                  | Animal    | Echinodermata              | -161200000    | -155700000   | Clypeus
+Clypeus                                  | Animal    | Echinodermata              | -161200000    | -155700000   | <>
 Cnemidiastrum                            | Animal    | Porifera                   | -155700000    | -150800000   | <>
 Cnemopeltia                              | Animal    | Porifera                   | -155700000    | -150800000   | <>
 Coccoderma                               | Animal    | Chordata                   | -155700000    | -150800000   | Coccoderma
@@ -464,7 +464,7 @@ Corbulomima                              | Animal    | Mollusca                 
 Cornuspira                               | Micro     | Foraminifera               | -155700000    | -140200000   | <>
 Corongoceras                             | Animal    | Mollusca                   | -163500000    | -139800000   | Corongoceras
 Coscinaulus                              | Animal    | Porifera                   | -155700000    | -150800000   | <>
-Coscinodiscus                            | Animal    | Porifera                   | -155700000    | -150800000   | Coscinodiscus
+Coscinodiscus Cylindrophymatidae	       | Animal    | Porifera                   | -155700000    | -150800000   | <>
 Coscinophragma                           | Micro     | Foraminifera               | -155700000    | -150800000   | <>
 Cossmannea                               | Animal    | Mollusca                   | -155700000    | -150800000   | <>
 Costentolium                             | Animal    | Mollusca                   | -161200000    | -155700000   | <>
@@ -2392,7 +2392,7 @@ Zenostephanus                            | Animal    | Mollusca                 
 Zergabriella                             | Plant     | Chlorophyta                | -157300000    | -145000000   | <>
 Zeugrhabdotus                            | Plant     | Haptophyta                 | -155700000    | -150800000   | <>
 Zhamoidellum                             | Micro     | Radiolaria                 | -155700000    | -145000000   | <>
-Zittelina                                | Animal    | Brachiopoda                | -155700000    | -150800000   | Zittelina
+zittelina-kingenidae                     | Animal    | Brachiopoda                | -155700000    | -150800000   | Kingenidae
 Zlivisporis                              | Plant     | Bryophyta                  | -174100000    | -93500000    | <>
 Zonovia                                  | Animal    | Mollusca                   | -155700000    | -150800000   | Zonovia
 Zoropsocus                               | Animal    | Arthropoda                 | -163500000    | -152100000   | <>

@@ -321,7 +321,7 @@ Archosolva                               | Animal    | Arthropoda               
 Arcodonichthys                           | Animal    | Chordata                   | -145000000    | -66000000    | <>
 Arcopagia                                | Animal    | Mollusca                   | -93900000     | -89800000    | <>
 Arctangia                                | Animal    | Cnidaria                   | -93500000     | -89300000    | <>
-Arctica                                  | Animal    | Mollusca                   | -100500000    | -89800000    | Arctica
+Arctica                                  | Animal    | Mollusca                   | -100500000    | -89800000    | Arctica_(bivalve)
 Arcuatoscalpellum                        | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Arcuatothyris                            | Animal    | Brachiopoda                | -99600000     | -93500000    | <>
 Arecipites                               | Plant     | Angiospermae               | -100500000    | -56000000    | <>
@@ -908,7 +908,7 @@ Comahuesuchus                            | Animal    | Chordata                 
 Complexastrea                            | Animal    | Cnidaria                   | -99600000     | -93500000    | <>
 Compluriscutula                          | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Compsopsarus                             | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
-Comptonia                                | Animal    | Echinodermata              | -99600000     | -93500000    | Comptonia
+Comptonia Goniasteridae                  | Animal    | Echinodermata              | -99600000     | -93500000    | Comptonia_(sea_star)
 Comptoniaster                            | Animal    | Echinodermata              | -99600000     | -93500000    | <>
 Concavapsocus                            | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Concavisporites                          | Plant     | Pteridophyta               | -105300000    | -93500000    | <>
@@ -1612,8 +1612,8 @@ Ferrodraco                               | Animal    | Chordata                 
 Festenus                                 | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Fiaponeura                               | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Ficheuria                                | Animal    | Mollusca                   | -99600000     | -93500000    | <>
-Ficus                                    | Animal    | Mollusca                   | -100500000    | -66000000    | Ficus
-Ficus                                    | Plant     | Spermatophyta              | -100500000    | -66000000    | Ficus
+Ficus Ficidae                            | Animal    | Mollusca                   | -100500000    | -66000000    | Ficus_(gastropod)
+Ficus Moraceae                           | Plant     | Spermatophyta              | -100500000    | -66000000    | Ficus
 Fiegelia                                 | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Filicites                                | Plant     | Pteridophyta               | -100500000    | -66000000    | <>
 Filograna                                | Animal    | Annelida                   | -99600000     | -93500000    | Filograna
@@ -4435,7 +4435,7 @@ Zigrasimecia                             | Animal    | Arthropoda               
 Zigrasolabis                             | Animal    | Arthropoda                 | -99600000     | -93500000    | Zigrasolabis
 Zimmerella                               | Animal    | Bryozoa                    | -93500000     | -70600000    | <>
 Zimmiorhinus                             | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
-Zittelina                                | Animal    | Brachiopoda                | -157300000    | -66000000    | Zittelina
+zittelina-kingenidae                     | Animal    | Brachiopoda                | -157300000    | -66000000    | Kingenidae
 Zizyphus                                 | Plant     | Spermatophyta              | -99600000     | -93500000    | Zizyphus
 Zlivisporis                              | Plant     | Bryophyta                  | -105300000    | -93500000    | <>
 Zoropelecinus                            | Animal    | Arthropoda                 | -99600000     | -93500000    | <>

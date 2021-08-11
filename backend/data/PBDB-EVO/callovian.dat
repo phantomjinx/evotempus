@@ -209,7 +209,7 @@ Archodromus                              | Animal    | Arthropoda               
 Arcofuzia                                | Animal    | Arthropoda                 | -166100000    | -157300000   | <>
 Arcomya                                  | Animal    | Mollusca                   | -164700000    | -161200000   | <>
 Arcomytilus                              | Animal    | Mollusca                   | -164700000    | -150800000   | <>
-Arctica                                  | Animal    | Mollusca                   | -166100000    | -157300000   | Arctica
+Arctica                                  | Animal    | Mollusca                   | -166100000    | -157300000   | Arctica_(bivalve)
 Arcticoceras                             | Animal    | Mollusca                   | -164700000    | -161200000   | Arcticoceras
 Arctocephalites                          | Animal    | Mollusca                   | -167700000    | -164700000   | Arctocephalites
 Arctostrea                               | Animal    | Mollusca                   | -166100000    | -157300000   | <>
@@ -293,7 +293,7 @@ Bathrotomaria                            | Animal    | Mollusca                 
 Bathycoenia                              | Animal    | Cnidaria                   | -167700000    | -164700000   | <>
 Bathysiphon                              | Micro     | Foraminifera               | -166100000    | -163500000   | <>
 Batrachopus                              | Animal    | Chordata                   | -201300000    | -145000000   | Batrachopus
-Beania                                   | Plant     | Cycadophyta                | -166100000    | -157300000   | Beania
+Beania Beaniaceae                        | Plant     | Cycadophyta                | -166100000    | -157300000   | Beania
 Beipiaocarabus                           | Animal    | Arthropoda                 | -166100000    | -157300000   | <>
 Beipiaoplecia                            | Animal    | Arthropoda                 | -166100000    | -157300000   | <>
 Beipiaopsychops                          | Animal    | Arthropoda                 | -166100000    | -157300000   | <>
@@ -489,7 +489,7 @@ Cleistogaster                            | Animal    | Arthropoda               
 Cliona                                   | Animal    | Porifera                   | -164700000    | -161200000   | Cliona
 Clydomphalites                           | Animal    | Mollusca                   | -167700000    | -164700000   | <>
 Clydoniceras                             | Animal    | Mollusca                   | -166100000    | -163500000   | <>
-Clypeus                                  | Animal    | Echinodermata              | -166100000    | -163500000   | Clypeus
+Clypeus                                  | Animal    | Echinodermata              | -166100000    | -163500000   | <>
 Cnemidiastrum                            | Animal    | Porifera                   | -164700000    | -161200000   | <>
 Codemus                                  | Animal    | Arthropoda                 | -166100000    | -157300000   | <>
 Codonosmilia                             | Animal    | Cnidaria                   | -166100000    | -163500000   | Codonosmilia
@@ -2798,7 +2798,7 @@ Zherikhinina                             | Animal    | Arthropoda               
 Zhizhu                                   | Animal    | Arthropoda                 | -166100000    | -157300000   | <>
 Zhongbanaia                              | Animal    | Mollusca                   | -174100000    | -163500000   | <>
 Zigzagiceras                             | Animal    | Mollusca                   | -167700000    | -164700000   | Zigzagiceras
-Zittelina                                | Animal    | Brachiopoda                | -164700000    | -161200000   | Zittelina
+zittelina-kingenidae                     | Animal    | Brachiopoda                | -164700000    | -161200000   | Kingenidae
 Zlivisporis                              | Plant     | Bryophyta                  | -168300000    | -157300000   | <>
 Zoropsocus                               | Animal    | Arthropoda                 | -166100000    | -157300000   | <>
 Zugodactylites                           | Animal    | Mollusca                   | -201300000    | -163500000   | Zugodactylites

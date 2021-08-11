@@ -247,7 +247,7 @@ Calliprotonia                            | Animal    | Brachiopoda              
 Callipteris                              | Plant     | Peltaspermophyta           | -268800000    | -2.599e+08   | Callipteris
 Callispirina                             | Animal    | Brachiopoda                | -268800000    | -2.599e+08   | <>
 Callistadia                              | Animal    | Mollusca                   | -268800000    | -2.651e+08   | <>
-Calophyllum                              | Animal    | Cnidaria                   | -268800000    | -2.599e+08   | Calophyllum
+Calophyllum Polycoeliidae                 | Animal    | Cnidaria                   | -268800000    | -2.599e+08   | <>
 Camarophorina                            | Animal    | Brachiopoda                | -272300000    | -254170000   | <>
 Cambodgia                                | Animal    | Mollusca                   | -268800000    | -2.651e+08   | <>
 Camerisma                                | Animal    | Brachiopoda                | -268800000    | -2.651e+08   | <>
@@ -828,8 +828,8 @@ Isadia                                   | Animal    | Chordata                 
 Ishigaum                                 | Micro     | Radiolaria                 | -272300000    | -2.599e+08   | <>
 Isiolopteris                             | Plant     | Pteridophyta               | -268800000    | -2.599e+08   | <>
 Isogramma                                | Animal    | Brachiopoda                | -268800000    | -2.651e+08   | Isogramma
-Ivanovia                                 | Plant     | Chlorophyta                | -268800000    | -2.651e+08   | Ivanovia
-Ivanovia                                 | Animal    | Cnidaria                   | -268800000    | -2.651e+08   | Ivanovia
+Ivanovia Codiaceae                       | Plant     | Chlorophyta                | -268800000    | -2.651e+08   | Ivanovia
+Ivanovia Petalaxidae                     | Animal    | Cnidaria                   | -268800000    | -2.651e+08   | <>
 Jacquesia                                | Animal    | Mollusca                   | -268800000    | -254170000   | <>
 Jakutoproductus                          | Animal    | Brachiopoda                | -268800000    | -2.599e+08   | <>
 Janassa                                  | Animal    | Chordata                   | -272500000    | -268000000   | Janassa
@@ -1157,7 +1157,7 @@ Neorichthofenia                          | Animal    | Brachiopoda              
 Neoschizodus                             | Animal    | Mollusca                   | -268800000    | -2.651e+08   | <>
 Neoschwagerina                           | Micro     | Foraminifera               | -268000000    | -265000000   | <>
 Neospirifer                              | Animal    | Brachiopoda                | -268800000    | -2.599e+08   | Neospirifer
-Nephropsis                               | Plant     | Pinophyta                  | -268800000    | -2.599e+08   | Nephropsis
+Nephropsis Pinopsida                     | Plant     | Pinophyta                  | -268800000    | -2.599e+08   | <>
 Neptunopecten                            | Animal    | Mollusca                   | -272300000    | -2.599e+08   | <>
 Nerita                                   | Animal    | Mollusca                   | -268800000    | -2.651e+08   | Nerita
 Netschajewia                             | Animal    | Mollusca                   | -268800000    | -2.651e+08   | <>

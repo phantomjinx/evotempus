@@ -121,7 +121,7 @@ Archiphilopotamus                        | Animal    | Arthropoda               
 Architipula                              | Animal    | Arthropoda                 | -170300000    | -166100000   | <>
 Arcomya                                  | Animal    | Mollusca                   | -168300000    | -166100000   | <>
 Arcomytilus                              | Animal    | Mollusca                   | -167700000    | -164700000   | <>
-Arctica                                  | Animal    | Mollusca                   | -167700000    | -164700000   | Arctica
+Arctica                                  | Animal    | Mollusca                   | -167700000    | -164700000   | Arctica_(bivalve)
 Arcticoceras                             | Animal    | Mollusca                   | -167700000    | -164700000   | Arcticoceras
 Arctocephalites                          | Animal    | Mollusca                   | -167700000    | -164700000   | Arctocephalites
 Arctostrea                               | Animal    | Mollusca                   | -168300000    | -166100000   | <>
@@ -189,7 +189,7 @@ Bathrotomaria                            | Animal    | Mollusca                 
 Bathycoenia                              | Animal    | Cnidaria                   | -167700000    | -164700000   | <>
 Bathysiphon                              | Micro     | Foraminifera               | -171600000    | -167700000   | <>
 Batrachopus                              | Animal    | Chordata                   | -201300000    | -145000000   | Batrachopus
-Beania                                   | Plant     | Cycadophyta                | -168300000    | -163500000   | Beania
+Beania Beaniaceae                        | Plant     | Cycadophyta                | -168300000    | -163500000   | Beania
 Belemnites                               | Animal    | Mollusca                   | -168300000    | -166100000   | Belemnites
 Belemnobatis                             | Animal    | Chordata                   | -168300000    | -166100000   | Belemnobatis
 Belemnopsis                              | Animal    | Mollusca                   | -167700000    | -164700000   | Belemnopsis
@@ -330,8 +330,8 @@ Clathropteris                            | Plant     | Pteridophyta             
 Clausastrea                              | Animal    | Cnidaria                   | -168300000    | -166100000   | <>
 Clydomphalites                           | Animal    | Mollusca                   | -167700000    | -164700000   | <>
 Clydoniceras                             | Animal    | Mollusca                   | -167700000    | -164700000   | <>
-Clypeus                                  | Animal    | Arthropoda                 | -170300000    | -166100000   | Clypeus
-Clypeus                                  | Animal    | Echinodermata              | -168300000    | -163500000   | Clypeus
+Clypeus                                  | Animal    | Arthropoda                 | -170300000    | -166100000   | <>
+Clypeus                                  | Animal    | Echinodermata              | -168300000    | -163500000   | <>
 Cnemidiastrum                            | Animal    | Porifera                   | -167700000    | -164700000   | <>
 Cobbanites                               | Animal    | Mollusca                   | -168300000    | -166100000   | Cobbanites
 Coccinellophana                          | Animal    | Arthropoda                 | -168300000    | -166100000   | <>

@@ -1,53 +1,312 @@
-Chaperia
-- Removal of Mollusca entries
-- Widen periods to largest range
-  -33900000     | -5333000
-  -19000000     | -15900000
-  -1630000      | -340000
-  -33900000     | -5333000
-  -1630000      | -340000
-  -2588000      | -11700
-  -------------------------
-  -33900000     | -11700
-
 Liaoxia
-- 2 separate genii recorded: 1 flowering plant & 1 insect
 - Liaoxia Chenii
 - Liaoxia Longa
-- Differentiate with species names
 
 Robinia
-- 2 separate genii recorded: 1 plant & 1 sponge
-- Use Sub-Taxon
-- Robinia Striatopunctata
-- Robinia Californica
-- Wiki refers to plant only so use taxon for sponge
-- Widen periods to largest range
-- Plant
-  -23030000     | -5333000
-  -20430000     | -13600000
-  -33900000     | -5333000
-  -66000000     | -56000000
-  -------------------------
-  -66000000     | -5333000
-- Sponge
-  -23030000     | -5333000     | Tax:204036
-  -41300000     | -38000000    | Robinia
-  -20440000     | -15970000    | Robinia
-  -33900000     | -5333000     | Robinia
-  -66000000     | -56000000    | Robinia
-  -----------------------------------------
-  -66000000     | -5333000     | Tax:204036
+- Robinia Camerospongiidae: Animal
+- Robinia Fabaceae: Plant
 
 Kinkaidia
-- 2 separate genii recorded: 1 snail & 1 coral
-- Renamed to
-  - Kinkaidia Anthozoa: coral
-  - Kinkaidia Gastropoda: snail
+- Kinkaidia Anthozoa: coral
+- Kinkaidia Gastropoda: snail
 
 Morus
-- 2 separate genii recorded: 1 animal & 1 plant
-- 2 wikilinks to Morus_(bird) & Morus_(plant)
-- Renamed to
- - Morus Sulidae: gannet
- - Morus Moraceae: flower
+- Morus Sulidae: Morus_(bird)
+- Morus Moraceae: Morus_(plant)
+
+Zittelina
+- Zittelina Kingenidae: brachiopod
+- Zittelina Dasycladaceae: alga
+
+Comptonia
+- Comptonia Peregrina: plant
+- Comptonia Goniasteridae: animal
+
+Ficus
+- Ficus Ficidae: animal
+- Ficus Moraceae: plant
+
+Synodus
+- Synodus Changmaensis: Arthropoda
+- Synodus Synodontidae: Fish
+
+Calophyllum
+- Calophyllum Polycoeliidae: Animal
+- Calophyllum Calophyllaceae: Plant
+
+Ivanovia
+- Ivanovia Petalaxidae: Animal
+- Ivanovia Codiaceae: Algae
+
+Nephropsis
+- Nephropsis Nephropidae: Animal
+- Nephropsis Pinopsida: Plant
+
+Lyonia
+- Lyonia Monticuliferidae: Animal
+- Lyonia Ericaceae: Plant
+
+Acanthodiscus
+- Acanthodiscus Neocomitidae: Animal
+- Acanthodiscus Centrales: Plant
+
+Acanthognathus
+- Acanthognathus Syngnathidae: Animal
+- Acanthognathus Formicidae: Arthropoda
+
+Ainia
+- No links in wikipedia so no de-duplicating
+
+Anomodon
+- Anomodon Anomodontaceae: Plant
+- Anomodon Leptictidae: Animal
+
+Apidium
+- Apidium Parapithecidae: Primate
+- Apidium Dasycladaceae: Algae
+
+Armania
+- No links in wikipedia so no de-duplicating
+
+Arctica
+- Incorrect link to continent rather than bivalve
+
+Banksia
+- Banksia Proteaceae: Plant
+- Banksia Brachyopidae: Animal
+
+Beania
+- Beania Beaniaceae: Plant
+- Beania Bicellariellidae: Animal
+
+Breynia
+- Breynia Phyllanthaceae: Plant
+- Breynia Loveniidae: Animal
+
+Calamus
+- Calamus Arecaceae: Plant
+- Calamus Sparidae: Fish
+
+Canarium
+- Canarium Burseraceae: Plant
+- Canarium Strombidae: Animal
+
+Canningella
+- Canningella Pliomeridae: Arthropoda
+- Canningella Anthaspidellidae: Sponge
+
+Chaperia
+- Chaperia Chaperiidae: Bryozoa
+- Chaperia Caprotinidae: Mollusca
+
+Clypeus
+- No links in wikipedia so no de-duplicating
+
+Condalia
+- Condalia Rhamnaceae: Plant
+- Condalia Libelluloidea: Insect
+
+Corinna
+- Corinna_(spider) Corinna Corinnidae: Arthropoda
+-`Corinna_(diatom) Corinna Bacillariophyceae: Plant
+
+Corydalis
+- Corydalis Corydalis Papaveraceae: Plant
+- Corydalus Corydalis Corydalidae: Arthropoda
+
+Coscinodiscus
+- Coscinodiscus Coscinodiscaceae: Micro
+- Coscinodiscus Cylindrophymatidae: Animal
+
+Craspedodiscus
+- Craspedodiscus_(alga) Craspedodiscus Coscinodiscaceae: Micro
+- Craspedodiscus_(cephalopod) Craspedodiscus Olcostephanitidae: Animal
+
+Cryptospira
+- Cryptospira Marginellidae: Mollusca
+- Cryptospira Zygospiridae: Brachiopoda
+
+Dacrydium
+- Dacrydium Podocarpaceae: Plant
+- Dacrydium Mytilidae: Mollusca
+
+Dolichopterus
+- Dolichopterus Dolichopteridae: Arthropoda
+- Dolichopterus Dinosauria: Dinosaur
+
+Dracaena
+- Dracaena_(plant) Dracaena Asparagaceae: Plant
+- Dracaena_(lizard) Dracaena Teiidae: Animal
+
+Drimys
+- Drimys Drimys Winteraceae: Plant
+- Drimys_(fish) Drimys Paralepididae: Fish
+
+Eremophila
+- Eremophila_(bird) Eremophila Alaudidae: Bird
+- Eremophila_(plant) Eremophila Scrophulariaceae: Plant
+
+Etheridgea
+- No links in wikipedia so no de-duplicating
+
+Flemingites
+- Flemingites Flemingitidae: Mollusca
+- Flemingites (Lycopodophyta): Removed as not sure of the data
+
+Florissantia
+- Florissantia_(plant) Florissantia Malvaceae: Plant
+- Florissantia_(planthopper) Florissantia Dictyopharidae: Arthropoda
+
+Glauconome
+- No links in wikipedia so no de-duplicating
+
+Glyptolepis
+- Glyptolepis_(fish) Glyptolepis Holoptychiidae: Fish
+- Glyptolepis_(plant) Glyptolepis Voltziales: Plant
+
+-----
+TODO BELOW
+-----
+
+Gordonia
+- Gordonia_(plant) Gordonia Theaceae: Plant
+- Gordonia_(bacterium) Gordonia Gordoniaceae: Micro
+- Gordonia_(synapsid) Gordonia Dicynodontoidea: Animal
+
+Hedstroemia
+- Hedstroemia Hedstroemia Codiaceae: Micro
+- Hedstroemia_(trilobite) Hedstroemia Proetidae: Animal
+
+Hibbertia
+- Hibbertia Dilleniaceae: Plant
+
+Langella
+- No links in wikipedia so no de-duplicating
+
+Lasiodiscus
+- Lasiodiscus Rhamnaceae: Plant
+
+Lewinia
+- Lewinia Rallidae:Bird
+
+Mallotus
+- Capelin Mallotus Osmeridae: Fish
+- Mallotus_(plant) Mallotus Euphorbiaceae: Plant
+
+Megalomus
+- Megalomus Hemerobiidae: Arthropoda
+
+Mesophyllum
+- Mesophyllum	Hapalidiaceae: Algae
+
+Micula
+- No links in wikipedia so no de-duplicating
+
+Milax
+- Milax_(gastropod) Milax Milacidae: Gastropoda
+
+Montia
+- Montia Montiaceae: Plant
+
+Morania
+- Morania Cyanobacteria: Micro
+
+Myriophyllum
+- Myriophyllum Haloragaceae: Plant
+
+Nothia
+- Nothia Zosterophylls: Plant
+
+Oenanthe
+- Wheatear Oenanthe Muscicapidae: Bird
+- Oenanthe_(plant) Oenanthe Apiaceae: Plant
+
+Paliurus
+- Paliurus Rhamnaceae: Plant
+
+----
+
+Persia
+- Persia Prospondylidae: Mollusca
+- Persia Phillipsiidae: Arthropoda
+
+----
+TODO BELOW
+----
+
+Petaloconchus
+- Petaloconchus Vermetidae: Snail
+
+Pinnularia
+- Pinnularia Pinnulariaceae: Algae
+
+Polyonyx
+- Polyonyx Porcellanidae: Crabs
+
+Posidonia
+- Posidonia Posidoniaceae: Plant
+
+Pravoslavlevia
+- Pravoslavlevia Gorgonopsidae: Animal
+
+Pteronotus
+- Pteronotus Pteronotus Mormoopidae: Bat
+
+Pterotheca
+- Pterotheca Cyperaceae: Plant
+
+Pytine
+- Pytine Raphiophoridae: Arthropoda
+
+Rhyniella
+- Rhyniella Collembola: Arthropoda
+
+Sargus
+- Sargus Stratiomyidae: Insect
+
+Scopus
+- Hamerkop Scopus Scopidae: Bird
+
+Spinella
+- No links in wikipedia so no de-duplicating
+
+Spinus
+- Spinus_(bird) Spinus Fringillidae: Bird
+
+Stellaria
+- Stellaria Stellaria Caryophyllaceae: Plant
+- Stellaria_(gastropod) Stellaria Xenophoridae: Mollusca
+
+Stenorhachis
+- Stenorhachis Asaphidae: Arthropoda
+
+Steropoides
+- No links in wikipedia so no de-duplicating
+
+Stormbergia
+- Lesothosaurus Stormbergia Ornithischia: Dinosaur
+
+Sylvia
+- Typical_warbler Sylvia Sylviidae: Bird
+
+Tridactylus
+- Tridactylus Tridactylidae: Insect
+
+Trigonella
+- Trigonella Fabaceae: Plant
+
+Trinacria
+- <NO LINK> Trinacria Noetiidae: Animal
+- Trinacria_(diatom) Trinacria Hemiaulaceae: Micro
+
+Vespertilio
+- Vespertilio Vespertilionidae: Bat
+
+Walteria
+- No links in wikipedia so no de-duplicating
+
+Zygaena
+- Zygaena Zygaenidae: Arthropoda
+- Different links to sharks
+
+Command: cat *.dat | grep -v "<>" | awk {'print $1,$3,$5'} | sort | uniq | awk {'print $1'} | sort | uniq -d

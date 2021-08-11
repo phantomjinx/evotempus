@@ -4,7 +4,7 @@ Abdounia                                 | Animal    | Chordata                 
 Abelia                                   | Plant     | Spermatophyta              | -59200000     | -56000000    | Abelia
 Aberisphaera                             | Micro     | Foraminifera               | -59200000     | -47800000    | <>
 Aboletylestes                            | Animal    | Chordata                   | -59200000     | -56000000    | <>
-Acanthodiscus                            | Plant     | Ochrophyta                 | -66000000     | -56000000    | Acanthodiscus
+Acanthodiscus Centrales                  | Plant     | Ochrophyta                 | -66000000     | -56000000    | <>
 Acarinina                                | Micro     | Foraminifera               | -59200000     | -56000000    | Acarinina
 Acar                                     | Animal    | Mollusca                   | -66000000     | -56000000    | Acar
 Acer                                     | Plant     | Spermatophyta              | -56800000     | -55800000    | Acer
@@ -172,7 +172,7 @@ Architectonica                           | Animal    | Mollusca                 
 Arcopagia                                | Animal    | Mollusca                   | -61700000     | -55800000    | <>
 Arcoperna                                | Animal    | Mollusca                   | -66000000     | -56000000    | <>
 Arcopsis                                 | Animal    | Mollusca                   | -66000000     | -56000000    | <>
-Arctica                                  | Animal    | Mollusca                   | -59200000     | -56000000    | Arctica
+Arctica                                  | Animal    | Mollusca                   | -59200000     | -56000000    | Arctica_(bivalve)
 Arctocyon                                | Animal    | Chordata                   | -56800000     | -55800000    | Arctocyon
 Arctocyonides                            | Animal    | Chordata                   | -59200000     | -56000000    | <>
 Arctodontomys                            | Animal    | Chordata                   | -56800000     | -55800000    | <>
@@ -368,7 +368,7 @@ Callista                                 | Animal    | Mollusca                 
 Callistopollenites                       | Plant     | Spermatophyta              | -66000000     | -56000000    | <>
 Callocardia                              | Animal    | Mollusca                   | -59200000     | -56000000    | <>
 Callucina                                | Animal    | Mollusca                   | -59200000     | -56000000    | <>
-Calophyllum                              | Plant     | Spermatophyta              | -66000000     | -2588000     | Calophyllum
+Calophyllum Calophyllaceae	              | Plant     | Spermatophyta              | -66000000     | -2588000     | Calophyllum
 Calorhadia                               | Animal    | Mollusca                   | -59200000     | -56000000    | <>
 Calycites                                | Plant     | Spermatophyta              | -56800000     | -55800000    | <>
 Calyptocephalella                        | Animal    | Chordata                   | -62500000     | -59000000    | Calyptocephalella
@@ -538,7 +538,7 @@ Cominella                                | Animal    | Mollusca                 
 Comitileda                               | Animal    | Mollusca                   | -59200000     | -56000000    | <>
 Compressidens                            | Animal    | Mollusca                   | -59200000     | -56000000    | <>
 Compsemys                                | Animal    | Chordata                   | -56800000     | -55800000    | Compsemys
-Comptonia                                | Plant     | Spermatophyta              | -66000000     | -28100000    | Comptonia
+Comptonia Peregrina                      | Plant     | Spermatophyta              | -66000000     | -28100000    | Comptonia_(plant)
 Concavisporites                          | Plant     | Pteridophyta               | -58700000     | -55800000    | <>
 Conchocele                               | Animal    | Mollusca                   | -66000000     | -56000000    | <>
 Conchothyra                              | Animal    | Mollusca                   | -61600000     | -56000000    | <>
@@ -575,7 +575,7 @@ Corylites                                | Plant     | Spermatophyta            
 Corylus                                  | Plant     | Spermatophyta              | -56800000     | -55800000    | Corylus
 Coryphodon                               | Animal    | Chordata                   | -56800000     | -55800000    | Coryphodon
 Coryphostoma                             | Micro     | Foraminifera               | -59200000     | -56000000    | <>
-Coscinodiscus                            | Plant     | Ochrophyta                 | -66000000     | -56000000    | Coscinodiscus
+Coscinodiscus Coscinodiscaceae           | Micro     | Ochrophyta                 | -66000000     | -56000000    | Coscinodiscus
 Coscinophragma                           | Micro     | Foraminifera               | -59200000     | -56000000    | <>
 Coscinopleura                            | Animal    | Bryozoa                    | -58700000     | -55800000    | Coscinopleura
 Coskinolina                              | Micro     | Foraminifera               | -59200000     | -56000000    | <>
@@ -917,8 +917,8 @@ Favia                                    | Animal    | Cnidaria                 
 Fedaiella                                | Animal    | Mollusca                   | -59200000     | -56000000    | Fedaiella
 Ferrequitherium                          | Animal    | Chordata                   | -61700000     | -56800000    | <>
 Ficopsis                                 | Animal    | Mollusca                   | -59200000     | -56000000    | Ficopsis
-Ficus                                    | Animal    | Mollusca                   | -59200000     | -56000000    | Ficus
-Ficus                                    | Plant     | Spermatophyta              | -56800000     | -55800000    | Ficus
+Ficus Ficidae                            | Animal    | Mollusca                   | -59200000     | -56000000    | Ficus_(gastropod)
+Ficus Moraceae                           | Plant     | Spermatophyta              | -56800000     | -55800000    | Ficus
 Fieldingia                               | Animal    | Porifera                   | -66000000     | -53000000    | <>
 Fierasferoides                           | Animal    | Chordata                   | -61600000     | -56000000    | <>
 Fimbria                                  | Animal    | Mollusca                   | -59200000     | -56000000    | Fimbria
@@ -1585,7 +1585,7 @@ Neoplagiaulax                            | Animal    | Chordata                 
 Neoraistrickia                           | Plant     | Pteridophyta               | -66000000     | -56000000    | <>
 Nephila                                  | Animal    | Arthropoda                 | -59200000     | -56000000    | Nephila
 Nephrops                                 | Animal    | Arthropoda                 | -66000000     | -56000000    | Nephrops
-Nephropsis                               | Animal    | Arthropoda                 | -59200000     | -56000000    | Nephropsis
+Nephropsis Nephropidae                   | Animal    | Arthropoda                 | -59200000     | -56000000    | Nephropsis
 Neptocarcinus                            | Animal    | Arthropoda                 | -66000000     | -23030000    | <>
 Neptunea                                 | Animal    | Mollusca                   | -59200000     | -56000000    | Neptunea
 Nerita                                   | Animal    | Mollusca                   | -59200000     | -47800000    | Nerita
@@ -2194,8 +2194,8 @@ Ringicula                                | Animal    | Mollusca                 
 Riolestes                                | Animal    | Chordata                   | -58700000     | -48600000    | <>
 Riostegotherium                          | Animal    | Chordata                   | -58700000     | -48600000    | Riostegotherium
 Rissoina                                 | Animal    | Mollusca                   | -59200000     | -56000000    | Rissoina
-Robinia                                  | Animal    | Porifera                   | -66000000     | -56000000    | Robinia
-Robinia                                  | Plant     | Spermatophyta              | -66000000     | -56000000    | Robinia
+Robinia Camerospongiidae                 | Animal    | Porifera                   | -66000000     | -56000000    | <>
+Robinia Fabaceae                         | Animal    | Spermatophyta              | -66000000     | -56000000    | Robinia
 Rodcania                                 | Animal    | Chordata                   | -58700000     | -55800000    | <>
 Rogueus                                  | Animal    | Arthropoda                 | -59200000     | -56000000    | <>
 Rosalina                                 | Micro     | Foraminifera               | -58700000     | -55800000    | Rosalina
@@ -2662,7 +2662,7 @@ Zhylgaia                                 | Animal    | Chordata                 
 Zingiberites                             | Plant     | Angiospermae               | -66000000     | -56000000    | <>
 Zingiberopsis                            | Plant     | Angiospermae               | -56800000     | -55800000    | <>
 Zirphaea                                 | Animal    | Mollusca                   | -66000000     | -56000000    | <>
-Zittelina                                | Plant     | Chlorophyta                | -59200000     | -56000000    | Zittelina
+Zittelina                                | Plant     | Chlorophyta                | -59200000     | -56000000    | Zittelina_(alga)
 Zizyphus                                 | Plant     | Spermatophyta              | -66000000     | -28100000    | Zizyphus
 Zlivisporis                              | Plant     | Bryophyta                  | -58700000     | -55800000    | <>
 Zygodiscus                               | Plant     | Haptophyta                 | -58700000     | -55800000    | <>

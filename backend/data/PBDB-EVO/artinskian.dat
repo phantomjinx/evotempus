@@ -256,7 +256,7 @@ Callipteris                              | Plant     | Peltaspermophyta         
 Callispirina                             | Animal    | Brachiopoda                | -298900000    | -272300000   | <>
 Callytharrella                           | Animal    | Brachiopoda                | -290100000    | -279300000   | <>
 Calohymen                                | Animal    | Arthropoda                 | -290100000    | -279300000   | <>
-Calophyllum                              | Animal    | Cnidaria                   | -290100000    | -279300000   | Calophyllum
+Calophyllum Polycoeliidae                 | Animal    | Cnidaria                   | -290100000    | -279300000   | <>
 Calstevenus                              | Animal    | Mollusca                   | -290100000    | -279300000   | <>
 Calvertiella                             | Animal    | Arthropoda                 | -290100000    | -279300000   | <>
 Calycoblastus                            | Animal    | Echinodermata              | -290100000    | -279300000   | <>
@@ -780,8 +780,8 @@ Ishigaum                                 | Micro     | Radiolaria               
 Iskutella                                | Animal    | Cnidaria                   | -290100000    | -279300000   | <>
 Isogramma                                | Animal    | Brachiopoda                | -290100000    | -279300000   | Isogramma
 Itapyrodus                               | Animal    | Chordata                   | -290100000    | -279300000   | <>
-Ivanovia                                 | Plant     | Chlorophyta                | -298900000    | -252170000   | Ivanovia
-Ivanovia                                 | Animal    | Cnidaria                   | -290100000    | -279300000   | Ivanovia
+Ivanovia Codiaceae                       | Plant     | Chlorophyta                | -298900000    | -252170000   | Ivanovia
+Ivanovia Petalaxidae                     | Animal    | Cnidaria                   | -290100000    | -279300000   | <>
 Jakutochonetes                           | Animal    | Brachiopoda                | -290100000    | -279300000   | <>
 Jakutoproductus                          | Animal    | Brachiopoda                | -290100000    | -279300000   | <>
 Janassa                                  | Animal    | Chordata                   | -290100000    | -272300000   | Janassa
@@ -1090,7 +1090,7 @@ Neosyringopora                           | Animal    | Cnidaria                 
 Neothrincoceras                          | Animal    | Mollusca                   | -290100000    | -279300000   | <>
 Neouddenites                             | Animal    | Mollusca                   | -290100000    | -279300000   | <>
 Neozeacrinus                             | Animal    | Echinodermata              | -290100000    | -279300000   | <>
-Nephropsis                               | Plant     | Pinophyta                  | -290100000    | -268800000   | Nephropsis
+Nephropsis Pinopsida                     | Plant     | Pinophyta                  | -290100000    | -268800000   | <>
 Neptunopecten                            | Animal    | Mollusca                   | -290100000    | -279300000   | <>
 Neuropteridium                           | Plant     | Pteridophyta               | -290100000    | -272300000   | <>
 Neuropteris                              | Plant     | Tracheophyta               | -290100000    | -272300000   | Neuropteris

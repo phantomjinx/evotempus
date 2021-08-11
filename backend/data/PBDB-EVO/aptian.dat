@@ -259,7 +259,7 @@ Archobraconus                            | Animal    | Arthropoda               
 Archoxyelyda                             | Animal    | Arthropoda                 | -125450000    | -122460000   | <>
 Arcinella                                | Animal    | Mollusca                   | -125000000    | -100500000   | Arcinella
 Arcodonichthys                           | Animal    | Chordata                   | -145000000    | -66000000    | <>
-Arctica                                  | Animal    | Mollusca                   | -125000000    | -113000000   | Arctica
+Arctica                                  | Animal    | Mollusca                   | -125000000    | -113000000   | Arctica_(bivalve)
 Arctostrea                               | Animal    | Mollusca                   | -125450000    | -122460000   | <>
 Arcullaea                                | Animal    | Mollusca                   | -125000000    | -113000000   | <>
 Arecipites                               | Plant     | Angiospermae               | -122460000    | -112030000   | <>
@@ -1371,7 +1371,7 @@ Fengningia                               | Animal    | Arthropoda               
 Ferganoconcha                            | Animal    | Mollusca                   | -125000000    | -113000000   | <>
 Ferrojapyx                               | Animal    | Arthropoda                 | -122460000    | -112030000   | <>
 Ficophyllum                              | Plant     | Angiospermae               | -145000000    | -100500000   | <>
-Ficus                                    | Plant     | Spermatophyta              | -145000000    | -100500000   | Ficus
+Ficus Moraceae                           | Plant     | Spermatophyta              | -145000000    | -100500000   | Ficus
 Filograna                                | Animal    | Annelida                   | -125450000    | -122460000   | Filograna
 Filosina                                 | Animal    | Mollusca                   | -125000000    | -113000000   | <>
 Fimbria                                  | Animal    | Mollusca                   | -125000000    | -113000000   | Fimbria
@@ -3657,7 +3657,7 @@ Syncyclonema                             | Animal    | Mollusca                 
 Synechodus                               | Animal    | Chordata                   | -122460000    | -112030000   | Synechodus
 Synhelia                                 | Animal    | Cnidaria                   | -140200000    | -122460000   | <>
 Synneuron                                | Animal    | Arthropoda                 | -122460000    | -112030000   | Synneuron
-Synodus                                  | Animal    | Arthropoda                 | -125450000    | -122460000   | Synodus
+Synodus Changmaensis                     | Animal    | Arthropoda                 | -125450000    | -122460000   | <>
 Synopella                                | Animal    | Porifera                   | -125000000    | -113000000   | <>
 Syntemna                                 | Animal    | Arthropoda                 | -125000000    | -113000000   | Syntemna
 Syntexyela                               | Animal    | Arthropoda                 | -125450000    | -122460000   | <>
@@ -4075,8 +4075,8 @@ Zhouornis                                | Animal    | Chordata                 
 Zhujiblatta                              | Animal    | Arthropoda                 | -125450000    | -122460000   | <>
 Zhuravlevia                              | Animal    | Mollusca                   | -122460000    | -112030000   | <>
 Zifondium                                | Micro     | Radiolaria                 | -125000000    | -109000000   | <>
-Zittelina                                | Animal    | Brachiopoda                | -150800000    | -100500000   | Zittelina
-Zittelina                                | Plant     | Chlorophyta                | -129400000    | -122460000   | Zittelina
+zittelina-kingenidae                     | Animal    | Brachiopoda                | -150800000    | -100500000   | Kingenidae
+Zittelina                                | Plant     | Chlorophyta                | -129400000    | -122460000   | Zittelina_(alga)
 Zlivisporis                              | Plant     | Bryophyta                  | -125000000    | -100500000   | <>
 Zuercherella                             | Animal    | Mollusca                   | -122460000    | -112030000   | Zuercherella
 Zurcherella                              | Animal    | Mollusca                   | -122460000    | -112030000   | Zurcherella

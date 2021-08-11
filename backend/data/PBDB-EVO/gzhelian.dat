@@ -264,7 +264,7 @@ Callistadia                              | Animal    | Mollusca                 
 Callistophyton                           | Plant     | Ginkgophyta                | -323200000    | -298900000   | <>
 Callospiriferina                         | Animal    | Brachiopoda                | -323200000    | -298900000   | <>
 Caloneura                                | Animal    | Arthropoda                 | -303700000    | -298900000   | <>
-Calophyllum                              | Animal    | Cnidaria                   | -306950000    | -298900000   | Calophyllum
+Calophyllum Polycoeliidae                 | Animal    | Cnidaria                   | -306950000    | -298900000   | <>
 Camarophorina                            | Animal    | Brachiopoda                | -303400000    | -298900000   | <>
 Camarotoechia                            | Animal    | Brachiopoda                | -358900000    | -298900000   | Camarotoechia
 Camerisma                                | Animal    | Brachiopoda                | -303700000    | -298900000   | <>
@@ -733,8 +733,8 @@ Ischnoptilus                             | Animal    | Arthropoda               
 Isoallagecrinus                          | Animal    | Echinodermata              | -305900000    | -303400000   | <>
 Isodectes                                | Animal    | Chordata                   | -306950000    | -298900000   | Isodectes
 Isogramma                                | Animal    | Brachiopoda                | -301200000    | -300200000   | Isogramma
-Ivanovia                                 | Plant     | Chlorophyta                | -303400000    | -298900000   | Ivanovia
-Ivanovia                                 | Animal    | Cnidaria                   | -303700000    | -298900000   | Ivanovia
+Ivanovia Codiaceae                       | Plant     | Chlorophyta                | -303400000    | -298900000   | Ivanovia
+Ivanovia Petalaxidae                     | Animal    | Cnidaria                   | -303700000    | -298900000   | <>
 Izykhia                                  | Animal    | Arthropoda                 | -307000000    | -298900000   | <>
 Janassa                                  | Animal    | Chordata                   | -323200000    | -298900000   | Janassa
 Janeia                                   | Animal    | Mollusca                   | -358900000    | -252170000   | <>
@@ -847,7 +847,7 @@ Lusitaneura                              | Animal    | Arthropoda               
 Luterospongia                            | Animal    | Porifera                   | -305900000    | -303400000   | <>
 Lycocercus                               | Animal    | Arthropoda                 | -303700000    | -298900000   | <>
 Lycospora                                | Plant     | Pteridophyta               | -305900000    | -303400000   | <>
-Lyonia                                   | Animal    | Brachiopoda                | -303700000    | -298900000   | Lyonia
+Lyonia Monticuliferidae	                 | Animal    | Brachiopoda                | -303700000    | -298900000   | <>
 Lyrocladia                               | Animal    | Bryozoa                    | -303700000    | -298900000   | <>
 Lyropora                                 | Animal    | Bryozoa                    | -358900000    | -298900000   | <>
 Lyroschizodus                            | Animal    | Mollusca                   | -303400000    | -298900000   | <>
@@ -985,7 +985,7 @@ Neospirifer                              | Animal    | Brachiopoda              
 Neostaffella                             | Micro     | Foraminifera               | -303700000    | -298900000   | <>
 Neotornquistia                           | Animal    | Brachiopoda                | -323200000    | -295500000   | <>
 Nephelophyllum                           | Animal    | Cnidaria                   | -303700000    | -298900000   | <>
-Nephropsis                               | Plant     | Pinophyta                  | -303700000    | -298900000   | Nephropsis
+Nephropsis Pinopsida                     | Plant     | Pinophyta                  | -303700000    | -298900000   | <>
 Neptunopecten                            | Animal    | Mollusca                   | -303700000    | -295500000   | <>
 Neuburgia                                | Animal    | Arthropoda                 | -303700000    | -298900000   | Neuburgia
 Neuropteridium                           | Plant     | Pteridophyta               | -358900000    | -252170000   | <>

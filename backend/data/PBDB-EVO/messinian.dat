@@ -308,7 +308,7 @@ Arcinella                                | Animal    | Mollusca                 
 Arcopagia                                | Animal    | Mollusca                   | -11608000     | -5333000     | <>
 Arcopaginula                             | Animal    | Mollusca                   | -11608000     | -5333000     | <>
 Arcopsis                                 | Animal    | Mollusca                   | -11608000     | -5333000     | <>
-Arctica                                  | Animal    | Mollusca                   | -11608000     | -3600000     | Arctica
+Arctica                                  | Animal    | Mollusca                   | -11608000     | -3600000     | Arctica_(bivalve)
 Arctiites                                | Animal    | Arthropoda                 | -7246000      | -5333000     | Arctiites
 Arctomeles                               | Animal    | Chordata                   | -10300000     | -1800000     | <>
 Arctomyoides                             | Animal    | Chordata                   | -23030000     | -5333000     | <>
@@ -567,7 +567,7 @@ Brasenia                                 | Plant     | Spermatophyta            
 Brasilosuchus                            | Animal    | Chordata                   | -9000000      | -6800000     | Brasilosuchus
 Bregmaceros                              | Animal    | Chordata                   | -11620000     | -5333000     | Bregmaceros
 Bretzia                                  | Animal    | Chordata                   | -10300000     | -4900000     | Bretzia
-Breynia                                  | Animal    | Echinodermata              | -11608000     | -5333000     | Breynia
+Breynia Loveniidae                       | Animal    | Echinodermata              | -11608000     | -5333000     | <>
 Briaromys                                | Animal    | Chordata                   | -9000000      | -6800000     | <>
 Brissopatagus                            | Animal    | Echinodermata              | -23030000     | -5333000     | <>
 Brissopsis                               | Animal    | Echinodermata              | -11608000     | -5333000     | <>
@@ -659,7 +659,7 @@ Callyodon                                | Animal    | Chordata                 
 Calomys                                  | Animal    | Chordata                   | -10300000     | -4900000     | Calomys
 Calomyscus                               | Animal    | Chordata                   | -11608000     | -5333000     | Calomyscus
 Calophos                                 | Animal    | Mollusca                   | -7246000      | -3600000     | <>
-Calophyllum                              | Plant     | Spermatophyta              | -23030000     | -2588000     | Calophyllum
+Calophyllum Calophyllaceae	              | Plant     | Spermatophyta              | -23030000     | -2588000     | Calophyllum
 Calopteryx                               | Animal    | Arthropoda                 | -8700000      | -5333000     | Calopteryx
 Calotrophon                              | Animal    | Mollusca                   | -11608000     | -5333000     | Calotrophon
 Calpensia                                | Animal    | Bryozoa                    | -7246000      | -5333000     | <>
@@ -670,8 +670,8 @@ Camelops                                 | Animal    | Chordata                 
 Campalita                                | Animal    | Arthropoda                 | -11608000     | -5333000     | <>
 Camponotus                               | Animal    | Arthropoda                 | -15970000     | -5333000     | Camponotus
 Campylocythere                           | Animal    | Arthropoda                 | -11608000     | -5333000     | <>
-Canarium                                 | Animal    | Mollusca                   | -11608000     | -5333000     | Canarium
-Canarium                                 | Plant     | Spermatophyta              | -23030000     | -2588000     | Canarium
+Canarium Strombidae                      | Animal    | Mollusca                   | -11608000     | -5333000     | Canarium_(gastropod)
+Canarium Burseraceae                     | Plant     | Spermatophyta              | -23030000     | -2588000     | Canarium
 Cancellaria                              | Animal    | Mollusca                   | -11608000     | -5333000     | Cancellaria
 Cancellothyris                           | Animal    | Brachiopoda                | -7246000      | -5333000     | Cancellothyris
 Cancer                                   | Animal    | Arthropoda                 | -11608000     | -3600000     | Cancer
@@ -845,7 +845,7 @@ Chalicotherium                           | Animal    | Chordata                 
 Chama                                    | Animal    | Mollusca                   | -11608000     | -5333000     | Chama
 Chamitataxus                             | Animal    | Chordata                   | -10300000     | -4900000     | Chamitataxus
 Chapalmalania                            | Animal    | Chordata                   | -6800000      | -3000000     | Chapalmalania
-Chaperia                                 | Animal    | Bryozoa                    | -33900000     | -5333000     | Chaperia
+Chaperia Chaperiidae                     | Animal    | Bryozoa                    | -33900000     | -5333000     | Chaperia
 Chara                                    | Plant     | Charophyta                 | -10300000     | -1800000     | Chara
 Charactosuchus                           | Animal    | Chordata                   | -9000000      | -6800000     | Charactosuchus
 Charadreon                               | Animal    | Mollusca                   | -15970000     | -5333000     | <>
@@ -1014,7 +1014,7 @@ Colus                                    | Animal    | Mollusca                 
 Colymbus                                 | Animal    | Chordata                   | -23030000     | -2588000     | Colymbus
 Comaphorus                               | Animal    | Chordata                   | -9000000      | -6800000     | <>
 Compsodrillia                            | Animal    | Mollusca                   | -11608000     | -3600000     | Compsodrillia
-Comptonia                                | Plant     | Spermatophyta              | -10300000     | -1800000     | Comptonia
+Comptonia Peregrina                      | Plant     | Spermatophyta              | -10300000     | -1800000     | Comptonia_(plant)
 Conasprella                              | Animal    | Mollusca                   | -11608000     | -5333000     | Conasprella
 Conasprelloides                          | Animal    | Mollusca                   | -11608000     | -5333000     | Conasprelloides
 Concavus                                 | Animal    | Arthropoda                 | -11608000     | -5333000     | Concavus
@@ -1064,7 +1064,7 @@ Corylus                                  | Plant     | Spermatophyta            
 Corypha                                  | Plant     | Angiospermae               | -11608000     | -5333000     | Corypha
 Corystosiren                             | Animal    | Chordata                   | -10300000     | -4900000     | Corystosiren
 Coscinocercus                            | Animal    | Chordata                   | -9000000      | -6800000     | <>
-Coscinodiscus                            | Plant     | Ochrophyta                 | -7246000      | -5333000     | Coscinodiscus
+Coscinodiscus Coscinodiscaceae           | Micro     | Ochrophyta                 | -7246000      | -5333000     | Coscinodiscus
 Cosmioconcha                             | Animal    | Mollusca                   | -7246000      | -5333000     | Cosmioconcha
 Cosmopolitodus                           | Animal    | Chordata                   | -11620000     | -3600000     | Cosmopolitodus
 Cosoryx                                  | Animal    | Chordata                   | -10300000     | -4900000     | Cosoryx
@@ -1080,7 +1080,7 @@ Crangon                                  | Animal    | Arthropoda               
 Cranioceras                              | Animal    | Chordata                   | -10300000     | -4900000     | Cranioceras
 Cranithlastus                            | Animal    | Chordata                   | -9000000      | -6800000     | <>
 Cranwellia                               | Plant     | Magnoliophyta              | -100500000    | -5333000     | <>
-Crash                                    | Animal    | Chordata                   | -23030000     | -5333000     | Crash
+Crash                                    | Animal    | Chordata                   | -23030000     | -5333000     | Crash_bandicoot_(species)
 Craspedopoma                             | Animal    | Mollusca                   | -7246000      | -5333000     | Craspedopoma
 Crassadoma                               | Animal    | Mollusca                   | -11608000     | -5333000     | Crassadoma
 Crassatella                              | Animal    | Mollusca                   | -11608000     | -5333000     | <>
@@ -1128,7 +1128,7 @@ Cryptophoca                              | Animal    | Chordata                 
 Cryptoplax                               | Animal    | Mollusca                   | -11608000     | -5333000     | Cryptoplax
 Cryptopora                               | Animal    | Brachiopoda                | -23030000     | -5333000     | Cryptopora
 Cryptosoma                               | Animal    | Arthropoda                 | -23030000     | -5333000     | Cryptosoma
-Cryptospira                              | Animal    | Mollusca                   | -11608000     | -5333000     | Cryptospira
+Cryptospira Marginellidae                | Animal    | Mollusca                   | -11608000     | -5333000     | Cryptospira
 Cryptosula                               | Animal    | Bryozoa                    | -7246000      | -5333000     | <>
 Cryptotis                                | Animal    | Chordata                   | -10300000     | -4900000     | Cryptotis
 Ctenactis                                | Animal    | Cnidaria                   | -11608000     | -5333000     | Ctenactis
@@ -1408,14 +1408,14 @@ Dorsanum                                 | Animal    | Mollusca                 
 Doryrhamphus                             | Animal    | Chordata                   | -33900000     | -5333000     | Doryrhamphus
 Dosina                                   | Animal    | Mollusca                   | -11608000     | -5333000     | Dosina
 Dosinia                                  | Animal    | Mollusca                   | -11608000     | -2588000     | Dosinia
-Dracaena                                 | Animal    | Chordata                   | -11608000     | -5333000     | Dracaena
+Dracaena Teiidae                         | Animal    | Chordata                   | -11608000     | -5333000     | Dracaena_(lizard)
 Dreissena                                | Animal    | Mollusca                   | -7246000      | -5333000     | Dreissena
 Dremomys                                 | Animal    | Chordata                   | -8700000      | -5333000     | Dremomys
 Dremotherium                             | Animal    | Chordata                   | -11608000     | -5333000     | <>
 Drepanodon                               | Animal    | Chordata                   | -11608000     | -3600000     | Drepanodon
 Drepanomeryx                             | Animal    | Chordata                   | -10300000     | -4900000     | <>
 Drillia                                  | Animal    | Mollusca                   | -11608000     | -5333000     | Drillia
-Drimys                                   | Plant     | Spermatophyta              | -55800000     | -5333000     | Drimys
+Drimys Winteraceae                       | Plant     | Spermatophyta              | -55800000     | -5333000     | Drimys
 Dromaius                                 | Animal    | Chordata                   | -11608000     | -5333000     | Dromaius
 Dromia                                   | Animal    | Arthropoda                 | -23030000     | -2588000     | Dromia
 Dromomeryx                               | Animal    | Chordata                   | -23030000     | -5333000     | Dromomeryx
@@ -1657,8 +1657,8 @@ Feliconcha                               | Animal    | Mollusca                 
 Felis                                    | Animal    | Chordata                   | -10300000     | -4900000     | Felis
 Fenimorea                                | Animal    | Mollusca                   | -7246000      | -5333000     | Fenimorea
 Ferigolomys                              | Animal    | Chordata                   | -9000000      | -6800000     | <>
-Ficus                                    | Animal    | Mollusca                   | -11608000     | -2588000     | Ficus
-Ficus                                    | Plant     | Spermatophyta              | -11608000     | -5333000     | Ficus
+Ficus Ficidae                            | Animal    | Mollusca                   | -11608000     | -2588000     | Ficus_(gastropod)
+Ficus Moraceae                           | Plant     | Spermatophyta              | -11608000     | -5333000     | Ficus
 Figularia                                | Animal    | Bryozoa                    | -33900000     | -5333000     | <>
 Filicites                                | Plant     | Pteridophyta               | -23030000     | -5333000     | <>
 Filograna                                | Animal    | Annelida                   | -7246000      | -5333000     | Filograna
@@ -2476,7 +2476,7 @@ Lymnaea                                  | Animal    | Mollusca                 
 Lymnocardium                             | Animal    | Mollusca                   | -11608000     | -5333000     | <>
 Lyncina                                  | Animal    | Mollusca                   | -11608000     | -5333000     | Lyncina
 Lynx                                     | Animal    | Chordata                   | -10300000     | -4900000     | Lynx
-Lyonia                                   | Plant     | Spermatophyta              | -10300000     | -1800000     | Lyonia
+Lyonia Ericaceae                         | Plant     | Spermatophyta              | -10300000     | -1800000     | Lyonia_(plant)
 Lyria                                    | Animal    | Mollusca                   | -11608000     | -3600000     | Lyria
 Lyristes                                 | Animal    | Arthropoda                 | -8700000      | -5333000     | <>
 Lyropecten                               | Animal    | Mollusca                   | -10300000     | -4900000     | <>
@@ -2952,7 +2952,7 @@ Neotrigonia                              | Animal    | Mollusca                 
 Neovenericor                             | Animal    | Mollusca                   | -11608000     | -5333000     | <>
 Neovermilia                              | Animal    | Annelida                   | -7246000      | -5333000     | <>
 Nephrops                                 | Animal    | Arthropoda                 | -23030000     | -2588000     | Nephrops
-Nephropsis                               | Animal    | Arthropoda                 | -23030000     | -2588000     | Nephropsis
+Nephropsis Nephropidae                   | Animal    | Arthropoda                 | -23030000     | -2588000     | Nephropsis
 Nephrotoma                               | Animal    | Arthropoda                 | -7246000      | -5333000     | Nephrotoma
 Nepotilla                                | Animal    | Mollusca                   | -11608000     | -5333000     | Nepotilla
 Neptunea                                 | Animal    | Mollusca                   | -11608000     | -5333000     | Neptunea
@@ -4002,8 +4002,8 @@ Rissoina                                 | Animal    | Mollusca                 
 Riversleigha                             | Animal    | Chordata                   | -23030000     | -5333000     | Riversleigha
 Rixator                                  | Animal    | Chordata                   | -11608000     | -5333000     | <>
 Robertina                                | Micro     | Foraminifera               | -23030000     | -5333000     | <>
-Robinia                                  | Animal    | Porifera                   | -11608000     | -2588000     | Robinia
-Robinia                                  | Plant     | Spermatophyta              | -23030000     | -5333000     | Robinia
+Robinia Camerospongiidae                 | Animal    | Porifera                   | -11608000     | -2588000     | <>
+Robinia Fabaceae                         | Animal    | Spermatophyta              | -23030000     | -5333000     | Robinia
 Robulus                                  | Micro     | Foraminifera               | -11608000     | -5333000     | <>
 Romaleon                                 | Animal    | Arthropoda                 | -23030000     | -5333000     | Romaleon
 Rosalina                                 | Micro     | Foraminifera               | -15970000     | -5333000     | Rosalina
@@ -4410,7 +4410,7 @@ Synconolophus                            | Animal    | Chordata                 
 Syngnathus                               | Animal    | Chordata                   | -11608000     | -5333000     | Syngnathus
 Synnotum                                 | Animal    | Bryozoa                    | -7246000      | -5333000     | <>
 Synodontis                               | Animal    | Chordata                   | -11608000     | -2588000     | Synodontis
-Synodus                                  | Animal    | Chordata                   | -7246000      | -5333000     | Synodus
+Synodus Synodontidae                     | Animal    | Chordata                   | -7246000      | -5333000     | Synodus
 Synthetoceras                            | Animal    | Chordata                   | -10300000     | -4900000     | Synthetoceras
 Synthliboramphus                         | Animal    | Chordata                   | -7246000      | -5333000     | Synthliboramphus
 Syntomodrillia                           | Animal    | Mollusca                   | -11608000     | -5333000     | Syntomodrillia

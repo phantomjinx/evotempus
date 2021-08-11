@@ -4,7 +4,7 @@ Acaeniotylopsis                          | Micro     | Radiolaria               
 Acanthichthys                            | Animal    | Chordata                   | -145000000    | -66000000    | <>
 Acanthochirana                           | Animal    | Arthropoda                 | -145000000    | -66000000    | Acanthochirana
 Acanthocircus                            | Micro     | Radiolaria                 | -140200000    | -136400000   | <>
-Acanthodiscus                            | Animal    | Mollusca                   | -140200000    | -136400000   | Acanthodiscus
+Acanthodiscus Neocomitidae               | Animal    | Mollusca                   | -140200000    | -136400000   | Acanthodiscus
 Acanthogyra                              | Animal    | Cnidaria                   | -152100000    | -139800000   | <>
 Acanthosphaera                           | Micro     | Radiolaria                 | -145000000    | -139800000   | Acanthosphaera
 Acastea                                  | Micro     | Radiolaria                 | -140200000    | -130000000   | <>
@@ -126,7 +126,7 @@ Archicapsa                               | Micro     | Radiolaria               
 Archimedea                               | Animal    | Mollusca                   | -145000000    | -136400000   | <>
 Arcodonichthys                           | Animal    | Chordata                   | -145000000    | -66000000    | <>
 Arcomytilus                              | Animal    | Mollusca                   | -145000000    | -139800000   | <>
-Arctica                                  | Animal    | Mollusca                   | -140200000    | -136400000   | Arctica
+Arctica                                  | Animal    | Mollusca                   | -140200000    | -136400000   | Arctica_(bivalve)
 Arctostrea                               | Animal    | Mollusca                   | -140200000    | -136400000   | <>
 Arctotis                                 | Animal    | Mollusca                   | -140200000    | -136400000   | Arctotis
 Ardesciella                              | Animal    | Mollusca                   | -145000000    | -140200000   | <>
@@ -185,7 +185,7 @@ Basilochelys                             | Animal    | Chordata                 
 Bathrotomaria                            | Animal    | Mollusca                   | -145000000    | -139800000   | <>
 Batrachopus                              | Animal    | Chordata                   | -145000000    | -130000000   | Batrachopus
 Baugeichthys                             | Animal    | Chordata                   | -145000000    | -66000000    | <>
-Beania                                   | Plant     | Cycadophyta                | -152100000    | -139800000   | Beania
+Beania Beaniaceae                        | Plant     | Cycadophyta                | -152100000    | -139800000   | Beania
 Beaupreaidites                           | Plant     | Spermatophyta              | -145000000    | -66000000    | <>
 Becklesius                               | Animal    | Chordata                   | -145000000    | -140200000   | Becklesius
 Becklespinax                             | Animal    | Chordata                   | -145000000    | -132900000   | Becklespinax
@@ -692,7 +692,7 @@ Ferganoceratodus                         | Animal    | Chordata                 
 Ferganoconcha                            | Animal    | Mollusca                   | -152100000    | -130000000   | <>
 Feurtillia                               | Micro     | Foraminifera               | -140200000    | -136400000   | <>
 Ficophyllum                              | Plant     | Angiospermae               | -145000000    | -100500000   | <>
-Ficus                                    | Plant     | Spermatophyta              | -145000000    | -100500000   | Ficus
+Ficus Moraceae                           | Plant     | Spermatophyta              | -145000000    | -100500000   | Ficus
 Filosina                                 | Animal    | Mollusca                   | -152100000    | -130000000   | <>
 Fimbria                                  | Animal    | Mollusca                   | -140200000    | -136400000   | Fimbria
 Firmacidaris                             | Animal    | Echinodermata              | -152100000    | -139800000   | <>
@@ -2134,6 +2134,6 @@ Zergabriella                             | Plant     | Chlorophyta              
 Zessinia                                 | Animal    | Arthropoda                 | -145000000    | -140200000   | <>
 Zhamoidellum                             | Micro     | Radiolaria                 | -145000000    | -140200000   | <>
 Zhiganka                                 | Animal    | Arthropoda                 | -145000000    | -139800000   | <>
-Zittelina                                | Animal    | Brachiopoda                | -140200000    | -130000000   | Zittelina
+zittelina-kingenidae                     | Animal    | Brachiopoda                | -140200000    | -130000000   | Kingenidae
 Zlivisporis                              | Plant     | Bryophyta                  | -174100000    | -93500000    | <>
 Zygadenia                                | Animal    | Arthropoda                 | -145000000    | -140200000   | Zygadenia

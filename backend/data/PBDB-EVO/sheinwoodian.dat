@@ -22,7 +22,7 @@ Adaverina                                | Animal    | Cnidaria                 
 Aechmina                                 | Animal    | Arthropoda                 | -433400000    | -427400000   | <>
 Aechminaria                              | Animal    | Arthropoda                 | -443400000    | -419200000   | <>
 Aegiria                                  | Animal    | Brachiopoda                | -433400000    | -423000000   | <>
-Ainia                                    | Animal    | Cnidaria                   | -433400000    | -427400000   | Ainia
+Ainia                                    | Animal    | Cnidaria                   | -433400000    | -427400000   | <>
 Akrosphaerorthoceras                     | Animal    | Mollusca                   | -433400000    | -419200000   | <>
 Alaskaspongiella                         | Animal    | Porifera                   | -433400000    | -423000000   | <>
 Alaskospira                              | Animal    | Brachiopoda                | -433400000    | -419200000   | <>
@@ -72,7 +72,7 @@ Apatobolbina                             | Animal    | Arthropoda               
 Aphelognathus                            | Animal    | Chordata                   | -443400000    | -422900000   | <>
 Aphrosalpinx                             | Animal    | Porifera                   | -443400000    | -419200000   | <>
 Aphyllum                                 | Animal    | Cnidaria                   | -433400000    | -427400000   | <>
-Apidium                                  | Plant     | Chlorophyta                | -433400000    | -427400000   | Apidium
+Apidium Dasycladaceae                    | Plant     | Chlorophyta                | -433400000    | -427400000   | <>
 Apiocystites                             | Animal    | Echinodermata              | -433400000    | -427400000   | <>
 Apocalymene                              | Animal    | Arthropoda                 | -433400000    | -427400000   | Apocalymene
 Apsidognathus                            | Animal    | Chordata                   | -433400000    | -427400000   | <>
@@ -85,7 +85,7 @@ Aratoechia                               | Animal    | Brachiopoda              
 Archaefenestella                         | Animal    | Bryozoa                    | -433400000    | -430500000   | <>
 Archaeocalyptocrinus                     | Animal    | Echinodermata              | -433400000    | -423000000   | <>
 Archaeoscyphia                           | Animal    | Porifera                   | -433400000    | -427400000   | <>
-Arcticalymene                            | Animal    | Arthropoda                 | -433400000    | -427400000   | Arcticalymene
+Arcticalymene                            | Animal    | Arthropoda                 | -433400000    | -427400000   | Arctica_(bivalve)lymene
 Arctinurus                               | Animal    | Arthropoda                 | -433400000    | -423000000   | Arctinurus
 Arctomeristina                           | Animal    | Brachiopoda                | -438500000    | -430500000   | <>
 Arcuaria                                 | Animal    | Arthropoda                 | -439000000    | -428200000   | <>
@@ -413,7 +413,7 @@ Dizygopleura                             | Animal    | Arthropoda               
 Dokophyllum                              | Animal    | Cnidaria                   | -433400000    | -427400000   | <>
 Dolerorthis                              | Animal    | Brachiopoda                | -433400000    | -423000000   | Dolerorthis
 Doliaster                                | Animal    | Echinodermata              | -433400000    | -427400000   | <>
-Dolichopterus                            | Animal    | Arthropoda                 | -433400000    | -430500000   | Dolichopterus
+Dolichopterus Dolichopteridae            | Animal    | Arthropoda                 | -433400000    | -430500000   | Dolichopterus
 Drabovia                                 | Animal    | Brachiopoda                | -433400000    | -430500000   | <>
 Drepanellina                             | Animal    | Arthropoda                 | -433400000    | -427400000   | <>
 Drepanodus                               | Animal    | Chordata                   | -438500000    | -430500000   | <>

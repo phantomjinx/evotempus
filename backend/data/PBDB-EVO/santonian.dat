@@ -186,11 +186,11 @@ Archimediella                            | Animal    | Mollusca                 
 Archiplatypalpus                         | Animal    | Arthropoda                 | -85800000     | -83500000    | <>
 Arcodonichthys                           | Animal    | Chordata                   | -145000000    | -66000000    | <>
 Arcoscalpellum                           | Animal    | Arthropoda                 | -85800000     | -70600000    | <>
-Arctica                                  | Animal    | Mollusca                   | -86300000     | -83600000    | Arctica
+Arctica                                  | Animal    | Mollusca                   | -86300000     | -83600000    | Arctica_(bivalve)
 Arecipites                               | Plant     | Angiospermae               | -100500000    | -56000000    | <>
 Argyrotheca                              | Animal    | Brachiopoda                | -100500000    | -66000000    | Argyrotheca
 Ariadnaesporites                         | Plant     | Pteridophyta               | -100500000    | -66000000    | <>
-Armania                                  | Animal    | Arthropoda                 | -89300000     | -85800000    | Armania
+Armania                                  | Animal    | Arthropoda                 | -89300000     | -85800000    | <>
 Armenocerithium                          | Animal    | Mollusca                   | -86300000     | -83600000    | <>
 Arthraster                               | Animal    | Echinodermata              | -85800000     | -83500000    | <>
 Artocarpus                               | Plant     | Spermatophyta              | -89800000     | -72100000    | Artocarpus
@@ -790,7 +790,7 @@ Erymnochelys                             | Animal    | Chordata                 
 Estesesox                                | Animal    | Chordata                   | -85800000     | -83500000    | <>
 Etea                                     | Animal    | Mollusca                   | -100500000    | -48600000    | <>
 Ethelia                                  | Plant     | Rhodophyta                 | -86300000     | -83600000    | <>
-Etheridgea                               | Animal    | Porifera                   | -86300000     | -83600000    | Etheridgea
+Etheridgea                               | Animal    | Porifera                   | -86300000     | -83600000    | <>
 Etheridgia                               | Animal    | Porifera                   | -86300000     | -83600000    | <>
 Etyus                                    | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Etyxanthosia                             | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
@@ -827,8 +827,8 @@ Fasciculiporina                          | Animal    | Bryozoa                  
 Fasciolaria                              | Animal    | Mollusca                   | -85800000     | -83500000    | Fasciolaria
 Faveoloolithus                           | Animal    | Chordata                   | -100500000    | -66000000    | Faveoloolithus
 Favus                                    | Animal    | Mollusca                   | -86300000     | -72100000    | Favus
-Ficus                                    | Animal    | Mollusca                   | -100500000    | -66000000    | Ficus
-Ficus                                    | Plant     | Spermatophyta              | -100500000    | -66000000    | Ficus
+Ficus Ficidae                            | Animal    | Mollusca                   | -100500000    | -66000000    | Ficus_(gastropod)
+Ficus Moraceae                           | Plant     | Spermatophyta              | -100500000    | -66000000    | Ficus
 Filicea                                  | Animal    | Bryozoa                    | -85800000     | -83500000    | <>
 Filicites                                | Plant     | Pteridophyta               | -100500000    | -66000000    | <>
 Fimbria                                  | Animal    | Mollusca                   | -86300000     | -83600000    | Fimbria
@@ -2414,7 +2414,7 @@ Zherichiniletes                          | Animal    | Arthropoda               
 Zherikhiniella                           | Animal    | Arthropoda                 | -85800000     | -83500000    | <>
 Zimmerella                               | Animal    | Bryozoa                    | -93500000     | -70600000    | <>
 Zinsitys                                 | Animal    | Mollusca                   | -85800000     | -83500000    | <>
-Zittelina                                | Animal    | Brachiopoda                | -157300000    | -66000000    | Zittelina
+zittelina-kingenidae                     | Animal    | Brachiopoda                | -157300000    | -66000000    | Kingenidae
 Zizyphus                                 | Plant     | Spermatophyta              | -89300000     | -83600000    | Zizyphus
 Zlivisporis                              | Plant     | Bryophyta                  | -93900000     | -83600000    | <>
 Zuoyunlong                               | Animal    | Chordata                   | -100500000    | -83600000    | Zuoyunlong

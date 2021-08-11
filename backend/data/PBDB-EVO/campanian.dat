@@ -8,7 +8,7 @@ Acanthochaetetes                         | Animal    | Porifera                 
 Acanthochirana                           | Animal    | Arthropoda                 | -145000000    | -66000000    | Acanthochirana
 Acanthocircus                            | Micro     | Radiolaria                 | -83500000     | -70600000    | <>
 Acanthocythereis                         | Animal    | Arthropoda                 | -83600000     | -72100000    | <>
-Acanthodiscus                            | Plant     | Ochrophyta                 | -83600000     | -72100000    | Acanthodiscus
+Acanthodiscus Centrales                  | Plant     | Ochrophyta                 | -83600000     | -72100000    | <>
 Acantholipan                             | Animal    | Chordata                   | -83600000     | -72100000    | Acantholipan
 Acanthoscaphites                         | Animal    | Mollusca                   | -83500000     | -70600000    | Acanthoscaphites
 Acanthoscyllium                          | Animal    | Chordata                   | -85800000     | -83500000    | <>
@@ -293,7 +293,7 @@ Arcodonichthys                           | Animal    | Chordata                 
 Arcomytilus                              | Animal    | Mollusca                   | -83500000     | -70600000    | <>
 Arcoscalpellum                           | Animal    | Arthropoda                 | -83500000     | -66000000    | <>
 Arcovenator                              | Animal    | Chordata                   | -83500000     | -70600000    | Arcovenator
-Arctica                                  | Animal    | Mollusca                   | -83500000     | -70600000    | Arctica
+Arctica                                  | Animal    | Mollusca                   | -83500000     | -70600000    | Arctica_(bivalve)
 Arctogerocynips                          | Animal    | Arthropoda                 | -83500000     | -70600000    | <>
 Arctopsychops                            | Animal    | Arthropoda                 | -83500000     | -70600000    | <>
 Arculicythere                            | Animal    | Arthropoda                 | -83600000     | -72100000    | <>
@@ -305,7 +305,7 @@ Ariadnaesporites                         | Plant     | Pteridophyta             
 Aristonectes                             | Animal    | Chordata                   | -83500000     | -66000000    | Aristonectes
 Arkhangelskiella                         | Plant     | Haptophyta                 | -83500000     | -70600000    | <>
 Armadillosuchus                          | Animal    | Chordata                   | -83500000     | -66000000    | Armadillosuchus
-Armania                                  | Animal    | Arthropoda                 | -83500000     | -70600000    | Armania
+Armania                                  | Animal    | Arthropoda                 | -83500000     | -70600000    | <>
 Armanomiris                              | Animal    | Arthropoda                 | -83500000     | -70600000    | <>
 Armanopimpla                             | Animal    | Arthropoda                 | -83500000     | -70600000    | <>
 Armenostoma                              | Animal    | Mollusca                   | -83500000     | -70600000    | <>
@@ -865,7 +865,7 @@ Corbariastraea                           | Animal    | Cnidaria                 
 Corbicula                                | Animal    | Mollusca                   | -100500000    | -66000000    | Corbicula
 Corbisema                                | Plant     | Ochrophyta                 | -83600000     | -72100000    | <>
 Corbula                                  | Animal    | Mollusca                   | -83500000     | -70600000    | Corbula
-Corinna                                  | Plant     | Ochrophyta                 | -83600000     | -72100000    | Corinna
+Corinna Bacillariophyceae                | Plant     | Ochrophyta                 | -83600000     | -72100000    | Corinna_(diatom)
 Coriops                                  | Animal    | Chordata                   | -83500000     | -70600000    | Coriops
 Cornophyllum                             | Plant     | Spermatophyta              | -100500000    | -66000000    | <>
 Cornutella                               | Micro     | Radiolaria                 | -83500000     | -70600000    | Cornutella
@@ -876,7 +876,7 @@ Corsochelys                              | Animal    | Chordata                 
 Corylopsis                               | Plant     | Spermatophyta              | -83500000     | -70600000    | Corylopsis
 Corymbopora                              | Animal    | Bryozoa                    | -85800000     | -83500000    | <>
 Corythosaurus                            | Animal    | Chordata                   | -83500000     | -70600000    | Corythosaurus
-Coscinodiscus                            | Plant     | Ochrophyta                 | -83600000     | -72100000    | Coscinodiscus
+Coscinodiscus Coscinodiscaceae           | Micro     | Ochrophyta                 | -83600000     | -72100000    | Coscinodiscus
 Coscinopora                              | Animal    | Porifera                   | -83500000     | -70600000    | <>
 Coscinostoma                             | Animal    | Porifera                   | -83500000     | -70600000    | <>
 Cosmocyphus                              | Animal    | Echinodermata              | -83500000     | -70600000    | <>
@@ -1046,7 +1046,7 @@ Czekanowskia                             | Plant     | Ginkgophyta              
 Dacrycarpites                            | Plant     | Coniferophyta              | -83500000     | -61600000    | <>
 Dacrycarpus                              | Plant     | Coniferophyta              | -100500000    | -33900000    | Dacrycarpus
 Dacrydiumites                            | Plant     | Coniferophyta              | -100500000    | -23030000    | <>
-Dacrydium                                | Animal    | Mollusca                   | -83500000     | -66000000    | Dacrydium
+Dacrydium Mytilidae                      | Animal    | Mollusca                   | -83500000     | -66000000    | <>
 Dactyliodiscus                           | Micro     | Radiolaria                 | -85800000     | -83500000    | <>
 Dactyliosphaera                          | Micro     | Radiolaria                 | -85800000     | -83500000    | <>
 Dactylomyius                             | Animal    | Arthropoda                 | -83500000     | -70600000    | <>
@@ -1172,7 +1172,7 @@ Dreissena                                | Animal    | Mollusca                 
 Drepanocheilus                           | Animal    | Mollusca                   | -83500000     | -70600000    | <>
 Drepanochilus                            | Animal    | Mollusca                   | -83500000     | -70600000    | <>
 Drilluta                                 | Animal    | Mollusca                   | -100500000    | -66000000    | <>
-Drimys                                   | Plant     | Spermatophyta              | -83500000     | -61600000    | Drimys
+Drimys Winteraceae                       | Plant     | Spermatophyta              | -83500000     | -61600000    | Drimys
 Dromaeosaurus                            | Animal    | Chordata                   | -83500000     | -70600000    | Dromaeosaurus
 Dromiopsis                               | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Droseridites                             | Plant     | Spermatophyta              | -83500000     | -70600000    | Droseridites
@@ -1377,8 +1377,8 @@ Fenestricardita                          | Animal    | Mollusca                 
 Fenestrosaurus                           | Animal    | Chordata                   | -83500000     | -70600000    | Fenestrosaurus
 Ferugliotherium                          | Animal    | Chordata                   | -83500000     | -66000000    | Ferugliotherium
 Ficophyllum                              | Plant     | Angiospermae               | -83500000     | -66000000    | <>
-Ficus                                    | Animal    | Mollusca                   | -100500000    | -66000000    | Ficus
-Ficus                                    | Plant     | Spermatophyta              | -100500000    | -66000000    | Ficus
+Ficus Ficidae                            | Animal    | Mollusca                   | -100500000    | -66000000    | Ficus_(gastropod)
+Ficus Moraceae                           | Plant     | Spermatophyta              | -100500000    | -66000000    | Ficus
 Filicea                                  | Animal    | Bryozoa                    | -85800000     | -83500000    | <>
 Filicites                                | Plant     | Pteridophyta               | -100500000    | -66000000    | <>
 Filikomys                                | Animal    | Chordata                   | -83500000     | -70600000    | <>
@@ -4017,8 +4017,8 @@ Ziapelta                                 | Animal    | Chordata                 
 Zifondium                                | Micro     | Radiolaria                 | -83500000     | -70600000    | <>
 Zimmerella                               | Animal    | Bryozoa                    | -93500000     | -70600000    | <>
 Zinsitys                                 | Animal    | Mollusca                   | -83500000     | -70600000    | <>
-Zittelina                                | Animal    | Brachiopoda                | -157300000    | -66000000    | Zittelina
-Zittelina                                | Plant     | Chlorophyta                | -83500000     | -70600000    | Zittelina
+zittelina-kingenidae                     | Animal    | Brachiopoda                | -157300000    | -66000000    | Kingenidae
+Zittelina                                | Plant     | Chlorophyta                | -83500000     | -70600000    | Zittelina_(alga)
 Zizyphus                                 | Plant     | Spermatophyta              | -83500000     | -70600000    | Zizyphus
 Zlivisporis                              | Plant     | Bryophyta                  | -83500000     | -70600000    | <>
 Zofialestes                              | Animal    | Chordata                   | -83500000     | -70600000    | <>

@@ -428,8 +428,8 @@ Caenocholax                              | Animal    | Arthropoda               
 Caesarea                                 | Plant     | Spermatophyta              | -781000       | 2030         | Caesarea
 Caiman                                   | Animal    | Chordata                   | -126000       | 2030         | Caiman
 Cairina                                  | Animal    | Chordata                   | -11700        | 2030         | Cairina
-Calamus                                  | Plant     | Angiospermae               | -11700        | 2030         | Calamus
-Calamus                                  | Animal    | Chordata                   | -11700        | 2030         | Calamus
+Calamus Arecaceae                        | Plant     | Angiospermae               | -11700        | 2030         | Calamus_(palm)
+Calamus Sparidae                         | Animal    | Chordata                   | -11700        | 2030         | Calamus_(fish)
 Calappa                                  | Animal    | Arthropoda                 | -11700        | 2030         | Calappa
 Calcarina                                | Micro     | Foraminifera               | -11700        | 2030         | <>
 Calcinus                                 | Animal    | Arthropoda                 | -11700        | 2030         | Calcinus
@@ -463,7 +463,7 @@ Campephilus                              | Animal    | Chordata                 
 Camponotus                               | Animal    | Arthropoda                 | -11700        | 2030         | Camponotus
 Campylocera                              | Animal    | Arthropoda                 | -11700        | 2030         | Campylocera
 Campylonotus                             | Animal    | Arthropoda                 | -11700        | 2030         | Campylonotus
-Canarium                                 | Animal    | Mollusca                   | -11700        | 2030         | Canarium
+Canarium Strombidae                      | Animal    | Mollusca                   | -11700        | 2030         | Canarium_(gastropod)
 Cancellaria                              | Animal    | Mollusca                   | -11700        | 2030         | Cancellaria
 Cancellus                                | Animal    | Arthropoda                 | -11700        | 2030         | Cancellus
 Cancer                                   | Animal    | Arthropoda                 | -11700        | 2030         | Cancer
@@ -869,7 +869,7 @@ Cytheridella                             | Animal    | Arthropoda               
 Cytherois                                | Animal    | Arthropoda                 | -11700        | 2030         | <>
 Cytheromorpha                            | Animal    | Arthropoda                 | -11700        | 2030         | <>
 Cytilus                                  | Animal    | Arthropoda                 | -11700        | 2030         | Cytilus
-Dacrydium                                | Plant     | Coniferophyta              | -126000       | 2030         | Dacrydium
+Dacrydium Podocarpaceae                  | Plant     | Coniferophyta              | -126000       | 2030         | Dacrydium
 Dactylomys                               | Animal    | Chordata                   | -11700        | 2030         | Dactylomys
 Dagnaudus                                | Animal    | Arthropoda                 | -11700        | 2030         | <>
 Daira                                    | Animal    | Arthropoda                 | -11700        | 2030         | Daira
@@ -967,7 +967,7 @@ Dorylus                                  | Animal    | Arthropoda               
 Dosinia                                  | Animal    | Mollusca                   | -11700        | 2030         | Dosinia
 Drassodes                                | Animal    | Arthropoda                 | -11700        | 2030         | Drassodes
 Drepanoptila                             | Animal    | Chordata                   | -11700        | 2030         | Drepanoptila
-Drimys                                   | Plant     | Spermatophyta              | -126000       | 2030         | Drimys
+Drimys Winteraceae                       | Plant     | Spermatophyta              | -126000       | 2030         | Drimys
 Dromaius                                 | Animal    | Chordata                   | -5333000      | 2030         | Dromaius
 Dromas                                   | Animal    | Chordata                   | -11700        | 2030         | Dromas
 Dromia                                   | Animal    | Arthropoda                 | -11700        | 2030         | Dromia
@@ -1064,7 +1064,7 @@ Eptesicus                                | Animal    | Chordata                 
 Epyris                                   | Animal    | Arthropoda                 | -11700        | 2030         | Epyris
 Equisetum                                | Plant     | Sphenophyta                | -1806000      | 2030         | Equisetum
 Equus                                    | Animal    | Chordata                   | -11700        | 2030         | Equus
-Eremophila                               | Plant     | Spermatophyta              | -126000       | 2030         | Eremophila
+Eremophila Scrophulariaceae              | Plant     | Spermatophyta              | -126000       | 2030         | Eremophila_(plant)
 Eremopterix                              | Animal    | Chordata                   | -11700        | 2030         | Eremopterix
 Eremotherium                             | Animal    | Chordata                   | -11700        | 2030         | Eremotherium
 Erethizon                                | Animal    | Chordata                   | -11700        | 2030         | Erethizon
@@ -1161,8 +1161,8 @@ Favites                                  | Animal    | Cnidaria                 
 Felis                                    | Animal    | Chordata                   | -11700        | 2030         | Felis
 Feresa                                   | Animal    | Chordata                   | -11700        | 2030         | Feresa
 Ficedula                                 | Animal    | Chordata                   | -11700        | 2030         | Ficedula
-Ficus                                    | Animal    | Mollusca                   | -11700        | 2030         | Ficus
-Ficus                                    | Plant     | Spermatophyta              | -1806000      | 2030         | Ficus
+Ficus Ficidae                            | Animal    | Mollusca                   | -11700        | 2030         | Ficus_(gastropod)
+Ficus Moraceae                           | Plant     | Spermatophyta              | -1806000      | 2030         | Ficus
 Figularia                                | Animal    | Bryozoa                    | -11700        | 2030         | <>
 Filograna                                | Animal    | Annelida                   | -11700        | 2030         | Filograna
 Finella                                  | Animal    | Mollusca                   | -11700        | 2030         | Finella
@@ -2089,7 +2089,7 @@ Neotragus                                | Animal    | Chordata                 
 Neotrypaea                               | Animal    | Arthropoda                 | -2588000      | 2030         | Neotrypaea
 Neovison                                 | Animal    | Chordata                   | -11700        | 2030         | Neovison
 Nephrolepis                              | Plant     | Pteridophyta               | -11700        | 2030         | Nephrolepis
-Nephropsis                               | Animal    | Arthropoda                 | -11700        | 2030         | Nephropsis
+Nephropsis Nephropidae                   | Animal    | Arthropoda                 | -11700        | 2030         | Nephropsis
 Nepticulomima                            | Animal    | Arthropoda                 | -11700        | 2030         | <>
 Neptunea                                 | Animal    | Mollusca                   | -11700        | 2030         | Neptunea
 Neptunus                                 | Animal    | Arthropoda                 | -11700        | 2030         | Neptunus

@@ -154,13 +154,13 @@ Archaeozostera                           | Plant     | Angiospermae             
 Archaeromma                              | Animal    | Arthropoda                 | -89300000     | -83500000    | <>
 Arcodonichthys                           | Animal    | Chordata                   | -145000000    | -66000000    | <>
 Arctangia                                | Animal    | Cnidaria                   | -93500000     | -89300000    | <>
-Arctica                                  | Animal    | Mollusca                   | -89800000     | -86300000    | Arctica
+Arctica                                  | Animal    | Mollusca                   | -89800000     | -86300000    | Arctica_(bivalve)
 Arecipites                               | Plant     | Angiospermae               | -100500000    | -56000000    | <>
 Argonauticeras                           | Animal    | Mollusca                   | -93500000     | -89300000    | Argonauticeras
 Argyrotheca                              | Animal    | Brachiopoda                | -100500000    | -66000000    | Argyrotheca
 Ariadnaesporites                         | Plant     | Pteridophyta               | -100500000    | -66000000    | <>
 Arkhangelskiella                         | Plant     | Haptophyta                 | -93500000     | -89300000    | <>
-Armania                                  | Animal    | Arthropoda                 | -89300000     | -85800000    | Armania
+Armania                                  | Animal    | Arthropoda                 | -89300000     | -85800000    | <>
 Arthraster                               | Animal    | Echinodermata              | -89300000     | -83500000    | <>
 Artocarpus                               | Plant     | Spermatophyta              | -89800000     | -72100000    | Artocarpus
 Artostrobium                             | Micro     | Radiolaria                 | -89800000     | -86300000    | <>
@@ -745,8 +745,8 @@ Faunus                                   | Animal    | Mollusca                 
 Faveoloolithus                           | Animal    | Chordata                   | -100500000    | -66000000    | Faveoloolithus
 Fenestricardita                          | Animal    | Mollusca                   | -93500000     | -89300000    | <>
 Ferrodraco                               | Animal    | Chordata                   | -100500000    | -89300000    | Ferrodraco
-Ficus                                    | Animal    | Mollusca                   | -100500000    | -66000000    | Ficus
-Ficus                                    | Plant     | Spermatophyta              | -100500000    | -66000000    | Ficus
+Ficus Ficidae                            | Animal    | Mollusca                   | -100500000    | -66000000    | Ficus_(gastropod)
+Ficus Moraceae                           | Plant     | Spermatophyta              | -100500000    | -66000000    | Ficus
 Filicites                                | Plant     | Pteridophyta               | -100500000    | -66000000    | <>
 Fimbria                                  | Animal    | Mollusca                   | -89300000     | -70600000    | Fimbria
 Fiscella                                 | Animal    | Porifera                   | -89800000     | -86300000    | Fiscella
@@ -2265,7 +2265,7 @@ Zhyraornis                               | Animal    | Chordata                 
 Zhyrasuchus                              | Animal    | Chordata                   | -93500000     | -89300000    | Zhyrasuchus
 Zimmerella                               | Animal    | Bryozoa                    | -93500000     | -70600000    | <>
 Zinsitys                                 | Animal    | Mollusca                   | -89800000     | -86300000    | <>
-Zittelina                                | Animal    | Brachiopoda                | -157300000    | -66000000    | Zittelina
+zittelina-kingenidae                     | Animal    | Brachiopoda                | -157300000    | -66000000    | Kingenidae
 Zizyphus                                 | Plant     | Spermatophyta              | -89300000     | -83600000    | Zizyphus
 Zlivisporis                              | Plant     | Bryophyta                  | -93900000     | -83600000    | <>
 Zuniceratops                             | Animal    | Chordata                   | -93500000     | -89300000    | Zuniceratops

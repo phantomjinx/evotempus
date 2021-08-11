@@ -286,7 +286,7 @@ Callispirina                             | Animal    | Brachiopoda              
 Callistadia                              | Animal    | Mollusca                   | -279300000    | -272300000   | <>
 Callitomaria                             | Animal    | Mollusca                   | -279300000    | -272300000   | <>
 Callytharrella                           | Animal    | Brachiopoda                | -279300000    | -272300000   | <>
-Calophyllum                              | Animal    | Cnidaria                   | -279300000    | -272300000   | Calophyllum
+Calophyllum Polycoeliidae                 | Animal    | Cnidaria                   | -279300000    | -272300000   | <>
 Camarotoechia                            | Animal    | Brachiopoda                | -279300000    | -272300000   | Camarotoechia
 Camerisma                                | Animal    | Brachiopoda                | -279300000    | -272300000   | <>
 Cancellina                               | Micro     | Foraminifera               | -279300000    | -2.651e+08   | <>
@@ -865,7 +865,7 @@ Isiolopteris                             | Plant     | Pteridophyta             
 Isodectes                                | Animal    | Chordata                   | -279300000    | -272300000   | Isodectes
 Isogramma                                | Animal    | Brachiopoda                | -279300000    | -272300000   | Isogramma
 Ivakhosara                               | Animal    | Arthropoda                 | -279300000    | -272300000   | <>
-Ivanovia                                 | Plant     | Chlorophyta                | -279300000    | -272300000   | Ivanovia
+Ivanovia Codiaceae                       | Plant     | Chlorophyta                | -279300000    | -272300000   | Ivanovia
 Jakutochonetes                           | Animal    | Brachiopoda                | -279300000    | -272300000   | <>
 Jakutoproductus                          | Animal    | Brachiopoda                | -279300000    | -272300000   | <>
 Janassa                                  | Animal    | Chordata                   | -272500000    | -268000000   | Janassa
@@ -1222,8 +1222,8 @@ Neotumarinia                             | Animal    | Brachiopoda              
 Neouddenites                             | Animal    | Mollusca                   | -279300000    | -272300000   | <>
 Neozeacrinus                             | Animal    | Echinodermata              | -279300000    | -272300000   | <>
 Nephelophyllum                           | Animal    | Cnidaria                   | -279300000    | -272300000   | <>
-Nephropsis                               | Animal    | Arthropoda                 | -279300000    | -272300000   | Nephropsis
-Nephropsis                               | Plant     | Pinophyta                  | -279300000    | -268800000   | Nephropsis
+Nephropsis Nephropidae                   | Animal    | Arthropoda                 | -279300000    | -272300000   | Nephropsis
+Nephropsis Pinopsida                     | Plant     | Pinophyta                  | -279300000    | -268800000   | <>
 Neprotembia                              | Animal    | Arthropoda                 | -279300000    | -272300000   | <>
 Neptunopecten                            | Animal    | Mollusca                   | -279300000    | -272300000   | <>
 Neraphidia                               | Animal    | Arthropoda                 | -279300000    | -272300000   | <>

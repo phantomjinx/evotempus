@@ -3,7 +3,7 @@ Abyssophthalmus                          | Animal    | Arthropoda               
 Acaeniotyle                              | Micro     | Radiolaria                 | -150800000    | -140200000   | <>
 Acanthochirana                           | Animal    | Arthropoda                 | -155700000    | -150800000   | Acanthochirana
 Acanthocircus                            | Micro     | Radiolaria                 | -150800000    | -139800000   | <>
-Acanthodiscus                            | Animal    | Mollusca                   | -163500000    | -145000000   | Acanthodiscus
+Acanthodiscus Neocomitidae               | Animal    | Mollusca                   | -163500000    | -145000000   | Acanthodiscus
 Acanthogyra                              | Animal    | Cnidaria                   | -150800000    | -145000000   | <>
 Acanthorhynchia                          | Animal    | Brachiopoda                | -152100000    | -145000000   | <>
 Acanthosphaera                           | Micro     | Radiolaria                 | -150800000    | -139800000   | Acanthosphaera
@@ -58,7 +58,7 @@ Afrovenator                              | Animal    | Chordata                 
 Agathis                                  | Plant     | Pinophyta                  | -163500000    | -145000000   | Agathis
 Agathoxylon                              | Plant     | Pinophyta                  | -150800000    | -145000000   | Agathoxylon
 Aguilerella                              | Animal    | Mollusca                   | -150800000    | -145000000   | <>
-Ainia                                    | Animal    | Chordata                   | -155700000    | -150800000   | Ainia
+Ainia                                    | Animal    | Chordata                   | -155700000    | -150800000   | <>
 Aka                                      | Animal    | Porifera                   | -155700000    | -150800000   | Aka
 Alcmonavis                               | Animal    | Chordata                   | -150800000    | -145000000   | Alcmonavis
 Alcovasaurus                             | Animal    | Chordata                   | -157300000    | -145000000   | Alcovasaurus
@@ -188,7 +188,7 @@ Archizelmira                             | Animal    | Arthropoda               
 Archotaulius                             | Animal    | Arthropoda                 | -150800000    | -145000000   | <>
 Arcomya                                  | Animal    | Mollusca                   | -157300000    | -145000000   | <>
 Arcomytilus                              | Animal    | Mollusca                   | -150800000    | -145000000   | <>
-Arctica                                  | Animal    | Mollusca                   | -152100000    | -145000000   | Arctica
+Arctica                                  | Animal    | Mollusca                   | -152100000    | -145000000   | Arctica_(bivalve)
 Arctostrea                               | Animal    | Mollusca                   | -150800000    | -145000000   | <>
 Arctotis                                 | Animal    | Mollusca                   | -152100000    | -145000000   | Arctotis
 Ardeadactylus                            | Animal    | Chordata                   | -150800000    | -145000000   | Ardeadactylus
@@ -269,7 +269,7 @@ Batrachopus                              | Animal    | Chordata                 
 Bauneia                                  | Animal    | Porifera                   | -155700000    | -150800000   | <>
 Bavarichthys                             | Animal    | Chordata                   | -150800000    | -145000000   | <>
 Bavarisaurus                             | Animal    | Chordata                   | -152100000    | -145000000   | Bavarisaurus
-Beania                                   | Plant     | Cycadophyta                | -152100000    | -139800000   | Beania
+Beania Beaniaceae                        | Plant     | Cycadophyta                | -152100000    | -139800000   | Beania
 Beattieellus                             | Animal    | Arthropoda                 | -152100000    | -145000000   | <>
 Becus                                    | Micro     | Radiolaria                 | -150800000    | -139800000   | <>
 Behuninia                                | Plant     | Cycadophyta                | -157300000    | -145000000   | <>
@@ -539,10 +539,10 @@ Cordubiceras                             | Animal    | Mollusca                 
 Cornuspira                               | Micro     | Foraminifera               | -155700000    | -140200000   | <>
 Cornutella                               | Micro     | Radiolaria                 | -150800000    | -145000000   | Cornutella
 Corongoceras                             | Animal    | Mollusca                   | -150800000    | -129400000   | Corongoceras
-Corydalis                                | Animal    | Arthropoda                 | -150800000    | -145000000   | Corydalis
+Corydalis Corydalidae                    | Animal    | Arthropoda                 | -150800000    | -145000000   | Corydalus
 Coryphocorixa                            | Animal    | Arthropoda                 | -152100000    | -145000000   | <>
 Coscinaulus                              | Animal    | Porifera                   | -155700000    | -150800000   | <>
-Coscinodiscus                            | Animal    | Porifera                   | -155700000    | -150800000   | Coscinodiscus
+Coscinodiscus Cylindrophymatidae	       | Animal    | Porifera                   | -155700000    | -150800000   | <>
 Coscinophragma                           | Micro     | Foraminifera               | -150800000    | -145000000   | <>
 Cossmannea                               | Animal    | Mollusca                   | -150800000    | -145000000   | <>
 Costigervillia                           | Animal    | Mollusca                   | -155700000    | -150800000   | <>
@@ -2690,7 +2690,7 @@ Zeuschneria                              | Animal    | Brachiopoda              
 Zhamoidellum                             | Micro     | Radiolaria                 | -150800000    | -145000000   | <>
 Zherikhinina                             | Animal    | Arthropoda                 | -152100000    | -145000000   | <>
 Zittelia                                 | Animal    | Mollusca                   | -150800000    | -145000000   | <>
-Zittelina                                | Animal    | Brachiopoda                | -150800000    | -100500000   | Zittelina
+zittelina-kingenidae                     | Animal    | Brachiopoda                | -150800000    | -100500000   | Kingenidae
 Zlivisporis                              | Plant     | Bryophyta                  | -174100000    | -93500000    | <>
 Zofiabaatar                              | Animal    | Chordata                   | -152100000    | -145000000   | Zofiabaatar
 Zonovia                                  | Animal    | Mollusca                   | -155700000    | -150800000   | Zonovia

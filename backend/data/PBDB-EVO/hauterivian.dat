@@ -7,7 +7,7 @@ Acamptonectes                            | Animal    | Chordata                 
 Acanthichthys                            | Animal    | Chordata                   | -145000000    | -66000000    | <>
 Acanthochirana                           | Animal    | Arthropoda                 | -145000000    | -66000000    | Acanthochirana
 Acanthocircus                            | Micro     | Radiolaria                 | -130000000    | -122460000   | <>
-Acanthodiscus                            | Animal    | Mollusca                   | -132900000    | -125000000   | Acanthodiscus
+Acanthodiscus Neocomitidae               | Animal    | Mollusca                   | -132900000    | -125000000   | Acanthodiscus
 Acantholytoceras                         | Animal    | Mollusca                   | -130000000    | -125450000   | Acantholytoceras
 Acanthopora                              | Animal    | Bryozoa                    | -132900000    | -129400000   | Acanthopora
 Acanthoptychoceras                       | Animal    | Mollusca                   | -130000000    | -125450000   | Acanthoptychoceras
@@ -159,7 +159,7 @@ Archiculicoides                          | Animal    | Arthropoda               
 Archisphex                               | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Arcodonichthys                           | Animal    | Chordata                   | -145000000    | -66000000    | <>
 Arcopagia                                | Animal    | Mollusca                   | -130000000    | -125450000   | <>
-Arctica                                  | Animal    | Mollusca                   | -130000000    | -125450000   | Arctica
+Arctica                                  | Animal    | Mollusca                   | -130000000    | -125450000   | Arctica_(bivalve)
 Arctostrea                               | Animal    | Mollusca                   | -130000000    | -125450000   | <>
 Aretsaya                                 | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Argentiniceras                           | Animal    | Mollusca                   | -150800000    | -129400000   | Argentiniceras
@@ -469,7 +469,7 @@ Costatomphalus                           | Animal    | Mollusca                 
 Costocyrena                              | Animal    | Mollusca                   | -130000000    | -125450000   | <>
 Coulonia                                 | Animal    | Echinodermata              | -130000000    | -125450000   | <>
 Couperisporites                          | Plant     | Bryophyta                  | -130000000    | -125450000   | <>
-Craspedodiscus                           | Animal    | Mollusca                   | -132900000    | -129400000   | Craspedodiscus
+Craspedodiscus Olcostephanitidae         | Animal    | Mollusca                   | -132900000    | -129400000   | Craspedodiscus_(cephalopod)
 Crassatella                              | Animal    | Mollusca                   | -145000000    | -66000000    | <>
 Crassostrea                              | Animal    | Mollusca                   | -145000000    | -130000000   | Crassostrea
 Cratovitisma                             | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
@@ -805,7 +805,7 @@ Feldmannia                               | Animal    | Arthropoda               
 Felixigyra                               | Animal    | Cnidaria                   | -130000000    | -125450000   | <>
 Ferganoconcha                            | Animal    | Mollusca                   | -152100000    | -130000000   | <>
 Ficophyllum                              | Plant     | Angiospermae               | -145000000    | -100500000   | <>
-Ficus                                    | Plant     | Spermatophyta              | -145000000    | -100500000   | Ficus
+Ficus Moraceae                           | Plant     | Spermatophyta              | -145000000    | -100500000   | Ficus
 Filicrisia                               | Animal    | Bryozoa                    | -136400000    | -130000000   | <>
 Filisparsa                               | Animal    | Bryozoa                    | -136400000    | -130000000   | <>
 Filograna                                | Animal    | Annelida                   | -130000000    | -125450000   | Filograna
@@ -2498,7 +2498,7 @@ Zhenyuanopterus                          | Animal    | Chordata                 
 Zhiganka                                 | Animal    | Arthropoda                 | -136400000    | -130000000   | <>
 Ziadeus                                  | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Zifondium                                | Micro     | Radiolaria                 | -139800000    | -125450000   | <>
-Zittelina                                | Animal    | Brachiopoda                | -140200000    | -130000000   | Zittelina
+zittelina-kingenidae                     | Animal    | Brachiopoda                | -140200000    | -130000000   | Kingenidae
 Zlivisporis                              | Plant     | Bryophyta                  | -174100000    | -93500000    | <>
 Zonopora                                 | Animal    | Bryozoa                    | -132900000    | -129400000   | <>
 Zorophratra                              | Animal    | Arthropoda                 | -130000000    | -125450000   | <>

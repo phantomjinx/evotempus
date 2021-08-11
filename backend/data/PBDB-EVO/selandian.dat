@@ -4,7 +4,7 @@ Abderospira                              | Animal    | Mollusca                 
 Abdounia                                 | Animal    | Chordata                   | -61600000     | -56000000    | Abdounia
 Abdounodus                               | Animal    | Chordata                   | -61600000     | -59200000    | Abdounodus
 Acanthocardia                            | Animal    | Mollusca                   | -66000000     | -59200000    | Acanthocardia
-Acanthodiscus                            | Plant     | Ochrophyta                 | -66000000     | -56000000    | Acanthodiscus
+Acanthodiscus Centrales                  | Plant     | Ochrophyta                 | -66000000     | -56000000    | <>
 Acar                                     | Animal    | Mollusca                   | -66000000     | -56000000    | Acar
 Acer                                     | Plant     | Spermatophyta              | -66000000     | -2588000     | Acer
 Acervulina                               | Micro     | Foraminifera               | -66000000     | -56000000    | <>
@@ -155,7 +155,7 @@ Architectonica                           | Animal    | Mollusca                 
 Arcopagia                                | Animal    | Mollusca                   | -61700000     | -55800000    | <>
 Arcoperna                                | Animal    | Mollusca                   | -61600000     | -59200000    | <>
 Arcopsis                                 | Animal    | Mollusca                   | -61600000     | -59200000    | <>
-Arctica                                  | Animal    | Mollusca                   | -61600000     | -59200000    | Arctica
+Arctica                                  | Animal    | Mollusca                   | -61600000     | -59200000    | Arctica_(bivalve)
 Arctocyon                                | Animal    | Chordata                   | -61700000     | -56800000    | Arctocyon
 Arctocyonides                            | Animal    | Chordata                   | -61600000     | -59200000    | <>
 Arctodontomys                            | Animal    | Chordata                   | -61700000     | -56800000    | <>
@@ -327,7 +327,7 @@ Callista                                 | Animal    | Mollusca                 
 Callistopollenites                       | Plant     | Spermatophyta              | -66000000     | -56000000    | <>
 Callocardia                              | Animal    | Mollusca                   | -61600000     | -59200000    | <>
 Callucina                                | Animal    | Mollusca                   | -66000000     | -56000000    | <>
-Calophyllum                              | Plant     | Spermatophyta              | -66000000     | -2588000     | Calophyllum
+Calophyllum Calophyllaceae	              | Plant     | Spermatophyta              | -66000000     | -2588000     | Calophyllum
 Calorhadia                               | Animal    | Mollusca                   | -61600000     | -56000000    | <>
 Calycites                                | Plant     | Spermatophyta              | -66000000     | -56000000    | <>
 Calyptocephalella                        | Animal    | Chordata                   | -62500000     | -59000000    | Calyptocephalella
@@ -481,7 +481,7 @@ Columbellopsis                           | Animal    | Mollusca                 
 Colwellia                                | Animal    | Mollusca                   | -61700000     | -55800000    | Colwellia
 Cominella                                | Animal    | Mollusca                   | -61600000     | -59200000    | Cominella
 Compsemys                                | Animal    | Chordata                   | -61700000     | -56800000    | Compsemys
-Comptonia                                | Plant     | Spermatophyta              | -66000000     | -28100000    | Comptonia
+Comptonia Peregrina                      | Plant     | Spermatophyta              | -66000000     | -28100000    | Comptonia_(plant)
 Concavisporites                          | Plant     | Pteridophyta               | -66000000     | -56000000    | <>
 Conchocele                               | Animal    | Mollusca                   | -66000000     | -56000000    | <>
 Conchothyra                              | Animal    | Mollusca                   | -61600000     | -56000000    | <>
@@ -518,7 +518,7 @@ Corvina                                  | Animal    | Chordata                 
 Corylites                                | Plant     | Spermatophyta              | -61700000     | -56800000    | <>
 Corylus                                  | Plant     | Spermatophyta              | -61700000     | -56800000    | Corylus
 Coryphaenoides                           | Animal    | Chordata                   | -61600000     | -59200000    | Coryphaenoides
-Coscinodiscus                            | Plant     | Ochrophyta                 | -66000000     | -56000000    | Coscinodiscus
+Coscinodiscus Coscinodiscaceae           | Micro     | Ochrophyta                 | -66000000     | -56000000    | Coscinodiscus
 Coscinophragma                           | Micro     | Foraminifera               | -66000000     | -56000000    | <>
 Coscinopleura                            | Animal    | Bryozoa                    | -66000000     | -56000000    | Coscinopleura
 Cossmannia                               | Animal    | Mollusca                   | -61600000     | -59200000    | <>
@@ -555,7 +555,7 @@ Cryptocephalus                           | Animal    | Arthropoda               
 Cryptohelops                             | Animal    | Arthropoda                 | -61600000     | -59200000    | <>
 Cryptomeriopsis                          | Plant     | Pinophyta                  | -89300000     | -56000000    | <>
 Cryptophagus                             | Animal    | Arthropoda                 | -66000000     | -56000000    | Cryptophagus
-Cryptospira                              | Animal    | Mollusca                   | -61600000     | -59200000    | Cryptospira
+Cryptospira Marginellidae                | Animal    | Mollusca                   | -61600000     | -59200000    | Cryptospira
 Ctenocheles                              | Animal    | Arthropoda                 | -66000000     | -23030000    | <>
 Ctenochelys                              | Animal    | Chordata                   | -61600000     | -59200000    | Ctenochelys
 Ctenolophonidites                        | Plant     | Spermatophyta              | -66000000     | -56000000    | <>
@@ -809,8 +809,8 @@ Faunus                                   | Animal    | Mollusca                 
 Favia                                    | Animal    | Cnidaria                   | -66000000     | -56000000    | Favia
 Ferrequitherium                          | Animal    | Chordata                   | -61700000     | -56800000    | <>
 Ficopsis                                 | Animal    | Mollusca                   | -61600000     | -59200000    | Ficopsis
-Ficus                                    | Animal    | Mollusca                   | -61600000     | -59200000    | Ficus
-Ficus                                    | Plant     | Spermatophyta              | -66000000     | -2588000     | Ficus
+Ficus Ficidae                            | Animal    | Mollusca                   | -61600000     | -59200000    | Ficus_(gastropod)
+Ficus Moraceae                           | Plant     | Spermatophyta              | -66000000     | -2588000     | Ficus
 Fieldingia                               | Animal    | Porifera                   | -66000000     | -53000000    | <>
 Fierasferoides                           | Animal    | Chordata                   | -61600000     | -56000000    | <>
 Filisparsa                               | Animal    | Bryozoa                    | -66000000     | -59200000    | <>
@@ -1871,8 +1871,8 @@ Rimella                                  | Animal    | Mollusca                 
 Ringicula                                | Animal    | Mollusca                   | -61600000     | -59200000    | Ringicula
 Rissoa                                   | Animal    | Mollusca                   | -61600000     | -59200000    | Rissoa
 Rissoina                                 | Animal    | Mollusca                   | -61600000     | -59200000    | Rissoina
-Robinia                                  | Animal    | Porifera                   | -66000000     | -56000000    | Robinia
-Robinia                                  | Plant     | Spermatophyta              | -66000000     | -56000000    | Robinia
+Robinia Camerospongiidae                 | Animal    | Porifera                   | -66000000     | -56000000    | <>
+Robinia Fabaceae                         | Animal    | Spermatophyta              | -66000000     | -56000000    | Robinia
 Rogueus                                  | Animal    | Arthropoda                 | -61600000     | -59200000    | <>
 Rosa                                     | Plant     | Spermatophyta              | -66000000     | -2588000     | Rosa
 Rosita                                   | Micro     | Foraminifera               | -83500000     | -55800000    | Rosita
@@ -2266,6 +2266,6 @@ Zeugrhabdotus                            | Plant     | Haptophyta               
 Zeunera                                  | Animal    | Arthropoda                 | -61600000     | -59200000    | <>
 Zingiberites                             | Plant     | Angiospermae               | -66000000     | -56000000    | <>
 Zirphaea                                 | Animal    | Mollusca                   | -66000000     | -56000000    | <>
-Zittelina                                | Plant     | Chlorophyta                | -61600000     | -56000000    | Zittelina
+Zittelina                                | Plant     | Chlorophyta                | -61600000     | -56000000    | Zittelina_(alga)
 Zizyphus                                 | Plant     | Spermatophyta              | -66000000     | -28100000    | Zizyphus
 Zonaria                                  | Animal    | Mollusca                   | -61600000     | -59200000    | Zonaria

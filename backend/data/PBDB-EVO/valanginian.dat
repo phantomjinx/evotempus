@@ -6,7 +6,7 @@ Acamptonectes                            | Animal    | Chordata                 
 Acanthichthys                            | Animal    | Chordata                   | -145000000    | -66000000    | <>
 Acanthochirana                           | Animal    | Arthropoda                 | -145000000    | -66000000    | Acanthochirana
 Acanthocircus                            | Micro     | Radiolaria                 | -136400000    | -125000000   | <>
-Acanthodiscus                            | Animal    | Mollusca                   | -136400000    | -130000000   | Acanthodiscus
+Acanthodiscus Neocomitidae               | Animal    | Mollusca                   | -136400000    | -130000000   | Acanthodiscus
 Acanthopora                              | Animal    | Bryozoa                    | -139800000    | -132900000   | Acanthopora
 Acastea                                  | Micro     | Radiolaria                 | -136400000    | -125000000   | <>
 Acesta                                   | Animal    | Mollusca                   | -139800000    | -129400000   | Acesta
@@ -130,7 +130,7 @@ Archaeotritrabs                          | Micro     | Radiolaria               
 Archimedea                               | Animal    | Mollusca                   | -145000000    | -136400000   | <>
 Archisphex                               | Animal    | Arthropoda                 | -136400000    | -130000000   | <>
 Arcodonichthys                           | Animal    | Chordata                   | -145000000    | -66000000    | <>
-Arctica                                  | Animal    | Mollusca                   | -139800000    | -125000000   | Arctica
+Arctica                                  | Animal    | Mollusca                   | -139800000    | -125000000   | Arctica_(bivalve)
 Arctostrea                               | Animal    | Mollusca                   | -140200000    | -136400000   | <>
 Arctotis                                 | Animal    | Mollusca                   | -139800000    | -132900000   | Arctotis
 Arenobulimina                            | Micro     | Foraminifera               | -140200000    | -136400000   | <>
@@ -668,7 +668,7 @@ Feldmannia                               | Animal    | Arthropoda               
 Ferganoconcha                            | Animal    | Mollusca                   | -152100000    | -130000000   | <>
 Feurtillia                               | Micro     | Foraminifera               | -139800000    | -132900000   | <>
 Ficophyllum                              | Plant     | Angiospermae               | -145000000    | -100500000   | <>
-Ficus                                    | Plant     | Spermatophyta              | -145000000    | -100500000   | Ficus
+Ficus Moraceae                           | Plant     | Spermatophyta              | -145000000    | -100500000   | Ficus
 Filicrisia                               | Animal    | Bryozoa                    | -136400000    | -130000000   | <>
 Filisparsa                               | Animal    | Bryozoa                    | -136400000    | -130000000   | <>
 Filosina                                 | Animal    | Mollusca                   | -152100000    | -130000000   | <>
@@ -2078,7 +2078,7 @@ Zeunerella                               | Animal    | Arthropoda               
 Zhamoidellum                             | Micro     | Radiolaria                 | -136400000    | -125450000   | <>
 Zhiganka                                 | Animal    | Arthropoda                 | -136400000    | -130000000   | <>
 Zifondium                                | Micro     | Radiolaria                 | -139800000    | -125450000   | <>
-Zittelina                                | Animal    | Brachiopoda                | -140200000    | -130000000   | Zittelina
+zittelina-kingenidae                     | Animal    | Brachiopoda                | -140200000    | -130000000   | Kingenidae
 Zlivisporis                              | Plant     | Bryophyta                  | -174100000    | -93500000    | <>
 Zonopora                                 | Animal    | Bryozoa                    | -139800000    | -132900000   | <>
 Zygadenia                                | Animal    | Arthropoda                 | -136400000    | -130000000   | Zygadenia

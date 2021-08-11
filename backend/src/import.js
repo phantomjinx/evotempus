@@ -30,78 +30,43 @@ const Interval = require('./models/interval').Interval;
 const Topic = require('./models/topic').Topic;
 const Hint = require('./models/hints').Hint;
 
-function findOrCreateIntervalParent(parentId, child) {
-  if (parentId.length == 0) {
-    return;
-  }
-
-  Interval.findByIdAndUpdate({
-    _id: parentId
-  }, {
-    upsert: true,
-    new: true
-  }).then((parent, err) => {
-    if (err) {
-      logger.error(err, "ERROR: Trying to findByIdAndUpdate interval with %s", parentId);
-      evoDb.terminate();
-    }
-
-    if (!parent) {
-      logger.error("ERROR: Failed to find or create interval with id %s", parentId);
-      evoDb.terminate();
-    }
-
-    var objId = parent._id;
-
-    Interval.updateOne({
-      _id: child._id
-    }, {
-      parent: parent._id
-    }, {
-      runValidators: 'true'
-    }).then((uChild, err) => {
-      if (err) {
-        logger.error(err, "ERROR: Child update for %s: %s", child._id);
-        evoDb.terminate();
-      }
-    });
-  });
+function ImportStats() {
+  this.intervals = 0;
+  this.hints = 0;
+  this.topics = 0;
+  this.subjects = 0;
+  this.ignoredSubjects = 0;
 }
 
-function createInterval(id, kind, from, to, parent, children) {
+var stats = new ImportStats();
 
-  //
-  // Ensure all whitespace is removed
-  //
-  id = id.trim();
-  const name = utils.displayName(id);
-  kind = kind.trim();
-  parent = parent.trim();
-
-  //
-  // Check the children for empty recValue
-  //
-  var c = [];
-  for (let i = 0; i < children.length; i++) {
-    children[i] = children[i].trim();
-    if (children[i].length > 0) {
-      c.push(children[i]);
-    }
-  }
-  children = c;
-
-  try {
-    //
-    // Convert the from date to number
-    //
-    from = utils.parseNumber(from, id);
-
-    //
-    // Convert the to date to number
-    //
-    to = utils.parseNumber(to, id);
-  } catch (err) {
+async function createInterval(dataRow) {
+  if (dataRow.length < 5) {
+    logger.error("ERROR: Cannot create interval as number of columns in data is smaller than expected: %s", dataRow[0]);
     evoDb.terminate();
+  }
+
+  const id = dataRow[0].trim();
+  const name = utils.displayName(id);
+  const kind = dataRow[1].trim();
+  const from = utils.parseNumber(dataRow[2], id);
+  const to = utils.parseNumber(dataRow[3], id);
+  const parent = dataRow[4].trim();
+
+  let children = [];
+  if (dataRow.length > 5) {
+    children = dataRow[5].split(",");
+    //
+    // Check the children for empty dataRow
+    //
+    var c = [];
+    for (let i = 0; i < children.length; i++) {
+      children[i] = children[i].trim();
+      if (children[i].length > 0) {
+        c.push(children[i]);
+      }
+    }
+    children = c;
   }
 
   //
@@ -111,7 +76,8 @@ function createInterval(id, kind, from, to, parent, children) {
     name: name,
     kind: kind,
     from: from,
-    to: to
+    to: to,
+    parent: parent
   };
   if (children.length > 0) {
     set.children = children;
@@ -120,7 +86,7 @@ function createInterval(id, kind, from, to, parent, children) {
   //
   // Automatically deduplicates
   //
-  return Interval.findByIdAndUpdate({
+  Interval.findByIdAndUpdate({
     _id: id
   }, {
     "$set": set,
@@ -131,20 +97,27 @@ function createInterval(id, kind, from, to, parent, children) {
     upsert: true,
     new: true
   }).exec();
+
+  stats.intervals++;
 }
 
-function createTopic(id, topicTgt, linkId) {
+async function createTopic(dataRow, topicTgt) {
+  if (dataRow.length < 2) {
+    logger.error("ERROR: Cannot create topic as number of columns in data is smaller than expected: %s", dataRow[0]);
+    evoDb.terminate();
+  }
+
   //
   // Ensure all whitespace is removed
   //
-  id = id.trim();
+  const id = dataRow[0].trim();
+  const linkId = dataRow[1].trim();
   topicTgt = topicTgt.trim();
-  linkId = linkId.trim();
 
   //
   // Automatically deduplicates
   //
-  return Topic.findOneAndUpdate({
+  await Topic.findOneAndUpdate({
     topic: id
   }, {
     "$set": {
@@ -158,86 +131,134 @@ function createTopic(id, topicTgt, linkId) {
     upsert: true,
     new: true
   }).exec();
+
+  stats.topics++;
 }
 
-function createSubject(id, kind, category, from, to) {
+async function createIntervalTopic(dataRow) {
+  createTopic(dataRow, "Interval");
+}
+
+async function createSubjectTopic(dataRow) {
+  createTopic(dataRow, "Subject");
+}
+
+async function createSubject(id, name, kind, category, from, to, linkId) {
+
+  if (id === "NO_GENUS_SPECIFIED") {
+    logger.debug("Ignoring row with no genus: %s %s %s %s %d %d", id, name, kind, category, from, to);
+    return;
+  }
 
   logger.debug("Creating subject: id: " + id + " kind: " + kind + " category: " + category + " from: " + from + " to: " + to);
 
-  //
-  // Ensure all whitespace is removed
-  //
-  id = id.trim();
-  const name = utils.displayName(id);
-  kind = kind.trim();
-  category = category.trim();
+  // New id subject
+  var new_subject = new Subject({
+    _id: id,
+    name: name,
+    kind: kind,
+    category: category,
+    from: from,
+    to: to
+  });
+  await new_subject.save();
+  await createSubjectTopic([id, linkId]);
 
-  //
-  // Convert the from date to number
-  //
-  from = utils.parseNumber(from, id);
-
-  //
-  // Convert the to date to number
-  //
-  to = utils.parseNumber(to, id);
-
-  //
-  // Automatically deduplicates
-  //
-  return Subject.findByIdAndUpdate({
-    _id: id
-  }, {
-    "$set": {
-      name: name,
-      kind: kind,
-      category: category,
-      from: from,
-      to: to
-    },
-    "$setOnInsert": {
-      _id: id
-    }
-  }, {
-    upsert: true,
-    new: true,
-    runValidators: true
-  }).exec();
+  stats.subjects++;
 }
 
-function createHint(id, type, parent, colour, link) {
+async function updateSubject(subject, id, name, kind, category, from, to) {
 
-  logger.debug("Creating hint: id: " + id + " type: " + type + " parent: " + parent + " colour: " + colour + " link: " + link);
+  logger.debug("Updating subject: id: " + id + " kind: " + kind + " category: " + category + " from: " + from + " to: " + to);
 
-  try {
-    //
-    // Ensure all whitespace is removed
-    //
-    id = id.trim();
-    type = type.trim();
-    parent = parent.trim();
-    colour = colour.trim();
-    link = link.trim();
+  // Subject exists so need to check and update
+  if (subject.name !== name) {
+    logger.error("ERROR: The subject %s being imported has name %s but existing subject has name %s", id, name, subject.name);
+    evoDb.terminate();
+  }
 
-    if (parent == "<>") {
-      parent = "";
-    }
+  if (subject.kind !== kind) {
+    logger.error("ERROR: The subject %s being imported has kind %s but existing subject has kind %s", id, kind, subject.kind);
+    evoDb.terminate();
+  }
 
-    if (colour == "<>") {
-      colour = "";
-    }
+  if (subject.category !== category) {
+    logger.error("ERROR: The subject %s being imported has category %s but existing subject has category %s", id, category, subject.category);
+    evoDb.terminate();
+  }
 
-    if (link == "<>") {
-      link = "";
-    }
-  } catch (err) {
+  // Determine widest time span possible
+  if (from < subject.from) {
+    subject.from = from;
+  }
+
+  if (to > subject.to) {
+    subject.to = to;
+  }
+
+  await subject.save();
+}
+
+async function createOrUpdateSubject(dataRow) {
+  if (dataRow.length < 6) {
+    logger.error("ERROR: Cannot create or update subject as number of columns in data is smaller than expected: %s", dataRow[0]);
+    evoDb.terminate();
+  }
+
+  const id = dataRow[0].trim();
+  const name = utils.displayName(id);
+  const kind = dataRow[1].trim();
+  const category = dataRow[2].trim();
+  const from = utils.parseNumber(dataRow[3], id);
+  const to = utils.parseNumber(dataRow[4], id);
+  const linkId = dataRow[5].trim();
+
+  if (utils.valueUnknown(linkId)) {
+    stats.ignoredSubjects++;
+    return; // Only import subjects with a wikipedia link id
+  }
+
+  const subject = await Subject.findById(id).exec();
+  if (subject == null) {
+    await createSubject(id, name, kind, category, from, to, linkId);
+  } else {
+    await updateSubject(subject, id, name, kind, category, from, to);
+  }
+}
+
+async function createHint(dataRow) {
+  if (dataRow.length < 5) {
+    logger.error("ERROR: Cannot create hint as number of columns in data is smaller than expected: %s", dataRow[0]);
     evoDb.terminate();
   }
 
   //
-  // Automatically deduplicates
+  // Ensure all whitespace is removed
   //
-  return Hint.findByIdAndUpdate({
+  const id = dataRow[0].trim();
+  const type = dataRow[1].trim();
+  let parent = dataRow[2].trim();
+  let colour = dataRow[3].trim();
+  let link = dataRow[4].trim();
+
+  if (parent == "<>") {
+    parent = "";
+  }
+
+  if (utils.valueUnknown(colour)) {
+    colour = "";
+  }
+
+  if (utils.valueUnknown(link)) {
+    link = "";
+  }
+
+  logger.debug("Creating hint: id: " + id + " type: " + type + " parent: " + parent + " colour: " + colour + " link: " + link);
+
+  //
+  // Automatically deduplicates and finish in its own time
+  //
+  Hint.findByIdAndUpdate({
     _id: id
   }, {
     "$set": {
@@ -253,13 +274,16 @@ function createHint(id, type, parent, colour, link) {
     upsert: true,
     new: true
   }).exec();
+
+  stats.hints++;
 }
 
-async function importReader(path, expectedCols, importPromise) {
+async function importReader(path, expectedCols, importFn) {
+  logger.debug("INFO: Starting importing data from " + path);
+
   const liner = new readlines(path);
 
   let next;
-  let promises = [];
   while (next = liner.next()) { // jshint ignore:line
     const line = next.toString('ascii');
 
@@ -267,36 +291,19 @@ async function importReader(path, expectedCols, importPromise) {
       continue;
     }
 
-    const recValue = line.split('|');
-    if (recValue.length < expectedCols) {
+    const dataRow = line.split('|');
+    if (dataRow.length < expectedCols) {
       logger.error("ERROR: Number of columns in record is smaller than expected: " + line);
       evoDb.terminate();
     }
 
-    const p = importPromise(recValue);
-    if (p == null) {
-      logger.error("ERROR: Undefined promise return from callback: ", recValue);
-      evoDb.terminate();
-    }
-    promises.push(p);
-
-    if (promises.length == 200) {
-      logger.debug("INFO: Resolving batch of updates for " + path);
-      const values = await Promise.all(promises);
-      promises = [];
-    }
-  }
-
-  if (promises.length > 0) {
-    logger.debug("INFO: Resolving final batch of updates for " + path);
-    const values = await Promise.all(promises);
-    promises = [];
+    await importFn(dataRow);
   }
 
   logger.debug("INFO: Completed importing data from " + path);
 }
 
-async function importContent(pathOrPaths, expectedCols, importPromise) {
+async function importContent(pathOrPaths, expectedCols, importFn) {
   let paths = [];
   if (Array.isArray(pathOrPaths)) {
     paths = paths.concat(pathOrPaths);
@@ -308,67 +315,40 @@ async function importContent(pathOrPaths, expectedCols, importPromise) {
     const fullPath = pathlib.resolve(__dirname, '..', paths[i]);
     if (fs.statSync(fullPath).isDirectory()) {
       const files = fs.readdirSync(fullPath);
-      for (let j = 0; i < files.length; j++) {
+      for (let j = 0; j < files.length; j++) {
         if (pathlib.extname(files[j]) == ".dat") {
-          await importReader(pathlib.resolve(fullPath, files[j]), expectedCols, importPromise);
+          await importReader(pathlib.resolve(fullPath, files[j]), expectedCols, importFn);
         }
       }
     } else {
-      await importReader(fullPath, expectedCols, importPromise);
+      await importReader(fullPath, expectedCols, importFn);
     }
   }
-
 }
 
 async function importIntervals(pathOrPaths) {
-  var importer = function(recValue) {
-    var children = [];
-    if (recValue.length > 5) {
-      children = recValue[5].split(",");
-    }
-
-    return createInterval(recValue[0], recValue[1], recValue[2], recValue[3], recValue[4], children);
-  };
-
-  await importContent(pathOrPaths, 5, importer);
+  await importContent(pathOrPaths, 5, createInterval);
   logger.debug("INFO: import of intervals complete");
 }
 
-async function importTopics(pathOrPaths, topicTarget) {
-  var importer = function(recValue) {
-    return createTopic(recValue[0], topicTarget, recValue[1]);
-  };
-
-  await importContent(pathOrPaths, 2, importer);
+async function importIntervalTopics(pathOrPaths) {
+  await importContent(pathOrPaths, 2, createIntervalTopic);
   logger.debug("INFO: import of topics complete");
 }
 
 async function importHints(pathOrPaths) {
-  var importer = function(recValue) {
-    return createHint(recValue[0], recValue[1], recValue[2], recValue[3], recValue[4]);
-  };
-
-  await importContent(pathOrPaths, 5, importer);
+  await importContent(pathOrPaths, 5, createHint);
   logger.debug("INFO: import of hints complete");
 }
 
-function importSubjectCb(recValue) {
-  const id = recValue[0];
-  const kind = recValue[1];
-  const category = recValue[2];
-  const from = recValue[3];
-  const to = recValue[4];
-  const linkId = recValue[5];
-
-
-  const p1 = createSubject(id, kind, category, from, to);
-  const p2 = createTopic(id, "Subject", linkId);
-  return Promise.all([p1, p2]);
-}
-
 async function importSubjects(pathOrPaths) {
-  await importContent(pathOrPaths, 6, importSubjectCb);
+  await importContent(pathOrPaths, 6, createOrUpdateSubject);
   logger.debug("INFO: import of subjects complete");
 }
 
-module.exports = { importIntervals, importTopics, importHints, importSubjects };
+function reportStats() {
+  logger.info("*** Intervals: %d  Topics: %d  Hints: %d  Subjects: %d  Ignored Subjects: %d ***",
+   stats.intervals, stats.topics, stats.hints, stats.subjects, stats.ignoredSubjects);
+}
+
+module.exports = { importIntervals, importIntervalTopics, importHints, importSubjects, reportStats};

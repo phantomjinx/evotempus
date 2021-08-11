@@ -74,19 +74,16 @@ async function importDbData(conn) {
   }
 
   try {
-    logger.debug('INFO: Import from data directory');
     // Import the data if required into database
     await importing.importIntervals(dbConfig.intervals);
-    logger.debug('INFO: Completed import of intervals');
 
-    await importing.importTopics(dbConfig.intervalTopics, "Interval");
-    logger.debug('INFO: Completed import of intervals topics');
+    await importing.importIntervalTopics(dbConfig.intervalTopics);
 
     await importing.importHints(dbConfig.hints);
-    logger.debug('INFO: Completed import of hints');
 
     await importing.importSubjects(dbConfig.subjects);
-    logger.debug('INFO: Completed import of subjects');
+
+    importing.reportStats();
 
   } catch (err) {
     logger.error(err);

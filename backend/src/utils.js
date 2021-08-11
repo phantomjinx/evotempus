@@ -50,8 +50,13 @@ function parseNumber(numStr, id) {
   return n;
 }
 
+function valueUnknown(value) {
+  return value == '<>';
+}
+
 module.exports = {
   toBoolean,
   displayName,
-  parseNumber
+  parseNumber,
+  valueUnknown
 };

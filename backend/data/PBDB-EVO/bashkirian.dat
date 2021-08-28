@@ -1163,8 +1163,8 @@ Pileospongia                             | Animal    | Porifera                 
 Pilosisporites                           | Plant     | Pteridophyta               | -318100000    | -306950000   | <>
 Pindorama                                | Animal    | Mollusca                   | -318100000    | -305900000   | Pindorama
 Pinna                                    | Animal    | Mollusca                   | -336000000    | -318100000   | Pinna
-Pinnularia                               | Plant     | Ochrophyta                 | -318100000    | -314600000   | Pinnularia
-Pinnularia                               | Plant     | Sphenophyta                | -358900000    | -298900000   | Pinnularia
+Pinnularia Pinnulariaceae                | Plant     | Ochrophyta                 | -318100000    | -314600000   | Pinnularia
+Pinnularia Calamitaceae                  | Plant     | Sphenophyta                | -358900000    | -298900000   | <>
 Pithodea                                 | Animal    | Mollusca                   | -318100000    | -314600000   | <>
 Pityosporites                            | Plant     | Pinophyta                  | -358900000    | -252170000   | <>
 Placopterina                             | Animal    | Mollusca                   | -318100000    | -311450000   | <>
@@ -1213,7 +1213,7 @@ Polyosteorhynchus                        | Animal    | Chordata                 
 Polypora                                 | Animal    | Bryozoa                    | -318100000    | -306950000   | <>
 Polyrhizodus                             | Animal    | Chordata                   | -326400000    | -318100000   | <>
 Porcellia                                | Animal    | Mollusca                   | -339400000    | -318100000   | <>
-Posidonia                                | Animal    | Mollusca                   | -318100000    | -306950000   | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -318100000    | -306950000   | <>
 Posidoniella                             | Animal    | Mollusca                   | -318100000    | -314600000   | <>
 Postibulla                               | Animal    | Echinodermata              | -318100000    | -314600000   | <>
 Poterioceras                             | Animal    | Mollusca                   | -326400000    | -318100000   | <>

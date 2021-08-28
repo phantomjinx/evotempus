@@ -729,7 +729,7 @@ Myoconcha                                | Animal    | Mollusca                 
 Myopholas                                | Animal    | Mollusca                   | -201300000    | -174100000   | <>
 Myophorella                              | Animal    | Mollusca                   | -201300000    | -168300000   | Myophorella
 Myophoria                                | Animal    | Mollusca                   | -201300000    | -174100000   | Myophoria
-Myriophyllum                             | Animal    | Cnidaria                   | -201300000    | -174100000   | Myriophyllum
+Myriophyllum Conophyllidae               | Animal    | Cnidaria                   | -201300000    | -174100000   | <>
 Mystriosaurus                            | Animal    | Chordata                   | -201300000    | -174100000   | Mystriosaurus
 Mystriosuchus                            | Animal    | Chordata                   | -201300000    | -196500000   | Mystriosuchus
 Mytiloceramus                            | Animal    | Mollusca                   | -201300000    | -199300000   | <>
@@ -962,7 +962,7 @@ Polycingulatisporites                    | Plant     | Pteridophyta             
 Polycope                                 | Animal    | Arthropoda                 | -201300000    | -174100000   | <>
 Polysitum                                | Animal    | Arthropoda                 | -201300000    | -199300000   | <>
 Pontocyprella                            | Animal    | Arthropoda                 | -201300000    | -196500000   | <>
-Posidonia                                | Animal    | Mollusca                   | -237000000    | -174100000   | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -237000000    | -174100000   | <>
 Poulpus                                  | Micro     | Radiolaria                 | -201300000    | -189600000   | <>
 Praeatya                                 | Animal    | Arthropoda                 | -201300000    | -145000000   | <>
 Praechlamys                              | Animal    | Mollusca                   | -201300000    | -174100000   | <>
@@ -1173,13 +1173,13 @@ Stauromesosaturnalis                     | Micro     | Radiolaria               
 Steneosaurus                             | Animal    | Chordata                   | -201300000    | -174100000   | Steneosaurus
 Stenomischus                             | Plant     | Pinophyta                  | -201300000    | -174100000   | <>
 Stenonyx                                 | Animal    | Chordata                   | -201300000    | -196500000   | Stenonyx
-Stenorhachis                             | Plant     | Coniferophyta              | -201300000    | -174100000   | Stenorhachis
+Stenorhachis Coniferales                 | Plant     | Coniferophyta              | -201300000    | -174100000   | <>
 Stephanastrea                            | Animal    | Cnidaria                   | -201300000    | -190800000   | <>
-Steropoides                              | Animal    | Chordata                   | -201300000    | -190800000   | Steropoides
+Steropoides                              | Animal    | Chordata                   | -201300000    | -190800000   | <>
 Stichocapsa                              | Micro     | Radiolaria                 | -201300000    | -174100000   | <>
 Stolmorhynchia                           | Animal    | Brachiopoda                | -201300000    | -199300000   | <>
 Storgaardia                              | Plant     | Coniferophyta              | -201300000    | -174100000   | <>
-Stormbergia                              | Animal    | Chordata                   | -201300000    | -190800000   | Stormbergia
+Stormbergia Ornithischia                 | Animal    | Chordata                   | -201300000    | -190800000   | Lesothosaurus
 Stratesaurus                             | Animal    | Chordata                   | -201300000    | -196500000   | Stratesaurus
 Strobilites                              | Plant     | Coniferophyta              | -201300000    | -174100000   | <>
 Strongylites                             | Animal    | Arthropoda                 | -201300000    | -196500000   | <>

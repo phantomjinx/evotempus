@@ -1518,7 +1518,7 @@ Enoploclytia                             | Animal    | Arthropoda               
 Entobia                                  | Animal    | Porifera                   | -100500000    | -93900000    | Entobia
 Entolium                                 | Animal    | Mollusca                   | -100500000    | -93900000    | <>
 Entosolenia                              | Micro     | Foraminifera               | -100500000    | -93900000    | <>
-Entropezites                             | Fungi     | Pezizomycotina             | -99600000     | -93500000    | Entropezites
+Entropezites                             | Fungus     | Pezizomycotina             | -99600000     | -93500000    | Entropezites
 Eoacteon                                 | Animal    | Mollusca                   | -99600000     | -93500000    | <>
 Eoagelenomorphus                         | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Eoalphadon                               | Animal    | Chordata                   | -100500000    | -93900000    | <>
@@ -2579,7 +2579,7 @@ Microtaenia                              | Plant     | Pteridophyta             
 Microtheridion                           | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Microtuban                               | Animal    | Chordata                   | -99600000     | -93500000    | Microtuban
 Microuloborus                            | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
-Micula                                   | Plant     | Haptophyta                 | -99600000     | -89300000    | Micula
+Micula                                   | Plant     | Haptophyta                 | -99600000     | -89300000    | <>
 Mieroblattina                            | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Mikasaites                               | Animal    | Mollusca                   | -99600000     | -93500000    | <>
 Milesitermes                             | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
@@ -2673,7 +2673,7 @@ Myannemesia                              | Animal    | Arthropoda               
 Myanpsyche                               | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Myansegestria                            | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Mycetobia                                | Animal    | Arthropoda                 | -99600000     | -93500000    | Mycetobia
-Mycetophagites                           | Fungi     | Pezizomycotina             | -99600000     | -93500000    | Mycetophagites
+Mycetophagites                           | Fungus    | Pezizomycotina             | -99600000     | -93500000    | Mycetophagites
 Mydiognathus                             | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Mylacrotermes                            | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Myliobatis                               | Animal    | Chordata                   | -145000000    | -66000000    | Myliobatis
@@ -3374,7 +3374,7 @@ Portheus                                 | Animal    | Chordata                 
 Porthochelys                             | Animal    | Chordata                   | -100500000    | -66000000    | <>
 Portugalosuchus                          | Animal    | Chordata                   | -99600000     | -93500000    | Portugalosuchus
 Portunatasaurus                          | Animal    | Chordata                   | -100500000    | -89800000    | Portunatasaurus
-Posidonia                                | Animal    | Mollusca                   | -105300000    | -99600000    | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -105300000    | -99600000    | <>
 Postopsyllidium                          | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Pouillonhybos                            | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Pouillonphlebia                          | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
@@ -4041,13 +4041,13 @@ Stegopelta                               | Animal    | Chordata                 
 Steinmanella                             | Animal    | Mollusca                   | -100500000    | -93900000    | <>
 Stelckiceras                             | Animal    | Mollusca                   | -105300000    | -99600000    | <>
 Stelidioseris                            | Animal    | Cnidaria                   | -100500000    | -93900000    | <>
-Stellaria                                | Animal    | Mollusca                   | -100500000    | -93900000    | Stellaria
+Stellaria Xenophoridae                   | Animal    | Mollusca                   | -100500000    | -93900000    | Stellaria_(gastropod)
 Stellatopollis                           | Plant     | Angiospermae               | -99600000     | -93500000    | <>
 Stelloria                                | Animal    | Cnidaria                   | -100500000    | -93900000    | <>
 Stelzneria                               | Animal    | Mollusca                   | -100500000    | -93900000    | <>
 Stenobaissoptera                         | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Stenocionops                             | Animal    | Arthropoda                 | -100500000    | -66000000    | <>
-Stenorhachis                             | Plant     | Coniferophyta              | -113000000    | -93900000    | Stenorhachis
+Stenorhachis Coniferales                 | Plant     | Coniferophyta              | -113000000    | -93900000    | <>
 Steorrosia                               | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Stephanocoenia                           | Animal    | Cnidaria                   | -100500000    | -93900000    | <>
 Stephanocolpites                         | Plant     | Spermatophyta              | -105300000    | -93500000    | <>
@@ -4280,7 +4280,7 @@ Tricolpites                              | Plant     | Spermatophyta            
 Tricolporites                            | Plant     | Spermatophyta              | -100500000    | -93900000    | <>
 Tricolporoidites                         | Plant     | Magnoliophyta              | -125000000    | -93900000    | <>
 Tricolporopollenites                     | Plant     | Spermatophyta              | -100500000    | -93900000    | <>
-Tridactylus                              | Animal    | Mollusca                   | -105300000    | -99600000    | Tridactylus
+Tridactylus Aporrhaidae                  | Animal    | Mollusca                   | -105300000    | -99600000    | <>
 Trifossapollenites                       | Plant     | Magnoliophyta              | -100500000    | -93900000    | <>
 Trigampulex                              | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Trigonarca                               | Animal    | Mollusca                   | -100500000    | -89800000    | <>

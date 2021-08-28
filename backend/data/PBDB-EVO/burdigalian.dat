@@ -2495,7 +2495,7 @@ Gonostoma                                | Animal    | Chordata                 
 Goodallia                                | Animal    | Mollusca                   | -20440000     | -13820000    | Goodallia
 Gopherus                                 | Animal    | Chordata                   | -20430000     | -13600000    | Gopherus
 Gordanops                                | Animal    | Mollusca                   | -20440000     | -15970000    | <>
-Gordonia                                 | Plant     | Spermatophyta              | -23030000     | -15970000    | Gordonia
+Gordonia Theaceae                        | Plant     | Spermatophyta              | -23030000     | -15970000    | Gordonia_(plant)
 Gorgopsina                               | Animal    | Arthropoda                 | -23030000     | -15970000    | <>
 Gothanipollis                            | Plant     | Spermatophyta              | -33900000     | -15970000    | <>
 Gouldia                                  | Animal    | Mollusca                   | -20440000     | -13820000    | <>
@@ -3413,7 +3413,7 @@ Maldivia                                 | Animal    | Arthropoda               
 Malea                                    | Animal    | Mollusca                   | -20440000     | -15970000    | Malea
 Malepellis                               | Animal    | Arthropoda                 | -23030000     | -15970000    | <>
 Malletia                                 | Animal    | Mollusca                   | -21700000     | -19000000    | <>
-Mallotus                                 | Plant     | Spermatophyta              | -20440000     | -15970000    | Mallotus
+Mallotus Euphorbiaceae                   | Plant     | Spermatophyta              | -20440000     | -15970000    | Mallotus_(plant)
 Malvacarpus                              | Plant     | Spermatophyta              | -33900000     | -5333000     | <>
 Malvacipollis                            | Plant     | Spermatophyta              | -23030000     | -15970000    | <>
 Mammacyon                                | Animal    | Chordata                   | -24800000     | -20430000    | Mammacyon
@@ -3602,7 +3602,7 @@ Mesogaulus                               | Animal    | Chordata                 
 Mesohalina                               | Animal    | Mollusca                   | -20440000     | -15970000    | <>
 Mesoleptus                               | Animal    | Arthropoda                 | -20440000     | -15970000    | Mesoleptus
 Mesopeplum                               | Animal    | Mollusca                   | -19000000     | -15900000    | Mesopeplum
-Mesophyllum                              | Plant     | Rhodophyta                 | -20440000     | -15970000    | Mesophyllum
+Mesophyllum Hapalidiaceae                | Plant     | Rhodophyta                 | -20440000     | -15970000    | Mesophyllum
 Mesoplodon                               | Animal    | Chordata                   | -20440000     | -15970000    | Mesoplodon
 Mesopsocus                               | Animal    | Arthropoda                 | -23030000     | -15970000    | Mesopsocus
 Mesoreodon                               | Animal    | Chordata                   | -24800000     | -20430000    | Mesoreodon
@@ -3679,7 +3679,7 @@ Microvelia                               | Animal    | Arthropoda               
 Micrurus                                 | Animal    | Chordata                   | -16900000     | -15970000    | Micrurus
 Migmacastor                              | Animal    | Chordata                   | -24800000     | -20430000    | Migmacastor
 Migros                                   | Micro     | Foraminifera               | -19000000     | -15900000    | Migros
-Milax                                    | Animal    | Mollusca                   | -23030000     | -15970000    | Milax
+Milax Milacidae                          | Animal    | Mollusca                   | -23030000     | -15970000    | Milax_(gastropod)
 Milfordia                                | Plant     | Angiospermae               | -28400000     | -15970000    | <>
 Milichiella                              | Animal    | Arthropoda                 | -20440000     | -13820000    | Milichiella
 Miliola                                  | Micro     | Foraminifera               | -23030000     | -11608000    | <>
@@ -4403,7 +4403,7 @@ Paleotestudo                             | Animal    | Chordata                 
 Paleotrichius                            | Animal    | Arthropoda                 | -20440000     | -13820000    | <>
 Paleryx                                  | Animal    | Chordata                   | -56000000     | -15970000    | <>
 Palicus                                  | Animal    | Arthropoda                 | -23030000     | -5333000     | Palicus
-Paliurus                                 | Plant     | Spermatophyta              | -20440000     | -15970000    | Paliurus
+Paliurus Rhamnaceae                      | Plant     | Spermatophyta              | -20440000     | -15970000    | Paliurus
 Paljara                                  | Animal    | Chordata                   | -23030000     | -15970000    | <>
 Pallacera                                | Animal    | Mollusca                   | -20440000     | -15970000    | <>
 Palliolum                                | Animal    | Mollusca                   | -20440000     | -15970000    | Palliolum
@@ -4654,7 +4654,7 @@ Persististrombus                         | Animal    | Mollusca                 
 Persoonieaephyllum                       | Plant     | Spermatophyta              | -28400000     | -15970000    | <>
 Perulestes                               | Animal    | Chordata                   | -20440000     | -13820000    | <>
 Perupithecus                             | Animal    | Chordata                   | -20440000     | -13820000    | <>
-Petaloconchus                            | Animal    | Mollusca                   | -20440000     | -15970000    | Petaloconchus
+Petaloconchus Vermetidae                 | Animal    | Mollusca                   | -20440000     | -15970000    | Petaloconchus
 Petauristodon                            | Animal    | Chordata                   | -20430000     | -13600000    | <>
 Petraeianus                              | Animal    | Arthropoda                 | -20440000     | -15970000    | <>
 Petralia                                 | Animal    | Bryozoa                    | -23030000     | -15970000    | Petralia
@@ -5524,7 +5524,7 @@ Sardinella                               | Animal    | Chordata                 
 Sardinops                                | Animal    | Chordata                   | -20440000     | -15970000    | Sardinops
 Saremmys                                 | Animal    | Chordata                   | -21000000     | -17500000    | <>
 Sarepta                                  | Animal    | Mollusca                   | -19000000     | -15900000    | Sarepta
-Sargus                                   | Animal    | Chordata                   | -23030000     | -5333000     | Sargus
+Sargus Sparidae                          | Animal    | Chordata                   | -23030000     | -5333000     | <>
 Sarinda                                  | Animal    | Arthropoda                 | -20440000     | -13820000    | Sarinda
 Sasawatsu                                | Animal    | Chordata                   | -20440000     | -13820000    | <>
 Sassafras                                | Plant     | Spermatophyta              | -20440000     | -15970000    | Sassafras
@@ -5856,7 +5856,7 @@ Stegomastodon                            | Animal    | Chordata                 
 Stegotetrabelodon                        | Animal    | Chordata                   | -23030000     | -2588000     | Stegotetrabelodon
 Stegotherium                             | Animal    | Chordata                   | -17500000     | -16300000    | Stegotherium
 Steiromys                                | Animal    | Chordata                   | -17500000     | -16300000    | <>
-Stellaria                                | Animal    | Mollusca                   | -20440000     | -15970000    | Stellaria
+Stellaria Xenophoridae                   | Animal    | Mollusca                   | -20440000     | -15970000    | Stellaria_(gastropod)
 Stemmops                                 | Animal    | Arthropoda                 | -20440000     | -13820000    | Stemmops
 Stenapion                                | Animal    | Arthropoda                 | -20440000     | -13820000    | <>
 Stenaspidiotus                           | Animal    | Arthropoda                 | -20440000     | -13820000    | Stenaspidiotus
@@ -6261,8 +6261,8 @@ Trilites                                 | Plant     | Pteridophyta             
 Trilobatus                               | Micro     | Foraminifera               | -20440000     | -15970000    | <>
 Triloculina                              | Micro     | Foraminifera               | -19000000     | -15900000    | Triloculina
 Trimeresurus                             | Animal    | Chordata                   | -20440000     | -15970000    | Trimeresurus
-Trinacria                                | Animal    | Mollusca                   | -20440000     | -15970000    | Trinacria
-Trinacria                                | Plant     | Ochrophyta                 | -23030000     | -13820000    | Trinacria
+Trinacria Noetiidae                      | Animal    | Mollusca                   | -20440000     | -15970000    | <>
+Trinacria Hemiaulaceae                   | Micro     | Ochrophyta                 | -23030000     | -13820000    | Trinacria_(diatom)
 Trinemurodes                             | Animal    | Arthropoda                 | -20440000     | -13820000    | <>
 Trinitasia                               | Animal    | Mollusca                   | -20440000     | -15970000    | <>
 Trioacantha                              | Animal    | Arthropoda                 | -20440000     | -13820000    | <>
@@ -6583,8 +6583,8 @@ Zonarina                                 | Animal    | Mollusca                 
 Zoodes                                   | Animal    | Arthropoda                 | -20440000     | -15970000    | <>
 Zophodetus                               | Animal    | Arthropoda                 | -20440000     | -13820000    | <>
 Zorotypus                                | Animal    | Arthropoda                 | -20440000     | -13820000    | Zorotypus
-Zygaena                                  | Animal    | Arthropoda                 | -20000000     | -15970000    | Zygaena
-Zygaena                                  | Animal    | Chordata                   | -20440000     | -15970000    | Zygaena
+Zygaena Zygaenidae                       | Animal    | Arthropoda                 | -20000000     | -15970000    | Zygaena
+Zygaena Sphyrnidae                       | Animal    | Chordata                   | -20440000     | -15970000    | Hammerhead_shark
 Zygochlamys                              | Animal    | Mollusca                   | -20440000     | -15970000    | <>
 Zygodactylus                             | Animal    | Chordata                   | -20000000     | -16900000    | <>
 Zygolophodon                             | Animal    | Chordata                   | -16900000     | -15970000    | Zygolophodon

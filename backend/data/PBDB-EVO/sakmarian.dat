@@ -674,12 +674,12 @@ Lamnaespina                              | Animal    | Brachiopoda              
 Lamniplica                               | Animal    | Brachiopoda                | -295500000    | -290100000   | <>
 Lampadosocrinus                          | Animal    | Echinodermata              | -295500000    | -290100000   | <>
 Lanceolatus                              | Plant     | Peltaspermophyta           | -295500000    | -279300000   | <>
-Langella                                 | Animal    | Brachiopoda                | -295500000    | -290100000   | Langella
-Langella                                 | Micro     | Foraminifera               | -298900000    | -252170000   | Langella
+Langella                                 | Animal    | Brachiopoda                | -295500000    | -290100000   | <>
+Langella                                 | Micro     | Foraminifera               | -298900000    | -252170000   | <>
 Langenheimia                             | Animal    | Cnidaria                   | -295500000    | -290100000   | <>
 Laoporus                                 | Animal    | Chordata                   | -298900000    | -252170000   | <>
 Larispirifer                             | Animal    | Brachiopoda                | -295500000    | -290100000   | <>
-Lasiodiscus                              | Micro     | Foraminifera               | -295500000    | -290100000   | Lasiodiscus
+Lasiodiscus Lasiodiscidae                | Micro     | Foraminifera               | -295500000    | -290100000   | <>
 Lasiotrochus                             | Micro     | Foraminifera               | -298900000    | -290100000   | <>
 Lasmophyllum                             | Animal    | Cnidaria                   | -295500000    | -290100000   | <>
 Latispinifera                            | Animal    | Brachiopoda                | -295500000    | -290100000   | <>
@@ -1008,7 +1008,7 @@ Pileopsis                                | Animal    | Mollusca                 
 Pinegopora                               | Animal    | Bryozoa                    | -295500000    | -290100000   | <>
 Pinna                                    | Animal    | Mollusca                   | -298900000    | -252170000   | Pinna
 Pinnatopora                              | Animal    | Bryozoa                    | -298900000    | -252170000   | <>
-Pinnularia                               | Plant     | Ochrophyta                 | -295500000    | -290100000   | Pinnularia
+Pinnularia Pinnulariaceae                | Plant     | Ochrophyta                 | -295500000    | -290100000   | Pinnularia
 Pisirhynchia                             | Animal    | Brachiopoda                | -295500000    | -290100000   | <>
 Pityosporites                            | Plant     | Pinophyta                  | -298900000    | -252170000   | <>
 Placentammina                            | Micro     | Foraminifera               | -295500000    | -290100000   | <>

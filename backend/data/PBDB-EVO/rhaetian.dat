@@ -658,7 +658,7 @@ Hausmannia                               | Plant     | Pteridophyta             
 Healdia                                  | Animal    | Arthropoda                 | -208500000    | -201300000   | <>
 Healeya                                  | Animal    | Mollusca                   | -212000000    | -205600000   | <>
 Hectoria                                 | Animal    | Brachiopoda                | -205600000    | -201600000   | <>
-Hedstroemia                              | Micro     | Cyanobacteria              | -212000000    | -205600000   | Hedstroemia
+Hedstroemia Codiaceae                    | Micro     | Cyanobacteria              | -212000000    | -205600000   | Hedstroemia
 Heeriaopsis                              | Animal    | Arthropoda                 | -208500000    | -201300000   | <>
 Heidiphyllum                             | Plant     | Pinophyta                  | -237000000    | -201300000   | <>
 Helichthys                               | Animal    | Chordata                   | -237000000    | -201300000   | Helichthys
@@ -793,7 +793,7 @@ Lancangjiangia                           | Animal    | Brachiopoda              
 Langobardisaurus                         | Animal    | Chordata                   | -212000000    | -205600000   | Langobardisaurus
 Lanternocrinus                           | Animal    | Echinodermata              | -208500000    | -201300000   | <>
 Lasalichthys                             | Animal    | Chordata                   | -208500000    | -201300000   | <>
-Lasiodiscus                              | Micro     | Foraminifera               | -208500000    | -201300000   | Lasiodiscus
+Lasiodiscus Lasiodiscidae                | Micro     | Foraminifera               | -208500000    | -201300000   | <>
 Laternula                                | Animal    | Mollusca                   | -208500000    | -201300000   | Laternula
 Laxtorum                                 | Micro     | Radiolaria                 | -208500000    | -201300000   | <>
 Legnonotus                               | Animal    | Chordata                   | -208500000    | -201300000   | Legnonotus
@@ -1240,7 +1240,7 @@ Polysiphospongia                         | Animal    | Porifera                 
 Polytholosia                             | Animal    | Porifera                   | -212000000    | -205600000   | <>
 Polytubithalamia                         | Animal    | Porifera                   | -228000000    | -201300000   | <>
 Poposaurus                               | Animal    | Chordata                   | -208500000    | -201300000   | Poposaurus
-Posidonia                                | Animal    | Mollusca                   | -208500000    | -201300000   | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -208500000    | -201300000   | <>
 Postosuchus                              | Animal    | Chordata                   | -208500000    | -201300000   | Postosuchus
 Poulpus                                  | Micro     | Radiolaria                 | -208500000    | -201300000   | <>
 Praecaudina                              | Animal    | Echinodermata              | -212000000    | -205600000   | <>
@@ -1517,10 +1517,10 @@ Stellispongia                            | Animal    | Porifera                 
 Stenarcestes                             | Animal    | Mollusca                   | -205600000    | -201600000   | <>
 Stenelytron                              | Animal    | Arthropoda                 | -208500000    | -201300000   | <>
 Stenomyti                                | Animal    | Chordata                   | -228000000    | -201300000   | Stenomyti
-Stenorhachis                             | Plant     | Coniferophyta              | -208500000    | -201300000   | Stenorhachis
+Stenorhachis Coniferales                 | Plant     | Coniferophyta              | -208500000    | -201300000   | <>
 Stenotosaurus                            | Animal    | Chordata                   | -237000000    | -201300000   | Stenotosaurus
 Stereisporites                           | Plant     | Bryophyta                  | -237000000    | -201300000   | <>
-Steropoides                              | Animal    | Chordata                   | -237000000    | -201300000   | Steropoides
+Steropoides                              | Animal    | Chordata                   | -237000000    | -201300000   | <>
 Stichopitella                            | Animal    | Echinodermata              | -212000000    | -205600000   | <>
 Stichoporella                            | Plant     | Chlorophyta                | -212000000    | -205600000   | <>
 Stigmenamma                              | Animal    | Arthropoda                 | -208500000    | -201300000   | <>

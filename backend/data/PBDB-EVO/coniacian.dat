@@ -1163,7 +1163,7 @@ Mesochara                                | Plant     | Charophyta               
 Mesoleberis                              | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Mesoleptos                               | Animal    | Chordata                   | -99600000     | -89300000    | Mesoleptos
 Mesomorpha                               | Animal    | Cnidaria                   | -100500000    | -83600000    | <>
-Mesophyllum                              | Plant     | Rhodophyta                 | -89300000     | -66000000    | Mesophyllum
+Mesophyllum Hapalidiaceae                | Plant     | Rhodophyta                 | -89300000     | -66000000    | Mesophyllum
 Mesopuzosia                              | Animal    | Mollusca                   | -89300000     | -85800000    | <>
 Mesorhytis                               | Animal    | Mollusca                   | -93500000     | -89300000    | <>
 Mesosaccella                             | Animal    | Mollusca                   | -89300000     | -85800000    | <>
@@ -1202,7 +1202,7 @@ Microsciadiocapsa                        | Micro     | Radiolaria               
 Microsmilia                              | Animal    | Cnidaria                   | -93500000     | -89300000    | <>
 Microsolena                              | Animal    | Cnidaria                   | -89300000     | -85800000    | <>
 Microtaenia                              | Plant     | Pteridophyta               | -100500000    | -66000000    | <>
-Micula                                   | Plant     | Haptophyta                 | -93500000     | -89300000    | Micula
+Micula                                   | Plant     | Haptophyta                 | -93500000     | -89300000    | <>
 Milovanovicia                            | Animal    | Mollusca                   | -89800000     | -72100000    | <>
 Minerisporites                           | Plant     | Lycophyta                  | -145000000    | -66000000    | <>
 Minouxia                                 | Micro     | Foraminifera               | -89800000     | -86300000    | <>
@@ -1432,7 +1432,7 @@ Paleopsephaea                            | Animal    | Mollusca                 
 Paleopsephea                             | Animal    | Mollusca                   | -93500000     | -89300000    | <>
 Palibacus                                | Animal    | Arthropoda                 | -145000000    | -66000000    | Palibacus
 Palinurus                                | Animal    | Arthropoda                 | -145000000    | -66000000    | Palinurus
-Paliurus                                 | Animal    | Annelida                   | -89300000     | -83600000    | Paliurus
+Paliurus Serpulimorpha                   | Animal    | Annelida                   | -89300000     | -83600000    | <>
 Palmocarpon                              | Plant     | Angiospermae               | -100500000    | -56000000    | <>
 Palmoxylon                               | Plant     | Angiospermae               | -100500000    | -56000000    | Palmoxylon
 Palmulasaurus                            | Animal    | Chordata                   | -93500000     | -89300000    | Palmulasaurus
@@ -2195,7 +2195,7 @@ Verrucatosporites                        | Plant     | Pteridophyta             
 Verrucospongia                           | Animal    | Porifera                   | -93500000     | -89300000    | <>
 Verruculina                              | Animal    | Porifera                   | -89800000     | -83600000    | Verruculina
 Vespersaurus                             | Animal    | Chordata                   | -100500000    | -66000000    | Vespersaurus
-Vespertilio                              | Animal    | Mollusca                   | -89800000     | -86300000    | Vespertilio
+Vespertilio Gastropoda                   | Animal    | Mollusca                   | -89800000     | -86300000    | <>
 Viburnum                                 | Plant     | Spermatophyta              | -100500000    | -66000000    | Viburnum
 Vitis                                    | Plant     | Spermatophyta              | -100500000    | -66000000    | Vitis
 Vitorfus                                 | Micro     | Radiolaria                 | -93500000     | -89300000    | <>

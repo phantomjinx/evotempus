@@ -656,7 +656,7 @@ Goniarina                                | Animal    | Brachiopoda              
 Goniasma                                 | Animal    | Mollusca                   | -254170000    | -252170000   | <>
 Goniocladia                              | Animal    | Bryozoa                    | -298900000    | -252170000   | <>
 Goniophora                               | Animal    | Mollusca                   | -2.599e+08    | -252170000   | Goniophora
-Gordonia                                 | Animal    | Chordata                   | -254170000    | -252170000   | Gordonia
+Gordonia Dicynodontoidea                 | Animal    | Chordata                   | -254170000    | -252170000   | Gordonia_(synapsid)
 Gorochovetzia                            | Animal    | Chordata                   | -265000000    | -252300000   | Gorochovetzia
 Gorynychus                               | Animal    | Chordata                   | -265000000    | -252300000   | Gorynychus
 Graminospongia                           | Animal    | Porifera                   | -254170000    | -252170000   | <>
@@ -856,13 +856,13 @@ Laioporella                              | Animal    | Brachiopoda              
 Lamnimargus                              | Animal    | Brachiopoda                | -254170000    | -251300000   | <>
 Lampangella                              | Animal    | Brachiopoda                | -254170000    | -252170000   | <>
 Langdaia                                 | Animal    | Arthropoda                 | -254170000    | -252170000   | <>
-Langella                                 | Micro     | Foraminifera               | -254170000    | -252170000   | Langella
+Langella                                 | Micro     | Foraminifera               | -254170000    | -252170000   | <>
 Lanthanosuchus                           | Animal    | Chordata                   | -268000000    | -252300000   | Lanthanosuchus
 Lantschichites                           | Micro     | Foraminifera               | -254170000    | -252170000   | <>
 Laoporus                                 | Animal    | Chordata                   | -298900000    | -252170000   | <>
 Laosuchus                                | Animal    | Chordata                   | -254170000    | -252170000   | Laosuchus
 Lapkosubia                               | Animal    | Chordata                   | -265000000    | -254000000   | <>
-Lasiodiscus                              | Micro     | Foraminifera               | -254170000    | -252170000   | Lasiodiscus
+Lasiodiscus Lasiodiscidae                | Micro     | Foraminifera               | -254170000    | -252170000   | <>
 Latentibifistula                         | Micro     | Radiolaria                 | -254170000    | -252170000   | <>
 Latentifistula                           | Micro     | Radiolaria                 | -254170000    | -252170000   | <>
 Laterispina                              | Animal    | Brachiopoda                | -254170000    | -252170000   | <>
@@ -1412,7 +1412,7 @@ Pondospirifer                            | Animal    | Brachiopoda              
 Ponomarenkium                            | Animal    | Arthropoda                 | -254170000    | -252170000   | <>
 Porcellia                                | Animal    | Mollusca                   | -254170000    | -252170000   | <>
 Porosteognathus                          | Animal    | Chordata                   | -268000000    | -252300000   | Porosteognathus
-Posidonia                                | Animal    | Mollusca                   | -254170000    | -252170000   | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -254170000    | -252170000   | <>
 Postendothyra                            | Micro     | Foraminifera               | -254170000    | -252170000   | <>
 Potoniea                                 | Plant     | Pteridospermophyta         | -254170000    | -252170000   | <>
 Praechlamys                              | Animal    | Mollusca                   | -254170000    | -252170000   | <>
@@ -1421,7 +1421,7 @@ Praelobobairdia                          | Animal    | Arthropoda               
 Praepilatina                             | Animal    | Arthropoda                 | -254170000    | -252170000   | <>
 Praeundulomya                            | Animal    | Mollusca                   | -254170000    | -252170000   | <>
 Praezabythocypris                        | Animal    | Arthropoda                 | -254170000    | -252170000   | <>
-Pravoslavlevia                           | Animal    | Chordata                   | -265000000    | -252300000   | Pravoslavlevia
+Pravoslavlevia Gorgonopsidae             | Animal    | Chordata                   | -265000000    | -252300000   | Pravoslavlevia
 Precorynella                             | Animal    | Porifera                   | -254170000    | -252170000   | <>
 Prelissorhynchia                         | Animal    | Brachiopoda                | -254170000    | -252170000   | <>
 Preperonidella                           | Animal    | Porifera                   | -254170000    | -252170000   | <>
@@ -1635,7 +1635,7 @@ Schubertella                             | Micro     | Foraminifera             
 Schuchertella                            | Animal    | Brachiopoda                | -254170000    | -252170000   | <>
 Schwagerina                              | Micro     | Foraminifera               | -298900000    | -252170000   | Schwagerina
 Scolecopteris                            | Plant     | Pteridophyta               | -298900000    | -252170000   | <>
-Scopus                                   | Plant     | Peltaspermophyta           | -254170000    | -252170000   | Scopus
+Scopus Arberiales                        | Plant     | Peltaspermophyta           | -254170000    | -252170000   | <>
 Scutikirkbya                             | Animal    | Arthropoda                 | -254170000    | -252170000   | <>
 Scutosaurus                              | Animal    | Chordata                   | -265000000    | -252300000   | Scutosaurus
 Scutum                                   | Plant     | Peltaspermophyta           | -268800000    | -252170000   | Scutum

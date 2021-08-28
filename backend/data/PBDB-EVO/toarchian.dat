@@ -1107,7 +1107,7 @@ Myopholas                                | Animal    | Mollusca                 
 Myophorella                              | Animal    | Mollusca                   | -175600000    | -168400000   | Myophorella
 Myophoria                                | Animal    | Mollusca                   | -201300000    | -174100000   | Myophoria
 Myopophlebia                             | Animal    | Arthropoda                 | -183000000    | -182000000   | <>
-Myriophyllum                             | Animal    | Cnidaria                   | -201300000    | -174100000   | Myriophyllum
+Myriophyllum Conophyllidae               | Animal    | Cnidaria                   | -201300000    | -174100000   | <>
 Mystriosaurus                            | Animal    | Chordata                   | -201300000    | -174100000   | Mystriosaurus
 Mytiloceramus                            | Animal    | Mollusca                   | -175600000    | -171600000   | <>
 Mytiloides                               | Animal    | Mollusca                   | -180100000    | -170300000   | <>
@@ -1427,7 +1427,7 @@ Polypamon                                | Animal    | Arthropoda               
 Polyplectus                              | Animal    | Mollusca                   | -180100000    | -175600000   | <>
 Poncetaster                              | Animal    | Echinodermata              | -182000000    | -175600000   | <>
 Porpoceras                               | Animal    | Mollusca                   | -182000000    | -175600000   | Porpoceras
-Posidonia                                | Animal    | Mollusca                   | -182000000    | -175600000   | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -182000000    | -175600000   | <>
 Posidonotis                              | Animal    | Mollusca                   | -182700000    | -174100000   | <>
 Poulpus                                  | Micro     | Radiolaria                 | -175600000    | -171600000   | <>
 Praeatya                                 | Animal    | Arthropoda                 | -201300000    | -145000000   | <>
@@ -1758,7 +1758,7 @@ Stelidioseris                            | Animal    | Cnidaria                 
 Steneosaurus                             | Animal    | Chordata                   | -180100000    | -175600000   | Steneosaurus
 Stenomischus                             | Plant     | Pinophyta                  | -190800000    | -168300000   | <>
 Stenopterygius                           | Animal    | Chordata                   | -175600000    | -171600000   | Stenopterygius
-Stenorhachis                             | Plant     | Coniferophyta              | -182700000    | -170300000   | Stenorhachis
+Stenorhachis Coniferales                 | Plant     | Coniferophyta              | -182700000    | -170300000   | <>
 Stenoteleuta                             | Animal    | Arthropoda                 | -183000000    | -182000000   | <>
 Stephanastrea                            | Animal    | Cnidaria                   | -182700000    | -174100000   | <>
 Sthenarosaurus                           | Animal    | Chordata                   | -182000000    | -175600000   | Sthenarosaurus
@@ -1768,7 +1768,7 @@ Stichopites                              | Animal    | Echinodermata            
 Stiphroschema                            | Animal    | Arthropoda                 | -183000000    | -182000000   | <>
 Stolmorhynchia                           | Animal    | Brachiopoda                | -175600000    | -171600000   | <>
 Storgaardia                              | Plant     | Coniferophyta              | -182700000    | -174100000   | <>
-Stormbergia                              | Plant     | Pteridophyta               | -190800000    | -174100000   | Stormbergia
+Stormbergia Polypodiales	               | Plant     | Pteridophyta               | -190800000    | -174100000   | <>
 Stradnerlithus                           | Plant     | Haptophyta                 | -180100000    | -175600000   | <>
 Striactaeonina                           | Animal    | Mollusca                   | -182000000    | -175600000   | <>
 Striatoconulus                           | Animal    | Mollusca                   | -183000000    | -182000000   | <>

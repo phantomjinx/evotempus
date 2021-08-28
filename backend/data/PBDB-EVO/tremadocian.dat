@@ -1260,8 +1260,8 @@ Pyraustocranium                          | Animal    | Arthropoda               
 Pyrimetopus                              | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
 Pyritonema                               | Animal    | Porifera                   | -478600000    | -466000000   | <>
 Pyrocystites                             | Animal    | Echinodermata              | -485400000    | -477700000   | <>
-Pytine                                   | Animal    | Arthropoda                 | -485400000    | -470000000   | Pytine
-Pytine                                   | Micro     | Foraminifera               | -478600000    | -471800000   | Pytine
+Pytine Raphiophoridae                    | Animal    | Arthropoda                 | -485400000    | -470000000   | Pytine
+Pytine Foraminifera                      | Micro     | Foraminifera               | -478600000    | -471800000   | <>
 Quadrilobella                            | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Quadrisonia                              | Animal    | Brachiopoda                | -485400000    | -484500000   | <>
 Radiograptus                             | Animal    | Hemichordata               | -485400000    | -477700000   | <>
@@ -1405,7 +1405,7 @@ Stemtonoceras                            | Animal    | Mollusca                 
 Stenocamara                              | Animal    | Brachiopoda                | -478600000    | -460900000   | <>
 Stenopareia                              | Animal    | Arthropoda                 | -485400000    | -443400000   | <>
 Stenopilus                               | Animal    | Arthropoda                 | -485400000    | -478600000   | <>
-Stenorhachis                             | Animal    | Arthropoda                 | -478600000    | -471800000   | Stenorhachis
+Stenorhachis Asaphidae                   | Animal    | Arthropoda                 | -478600000    | -471800000   | Stenorhachis
 Stenosiphon                              | Animal    | Mollusca                   | -485400000    | -468100000   | Stenosiphon
 Stereoconus                              | Animal    | Chordata                   | -478600000    | -466000000   | <>
 Stereoplasmoceras                        | Animal    | Mollusca                   | -478600000    | -460900000   | <>

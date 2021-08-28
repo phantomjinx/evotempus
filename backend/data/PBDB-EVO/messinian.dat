@@ -2529,7 +2529,7 @@ Maldivia                                 | Animal    | Arthropoda               
 Malea                                    | Animal    | Mollusca                   | -11608000     | -5333000     | Malea
 Malletia                                 | Animal    | Mollusca                   | -11608000     | -5333000     | <>
 Malleus                                  | Animal    | Mollusca                   | -11608000     | -5333000     | Malleus
-Mallotus                                 | Plant     | Spermatophyta              | -11608000     | -3600000     | Mallotus
+Mallotus Euphorbiaceae                   | Plant     | Spermatophyta              | -11608000     | -3600000     | Mallotus_(plant)
 Malpolon                                 | Animal    | Chordata                   | -7246000      | -5333000     | Malpolon
 Malvacarpus                              | Plant     | Spermatophyta              | -33900000     | -5333000     | <>
 Malvacipollis                            | Plant     | Spermatophyta              | -11608000     | -5333000     | <>
@@ -2669,7 +2669,7 @@ Mesodesma                                | Animal    | Mollusca                 
 Mesodictyon                              | Plant     | Ochrophyta                 | -11608000     | -5333000     | <>
 Mesogaulus                               | Animal    | Chordata                   | -23030000     | -5333000     | <>
 Mesopeplum                               | Animal    | Mollusca                   | -11608000     | -5333000     | Mesopeplum
-Mesophyllum                              | Plant     | Rhodophyta                 | -10300000     | -4900000     | Mesophyllum
+Mesophyllum Hapalidiaceae                | Plant     | Rhodophyta                 | -10300000     | -4900000     | Mesophyllum
 Mesopithecus                             | Animal    | Chordata                   | -11608000     | -5333000     | Mesopithecus
 Mesoplodon                               | Animal    | Chordata                   | -11608000     | 2030         | Mesoplodon
 Mesopotamocnus                           | Animal    | Chordata                   | -9000000      | -6800000     | <>
@@ -3203,7 +3203,7 @@ Paleoparadoxia                           | Animal    | Chordata                 
 Paleotestudo                             | Animal    | Chordata                   | -15970000     | -5333000     | <>
 Paleuphractus                            | Animal    | Chordata                   | -6800000      | -4000000     | <>
 Palicus                                  | Animal    | Arthropoda                 | -23030000     | -5333000     | Palicus
-Paliurus                                 | Plant     | Spermatophyta              | -11620000     | -5333000     | Paliurus
+Paliurus Rhamnaceae                      | Plant     | Spermatophyta              | -11620000     | -5333000     | Paliurus
 Paljara                                  | Animal    | Chordata                   | -33900000     | -5333000     | <>
 Pallacera                                | Animal    | Mollusca                   | -11608000     | -5333000     | <>
 Palliolum                                | Animal    | Mollusca                   | -11608000     | -3600000     | Palliolum
@@ -3385,7 +3385,7 @@ Persicula                                | Animal    | Mollusca                 
 Persististrombus                         | Animal    | Mollusca                   | -11608000     | -5333000     | Persististrombus
 Perugyps                                 | Animal    | Chordata                   | -7246000      | -5333000     | <>
 Perunassa                                | Animal    | Mollusca                   | -11608000     | -5333000     | <>
-Petaloconchus                            | Animal    | Bryozoa                    | -11608000     | -5333000     | Petaloconchus
+Petaloconchus Cheilostomata              | Animal    | Bryozoa                    | -11608000     | -5333000     | <>
 Petauristodon                            | Animal    | Chordata                   | -23030000     | -5333000     | <>
 Petenyia                                 | Animal    | Chordata                   | -10300000     | -4900000     | <>
 Petraliella                              | Animal    | Bryozoa                    | -33900000     | -5333000     | <>
@@ -4003,7 +4003,7 @@ Riversleigha                             | Animal    | Chordata                 
 Rixator                                  | Animal    | Chordata                   | -11608000     | -5333000     | <>
 Robertina                                | Micro     | Foraminifera               | -23030000     | -5333000     | <>
 Robinia Camerospongiidae                 | Animal    | Porifera                   | -11608000     | -2588000     | <>
-Robinia Fabaceae                         | Animal    | Spermatophyta              | -23030000     | -5333000     | Robinia
+Robinia Fabaceae                         | Plant     | Spermatophyta              | -23030000     | -5333000     | Robinia
 Robulus                                  | Micro     | Foraminifera               | -11608000     | -5333000     | <>
 Romaleon                                 | Animal    | Arthropoda                 | -23030000     | -5333000     | Romaleon
 Rosalina                                 | Micro     | Foraminifera               | -15970000     | -5333000     | Rosalina
@@ -4057,7 +4057,7 @@ Sarda                                    | Animal    | Chordata                 
 Sardina                                  | Animal    | Chordata                   | -7246000      | -5333000     | Sardina
 Sardinella                               | Animal    | Chordata                   | -23030000     | -5333000     | Sardinella
 Sardinops                                | Animal    | Chordata                   | -11620000     | -2588000     | Sardinops
-Sargus                                   | Animal    | Chordata                   | -23030000     | -5333000     | Sargus
+Sargus Sparidae                          | Animal    | Chordata                   | -23030000     | -5333000     | <>
 Sarmaturbo                               | Animal    | Mollusca                   | -11608000     | -5333000     | Sarmaturbo
 Sassafras                                | Plant     | Spermatophyta              | -23030000     | -2588000     | Sassafras
 Sassia                                   | Animal    | Mollusca                   | -11608000     | -5333000     | Sassia
@@ -4311,7 +4311,7 @@ Stegodon                                 | Animal    | Chordata                 
 Stegolophodon                            | Animal    | Chordata                   | -11608000     | -5333000     | Stegolophodon
 Stegomastodon                            | Animal    | Chordata                   | -10300000     | -4900000     | Stegomastodon
 Stegotetrabelodon                        | Animal    | Chordata                   | -11608000     | -2588000     | Stegotetrabelodon
-Stellaria                                | Animal    | Mollusca                   | -11608000     | -5333000     | Stellaria
+Stellaria Xenophoridae                   | Animal    | Mollusca                   | -11608000     | -5333000     | Stellaria_(gastropod)
 Stenella                                 | Animal    | Chordata                   | -23030000     | -2588000     | Stenella
 Steno                                    | Animal    | Chordata                   | -7246000      | -2588000     | Steno
 Stenoechinus                             | Animal    | Chordata                   | -23030000     | -5333000     | <>
@@ -4398,7 +4398,7 @@ Suncus                                   | Animal    | Chordata                 
 Sunetta                                  | Animal    | Mollusca                   | -11608000     | -5333000     | Sunetta
 Sus                                      | Animal    | Chordata                   | -11100000     | -4900000     | Sus
 Sveltia                                  | Animal    | Mollusca                   | -23030000     | -5333000     | Sveltia
-Sylvia                                   | Animal    | Chordata                   | -8700000      | -5333000     | Sylvia
+Sylvia Sylviidae                         | Animal    | Chordata                   | -8700000      | -5333000     | Typical_warbler
 Symbolophorus                            | Animal    | Chordata                   | -11608000     | -6500000     | Symbolophorus
 Symmetrodontomys                         | Animal    | Chordata                   | -10300000     | -1800000     | <>
 Sympecma                                 | Animal    | Arthropoda                 | -7246000      | -5333000     | Sympecma
@@ -4783,7 +4783,7 @@ Verticordia                              | Animal    | Mollusca                 
 Vertigo                                  | Animal    | Mollusca                   | -11608000     | -5333000     | Vertigo
 Vertipecten                              | Animal    | Mollusca                   | -23030000     | -5333000     | <>
 Vespertiliavus                           | Animal    | Chordata                   | -7246000      | -5333000     | <>
-Vespertilio                              | Animal    | Chordata                   | -8700000      | -5333000     | Vespertilio
+Vespertilio Vespertilionidae             | Animal    | Chordata                   | -8700000      | -5333000     | Vespertilio
 Vetelia                                  | Animal    | Chordata                   | -9000000      | -6800000     | <>
 Vexillum                                 | Animal    | Mollusca                   | -11608000     | -5333000     | Vexillum
 Viburnum                                 | Plant     | Spermatophyta              | -11608000     | -5333000     | Viburnum

@@ -593,7 +593,7 @@ Haplosphaeronis                          | Animal    | Echinodermata            
 Harpidella                               | Animal    | Arthropoda                 | -445200000    | -443400000   | <>
 Hebertella                               | Animal    | Brachiopoda                | -445200000    | -443400000   | <>
 Hederella                                | Animal    | Bryozoa                    | -449500000    | -443700000   | <>
-Hedstroemia                              | Micro     | Cyanobacteria              | -449500000    | -443700000   | Hedstroemia
+Hedstroemia Codiaceae                    | Micro     | Cyanobacteria              | -449500000    | -443700000   | Hedstroemia
 Hedstroemina                             | Animal    | Brachiopoda                | -445200000    | -443400000   | <>
 Heikea                                   | Animal    | Mollusca                   | -445200000    | -443400000   | <>
 Helcionopsis                             | Animal    | Mollusca                   | -449500000    | -443700000   | Helcionopsis
@@ -621,7 +621,7 @@ Heterorthis                              | Animal    | Brachiopoda              
 Heterotrypa                              | Animal    | Bryozoa                    | -445200000    | -443400000   | <>
 Hexedriocystis                           | Animal    | Echinodermata              | -449500000    | -443700000   | <>
 Hibbardella                              | Animal    | Chordata                   | -453000000    | -443400000   | <>
-Hibbertia                                | Animal    | Arthropoda                 | -449500000    | -443400000   | Hibbertia
+Hibbertia Harpetidae                     | Animal    | Arthropoda                 | -449500000    | -443400000   | <>
 Hindella                                 | Animal    | Brachiopoda                | -445200000    | -443400000   | <>
 Hindia                                   | Animal    | Porifera                   | -449500000    | -443700000   | Hindia
 Hirnantia                                | Animal    | Brachiopoda                | -445200000    | -443400000   | <>
@@ -749,7 +749,7 @@ Leptotrypa                               | Animal    | Bryozoa                  
 Lesueurilla                              | Animal    | Mollusca                   | -445200000    | -443400000   | <>
 Leurorthoceras                           | Animal    | Mollusca                   | -470000000    | -443400000   | Leurorthoceras
 Levenea                                  | Animal    | Brachiopoda                | -445200000    | -438500000   | <>
-Lewinia                                  | Animal    | Porifera                   | -449500000    | -443700000   | Lewinia
+Lewinia Haplistiidae                     | Animal    | Porifera                   | -449500000    | -443700000   | <>
 Lichas                                   | Animal    | Arthropoda                 | -445200000    | -440800000   | Lichas
 Lichenalia                               | Animal    | Bryozoa                    | -445600000    | -443700000   | <>
 Lichenaria                               | Animal    | Cnidaria                   | -470000000    | -443400000   | <>
@@ -1139,7 +1139,7 @@ Pseudulrichia                            | Animal    | Arthropoda               
 Pterinea                                 | Animal    | Mollusca                   | -445200000    | -443400000   | <>
 Pteropora                                | Animal    | Bryozoa                    | -445600000    | -443700000   | <>
 Pterospathodus                           | Animal    | Chordata                   | -449500000    | -412300000   | Pterospathodus
-Pterotheca                               | Animal    | Mollusca                   | -449500000    | -443700000   | Pterotheca
+Pterotheca                               | Animal    | Mollusca                   | -449500000    | -443700000   | <>
 Pterygometopus                           | Animal    | Arthropoda                 | -449500000    | -443700000   | <>
 Ptilodictya                              | Animal    | Bryozoa                    | -445200000    | -443400000   | <>
 Ptilotrypa                               | Animal    | Bryozoa                    | -449500000    | -443700000   | <>

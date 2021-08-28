@@ -949,8 +949,8 @@ Piloricilla                              | Animal    | Brachiopoda              
 Piltonia                                 | Animal    | Arthropoda                 | -353800000    | -342800000   | <>
 Pinna                                    | Animal    | Mollusca                   | -358900000    | -323200000   | Pinna
 Pinnatopora                              | Animal    | Bryozoa                    | -358900000    | -323200000   | <>
-Pinnularia                               | Plant     | Ochrophyta                 | -358900000    | -298900000   | Pinnularia
-Pinnularia                               | Plant     | Sphenophyta                | -358900000    | -298900000   | Pinnularia
+Pinnularia Pinnulariaceae                | Plant     | Ochrophyta                 | -358900000    | -298900000   | Pinnularia
+Pinnularia Calamitaceae                  | Plant     | Sphenophyta                | -358900000    | -298900000   | <>
 Pipadentalium                            | Animal    | Mollusca                   | -358900000    | -346700000   | <>
 Pityosporites                            | Plant     | Pinophyta                  | -358900000    | -252170000   | <>
 Plagioglypta                             | Animal    | Mollusca                   | -358900000    | -298900000   | <>
@@ -987,7 +987,7 @@ Pontocypris                              | Animal    | Arthropoda               
 Popofskyellum                            | Micro     | Radiolaria                 | -358900000    | -346700000   | <>
 Porcellia                                | Animal    | Mollusca                   | -358900000    | -346700000   | <>
 Portlockiella                            | Animal    | Mollusca                   | -358900000    | -353800000   | <>
-Posidonia                                | Animal    | Mollusca                   | -358900000    | -323200000   | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -358900000    | -323200000   | <>
 Posidoniella                             | Animal    | Mollusca                   | -358900000    | -346700000   | <>
 Poterioceras                             | Animal    | Mollusca                   | -358900000    | -353800000   | <>
 Poteriocrinites                          | Animal    | Echinodermata              | -353800000    | -345000000   | <>

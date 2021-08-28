@@ -20,6 +20,7 @@ Animal                   | Kind     | <>      | #b36229 | Animal                
 Event                    | Kind     | <>      | #ff8686 | <>                     | Light red
 Geology                  | Kind     | <>      | #919191 | Geology                | Light grey
 Micro                    | Kind     | <>      | #00FF00 | Protist                | Light shade brown
+Fungus                   | Kind     | <>      | #ff8d49 | Fungus                 | Dark Orange
 Plant                    | Kind     | <>      | #fff54d | Plant                  | Light yellow
 Agmata                   | Category | Animal  | <>      | Agmata
 Agnatha                  | Category | Animal  | <>      | Agnatha
@@ -97,7 +98,7 @@ Ochrophyta               | Category | Plant   | <>      | Ochrophyta
 Onychophora              | Category | Animal  | <>      | Onychophora
 Peltaspermophyta         | Category | Plant   | <>      | <>
 Petalonamae              | Category | Animal  | <>      | Petalonamae
-Pezizomycotina           | Category | Fungi   | <>      | Pezizomycotina
+Pezizomycotina           | Category | Fungus  | <>      | Pezizomycotina
 Phaeophyta               | Category | Plant   | <>      | Phaeophyta
 Phoronida                | Category | Animal  | <>      | Phoronida
 Pinophyta                | Category | Plant   | <>      | Pinophyta

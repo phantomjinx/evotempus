@@ -962,13 +962,13 @@ Lamnimargus                              | Animal    | Brachiopoda              
 Lanceolatus                              | Plant     | Peltaspermophyta           | -279300000    | -272300000   | <>
 Lanceoloboceras                          | Animal    | Mollusca                   | -279300000    | -272300000   | <>
 Langdaia                                 | Animal    | Arthropoda                 | -279300000    | -272300000   | <>
-Langella                                 | Micro     | Foraminifera               | -298900000    | -252170000   | Langella
+Langella                                 | Micro     | Foraminifera               | -298900000    | -252170000   | <>
 Lanthaniscus                             | Animal    | Chordata                   | -272500000    | -265000000   | Lanthaniscus
 Lanthanolania                            | Animal    | Chordata                   | -272500000    | -265000000   | Lanthanolania
 Laoporus                                 | Animal    | Chordata                   | -298900000    | -252170000   | <>
 Lapeyria                                 | Animal    | Arthropoda                 | -279300000    | -272300000   | <>
 Larispirifer                             | Animal    | Brachiopoda                | -279300000    | -272300000   | <>
-Lasiodiscus                              | Micro     | Foraminifera               | -279300000    | -272300000   | Lasiodiscus
+Lasiodiscus Lasiodiscidae                | Micro     | Foraminifera               | -279300000    | -272300000   | <>
 Lasmophyllum                             | Animal    | Cnidaria                   | -279300000    | -272300000   | <>
 Latentibifistula                         | Micro     | Radiolaria                 | -279300000    | -268800000   | <>
 Latentifistula                           | Micro     | Radiolaria                 | -279300000    | -268800000   | <>
@@ -1956,7 +1956,7 @@ Sylvardembia                             | Animal    | Arthropoda               
 Sylvasenex                               | Animal    | Arthropoda                 | -279300000    | -272300000   | <>
 Sylvastriga                              | Animal    | Arthropoda                 | -279300000    | -272300000   | Sylvastriga
 Sylvella                                 | Plant     | Peltaspermophyta           | -279300000    | -272300000   | <>
-Sylvia                                   | Plant     | Pteridophyta               | -279300000    | -272300000   | Sylvia
+Sylvia Pteridophyta                      | Plant     | Pteridophyta               | -279300000    | -272300000   | <>
 Sylvictor                                | Animal    | Arthropoda                 | -279300000    | -272300000   | <>
 Sylvidelia                               | Animal    | Arthropoda                 | -279300000    | -272300000   | <>
 Sylviodes                                | Animal    | Arthropoda                 | -279300000    | -272300000   | <>

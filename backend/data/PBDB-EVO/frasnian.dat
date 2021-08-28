@@ -490,7 +490,7 @@ Healdia                                  | Animal    | Arthropoda               
 Healdiacypris                            | Animal    | Arthropoda                 | -379500000    | -376100000   | <>
 Healdianella                             | Animal    | Arthropoda                 | -376100000    | -370600000   | <>
 Hederella                                | Animal    | Bryozoa                    | -382700000    | -372200000   | <>
-Hedstroemia                              | Micro     | Cyanobacteria              | -382700000    | -372200000   | Hedstroemia
+Hedstroemia Codiaceae                    | Micro     | Cyanobacteria              | -382700000    | -372200000   | Hedstroemia
 Heidelbergeria                           | Animal    | Mollusca                   | -383700000    | -382400000   | <>
 Helenifore                               | Micro     | Radiolaria                 | -379500000    | -376100000   | <>
 Heliolites                               | Animal    | Cnidaria                   | -382700000    | -372200000   | <>
@@ -659,7 +659,7 @@ Mesoblastus                              | Animal    | Echinodermata            
 Mesocoelia                               | Animal    | Mollusca                   | -376100000    | -370600000   | <>
 Mesodouvillina                           | Animal    | Brachiopoda                | -387700000    | -372200000   | <>
 Mesofavosites                            | Animal    | Cnidaria                   | -419200000    | -358900000   | <>
-Mesophyllum                              | Animal    | Cnidaria                   | -388100000    | -382400000   | Mesophyllum
+Mesophyllum Digonophyllidae              | Animal    | Cnidaria                   | -388100000    | -382400000   | <>
 Mesoplica                                | Animal    | Brachiopoda                | -376100000    | -370600000   | <>
 Mesotaxis                                | Animal    | Chordata                   | -382700000    | -372200000   | <>
 Metrionaxon                              | Animal    | Cnidaria                   | -388100000    | -382400000   | <>
@@ -864,7 +864,7 @@ Polyzygia                                | Animal    | Arthropoda               
 Ponderodictya                            | Animal    | Arthropoda                 | -379500000    | -376100000   | <>
 Ponticeras                               | Animal    | Mollusca                   | -379500000    | -376100000   | <>
 Porthmorhynchus                          | Animal    | Brachiopoda                | -376100000    | -370600000   | <>
-Posidonia                                | Animal    | Mollusca                   | -376100000    | -370600000   | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -376100000    | -370600000   | <>
 Poteriocrinus                            | Animal    | Echinodermata              | -419200000    | -358900000   | <>
 Praeglyphioceras                         | Animal    | Mollusca                   | -376100000    | -370600000   | <>
 Praemeroceras                            | Animal    | Mollusca                   | -376100000    | -370600000   | <>
@@ -1141,7 +1141,7 @@ Trapezophyllum                           | Animal    | Cnidaria                 
 Trelonella                               | Plant     | Chlorophyta                | -382400000    | -379500000   | <>
 Triazeugacanthus                         | Animal    | Chordata                   | -382700000    | -372200000   | <>
 Trichonodella                            | Animal    | Chordata                   | -379500000    | -376100000   | <>
-Trigonella                               | Animal    | Cnidaria                   | -379500000    | -376100000   | Trigonella
+Trigonella                               | Animal    | Cnidaria                   | -379500000    | -376100000   | <>
 Triloboxylon                             | Plant     | Pteridophyta               | -379500000    | -376100000   | <>
 Trilonche                                | Micro     | Radiolaria                 | -379500000    | -376100000   | <>
 Trimanticoceras                          | Animal    | Mollusca                   | -379500000    | -376100000   | <>

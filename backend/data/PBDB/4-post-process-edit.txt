@@ -164,13 +164,8 @@ Glyptolepis
 - Glyptolepis_(fish) Glyptolepis Holoptychiidae: Fish
 - Glyptolepis_(plant) Glyptolepis Voltziales: Plant
 
------
-TODO BELOW
------
-
 Gordonia
 - Gordonia_(plant) Gordonia Theaceae: Plant
-- Gordonia_(bacterium) Gordonia Gordoniaceae: Micro
 - Gordonia_(synapsid) Gordonia Dicynodontoidea: Animal
 
 Hedstroemia
@@ -179,15 +174,18 @@ Hedstroemia
 
 Hibbertia
 - Hibbertia Dilleniaceae: Plant
+- Hibbertia Harpetidae: Arthropoda
 
 Langella
 - No links in wikipedia so no de-duplicating
 
 Lasiodiscus
 - Lasiodiscus Rhamnaceae: Plant
+- Lasiodiscus Lasiodiscidae: Micro
 
 Lewinia
-- Lewinia Rallidae:Bird
+- Lewinia Rallidae: Bird
+- Lewinia Haplistiidae: Animal
 
 Mallotus
 - Capelin Mallotus Osmeridae: Fish
@@ -195,27 +193,34 @@ Mallotus
 
 Megalomus
 - Megalomus Hemerobiidae: Arthropoda
+- Megalomus Bivalvia: Mollusca
 
 Mesophyllum
 - Mesophyllum	Hapalidiaceae: Algae
+- Mesophyllum Digonophyllidae: Animal
 
 Micula
 - No links in wikipedia so no de-duplicating
 
 Milax
 - Milax_(gastropod) Milax Milacidae: Gastropoda
+- Milax Eucyrtidiidae: Micro
 
 Montia
 - Montia Montiaceae: Plant
+- Montia Volutidae: Gastropoda
 
 Morania
 - Morania Cyanobacteria: Micro
+- Morania Murchisoniida: Animal
 
 Myriophyllum
 - Myriophyllum Haloragaceae: Plant
+- Myriophyllum Conophyllidae: Animal
 
 Nothia
 - Nothia Zosterophylls: Plant
+- Nothia Bathysiphonidae: Micro
 
 Oenanthe
 - Wheatear Oenanthe Muscicapidae: Bird
@@ -223,55 +228,62 @@ Oenanthe
 
 Paliurus
 - Paliurus Rhamnaceae: Plant
-
-----
+- Paliurus Serpulimorpha: Animal
 
 Persia
 - Persia Prospondylidae: Mollusca
 - Persia Phillipsiidae: Arthropoda
 
-----
-TODO BELOW
-----
-
 Petaloconchus
 - Petaloconchus Vermetidae: Snail
+- Petaloconchus Cheilostomata: Aquatic Invertebrate
 
 Pinnularia
 - Pinnularia Pinnulariaceae: Algae
+- Pinnularia Calamitaceae: Plant
 
 Polyonyx
 - Polyonyx Porcellanidae: Crabs
+- Polyonyx Eureptilia: Dinosaur
 
 Posidonia
 - Posidonia Posidoniaceae: Plant
+- Posidonia Posidoniidae: Mollusca
 
 Pravoslavlevia
 - Pravoslavlevia Gorgonopsidae: Animal
+- Pravoslavlevia Foraminifera: Micro
 
 Pteronotus
-- Pteronotus Pteronotus Mormoopidae: Bat
+- Pteronotus Mormoopidae: Bat
+- Pteronotus Muricidae: Gastropoda
 
 Pterotheca
-- Pterotheca Cyperaceae: Plant
+- Incorrect link on wikipedia
+- No links in wikipedia so no de-duplicating
 
 Pytine
 - Pytine Raphiophoridae: Arthropoda
+- Pytine Foraminifera: Micro
 
 Rhyniella
 - Rhyniella Collembola: Arthropoda
+- Rhyniella Cyanobacteria: Micro
 
 Sargus
 - Sargus Stratiomyidae: Insect
+- Sargus Sparidae: Fish
 
 Scopus
 - Hamerkop Scopus Scopidae: Bird
+- Scopus Arberiales: Plant
 
 Spinella
 - No links in wikipedia so no de-duplicating
 
 Spinus
 - Spinus_(bird) Spinus Fringillidae: Bird
+- Spinus Cicadellidae: Arthropoda
 
 Stellaria
 - Stellaria Stellaria Caryophyllaceae: Plant
@@ -279,21 +291,25 @@ Stellaria
 
 Stenorhachis
 - Stenorhachis Asaphidae: Arthropoda
+- Stenorhachis Coniferales: Plant
 
 Steropoides
 - No links in wikipedia so no de-duplicating
 
 Stormbergia
 - Lesothosaurus Stormbergia Ornithischia: Dinosaur
+- Stormbergia Polypodiales: Plant
 
 Sylvia
 - Typical_warbler Sylvia Sylviidae: Bird
+- Sylvia Pteridophyta: Plant
 
 Tridactylus
 - Tridactylus Tridactylidae: Insect
+- Tridactylus Aporrhaidae: Gastropoda
 
 Trigonella
-- Trigonella Fabaceae: Plant
+- No links in wikipedia so no de-duplicating
 
 Trinacria
 - <NO LINK> Trinacria Noetiidae: Animal
@@ -301,12 +317,13 @@ Trinacria
 
 Vespertilio
 - Vespertilio Vespertilionidae: Bat
+- Vespertilio Gastropoda: Gastropoda
 
 Walteria
 - No links in wikipedia so no de-duplicating
 
 Zygaena
 - Zygaena Zygaenidae: Arthropoda
-- Different links to sharks
+- Hammerhead_shark Zygaena Sphyrnidae: Animal
 
 Command: cat *.dat | grep -v "<>" | awk {'print $1,$3,$5'} | sort | uniq | awk {'print $1'} | sort | uniq -d

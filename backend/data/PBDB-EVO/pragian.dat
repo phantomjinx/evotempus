@@ -683,7 +683,7 @@ Hebetoechia                              | Animal    | Brachiopoda              
 Hedeia                                   | Plant     | Psilophytophyta            | -410800000    | -382700000   | Hedeia
 Hedeina                                  | Animal    | Brachiopoda                | -416000000    | -391900000   | <>
 Hederella                                | Animal    | Bryozoa                    | -410800000    | -407600000   | <>
-Hedstroemia                              | Micro     | Cyanobacteria              | -410800000    | -407600000   | Hedstroemia
+Hedstroemia Codiaceae                    | Micro     | Cyanobacteria              | -410800000    | -407600000   | Hedstroemia
 Hefteria                                 | Animal    | Mollusca                   | -410800000    | -393300000   | <>
 Helenolepis                              | Animal    | Chordata                   | -423000000    | -391900000   | <>
 Helianthaster                            | Animal    | Echinodermata              | -409100000    | -402500000   | <>
@@ -1030,7 +1030,7 @@ Nodonchus                                | Animal    | Chordata                 
 Nordotoechia                             | Animal    | Brachiopoda                | -410800000    | -407600000   | <>
 Nostolepis                               | Animal    | Chordata                   | -409100000    | -402500000   | Nostolepis
 Notanoplia                               | Animal    | Brachiopoda                | -410800000    | -407600000   | <>
-Nothia                                   | Plant     | Lycopodophyta              | -410800000    | -407600000   | Nothia
+Nothia Zosterophylls                     | Plant     | Lycopodophyta              | -410800000    | -407600000   | Nothia
 Notiochonetes                            | Animal    | Brachiopoda                | -409100000    | -402500000   | <>
 Notoconchidium                           | Animal    | Brachiopoda                | -419200000    | -393300000   | <>
 Notoleptaena                             | Animal    | Brachiopoda                | -410800000    | -407600000   | <>
@@ -1259,7 +1259,7 @@ Polypora                                 | Animal    | Bryozoa                  
 Poraspis                                 | Animal    | Chordata                   | -410800000    | -407600000   | Poraspis
 Porolepis                                | Animal    | Chordata                   | -409100000    | -402500000   | Porolepis
 Poroscutellum                            | Animal    | Arthropoda                 | -410800000    | -382700000   | <>
-Posidonia                                | Animal    | Mollusca                   | -410800000    | -407600000   | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -410800000    | -407600000   | <>
 Poteriocrinus                            | Animal    | Echinodermata              | -419200000    | -358900000   | <>
 Praecardium                              | Animal    | Mollusca                   | -409100000    | -402500000   | <>
 Praectenodonta                           | Animal    | Mollusca                   | -410800000    | -393300000   | <>
@@ -1424,8 +1424,8 @@ Rhynchonella                             | Animal    | Brachiopoda              
 Rhynchospirina                           | Animal    | Brachiopoda                | -409100000    | -391900000   | <>
 Rhynchotreta                             | Animal    | Brachiopoda                | -419200000    | -393300000   | <>
 Rhynia                                   | Plant     | Psilophytophyta            | -410800000    | -407600000   | Rhynia
-Rhyniella                                | Animal    | Arthropoda                 | -410800000    | -407600000   | Rhyniella
-Rhyniella                                | Micro     | Cyanobacteria              | -410800000    | -407600000   | Rhyniella
+Rhyniella Collembola                     | Animal    | Arthropoda                 | -410800000    | -407600000   | Rhyniella
+Rhyniella Cyanobacteria                  | Micro     | Cyanobacteria              | -410800000    | -407600000   | <>
 Rhynimonstrum                            | Animal    | Arthropoda                 | -410800000    | -407600000   | <>
 Rhyniognatha                             | Animal    | Arthropoda                 | -410800000    | -407600000   | Rhyniognatha
 Richina                                  | Animal    | Arthropoda                 | -419200000    | -391900000   | <>
@@ -1522,8 +1522,8 @@ Sphagoblastus                            | Animal    | Echinodermata            
 Sphenotomorpha                           | Animal    | Mollusca                   | -423000000    | -391900000   | <>
 Spinatrypa                               | Animal    | Brachiopoda                | -409100000    | -391900000   | <>
 Spinatrypina                             | Animal    | Brachiopoda                | -409100000    | -402500000   | <>
-Spinella                                 | Animal    | Arthropoda                 | -410800000    | -393300000   | Spinella
-Spinella                                 | Animal    | Brachiopoda                | -410800000    | -393300000   | Spinella
+Spinella                                 | Animal    | Arthropoda                 | -410800000    | -393300000   | <>
+Spinella                                 | Animal    | Brachiopoda                | -410800000    | -393300000   | <>
 Spiniscutellum                           | Animal    | Arthropoda                 | -419200000    | -382700000   | <>
 Spinocharinus                            | Animal    | Arthropoda                 | -410800000    | -407600000   | <>
 Spinoplasia                              | Animal    | Brachiopoda                | -410800000    | -407600000   | <>

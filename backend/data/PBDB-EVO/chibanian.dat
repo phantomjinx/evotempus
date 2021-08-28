@@ -1534,7 +1534,7 @@ Hexaplex                                 | Animal    | Mollusca                 
 Hexaprotodon                             | Animal    | Chordata                   | -23030000     | -11700       | Hexaprotodon
 Hiatella                                 | Animal    | Mollusca                   | -781000       | -126000      | Hiatella
 Hibbardomys                              | Animal    | Chordata                   | -1800000      | -300000      | <>
-Hibbertia                                | Plant     | Spermatophyta              | -2588000      | -126000      | Hibbertia
+Hibbertia Dilleniaceae                   | Plant     | Spermatophyta              | -2588000      | -126000      | Hibbertia
 Hieraaetus                               | Animal    | Chordata                   | -2588000      | -11700       | Hieraaetus
 Hiltonius                                | Animal    | Arthropoda                 | -300000       | -12000       | Hiltonius
 Hincksipora                              | Animal    | Bryozoa                    | -781000       | -126000      | <>
@@ -1929,8 +1929,8 @@ Malacopsephenoides                       | Animal    | Arthropoda               
 Malacothrix                              | Animal    | Chordata                   | -2588000      | 2030         | Malacothrix
 Malayemys                                | Animal    | Chordata                   | -781000       | -126000      | Malayemys
 Malea                                    | Animal    | Mollusca                   | -781000       | -126000      | Malea
-Mallotus                                 | Animal    | Chordata                   | -2588000      | -11700       | Mallotus
-Mallotus                                 | Plant     | Spermatophyta              | -781000       | 2030         | Mallotus
+Mallotus Osmeridae                       | Animal    | Chordata                   | -2588000      | -11700       | Capelin
+Mallotus Euphorbiaceae                   | Plant     | Spermatophyta              | -781000       | 2030         | Mallotus_(plant)
 Malpolon                                 | Animal    | Chordata                   | -781000       | -126000      | Malpolon
 Maltamys                                 | Animal    | Chordata                   | -781000       | -126000      | <>
 Mammilla                                 | Animal    | Mollusca                   | -781000       | -126000      | Mammilla
@@ -2048,7 +2048,7 @@ Mesochoerus                              | Animal    | Chordata                 
 Mesocnus                                 | Animal    | Chordata                   | -2588000      | -11700       | <>
 Mesocricetus                             | Animal    | Chordata                   | -781000       | -126000      | Mesocricetus
 Mesodesma                                | Animal    | Mollusca                   | -2588000      | -11700       | Mesodesma
-Mesophyllum                              | Animal    | Cnidaria                   | -781000       | -126000      | Mesophyllum
+Mesophyllum Digonophyllidae              | Animal    | Cnidaria                   | -781000       | -126000      | <>
 Mesoplodon                               | Animal    | Chordata                   | -11608000     | 2030         | Mesoplodon
 Mesorhoea                                | Animal    | Arthropoda                 | -2588000      | 2030         | <>
 Metacarcinus                             | Animal    | Arthropoda                 | -2588000      | 2030         | Metacarcinus
@@ -2082,7 +2082,7 @@ Microsorum                               | Plant     | Pteridophyta             
 Microtus                                 | Animal    | Chordata                   | -300000       | -12000       | Microtus
 Micrurus                                 | Animal    | Chordata                   | -300000       | -12000       | Micrurus
 Mictomys                                 | Animal    | Chordata                   | -300000       | -12000       | <>
-Milax                                    | Animal    | Mollusca                   | -781000       | -126000      | Milax
+Milax Milacidae                          | Animal    | Mollusca                   | -781000       | -126000      | Milax_(gastropod)
 Milfordia                                | Plant     | Angiospermae               | -2588000      | -126000      | <>
 Millepora                                | Animal    | Cnidaria                   | -781000       | -11700       | Millepora
 Milligania                               | Plant     | Angiospermae               | -2588000      | -126000      | Milligania
@@ -2176,7 +2176,7 @@ Myotis                                   | Animal    | Chordata                 
 Myotragus                                | Animal    | Chordata                   | -2588000      | -11700       | Myotragus
 Myra                                     | Animal    | Arthropoda                 | -2588000      | -11700       | Myra
 Myrica                                   | Plant     | Spermatophyta              | -2588000      | -11700       | Myrica
-Myriophyllum                             | Plant     | Spermatophyta              | -2588000      | -11700       | Myriophyllum
+Myriophyllum Haloragaceae                | Plant     | Spermatophyta              | -2588000      | -11700       | Myriophyllum
 Myristica                                | Plant     | Spermatophyta              | -2588000      | -11700       | Myristica
 Myrsine                                  | Plant     | Spermatophyta              | -2588000      | -11700       | Myrsine
 Myrtaceidites                            | Plant     | Spermatophyta              | -2588000      | -126000      | <>
@@ -2334,8 +2334,8 @@ Odontionella                             | Animal    | Bryozoa                  
 Odontophrynus                            | Animal    | Chordata                   | -781000       | -126000      | Odontophrynus
 Odostomia                                | Animal    | Mollusca                   | -781000       | -11700       | Odostomia
 Oecomys                                  | Animal    | Chordata                   | -2588000      | 2030         | Oecomys
-Oenanthe                                 | Animal    | Chordata                   | -781000       | -126000      | Oenanthe
-Oenanthe                                 | Plant     | Spermatophyta              | -2588000      | -11700       | Oenanthe
+Oenanthe Muscicapidae                    | Animal    | Chordata                   | -781000       | -126000      | Wheatear
+Oenanthe Apiaceae                        | Plant     | Spermatophyta              | -2588000      | -11700       | Oenanthe_(plant)
 Oenopia                                  | Animal    | Arthropoda                 | -781000       | -126000      | Oenopia
 Oenopota                                 | Animal    | Mollusca                   | -781000       | -126000      | Oenopota
 Ogmoconcha                               | Animal    | Arthropoda                 | -2588000      | -11700       | <>
@@ -2559,7 +2559,7 @@ Persephona                               | Animal    | Arthropoda               
 Persicula                                | Animal    | Mollusca                   | -2588000      | -11700       | Persicula
 Persististrombus                         | Animal    | Mollusca                   | -2588000      | -11700       | Persististrombus
 Persoonia                                | Plant     | Spermatophyta              | -2588000      | -126000      | Persoonia
-Petaloconchus                            | Animal    | Mollusca                   | -781000       | -126000      | Petaloconchus
+Petaloconchus Vermetidae                 | Animal    | Mollusca                   | -781000       | -126000      | Petaloconchus
 Petalostigma                             | Plant     | Spermatophyta              | -781000       | 2030         | Petalostigma
 Petauristodon                            | Animal    | Chordata                   | -1800000      | -300000      | <>
 Petauroides                              | Animal    | Chordata                   | -2588000      | -11700       | Petauroides
@@ -2854,8 +2854,8 @@ Pterocarya                               | Plant     | Spermatophyta            
 Pterocles                                | Animal    | Chordata                   | -781000       | -126000      | Pterocles
 Pterodroma                               | Animal    | Chordata                   | -781000       | 2030         | Pterodroma
 Pteromeris                               | Animal    | Mollusca                   | -781000       | -126000      | Pteromeris
-Pteronotus                               | Animal    | Chordata                   | -300000       | -12000       | Pteronotus
-Pteronotus                               | Animal    | Mollusca                   | -1630000      | -340000      | Pteronotus
+Pteronotus Mormoopidae                   | Animal    | Chordata                   | -300000       | -12000       | Pteronotus
+Pteronotus Muricidae                     | Animal    | Mollusca                   | -1630000      | -340000      | <>
 Pteronura                                | Animal    | Chordata                   | -781000       | -12000       | Pteronura
 Pterorhytis                              | Animal    | Mollusca                   | -3600000      | -11700       | <>
 Pterostichus                             | Animal    | Arthropoda                 | -300000       | -12000       | Pterostichus
@@ -3150,7 +3150,7 @@ Sphyraena                                | Animal    | Chordata                 
 Spicara                                  | Animal    | Chordata                   | -781000       | -126000      | Spicara
 Spilogale                                | Animal    | Chordata                   | -300000       | -12000       | Spilogale
 Spinucella                               | Animal    | Mollusca                   | -781000       | -11700       | <>
-Spinus                                   | Animal    | Chordata                   | -300000       | -12000       | Spinus
+Spinus Fringillidae                      | Animal    | Chordata                   | -300000       | -12000       | Spinus_(bird)
 Spirocerus                               | Animal    | Chordata                   | -5333000      | -11700       | <>
 Spiroglyphus                             | Animal    | Annelida                   | -781000       | -126000      | <>
 Spirogyra                                | Plant     | Charophyta                 | -781000       | -126000      | Spirogyra
@@ -3172,7 +3172,7 @@ Steatomys                                | Animal    | Chordata                 
 Steginoporella                           | Animal    | Bryozoa                    | -1630000      | -340000      | <>
 Stegodon                                 | Animal    | Chordata                   | -781000       | -11700       | Stegodon
 Stegomastodon                            | Animal    | Chordata                   | -781000       | -126000      | Stegomastodon
-Stellaria                                | Plant     | Spermatophyta              | -2588000      | -126000      | Stellaria
+Stellaria Caryophyllaceae                | Plant     | Spermatophyta              | -2588000      | -126000      | Stellaria
 Stellatoma                               | Animal    | Mollusca                   | -2588000      | -11700       | Stellatoma
 Stenelmis                                | Animal    | Arthropoda                 | -781000       | -126000      | Stenelmis
 Stenobrachius                            | Animal    | Chordata                   | -781000       | -126000      | Stenobrachius
@@ -3240,7 +3240,7 @@ Suricata                                 | Animal    | Chordata                 
 Surnia                                   | Animal    | Chordata                   | -781000       | -126000      | Surnia
 Sus                                      | Animal    | Chordata                   | -781000       | -11700       | Sus
 Sydaphera                                | Animal    | Mollusca                   | -2588000      | -11700       | Sydaphera
-Sylvia                                   | Animal    | Chordata                   | -781000       | -126000      | Sylvia
+Sylvia Sylviidae                         | Animal    | Chordata                   | -781000       | -126000      | Typical_warbler
 Sylvicapra                               | Animal    | Chordata                   | -2588000      | 2030         | Sylvicapra
 Sylvilagus                               | Animal    | Chordata                   | -300000       | -12000       | Sylvilagus
 Symbolophorus                            | Animal    | Chordata                   | -300000       | -12000       | Symbolophorus
@@ -3410,7 +3410,7 @@ Tridacna                                 | Animal    | Mollusca                 
 Tridentarius                             | Animal    | Mollusca                   | -781000       | -11700       | Tridentarius
 Triforis                                 | Animal    | Mollusca                   | -781000       | -126000      | <>
 Trigodonops                              | Animal    | Chordata                   | -2588000      | -11700       | <>
-Trigonella                               | Animal    | Mollusca                   | -2588000      | -11700       | Trigonella
+Trigonella                               | Animal    | Mollusca                   | -2588000      | -11700       | <>
 Trigonictis                              | Animal    | Chordata                   | -1800000      | -300000      | Trigonictis
 Trigonostoma                             | Animal    | Mollusca                   | -5333000      | -11700       | Trigonostoma
 Trigonulina                              | Animal    | Mollusca                   | -781000       | -126000      | <>
@@ -3528,7 +3528,7 @@ Vermetus                                 | Animal    | Mollusca                 
 Vermicularia                             | Animal    | Mollusca                   | -781000       | -126000      | Vermicularia
 Veromessor                               | Animal    | Arthropoda                 | -300000       | -12000       | Veromessor
 Vertigo                                  | Animal    | Mollusca                   | -300000       | -12000       | Vertigo
-Vespertilio                              | Animal    | Chordata                   | -781000       | -126000      | Vespertilio
+Vespertilio Vespertilionidae             | Animal    | Chordata                   | -781000       | -126000      | Vespertilio
 Vexillum                                 | Animal    | Mollusca                   | -781000       | -126000      | Vexillum
 Vicugna                                  | Animal    | Chordata                   | -781000       | -12000       | Vicugna
 Villanyia                                | Animal    | Chordata                   | -2588000      | -11700       | <>

@@ -963,7 +963,7 @@ Hauerites                                | Animal    | Mollusca                 
 Hausmannia                               | Plant     | Pteridophyta               | -237000000    | -174100000   | <>
 Healdia                                  | Animal    | Arthropoda                 | -235000000    | -232000000   | <>
 Healeya                                  | Animal    | Mollusca                   | -237000000    | -201300000   | <>
-Hedstroemia                              | Micro     | Cyanobacteria              | -237000000    | -228000000   | Hedstroemia
+Hedstroemia Codiaceae                    | Micro     | Cyanobacteria              | -237000000    | -228000000   | Hedstroemia
 Heidiphyllum                             | Plant     | Pinophyta                  | -237000000    | -201300000   | <>
 Hejiafanga                               | Animal    | Arthropoda                 | -242000000    | -235000000   | <>
 Helenostylina                            | Animal    | Mollusca                   | -235000000    | -232000000   | <>
@@ -1343,7 +1343,7 @@ Mesolimulus                              | Animal    | Arthropoda               
 Mesomorpha                               | Animal    | Cnidaria                   | -242000000    | -235000000   | <>
 Mesopanorpodes                           | Animal    | Arthropoda                 | -242000000    | -235000000   | <>
 Mesophlebia                              | Animal    | Arthropoda                 | -237000000    | -228000000   | <>
-Mesophyllum                              | Plant     | Rhodophyta                 | -235000000    | -232000000   | Mesophyllum
+Mesophyllum Hapalidiaceae                | Plant     | Rhodophyta                 | -235000000    | -232000000   | Mesophyllum
 Mesopsyche                               | Animal    | Arthropoda                 | -237000000    | -228000000   | <>
 Mesorthopterina                          | Animal    | Arthropoda                 | -237000000    | -228000000   | <>
 Mesoscytina                              | Animal    | Arthropoda                 | -237000000    | -228000000   | <>
@@ -1418,7 +1418,7 @@ Myophoricardium                          | Animal    | Mollusca                 
 Myophorigonia                            | Animal    | Mollusca                   | -232000000    | -221500000   | <>
 Myophoriopis                             | Animal    | Mollusca                   | -235000000    | -232000000   | <>
 Myriophyllia                             | Animal    | Cnidaria                   | -235000000    | -232000000   | <>
-Myriophyllum                             | Animal    | Cnidaria                   | -232000000    | -221500000   | Myriophyllum
+Myriophyllum Conophyllidae               | Animal    | Cnidaria                   | -232000000    | -221500000   | <>
 Mysidiella                               | Animal    | Mollusca                   | -232000000    | -221500000   | <>
 Mysidioptera                             | Animal    | Mollusca                   | -232000000    | -221500000   | <>
 Mytilus                                  | Animal    | Mollusca                   | -232000000    | -221500000   | Mytilus
@@ -1796,7 +1796,7 @@ Popenella                                | Animal    | Mollusca                 
 Poposaurus                               | Animal    | Chordata                   | -237000000    | -201300000   | Poposaurus
 Popovigocimex                            | Animal    | Arthropoda                 | -237000000    | -228000000   | <>
 Porcellia                                | Animal    | Mollusca                   | -235000000    | -232000000   | <>
-Posidonia                                | Animal    | Mollusca                   | -232000000    | -215560000   | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -232000000    | -215560000   | <>
 Postosuchus                              | Animal    | Chordata                   | -237000000    | -208500000   | Postosuchus
 Potrerillia                              | Animal    | Arthropoda                 | -237000000    | -228000000   | <>
 Potrerilloblatta                         | Animal    | Arthropoda                 | -242000000    | -235000000   | <>
@@ -2205,10 +2205,10 @@ Steigerispongus                          | Micro     | Radiolaria               
 Stellispongia                            | Animal    | Porifera                   | -235000000    | -232000000   | <>
 Stenarcestes                             | Animal    | Mollusca                   | -235000000    | -232000000   | <>
 Stenopora                                | Animal    | Bryozoa                    | -237000000    | -228000000   | <>
-Stenorhachis                             | Plant     | Coniferophyta              | -237000000    | -201300000   | Stenorhachis
+Stenorhachis Coniferales                 | Plant     | Coniferophyta              | -237000000    | -201300000   | <>
 Stenotosaurus                            | Animal    | Chordata                   | -237000000    | -201300000   | Stenotosaurus
 Stereisporites                           | Plant     | Bryophyta                  | -237000000    | -201300000   | <>
-Steropoides                              | Animal    | Chordata                   | -237000000    | -201300000   | Steropoides
+Steropoides                              | Animal    | Chordata                   | -237000000    | -201300000   | <>
 Stichomitra                              | Micro     | Radiolaria                 | -247200000    | -235000000   | <>
 Stikinoceras                             | Animal    | Mollusca                   | -238500000    | -227500000   | <>
 Stolleyites                              | Animal    | Mollusca                   | -235000000    | -232000000   | <>

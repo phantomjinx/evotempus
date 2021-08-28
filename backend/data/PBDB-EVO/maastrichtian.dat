@@ -2507,7 +2507,7 @@ Mesoleberis                              | Animal    | Arthropoda               
 Mesomorpha                               | Animal    | Cnidaria                   | -83500000     | -66000000    | <>
 Mesopachymerus                           | Animal    | Arthropoda                 | -83500000     | -70600000    | <>
 Mesophiomusium                           | Animal    | Echinodermata              | -70600000     | -66000000    | <>
-Mesophyllum                              | Plant     | Rhodophyta                 | -72100000     | -66000000    | Mesophyllum
+Mesophyllum Hapalidiaceae                | Plant     | Rhodophyta                 | -72100000     | -66000000    | Mesophyllum
 Mesoplatypalpus                          | Animal    | Arthropoda                 | -83500000     | -70600000    | <>
 Mesorhytis                               | Animal    | Mollusca                   | -72100000     | -66000000    | <>
 Mesosaccella                             | Animal    | Mollusca                   | -83500000     | -70600000    | <>
@@ -2556,8 +2556,8 @@ Microsolena                              | Animal    | Cnidaria                 
 Microstega                               | Animal    | Chordata                   | -85800000     | -70600000    | Microstega
 Microtaenia                              | Plant     | Pteridophyta               | -100500000    | -66000000    | <>
 Microtrigonia                            | Animal    | Mollusca                   | -72100000     | -66000000    | <>
-Micula                                   | Animal    | Cnidaria                   | -70600000     | -66000000    | Micula
-Micula                                   | Plant     | Haptophyta                 | -83500000     | -55800000    | Micula
+Micula                                   | Animal    | Cnidaria                   | -70600000     | -66000000    | <>
+Micula                                   | Plant     | Haptophyta                 | -83500000     | -55800000    | <>
 Midlandia                                | Plant     | Pteridophyta               | -83500000     | -70600000    | <>
 Milfordia                                | Plant     | Angiospermae               | -83600000     | -66000000    | <>
 Milovanovicia                            | Animal    | Mollusca                   | -72100000     | -66000000    | <>
@@ -3371,7 +3371,7 @@ Porosoma                                 | Animal    | Echinodermata            
 Porosphaera                              | Animal    | Porifera                   | -70600000     | -66000000    | Porosphaera
 Porthochelys                             | Animal    | Chordata                   | -100500000    | -66000000    | <>
 Portlandia                               | Animal    | Mollusca                   | -70600000     | -66000000    | Portlandia
-Posidonia                                | Plant     | Angiospermae               | -83500000     | -70600000    | Posidonia
+Posidonia Posidoniaceae                  | Plant     | Angiospermae               | -83500000     | -70600000    | Posidonia
 Postligata                               | Animal    | Mollusca                   | -70600000     | -66000000    | <>
 Postomphalocyclus                        | Micro     | Foraminifera               | -70600000     | -66000000    | <>
 Potamides                                | Animal    | Mollusca                   | -70600000     | -66000000    | Potamides
@@ -3564,7 +3564,7 @@ Pteromyrtea                              | Animal    | Mollusca                 
 Pteroscyllium                            | Animal    | Chordata                   | -70600000     | -61600000    | <>
 Pterospermella                           | Plant     | Prasinophyta               | -72100000     | -66000000    | <>
 Pterospermites                           | Plant     | Spermatophyta              | -70600000     | -66000000    | <>
-Pterotheca                               | Plant     | Ochrophyta                 | -72100000     | -66000000    | Pterotheca
+Pterotheca                               | Plant     | Ochrophyta                 | -72100000     | -66000000    | <>
 Pterotrigonia                            | Animal    | Mollusca                   | -100500000    | -66000000    | Pterotrigonia
 Ptilophyllum                             | Plant     | Cycadeoideophyta           | -145000000    | -66000000    | <>
 Ptychoceras                              | Animal    | Mollusca                   | -83500000     | -70600000    | <>
@@ -4293,8 +4293,8 @@ Triletes                                 | Plant     | Pteridophyta             
 Trilites                                 | Plant     | Pteridophyta               | -100500000    | -23030000    | <>
 Trilobosporites                          | Plant     | Pteridophyta               | -83500000     | -70600000    | <>
 Triloculina                              | Micro     | Foraminifera               | -70600000     | -66000000    | Triloculina
-Trinacria                                | Animal    | Mollusca                   | -72100000     | -66000000    | Trinacria
-Trinacria                                | Plant     | Ochrophyta                 | -72100000     | -66000000    | Trinacria
+Trinacria Noetiidae                      | Animal    | Mollusca                   | -72100000     | -66000000    | <>
+Trinacria Hemiaulaceae                   | Micro     | Ochrophyta                 | -72100000     | -66000000    | Trinacria_(diatom)
 Trinisaura                               | Animal    | Chordata                   | -83500000     | -70600000    | Trinisaura
 Trinocladus                              | Plant     | Chlorophyta                | -72100000     | -66000000    | <>
 Trionyx                                  | Animal    | Chordata                   | -70600000     | -66000000    | Trionyx

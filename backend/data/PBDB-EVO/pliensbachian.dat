@@ -1111,7 +1111,7 @@ Mesoncus                                 | Animal    | Arthropoda               
 Mesoneta                                 | Animal    | Arthropoda                 | -190800000    | -182700000   | <>
 Mesopanorpa                              | Animal    | Arthropoda                 | -183000000    | -182000000   | <>
 Mesophiomusium                           | Animal    | Echinodermata              | -183000000    | -175600000   | <>
-Mesophyllum                              | Animal    | Cnidaria                   | -189600000    | -183000000   | Mesophyllum
+Mesophyllum Digonophyllidae              | Animal    | Cnidaria                   | -189600000    | -183000000   | <>
 Mesopsychopsis                           | Animal    | Arthropoda                 | -183000000    | -182000000   | <>
 Mesorhyphus                              | Animal    | Arthropoda                 | -183000000    | -182000000   | <>
 Mesosaccella                             | Animal    | Mollusca                   | -189600000    | -183000000   | <>
@@ -1156,7 +1156,7 @@ Myophoria                                | Animal    | Mollusca                 
 Myophorigonia                            | Animal    | Mollusca                   | -189600000    | -183000000   | <>
 Myopophlebia                             | Animal    | Arthropoda                 | -183000000    | -182000000   | <>
 Myriacanthus                             | Animal    | Chordata                   | -196500000    | -189600000   | <>
-Myriophyllum                             | Animal    | Cnidaria                   | -189600000    | -183000000   | Myriophyllum
+Myriophyllum Conophyllidae               | Animal    | Cnidaria                   | -189600000    | -183000000   | <>
 Mystriosaurus                            | Animal    | Chordata                   | -201300000    | -174100000   | Mystriosaurus
 Mytiloceramus                            | Animal    | Mollusca                   | -190800000    | -182700000   | <>
 Mytiloides                               | Animal    | Mollusca                   | -189600000    | -183000000   | <>
@@ -1493,7 +1493,7 @@ Polyplectus                              | Animal    | Mollusca                 
 Pontaltorhynchia                         | Animal    | Brachiopoda                | -189600000    | -183000000   | <>
 Pontocyprella                            | Animal    | Arthropoda                 | -189600000    | -183000000   | <>
 Porpoceras                               | Animal    | Mollusca                   | -183000000    | -182000000   | Porpoceras
-Posidonia                                | Animal    | Mollusca                   | -183000000    | -182000000   | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -183000000    | -182000000   | <>
 Posidonotis                              | Animal    | Mollusca                   | -183000000    | -182000000   | <>
 Poulpus                                  | Micro     | Radiolaria                 | -183000000    | -182000000   | <>
 Praeacanthocircus                        | Micro     | Radiolaria                 | -190800000    | -182700000   | <>
@@ -1825,7 +1825,7 @@ Stellispongia                            | Animal    | Porifera                 
 Steneosaurus                             | Animal    | Chordata                   | -183000000    | -175600000   | Steneosaurus
 Stenomischus                             | Plant     | Pinophyta                  | -190800000    | -168300000   | <>
 Stenopterygius                           | Animal    | Chordata                   | -183000000    | -182000000   | Stenopterygius
-Stenorhachis                             | Plant     | Coniferophyta              | -190800000    | -174100000   | Stenorhachis
+Stenorhachis Coniferales                 | Plant     | Coniferophyta              | -190800000    | -174100000   | <>
 Stenoteleuta                             | Animal    | Arthropoda                 | -183000000    | -182000000   | <>
 Stephanastrum                            | Micro     | Radiolaria                 | -189600000    | -183000000   | <>
 Sthenarosaurus                           | Animal    | Chordata                   | -183000000    | -175600000   | Sthenarosaurus
@@ -1834,7 +1834,7 @@ Stichomitra                              | Micro     | Radiolaria               
 Stiphroschema                            | Animal    | Arthropoda                 | -183000000    | -182000000   | <>
 Stolmorhynchia                           | Animal    | Brachiopoda                | -189600000    | -183000000   | <>
 Storgaardia                              | Plant     | Coniferophyta              | -190800000    | -174100000   | <>
-Stormbergia                              | Plant     | Pteridophyta               | -190800000    | -174100000   | Stormbergia
+Stormbergia Polypodiales	               | Plant     | Pteridophyta               | -190800000    | -174100000   | <>
 Striactaeonina                           | Animal    | Mollusca                   | -189600000    | -183000000   | <>
 Striatoconulus                           | Animal    | Mollusca                   | -183000000    | -182000000   | <>
 Striatojonesia                           | Animal    | Arthropoda                 | -183000000    | -182000000   | <>

@@ -678,7 +678,7 @@ Hayasakapecten                           | Animal    | Mollusca                 
 Hayasakapora                             | Animal    | Bryozoa                    | -2.651e+08    | -2.599e+08   | <>
 Haydenella                               | Animal    | Brachiopoda                | -2.651e+08    | -2.599e+08   | <>
 Healdianella                             | Animal    | Arthropoda                 | -2.651e+08    | -2.599e+08   | <>
-Hedstroemia                              | Micro     | Cyanobacteria              | -2.651e+08    | -2.599e+08   | Hedstroemia
+Hedstroemia Codiaceae                    | Micro     | Cyanobacteria              | -2.651e+08    | -2.599e+08   | Hedstroemia
 Hegleria                                 | Micro     | Radiolaria                 | -2.651e+08    | -2.599e+08   | <>
 Heleosaurus                              | Animal    | Chordata                   | -2.651e+08    | -2.599e+08   | Heleosaurus
 Helicoprion                              | Animal    | Chordata                   | -2.651e+08    | -2.599e+08   | Helicoprion
@@ -843,7 +843,7 @@ Lamarodus                                | Animal    | Chordata                 
 Lamnimargus                              | Animal    | Brachiopoda                | -2.651e+08    | -2.599e+08   | <>
 Lanczichebairdia                         | Animal    | Arthropoda                 | -2.651e+08    | -2.599e+08   | <>
 Langdaia                                 | Animal    | Arthropoda                 | -2.651e+08    | -2.599e+08   | <>
-Langella                                 | Micro     | Foraminifera               | -2.651e+08    | -254170000   | Langella
+Langella                                 | Micro     | Foraminifera               | -2.651e+08    | -254170000   | <>
 Langepis                                 | Animal    | Echinodermata              | -2.651e+08    | -2.599e+08   | <>
 Lanthaniscus                             | Animal    | Chordata                   | -272500000    | -265000000   | Lanthaniscus
 Lanthanolania                            | Animal    | Chordata                   | -272500000    | -265000000   | Lanthanolania
@@ -852,7 +852,7 @@ Lanthanosuchus                           | Animal    | Chordata                 
 Lantschichites                           | Micro     | Foraminifera               | -2.651e+08    | -2.599e+08   | <>
 Laoporus                                 | Animal    | Chordata                   | -298900000    | -252170000   | <>
 Lapkosubia                               | Animal    | Chordata                   | -265000000    | -254000000   | <>
-Lasiodiscus                              | Micro     | Foraminifera               | -2.651e+08    | -2.599e+08   | Lasiodiscus
+Lasiodiscus Lasiodiscidae                | Micro     | Foraminifera               | -2.651e+08    | -2.599e+08   | <>
 Lasiotrochus                             | Micro     | Foraminifera               | -2.651e+08    | -2.599e+08   | <>
 Latentibifistula                         | Micro     | Radiolaria                 | -2.651e+08    | -2.599e+08   | <>
 Latentifistula                           | Micro     | Radiolaria                 | -2.651e+08    | -2.599e+08   | <>
@@ -1338,7 +1338,7 @@ Praeconocaryomma                         | Micro     | Radiolaria               
 Praetachylasma                           | Animal    | Cnidaria                   | -272300000    | -2.599e+08   | <>
 Praewentzelella                          | Animal    | Cnidaria                   | -2.651e+08    | -2.599e+08   | <>
 Prasuchonella                            | Animal    | Arthropoda                 | -2.651e+08    | -2.599e+08   | <>
-Pravoslavlevia                           | Animal    | Chordata                   | -265000000    | -252300000   | Pravoslavlevia
+Pravoslavlevia Gorgonopsidae             | Animal    | Chordata                   | -265000000    | -252300000   | Pravoslavlevia
 Preceratoporella                         | Animal    | Porifera                   | -268800000    | -2.599e+08   | <>
 Precorynella                             | Animal    | Porifera                   | -2.651e+08    | -2.599e+08   | <>
 Preeudea                                 | Animal    | Porifera                   | -2.651e+08    | -2.599e+08   | <>
@@ -1869,7 +1869,7 @@ Waagenoconcha                            | Animal    | Brachiopoda              
 Waagenophyllum                           | Animal    | Cnidaria                   | -2.651e+08    | -2.599e+08   | <>
 Walchia                                  | Plant     | Coniferophyta              | -272300000    | -2.599e+08   | Walchia
 Walnichollsia                            | Animal    | Mollusca                   | -2.651e+08    | -2.599e+08   | <>
-Walteria                                 | Animal    | Chordata                   | -2.651e+08    | -2.599e+08   | Walteria
+Walteria                                 | Animal    | Chordata                   | -2.651e+08    | -2.599e+08   | <>
 Wanganella                               | Micro     | Foraminifera               | -2.651e+08    | -2.599e+08   | Wanganella
 Wannerophyllum                           | Animal    | Cnidaria                   | -2.651e+08    | -2.599e+08   | <>
 Wantulignathus                           | Animal    | Chordata                   | -272300000    | -2.599e+08   | Wantulignathus

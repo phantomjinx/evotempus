@@ -561,7 +561,7 @@ Healdianella                             | Animal    | Arthropoda               
 Hebertella                               | Animal    | Brachiopoda                | -443400000    | -433400000   | <>
 Hecetastoma                              | Animal    | Mollusca                   | -438500000    | -433400000   | <>
 Hedeina                                  | Animal    | Brachiopoda                | -438500000    | -427400000   | <>
-Hedstroemia                              | Micro     | Cyanobacteria              | -438500000    | -433400000   | Hedstroemia
+Hedstroemia Codiaceae                    | Micro     | Cyanobacteria              | -438500000    | -433400000   | Hedstroemia
 Helicelasma                              | Animal    | Cnidaria                   | -443400000    | -433400000   | <>
 Heliolites                               | Animal    | Cnidaria                   | -438500000    | -427400000   | <>
 Helioplasmolites                         | Animal    | Cnidaria                   | -438500000    | -433400000   | <>
@@ -777,7 +777,7 @@ Medinaster                               | Animal    | Echinodermata            
 Medusaegraptus                           | Plant     | Chlorophyta                | -443400000    | -419200000   | <>
 Megalomoidea                             | Animal    | Mollusca                   | -438500000    | -433400000   | <>
 Megalomphala                             | Animal    | Mollusca                   | -438500000    | -433400000   | <>
-Megalomus                                | Animal    | Mollusca                   | -443400000    | -419200000   | Megalomus
+Megalomus Bivalvia                       | Animal    | Mollusca                   | -443400000    | -419200000   | <>
 Megastrophia                             | Animal    | Brachiopoda                | -438500000    | -433400000   | <>
 Meifodia                                 | Animal    | Brachiopoda                | -438500000    | -433400000   | <>
 Meitanillaenus                           | Animal    | Arthropoda                 | -438500000    | -433400000   | <>
@@ -805,7 +805,7 @@ Microcheilinella                         | Animal    | Arthropoda               
 Microplasma                              | Animal    | Cnidaria                   | -438500000    | -433400000   | Microplasma
 Microsphaeridiorhynchus                  | Animal    | Brachiopoda                | -438500000    | -433400000   | <>
 Mictospirifer                            | Animal    | Brachiopoda                | -438500000    | -433400000   | <>
-Micula                                   | Animal    | Cnidaria                   | -443400000    | -419200000   | Micula
+Micula                                   | Animal    | Cnidaria                   | -443400000    | -419200000   | <>
 Miculiella                               | Animal    | Cnidaria                   | -438500000    | -433400000   | <>
 Mila                                     | Animal    | Mollusca                   | -438500000    | -433400000   | Mila
 Miraspis                                 | Animal    | Arthropoda                 | -438500000    | -433400000   | Miraspis
@@ -1120,7 +1120,7 @@ Pterochitina                             | Micro     | Sarcodina                
 Pteronitella                             | Animal    | Mollusca                   | -443400000    | -427400000   | <>
 Pterophrentis                            | Animal    | Cnidaria                   | -443400000    | -433400000   | <>
 Pterospathodus                           | Animal    | Chordata                   | -438500000    | -430500000   | Pterospathodus
-Pterotheca                               | Animal    | Mollusca                   | -438500000    | -433400000   | Pterotheca
+Pterotheca                               | Animal    | Mollusca                   | -438500000    | -433400000   | <>
 Pterygotus                               | Animal    | Arthropoda                 | -443400000    | -419200000   | Pterygotus
 Ptilillaenus                             | Animal    | Arthropoda                 | -438500000    | -433400000   | <>
 Ptilodictya                              | Animal    | Bryozoa                    | -438500000    | -433400000   | <>

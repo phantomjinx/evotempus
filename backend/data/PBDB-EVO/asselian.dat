@@ -704,10 +704,10 @@ Laevigatosporites                        | Plant     | Pteridophyta             
 Laioporella                              | Animal    | Brachiopoda                | -298900000    | -252170000   | <>
 Lamellospira                             | Animal    | Mollusca                   | -298900000    | -295500000   | <>
 Lamniplica                               | Animal    | Brachiopoda                | -298900000    | -295500000   | <>
-Langella                                 | Micro     | Foraminifera               | -298900000    | -252170000   | Langella
+Langella                                 | Micro     | Foraminifera               | -298900000    | -252170000   | <>
 Laoporus                                 | Animal    | Chordata                   | -298900000    | -252170000   | <>
 Larispirifer                             | Animal    | Brachiopoda                | -298900000    | -295500000   | <>
-Lasiodiscus                              | Micro     | Foraminifera               | -298900000    | -290100000   | Lasiodiscus
+Lasiodiscus Lasiodiscidae                | Micro     | Foraminifera               | -298900000    | -290100000   | <>
 Lasiotrochus                             | Micro     | Foraminifera               | -298900000    | -290100000   | <>
 Latiflexa                                | Animal    | Brachiopoda                | -298900000    | -295500000   | <>
 Laxifenestella                           | Animal    | Bryozoa                    | -298900000    | -295500000   | <>
@@ -1064,7 +1064,7 @@ Pinegia                                  | Animal    | Arthropoda               
 Pinegopora                               | Animal    | Bryozoa                    | -298900000    | -272300000   | <>
 Pinna                                    | Animal    | Mollusca                   | -298900000    | -252170000   | Pinna
 Pinnatopora                              | Animal    | Bryozoa                    | -298900000    | -252170000   | <>
-Pinnularia                               | Plant     | Ochrophyta                 | -298900000    | -290100000   | Pinnularia
+Pinnularia Pinnulariaceae                | Plant     | Ochrophyta                 | -298900000    | -290100000   | Pinnularia
 Pirgulia                                 | Animal    | Brachiopoda                | -298900000    | -295500000   | <>
 Pityosporites                            | Plant     | Pinophyta                  | -298900000    | -252170000   | <>
 Plagiozamites                            | Plant     | Cycadophyta                | -298900000    | -295000000   | <>

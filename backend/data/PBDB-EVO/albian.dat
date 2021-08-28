@@ -2616,7 +2616,7 @@ Populophyllum                            | Plant     | Spermatophyta            
 Populus                                  | Plant     | Spermatophyta              | -113000000    | -100500000   | Populus
 Poromya                                  | Animal    | Mollusca                   | -105300000    | -93900000    | <>
 Porospongia                              | Animal    | Porifera                   | -109000000    | -105300000   | <>
-Posidonia                                | Animal    | Mollusca                   | -105300000    | -99600000    | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -105300000    | -99600000    | <>
 Potamides                                | Animal    | Mollusca                   | -109000000    | -105300000   | Potamides
 Potomacanthus                            | Plant     | Spermatophyta              | -145000000    | -100500000   | <>
 Praealbunea                              | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
@@ -3089,7 +3089,7 @@ Spinoleberis                             | Animal    | Arthropoda               
 Spinomegops                              | Animal    | Arthropoda                 | -105300000    | -99600000    | <>
 Spinosaurus                              | Animal    | Chordata                   | -105300000    | -93500000    | Spinosaurus
 Spinostropheus                           | Animal    | Chordata                   | -105300000    | -93500000    | Spinostropheus
-Spinus                                   | Animal    | Arthropoda                 | -122460000    | -112030000   | Spinus
+Spinus Cicadellidae                      | Animal    | Arthropoda                 | -122460000    | -112030000   | <>
 Spirillina                               | Micro     | Foraminifera               | -113000000    | -100500000   | <>
 Spiroloculina                            | Micro     | Foraminifera               | -105300000    | -99600000    | <>
 Spiroplectammina                         | Micro     | Foraminifera               | -105300000    | -99600000    | <>
@@ -3119,7 +3119,7 @@ Stelidioseris                            | Animal    | Cnidaria                 
 Stellatopollis                           | Plant     | Angiospermae               | -112030000    | -109000000   | <>
 Stelletta                                | Animal    | Porifera                   | -113000000    | -100500000   | Stelletta
 Steneosaurus                             | Animal    | Chordata                   | -145000000    | -100500000   | Steneosaurus
-Stenorhachis                             | Plant     | Coniferophyta              | -113000000    | -93900000    | Stenorhachis
+Stenorhachis Coniferales                 | Plant     | Coniferophyta              | -113000000    | -93900000    | <>
 Steorrosia                               | Animal    | Arthropoda                 | -113000000    | -100500000   | <>
 Stephanastrea                            | Animal    | Cnidaria                   | -122460000    | -109000000   | <>
 Stephanocoenia                           | Animal    | Cnidaria                   | -113000000    | -100500000   | <>
@@ -3302,7 +3302,7 @@ Tricolpites                              | Plant     | Spermatophyta            
 Tricolporites                            | Plant     | Spermatophyta              | -113000000    | -93900000    | <>
 Tricolporoidites                         | Plant     | Magnoliophyta              | -112030000    | -109000000   | <>
 Tricolporopollenites                     | Plant     | Spermatophyta              | -105300000    | -93500000    | <>
-Tridactylus                              | Animal    | Mollusca                   | -105300000    | -99600000    | Tridactylus
+Tridactylus Aporrhaidae                  | Animal    | Mollusca                   | -105300000    | -99600000    | <>
 Trifossapollenites                       | Plant     | Magnoliophyta              | -105300000    | -93500000    | <>
 Trigonarca                               | Animal    | Mollusca                   | -105300000    | -99600000    | <>
 Trigonia                                 | Animal    | Mollusca                   | -105300000    | -99600000    | Trigonia

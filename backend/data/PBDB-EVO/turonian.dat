@@ -1481,7 +1481,7 @@ Enoploclytia                             | Animal    | Arthropoda               
 Entalis                                  | Animal    | Mollusca                   | -93900000     | -83600000    | <>
 Entobia                                  | Animal    | Porifera                   | -99600000     | -93500000    | Entobia
 Entolium                                 | Animal    | Mollusca                   | -145000000    | -66000000    | <>
-Entropezites                             | Fungi     | Pezizomycotina             | -99600000     | -93500000    | Entropezites
+Entropezites                             | Fungus    | Pezizomycotina             | -99600000     | -93500000    | Entropezites
 Eoacteon                                 | Animal    | Mollusca                   | -99600000     | -93500000    | <>
 Eoagelenomorphus                         | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Eoalphadon                               | Animal    | Chordata                   | -99600000     | -93500000    | <>
@@ -2507,7 +2507,7 @@ Microtaenia                              | Plant     | Pteridophyta             
 Microtheridion                           | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Microtuban                               | Animal    | Chordata                   | -99600000     | -93500000    | Microtuban
 Microuloborus                            | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
-Micula                                   | Plant     | Haptophyta                 | -93500000     | -89300000    | Micula
+Micula                                   | Plant     | Haptophyta                 | -93500000     | -89300000    | <>
 Mieroblattina                            | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Mikasaites                               | Animal    | Mollusca                   | -99600000     | -93500000    | <>
 Milesitermes                             | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
@@ -2594,7 +2594,7 @@ Myannemesia                              | Animal    | Arthropoda               
 Myanpsyche                               | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Myansegestria                            | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Mycetobia                                | Animal    | Arthropoda                 | -99600000     | -93500000    | Mycetobia
-Mycetophagites                           | Fungi     | Pezizomycotina             | -99600000     | -93500000    | Mycetophagites
+Mycetophagites                           | Fungus    | Pezizomycotina             | -99600000     | -93500000    | Mycetophagites
 Mydiognathus                             | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Mylacrotermes                            | Animal    | Arthropoda                 | -99600000     | -93500000    | <>
 Mylecoma                                 | Animal    | Mollusca                   | -93900000     | -89800000    | <>
@@ -4218,7 +4218,7 @@ Triletes                                 | Plant     | Pteridophyta             
 Trilites                                 | Plant     | Pteridophyta               | -100500000    | -23030000    | <>
 Trilobosporites                          | Plant     | Pteridophyta               | -112030000    | -93500000    | <>
 Triloculina                              | Micro     | Foraminifera               | -93900000     | -89800000    | Triloculina
-Trinacria                                | Animal    | Mollusca                   | -93900000     | -89800000    | Trinacria
+Trinacria Noetiidae                      | Animal    | Mollusca                   | -93900000     | -89800000    | <>
 Trinacromerum                            | Animal    | Chordata                   | -93500000     | -89300000    | Trinacromerum
 Trinitichelys                            | Animal    | Chordata                   | -99600000     | -93500000    | <>
 Trinocladus                              | Plant     | Chlorophyta                | -99600000     | -93500000    | <>

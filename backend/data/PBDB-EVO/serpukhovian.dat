@@ -1015,8 +1015,8 @@ Physonemus                               | Animal    | Chordata                 
 Pileospongia                             | Animal    | Porifera                   | -326400000    | -318100000   | <>
 Pinna                                    | Animal    | Mollusca                   | -336000000    | -318100000   | Pinna
 Pinnatopora                              | Animal    | Bryozoa                    | -358900000    | -323200000   | <>
-Pinnularia                               | Plant     | Ochrophyta                 | -358900000    | -298900000   | Pinnularia
-Pinnularia                               | Plant     | Sphenophyta                | -358900000    | -298900000   | Pinnularia
+Pinnularia Pinnulariaceae                | Plant     | Ochrophyta                 | -358900000    | -298900000   | Pinnularia
+Pinnularia Calamitaceae                  | Plant     | Sphenophyta                | -358900000    | -298900000   | <>
 Pithodea                                 | Animal    | Mollusca                   | -336000000    | -326400000   | <>
 Pityosporites                            | Plant     | Pinophyta                  | -358900000    | -252170000   | <>
 Plagioglypta                             | Animal    | Mollusca                   | -330900000    | -323200000   | <>
@@ -1052,7 +1052,7 @@ Polypora                                 | Animal    | Bryozoa                  
 Polyrhizodus                             | Animal    | Chordata                   | -326400000    | -318100000   | <>
 Polytylites                              | Animal    | Arthropoda                 | -330900000    | -323200000   | <>
 Porcellia                                | Animal    | Mollusca                   | -336000000    | -326400000   | <>
-Posidonia                                | Animal    | Mollusca                   | -326400000    | -306950000   | Posidonia
+Posidonia Posidoniidae                   | Animal    | Mollusca                   | -326400000    | -306950000   | <>
 Posidoniella                             | Animal    | Mollusca                   | -326400000    | -306950000   | <>
 Poterioceras                             | Animal    | Mollusca                   | -326400000    | -318100000   | <>
 Pothocites                               | Plant     | Angiospermae               | -358900000    | -323200000   | <>

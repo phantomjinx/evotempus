@@ -2304,7 +2304,7 @@ Mesohalina                               | Animal    | Mollusca                 
 Mesolambrus                              | Animal    | Arthropoda                 | -66000000     | -23030000    | <>
 Mesomorpha                               | Animal    | Cnidaria                   | -28100000     | -23030000    | <>
 Mesopeplum                               | Animal    | Mollusca                   | -28100000     | -23030000    | Mesopeplum
-Mesophyllum                              | Plant     | Rhodophyta                 | -28100000     | -23030000    | Mesophyllum
+Mesophyllum Hapalidiaceae                | Plant     | Rhodophyta                 | -28100000     | -23030000    | Mesophyllum
 Mesoplodon                               | Animal    | Chordata                   | -28100000     | -23030000    | Mesoplodon
 Mesoreodon                               | Animal    | Chordata                   | -24800000     | -20430000    | Mesoreodon
 Metadjidaumo                             | Animal    | Chordata                   | -30800000     | -26300000    | <>
@@ -2775,7 +2775,7 @@ Paleryx                                  | Animal    | Chordata                 
 Palimphemus                              | Animal    | Chordata                   | -28100000     | -23030000    | <>
 Palimphyes                               | Animal    | Chordata                   | -33900000     | -23030000    | Palimphyes
 Palinurus                                | Animal    | Arthropoda                 | -66000000     | -23030000    | Palinurus
-Paliurus                                 | Plant     | Spermatophyta              | -28100000     | -23030000    | Paliurus
+Paliurus Rhamnaceae                      | Plant     | Spermatophyta              | -28100000     | -23030000    | Paliurus
 Paljara                                  | Animal    | Chordata                   | -33900000     | -5333000     | <>
 Pallacera                                | Animal    | Mollusca                   | -33900000     | -11608000    | <>
 Palliolum                                | Animal    | Mollusca                   | -28100000     | -23030000    | Palliolum
@@ -2925,7 +2925,7 @@ Persististrombus                         | Animal    | Mollusca                 
 Persoonieaephyllum                       | Plant     | Spermatophyta              | -28400000     | -15970000    | <>
 Peruchilus                               | Animal    | Mollusca                   | -28400000     | -23030000    | <>
 Peruluta                                 | Animal    | Mollusca                   | -28400000     | -23030000    | <>
-Petaloconchus                            | Animal    | Bryozoa                    | -28100000     | -20440000    | Petaloconchus
+Petaloconchus Cheilostomata              | Animal    | Bryozoa                    | -28100000     | -20440000    | <>
 Petauristodon                            | Animal    | Chordata                   | -30800000     | -20430000    | <>
 Petisca                                  | Animal    | Arthropoda                 | -28100000     | -23030000    | <>
 Petraliella                              | Animal    | Bryozoa                    | -33900000     | -5333000     | <>
@@ -3118,7 +3118,7 @@ Polymesoda                               | Animal    | Mollusca                 
 Polymetme                                | Animal    | Chordata                   | -28100000     | -23030000    | Polymetme
 Polymorphina                             | Micro     | Foraminifera               | -28400000     | -23030000    | <>
 Polynemidarum                            | Animal    | Chordata                   | -28100000     | -23030000    | <>
-Polyonyx                                 | Animal    | Arthropoda                 | -66000000     | -23030000    | Polyonyx
+Polyonyx Porcellanidae                   | Animal    | Arthropoda                 | -66000000     | -23030000    | Polyonyx
 Polypodiaceoisporites                    | Plant     | Pteridophyta               | -55800000     | -23030000    | <>
 Polypodiidites                           | Plant     | Pteridophyta               | -28400000     | -15970000    | <>
 Polypodiisporites                        | Plant     | Pteridophyta               | -28400000     | -15970000    | <>
@@ -3708,7 +3708,7 @@ Squatina                                 | Animal    | Chordata                 
 Srinitium                                | Animal    | Chordata                   | -28400000     | -23030000    | <>
 Staphylinus                              | Animal    | Arthropoda                 | -28100000     | -23030000    | Staphylinus
 Steginoporella                           | Animal    | Bryozoa                    | -28100000     | -23030000    | <>
-Stellaria                                | Animal    | Mollusca                   | -28100000     | -23030000    | Stellaria
+Stellaria Xenophoridae                   | Animal    | Mollusca                   | -28100000     | -23030000    | Stellaria_(gastropod)
 Stemec                                   | Animal    | Chordata                   | -28100000     | -23030000    | <>
 Steneofiber                              | Animal    | Chordata                   | -28100000     | -23030000    | Steneofiber
 Stenocarpus                              | Plant     | Spermatophyta              | -33900000     | -15970000    | Stenocarpus
@@ -3965,7 +3965,7 @@ Tricolia                                 | Animal    | Mollusca                 
 Tricolpites                              | Plant     | Spermatophyta              | -100500000    | -23030000    | <>
 Tricolporites                            | Plant     | Spermatophyta              | -28400000     | -11608000    | <>
 Tricolporopollenites                     | Plant     | Spermatophyta              | -28100000     | -23030000    | <>
-Tridactylus                              | Animal    | Arthropoda                 | -28100000     | -23030000    | Tridactylus
+Tridactylus Tridactylidae                | Animal    | Arthropoda                 | -28100000     | -23030000    | Tridactylus
 Triebelina                               | Animal    | Arthropoda                 | -28400000     | -23030000    | <>
 Trifarina                                | Micro     | Foraminifera               | -28100000     | -23030000    | <>
 Trigla                                   | Animal    | Chordata                   | -28100000     | -23030000    | Trigla

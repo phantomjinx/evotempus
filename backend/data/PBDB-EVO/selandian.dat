@@ -1241,7 +1241,7 @@ Mesodma                                  | Animal    | Chordata                 
 Mesolambrus                              | Animal    | Arthropoda                 | -66000000     | -23030000    | <>
 Mesomiltha                               | Animal    | Mollusca                   | -66000000     | -56000000    | <>
 Mesomorpha                               | Animal    | Cnidaria                   | -61600000     | -56000000    | <>
-Mesophyllum                              | Plant     | Rhodophyta                 | -61600000     | -56000000    | Mesophyllum
+Mesophyllum Hapalidiaceae                | Plant     | Rhodophyta                 | -61600000     | -56000000    | Mesophyllum
 Mesorhytis                               | Animal    | Mollusca                   | -66000000     | -59200000    | <>
 Metacerithium                            | Animal    | Mollusca                   | -61600000     | -59200000    | <>
 Metacrinus                               | Animal    | Echinodermata              | -61600000     | -59200000    | Metacrinus
@@ -1259,7 +1259,7 @@ Micromomys                               | Animal    | Chordata                 
 Microphorites                            | Animal    | Arthropoda                 | -66000000     | -37200000    | Microphorites
 Microscyliorhinus                        | Animal    | Chordata                   | -61600000     | -56000000    | <>
 Microtaphrus                             | Animal    | Mollusca                   | -61600000     | -59200000    | <>
-Micula                                   | Plant     | Haptophyta                 | -61600000     | -59200000    | Micula
+Micula                                   | Plant     | Haptophyta                 | -61600000     | -59200000    | <>
 Miltha                                   | Animal    | Mollusca                   | -61600000     | -56000000    | <>
 Mimetodon                                | Animal    | Chordata                   | -61700000     | -56800000    | Mimetodon
 Mimosites                                | Plant     | Spermatophyta              | -66000000     | -56000000    | <>
@@ -1502,7 +1502,7 @@ Paleorhopalosoma                         | Animal    | Arthropoda               
 Paleoropronia                            | Animal    | Arthropoda                 | -61600000     | -59200000    | <>
 Paleotomus                               | Animal    | Chordata                   | -61700000     | -56800000    | <>
 Palinurus                                | Animal    | Arthropoda                 | -66000000     | -23030000    | Palinurus
-Paliurus                                 | Plant     | Spermatophyta              | -66000000     | -2588000     | Paliurus
+Paliurus Rhamnaceae                      | Plant     | Spermatophyta              | -66000000     | -2588000     | Paliurus
 Palmocarpon                              | Plant     | Angiospermae               | -100500000    | -56000000    | <>
 Palmoxylon                               | Plant     | Angiospermae               | -100500000    | -56000000    | Palmoxylon
 Paloreodoxites                           | Plant     | Angiospermae               | -66000000     | -56000000    | <>
@@ -1663,7 +1663,7 @@ Polybothris                              | Animal    | Arthropoda               
 Polycingulatisporites                    | Plant     | Pteridophyta               | -100500000    | -5333000     | <>
 Polygonella                              | Plant     | Chlorophyta                | -66000000     | -56000000    | Polygonella
 Polymesoda                               | Animal    | Mollusca                   | -66000000     | -58700000    | Polymesoda
-Polyonyx                                 | Animal    | Arthropoda                 | -66000000     | -23030000    | Polyonyx
+Polyonyx Porcellanidae                   | Animal    | Arthropoda                 | -66000000     | -23030000    | Polyonyx
 Polypodiidites                           | Plant     | Pteridophyta               | -100500000    | -56000000    | <>
 Polyporina                               | Plant     | Spermatophyta              | -66000000     | -56000000    | <>
 Polystrata                               | Plant     | Rhodophyta                 | -61600000     | -56000000    | <>
@@ -1784,7 +1784,7 @@ Pteria                                   | Animal    | Mollusca                 
 Pterocarya                               | Plant     | Spermatophyta              | -61700000     | -56800000    | Pterocarya
 Pterodonta                               | Animal    | Mollusca                   | -66000000     | -56000000    | <>
 Pteromyrtea                              | Animal    | Mollusca                   | -61600000     | -56000000    | <>
-Pterotheca                               | Plant     | Ochrophyta                 | -66000000     | -56000000    | Pterotheca
+Pterotheca                               | Plant     | Ochrophyta                 | -66000000     | -56000000    | <>
 Pterothrissus                            | Animal    | Chordata                   | -61600000     | -56000000    | Pterothrissus
 Pterygocythereis                         | Animal    | Arthropoda                 | -66000000     | -56000000    | <>
 Ptilodus                                 | Animal    | Chordata                   | -61700000     | -56800000    | Ptilodus
@@ -1872,7 +1872,7 @@ Ringicula                                | Animal    | Mollusca                 
 Rissoa                                   | Animal    | Mollusca                   | -61600000     | -59200000    | Rissoa
 Rissoina                                 | Animal    | Mollusca                   | -61600000     | -59200000    | Rissoina
 Robinia Camerospongiidae                 | Animal    | Porifera                   | -66000000     | -56000000    | <>
-Robinia Fabaceae                         | Animal    | Spermatophyta              | -66000000     | -56000000    | Robinia
+Robinia Fabaceae                         | Plant     | Spermatophyta              | -66000000     | -56000000    | Robinia
 Rogueus                                  | Animal    | Arthropoda                 | -61600000     | -59200000    | <>
 Rosa                                     | Plant     | Spermatophyta              | -66000000     | -2588000     | Rosa
 Rosita                                   | Micro     | Foraminifera               | -83500000     | -55800000    | Rosita
@@ -2146,7 +2146,7 @@ Trigonostoma                             | Animal    | Mollusca                 
 Triletes                                 | Plant     | Pteridophyta               | -66000000     | -56000000    | <>
 Trilites                                 | Plant     | Pteridophyta               | -100500000    | -23030000    | <>
 Triloculina                              | Micro     | Foraminifera               | -61600000     | -56000000    | Triloculina
-Trinacria                                | Plant     | Ochrophyta                 | -66000000     | -56000000    | Trinacria
+Trinacria Hemiaulaceae                   | Micro     | Ochrophyta                 | -66000000     | -56000000    | Trinacria_(diatom)
 Trinocladus                              | Plant     | Chlorophyta                | -61600000     | -56000000    | <>
 Trionyx                                  | Animal    | Chordata                   | -61700000     | -56800000    | Trionyx
 Triorites                                | Plant     | Spermatophyta              | -100500000    | -33900000    | <>
@@ -2231,7 +2231,7 @@ Vulvulina                                | Micro     | Foraminifera             
 Waimanu                                  | Animal    | Chordata                   | -61600000     | -59200000    | Waimanu
 Walbeckodon                              | Animal    | Chordata                   | -61600000     | -59200000    | <>
 Walbeckornis                             | Animal    | Chordata                   | -61600000     | -59200000    | <>
-Walteria                                 | Animal    | Porifera                   | -66000000     | -53000000    | Walteria
+Walteria                                 | Animal    | Porifera                   | -66000000     | -53000000    | <>
 Wannaganosuchus                          | Animal    | Chordata                   | -61700000     | -56800000    | Wannaganosuchus
 Wanolestes                               | Animal    | Chordata                   | -61700000     | -58700000    | <>
 Wanosuchus                               | Animal    | Chordata                   | -66000000     | -56000000    | Wanosuchus

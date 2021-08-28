@@ -1617,7 +1617,7 @@ Goniopora                                | Animal    | Cnidaria                 
 Goniopteris                              | Plant     | Pteridophyta               | -55800000     | -2588000     | Goniopteris
 Goodallia                                | Animal    | Mollusca                   | -41300000     | -38000000    | Goodallia
 Gordius                                  | Animal    | Nematomorpha               | -48600000     | -37200000    | Gordius
-Gordonia                                 | Plant     | Spermatophyta              | -41300000     | -38000000    | Gordonia
+Gordonia Theaceae                        | Plant     | Spermatophyta              | -41300000     | -38000000    | Gordonia_(plant)
 Gornylistes                              | Animal    | Chordata                   | -41300000     | -38000000    | <>
 Gosavia                                  | Animal    | Mollusca                   | -41300000     | -38000000    | <>
 Gothanipollis                            | Plant     | Spermatophyta              | -48600000     | -33900000    | <>
@@ -2203,7 +2203,7 @@ Makiyamaia                               | Animal    | Mollusca                 
 Malapoenna                               | Plant     | Spermatophyta              | -48600000     | -37200000    | <>
 Malaquiferus                             | Animal    | Chordata                   | -46200000     | -40400000    | <>
 Malletia                                 | Animal    | Mollusca                   | -41300000     | -33900000    | <>
-Mallotus                                 | Plant     | Spermatophyta              | -48600000     | -37200000    | Mallotus
+Mallotus Euphorbiaceae                   | Plant     | Spermatophyta              | -48600000     | -37200000    | Mallotus_(plant)
 Malvacarpus                              | Plant     | Spermatophyta              | -55800000     | -5333000     | <>
 Malvacipollis                            | Plant     | Spermatophyta              | -48600000     | -37200000    | <>
 Mammacyon                                | Animal    | Chordata                   | -41300000     | -38000000    | Mammacyon
@@ -2319,7 +2319,7 @@ Mesolambrus                              | Animal    | Arthropoda               
 Mesomeryx                                | Animal    | Chordata                   | -46200000     | -40400000    | <>
 Mesomorpha                               | Animal    | Cnidaria                   | -41300000     | -38000000    | <>
 Mesonyx                                  | Animal    | Chordata                   | -46200000     | -40400000    | Mesonyx
-Mesophyllum                              | Plant     | Rhodophyta                 | -41300000     | -33900000    | Mesophyllum
+Mesophyllum Hapalidiaceae                | Plant     | Rhodophyta                 | -41300000     | -33900000    | Mesophyllum
 Mesornatus                               | Animal    | Arthropoda                 | -48600000     | -40400000    | <>
 Messelastur                              | Animal    | Chordata                   | -48600000     | -40400000    | Messelastur
 Messelepone                              | Animal    | Arthropoda                 | -48600000     | -40400000    | Messelepone
@@ -2371,7 +2371,7 @@ Microreticulatisporites                  | Plant     | Pteridophyta             
 Microsurcula                             | Animal    | Mollusca                   | -41300000     | -38000000    | <>
 Microsyops                               | Animal    | Chordata                   | -46200000     | -40400000    | Microsyops
 Microtitan                               | Animal    | Chordata                   | -48600000     | -37200000    | <>
-Milax                                    | Animal    | Mollusca                   | -41300000     | -38000000    | Milax
+Milax Milacidae                          | Animal    | Mollusca                   | -41300000     | -38000000    | Milax_(gastropod)
 Milfordia                                | Plant     | Angiospermae               | -48600000     | -40400000    | <>
 Millepora                                | Animal    | Cnidaria                   | -41300000     | -33900000    | Millepora
 Miltha                                   | Animal    | Mollusca                   | -41300000     | -38000000    | <>
@@ -2447,7 +2447,7 @@ Mylomyrus                                | Animal    | Chordata                 
 Myohyrax                                 | Animal    | Chordata                   | -41300000     | -38000000    | <>
 Myrceugenia                              | Plant     | Spermatophyta              | -48600000     | -37200000    | Myrceugenia
 Myrica                                   | Plant     | Spermatophyta              | -55800000     | -5333000     | Myrica
-Myriophyllum                             | Plant     | Spermatophyta              | -48600000     | -37200000    | Myriophyllum
+Myriophyllum Haloragaceae                | Plant     | Spermatophyta              | -48600000     | -37200000    | Myriophyllum
 Myristicacarpum                          | Plant     | Spermatophyta              | -48600000     | -37200000    | <>
 Myristica                                | Plant     | Spermatophyta              | -55800000     | -5333000     | Myristica
 Myrsine                                  | Plant     | Spermatophyta              | -56000000     | -33900000    | Myrsine
@@ -2756,7 +2756,7 @@ Paleofroeschnerius                       | Animal    | Arthropoda               
 Paleryx                                  | Animal    | Chordata                   | -56000000     | -15970000    | <>
 Palimphyes                               | Animal    | Chordata                   | -41300000     | -38000000    | Palimphyes
 Palinurus                                | Animal    | Arthropoda                 | -66000000     | -23030000    | Palinurus
-Paliurus                                 | Plant     | Spermatophyta              | -56000000     | -33900000    | Paliurus
+Paliurus Rhamnaceae                      | Plant     | Spermatophyta              | -56000000     | -33900000    | Paliurus
 Palliolum                                | Animal    | Mollusca                   | -41300000     | -38000000    | Palliolum
 Palmocarpon                              | Plant     | Angiospermae               | -55800000     | -23030000    | <>
 Palmophyllum                             | Plant     | Angiospermae               | -56000000     | -33900000    | Palmophyllum
@@ -2922,7 +2922,7 @@ Persicula                                | Animal    | Mollusca                 
 Perulestes                               | Animal    | Chordata                   | -48600000     | -37200000    | <>
 Peruluta                                 | Animal    | Mollusca                   | -41300000     | -38000000    | <>
 Petalocardia                             | Animal    | Mollusca                   | -55800000     | -37200000    | <>
-Petaloconchus                            | Animal    | Mollusca                   | -41300000     | -38000000    | Petaloconchus
+Petaloconchus Vermetidae                 | Animal    | Mollusca                   | -41300000     | -38000000    | Petaloconchus
 Petricola                                | Animal    | Mollusca                   | -41300000     | -38000000    | Petricola
 Petrokozlovia                            | Animal    | Chordata                   | -48600000     | -37200000    | <>
 Petrolestes                              | Animal    | Arthropoda                 | -46200000     | -40400000    | <>
@@ -3085,7 +3085,7 @@ Polyhelictes                             | Animal    | Arthropoda               
 Polymesoda                               | Animal    | Mollusca                   | -47800000     | -38000000    | Polymesoda
 Polymita                                 | Animal    | Mollusca                   | -46200000     | -40400000    | Polymita
 Polymorphina                             | Micro     | Foraminifera               | -41300000     | -38000000    | <>
-Polyonyx                                 | Animal    | Arthropoda                 | -66000000     | -23030000    | Polyonyx
+Polyonyx Porcellanidae                   | Animal    | Arthropoda                 | -66000000     | -23030000    | Polyonyx
 Polypodiaceoisporites                    | Plant     | Pteridophyta               | -48600000     | -33900000    | <>
 Polypodiidites                           | Plant     | Pteridophyta               | -56000000     | -33900000    | <>
 Polypodiisporites                        | Plant     | Pteridophyta               | -48600000     | -37200000    | <>
@@ -3116,7 +3116,7 @@ Porpitella                               | Animal    | Echinodermata            
 Portlandia                               | Animal    | Mollusca                   | -41300000     | -38000000    | Portlandia
 Portunites                               | Animal    | Arthropoda                 | -41300000     | -33900000    | Portunites
 Portunus                                 | Animal    | Arthropoda                 | -41300000     | -38000000    | Portunus
-Posidonia                                | Plant     | Angiospermae               | -56000000     | -33900000    | Posidonia
+Posidonia Posidoniaceae                  | Plant     | Angiospermae               | -56000000     | -33900000    | Posidonia
 Potamides                                | Animal    | Mollusca                   | -41300000     | -38000000    | Potamides
 Potamogeton                              | Plant     | Angiospermae               | -41300000     | -38000000    | Potamogeton
 Potamomya                                | Animal    | Mollusca                   | -41300000     | -38000000    | Potamomya
@@ -3972,8 +3972,8 @@ Trigonulina                              | Animal    | Mollusca                 
 Trilites                                 | Plant     | Pteridophyta               | -100500000    | -23030000    | <>
 Triloculina                              | Micro     | Foraminifera               | -41300000     | -38000000    | Triloculina
 Trimalaxis                               | Animal    | Mollusca                   | -41300000     | -38000000    | <>
-Trinacria                                | Animal    | Mollusca                   | -41300000     | -38000000    | Trinacria
-Trinacria                                | Plant     | Ochrophyta                 | -47800000     | -38000000    | Trinacria
+Trinacria Noetiidae                      | Animal    | Mollusca                   | -41300000     | -38000000    | <>
+Trinacria Hemiaulaceae                   | Micro     | Ochrophyta                 | -47800000     | -38000000    | Trinacria_(diatom)
 Trinocladus                              | Plant     | Chlorophyta                | -47800000     | -28100000    | <>
 Triodon                                  | Animal    | Chordata                   | -41300000     | -38000000    | Triodon
 Trionyx                                  | Animal    | Chordata                   | -41300000     | -28100000    | Trionyx

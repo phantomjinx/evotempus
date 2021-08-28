@@ -258,7 +258,7 @@ async function createHint(dataRow) {
   //
   // Automatically deduplicates and finish in its own time
   //
-  Hint.findByIdAndUpdate({
+  await Hint.findByIdAndUpdate({
     _id: id
   }, {
     "$set": {

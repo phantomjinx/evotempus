@@ -30,7 +30,7 @@ var IntervalSchema = new Schema({
 },
 { versionKey: 'version' });
 
-IntervalSchema.index({ name: 'text', kind: 'text' });
+// Create index after import
 
 // define our interval model
 module.exports = {

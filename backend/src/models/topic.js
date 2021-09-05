@@ -34,7 +34,7 @@ var TopicSchema = new Schema({
 },
 { versionKey: 'version' });
 
-TopicSchema.index({ topic: 'text', description: 'text' });
+// Create index after import
 
 // define our interval descrption model
 module.exports = {

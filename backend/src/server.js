@@ -91,6 +91,12 @@ async function importDbData(conn) {
   }
 }
 
+async function indexDb(conn) {
+  await Interval.collection.createIndex({ name: 'text', kind: 'text' });
+  await Topic.collection.createIndex({ topic: 'text', description: 'text' });
+  await Subject.collection.createIndex({ name: 'text', kind: 'text', category: 'text' });
+}
+
 function init() {
   logger.debug("INFO: Initialising the server application on port " + port);
 
@@ -182,20 +188,6 @@ mongoose.set('debug', process.env.LOG_LEVEL === 'debug');
 mongoose.connect(mongoDbURI, evoDb.options);
 evoDb.conn = mongoose.connection;
 
-function indexCb(err) {
-  if (err) {
-    logger.error(err, 'Index error');
-    evoDb.terminate();
-  } else {
-    logger.debug('Indexing complete');
-  }
-}
-
-Interval.on('index', indexCb);
-Subject.on('index', indexCb);
-Topic.on('index', indexCb);
-Hint.on('index', indexCb);
-
 evoDb.conn.on('Error', () => {
   logger.error('ERROR: Database connection failed.');
   evoDb.terminate();
@@ -216,6 +208,9 @@ async function prepareDatabase() {
 
     await importDbData(evoDb.conn);
     logger.debug("INFO: Database importing complete");
+
+    await indexDb(evoDb.conn);
+    logger.debug("INFO: Database indexing complete");
 
     init();
   } catch (err) {

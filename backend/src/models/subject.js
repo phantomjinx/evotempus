@@ -52,7 +52,7 @@ var SubjectSchema = new Schema({
 },
 { versionKey: 'version' });
 
-SubjectSchema.index({ name: 'text', kind: 'text', category: 'text' });
+// Create index after import
 
 // define our subject model
 module.exports = {

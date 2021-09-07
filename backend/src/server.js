@@ -85,6 +85,8 @@ async function importDbData(conn) {
 
     importing.reportStats();
 
+    logger.debug("INFO: Database importing complete");
+
   } catch (err) {
     logger.error(err);
     evoDb.terminate();
@@ -95,6 +97,8 @@ async function indexDb(conn) {
   await Interval.collection.createIndex({ name: 'text', kind: 'text' });
   await Topic.collection.createIndex({ topic: 'text', description: 'text' });
   await Subject.collection.createIndex({ name: 'text', kind: 'text', category: 'text' });
+
+  logger.debug("INFO: Database indexing complete");
 }
 
 function init() {
@@ -204,13 +208,10 @@ process.on('unhandledRejection', (err) => {
 async function prepareDatabase() {
   try {
     await cleanDb(evoDb.conn);
-    logger.debug("INFO: Database cleaning complete");
 
     await importDbData(evoDb.conn);
-    logger.debug("INFO: Database importing complete");
 
     await indexDb(evoDb.conn);
-    logger.debug("INFO: Database indexing complete");
 
     init();
   } catch (err) {

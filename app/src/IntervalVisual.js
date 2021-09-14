@@ -321,11 +321,6 @@ class IntervalSunburst extends React.Component {
     this.labels.transition(t)
       .attr("fill-opacity", d => +this.labelVisible(d.target))
       .attrTween("transform", d => () => this.labelTransform(d.current));
-
-    //
-    // Try and reselect the currently selected if still visible
-    //
-    this.select(origSelected);
   }
 
   //
@@ -342,6 +337,11 @@ class IntervalSunburst extends React.Component {
 
     // Navigate to the interval
     this.navigate(p);
+
+    //
+    // Try and reselect the currently selected if still visible
+    //
+    this.select(this.selected);
   }
 
   select(interval) {

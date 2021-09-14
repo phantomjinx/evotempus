@@ -24,7 +24,8 @@ var HintSchema = new Schema({
     type:  {type: String, enum: ['Kind', 'Category']},
     parent: {type: String, ref: 'Hint'},
     colour: String,
-    link: String
+    link: String,
+    order: Number
 },
 { versionKey: 'version' });
 

@@ -240,6 +240,7 @@ async function createHint(dataRow) {
   let parent = dataRow[2].trim();
   let colour = dataRow[3].trim();
   let link = dataRow[4].trim();
+  let order = dataRow[5].trim();
 
   if (parent == "<>") {
     parent = "";
@@ -253,7 +254,13 @@ async function createHint(dataRow) {
     link = "";
   }
 
-  logger.debug("Creating hint: id: " + id + " type: " + type + " parent: " + parent + " colour: " + colour + " link: " + link);
+  if (utils.valueUnknown(order)) {
+    order = 0;
+  } else {
+    order = utils.parseNumber(order, id);
+  }
+
+  logger.debug("Creating hint: id: " + id + " type: " + type + " parent: " + parent + " colour: " + colour + " link: " + link + " order: " + order);
 
   //
   // Automatically deduplicates and finish in its own time
@@ -265,7 +272,8 @@ async function createHint(dataRow) {
       type: type,
       parent: parent,
       colour: colour,
-      link: link
+      link: link,
+      order: order
     },
     "$setOnInsert": {
       _id: id

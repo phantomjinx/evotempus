@@ -115,7 +115,7 @@ export default class Wiki extends React.Component {
 
     const headerButton = (
       <button
-        id="wiki-closebtn" className="fa fa-times"
+        id="wiki-closebtn" className="fas fa-times"
         onClick={this.props.onToggleWiki}>
       </button>
     )

@@ -1,6 +1,7 @@
 @import "bootstrap/scss/_functions.scss";
 @import "bootstrap/scss/_variables.scss";
 @import "bootstrap/scss/_mixins.scss";
+@import "common.scss";
 
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
@@ -16,6 +17,7 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
       }
 
       #wiki-closebtn {
+        @include fontawesome-icon;
         flex: 0 1 auto;
         text-decoration: none;
         text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px slategray;

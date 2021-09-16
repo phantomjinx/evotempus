@@ -1,3 +1,5 @@
+@import "common.scss";
+
 $help-color: #ab8dcc;
 $font: bold 16px firasans;
 
@@ -29,6 +31,7 @@ $font: bold 16px firasans;
       }
 
       .help-page-closebtn {
+        @include fontawesome-icon;
         flex: 0 0 auto;
         margin-left: 5%;
         margin-right: 1%;

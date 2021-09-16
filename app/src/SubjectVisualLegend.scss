@@ -1,6 +1,7 @@
 @import "bootstrap/scss/_functions.scss";
 @import "bootstrap/scss/_variables.scss";
 @import "bootstrap/scss/_mixins.scss";
+@import "common.scss";
 
 $max-height: 65vh;
 $font: bold 12px firasans;
@@ -44,6 +45,7 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
       margin-bottom: 0.2em;
 
       .subject-visual-legend-closebtn {
+        @include fontawesome-icon;
         float:right;
         margin-right: 0.5em;
         text-decoration: none;

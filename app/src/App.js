@@ -1,5 +1,5 @@
 import React from 'react';
-import 'font-awesome/css/font-awesome.min.css';
+import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
@@ -235,7 +235,7 @@ class App extends React.Component {
         <nav className="header navbar navbar-expand-lg">
           <p className="header-title">EvoTempus</p>
           <p className="header-title collapse navbar-collapse">Dashboard of Earth History</p>
-          <button id="collapsible" className="navbar-toggler fa fa-bars" type="button" data-toggle="collapse"
+          <button id="collapsible" className="navbar-toggler fas fa-bars" type="button" data-toggle="collapse"
                   data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                   aria-expanded="false" aria-label="Toggle navigation">
           </button>
@@ -248,7 +248,7 @@ class App extends React.Component {
         </nav>
         <div className="interval-visual-group">
           <div className="interval-visual-help">
-            <button id="interval-visual-help-btn" className="fa fa-question-circle" onClick={() => this.toggleHelp()}/>
+            <button id="interval-visual-help-btn" className="fas fa-question-circle" onClick={() => this.toggleHelp()}/>
           </div>
           <div className="interval-visual" ref={this.intervalVisualRef}>
             {intervalVisual}

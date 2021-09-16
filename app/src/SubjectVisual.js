@@ -13,7 +13,7 @@ import {color as d3Color} from 'd3-color';
 import {zoom as d3Zoom} from 'd3-zoom';
 import {select as d3Select} from 'd3-selection';
 import {interpolateRound as d3InterpolateRound} from 'd3-interpolate';
-import 'font-awesome/css/font-awesome.min.css';
+import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
 import SubjectVisualLegend from './SubjectVisualLegend.js';

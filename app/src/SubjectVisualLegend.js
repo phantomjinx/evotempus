@@ -1,5 +1,5 @@
 import React from 'react';
-import 'font-awesome/css/font-awesome.min.css';
+import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
 import Pagination from "react-pagination-js";
 import "react-pagination-js/dist/styles.css"; // import css
 import {color as d3Color} from 'd3-color';
@@ -146,7 +146,7 @@ export default class SubjectVisualLegend extends React.Component {
         <div className="subject-visual-legend-content">
           <div className="subject-visual-legend-title-row">
             <button
-              className="subject-visual-legend-closebtn fa fa-times"
+              className="subject-visual-legend-closebtn fas fa-times"
               onClick={this.props.onToggleLegend}>
             </button>
           </div>

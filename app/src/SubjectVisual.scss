@@ -1,3 +1,5 @@
+@import "common.scss";
+
 $max-height: 65vh;
 $font: bold calc(max(5vw, 5vh)) firasans;
 $bg-border-color: #2e035e;
@@ -20,6 +22,7 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
   padding-bottom: 0.5em;
 
   #subject-visual-legend-btn {
+    @include fontawesome-icon;
     position: absolute;
     left: 0.5em;
     top: 0.5em;

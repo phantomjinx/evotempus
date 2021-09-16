@@ -1,6 +1,7 @@
 @import "bootstrap/scss/_functions.scss";
 @import "bootstrap/scss/_variables.scss";
 @import "bootstrap/scss/_mixins.scss";
+@import "common.scss";
 
 $help-color: #ab8dcc;
 $main-visual-height: 65vh;
@@ -175,6 +176,7 @@ $app-right-margin: 2vh;
     }
 
     #collapsible {
+      @include fontawesome-icon;
       padding: 0;
       color: white;
     }
@@ -194,6 +196,7 @@ $app-right-margin: 2vh;
       top: 0.5em;
 
       #interval-visual-help-btn {
+        @include fontawesome-icon;
         cursor: pointer;
         border: none;
         font-size: 1.5rem;

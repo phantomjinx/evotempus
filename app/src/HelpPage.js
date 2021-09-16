@@ -10,7 +10,7 @@ export default class HelpPage extends React.Component {
           <div className="help-page-title">
             <h5 className="help-page-title-text help-page-bold">Introduction</h5>
             <button
-              className="help-page-closebtn fa fa-times"
+              className="help-page-closebtn fas fa-times"
               onClick={() => this.props.onToggleHelp(false)}>
             </button>
           </div>

@@ -269,7 +269,7 @@ export default class Search extends React.Component {
             value={this.state.searchTerm}
             onChange={this.handleChange}
           />
-          <button className="fa fa-search search-button" type="submit"/>
+          <button className="fas fa-search search-button" type="submit"/>
         </form>
       </div>
     );
@@ -277,7 +277,7 @@ export default class Search extends React.Component {
     const closeButton = (
       <div>
         <button
-          className="search-results-closebtn fa fa-times"
+          className="search-results-closebtn fas fa-times"
           onClick={this.closeSearchResults}>
         </button>
       </div>

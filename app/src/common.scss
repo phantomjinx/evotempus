@@ -1,0 +1,8 @@
+@import "bootstrap/scss/_functions.scss";
+@import "bootstrap/scss/_variables.scss";
+@import "bootstrap/scss/_mixins.scss";
+
+@mixin fontawesome-icon {
+  font-family: "fontawesome";
+  font-weight: 900;
+}

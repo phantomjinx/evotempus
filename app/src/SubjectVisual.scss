@@ -4,7 +4,7 @@ $max-height: 65vh;
 $font: bold calc(max(5vw, 5vh)) firasans;
 $bg-border-color: #2e035e;
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
-$clicked-shadow: drop-shadow(0px 0px 15px yellow);
+$clicked-shadow: drop-shadow(0px 0px 10px black);
 $hover-shadow: drop-shadow(0px 0px 15px orange);
 
 .subject-visual-loading {
@@ -84,8 +84,8 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
       }
 
       .subject-outline-clicked {
-        stroke-width: 4 !important;
-        stroke: yellow !important;
+        stroke-width: 15 !important;
+        stroke: black !important;
         filter: $clicked-shadow !important;
         cursor: grabbing;
       }

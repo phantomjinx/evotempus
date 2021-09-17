@@ -101,6 +101,157 @@ async function indexDb(conn) {
   logger.debug("INFO: Database indexing complete");
 }
 
+const laneMAX = 15;
+
+function subjectOverlaps(lane, subject) {
+  const buffer = Math.abs(0.01 * Math.max(subject.from, subject.to));
+
+  for (let i = 0; i < lane.length; ++i) {
+    const s = lane[i];
+    const bufferedFrom = subject.from - buffer;
+    const bufferedTo = subject.to + buffer;
+
+    if (bufferedTo > s.from && bufferedFrom <= s.to) {
+      // where subject.to falls within s.range
+      return true;
+    }
+
+    if (bufferedFrom >= s.from && bufferedFrom < s.to) {
+      // where subject.from falls within s.range
+      return true;
+    }
+
+    if (bufferedFrom <= s.from && bufferedTo >= s.to) {
+      // where subject.range is wider than s.range
+      return true;
+    }
+  }
+
+  return false;
+}
+
+// bin is an array of lanes
+function addSubjectToBin(bin, subject) {
+  for (let i = 0; i < bin.length; i++) {
+    let lane = bin[i];
+    const overlaps = subjectOverlaps(lane, subject);
+    if (! overlaps) {
+      lane.push(subject);
+      return true;
+    }
+  }
+
+  //
+  // Restrict number of lanes to laneMax for this bin
+  //
+  if (bin.length < laneMAX) {
+    //
+    // Subject could not be added to existing lanes
+    // Create a new lane
+    //
+    let lane = [];
+    lane.push(subject);
+    bin.push(lane);
+    return true;
+  }
+
+  return false;
+}
+
+function addSubjectToBins(bins, subject) {
+  for (const bin of bins) {
+    if (addSubjectToBin(bin, subject)) {
+      return;
+    }
+  }
+
+  // Subject not added yet
+  let bin = [];
+  addSubjectToBin(bin, subject);
+  bins.push(bin);
+}
+
+async function groupSubjects(conn) {
+  const subjects = await Subject.find()
+  .sort({ "category": 1, "from": 1, "to": 1 })
+  .exec();
+
+  logger.debug("Subjects: " + subjects.length);
+
+  const kindMap = new Map();
+  subjects.forEach((subject, index) => {
+    let subjects = kindMap.get(subject.kind);
+    if (!subjects) {
+      subjects = [];
+      kindMap.set(subject.kind, subjects);
+    }
+
+    subjects.push(subject);
+  });
+
+  const s = kindMap.get("Plant").sort((s1, s2) => {
+    const s1r = s1.to - s1.from;
+    const s2r = s2.to - s2.from;
+    return s2r - s1r;
+  });
+
+  const binsMap = new Map();
+  s.forEach((subject, index, kind) => {
+    console.log(subject.name + " " + subject.from + " " + (subject.to - subject.from));
+    let bins = binsMap.get(subject.kind);
+    if (!bins) {
+      bins = [];
+      binsMap.set(subject.kind, bins);
+    }
+
+    addSubjectToBins(bins, subject);
+    if (index % 1000 == 0) {
+      console.log("Kind: " + subject.kind + " - Added " + subject.name + " (" + (index + 1) + " of " + kind.length + ") - Size: " + bins.length);
+    }
+  });
+
+  console.log("\n\n=== Group Results ===");
+  const binsKeys = Array.from(binsMap.keys()).sort();
+
+  const laneSizes = new Map();
+  for (const kind of binsKeys.values()) {
+    const bins = binsMap.get(kind);
+    let output = "Kind: " + kind + " - Bins: " + String(bins.length).padStart(3, '0') + "\n";
+    for (let i = 0; i < bins.length; ++i) {
+      const bin = bins[i];
+      output = output.concat(" Bin[" + String((i + 1)).padStart(3, '0') + "]: ");
+
+      for (let j = 0; j < bin.length; ++j) {
+        const lane = bin[j];
+        const laneSizeKey = String(lane.length);
+        let freq = laneSizes.get(laneSizeKey);
+        if (!freq) {
+          laneSizes.set(laneSizeKey, 1);
+        } else {
+          laneSizes.set(laneSizeKey, (freq + 1));
+        }
+
+        output = output.concat(" L" + String((j + 1)).padStart(2, '0') + ": " + String(lane.length).padStart(2, '0'));
+      }
+      output = output.concat("\n");
+    }
+    console.log(output);
+
+    const lastbin = bins[bins.length - 1];
+    for (const lane of lastbin) {
+      for (const subject of lane) {
+        console.log(subject.name + ": " + subject.from + " - " + subject.to);
+      }
+    }
+
+    const laneSizesKeys = Array.from(laneSizes.keys()).sort();
+    for (const laneSize of laneSizesKeys.values()) {
+      const freq = laneSizes.get(laneSize);
+      console.log("Lane Size " + laneSize + ": " + freq);
+    }
+  }
+}
+
 function init() {
   logger.debug("INFO: Initialising the server application on port " + port);
 
@@ -212,6 +363,8 @@ async function prepareDatabase() {
     await importDbData(evoDb.conn);
 
     await indexDb(evoDb.conn);
+
+    await groupSubjects(evoDb.conn);
 
     init();
   } catch (err) {

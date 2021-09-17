@@ -1,0 +1,30 @@
+* Add a Readme for github
+
+* Create limit queries for subjects to return MAX (TBD)
+ ** 857 plants
+ ** Bin-packing algorithm to group the plants into non-overlapping 'bins'
+ ** Bin optimisation to have tolerance of X number of lanes (X TBD)
+  - ie. If 2 plants overlap then can add 2nd up to X lanes
+ ** Deduce minimum number of bins by experimenting with tolerance
+
+    X                  XY                 Y
+    |      --A-- --B--  |  --C-- --D--    |
+    |        --E-- --F--|     --G-- --H-- |
+
+* Create visual "next" / "prev" for displaying next MAX
+
+* Search will search for subject then show MAX that contains it
+
+* Need more obvious selection highlighting
+
+* Search still seems to show interval rather than subject use "Aspidella" to debug
+
+* Add lower margin to bottom of legend to show there is no overflow
+
+* Data to Fix
+ ** Nypa or NYPA may refer to: Nypa (plant), a genus of palms New York Power Authority Not Your Personal Army, a phrase commonly used by Anonymous
+
+=====
+
+* Next Version
+ * Clock overlay

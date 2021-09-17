@@ -22,10 +22,14 @@ const mongoose = require('mongoose');
 const path = require('path');
 const topic = require('./topics');
 
+const MAX_LIMIT = 100;
+
 // subjects api route
 router.get('/', (req, res) => {
   let from = req.query.from;
   let to = req.query.to;
+  let max = req.query.max;
+  let skip = req.query.skip;
 
   if (!from) {
     from = -4600000000; // Earliest date of the pre-cambrian
@@ -35,18 +39,29 @@ router.get('/', (req, res) => {
     to = new Date().getFullYear();
   }
 
+  if (!max) {
+    max = MAX_LIMIT;
+  }
+
+  if (!skip) {
+    skip = 0;
+  }
+
   Subject.find({
     $or: [
       { to: {$gt: from, $lte: to} },                     // where to falls within range
       { from: {$gte: from, $lt: to} },                   // where from falls within range
       { $and: [{from: {$lte: from}}, {to: {$gte: to}}] } // where from->to is wider than range
     ]
-  }).sort({ "category": 1, "from": 1, "to": 1 })
-    .then(subjects => res.json(subjects))
-    .catch(err => {
-      console.log(err);
-      res.status(500).send(err);
-    });
+  })
+  .sort({ "category": 1, "from": 1, "to": 1 })
+  // .limit(max)
+  // .skip(skip)
+  .then(subjects => res.json(subjects))
+  .catch(err => {
+    console.log(err);
+    res.status(500).send(err);
+  });
 });
 
 router.get('/categories', (req, res) => {

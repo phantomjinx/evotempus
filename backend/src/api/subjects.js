@@ -188,8 +188,10 @@ router.get('/', async (req, res) => {
       if (page) {
         // page is defined as minimum of 1 as start so subtract 1 to get array position
         kindResults[kind] = { pages: pages.slice((page - 1), page) };
+        kindResults[kind].page = parseInt(page);
       } else {
         kindResults[kind] = { pages: pages };
+        kindResults[kind].page = parseInt(1);
       }
 
       kindResults[kind].count = pages.length;

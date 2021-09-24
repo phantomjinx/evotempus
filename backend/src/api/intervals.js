@@ -45,7 +45,8 @@ router.get('/', (req, res) => {
   logger.debug("Intervals being run with filter: " + JSON.stringify(filter));
 
   Interval.find(
-    filter
+    filter,
+    { version: 0 }
   ).then(intervals => {
 
     if (intervals.length <= 1) {

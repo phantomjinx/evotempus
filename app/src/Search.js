@@ -132,7 +132,9 @@ export default class Search extends React.Component {
               //
               // Selected the returned interval
               //
+              console.log("Selecting Search Interval Target: " + res.data[0].name);
               this.props.onSelectedIntervalChange(res.data[0]);
+              console.log("Selecting Search Subject Target: " + target.name);
               this.props.onSelectedSubjectChange(target);
             }
           }).catch((err) => {

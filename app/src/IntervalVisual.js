@@ -261,7 +261,6 @@ class IntervalSunburst extends React.Component {
       return;
     }
 
-    const origSelected = this.selected;
     this.displaySelectionOutline(this.selected, false);
 
     const t = this.g.transition().duration(750);
@@ -361,6 +360,7 @@ class IntervalSunburst extends React.Component {
       // Tag the data with this as the owner
       //
       this.selected.data.owner = this.svgId;
+      console.log("IntervalVisual: select() " + this.selected.data.name);
       this.props.onSelectedIntervalChange(this.selected.data);
     }
   }
@@ -391,13 +391,16 @@ class IntervalSunburst extends React.Component {
     if (! interval) {
       return;
     }
+    console.log("IntervalVisual - traverseToInterval() " + interval.name);
 
     //
     // Find the actual interval in our hierarchy
     //
     let visInterval = null;
     this.root.each(d => {
-      if (d.id === this.props.interval._id) {
+      console.log("IntervalVisual - Finding interval: " + d.id + " v " + interval._id);
+      if (d.id === interval._id) {
+        console.log("Found interval !!!");
         visInterval = d; // Found it!
         return;
       }
@@ -407,6 +410,8 @@ class IntervalSunburst extends React.Component {
       console.log("Error: Cannot proceed due to failure to find navigated interval");
       return;
     }
+
+    console.log("IntervalVisual - traverseToInterval() visInterval: " + visInterval.id);
 
     if (visInterval.children) {
       //
@@ -421,6 +426,7 @@ class IntervalSunburst extends React.Component {
       this.navigate(visInterval.parent);
     }
 
+    console.log("IntervalVisual - traverseToInterval() select: " + visInterval.id);
     this.select(visInterval);
   }
 

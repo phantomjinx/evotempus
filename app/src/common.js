@@ -38,14 +38,34 @@ export var colourRange = [
 ];
 
 var hints = {};
+var kinds = [];
 export function setHints(hintArr) {
   hints = {};
   for (const h of hintArr.values()) {
     hints[h._id] = {
       colour: h.colour,
-      link: h.link
+      link: h.link,
+      order: h.order
     };
+
+    if (h.type === 'Kind') {
+      kinds.push(h._id);
+    }
   }
+
+  kinds = sortKinds(kinds);
+}
+
+export function getKinds() {
+  return kinds;
+}
+
+export function sortKinds(kindArr) {
+  kindArr.sort((a, b) => {
+    return hints[a].order - hints[b].order;
+  });
+
+  return kindArr;
 }
 
 export function hasHintColour(hint) {

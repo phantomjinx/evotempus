@@ -78,6 +78,15 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
         }
       }
 
+      .pageLeftBtn, .pageRightBtn {
+        @include fontawesome-icon;
+        cursor: pointer;
+      }
+
+      .pageBtnHide {
+        visibility: hidden;
+      }
+
       .laneBackground {
         stroke-width: 1;
         stroke: $bg-border-color;
@@ -90,5 +99,22 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
         cursor: grabbing;
       }
     }
+  }
+
+  .pageBtnTooltip {
+    position: absolute;
+    opacity: 0.9;
+    z-index: 100;
+    background-color: white;
+    color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 2px;
+    box-shadow: $tile-shadow;
+  }
+
+  .pageBtnTooltipHide {
+    opacity: 0;
   }
 }

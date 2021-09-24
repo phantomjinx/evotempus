@@ -25,6 +25,7 @@ class App extends React.Component {
        * with schema { id (string), name (string), filtered (boolean) }
        */
       categories: [],
+      kinds: [],
       subject: undefined,
       legendVisible: false,
       wikiVisible: false,
@@ -61,6 +62,10 @@ class App extends React.Component {
           this.logErrorState("Failed to fetch hints", new Error("Response data payload was empty."));
         } else {
           common.setHints(res.data);
+
+          this.setState({
+            kinds: common.getKinds()
+          })
         }
       }).catch((err) => {
         this.logErrorState("Failed to fetch hints data", err);
@@ -100,6 +105,11 @@ class App extends React.Component {
   }
 
   handleIntervalChange(interval) {
+    if (interval) {
+      console.log("App - handleIntervalChange: " + interval.name);
+      console.log(interval);
+    }
+
     if (interval && this.state.interval && interval._id === this.state.interval._id) {
       // Nothing to do
       return;
@@ -213,6 +223,7 @@ class App extends React.Component {
         parent = { this.subjectVisualRef }
         interval={this.state.interval}
         subject={this.state.subject}
+        kinds={this.state.kinds}
         categories={this.state.categories}
         legendVisible={this.state.legendVisible}
         onSelectedIntervalChange={this.handleIntervalChange}

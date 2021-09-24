@@ -66,13 +66,15 @@ export function subjectById(id) {
   });
 }
 
-export function subjectsWithin(from, to) {
+export function subjectsWithin(from, to, kind, page) {
   return instance({
     'method':'GET',
     'url':'/api/subjects',
     'params': {
       'from':from,
       'to':to,
+      'kind': kind,
+      'page': page,
       'outputsize':'compact',
       'datatype':'json'
     },

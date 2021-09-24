@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from "lodash";
 import {axisTop as d3AxisTop} from 'd3-axis';
 import {
   extent as d3Extent,
@@ -26,9 +27,13 @@ export default class SubjectVisual extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { loading: true };
+    this.state = {
+      loading: true,
+      kindData: {}
+    };
 
     this.handleResize = this.handleResize.bind(this);
+    this.onUpdateKindPage = this.onUpdateKindPage.bind(this);
   }
 
   logErrorState(errorMsg, error) {
@@ -54,231 +59,149 @@ export default class SubjectVisual extends React.Component {
     console.log(error);
   }
 
-  addSubjectToLane(lanes, subject) {
-    let laneId = 0;
-    if (lanes.length === 0) {
-      lanes[laneId] = {
-        category: subject.category,
-        subjects: []
-      }
-    }
-
-    const buffer = Math.abs(0.01 * Math.max(subject.limitFrom, subject.limitTo));
-    //
-    // Find the index of a lane where the subject does not overlap
-    //
-    for (laneId = 0; laneId < lanes.length; laneId++) {
-      const lane = lanes[laneId];
-      const laneCategory = lane.category;
-      const laneSubjects = lane.subjects;
-
-      let overlaps = false;
-
-      if (laneCategory !== subject.category) {
-        continue;
-      }
-
-      for (let i = 0; i < laneSubjects.length; i++) {
-        let s = laneSubjects[i];
-
-        const bufferedFrom = subject.limitFrom - buffer;
-        const bufferedTo = subject.limitTo + buffer;
-
-        if (bufferedTo > s.limitFrom && bufferedFrom <= s.limitTo) {
-          // where subject.limitTo falls within s.range
-          overlaps = true;
-          break;
-        }
-
-        if (bufferedFrom >= s.limitFrom && bufferedFrom < s.limitTo) {
-          // where subject.limitFrom falls within s.range
-          overlaps = true;
-          break;
-        }
-
-        if (bufferedFrom <= s.limitFrom && bufferedTo >= s.limitTo) {
-          // where subject.range is wider than s.range
-          overlaps = true;
-          break;
-        }
-      }
-
-      if (! overlaps) {
-        break; // Can use this lane due to no overlap
-      }
-    }
-
-    //
-    // If laneId identified a lane with no overlap then
-    // a lane will already exist. Otherwise, a lane will
-    // not yet exist so create it.
-    //
-    if (!lanes[laneId]) {
-      lanes[laneId] = {
-        category: subject.category,
-        subjects: []
-      }
-    }
-
-    //
-    // Add the subject to the lane
-    //
-    lanes[laneId].subjects.push(subject);
-  }
-
-  chartify(interval, subjects, dataCategories) {
+  chartify(interval, categories, kindData) {
+    console.log(kindData);
     //
     // Base object to return results
     //
-    const chartData = {
-      headers: [],
+    const visualData = {
+      kinds: [],
       lanes: [],
       subjects: [],
       categoryNames: []
     };
 
-    const headerMap = new Map();
     const categorySet = new Set();
 
-    subjects
-    .sort((a, b) => {
-      return a.from - b.from;
-    })
-    .forEach((subject, i) => {
+    let kindIdx = 0;
+    let laneIdx = 0;
 
-      const subjCategory = dataCategories.find(category => {
-        return category.name === subject.category;
-      });
-
-      //
-      // Add the category whether filtered or not so
-      // the legend can list it
-      //
-      categorySet.add(subjCategory.name);
-
-      //
-      // Do we consider the subject
-      //
-      if (subjCategory.filtered === true) {
-        return;
-      }
-
-      //
-      // Preserve original datum for export from component
-      //
-      subject.current = Object.assign({}, subject);
-
-      //
-      // Limit subject from to value of interval from
-      //
-      subject.limitFrom = (subject.from < interval.from) ? interval.from : subject.from;
-
-      //
-      // Limit subject to to value of interval to
-      //
-      subject.limitTo = (subject.to > interval.to) ? interval.to : subject.to;
-
-      const laneKind = subject.kind;
-      //
-      // Create a lane if not already exists
-      //
-      let lanes = headerMap.get(laneKind);
-      if (! lanes) {
-        lanes = [];
-        headerMap.set(laneKind, lanes);
-      }
-
-      this.addSubjectToLane(lanes, subject);
-    });
-
-    chartData.categoryNames = Array.from(categorySet);
-
-    //
-    // Sort the headers alphabetically
-    //
-    const headerKeys = Array.from(headerMap.keys()).sort();
-
-    //
-    // Iterate back through the header map to flatten
-    // the lanes for adding into chartdata
-    //
-    for (const header of headerKeys.values()) {
-      //
-      // Sort the lanes to ensure all those in same category are together
-      //
-      const lanes = headerMap.get(header).sort((a, b) => {
-        return a.category.localeCompare(b.category);
-      });
-      let headerStartsIdx = 0;
-
-      for (let i = 0; i < lanes.length; i++) {
-        const lane = lanes[i];
-
-        const laneId = chartData.lanes.length;
-        if (i === 0) {
-          // Identify the first lane of the header group
-          headerStartsIdx = laneId;
-        }
-
-        for (let j = 0; j < lane.subjects.length; j++) {
-          const subject = lane.subjects[j];
-          subject.laneId = laneId;
-          subject.headerId = chartData.headers.length;
-          chartData.subjects.push(subject);
-        }
-
-        chartData.lanes.push({
-          id: laneId,
-          headerId: chartData.headers.length,
-          headerLane: (headerStartsIdx === laneId),
-          subjects: lane.length
-        });
-      }
-
-      chartData.headers.push({
-        name: header,
-        lanes: lanes.length,
-        headerStartsIdx: headerStartsIdx
-      });
+    let kindNames = [];
+    for (const kind in kindData) {
+      kindNames.push(kind);
     }
 
-    return chartData;
+    // sort the kind names
+    kindNames = common.sortKinds(kindNames);
+    for (const kind of kindNames) {
+      let page = [];
+      if (kindData[kind].pages.length > 0) {
+        page = kindData[kind].pages[0];
+      } else {
+        // Give page 1 arbitrary empty lane
+        page.push([]);
+      }
+
+      let kindLaneIdx = 0;
+      for (const lane of page) {
+        lane.id = laneIdx;
+        lane.kindId = kindIdx;
+        lane.kindLane = (kindLaneIdx === 0); // Identify the first lane of the kind group
+        lane.count = lane.length;
+        visualData.lanes.push(lane);
+
+        for (const subject of lane) {
+          subject.laneId = laneIdx;
+          subject.kindId = kindIdx;
+
+          const subjectCat = categories.find(category => {
+            return category.name === subject.category;
+          });
+
+          //
+          // Add the category whether filtered or not so
+          // the legend can list it
+          //
+          categorySet.add(subjectCat.name);
+
+          //
+          // Preserve original datum for export from component
+          //
+          subject.current = Object.assign({}, subject);
+
+          //
+          // Do we consider the subject
+          //
+          // Still have these subjects in the data, just never drawn
+          subject.filtered = (subjectCat.filtered === true);
+
+          //
+          // Limit subject from to value of interval from
+          //
+          subject.limitFrom = (subject.from < interval.from) ? interval.from : subject.from;
+
+          //
+          // Limit subject to to value of interval to
+          //
+          subject.limitTo = (subject.to > interval.to) ? interval.to : subject.to;
+
+          visualData.subjects.push(subject);
+        }
+
+        kindLaneIdx++;
+        laneIdx++;
+      }
+
+      visualData.kinds.push({
+        name: kind,
+        lanes: page.length,
+        laneStartIdx: (laneIdx - page.length),
+        page: kindData[kind].page,
+        pages: kindData[kind].count
+      });
+
+      kindIdx++;
+    }
+
+    visualData.categoryNames = Array.from(categorySet);
+    return visualData;
   }
 
-  fetchSubjects() {
+  fetchSubjects(interval, categories, page, kind) {
     this.setState({
       loading: true,
       errorMsg: "",
       error: null,
     })
 
-    if (! this.props.interval) {
+    if (! interval) {
       this.setState({
         loading: false,
-        data: undefined
-      })
+        kindData: {}
+      });
       return;
     }
 
     //
     // Fetch the subject data from the backend service
     //
-    api.subjectsWithin(this.props.interval.from, this.props.interval.to)
+    api.subjectsWithin(interval.from, interval.to, kind, page)
       .then((res) => {
+        let newKindData = {};
         if (!res.data || res.data.length === 0) {
-          this.setState({
-            loading: false,
-            data: undefined
-          })
+          if (kind) {
+            // Only remove the data relevant to the kind searched for
+            newKindData = _.cloneDeep(this.state.kindData);
+            newKindData[kind] = [];
+          }
         } else {
-          const subjects = res.data;
-          const data = this.chartify(this.props.interval, subjects, this.props.categories);
-
-          this.setState({
-            loading: false,
-            data: data
-          })
+          if (kind) {
+            newKindData = _.cloneDeep(this.state.kindData);
+            newKindData[kind] = res.data[kind];
+          } else {
+            newKindData = res.data;
+          }
         }
+
+        const visualData = this.chartify(interval, categories, newKindData);
+        console.log(visualData);
+
+        this.setState({
+          loading: false,
+          kindData: newKindData,
+          visualData: visualData
+        });
+
       }).catch((err) => {
         this.logErrorState("Failed to fetch interval data", err);
       });
@@ -305,7 +228,7 @@ export default class SubjectVisual extends React.Component {
 
   componentDidMount() {
     this.dimensions();
-    this.fetchSubjects();
+    this.fetchSubjects(this.props.interval, this.props.categories, 1);
     window.addEventListener('resize', this.handleResize);
   }
 
@@ -314,13 +237,24 @@ export default class SubjectVisual extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    console.log("SubjectVisual - ComponentDidupdate Interval: " + this.props.interval.name);
+    if (this.props.subject) {
+      console.log("SubjectVisual - ComponentDidupdate Subject: " + this.props.subject.name);
+    }
+
     if (prevProps.interval === this.props.interval &&
         prevProps.categories === this.props.categories) {
+      console.log("SubjectVisual - props are same ... returning");
       return;
     }
 
     this.dimensions();
-    this.fetchSubjects();
+    this.fetchSubjects(this.props.interval, this.props.categories, 1);
+  }
+
+  onUpdateKindPage(kind, page) {
+    console.log("Kind: " + kind + " New Page: " + page);
+    this.fetchSubjects(this.props.interval, this.props.categories, page, kind);
   }
 
   render() {
@@ -346,11 +280,12 @@ export default class SubjectVisual extends React.Component {
         onSelectedIntervalChange = {this.props.onSelectedIntervalChange}
         onUpdateCategoryFilter = {this.props.onUpdateCategoryFilter}
         onUpdateLegendVisible = {this.props.onUpdateLegendVisible}
+        onUpdateKindPage = {this.onUpdateKindPage}
         interval = {this.props.interval}
         subject = {this.props.subject}
         categories = {this.props.categories}
         legendVisible = {this.props.legendVisible}
-        data = {this.state.data}
+        data = {this.state.visualData}
         />
     );
   }
@@ -373,8 +308,12 @@ class SubjectSwimLane extends React.Component {
     // This binding is necessary to make `this` work in the callback
     this.handleLegendClick = this.handleLegendClick.bind(this);
     this.toggleLegend = this.toggleLegend.bind(this);
-    this.categoryNames = this.categoryNames.bind(this);
     this.resetCategories = this.resetCategories.bind(this);
+    this.handlePageClick = this.handlePageClick.bind(this);
+    this.handlePageMouseUp = this.handlePageMouseUp.bind(this);
+    this.handlePageMouseDown = this.handlePageMouseDown.bind(this);
+    this.handlePageMouseOver = this.handlePageMouseOver.bind(this);
+    this.handlePageMouseOut = this.handlePageMouseOut.bind(this);
     this.handleVisualClick = this.handleVisualClick.bind(this);
     this.handleVisualDoubleClick = this.handleVisualDoubleClick.bind(this);
 
@@ -384,14 +323,31 @@ class SubjectSwimLane extends React.Component {
   }
 
   componentDidMount() {
+    console.log("SubjectSwimlane ComponentDidMount: STARTING");
     this.renderSwimlanes();
   }
 
   componentDidUpdate(prevProps) {
+    console.log("SubjectSwimLane - ComponentDidupdate Interval: " + this.props.interval.name);
+    if (this.props.subject) {
+      console.log("SubjectSwimLane - ComponentDidupdate Subject: " + this.props.subject.name);
+    }
+
     if (this.props.subject && this.props.subject.owner === this.svgId) {
       // We called for this update with our own clicks so no need to update
+      console.log("SubjectSwimLane - props are same ... returning");
       return;
     }
+
+    console.log(this.props.interval);
+    console.log(this.props.data);
+
+    // TODO
+    // Fix following use-case
+    // Click on Hadean
+    // Search for Cambrian
+    // Click on Cambrian Explosion
+    // Still displays Haden visual
 
     if (prevProps.subject === this.props.subject &&
        prevProps.interval === this.props.interval &&
@@ -410,8 +366,70 @@ class SubjectSwimLane extends React.Component {
 
       return;
     }
-
+    console.log("SubjectSwimLane - ComponentDidupdate: PROCEEDING #2");
+    console.log("SubjectSwimLane ComponentDidupdate: RENDERING SWIMLANES");
     this.renderSwimlanes();
+  }
+
+  //
+  // Click function for page buttons
+  //
+  handlePageClick(event, d) {
+    if (event.button > 0) {
+      return;
+    }
+
+    var page;
+    if (event.target.id.includes("left") && d.page > 0) {
+      page =  d.page - 1;
+    } else if (event.target.id.includes("right") && d.page < d.pages) {
+      page = d.page + 1;
+    }
+
+    this.props.onUpdateKindPage(d.name, page);
+  }
+
+  //
+  // Mouse Up function for page buttons
+  //
+  handlePageMouseUp(event, d) {
+    if (d.button === 0) {
+      d3Select(d.target).style("fill", null);
+    }
+  }
+
+  //
+  // Mouse Down function for page buttons
+  //
+  handlePageMouseDown(event, d) {
+    if (d.button === 0) {
+      d3Select(d.target).style("fill", "grey");
+    }
+  }
+
+  //
+  // Mouse Over function for page buttons
+  //
+  handlePageMouseOver(event, d) {
+    this.pageBtnTooltip
+      .transition()
+      .duration(200)
+      .attr('class', 'pageBtnTooltip');
+
+    this.pageBtnTooltip
+      .html(d.page + " / " + d.pages)
+      .style("top", (event.layerY + 25) + "px")
+      .style("left", event.layerX + "px");
+  }
+
+  //
+  // Mouse Out function for page buttons
+  //
+  handlePageMouseOut(event, d) {
+    this.pageBtnTooltip
+      .transition()
+      .duration(500)
+      .attr('class', 'pageBtnTooltip pageBtnTooltipHide');
   }
 
   //
@@ -476,6 +494,7 @@ class SubjectSwimLane extends React.Component {
           //
           // Selected the returned interval
           //
+          console.log("SubjectVisual - handleVisualDoubleClick() " + res.data[0].name);
           this.props.onSelectedIntervalChange(res.data[0]);
           this.props.onSelectedSubjectChange(d);
         }
@@ -498,23 +517,10 @@ class SubjectSwimLane extends React.Component {
   }
 
   //
-  // Get an array of category names from the
-  // array of category objects
-  //
-  categoryNames() {
-    let names = [];
-    this.props.categories.forEach(category => {
-      names.push(category.name);
-    });
-
-    return names;
-  }
-
-  //
   // Reset all categories back to visible
   //
   resetCategories(event) {
-    this.props.onUpdateCategoryFilter(this.categoryNames(), false);
+    this.props.onUpdateCategoryFilter(this.props.categories.map(a => a.name), false);
 
     if (event) {
       event.preventDefault();
@@ -731,18 +737,16 @@ class SubjectSwimLane extends React.Component {
     this.zoomSystem.innerWidth = (this.props.width * this.zoomSystem.viewPort) - this.margins.left - this.margins.right;
     this.zoomSystem.innerHeight = (this.props.height * this.zoomSystem.viewPort) - this.margins.top - this.margins.bottom;
 
-    let categoryNames = this.categoryNames();
+    let categoryNames = this.props.categories.map(a => a.name);
     this.subjectColorCycle = d3ScaleOrdinal()
       .domain(categoryNames)
       .range(common.calcCategoryColours(categoryNames));
 
-    const headerNames = [];
-    for (const h of this.props.data.headers) {
-      headerNames.push(h.name);
-    }
+    const kindNames = this.props.data.kinds.map(a => a.name);
+
     const laneColorCycle = d3ScaleOrdinal()
-      .domain(headerNames)
-      .range(common.calcKindColours(headerNames));
+      .domain(kindNames)
+      .range(common.calcKindColours(kindNames));
 
     this.svg = d3Select('#' + this.svgId);
 
@@ -753,7 +757,7 @@ class SubjectSwimLane extends React.Component {
     const defs = this.svg.append("defs");
 
     this.createGradient(defs, this.props.data.categoryNames, this.subjectColorCycle);
-    this.createGradient(defs, headerNames, laneColorCycle);
+    this.createGradient(defs, kindNames, laneColorCycle);
 
     defs.append('clipPath')
       .attr('id', 'data-clip')
@@ -814,26 +818,16 @@ class SubjectSwimLane extends React.Component {
       .join('line')
       .classed('laneLines', true)
       .attr("transform", this.marginTranslation())
-      .attr('stroke', d => d.headerLane ? 'black' : 'lightgray');
+      .attr('stroke', d => d.kindLane ? 'black' : 'lightgray');
 
-    // draw the lane text
-    this.gchart.append('g')
-      .attr("id", "lane-names")
-      .attr('clip-path', 'url(#label-clip)')
-      .selectAll('.laneText')
-      .data(this.props.data.headers)
-      .join('text')
-      .text(d => d.name)
-      .classed('laneText', true)
-      .attr('text-anchor', 'end')
-      .attr("transform", this.marginTranslation());
+    console.log(this.props.data.kinds);
 
     // Paint the backgrounds of the lanes
     this.gchart.append('g')
       .attr("id", "lane-backgrounds")
       .attr('clip-path', 'url(#data-clip)')
       .selectAll('.laneBackground')
-      .data(this.props.data.headers)
+      .data(this.props.data.kinds)
       .join("rect")
       .classed('laneBackground', true)
       .attr("transform", this.marginTranslation())
@@ -862,6 +856,69 @@ class SubjectSwimLane extends React.Component {
     // draw the lower and upper demarcation boundaries
     //
     this.createIntervalBounds(this.gchart);
+
+    // Define the div for the tooltip
+    this.pageBtnTooltip =
+      d3Select('.pageBtnTooltip').node() ?
+        d3Select('.pageBtnTooltip') :
+          d3Select(".subject-visual-component")
+            .append("div")
+            .attr("id", "pageBtnTooltip")
+            .classed('pageBtnTooltip', true)
+            .classed('pageBtnTooltipHide', true);
+
+    // draw the lane text
+    const laneText = this.gchart.append('g')
+      .attr("id", "lane-names")
+      .attr('clip-path', 'url(#label-clip)')
+      .selectAll('.laneText')
+      .data(this.props.data.kinds)
+      .join('text')
+      .classed('laneText', true)
+      .attr('text-anchor', 'end')
+      .attr("transform", this.marginTranslation());
+
+
+    laneText.append('tspan')
+      .attr('dx', (this.margins.left / 7))
+      .text(d => d.name);
+
+    //
+    // The page left button for the kind
+    //
+    laneText.append('tspan')
+      .attr("id", d => { return d.name + "-lane-page-left-btn" } )
+      .classed('fas', true)
+      .classed('pageLeftBtn', true)
+      .classed('pageBtnHide', d => { return (d.page <= 1); })
+      .attr('dx', 50)
+      .attr("cursor", "pointer")
+      .text('\uf137')
+      .on("click", this.handlePageClick)
+      .on("mousedown", this.handlePageMouseDown)
+      .on("mouseup", this.handlePageMouseUp)
+      .on("mouseover", this.handlePageMouseOver)
+      .on("mouseout", this.handlePageMouseOut);
+
+    // draw the lane page right button
+    this.gchart.append('g')
+      .attr("id", "lane-page-right-btns")
+      .selectAll('.pageRightBtn')
+      .data(this.props.data.kinds)
+      .join('text')
+      .attr("id", d => { return d.name + "-lane-page-right-btn" } )
+      .classed('pageRightBtn', true)
+      .classed('pageBtnHide', d => { return (d.page >= d.pages); })
+      .text('\uf138')
+      .attr('text-anchor', 'end')
+      .attr('dx', -50)
+      .attr("cursor", "pointer")
+      .attr("transform", this.marginTranslation())
+      .on("click", this.handlePageClick)
+      .on("mousedown", this.handlePageMouseDown)
+      .on("mouseup", this.handlePageMouseUp)
+      .on("mouseover", this.handlePageMouseOver)
+      .on("mouseout", this.handlePageMouseOut);
 
     //
     // Update the component positions
@@ -950,11 +1007,11 @@ class SubjectSwimLane extends React.Component {
     this.gchart
       .selectAll('.laneBackground')
       .attr('x', 0)
-      .attr('y', d => parseFloat(yScale(d.headerStartsIdx) + 0.5))
+      .attr('y', d => parseFloat(yScale(d.laneStartIdx) + 0.5))
       .attr('width', this.zoomSystem.innerWidth)
       .attr('height', d => {
-        let y1 = parseFloat(yScale(d.headerStartsIdx)) + 0.5;
-        let yn = parseFloat(yScale(d.headerStartsIdx + d.lanes) + 0.5);
+        let y1 = parseFloat(yScale(d.laneStartIdx)) + 0.5;
+        let yn = parseFloat(yScale(d.laneStartIdx + d.lanes) + 0.5);
         return yn - y1;
       });
 
@@ -963,7 +1020,7 @@ class SubjectSwimLane extends React.Component {
       .selectAll('.laneText')
       .attr('x', -10)
       .attr('y', d => {
-        let yn = parseFloat(yScale(d.headerStartsIdx + (d.lanes / 2))) + 0.5;
+        let yn = parseFloat(yScale(d.laneStartIdx + (d.lanes / 2))) + 0.5;
         const fontHeight = 30;
         return yn + fontHeight;
       });
@@ -975,6 +1032,16 @@ class SubjectSwimLane extends React.Component {
       .attr('y1', d => parseFloat(yScale(d.id) + 0.5))
       .attr('x2', this.zoomSystem.innerWidth)
       .attr('y2', d => parseFloat(yScale(d.id) + 0.5));
+
+    // Update the page right buttons
+    this.gchart
+      .selectAll('.pageRightBtn')
+      .attr('x', this.zoomSystem.innerWidth)
+      .attr('y', d => {
+        let yn = parseFloat(yScale(d.laneStartIdx + (d.lanes / 2))) + 0.5;
+        const fontHeight = 30;
+        return yn + fontHeight;
+      });
 
     // Update the interval boundaries
     this.updateIntervalBounds(this.gchart,
@@ -989,7 +1056,7 @@ class SubjectSwimLane extends React.Component {
       )
     }
 
-    if (! this.props.data || this.props.data.subjects.length === 0) {
+    if (! this.props.data || ! this.props.data.subjects || this.props.data.subjects.length === 0) {
       return (
         <div className="subject-visual-component">
           <div className="subject-visual-nocontent">
@@ -1005,7 +1072,7 @@ class SubjectSwimLane extends React.Component {
     return (
       <div className="subject-visual-component">
         <div className="subject-visual-button">
-          <button id="subject-visual-legend-btn" className="fa fa-bars" onClick={this.handleLegendClick}/>
+          <button id="subject-visual-legend-btn" className="fas fa-bars" onClick={this.handleLegendClick}/>
         </div>
         <SubjectVisualLegend
           width = { this.props.width }

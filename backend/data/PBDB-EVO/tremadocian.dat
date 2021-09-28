@@ -16,7 +16,7 @@ Acrothele                                | Animal    | Brachiopoda              
 Acrotreta                                | Animal    | Brachiopoda                | -478600000    | -466000000   | <>
 Actinoceras                              | Animal    | Mollusca                   | -478600000    | -460900000   | Actinoceras
 Actinodonta                              | Animal    | Mollusca                   | -478600000    | -466000000   | <>
-Actinopeltis                             | Animal    | Arthropoda                 | -478600000    | -466000000   | Actinopeltis
+Actinopeltis                             | Animal    | Arthropoda                 | -478600000    | -466000000   | Actinopeltis_(trilobite)
 Adelograptus                             | Animal    | Hemichordata               | -478600000    | -466000000   | <>
 Adelphicrinus                            | Animal    | Echinodermata              | -478600000    | -471800000   | <>
 Aethocrinus                              | Animal    | Echinodermata              | -485400000    | -477700000   | <>
@@ -51,14 +51,14 @@ Anacheirurus                             | Animal    | Arthropoda               
 Anaspyroceras                            | Animal    | Mollusca                   | -478600000    | -463500000   | <>
 Anatifopsis                              | Animal    | Echinodermata              | -478600000    | -466000000   | <>
 Anatolepis                               | Animal    | Chordata                   | -478600000    | -466000000   | <>
-Anaximander                              | Animal    | Arthropoda                 | -488300000    | -471800000   | Anaximander
+Anaximander                              | Animal    | Arthropoda                 | -488300000    | -471800000   | <>
 Anazyga                                  | Animal    | Brachiopoda                | -485400000    | -443400000   | <>
 Ancoragraptus                            | Animal    | Hemichordata               | -485400000    | -477700000   | <>
 Ancyginaspis                             | Animal    | Arthropoda                 | -478600000    | -471800000   | <>
 Andrarina                                | Animal    | Arthropoda                 | -541000000    | -477700000   | <>
 Anebolithus                              | Animal    | Arthropoda                 | -478600000    | -466000000   | Anebolithus
 Angarella                                | Animal    | Mollusca                   | -478600000    | -466000000   | Angarella
-Angelina                                 | Animal    | Arthropoda                 | -485400000    | -477700000   | Angelina
+Angelina                                 | Animal    | Arthropoda                 | -485400000    | -477700000   | Angelina_(trilobite)
 Angelinoceras                            | Animal    | Mollusca                   | -478600000    | -463500000   | Angelinoceras
 Anglagnostus                             | Animal    | Arthropoda                 | -478600000    | -466000000   | Anglagnostus
 Angulocellularia                         | Plant     | Rhodophyta                 | -485400000    | -470000000   | <>
@@ -235,7 +235,7 @@ Celtoconcha                              | Animal    | Mollusca                 
 Centrotarphyceras                        | Animal    | Mollusca                   | -478600000    | -468100000   | <>
 Ceramopora                               | Animal    | Bryozoa                    | -478600000    | -466000000   | Ceramopora
 Ceratiocaris                             | Animal    | Arthropoda                 | -478600000    | -466000000   | Ceratiocaris
-Ceratocephala                            | Animal    | Arthropoda                 | -478600000    | -468100000   | Ceratocephala
+Ceratocephala                            | Animal    | Arthropoda                 | -478600000    | -468100000   | Ceratocephala_(trilobite)
 Ceratoleperditia                         | Animal    | Arthropoda                 | -478600000    | -468100000   | <>
 Ceratopea                                | Animal    | Mollusca                   | -478600000    | -466000000   | <>
 Ceratopeltis                             | Animal    | Arthropoda                 | -478600000    | -468100000   | Ceratopeltis
@@ -575,7 +575,7 @@ Glyptomena                               | Animal    | Brachiopoda              
 Glyptorthis                              | Animal    | Brachiopoda                | -478600000    | -466000000   | <>
 Glyptosphaerites                         | Animal    | Echinodermata              | -485400000    | -477700000   | <>
 Glyptotrophia                            | Animal    | Brachiopoda                | -485400000    | -477700000   | <>
-Gog                                      | Animal    | Arthropoda                 | -478600000    | -468100000   | Gog
+Gog                                      | Animal    | Arthropoda                 | -478600000    | -468100000   | Gog_(trilobite)
 Gogoella                                 | Animal    | Arthropoda                 | -478600000    | -466000000   | Gogoella
 Gondwanorthis                            | Animal    | Brachiopoda                | -485400000    | -477700000   | <>
 Goniograptus                             | Animal    | Hemichordata               | -478600000    | -466000000   | Goniograptus
@@ -617,7 +617,7 @@ Hemibarrandia                            | Animal    | Arthropoda               
 Hemicosmites                             | Animal    | Echinodermata              | -478600000    | -466000000   | <>
 Hemicystites                             | Animal    | Echinodermata              | -478600000    | -466000000   | <>
 Hemigyraspis                             | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
-Hemiphragma                              | Animal    | Bryozoa                    | -478600000    | -471800000   | Hemiphragma
+Hemiphragma                              | Animal    | Bryozoa                    | -478600000    | -471800000   | <>
 Hemipiloceras                            | Animal    | Mollusca                   | -478600000    | -466000000   | <>
 Hemiprionodonta                          | Animal    | Mollusca                   | -478600000    | -466000000   | <>
 Hemipronites                             | Animal    | Brachiopoda                | -485400000    | -477700000   | <>
@@ -697,7 +697,7 @@ Isotelus                                 | Animal    | Arthropoda               
 Ivoechiton                               | Animal    | Mollusca                   | -485400000    | -468100000   | Ivoechiton
 Ivshinaspis                              | Animal    | Arthropoda                 | -494000000    | -485000000   | <>
 Janograptus                              | Animal    | Hemichordata               | -478600000    | -466000000   | <>
-Jeffersonia                              | Animal    | Arthropoda                 | -478600000    | -468100000   | Jeffersonia
+Jeffersonia                              | Animal    | Arthropoda                 | -478600000    | -468100000   | <>
 Jianghania                               | Animal    | Porifera                   | -485400000    | -477700000   | <>
 Jiia                                     | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
 Jivinella                                | Animal    | Brachiopoda                | -485400000    | -477700000   | <>
@@ -714,7 +714,7 @@ Kaninia                                  | Animal    | Arthropoda               
 Kanoshopora                              | Animal    | Bryozoa                    | -478600000    | -466000000   | <>
 Karakulina                               | Animal    | Brachiopoda                | -478600000    | -468100000   | <>
 Kaufmannella                             | Animal    | Arthropoda                 | -498500000    | -477700000   | <>
-Kawina                                   | Animal    | Arthropoda                 | -478600000    | -460900000   | Kawina
+Kawina                                   | Animal    | Arthropoda                 | -478600000    | -460900000   | Kawina_(trilobite)
 Kayseraspis                              | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Kepinospira                              | Animal    | Mollusca                   | -478600000    | -468100000   | <>
 Keraiaceras                              | Animal    | Mollusca                   | -485400000    | -478600000   | <>
@@ -745,7 +745,7 @@ Lamanskya                                | Animal    | Brachiopoda              
 Lamottopora                              | Animal    | Bryozoa                    | -478600000    | -466000000   | <>
 Lampazarorthis                           | Animal    | Brachiopoda                | -485400000    | -477700000   | <>
 Landyia                                  | Animal    | Arthropoda                 | -485400000    | -476800000   | Landyia
-Lapidaria                                | Animal    | Arthropoda                 | -478600000    | -466000000   | Lapidaria
+Lapidaria                                | Animal    | Arthropoda                 | -478600000    | -466000000   | Lapidaria_(trilobite)
 Larifugula                               | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
 Larispongia                              | Animal    | Porifera                   | -485400000    | -477700000   | <>
 Laurentoscandodus                        | Animal    | Chordata                   | -485400000    | -471800000   | <>

@@ -99,7 +99,7 @@ Archimedes                               | Animal    | Bryozoa                  
 Argentiproductus                         | Animal    | Brachiopoda                | -353800000    | -345000000   | <>
 Arthropitys                              | Plant     | Sphenophyta                | -358900000    | -298900000   | Arthropitys
 Astartella                               | Animal    | Mollusca                   | -358900000    | -298900000   | <>
-Asterolepis                              | Animal    | Chordata                   | -358900000    | -323200000   | Asterolepis
+Asterolepis                              | Animal    | Chordata                   | -358900000    | -323200000   | Asterolepis_(fish)
 Asterophyllites                          | Plant     | Sphenophyta                | -358900000    | -252170000   | <>
 Asteroptychius                           | Animal    | Chordata                   | -358900000    | -323200000   | <>
 Asterotheca                              | Plant     | Pteridophyta               | -358900000    | -298900000   | Asterotheca
@@ -215,7 +215,7 @@ Camptosperma                             | Plant     | Pteridospermophyta       
 Canadiphyllum                            | Animal    | Cnidaria                   | -353800000    | -342800000   | <>
 Cancrinella                              | Animal    | Brachiopoda                | -358900000    | -298900000   | <>
 Caneyella                                | Animal    | Mollusca                   | -358900000    | -323200000   | <>
-Caninia                                  | Animal    | Cnidaria                   | -353800000    | -345000000   | Caninia
+Caninia                                  | Animal    | Cnidaria                   | -353800000    | -345000000   | Caninia_(coral)
 Caninophyllum                            | Animal    | Cnidaria                   | -353800000    | -345300000   | <>
 Carbonocoryphe                           | Animal    | Arthropoda                 | -353800000    | -345300000   | <>
 Carbonoproetus                           | Animal    | Arthropoda                 | -353800000    | -345300000   | <>
@@ -361,7 +361,7 @@ Delthyris                                | Animal    | Brachiopoda              
 Deltodus                                 | Animal    | Chordata                   | -353800000    | -342800000   | <>
 Deltopecten                              | Animal    | Mollusca                   | -358900000    | -298900000   | <>
 Deltoptychius                            | Animal    | Chordata                   | -358900000    | -323200000   | Deltoptychius
-Dentalium                                | Animal    | Mollusca                   | -358900000    | -323200000   | Dentalium
+Dentalium                                | Animal    | Mollusca                   | -358900000    | -323200000   | Dentalium_(genus)
 Derbyia                                  | Animal    | Brachiopoda                | -353800000    | -345300000   | <>
 Derorhethocrinus                         | Animal    | Echinodermata              | -358900000    | -345300000   | <>
 Desmacriocrinus                          | Animal    | Echinodermata              | -358900000    | -353800000   | <>
@@ -390,7 +390,7 @@ Diplolabis                               | Plant     | Pteridophyta             
 Diplopora                                | Plant     | Chlorophyta                | -358900000    | -323200000   | Diplopora
 Diploradus                               | Animal    | Chordata                   | -358900000    | -346700000   | <>
 Diplothmema                              | Plant     | Pteridospermophyta         | -358900000    | -298900000   | <>
-Discina                                  | Animal    | Brachiopoda                | -358900000    | -323200000   | Discina
+Discina                                  | Animal    | Brachiopoda                | -358900000    | -323200000   | Discina_(brachiopod)
 Discitoceras                             | Animal    | Mollusca                   | -353800000    | -345000000   | Discitoceras
 Dixiphopyge                              | Animal    | Arthropoda                 | -358900000    | -353800000   | <>
 Dizygocrinus                             | Animal    | Echinodermata              | -353800000    | -342800000   | Dizygocrinus
@@ -413,7 +413,7 @@ Echinocrinus                             | Animal    | Echinodermata            
 Ectochoristites                          | Animal    | Brachiopoda                | -358900000    | -346700000   | <>
 Ectogrammysia                            | Animal    | Mollusca                   | -358900000    | -353800000   | <>
 Edaphoceras                              | Animal    | Mollusca                   | -358900000    | -323200000   | Edaphoceras
-Edmondia                                 | Animal    | Mollusca                   | -353800000    | -342800000   | Edmondia
+Edmondia                                 | Animal    | Mollusca                   | -353800000    | -342800000   | <>
 Ekvasophyllum                            | Animal    | Cnidaria                   | -358900000    | -323200000   | <>
 Elasmonema                               | Animal    | Mollusca                   | -358900000    | -298900000   | <>
 Elliptophillipsia                        | Animal    | Arthropoda                 | -358900000    | -323200000   | <>
@@ -779,7 +779,7 @@ Mirifusella                              | Animal    | Brachiopoda              
 Mitorthoceras                            | Animal    | Mollusca                   | -358900000    | -353800000   | <>
 Mitrospermum                             | Plant     | Pinophyta                  | -358900000    | -323200000   | <>
 Mixoneura                                | Plant     | Pteridophyta               | -358900000    | -298900000   | <>
-Modiolus                                 | Animal    | Mollusca                   | -358900000    | -298900000   | Modiolus
+Modiolus                                 | Animal    | Mollusca                   | -358900000    | -298900000   | Modiolus_(bivalve)
 Modiomorpha                              | Animal    | Mollusca                   | -358900000    | -323200000   | <>
 Monodechenella                           | Animal    | Arthropoda                 | -358900000    | -330900000   | <>
 Moorefieldella                           | Animal    | Brachiopoda                | -358900000    | -346700000   | <>

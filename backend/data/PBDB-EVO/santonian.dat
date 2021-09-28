@@ -62,7 +62,7 @@ Albertatherium                           | Animal    | Chordata                 
 Albertipollenites                        | Plant     | Spermatophyta              | -100500000    | -23030000    | <>
 Albertosaurus                            | Animal    | Chordata                   | -85800000     | -70600000    | Albertosaurus
 Albinykus                                | Animal    | Chordata                   | -86300000     | -72100000    | Albinykus
-Albula                                   | Animal    | Chordata                   | -85800000     | -70600000    | Albula
+Albula                                   | Animal    | Chordata                   | -85800000     | -70600000    | Albula_(fish)
 Alderina                                 | Animal    | Bryozoa                    | -85800000     | -83500000    | <>
 Alectrosaurus                            | Animal    | Chordata                   | -100500000    | -83600000    | Alectrosaurus
 Alexornis                                | Animal    | Chordata                   | -86300000     | -83600000    | Alexornis
@@ -79,7 +79,7 @@ Alnus                                    | Plant     | Spermatophyta            
 Alphadon                                 | Animal    | Chordata                   | -86300000     | -83600000    | Alphadon
 Alticonodon                              | Animal    | Chordata                   | -85800000     | -83500000    | Alticonodon
 Alvarezsaurus                            | Animal    | Chordata                   | -86300000     | -83600000    | Alvarezsaurus
-Amabilis                                 | Animal    | Chordata                   | -86300000     | -83600000    | Amabilis
+Amabilis                                 | Animal    | Chordata                   | -86300000     | -83600000    | <>
 Amaea                                    | Animal    | Mollusca                   | -85800000     | -83500000    | <>
 Amapondella                              | Animal    | Mollusca                   | -85800000     | -83500000    | <>
 Amathina                                 | Animal    | Mollusca                   | -85800000     | -83500000    | Amathina
@@ -100,11 +100,11 @@ Anagaudryceras                           | Animal    | Mollusca                 
 Anatina                                  | Animal    | Mollusca                   | -89800000     | -83600000    | Anatina
 Anatolemys                               | Animal    | Chordata                   | -85800000     | -83500000    | Anatolemys
 Anchura                                  | Animal    | Mollusca                   | -100500000    | -66000000    | <>
-Andromeda                                | Plant     | Spermatophyta              | -85800000     | -72100000    | Andromeda
+Andromeda                                | Plant     | Spermatophyta              | -85800000     | -72100000    | Andromeda_polifolia
 Androvettia                              | Plant     | Coniferophyta              | -100500000    | -66000000    | <>
-Anemia                                   | Plant     | Pteridophyta               | -100500000    | -66000000    | Anemia
+Anemia                                   | Plant     | Pteridophyta               | -100500000    | -66000000    | Anemia_(plant)
 Aneuretoceras                            | Animal    | Mollusca                   | -89300000     | -85800000    | Aneuretoceras
-Angaria                                  | Animal    | Mollusca                   | -85800000     | -83500000    | Angaria
+Angaria                                  | Animal    | Mollusca                   | -85800000     | -83500000    | Angaria_(gastropod)
 Angulithes                               | Animal    | Mollusca                   | -85800000     | -83500000    | <>
 Aniabrochus                              | Animal    | Brachiopoda                | -89800000     | -83600000    | <>
 Aniferella                               | Animal    | Arthropoda                 | -85800000     | -83500000    | <>
@@ -119,7 +119,7 @@ Anogmius                                 | Animal    | Chordata                 
 Anomalina                                | Micro     | Foraminifera               | -100500000    | -66000000    | <>
 Anomalinoides                            | Micro     | Foraminifera               | -85800000     | -83500000    | <>
 Anomalofusus                             | Animal    | Mollusca                   | -85800000     | -83500000    | <>
-Anomia                                   | Animal    | Mollusca                   | -100500000    | -66000000    | Anomia
+Anomia                                   | Animal    | Mollusca                   | -100500000    | -66000000    | Anomia_(bivalve)
 Anomoeodus                               | Animal    | Chordata                   | -145000000    | -66000000    | Anomoeodus
 Anomotodon                               | Animal    | Chordata                   | -100500000    | -66000000    | Anomotodon
 Anosteira                                | Animal    | Chordata                   | -100500000    | -83600000    | Anosteira
@@ -253,7 +253,7 @@ Bantamia                                 | Animal    | Cnidaria                 
 Baotianmansaurus                         | Animal    | Chordata                   | -93500000     | -70600000    | Baotianmansaurus
 Baptornis                                | Animal    | Chordata                   | -89800000     | -83600000    | Baptornis
 Barbatia                                 | Animal    | Mollusca                   | -85800000     | -83500000    | Barbatia
-Barrettia                                | Animal    | Mollusca                   | -85800000     | -83500000    | Barrettia
+Barrettia                                | Animal    | Mollusca                   | -85800000     | -83500000    | <>
 Barroisiceras                            | Animal    | Mollusca                   | -89300000     | -83600000    | Barroisiceras
 Barrosasaurus                            | Animal    | Chordata                   | -93500000     | -85800000    | Barrosasaurus
 Barrosasuchus                            | Animal    | Chordata                   | -86300000     | -83600000    | <>
@@ -288,7 +288,7 @@ Biplanata                                | Micro     | Foraminifera             
 Biplica                                  | Animal    | Mollusca                   | -86300000     | -83600000    | <>
 Biradiolites                             | Animal    | Mollusca                   | -85800000     | -70600000    | <>
 Biretisporites                           | Plant     | Pteridophyta               | -129400000    | -83600000    | <>
-Bishara                                  | Animal    | Chordata                   | -86300000     | -70600000    | Bishara
+Bishara                                  | Animal    | Chordata                   | -86300000     | -70600000    | <>
 Bissektia                                | Animal    | Chordata                   | -100500000    | -66000000    | <>
 Bittiscala                               | Animal    | Mollusca                   | -85800000     | -83500000    | <>
 Blackdownia                              | Animal    | Mollusca                   | -86300000     | -83600000    | <>
@@ -345,7 +345,7 @@ Calliax                                  | Animal    | Arthropoda               
 Calliostoma                              | Animal    | Mollusca                   | -85800000     | -83500000    | Calliostoma
 Calliotropis                             | Animal    | Mollusca                   | -85800000     | -83500000    | Calliotropis
 Callistalox                              | Animal    | Mollusca                   | -100500000    | -66000000    | <>
-Callista                                 | Animal    | Mollusca                   | -85800000     | -83500000    | Callista
+Callista                                 | Animal    | Mollusca                   | -85800000     | -83500000    | Callista_(bivalve)
 Callistina                               | Animal    | Mollusca                   | -85800000     | -66000000    | <>
 Callodictyon                             | Animal    | Porifera                   | -89800000     | -83600000    | <>
 Callopegma                               | Animal    | Porifera                   | -86300000     | -72100000    | <>
@@ -353,7 +353,7 @@ Callorhinchus                            | Animal    | Chordata                 
 Calorckosauripus                         | Animal    | Chordata                   | -86300000     | -66000000    | <>
 Caloxanthus                              | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Calteagalathea                           | Animal    | Arthropoda                 | -100500000    | -66000000    | <>
-Calva                                    | Animal    | Mollusca                   | -100500000    | -66000000    | Calva
+Calva                                    | Animal    | Mollusca                   | -100500000    | -66000000    | <>
 Calycites                                | Plant     | Spermatophyta              | -89800000     | -72100000    | <>
 Calyptraea                               | Animal    | Mollusca                   | -86300000     | -83600000    | Calyptraea
 Camarozonosporites                       | Plant     | Pteridophyta               | -86300000     | -72100000    | <>
@@ -507,13 +507,13 @@ Cophinia                                 | Animal    | Arthropoda               
 Corallianassa                            | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Coralliochama                            | Animal    | Mollusca                   | -86300000     | -83600000    | <>
 Corallium                                | Animal    | Cnidaria                   | -85800000     | -83500000    | Corallium
-Corax                                    | Animal    | Chordata                   | -100500000    | -66000000    | Corax
+Corax                                    | Animal    | Chordata                   | -100500000    | -66000000    | Squalicorax
 Corbariastraea                           | Animal    | Cnidaria                   | -85800000     | -83500000    | <>
 Corbicula                                | Animal    | Mollusca                   | -100500000    | -66000000    | Corbicula
 Corbula                                  | Animal    | Mollusca                   | -86300000     | -83600000    | Corbula
 Cordilites                               | Plant     | Rhodophyta                 | -86300000     | -83600000    | <>
 Cornophyllum                             | Plant     | Spermatophyta              | -100500000    | -66000000    | <>
-Cornutella                               | Micro     | Radiolaria                 | -86300000     | -83600000    | Cornutella
+Cornutella                               | Micro     | Radiolaria                 | -86300000     | -83600000    | Cornutella_(radiolarian)
 Coronelsuchus                            | Animal    | Chordata                   | -93500000     | -85800000    | <>
 Corporesana                              | Animal    | Arthropoda                 | -85800000     | -83500000    | <>
 Corymbopora                              | Animal    | Bryozoa                    | -85800000     | -83500000    | <>
@@ -532,7 +532,7 @@ Crassostrea                              | Animal    | Mollusca                 
 Crateraster                              | Animal    | Echinodermata              | -85800000     | -83500000    | <>
 Craticularia                             | Animal    | Porifera                   | -89800000     | -83600000    | <>
 Cremnoceramus                            | Animal    | Mollusca                   | -89300000     | -85800000    | Cremnoceramus
-Crenella                                 | Animal    | Mollusca                   | -145000000    | -66000000    | Crenella
+Crenella                                 | Animal    | Mollusca                   | -145000000    | -66000000    | Crenella_(bivalve)
 Cretabythus                              | Animal    | Arthropoda                 | -85800000     | -83500000    | <>
 Cretacaeiporites                         | Plant     | Spermatophyta              | -86300000     | -83600000    | <>
 Cretachlorodius                          | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
@@ -587,7 +587,7 @@ Curvostrea                               | Animal    | Mollusca                 
 Cyatheacidites                           | Plant     | Pteridophyta               | -129400000    | -83600000    | <>
 Cyathidites                              | Plant     | Pteridophyta               | -100500000    | -23030000    | <>
 Cyathocidaris                            | Animal    | Echinodermata              | -85800000     | -83500000    | <>
-Cyathophora                              | Animal    | Cnidaria                   | -100500000    | -83600000    | Cyathophora
+Cyathophora                              | Animal    | Cnidaria                   | -100500000    | -83600000    | Cyathophora_(coral)
 Cycadeoidea                              | Plant     | Cycadeoideophyta           | -145000000    | -66000000    | Cycadeoidea
 Cycadeospermum                           | Plant     | Cycadeoideophyta           | -145000000    | -66000000    | <>
 Cycadopites                              | Plant     | Cycadophyta                | -100500000    | -33900000    | <>
@@ -612,7 +612,7 @@ Cypridea                                 | Animal    | Arthropoda               
 Cyprimeria                               | Animal    | Mollusca                   | -85800000     | -83500000    | <>
 Cyrena                                   | Animal    | Mollusca                   | -85800000     | -83500000    | <>
 Cyrtocapsa                               | Micro     | Radiolaria                 | -86300000     | -70600000    | <>
-Cytherea                                 | Animal    | Mollusca                   | -145000000    | -66000000    | Cytherea
+Cytherea                                 | Animal    | Mollusca                   | -145000000    | -66000000    | Cytherea_(fly)
 Cythere                                  | Animal    | Arthropoda                 | -100500000    | -66000000    | <>
 Cythereis                                | Animal    | Arthropoda                 | -100500000    | -66000000    | <>
 Cytherella                               | Animal    | Arthropoda                 | -100500000    | -66000000    | Cytherella
@@ -628,7 +628,7 @@ Dactyliosphaera                          | Micro     | Radiolaria               
 Dakoticancer                             | Animal    | Arthropoda                 | -100500000    | -66000000    | <>
 Damesites                                | Animal    | Mollusca                   | -85800000     | -83500000    | <>
 Dammarites                               | Plant     | Coniferophyta              | -89800000     | -72100000    | <>
-Dardanus                                 | Animal    | Arthropoda                 | -145000000    | -66000000    | Dardanus
+Dardanus                                 | Animal    | Arthropoda                 | -145000000    | -66000000    | Dardanus_(crustacean)
 Dasmiopsis                               | Animal    | Cnidaria                   | -86300000     | -72100000    | <>
 Daspletosaurus                           | Animal    | Chordata                   | -85800000     | -70600000    | Daspletosaurus
 Datonglong                               | Animal    | Chordata                   | -100500000    | -72100000    | <>
@@ -645,7 +645,7 @@ Dendrophrya                              | Micro     | Foraminifera             
 Dennstaedtia                             | Plant     | Pteridophyta               | -100500000    | -66000000    | Dennstaedtia
 Densoisporites                           | Plant     | Pteridophyta               | -86300000     | -72100000    | <>
 Dentalina                                | Micro     | Foraminifera               | -85800000     | -83500000    | <>
-Dentalium                                | Animal    | Mollusca                   | -100500000    | -66000000    | Dentalium
+Dentalium                                | Animal    | Mollusca                   | -100500000    | -66000000    | Dentalium_(genus)
 Dermosmiliopsis                          | Animal    | Cnidaria                   | -86300000     | -70600000    | <>
 Desmatochelys                            | Animal    | Chordata                   | -145000000    | -66000000    | Desmatochelys
 Desmepora                                | Animal    | Bryozoa                    | -85800000     | -83500000    | <>
@@ -729,7 +729,7 @@ Elasmosaurus                             | Animal    | Chordata                 
 Elaterocolpites                          | Plant     | Cycadophyta                | -89800000     | -83600000    | <>
 Elaterosporites                          | Plant     | Cycadophyta                | -89800000     | -83600000    | <>
 Elatocladus                              | Plant     | Coniferophyta              | -145000000    | -66000000    | Elatocladus
-Elea                                     | Animal    | Bryozoa                    | -86300000     | -83600000    | Elea
+Elea                                     | Animal    | Bryozoa                    | -86300000     | -83600000    | Cyclostomatida
 Electroma                                | Animal    | Mollusca                   | -85800000     | -83500000    | Electroma
 Electromantis                            | Animal    | Arthropoda                 | -85800000     | -83500000    | <>
 Electrotenia                             | Animal    | Arthropoda                 | -85800000     | -83500000    | <>
@@ -784,7 +784,7 @@ Eriptycha                                | Animal    | Mollusca                 
 Erketu                                   | Animal    | Chordata                   | -100500000    | -83600000    | Erketu
 Erlansonisporites                        | Plant     | Lycophyta                  | -100500000    | -66000000    | <>
 Erlikosaurus                             | Animal    | Chordata                   | -100500000    | -83600000    | Erlikosaurus
-Erycina                                  | Animal    | Mollusca                   | -85800000     | -83500000    | Erycina
+Erycina                                  | Animal    | Mollusca                   | -85800000     | -83500000    | <>
 Eryma                                    | Animal    | Arthropoda                 | -145000000    | -66000000    | Eryma
 Erymnochelys                             | Animal    | Chordata                   | -89300000     | -83600000    | Erymnochelys
 Estesesox                                | Animal    | Chordata                   | -85800000     | -83500000    | <>
@@ -831,7 +831,7 @@ Ficus Ficidae                            | Animal    | Mollusca                 
 Ficus Moraceae                           | Plant     | Spermatophyta              | -100500000    | -66000000    | Ficus
 Filicea                                  | Animal    | Bryozoa                    | -85800000     | -83500000    | <>
 Filicites                                | Plant     | Pteridophyta               | -100500000    | -66000000    | <>
-Fimbria                                  | Animal    | Mollusca                   | -86300000     | -83600000    | Fimbria
+Fimbria                                  | Animal    | Mollusca                   | -86300000     | -83600000    | Fimbria_(bivalve)
 Fissocarinocythere                       | Animal    | Arthropoda                 | -85800000     | -83500000    | <>
 Fissurina                                | Micro     | Foraminifera               | -85800000     | -83500000    | Fissurina
 Fitzroya                                 | Plant     | Pinophyta                  | -100500000    | -66000000    | Fitzroya
@@ -1067,7 +1067,7 @@ Inaperturotetradites                     | Plant     | Magnoliophyta            
 Incolornis                               | Animal    | Chordata                   | -100500000    | -66000000    | Incolornis
 Indocarpa                                | Plant     | Spermatophyta              | -100500000    | -56000000    | <>
 Indopolia                                | Plant     | Chlorophyta                | -89300000     | -66000000    | <>
-Inka                                     | Animal    | Arthropoda                 | -85800000     | -83500000    | Inka
+Inka                                     | Animal    | Arthropoda                 | -85800000     | -83500000    | Inca_(beetle)
 Inoceramus                               | Animal    | Mollusca                   | -100500000    | -66000000    | Inoceramus
 Inoperna                                 | Animal    | Mollusca                   | -85800000     | -83500000    | <>
 Inopinatarcula                           | Animal    | Brachiopoda                | -86300000     | -72100000    | <>
@@ -1230,7 +1230,7 @@ Lophomeandra                             | Animal    | Cnidaria                 
 Lophoranina                              | Animal    | Arthropoda                 | -100500000    | -66000000    | <>
 Loriculina                               | Animal    | Arthropoda                 | -85800000     | -83500000    | <>
 Loxoconcha                               | Animal    | Arthropoda                 | -85800000     | -83500000    | <>
-Lucina                                   | Animal    | Mollusca                   | -145000000    | -66000000    | Lucina
+Lucina                                   | Animal    | Mollusca                   | -145000000    | -66000000    | Lucina_(bivalve)
 Lugiomarsiglia                           | Plant     | Pteridophyta               | -100500000    | -61700000    | <>
 Luisogalathea                            | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Lunatia                                  | Animal    | Mollusca                   | -85800000     | -83500000    | Lunatia
@@ -1295,7 +1295,7 @@ Membranipora                             | Animal    | Bryozoa                  
 Membraniporidra                          | Animal    | Bryozoa                    | -85800000     | -83500000    | <>
 Menabonites                              | Animal    | Mollusca                   | -89300000     | -85800000    | <>
 Mendozasaurus                            | Animal    | Chordata                   | -89300000     | -85800000    | Mendozasaurus
-Menippe                                  | Animal    | Arthropoda                 | -100500000    | -66000000    | Menippe
+Menippe                                  | Animal    | Arthropoda                 | -100500000    | -66000000    | Menippe_(genus)
 Meniscoessus                             | Animal    | Chordata                   | -85800000     | -83500000    | Meniscoessus
 Menispermites                            | Plant     | Spermatophyta              | -100500000    | -66000000    | <>
 Menispermum                              | Plant     | Spermatophyta              | -89800000     | -72100000    | Menispermum
@@ -1348,11 +1348,11 @@ Minouxia                                 | Micro     | Foraminifera             
 Minytropis                               | Animal    | Mollusca                   | -86300000     | -83600000    | <>
 Mirasolita                               | Plant     | Pteridophyta               | -100500000    | -61700000    | <>
 Miseia                                   | Animal    | Mollusca                   | -85800000     | -70600000    | <>
-Mita                                     | Micro     | Radiolaria                 | -85800000     | -83500000    | Mita
+Mita                                     | Micro     | Radiolaria                 | -85800000     | -83500000    | <>
 Mitrocaprina                             | Animal    | Mollusca                   | -85800000     | -83500000    | <>
 Mixtipecten                              | Animal    | Mollusca                   | -85800000     | -83500000    | <>
 Mochlodon                                | Animal    | Chordata                   | -86300000     | -83600000    | Mochlodon
-Modiolus                                 | Animal    | Mollusca                   | -100500000    | -66000000    | Modiolus
+Modiolus                                 | Animal    | Mollusca                   | -100500000    | -66000000    | Modiolus_(bivalve)
 Momipites                                | Plant     | Spermatophyta              | -100500000    | -5333000     | <>
 Moncharmontia                            | Micro     | Foraminifera               | -85800000     | -83500000    | <>
 Mongolemys                               | Animal    | Chordata                   | -100500000    | -83600000    | <>

@@ -20,10 +20,10 @@ Achistrum                                | Animal    | Echinodermata            
 Acinophyllum                             | Animal    | Cnidaria                   | -407600000    | -387700000   | <>
 Acodina                                  | Animal    | Chordata                   | -419200000    | -393300000   | <>
 Acodus                                   | Animal    | Chordata                   | -407600000    | -387700000   | Acodus
-Acrophyllum                              | Animal    | Cnidaria                   | -402500000    | -391900000   | Acrophyllum
+Acrophyllum                              | Animal    | Cnidaria                   | -402500000    | -391900000   | <>
 Acrospirifer                             | Animal    | Brachiopoda                | -402500000    | -391900000   | <>
 Actinodesma                              | Animal    | Mollusca                   | -402500000    | -391900000   | <>
-Actinolepis                              | Animal    | Chordata                   | -407600000    | -393300000   | Actinolepis
+Actinolepis                              | Animal    | Chordata                   | -407600000    | -393300000   | Actinolepis_(placoderm)
 Actinopteria                             | Animal    | Mollusca                   | -402500000    | -391900000   | <>
 Actinostroma                             | Animal    | Porifera                   | -402500000    | -391900000   | <>
 Aculatostroma                            | Animal    | Porifera                   | -407600000    | -393300000   | <>
@@ -151,7 +151,7 @@ Aulocystis                               | Animal    | Cnidaria                 
 Aulopora                                 | Animal    | Cnidaria                   | -402500000    | -391900000   | Aulopora
 Aureocrinus                              | Animal    | Echinodermata              | -402500000    | -391900000   | <>
 Austerops                                | Animal    | Arthropoda                 | -407600000    | -387700000   | <>
-Australina                               | Animal    | Brachiopoda                | -423000000    | -391900000   | Australina
+Australina                               | Animal    | Brachiopoda                | -423000000    | -391900000   | <>
 Australocoelia                           | Animal    | Brachiopoda                | -402500000    | -391900000   | <>
 Australonema                             | Animal    | Mollusca                   | -402500000    | -391900000   | <>
 Australophyllum                          | Animal    | Cnidaria                   | -402500000    | -391900000   | <>
@@ -219,7 +219,7 @@ Bolbozoe                                 | Animal    | Arthropoda               
 Boliviacrinus                            | Animal    | Echinodermata              | -407600000    | -393300000   | <>
 Bollia                                   | Animal    | Arthropoda                 | -407600000    | -393300000   | <>
 Borchgrevinkium                          | Animal    | Arthropoda                 | -419200000    | -393300000   | Borchgrevinkium
-Borealis                                 | Animal    | Brachiopoda                | -409100000    | -402500000   | Borealis
+Borealis                                 | Animal    | Brachiopoda                | -409100000    | -402500000   | <>
 Botryllopora                             | Animal    | Bryozoa                    | -407600000    | -393300000   | <>
 Botryocrinus                             | Animal    | Echinodermata              | -407600000    | -393300000   | <>
 Boucia                                   | Animal    | Arthropoda                 | -423000000    | -391900000   | <>
@@ -267,7 +267,7 @@ Camarotoechia                            | Animal    | Brachiopoda              
 Campophyllum                             | Animal    | Cnidaria                   | -409100000    | -383700000   | <>
 Cancellspyroceras                        | Animal    | Mollusca                   | -410800000    | -383700000   | <>
 Caneyella                                | Animal    | Mollusca                   | -409100000    | -402500000   | <>
-Caninia                                  | Animal    | Cnidaria                   | -419200000    | -298900000   | Caninia
+Caninia                                  | Animal    | Cnidaria                   | -419200000    | -298900000   | Caninia_(coral)
 Caninophyllum                            | Animal    | Cnidaria                   | -419200000    | -298900000   | <>
 Canonia                                  | Animal    | Chordata                   | -419200000    | -393300000   | Canonia
 Cantabriastraea                          | Animal    | Cnidaria                   | -402500000    | -391900000   | <>
@@ -294,11 +294,11 @@ Cayugaea                                 | Animal    | Cnidaria                 
 Celaeceras                               | Animal    | Mollusca                   | -402500000    | -391900000   | <>
 Centauropyge                             | Animal    | Arthropoda                 | -402500000    | -387700000   | Centauropyge
 Centriproetus                            | Animal    | Arthropoda                 | -410800000    | -382700000   | <>
-Centroceras                              | Animal    | Mollusca                   | -409100000    | -391900000   | Centroceras
+Centroceras                              | Animal    | Mollusca                   | -409100000    | -391900000   | <>
 Centronella                              | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
 Ceratarges                               | Animal    | Arthropoda                 | -402500000    | -391900000   | Ceratarges
 Ceratiocaris                             | Animal    | Arthropoda                 | -409100000    | -402500000   | Ceratiocaris
-Ceratocephala                            | Animal    | Arthropoda                 | -402500000    | -391900000   | Ceratocephala
+Ceratocephala                            | Animal    | Arthropoda                 | -402500000    | -391900000   | Ceratocephala_(trilobite)
 Ceratolichas                             | Animal    | Arthropoda                 | -407600000    | -393300000   | <>
 Ceratonurus                              | Animal    | Arthropoda                 | -410800000    | -382700000   | <>
 Ceratophyllum                            | Animal    | Cnidaria                   | -402500000    | -387700000   | Ceratophyllum
@@ -342,7 +342,7 @@ Clavodalejina                            | Animal    | Brachiopoda              
 Clavofabellina                           | Animal    | Arthropoda                 | -409100000    | -402500000   | <>
 Climatius                                | Animal    | Chordata                   | -419200000    | -393300000   | Climatius
 Clonocrinus                              | Animal    | Echinodermata              | -416000000    | -391900000   | <>
-Clorinda                                 | Animal    | Brachiopoda                | -402500000    | -387700000   | Clorinda
+Clorinda                                 | Animal    | Brachiopoda                | -402500000    | -387700000   | <>
 Clorindina                               | Animal    | Brachiopoda                | -410800000    | -402500000   | <>
 Coccosteus                               | Animal    | Chordata                   | -407600000    | -393300000   | Coccosteus
 Codiacrinus                              | Animal    | Echinodermata              | -409100000    | -402500000   | <>
@@ -354,7 +354,7 @@ Coelospirella                            | Animal    | Brachiopoda              
 Coelospirina                             | Animal    | Brachiopoda                | -409100000    | -391900000   | <>
 Coenites                                 | Animal    | Cnidaria                   | -402500000    | -391900000   | Coenites
 Coignouina                               | Animal    | Arthropoda                 | -410800000    | -402500000   | <>
-Collina                                  | Animal    | Mollusca                   | -402500000    | -391900000   | Collina
+Collina                                  | Animal    | Mollusca                   | -402500000    | -391900000   | Collina_(ammonite)
 Coltraneia                               | Animal    | Arthropoda                 | -402500000    | -391900000   | Coltraneia
 Combophyllum                             | Animal    | Cnidaria                   | -402500000    | -391900000   | <>
 Composita                                | Animal    | Brachiopoda                | -419200000    | -298900000   | Composita
@@ -375,7 +375,7 @@ Corocrinus                               | Animal    | Echinodermata            
 Cortezorthis                             | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
 Corvinopugnax                            | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
 Corylispirifer                           | Animal    | Brachiopoda                | -409100000    | -402500000   | <>
-Coscinium                                | Animal    | Bryozoa                    | -407600000    | -387700000   | Coscinium
+Coscinium                                | Animal    | Bryozoa                    | -407600000    | -387700000   | Coscinium_(bryozoan)
 Cosmaspis                                | Animal    | Chordata                   | -419200000    | -393300000   | <>
 Costalocrinus                            | Animal    | Echinodermata              | -407600000    | -393300000   | <>
 Costanoplia                              | Animal    | Brachiopoda                | -402500000    | -387700000   | <>
@@ -441,7 +441,7 @@ Dalmanella                               | Animal    | Brachiopoda              
 Dalmanellopsis                           | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
 Dalmanites                               | Animal    | Arthropoda                 | -407600000    | -387700000   | Dalmanites
 Dawsonites                               | Plant     | Psilophytophyta            | -407600000    | -393300000   | <>
-Dayia                                    | Animal    | Brachiopoda                | -423000000    | -391900000   | Dayia
+Dayia                                    | Animal    | Brachiopoda                | -423000000    | -391900000   | <>
 Deceptrix                                | Animal    | Mollusca                   | -407600000    | -393300000   | <>
 Dechenella                               | Animal    | Arthropoda                 | -402500000    | -391900000   | <>
 Dechenellurus                            | Animal    | Arthropoda                 | -409100000    | -391900000   | <>
@@ -528,7 +528,7 @@ Eleutherokomma                           | Animal    | Brachiopoda              
 Eleutherospira                           | Animal    | Mollusca                   | -409100000    | -402500000   | <>
 Eliasopora                               | Animal    | Bryozoa                    | -407600000    | -393300000   | <>
 Elicrinus                                | Animal    | Echinodermata              | -402500000    | -391900000   | <>
-Elita                                    | Animal    | Brachiopoda                | -407600000    | -387700000   | Elita
+Elita                                    | Animal    | Brachiopoda                | -407600000    | -387700000   | <>
 Elymospirifer                            | Animal    | Brachiopoda                | -409100000    | -402500000   | <>
 Elythyna                                 | Animal    | Brachiopoda                | -402500000    | -391900000   | <>
 Embolophyllum                            | Animal    | Cnidaria                   | -402500000    | -391900000   | <>
@@ -576,7 +576,7 @@ Eridotrypella                            | Animal    | Bryozoa                  
 Erieopterus                              | Animal    | Arthropoda                 | -419200000    | -393300000   | Erieopterus
 Erikia                                   | Animal    | Chordata                   | -407600000    | -393300000   | <>
 Erinaceaster                             | Animal    | Echinodermata              | -409100000    | -402500000   | <>
-Estheria                                 | Animal    | Arthropoda                 | -419200000    | -382700000   | Estheria
+Estheria                                 | Animal    | Arthropoda                 | -419200000    | -382700000   | Lioestheria
 Etymothyris                              | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
 Eucalyptocrinites                        | Animal    | Echinodermata              | -409100000    | -402500000   | Eucalyptocrinites
 Eucharitina                              | Animal    | Brachiopoda                | -409100000    | -402500000   | <>
@@ -894,7 +894,7 @@ Leptotrypella                            | Animal    | Bryozoa                  
 Levenea                                  | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
 Leviconchidiella                         | Animal    | Brachiopoda                | -402500000    | -387700000   | <>
 Libumella                                | Animal    | Arthropoda                 | -402500000    | -391900000   | <>
-Lichas                                   | Animal    | Arthropoda                 | -402500000    | -391900000   | Lichas
+Lichas                                   | Animal    | Arthropoda                 | -402500000    | -391900000   | Lichas_(trilobite)
 Ligulalepis                              | Animal    | Chordata                   | -407600000    | -393300000   | Ligulalepis
 Limoptera                                | Animal    | Mollusca                   | -402500000    | -391900000   | <>
 Lindstroemia                             | Animal    | Cnidaria                   | -410800000    | -402500000   | <>
@@ -1017,7 +1017,7 @@ Mitchellia                               | Animal    | Mollusca                 
 Mitrocystites                            | Animal    | Echinodermata              | -409100000    | -402500000   | <>
 Modiella                                 | Animal    | Mollusca                   | -407600000    | -393300000   | <>
 Modiolopsis                              | Animal    | Mollusca                   | -423000000    | -391900000   | <>
-Modiolus                                 | Animal    | Mollusca                   | -407600000    | -387700000   | Modiolus
+Modiolus                                 | Animal    | Mollusca                   | -407600000    | -387700000   | Modiolus_(bivalve)
 Modiomorpha                              | Animal    | Mollusca                   | -402500000    | -387700000   | <>
 Moelleritia                              | Animal    | Arthropoda                 | -407600000    | -393300000   | <>
 Molongia                                 | Animal    | Brachiopoda                | -419200000    | -393300000   | <>

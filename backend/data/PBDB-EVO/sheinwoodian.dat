@@ -116,7 +116,7 @@ Aulocystella                             | Animal    | Cnidaria                 
 Aulopora                                 | Animal    | Cnidaria                   | -433400000    | -423000000   | Aulopora
 Auloporella                              | Animal    | Cnidaria                   | -433400000    | -423000000   | <>
 Auriptygma                               | Animal    | Mollusca                   | -433400000    | -430500000   | <>
-Australina                               | Animal    | Brachiopoda                | -433400000    | -419200000   | Australina
+Australina                               | Animal    | Brachiopoda                | -433400000    | -419200000   | <>
 Australoacaste                           | Animal    | Arthropoda                 | -433400000    | -423000000   | <>
 Australonema                             | Animal    | Mollusca                   | -433400000    | -430500000   | <>
 Australoscutellum                        | Animal    | Arthropoda                 | -433400000    | -427400000   | <>
@@ -209,7 +209,7 @@ Caudicriodus                             | Animal    | Chordata                 
 Ceramopora                               | Animal    | Bryozoa                    | -433400000    | -427400000   | Ceramopora
 Ceramoporella                            | Animal    | Bryozoa                    | -433400000    | -427400000   | <>
 Ceratiocaris                             | Animal    | Arthropoda                 | -433400000    | -430500000   | Ceratiocaris
-Ceratocephala                            | Animal    | Arthropoda                 | -433400000    | -423000000   | Ceratocephala
+Ceratocephala                            | Animal    | Arthropoda                 | -433400000    | -423000000   | Ceratocephala_(trilobite)
 Cerauromeros                             | Animal    | Arthropoda                 | -443400000    | -427400000   | Cerauromeros
 Chaetetes                                | Animal    | Porifera                   | -433400000    | -423000000   | Chaetetes
 Chaetocladus                             | Plant     | Chlorophyta                | -433400000    | -427400000   | Chaetocladus
@@ -230,7 +230,7 @@ Chuanqianoproetus                        | Animal    | Arthropoda               
 Cimitaria                                | Animal    | Mollusca                   | -439000000    | -426200000   | <>
 Cinerocaris                              | Animal    | Arthropoda                 | -433400000    | -427400000   | Cinerocaris
 Cladopora                                | Animal    | Cnidaria                   | -433400000    | -423000000   | <>
-Cladospongia                             | Animal    | Porifera                   | -433400000    | -423000000   | Cladospongia
+Cladospongia                             | Animal    | Porifera                   | -433400000    | -423000000   | Cladospongia_(sponge)
 Clarkeia                                 | Animal    | Brachiopoda                | -433400000    | -419200000   | Clarkeia
 Clathrochitina                           | Micro     | Sarcodina                  | -433400000    | -427400000   | Clathrochitina
 Clathrodictyon                           | Animal    | Porifera                   | -433400000    | -423000000   | <>
@@ -245,7 +245,7 @@ Clintonella                              | Animal    | Brachiopoda              
 Clisiophyllum                            | Animal    | Cnidaria                   | -433400000    | -430500000   | <>
 Clisospira                               | Animal    | Mollusca                   | -433400000    | -427400000   | <>
 Clonocrinus                              | Animal    | Echinodermata              | -433400000    | -423000000   | <>
-Clorinda                                 | Animal    | Brachiopoda                | -433400000    | -427400000   | Clorinda
+Clorinda                                 | Animal    | Brachiopoda                | -433400000    | -427400000   | <>
 Coelocaulus                              | Animal    | Mollusca                   | -433400000    | -423000000   | <>
 Coelocerodontus                          | Animal    | Chordata                   | -443400000    | -419200000   | <>
 Coeloclema                               | Animal    | Bryozoa                    | -433400000    | -427400000   | <>
@@ -427,7 +427,7 @@ Dysodonta                                | Animal    | Mollusca                 
 Ecclimadictyon                           | Animal    | Porifera                   | -433400000    | -427400000   | <>
 Edenoceras                               | Animal    | Mollusca                   | -433400000    | -427400000   | <>
 Edgecombeaspis                           | Animal    | Arthropoda                 | -433400000    | -427400000   | <>
-Edmondia                                 | Animal    | Mollusca                   | -433400000    | -427400000   | Edmondia
+Edmondia                                 | Animal    | Mollusca                   | -433400000    | -427400000   | <>
 Ehlersia                                 | Animal    | Arthropoda                 | -443400000    | -419200000   | <>
 Eisenackitina                            | Micro     | Sarcodina                  | -439000000    | -428200000   | Eisenackitina
 Elegesta                                 | Animal    | Brachiopoda                | -433400000    | -427400000   | <>
@@ -618,7 +618,7 @@ Howellella                               | Animal    | Brachiopoda              
 Howellites                               | Animal    | Brachiopoda                | -433400000    | -427400000   | <>
 Huddlella                                | Animal    | Chordata                   | -433400000    | -427400000   | <>
 Hughmilleria                             | Animal    | Arthropoda                 | -433400000    | -423000000   | Hughmilleria
-Huronia                                  | Animal    | Mollusca                   | -443400000    | -422900000   | Huronia
+Huronia                                  | Animal    | Mollusca                   | -443400000    | -422900000   | Huronia_(cephalopod)
 Hyattidina                               | Animal    | Brachiopoda                | -433400000    | -423000000   | <>
 Hyolithes                                | Animal    | Hyolitha                   | -433400000    | -427400000   | Hyolithes
 Hyrokybe                                 | Animal    | Arthropoda                 | -433400000    | -427400000   | <>
@@ -717,7 +717,7 @@ Leptostrophia                            | Animal    | Brachiopoda              
 Leurocycloceras                          | Animal    | Mollusca                   | -443400000    | -427400000   | Leurocycloceras
 Levenea                                  | Animal    | Brachiopoda                | -433400000    | -423000000   | <>
 Levicyathocrinites                       | Animal    | Echinodermata              | -443400000    | -427400000   | <>
-Lichas                                   | Animal    | Arthropoda                 | -433400000    | -423000000   | Lichas
+Lichas                                   | Animal    | Arthropoda                 | -433400000    | -423000000   | Lichas_(trilobite)
 Lichenalia                               | Animal    | Bryozoa                    | -433400000    | -427400000   | <>
 Ligiscus                                 | Animal    | Arthropoda                 | -433400000    | -427400000   | <>
 Liljevallia                              | Animal    | Brachiopoda                | -433400000    | -430500000   | <>

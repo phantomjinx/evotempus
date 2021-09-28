@@ -74,7 +74,7 @@ Amplexocarinia                           | Animal    | Cnidaria                 
 Amplexus                                 | Animal    | Cnidaria                   | -336000000    | -326400000   | Amplexus
 Amusium                                  | Animal    | Mollusca                   | -336000000    | -326400000   | Amusium
 Amygdalophylloides                       | Animal    | Cnidaria                   | -346700000    | -323200000   | <>
-Ananias                                  | Animal    | Mollusca                   | -336000000    | -326400000   | Ananias
+Ananias                                  | Animal    | Mollusca                   | -336000000    | -326400000   | <>
 Anapiculatisporites                      | Plant     | Bryophyta                  | -346700000    | -330900000   | <>
 Anatolipora                              | Plant     | Chlorophyta                | -336000000    | -326400000   | <>
 Aneimites                                | Plant     | Peltaspermophyta           | -346700000    | -330900000   | <>
@@ -137,7 +137,7 @@ Ascodictyon                              | Animal    | Bryozoa                  
 Ascopora                                 | Animal    | Bryozoa                    | -336000000    | -326400000   | <>
 Astartella                               | Animal    | Mollusca                   | -339400000    | -318100000   | <>
 Asteroarchaediscus                       | Micro     | Foraminifera               | -339400000    | -314600000   | <>
-Asterolepis                              | Animal    | Chordata                   | -358900000    | -323200000   | Asterolepis
+Asterolepis                              | Animal    | Chordata                   | -358900000    | -323200000   | Asterolepis_(fish)
 Asterophyllites                          | Plant     | Sphenophyta                | -358900000    | -252170000   | <>
 Asteroptychius                           | Animal    | Chordata                   | -358900000    | -323200000   | <>
 Asterotheca                              | Plant     | Pteridophyta               | -358900000    | -298900000   | Asterotheca
@@ -264,7 +264,7 @@ Camptocrinus                             | Animal    | Echinodermata            
 Canadiphyllum                            | Animal    | Cnidaria                   | -345000000    | -336000000   | <>
 Cancrinella                              | Animal    | Brachiopoda                | -336000000    | -326400000   | <>
 Caneyella                                | Animal    | Mollusca                   | -336000000    | -326400000   | <>
-Caninia                                  | Animal    | Cnidaria                   | -336000000    | -323200000   | Caninia
+Caninia                                  | Animal    | Cnidaria                   | -336000000    | -323200000   | Caninia_(coral)
 Caninophyllum                            | Animal    | Cnidaria                   | -336000000    | -326400000   | <>
 Caninostrotion                           | Animal    | Cnidaria                   | -339400000    | -318100000   | <>
 Canobius                                 | Animal    | Chordata                   | -345000000    | -342800000   | Canobius
@@ -452,7 +452,7 @@ Deltodus                                 | Animal    | Chordata                 
 Deltopecten                              | Animal    | Mollusca                   | -345000000    | -336000000   | <>
 Deltoptychius                            | Animal    | Chordata                   | -345000000    | -342800000   | Deltoptychius
 Denaea                                   | Animal    | Chordata                   | -345000000    | -339400000   | <>
-Dentalium                                | Animal    | Mollusca                   | -345000000    | -336000000   | Dentalium
+Dentalium                                | Animal    | Mollusca                   | -345000000    | -336000000   | Dentalium_(genus)
 Dentiblastus                             | Animal    | Echinodermata              | -345300000    | -345000000   | <>
 Derbyia                                  | Animal    | Brachiopoda                | -336000000    | -326400000   | <>
 Derorhethocrinus                         | Animal    | Echinodermata              | -358900000    | -345300000   | <>
@@ -488,7 +488,7 @@ Diplopora                                | Plant     | Chlorophyta              
 Diploporaria                             | Animal    | Bryozoa                    | -339400000    | -336000000   | <>
 Diplosphaerina                           | Micro     | Foraminifera               | -336000000    | -326400000   | <>
 Diplothmema                              | Plant     | Pteridospermophyta         | -346700000    | -330900000   | <>
-Discina                                  | Animal    | Brachiopoda                | -339400000    | -336000000   | Discina
+Discina                                  | Animal    | Brachiopoda                | -339400000    | -336000000   | Discina_(brachiopod)
 Discitoceras                             | Animal    | Mollusca                   | -339400000    | -318100000   | Discitoceras
 Discocystis                              | Animal    | Echinodermata              | -336000000    | -326400000   | <>
 Ditomopyge                               | Animal    | Arthropoda                 | -346700000    | -330900000   | <>
@@ -531,8 +531,8 @@ Ectochoristites                          | Animal    | Brachiopoda              
 Ectodemites                              | Animal    | Arthropoda                 | -336000000    | -326400000   | <>
 Ectogrammysia                            | Animal    | Mollusca                   | -339400000    | -318100000   | <>
 Edaphoceras                              | Animal    | Mollusca                   | -358900000    | -323200000   | Edaphoceras
-Edmondia                                 | Animal    | Mollusca                   | -336000000    | -318100000   | Edmondia
-Edon                                     | Animal    | Mollusca                   | -339400000    | -326400000   | Edon
+Edmondia                                 | Animal    | Mollusca                   | -336000000    | -318100000   | <>
+Edon                                     | Animal    | Mollusca                   | -339400000    | -326400000   | <>
 Ekvasophyllum                            | Animal    | Cnidaria                   | -345000000    | -318100000   | <>
 Elasmonema                               | Animal    | Mollusca                   | -358900000    | -298900000   | <>
 Eldeceeon                                | Animal    | Chordata                   | -346700000    | -330900000   | Eldeceeon
@@ -1026,7 +1026,7 @@ Mintopteris                              | Plant     | Pteridophyta             
 Mitorthoceras                            | Animal    | Mollusca                   | -336000000    | -326400000   | <>
 Mitrospermum                             | Plant     | Pinophyta                  | -358900000    | -323200000   | <>
 Mixoneura                                | Plant     | Pteridophyta               | -358900000    | -298900000   | <>
-Modiolus                                 | Animal    | Mollusca                   | -339400000    | -336000000   | Modiolus
+Modiolus                                 | Animal    | Mollusca                   | -339400000    | -336000000   | Modiolus_(bivalve)
 Modiomorpha                              | Animal    | Mollusca                   | -336000000    | -326400000   | <>
 Monoaphelocarus                          | Animal    | Arthropoda                 | -336000000    | -326400000   | <>
 Monoceratina                             | Animal    | Arthropoda                 | -336000000    | -326400000   | <>

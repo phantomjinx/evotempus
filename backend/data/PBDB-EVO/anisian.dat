@@ -47,7 +47,7 @@ Amphisphaera                             | Micro     | Radiolaria               
 Ampullina                                | Animal    | Mollusca                   | -247200000    | -242000000   | Ampullina
 Anagymnites                              | Animal    | Mollusca                   | -247200000    | -242000000   | Anagymnites
 Anagymnotoceras                          | Animal    | Mollusca                   | -247200000    | -242000000   | Anagymnotoceras
-Ananias                                  | Animal    | Mollusca                   | -247200000    | -242000000   | Ananias
+Ananias                                  | Animal    | Mollusca                   | -247200000    | -242000000   | <>
 Ananorites                               | Animal    | Mollusca                   | -247200000    | -242000000   | Ananorites
 Anarosaurus                              | Animal    | Chordata                   | -247200000    | -242000000   | Anarosaurus
 Anchisauripus                            | Animal    | Chordata                   | -247200000    | -237000000   | Anchisauripus
@@ -66,7 +66,7 @@ Annalepis                                | Plant     | Lycophyta                
 Annulotriassocampe                       | Micro     | Radiolaria                 | -247200000    | -242000000   | <>
 Anodontophora                            | Animal    | Mollusca                   | -247200000    | -242000000   | <>
 Anolcites                                | Animal    | Mollusca                   | -247200000    | -242000000   | Anolcites
-Anomia                                   | Animal    | Mollusca                   | -247200000    | -237000000   | Anomia
+Anomia                                   | Animal    | Mollusca                   | -247200000    | -237000000   | Anomia_(bivalve)
 Anomoiodon                               | Animal    | Chordata                   | -247200000    | -242000000   | Anomoiodon
 Anomopteris                              | Plant     | Pteridophyta               | -247200000    | -242000000   | <>
 Anomphalus                               | Animal    | Mollusca                   | -247200000    | -242000000   | Anomphalus
@@ -112,7 +112,7 @@ Arctoptychites                           | Animal    | Mollusca                 
 Arenorbis                                | Animal    | Echinodermata              | -247200000    | -242000000   | <>
 Arenovidalina                            | Micro     | Foraminifera               | -247200000    | -237000000   | <>
 Argolites                                | Animal    | Mollusca                   | -247200000    | -237000000   | Argolites
-Arianites                                | Animal    | Mollusca                   | -251200000    | -242000000   | Arianites
+Arianites                                | Animal    | Mollusca                   | -251200000    | -242000000   | Arianites_(ammonite)
 Ariguna                                  | Animal    | Chordata                   | -247200000    | -237000000   | <>
 Aristoptychites                          | Animal    | Mollusca                   | -247200000    | -242000000   | Aristoptychites
 Arizonasaurus                            | Animal    | Chordata                   | -247200000    | -242000000   | Arizonasaurus
@@ -176,7 +176,7 @@ Barracudasauroides                       | Animal    | Chordata                 
 Basileosaurus                            | Animal    | Chordata                   | -247200000    | -242000000   | <>
 Basslerella                              | Animal    | Arthropoda                 | -247200000    | -242000000   | <>
 Bathignathus                             | Animal    | Chordata                   | -247200000    | -242000000   | <>
-Batrachopus                              | Animal    | Chordata                   | -247200000    | -237000000   | Batrachopus
+Batrachopus                              | Animal    | Chordata                   | -247200000    | -237000000   | <>
 Batrachosuchus                           | Animal    | Chordata                   | -247200000    | -242000000   | Batrachosuchus
 Baumgartneria                            | Micro     | Radiolaria                 | -247200000    | -221500000   | <>
 Bauria                                   | Animal    | Chordata                   | -247200000    | -242000000   | Bauria
@@ -243,7 +243,7 @@ Canoptum                                 | Micro     | Radiolaria               
 Capitosauroides                          | Animal    | Chordata                   | -247200000    | -242000000   | <>
 Capnodoce                                | Micro     | Radiolaria                 | -247200000    | -174100000   | <>
 Capnuchosphaera                          | Micro     | Radiolaria                 | -247200000    | -174100000   | <>
-Cardinia                                 | Animal    | Mollusca                   | -247200000    | -242000000   | Cardinia
+Cardinia                                 | Animal    | Mollusca                   | -247200000    | -242000000   | <>
 Cardinioides                             | Animal    | Mollusca                   | -247200000    | -242000000   | <>
 Cardiomorpha                             | Animal    | Mollusca                   | -247200000    | -242000000   | <>
 Carinella                                | Animal    | Chordata                   | -247200000    | -237000000   | <>
@@ -316,7 +316,7 @@ Conularia                                | Animal    | Cnidaria                 
 Corbula                                  | Animal    | Mollusca                   | -247200000    | -242000000   | Corbula
 Cornuspira                               | Micro     | Foraminifera               | -247200000    | -237000000   | <>
 Cortinaticopsis                          | Animal    | Mollusca                   | -247200000    | -242000000   | <>
-Corum                                    | Micro     | Radiolaria                 | -247200000    | -174100000   | Corum
+Corum                                    | Micro     | Radiolaria                 | -247200000    | -174100000   | <>
 Cosmonautilus                            | Animal    | Mollusca                   | -252170000    | -201300000   | Cosmonautilus
 Costatoria                               | Animal    | Mollusca                   | -247200000    | -237000000   | <>
 Costigymnites                            | Animal    | Mollusca                   | -247200000    | -242000000   | Costigymnites
@@ -375,7 +375,7 @@ Deltoidospora                            | Plant     | Pteridophyta             
 Deningeria                               | Animal    | Porifera                   | -247200000    | -237000000   | <>
 Densoisporites                           | Plant     | Pteridophyta               | -247200000    | -237000000   | <>
 Dentalina                                | Micro     | Foraminifera               | -247200000    | -237000000   | <>
-Dentalium                                | Animal    | Mollusca                   | -247200000    | -237000000   | Dentalium
+Dentalium                                | Animal    | Mollusca                   | -247200000    | -237000000   | Dentalium_(genus)
 Desmiophyllum                            | Plant     | Coniferophyta              | -247200000    | -237000000   | <>
 Detoniceras                              | Animal    | Mollusca                   | -247200000    | -237000000   | <>
 Deuterotetrapous                         | Animal    | Chordata                   | -247200000    | -242000000   | <>
@@ -410,7 +410,7 @@ Diplosphaerina                           | Micro     | Foraminifera             
 Diplospirella                            | Animal    | Brachiopoda                | -247200000    | -237000000   | <>
 Diplotremina                             | Micro     | Foraminifera               | -247200000    | -242000000   | <>
 Dipteronotus                             | Animal    | Chordata                   | -247200000    | -242000000   | Dipteronotus
-Discina                                  | Animal    | Brachiopoda                | -247200000    | -237000000   | Discina
+Discina                                  | Animal    | Brachiopoda                | -247200000    | -237000000   | Discina_(brachiopod)
 Discinisca                               | Animal    | Brachiopoda                | -247200000    | -242000000   | Discinisca
 Discoceratites                           | Animal    | Mollusca                   | -247200000    | -242000000   | <>
 Discogymnites                            | Animal    | Mollusca                   | -247200000    | -242000000   | <>
@@ -436,7 +436,7 @@ Dyscritella                              | Animal    | Bryozoa                  
 Dysmorphoptiloides                       | Animal    | Arthropoda                 | -247200000    | -242000000   | <>
 Earlandia                                | Micro     | Foraminifera               | -247200000    | -237000000   | Earlandia
 Earlandinita                             | Micro     | Foraminifera               | -247200000    | -237000000   | <>
-Echinus                                  | Animal    | Echinodermata              | -247200000    | -242000000   | Echinus
+Echinus                                  | Animal    | Echinodermata              | -247200000    | -242000000   | Echinus_(sea_urchin)
 Eckastraea                               | Animal    | Cnidaria                   | -247200000    | -242000000   | <>
 Eifelosaurus                             | Animal    | Chordata                   | -247200000    | -242000000   | <>
 Elateridium                              | Animal    | Arthropoda                 | -247200000    | -242000000   | <>
@@ -495,7 +495,7 @@ Erpetopus                                | Animal    | Chordata                 
 Eryosuchus                               | Animal    | Chordata                   | -247200000    | -242000000   | Eryosuchus
 Erythrosuchus                            | Animal    | Chordata                   | -247200000    | -242000000   | Erythrosuchus
 Esinoceras                               | Animal    | Mollusca                   | -247200000    | -242000000   | <>
-Estheria                                 | Animal    | Arthropoda                 | -247200000    | -242000000   | Estheria
+Estheria                                 | Animal    | Arthropoda                 | -247200000    | -242000000   | Lioestheria
 Estheriellites                           | Animal    | Arthropoda                 | -247200000    | -237000000   | <>
 Etalia                                   | Animal    | Mollusca                   | -247200000    | -237000000   | <>
 Etheridgea                               | Animal    | Arthropoda                 | -247200000    | -242000000   | <>
@@ -549,7 +549,7 @@ Furcapartus                              | Animal    | Arthropoda               
 Furo                                     | Animal    | Chordata                   | -247200000    | -242000000   | Furo
 Fuyuanperleidus                          | Animal    | Chordata                   | -247200000    | -242000000   | <>
 Galeanella                               | Micro     | Foraminifera               | -247200000    | -235000000   | <>
-Gallia                                   | Animal    | Arthropoda                 | -247200000    | -242000000   | Gallia
+Gallia                                   | Animal    | Arthropoda                 | -247200000    | -242000000   | <>
 Galliagryllavus                          | Animal    | Arthropoda                 | -247200000    | -242000000   | <>
 Gallioscorpio                            | Animal    | Arthropoda                 | -247200000    | -242000000   | <>
 Gallodunstania                           | Animal    | Arthropoda                 | -247200000    | -242000000   | <>
@@ -679,7 +679,7 @@ Ismidites                                | Animal    | Mollusca                 
 Isochirotherium                          | Animal    | Chordata                   | -247200000    | -237000000   | <>
 Isocrinus                                | Animal    | Echinodermata              | -247200000    | -237000000   | <>
 Isoetites                                | Plant     | Lycophyta                  | -247200000    | -242000000   | <>
-Israelites                               | Animal    | Mollusca                   | -247200000    | -242000000   | Israelites
+Israelites                               | Animal    | Mollusca                   | -247200000    | -242000000   | <>
 Istreites                                | Animal    | Mollusca                   | -247200000    | -242000000   | <>
 Iverya                                   | Animal    | Arthropoda                 | -247200000    | -242000000   | <>
 Jammerbergia                             | Animal    | Chordata                   | -247200000    | -242000000   | Jammerbergia
@@ -689,7 +689,7 @@ Japonites                                | Animal    | Mollusca                 
 Japonocampe                              | Micro     | Radiolaria                 | -247200000    | -237000000   | <>
 Jenksites                                | Animal    | Mollusca                   | -247200000    | -242000000   | <>
 Jesairosaurus                            | Animal    | Chordata                   | -251300000    | -242000000   | Jesairosaurus
-Joannina                                 | Animal    | Mollusca                   | -247200000    | -242000000   | Joannina
+Joannina                                 | Animal    | Mollusca                   | -247200000    | -242000000   | <>
 Joannites                                | Animal    | Mollusca                   | -247200000    | -221500000   | Joannites
 Judahella                                | Animal    | Arthropoda                 | -247200000    | -242000000   | <>
 Judicarites                              | Animal    | Mollusca                   | -247200000    | -237000000   | <>
@@ -793,16 +793,16 @@ Liuzhinia                                | Animal    | Arthropoda               
 Livarella                                | Micro     | Radiolaria                 | -247200000    | -237000000   | <>
 Lobatannularia                           | Plant     | Sphenophyta                | -247200000    | -242000000   | <>
 Lobites                                  | Animal    | Mollusca                   | -247200000    | -221500000   | Lobites
-Loffa                                    | Micro     | Radiolaria                 | -247200000    | -228000000   | Loffa
+Loffa                                    | Micro     | Radiolaria                 | -247200000    | -228000000   | <>
 Lonchodina                               | Animal    | Chordata                   | -247200000    | -237000000   | <>
 Longobardites                            | Animal    | Mollusca                   | -247200000    | -237000000   | <>
 Longobarditoides                         | Animal    | Mollusca                   | -247200000    | -221500000   | <>
 Lopha                                    | Animal    | Mollusca                   | -247200000    | -242000000   | Lopha
 Lotosaurus                               | Animal    | Chordata                   | -247200000    | -242000000   | Lotosaurus
-Louisa                                   | Animal    | Arthropoda                 | -247200000    | -242000000   | Louisa
+Louisa                                   | Animal    | Arthropoda                 | -247200000    | -242000000   | <>
 Loxonema                                 | Animal    | Mollusca                   | -247200000    | -237000000   | <>
-Luangwa                                  | Animal    | Chordata                   | -247200000    | -237000000   | Luangwa
-Lucina                                   | Animal    | Mollusca                   | -247200000    | -237000000   | Lucina
+Luangwa                                  | Animal    | Chordata                   | -247200000    | -237000000   | Luangwa_(cynodont)
+Lucina                                   | Animal    | Mollusca                   | -247200000    | -237000000   | Lucina_(bivalve)
 Luganoia                                 | Animal    | Chordata                   | -247200000    | -242000000   | Luganoia
 Lumkuia                                  | Animal    | Chordata                   | -247200000    | -242000000   | Lumkuia
 Luopingcoelacanthus                      | Animal    | Chordata                   | -247200000    | -242000000   | <>
@@ -888,7 +888,7 @@ Minorella                                | Animal    | Arthropoda               
 Miocidaris                               | Animal    | Echinodermata              | -247200000    | -242000000   | <>
 Misikella                                | Animal    | Chordata                   | -247200000    | -237000000   | Misikella
 Mixosaurus                               | Animal    | Chordata                   | -247200000    | -237000000   | Mixosaurus
-Modiolus                                 | Animal    | Mollusca                   | -247200000    | -237000000   | Modiolus
+Modiolus                                 | Animal    | Mollusca                   | -247200000    | -237000000   | Modiolus_(bivalve)
 Modiomorpha                              | Animal    | Mollusca                   | -247200000    | -242000000   | <>
 Moenkopia                                | Animal    | Chordata                   | -247200000    | -242000000   | Moenkopia
 Mojsisovicsteuthis                       | Animal    | Mollusca                   | -247200000    | -242000000   | Mojsisovicsteuthis

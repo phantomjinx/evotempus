@@ -14,7 +14,7 @@ Acinophyllum                             | Animal    | Cnidaria                 
 Acleistoceras                            | Animal    | Mollusca                   | -387700000    | -382700000   | Acleistoceras
 Acratia                                  | Animal    | Arthropoda                 | -383700000    | -382400000   | <>
 Acrogenia                                | Animal    | Bryozoa                    | -387700000    | -382700000   | <>
-Acrophyllum                              | Animal    | Cnidaria                   | -393300000    | -382700000   | Acrophyllum
+Acrophyllum                              | Animal    | Cnidaria                   | -393300000    | -382700000   | <>
 Acrospirifer                             | Animal    | Brachiopoda                | -387700000    | -382700000   | <>
 Actinodesma                              | Animal    | Mollusca                   | -383700000    | -382400000   | <>
 Actinodictyon                            | Animal    | Porifera                   | -387700000    | -382700000   | <>
@@ -112,7 +112,7 @@ Ascodictyon                              | Animal    | Bryozoa                  
 Asinomphalus                             | Animal    | Mollusca                   | -393300000    | -382700000   | <>
 Asperocrinus                             | Animal    | Echinodermata              | -387700000    | -382700000   | <>
 Asteracanthus                            | Animal    | Chordata                   | -419200000    | -358900000   | Asteracanthus
-Asterolepis                              | Animal    | Chordata                   | -383700000    | -382400000   | Asterolepis
+Asterolepis                              | Animal    | Chordata                   | -383700000    | -382400000   | Asterolepis_(fish)
 Asteropyge                               | Animal    | Arthropoda                 | -388100000    | -383700000   | Asteropyge
 Asteroxylon                              | Plant     | Lycopodophyta              | -387700000    | -382700000   | Asteroxylon
 Astoceras                                | Animal    | Mollusca                   | -410800000    | -383700000   | <>
@@ -258,7 +258,7 @@ Calvibembexia                            | Animal    | Mollusca                 
 Camarotoechia                            | Animal    | Brachiopoda                | -383700000    | -382400000   | Camarotoechia
 Campophyllum                             | Animal    | Cnidaria                   | -409100000    | -383700000   | <>
 Cancellspyroceras                        | Animal    | Mollusca                   | -410800000    | -383700000   | <>
-Caninia                                  | Animal    | Cnidaria                   | -387700000    | -382700000   | Caninia
+Caninia                                  | Animal    | Cnidaria                   | -387700000    | -382700000   | Caninia_(coral)
 Caninophyllum                            | Animal    | Cnidaria                   | -419200000    | -298900000   | <>
 Canutrypa                                | Animal    | Bryozoa                    | -387700000    | -382700000   | <>
 Cardiomorpha                             | Animal    | Mollusca                   | -393300000    | -372200000   | <>
@@ -279,12 +279,12 @@ Celechopora                              | Animal    | Cnidaria                 
 Celechovites                             | Animal    | Arthropoda                 | -388100000    | -383700000   | <>
 Centriproetus                            | Animal    | Arthropoda                 | -410800000    | -382700000   | <>
 Centristela                              | Animal    | Cnidaria                   | -387700000    | -382700000   | <>
-Centroceras                              | Animal    | Mollusca                   | -387700000    | -382700000   | Centroceras
+Centroceras                              | Animal    | Mollusca                   | -387700000    | -382700000   | <>
 Centronella                              | Animal    | Brachiopoda                | -387700000    | -382700000   | <>
 Cephalopteris                            | Plant     | Pteridospermophyta         | -393300000    | -382700000   | <>
 Ceramella                                | Animal    | Bryozoa                    | -387700000    | -382700000   | <>
 Ceramopora                               | Animal    | Bryozoa                    | -388100000    | -383700000   | Ceramopora
-Ceratocephala                            | Animal    | Arthropoda                 | -410800000    | -382700000   | Ceratocephala
+Ceratocephala                            | Animal    | Arthropoda                 | -410800000    | -382700000   | Ceratocephala_(trilobite)
 Ceratoikiscum                            | Micro     | Radiolaria                 | -387700000    | -382700000   | <>
 Ceratonurus                              | Animal    | Arthropoda                 | -410800000    | -382700000   | <>
 Ceratopea                                | Animal    | Mollusca                   | -388100000    | -383700000   | <>
@@ -496,7 +496,7 @@ Diplochone                               | Animal    | Cnidaria                 
 Dipnotuberculus                          | Animal    | Chordata                   | -387700000    | -382700000   | <>
 Dirachis                                 | Animal    | Mollusca                   | -387700000    | -382700000   | <>
 Dirhabdus                                | Animal    | Arthropoda                 | -387700000    | -382700000   | <>
-Discina                                  | Animal    | Brachiopoda                | -387700000    | -382700000   | Discina
+Discina                                  | Animal    | Brachiopoda                | -387700000    | -382700000   | Discina_(brachiopod)
 Discomyorthis                            | Animal    | Brachiopoda                | -387700000    | -382700000   | <>
 Disphyllia                               | Animal    | Cnidaria                   | -387700000    | -382700000   | <>
 Disphyllum                               | Animal    | Cnidaria                   | -383700000    | -382400000   | <>
@@ -533,7 +533,7 @@ Echinolichas                             | Animal    | Arthropoda               
 Ectorensselandia                         | Animal    | Brachiopoda                | -387700000    | -382700000   | <>
 Edaphophyllum                            | Animal    | Cnidaria                   | -393300000    | -382700000   | <>
 Eddya                                    | Plant     | Gymnospermophyta           | -383700000    | -358900000   | <>
-Edmondia                                 | Animal    | Mollusca                   | -387700000    | -382700000   | Edmondia
+Edmondia                                 | Animal    | Mollusca                   | -387700000    | -382700000   | <>
 Ehlersia                                 | Animal    | Arthropoda                 | -387700000    | -382700000   | <>
 Eifelcyrtus                              | Animal    | Mollusca                   | -387700000    | -382700000   | <>
 Eifelipora                               | Animal    | Bryozoa                    | -387700000    | -382700000   | <>
@@ -545,7 +545,7 @@ Eleutherokomma                           | Animal    | Brachiopoda              
 Eleutherospira                           | Animal    | Mollusca                   | -387700000    | -382700000   | <>
 Eliasopora                               | Animal    | Bryozoa                    | -387700000    | -382700000   | <>
 Eliorhynchus                             | Animal    | Brachiopoda                | -393300000    | -382700000   | <>
-Elita                                    | Animal    | Brachiopoda                | -383700000    | -382400000   | Elita
+Elita                                    | Animal    | Brachiopoda                | -383700000    | -382400000   | <>
 Ellesmerelasma                           | Animal    | Cnidaria                   | -387700000    | -382700000   | <>
 Elsonella                                | Animal    | Chordata                   | -387700000    | -382700000   | <>
 Emanuella                                | Animal    | Brachiopoda                | -383700000    | -382400000   | <>
@@ -580,7 +580,7 @@ Eremiproetus                             | Animal    | Arthropoda               
 Eridophyllum                             | Animal    | Cnidaria                   | -387700000    | -382700000   | <>
 Eridopora                                | Animal    | Bryozoa                    | -387700000    | -382700000   | <>
 Eridotrypella                            | Animal    | Bryozoa                    | -387700000    | -382700000   | <>
-Estheria                                 | Animal    | Arthropoda                 | -419200000    | -382700000   | Estheria
+Estheria                                 | Animal    | Arthropoda                 | -419200000    | -382700000   | Lioestheria
 Eucalyptocrinites                        | Animal    | Echinodermata              | -387700000    | -382700000   | Eucalyptocrinites
 Eucochlis                                | Animal    | Mollusca                   | -387700000    | -382700000   | <>
 Eugasterella                             | Animal    | Echinodermata              | -393300000    | -382700000   | <>
@@ -702,7 +702,7 @@ Habrostroma                              | Animal    | Porifera                 
 Hadrophyllum                             | Animal    | Cnidaria                   | -387700000    | -382700000   | <>
 Hadrorhynchia                            | Animal    | Brachiopoda                | -387700000    | -372200000   | <>
 Hainanema                                | Animal    | Mollusca                   | -387700000    | -382700000   | <>
-Hallia                                   | Animal    | Cnidaria                   | -393300000    | -382700000   | Hallia
+Hallia                                   | Animal    | Cnidaria                   | -393300000    | -382700000   | <>
 Halliella                                | Animal    | Arthropoda                 | -388100000    | -383700000   | <>
 Hallinetes                               | Animal    | Brachiopoda                | -387700000    | -382700000   | <>
 Halocrinites                             | Animal    | Echinodermata              | -387700000    | -382700000   | <>
@@ -927,7 +927,7 @@ Lotzia                                   | Animal    | Mollusca                 
 Loxonema                                 | Animal    | Mollusca                   | -387700000    | -382700000   | <>
 Loxophragma                              | Animal    | Bryozoa                    | -387700000    | -382700000   | <>
 Loyolophyllum                            | Animal    | Cnidaria                   | -387700000    | -382700000   | <>
-Lucina                                   | Animal    | Mollusca                   | -387700000    | -382700000   | Lucina
+Lucina                                   | Animal    | Mollusca                   | -387700000    | -382700000   | Lucina_(bivalve)
 Lukesispira                              | Animal    | Mollusca                   | -387700000    | -382700000   | <>
 Lumbriconereites                         | Animal    | Annelida                   | -387700000    | -382700000   | <>
 Lunostoma                                | Animal    | Bryozoa                    | -387700000    | -382700000   | Lunostoma

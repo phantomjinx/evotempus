@@ -144,7 +144,7 @@ Bolbineossia                             | Animal    | Arthropoda               
 Bolicrinus                               | Animal    | Echinodermata              | -438500000    | -433400000   | <>
 Bollia                                   | Animal    | Arthropoda                 | -443400000    | -427400000   | <>
 Bonnemaia                                | Animal    | Arthropoda                 | -438500000    | -433400000   | <>
-Borealis                                 | Animal    | Brachiopoda                | -438500000    | -433400000   | Borealis
+Borealis                                 | Animal    | Brachiopoda                | -438500000    | -433400000   | <>
 Borelasma                                | Animal    | Cnidaria                   | -438500000    | -433400000   | <>
 Botryocrinus                             | Animal    | Echinodermata              | -438500000    | -427400000   | <>
 Boucotinskia                             | Animal    | Brachiopoda                | -443400000    | -427400000   | <>
@@ -202,7 +202,7 @@ Cephalograptus                           | Animal    | Hemichordata             
 Ceramopora                               | Animal    | Bryozoa                    | -438500000    | -430500000   | Ceramopora
 Ceramoporella                            | Animal    | Bryozoa                    | -438500000    | -433400000   | <>
 Cerasina                                 | Animal    | Brachiopoda                | -438500000    | -433400000   | <>
-Ceratocephala                            | Animal    | Arthropoda                 | -438500000    | -433400000   | Ceratocephala
+Ceratocephala                            | Animal    | Arthropoda                 | -438500000    | -433400000   | Ceratocephala_(trilobite)
 Ceraurinus                               | Animal    | Arthropoda                 | -449500000    | -433400000   | Ceraurinus
 Cerauromeros                             | Animal    | Arthropoda                 | -443400000    | -427400000   | Cerauromeros
 Ceriaster                                | Animal    | Cnidaria                   | -438500000    | -433400000   | <>
@@ -236,7 +236,7 @@ Clinoclimacograptus                      | Animal    | Hemichordata             
 Clintonella                              | Animal    | Brachiopoda                | -438500000    | -427400000   | <>
 Clisiophyllum                            | Animal    | Cnidaria                   | -438500000    | -430500000   | <>
 Clorilamnulella                          | Animal    | Brachiopoda                | -438500000    | -433400000   | <>
-Clorinda                                 | Animal    | Brachiopoda                | -438500000    | -427400000   | Clorinda
+Clorinda                                 | Animal    | Brachiopoda                | -438500000    | -427400000   | <>
 Coelocaulus                              | Animal    | Mollusca                   | -438500000    | -427400000   | <>
 Coelocerodontus                          | Animal    | Chordata                   | -438500000    | -433400000   | <>
 Coelocyclus                              | Animal    | Mollusca                   | -440800000    | -433400000   | <>
@@ -408,7 +408,7 @@ Dysodonta                                | Animal    | Mollusca                 
 Ecclimadictyon                           | Animal    | Porifera                   | -438500000    | -427400000   | <>
 Ecculiomphalus                           | Animal    | Mollusca                   | -440800000    | -433400000   | <>
 Edenoceras                               | Animal    | Mollusca                   | -443400000    | -433400000   | <>
-Edmondia                                 | Animal    | Mollusca                   | -438500000    | -433400000   | Edmondia
+Edmondia                                 | Animal    | Mollusca                   | -438500000    | -433400000   | <>
 Ehlersella                               | Animal    | Brachiopoda                | -438500000    | -433400000   | <>
 Ehlersia                                 | Animal    | Arthropoda                 | -443400000    | -419200000   | <>
 Eisenackitina                            | Micro     | Sarcodina                  | -438500000    | -433400000   | Eisenackitina
@@ -598,7 +598,7 @@ Hostinella                               | Plant     | Psilophytophyta          
 Howellella                               | Animal    | Brachiopoda                | -438500000    | -427400000   | <>
 Howellites                               | Animal    | Brachiopoda                | -443400000    | -433400000   | <>
 Hughmilleria                             | Animal    | Arthropoda                 | -438500000    | -433400000   | Hughmilleria
-Huronia                                  | Animal    | Mollusca                   | -438500000    | -433400000   | Huronia
+Huronia                                  | Animal    | Mollusca                   | -438500000    | -433400000   | Huronia_(cephalopod)
 Huroniella                               | Animal    | Mollusca                   | -438500000    | -433400000   | Huroniella
 Huttagraptus                             | Animal    | Hemichordata               | -443400000    | -433400000   | <>
 Hyattidina                               | Animal    | Brachiopoda                | -438500000    | -427400000   | <>
@@ -718,7 +718,7 @@ Leurocycloceras                          | Animal    | Mollusca                 
 Leurotrochoceras                         | Animal    | Mollusca                   | -443400000    | -433400000   | <>
 Levenea                                  | Animal    | Brachiopoda                | -438500000    | -433400000   | <>
 Levicyathocrinites                       | Animal    | Echinodermata              | -438500000    | -433400000   | <>
-Lichas                                   | Animal    | Arthropoda                 | -438500000    | -430500000   | Lichas
+Lichas                                   | Animal    | Arthropoda                 | -438500000    | -430500000   | Lichas_(trilobite)
 Lichenalia                               | Animal    | Bryozoa                    | -438500000    | -430500000   | <>
 Ligiscus                                 | Animal    | Arthropoda                 | -443400000    | -427400000   | <>
 Liljevallia                              | Animal    | Brachiopoda                | -438500000    | -430500000   | <>

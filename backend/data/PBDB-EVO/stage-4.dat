@@ -80,7 +80,7 @@ Anabaroconus                             | Animal    | Mollusca                 
 Anabolotreta                             | Animal    | Brachiopoda                | -513000000    | -498500000   | <>
 Analox                                   | Animal    | Arthropoda                 | -516000000    | -513000000   | Analox
 Anaptyctocyathus                         | Animal    | Porifera                   | -516000000    | -513000000   | <>
-Ancalagon                                | Animal    | Priapulida                 | -513000000    | -505000000   | Ancalagon
+Ancalagon                                | Animal    | Priapulida                 | -513000000    | -505000000   | Ancalagon_(worm)
 Andrarina                                | Animal    | Arthropoda                 | -513000000    | -501000000   | <>
 Angulocellularia                         | Plant     | Rhodophyta                 | -516000000    | -513000000   | <>
 Angulosuspongia                          | Animal    | Porifera                   | -513000000    | -501000000   | <>
@@ -256,7 +256,7 @@ Cambrunicornia                           | Animal    | Arthropoda               
 Camenella                                | Animal    | Brachiopoda                | -516000000    | -513000000   | Camenella
 Camptostroma                             | Animal    | Echinodermata              | -516000000    | -513000000   | Camptostroma
 Canadaspis                               | Animal    | Arthropoda                 | -513000000    | -498500000   | Canadaspis
-Canadia                                  | Animal    | Annelida                   | -513000000    | -505000000   | Canadia
+Canadia                                  | Animal    | Annelida                   | -513000000    | -505000000   | Canadia_(annelid)
 Canalilatus                              | Animal    | Brachiopoda                | -513000000    | -505000000   | <>
 Canopoconus                              | Animal    | Mollusca                   | -541000000    | -485400000   | <>
 Canthylotreta                            | Animal    | Brachiopoda                | -513000000    | -498500000   | <>
@@ -380,7 +380,7 @@ Daopingia                                | Animal    | Arthropoda               
 Dasometopus                              | Animal    | Arthropoda                 | -513000000    | -501000000   | <>
 Davidocinctus                            | Animal    | Echinodermata              | -513000000    | -501000000   | <>
 Davidonia                                | Animal    | Mollusca                   | -516000000    | -513000000   | <>
-Dawsonia                                 | Animal    | Arthropoda                 | -513000000    | -501000000   | Dawsonia
+Dawsonia                                 | Animal    | Arthropoda                 | -513000000    | -501000000   | <>
 Decoritheca                              | Animal    | Hyolitha                   | -513000000    | -501000000   | <>
 Degeletticyathus                         | Animal    | Porifera                   | -516000000    | -513000000   | <>
 Deiracephalus                            | Animal    | Arthropoda                 | -513000000    | -498500000   | Deiracephalus
@@ -523,7 +523,7 @@ Felbabkacystis                           | Animal    | Echinodermata            
 Fenestrocyathus                          | Animal    | Porifera                   | -516000000    | -513000000   | <>
 Fenqiaronia                              | Animal    | Mollusca                   | -516000000    | -513000000   | <>
 Fieldaspis                               | Animal    | Arthropoda                 | -513000000    | -501000000   | <>
-Fieldia                                  | Animal    | Priapulida                 | -513000000    | -505000000   | Fieldia
+Fieldia                                  | Animal    | Priapulida                 | -513000000    | -505000000   | <>
 Fieldospongia                            | Animal    | Porifera                   | -513000000    | -505000000   | Fieldospongia
 Figurina                                 | Animal    | Mollusca                   | -516000000    | -513000000   | <>
 Finkelnburgia                            | Animal    | Brachiopoda                | -513000000    | -501000000   | <>
@@ -594,7 +594,7 @@ Guangweicaris                            | Animal    | Arthropoda               
 Guankouia                                | Animal    | Arthropoda                 | -513000000    | -505000000   | <>
 Guduguwan                                | Animal    | Hyolitha                   | -513000000    | -501000000   | <>
 Guizhoueocrinus                          | Animal    | Echinodermata              | -516000000    | -513000000   | <>
-Gunnia                                   | Animal    | Arthropoda                 | -513000000    | -501000000   | Gunnia
+Gunnia                                   | Animal    | Arthropoda                 | -513000000    | -501000000   | <>
 Gyrocystis                               | Animal    | Echinodermata              | -513000000    | -501000000   | <>
 Habelia                                  | Animal    | Arthropoda                 | -513000000    | -501000000   | Habelia
 Hadraspis                                | Animal    | Arthropoda                 | -513000000    | -505000000   | <>
@@ -608,7 +608,7 @@ Hamatolenus                              | Animal    | Arthropoda               
 Hampilina                                | Animal    | Mollusca                   | -513000000    | -505000000   | <>
 Hamptonia                                | Animal    | Porifera                   | -513000000    | -498500000   | Hamptonia
 Hamptoniella                             | Animal    | Porifera                   | -513000000    | -505000000   | Hamptoniella
-Hanburia                                 | Animal    | Arthropoda                 | -513000000    | -505000000   | Hanburia
+Hanburia                                 | Animal    | Arthropoda                 | -513000000    | -505000000   | Hanburia_gloriosa
 Haniwoides                               | Animal    | Arthropoda                 | -513000000    | -505000000   | <>
 Hapalospongia                            | Animal    | Porifera                   | -513000000    | -505000000   | <>
 Haplophrentis                            | Animal    | Hyolitha                   | -513000000    | -501000000   | Haplophrentis
@@ -642,7 +642,7 @@ Hirsutodontus                            | Animal    | Chordata                 
 Hoffetella                               | Animal    | Arthropoda                 | -516000000    | -513000000   | <>
 Holcacephalus                            | Animal    | Arthropoda                 | -513000000    | -498500000   | <>
 Holmdalia                                | Animal    | Arthropoda                 | -513000000    | -498500000   | <>
-Holmia                                   | Animal    | Arthropoda                 | -516000000    | -513000000   | Holmia
+Holmia                                   | Animal    | Arthropoda                 | -516000000    | -513000000   | Holmia_(genus)
 Holmiella                                | Animal    | Arthropoda                 | -530000000    | -513000000   | Holmiella
 Holmitheca                               | Animal    | Hyolitha                   | -513000000    | -507000000   | <>
 Holocephalina                            | Animal    | Arthropoda                 | -513000000    | -501000000   | <>

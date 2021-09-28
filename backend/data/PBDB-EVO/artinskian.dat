@@ -71,7 +71,7 @@ Amphissites                              | Animal    | Arthropoda               
 Amplexocarinia                           | Animal    | Cnidaria                   | -279500000    | -272500000   | <>
 Amplexus                                 | Animal    | Cnidaria                   | -290100000    | -272300000   | Amplexus
 Anacontium                               | Animal    | Arthropoda                 | -290100000    | -279300000   | Anacontium
-Ananias                                  | Animal    | Mollusca                   | -290100000    | -279300000   | Ananias
+Ananias                                  | Animal    | Mollusca                   | -290100000    | -279300000   | <>
 Anchicodium                              | Plant     | Chlorophyta                | -298900000    | -252170000   | <>
 Andrianovia                              | Animal    | Mollusca                   | -290100000    | -279300000   | <>
 Anechocrinus                             | Animal    | Echinodermata              | -290100000    | -279300000   | <>
@@ -124,7 +124,7 @@ Archaeophiomusium                        | Animal    | Echinodermata            
 Archboldevia                             | Animal    | Brachiopoda                | -290100000    | -279300000   | <>
 Archboldiceras                           | Animal    | Mollusca                   | -290100000    | -279300000   | <>
 Archelytron                              | Animal    | Arthropoda                 | -290100000    | -279300000   | <>
-Archeria                                 | Animal    | Chordata                   | -290100000    | -268000000   | Archeria
+Archeria                                 | Animal    | Chordata                   | -290100000    | -268000000   | Archeria_(animal)
 Archescytina                             | Animal    | Arthropoda                 | -279500000    | -272500000   | <>
 Archimedes                               | Animal    | Bryozoa                    | -290100000    | -279300000   | Archimedes
 Arcochiton                               | Animal    | Mollusca                   | -290100000    | -279300000   | <>
@@ -188,7 +188,7 @@ Bandoproductus                           | Animal    | Brachiopoda              
 Bansheepteron                            | Animal    | Arthropoda                 | -290100000    | -265100000   | <>
 Barakaria                                | Plant     | Sphenophyta                | -290100000    | -272300000   | <>
 Barbclabornia                            | Animal    | Chordata                   | -290100000    | -272300000   | Barbclabornia
-Bardella                                 | Plant     | Coniferophyta              | -298900000    | -252170000   | Bardella
+Bardella                                 | Plant     | Coniferophyta              | -298900000    | -252170000   | <>
 Bardocarpus                              | Plant     | Peltaspermophyta           | -290100000    | -272300000   | <>
 Barona                                   | Animal    | Arthropoda                 | -290100000    | -279300000   | Barona
 Bashkirella                              | Animal    | Bryozoa                    | -290100000    | -279300000   | <>
@@ -265,7 +265,7 @@ Camptotaxineura                          | Animal    | Arthropoda               
 Cancellina                               | Micro     | Foraminifera               | -290100000    | -259900000   | <>
 Cancrinella                              | Animal    | Brachiopoda                | -290100000    | -268000000   | <>
 Caneyella                                | Animal    | Mollusca                   | -290100000    | -272300000   | <>
-Caninia                                  | Animal    | Cnidaria                   | -290100000    | -279300000   | Caninia
+Caninia                                  | Animal    | Cnidaria                   | -290100000    | -279300000   | Caninia_(coral)
 Caninophyllum                            | Animal    | Cnidaria                   | -290100000    | -279300000   | <>
 Canoptum                                 | Micro     | Radiolaria                 | -295500000    | -174100000   | <>
 Capillaria                               | Animal    | Brachiopoda                | -290100000    | -279300000   | Capillaria
@@ -379,7 +379,7 @@ Coronopsis                               | Animal    | Mollusca                 
 Corrugatoblastus                         | Animal    | Echinodermata              | -290100000    | -272300000   | <>
 Corrugopecten                            | Animal    | Mollusca                   | -290100000    | -279300000   | <>
 Corynepteris                             | Plant     | Tracheophyta               | -298900000    | -272300000   | <>
-Coscinium                                | Animal    | Bryozoa                    | -290100000    | -279300000   | Coscinium
+Coscinium                                | Animal    | Bryozoa                    | -290100000    | -279300000   | Coscinium_(bryozoan)
 Coscinophora                             | Animal    | Brachiopoda                | -290100000    | -279300000   | <>
 Coscinotrypa                             | Animal    | Bryozoa                    | -290100000    | -279300000   | <>
 Costachonetes                            | Animal    | Brachiopoda                | -290100000    | -279300000   | <>
@@ -410,7 +410,7 @@ Ctenospondylus                           | Animal    | Chordata                 
 Cunavella                                | Animal    | Mollusca                   | -290100000    | -279300000   | <>
 Cundaria                                 | Animal    | Brachiopoda                | -290100000    | -279300000   | <>
 Cuniculinella                            | Micro     | Foraminifera               | -290100000    | -279300000   | <>
-Cutleria                                 | Animal    | Chordata                   | -296400000    | -268000000   | Cutleria
+Cutleria                                 | Animal    | Chordata                   | -296400000    | -268000000   | Cutleria_(animal)
 Cyathaxonia                              | Animal    | Cnidaria                   | -290100000    | -279300000   | <>
 Cyathocarinia                            | Animal    | Cnidaria                   | -290100000    | -279300000   | <>
 Cyathophyllum                            | Animal    | Cnidaria                   | -323200000    | -252170000   | <>
@@ -458,7 +458,7 @@ Deltopecten                              | Animal    | Mollusca                 
 Demonedys                                | Animal    | Brachiopoda                | -290100000    | -279300000   | <>
 Demopterum                               | Animal    | Arthropoda                 | -290100000    | -279300000   | <>
 Densoisporites                           | Plant     | Pteridophyta               | -298900000    | -252170000   | <>
-Dentalium                                | Animal    | Mollusca                   | -290100000    | -268000000   | Dentalium
+Dentalium                                | Animal    | Mollusca                   | -290100000    | -268000000   | Dentalium_(genus)
 Dentoceras                               | Animal    | Mollusca                   | -290100000    | -279300000   | <>
 Derbyia                                  | Animal    | Brachiopoda                | -279500000    | -272500000   | <>
 Desmiophyllum                            | Plant     | Coniferophyta              | -295500000    | -279300000   | <>
@@ -527,7 +527,7 @@ Ecolsonia                                | Animal    | Chordata                 
 Ectodemites                              | Animal    | Arthropoda                 | -290100000    | -279300000   | <>
 Ectosteorhachis                          | Animal    | Chordata                   | -290100000    | -268000000   | Ectosteorhachis
 Edaphosaurus                             | Animal    | Chordata                   | -290100000    | -268000000   | Edaphosaurus
-Edmondia                                 | Animal    | Mollusca                   | -290100000    | -272300000   | Edmondia
+Edmondia                                 | Animal    | Mollusca                   | -290100000    | -272300000   | <>
 Edops                                    | Animal    | Chordata                   | -296400000    | -268000000   | Edops
 Edriosteges                              | Animal    | Brachiopoda                | -290100000    | -279300000   | <>
 Ekteinocrinus                            | Animal    | Echinodermata              | -290100000    | -279300000   | <>
@@ -588,7 +588,7 @@ Eridopora                                | Animal    | Bryozoa                  
 Erisocrinus                              | Animal    | Echinodermata              | -290100000    | -279300000   | <>
 Ernestiodendron                          | Plant     | Coniferophyta              | -290100000    | -272300000   | <>
 Eryops                                   | Animal    | Chordata                   | -290100000    | -268000000   | Eryops
-Estheria                                 | Animal    | Arthropoda                 | -290100000    | -268000000   | Estheria
+Estheria                                 | Animal    | Arthropoda                 | -290100000    | -268000000   | Lioestheria
 Etheripecten                             | Animal    | Mollusca                   | -279500000    | -268000000   | <>
 Etoblattina                              | Animal    | Arthropoda                 | -298900000    | -272300000   | <>
 Euchondria                               | Animal    | Mollusca                   | -290100000    | -279300000   | <>
@@ -640,7 +640,7 @@ Fusulina                                 | Micro     | Foraminifera             
 Gallogramma                              | Animal    | Arthropoda                 | -290100000    | -265100000   | <>
 Gastrioceras                             | Animal    | Mollusca                   | -298900000    | -252170000   | Gastrioceras
 Gatia                                    | Animal    | Brachiopoda                | -290100000    | -279300000   | <>
-Gaussia                                  | Plant     | Peltaspermophyta           | -290100000    | -272300000   | Gaussia
+Gaussia                                  | Plant     | Peltaspermophyta           | -290100000    | -272300000   | <>
 Gecatogomphius                           | Animal    | Chordata                   | -279500000    | -268000000   | Gecatogomphius
 Geinitzella                              | Animal    | Bryozoa                    | -298900000    | -259900000   | <>
 Geinitzina                               | Micro     | Foraminifera               | -290100000    | -279300000   | Geinitzina
@@ -939,7 +939,7 @@ Lophotichium                             | Animal    | Cnidaria                 
 Lowenstamia                              | Animal    | Brachiopoda                | -290100000    | -279300000   | <>
 Loxoedischia                             | Animal    | Arthropoda                 | -290100000    | -279300000   | <>
 Loxonema                                 | Animal    | Mollusca                   | -358900000    | -201300000   | <>
-Lucina                                   | Animal    | Mollusca                   | -290100000    | -268800000   | Lucina
+Lucina                                   | Animal    | Mollusca                   | -290100000    | -268800000   | Lucina_(bivalve)
 Luederia                                 | Animal    | Chordata                   | -290100000    | -268000000   | <>
 Lutevanaphis                             | Animal    | Arthropoda                 | -290100000    | -279300000   | <>
 Lycopodiophloios                         | Plant     | Lycopodophyta              | -290100000    | -279300000   | <>
@@ -1028,8 +1028,8 @@ Misthodotes                              | Animal    | Arthropoda               
 Mistproductus                            | Animal    | Brachiopoda                | -290100000    | -279300000   | <>
 Mizzia                                   | Plant     | Chlorophyta                | -295500000    | -279300000   | <>
 Moapacrinus                              | Animal    | Echinodermata              | -290100000    | -279300000   | <>
-Modiolus                                 | Animal    | Mollusca                   | -290100000    | -279300000   | Modiolus
-Monaster                                 | Animal    | Echinodermata              | -290100000    | -279300000   | Monaster
+Modiolus                                 | Animal    | Mollusca                   | -290100000    | -279300000   | Modiolus_(bivalve)
+Monaster                                 | Animal    | Echinodermata              | -290100000    | -279300000   | <>
 Monoceratina                             | Animal    | Arthropoda                 | -290100000    | -279300000   | <>
 Monodiexodina                            | Micro     | Foraminifera               | -290100000    | -279300000   | <>
 Monolete                                 | Plant     | Pteridophyta               | -290100000    | -252300000   | Monolete

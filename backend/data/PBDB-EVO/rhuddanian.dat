@@ -120,7 +120,7 @@ Bolbibollia                              | Animal    | Arthropoda               
 Bolbineossia                             | Animal    | Arthropoda                 | -443400000    | -433400000   | <>
 Bollia                                   | Animal    | Arthropoda                 | -443400000    | -427400000   | <>
 Bonnemaia                                | Animal    | Arthropoda                 | -443400000    | -423000000   | <>
-Borealis                                 | Animal    | Brachiopoda                | -443400000    | -433400000   | Borealis
+Borealis                                 | Animal    | Brachiopoda                | -443400000    | -433400000   | <>
 Borelasma                                | Animal    | Cnidaria                   | -443400000    | -438500000   | <>
 Botryocrinus                             | Animal    | Echinodermata              | -443400000    | -419200000   | <>
 Boucotinskia                             | Animal    | Brachiopoda                | -443400000    | -427400000   | <>
@@ -171,7 +171,7 @@ Cathaysiorthis                           | Animal    | Brachiopoda              
 Caudicriodus                             | Animal    | Chordata                   | -443400000    | -410800000   | <>
 Ceramopora                               | Animal    | Bryozoa                    | -443400000    | -419200000   | Ceramopora
 Cerasina                                 | Animal    | Brachiopoda                | -443400000    | -438500000   | <>
-Ceratocephala                            | Animal    | Arthropoda                 | -443400000    | -427400000   | Ceratocephala
+Ceratocephala                            | Animal    | Arthropoda                 | -443400000    | -427400000   | Ceratocephala_(trilobite)
 Ceraurinus                               | Animal    | Arthropoda                 | -449500000    | -433400000   | Ceraurinus
 Cerauromeros                             | Animal    | Arthropoda                 | -443400000    | -427400000   | Cerauromeros
 Ceriaster                                | Animal    | Cnidaria                   | -443400000    | -433400000   | <>
@@ -188,7 +188,7 @@ Chiozoon                                 | Animal    | Arthropoda               
 Chonetes                                 | Animal    | Brachiopoda                | -443400000    | -419200000   | Chonetes
 Chonetoidea                              | Animal    | Brachiopoda                | -443400000    | -433400000   | <>
 Chonophyllum                             | Animal    | Cnidaria                   | -443400000    | -428200000   | <>
-Christiania                              | Animal    | Brachiopoda                | -443400000    | -440800000   | Christiania
+Christiania                              | Animal    | Brachiopoda                | -443400000    | -440800000   | Christiania_(brachiopod)
 Chrustenopora                            | Animal    | Brachiopoda                | -443400000    | -440800000   | <>
 Cladochonus                              | Animal    | Cnidaria                   | -443400000    | -433400000   | Cladochonus
 Cladopora                                | Animal    | Cnidaria                   | -443400000    | -382700000   | <>
@@ -203,7 +203,7 @@ Climacograptus                           | Animal    | Hemichordata             
 Clinoclimacograptus                      | Animal    | Hemichordata               | -443400000    | -419200000   | <>
 Clintonella                              | Animal    | Brachiopoda                | -443400000    | -428200000   | <>
 Clorilamnulella                          | Animal    | Brachiopoda                | -443400000    | -433400000   | <>
-Clorinda                                 | Animal    | Brachiopoda                | -443400000    | -419200000   | Clorinda
+Clorinda                                 | Animal    | Brachiopoda                | -443400000    | -419200000   | <>
 Coelocaulus                              | Animal    | Mollusca                   | -443400000    | -419200000   | <>
 Coelocerodontus                          | Animal    | Chordata                   | -443400000    | -419200000   | <>
 Coelocyclus                              | Animal    | Mollusca                   | -443400000    | -433400000   | <>
@@ -294,7 +294,7 @@ Dalmanitina                              | Animal    | Arthropoda               
 Dalmanophyllum                           | Animal    | Cnidaria                   | -443400000    | -419200000   | <>
 Dapsilodus                               | Animal    | Chordata                   | -443400000    | -419200000   | <>
 Dawsonoceras                             | Animal    | Mollusca                   | -443400000    | -419200000   | <>
-Dayia                                    | Animal    | Brachiopoda                | -443400000    | -440800000   | Dayia
+Dayia                                    | Animal    | Brachiopoda                | -443400000    | -440800000   | <>
 Daytonia                                 | Animal    | Arthropoda                 | -443400000    | -440800000   | Daytonia
 Deceptrix                                | Animal    | Mollusca                   | -443400000    | -433400000   | <>
 Decoriconus                              | Animal    | Chordata                   | -443400000    | -422900000   | <>
@@ -508,7 +508,7 @@ Hostinella                               | Plant     | Psilophytophyta          
 Howellella                               | Animal    | Brachiopoda                | -443400000    | -419200000   | <>
 Howellites                               | Animal    | Brachiopoda                | -443400000    | -433400000   | <>
 Hughmilleria                             | Animal    | Arthropoda                 | -443400000    | -419200000   | Hughmilleria
-Huronia                                  | Animal    | Mollusca                   | -443400000    | -422900000   | Huronia
+Huronia                                  | Animal    | Mollusca                   | -443400000    | -422900000   | Huronia_(cephalopod)
 Huroniella                               | Animal    | Mollusca                   | -443400000    | -433400000   | Huroniella
 Huttagraptus                             | Animal    | Hemichordata               | -443400000    | -433400000   | <>
 Hyattidina                               | Animal    | Brachiopoda                | -443400000    | -419200000   | <>
@@ -605,7 +605,7 @@ Leurocycloceras                          | Animal    | Mollusca                 
 Leurotrochoceras                         | Animal    | Mollusca                   | -443400000    | -433400000   | <>
 Levenea                                  | Animal    | Brachiopoda                | -443400000    | -433400000   | <>
 Levicyathocrinites                       | Animal    | Echinodermata              | -443400000    | -427400000   | <>
-Lichas                                   | Animal    | Arthropoda                 | -443400000    | -419200000   | Lichas
+Lichas                                   | Animal    | Arthropoda                 | -443400000    | -419200000   | Lichas_(trilobite)
 Lichenalia                               | Animal    | Bryozoa                    | -443400000    | -422900000   | <>
 Ligiscus                                 | Animal    | Arthropoda                 | -443400000    | -427400000   | <>
 Lingula                                  | Animal    | Brachiopoda                | -443400000    | -419200000   | Lingula

@@ -84,7 +84,7 @@ Amplexus                                 | Animal    | Cnidaria                 
 Amygdalophylloides                       | Animal    | Cnidaria                   | -307000000    | -298900000   | <>
 Amynilyspes                              | Animal    | Arthropoda                 | -304800000    | -303400000   | Amynilyspes
 Anagesthes                               | Animal    | Arthropoda                 | -318100000    | -306950000   | <>
-Ananias                                  | Animal    | Mollusca                   | -305900000    | -303400000   | Ananias
+Ananias                                  | Animal    | Mollusca                   | -305900000    | -303400000   | <>
 Anapiculatisporites                      | Plant     | Bryophyta                  | -305900000    | -303400000   | <>
 Anarkemina                               | Animal    | Arthropoda                 | -311450000    | -306950000   | <>
 Anchineura                               | Animal    | Arthropoda                 | -304800000    | -303400000   | Anchineura
@@ -302,7 +302,7 @@ Campyloprion                             | Animal    | Chordata                 
 Cancrinella                              | Animal    | Brachiopoda                | -313800000    | -305900000   | <>
 Candona                                  | Animal    | Arthropoda                 | -306950000    | -298900000   | Candona
 Caneyella                                | Animal    | Mollusca                   | -318100000    | -305900000   | <>
-Caninia                                  | Animal    | Cnidaria                   | -306950000    | -298900000   | Caninia
+Caninia                                  | Animal    | Cnidaria                   | -306950000    | -298900000   | Caninia_(coral)
 Caninophyllum                            | Animal    | Cnidaria                   | -307000000    | -298900000   | <>
 Cantabrala                               | Animal    | Arthropoda                 | -311450000    | -305900000   | <>
 Capetus                                  | Animal    | Chordata                   | -311450000    | -306950000   | Capetus
@@ -462,7 +462,7 @@ Deltoidospora                            | Plant     | Pteridophyta             
 Deltopecten                              | Animal    | Mollusca                   | -323200000    | -295500000   | <>
 Deltoptychius                            | Animal    | Chordata                   | -323200000    | -298900000   | Deltoptychius
 Densepustula                             | Animal    | Brachiopoda                | -315200000    | -303700000   | <>
-Dentalium                                | Animal    | Mollusca                   | -305900000    | -303400000   | Dentalium
+Dentalium                                | Animal    | Mollusca                   | -305900000    | -303400000   | Dentalium_(genus)
 Derbyia                                  | Animal    | Brachiopoda                | -305900000    | -303400000   | <>
 Dermospheroidalis                        | Animal    | Porifera                   | -305900000    | -303400000   | <>
 Desmatodon                               | Animal    | Chordata                   | -305900000    | -303400000   | Desmatodon
@@ -532,7 +532,7 @@ Economolopsis                            | Animal    | Mollusca                 
 Ectogrammysia                            | Animal    | Mollusca                   | -318100000    | -305900000   | <>
 Edaphosaurus                             | Animal    | Chordata                   | -307000000    | -272300000   | Edaphosaurus
 Edestus                                  | Animal    | Chordata                   | -307000000    | -303700000   | Edestus
-Edmondia                                 | Animal    | Mollusca                   | -305900000    | -303400000   | Edmondia
+Edmondia                                 | Animal    | Mollusca                   | -305900000    | -303400000   | <>
 Eileticus                                | Animal    | Arthropoda                 | -311450000    | -306950000   | <>
 Elasmonema                               | Animal    | Mollusca                   | -358900000    | -298900000   | <>
 Elibatocrinus                            | Animal    | Echinodermata              | -305900000    | -303400000   | <>
@@ -588,7 +588,7 @@ Erisocrinus                              | Animal    | Echinodermata            
 Ernestiodendron                          | Plant     | Coniferophyta              | -315200000    | -254000000   | <>
 Erpetosaurus                             | Animal    | Chordata                   | -311450000    | -306950000   | Erpetosaurus
 Eryops                                   | Animal    | Chordata                   | -305900000    | -303400000   | Eryops
-Estheria                                 | Animal    | Arthropoda                 | -306950000    | -298900000   | Estheria
+Estheria                                 | Animal    | Arthropoda                 | -306950000    | -298900000   | Lioestheria
 Etheridgella                             | Animal    | Echinodermata              | -314600000    | -306950000   | <>
 Etheripecten                             | Animal    | Mollusca                   | -306950000    | -298900000   | <>
 Etoblattina                              | Animal    | Arthropoda                 | -311450000    | -306950000   | <>
@@ -709,7 +709,7 @@ Grovesella                               | Micro     | Foraminifera             
 Gruntia                                  | Animal    | Brachiopoda                | -313800000    | -305900000   | <>
 Grypoblattina                            | Animal    | Arthropoda                 | -311450000    | -306950000   | <>
 Gshelia                                  | Animal    | Cnidaria                   | -307000000    | -298900000   | <>
-Gulou                                    | Animal    | Arthropoda                 | -314600000    | -306950000   | Gulou
+Gulou                                    | Animal    | Arthropoda                 | -314600000    | -306950000   | <>
 Gymnophyllum                             | Animal    | Cnidaria                   | -314600000    | -306950000   | Gymnophyllum
 Gymnostrobus                             | Plant     | Pteridophyta               | -358900000    | -298900000   | <>
 Gypospirifer                             | Animal    | Brachiopoda                | -323200000    | -298900000   | Gypospirifer
@@ -939,7 +939,7 @@ Macrodictya                              | Animal    | Arthropoda               
 Macrogyion                               | Animal    | Arthropoda                 | -304800000    | -303400000   | <>
 Macromerium                              | Animal    | Chordata                   | -311450000    | -306950000   | Macromerium
 Macrostachya                             | Plant     | Coniferophyta              | -323200000    | -298900000   | <>
-Madera                                   | Animal    | Arthropoda                 | -307000000    | -303700000   | Madera
+Madera                                   | Animal    | Arthropoda                 | -307000000    | -303700000   | <>
 Maeandrostia                             | Animal    | Porifera                   | -305900000    | -303400000   | <>
 Mammia                                   | Animal    | Arthropoda                 | -311450000    | -306950000   | <>
 Marathonites                             | Animal    | Mollusca                   | -307000000    | -303700000   | <>
@@ -1013,7 +1013,7 @@ Mitorthoceras                            | Animal    | Mollusca                 
 Mitrospermum                             | Plant     | Pinophyta                  | -306950000    | -298900000   | <>
 Mixoneura                                | Plant     | Pteridophyta               | -311450000    | -300200000   | <>
 Mixotermes                               | Animal    | Arthropoda                 | -311450000    | -306950000   | <>
-Modiolus                                 | Animal    | Mollusca                   | -305900000    | -303400000   | Modiolus
+Modiolus                                 | Animal    | Mollusca                   | -305900000    | -303400000   | Modiolus_(bivalve)
 Moellerites                              | Micro     | Foraminifera               | -307000000    | -303700000   | <>
 Molgophis                                | Animal    | Chordata                   | -306950000    | -298900000   | Molgophis
 Monoceratina                             | Animal    | Arthropoda                 | -314600000    | -306950000   | <>

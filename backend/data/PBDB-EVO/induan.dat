@@ -47,7 +47,7 @@ Ankitokazocaris                          | Animal    | Arthropoda               
 Annalepis                                | Plant     | Lycophyta                  | -252170000    | -247200000   | <>
 Annularia                                | Plant     | Sphenophyta                | -252170000    | -247200000   | Annularia
 Anodontophora                            | Animal    | Mollusca                   | -251300000    | -247200000   | <>
-Anomia                                   | Animal    | Mollusca                   | -252170000    | -251300000   | Anomia
+Anomia                                   | Animal    | Mollusca                   | -252170000    | -251300000   | Anomia_(bivalve)
 Anomopteris                              | Plant     | Pteridophyta               | -252170000    | -242000000   | <>
 Anomphalus                               | Animal    | Mollusca                   | -251300000    | -247200000   | Anomphalus
 Anoploceras                              | Animal    | Mollusca                   | -251300000    | -247200000   | Anoploceras
@@ -77,7 +77,7 @@ Arctoprionites                           | Animal    | Mollusca                 
 Ardoreosomus                             | Animal    | Chordata                   | -252170000    | -251300000   | Ardoreosomus
 Arenovidalina                            | Micro     | Foraminifera               | -251300000    | -247200000   | <>
 Arganodus                                | Animal    | Chordata                   | -251300000    | -247200000   | Arganodus
-Arianites                                | Animal    | Mollusca                   | -251300000    | -247200000   | Arianites
+Arianites                                | Animal    | Mollusca                   | -251300000    | -247200000   | Arianites_(ammonite)
 Arnautoceltites                          | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Arqoviella                               | Animal    | Arthropoda                 | -252170000    | -251300000   | <>
 Arthropitys                              | Plant     | Sphenophyta                | -252170000    | -247200000   | Arthropitys
@@ -170,7 +170,7 @@ Canoptum                                 | Micro     | Radiolaria               
 Capitosauroides                          | Animal    | Chordata                   | -251300000    | -247200000   | <>
 Capnodoce                                | Micro     | Radiolaria                 | -295500000    | -174100000   | <>
 Capulomala                               | Animal    | Chordata                   | -252170000    | -247200000   | Capulomala
-Cardinia                                 | Animal    | Mollusca                   | -252170000    | -251300000   | Cardinia
+Cardinia                                 | Animal    | Mollusca                   | -252170000    | -251300000   | <>
 Cardinioides                             | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Cardita                                  | Animal    | Mollusca                   | -251300000    | -247200000   | Cardita
 Caribouceras                             | Animal    | Mollusca                   | -251300000    | -247200000   | <>
@@ -283,9 +283,9 @@ Deltasaurus                              | Animal    | Chordata                 
 Deltoidospora                            | Plant     | Pteridophyta               | -252170000    | -242000000   | <>
 Densoisporites                           | Plant     | Pteridophyta               | -251300000    | -247200000   | <>
 Dentalina                                | Micro     | Foraminifera               | -251300000    | -247200000   | <>
-Dentalium                                | Animal    | Mollusca                   | -252170000    | -251300000   | Dentalium
+Dentalium                                | Animal    | Mollusca                   | -252170000    | -251300000   | Dentalium_(genus)
 Derbyia                                  | Animal    | Brachiopoda                | -252170000    | -251300000   | <>
-Derwentia                                | Animal    | Chordata                   | -252170000    | -251200000   | Derwentia
+Derwentia                                | Animal    | Chordata                   | -252170000    | -251200000   | Derwentia_(amphibian)
 Desmiophyllum                            | Plant     | Coniferophyta              | -251300000    | -247200000   | <>
 Dettermania                              | Animal    | Arthropoda                 | -252170000    | -251300000   | <>
 Deuterotetrapous                         | Animal    | Chordata                   | -252170000    | -247200000   | <>
@@ -308,7 +308,7 @@ Dinarites                                | Animal    | Mollusca                 
 Diplochilus                              | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Diplosphaerina                           | Micro     | Foraminifera               | -252170000    | -251300000   | <>
 Diplotremina                             | Micro     | Foraminifera               | -251300000    | -247200000   | <>
-Discina                                  | Animal    | Brachiopoda                | -252170000    | -247200000   | Discina
+Discina                                  | Animal    | Brachiopoda                | -252170000    | -247200000   | Discina_(brachiopod)
 Discinisca                               | Animal    | Brachiopoda                | -251300000    | -247200000   | Discinisca
 Discophiceras                            | Animal    | Mollusca                   | -252170000    | -251300000   | <>
 Discoproptychites                        | Animal    | Mollusca                   | -251300000    | -247200000   | <>
@@ -372,7 +372,7 @@ Errolichthys                             | Animal    | Chordata                 
 Erythrobatrachus                         | Animal    | Chordata                   | -252170000    | -247200000   | Erythrobatrachus
 Escarguelites                            | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Eschericeratites                         | Animal    | Mollusca                   | -251300000    | -247200000   | <>
-Estheria                                 | Animal    | Arthropoda                 | -252170000    | -201300000   | Estheria
+Estheria                                 | Animal    | Arthropoda                 | -252170000    | -201300000   | Lioestheria
 Estheriina                               | Animal    | Arthropoda                 | -252170000    | -251300000   | <>
 Etheripecten                             | Animal    | Mollusca                   | -252170000    | -251300000   | <>
 Eubrontes                                | Animal    | Chordata                   | -251300000    | -247200000   | Eubrontes
@@ -676,7 +676,7 @@ Microphyllopteris                        | Plant     | Pteridophyta             
 Minersvillites                           | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Miocidaris                               | Animal    | Echinodermata              | -251300000    | -247200000   | <>
 Mixosaurus                               | Animal    | Chordata                   | -252170000    | -201300000   | Mixosaurus
-Modiolus                                 | Animal    | Mollusca                   | -251300000    | -247200000   | Modiolus
+Modiolus                                 | Animal    | Mollusca                   | -251300000    | -247200000   | Modiolus_(bivalve)
 Monacanthites                            | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Monneticeras                             | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Monoceratina                             | Animal    | Arthropoda                 | -252170000    | -247200000   | <>

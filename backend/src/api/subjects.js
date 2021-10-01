@@ -68,15 +68,15 @@ function canAddSubjectToPage(page, subject) {
 }
 
 function findAvailablePage(pages) {
-  for (const page of pages) {
-    if (page.length < laneMAX) {
-      return page;
+  for (let i = 0; i < pages.length; ++i) {
+    if (pages[i].length < laneMAX) {
+      return i;
     }
   }
 
   const page = [];
   pages.push(page);
-  return page;
+  return (pages.length - 1);
 }
 
 function createPageLane(page, subject) {
@@ -87,25 +87,29 @@ function createPageLane(page, subject) {
 
 function addSubjectToPages(pages, subject) {
   const possLanes = [];
-  for (const page of pages) {
-    const lanes = canAddSubjectToPage(page, subject);
+  for (let i = 0; i < pages.length; ++i) {
+    const lanes = canAddSubjectToPage(pages[i], subject);
     for (const lane of lanes) {
-      possLanes.push(lane);
+      possLanes.push({page: i, lane: lane});
     }
   }
 
+  let pageNo = 1;
   if (possLanes.length == 0) {
-    const page = findAvailablePage(pages);
-    createPageLane(page, subject);
+    pageNo = findAvailablePage(pages);
+    createPageLane(pages[pageNo], subject);
   } else {
     let fullestLane = null;
-    for (const lane of possLanes) {
-      if (fullestLane == null || fullestLane.length < lane.length) {
-        fullestLane = lane;
+    for (const d of possLanes) {
+      if (fullestLane == null || fullestLane.lane.length < d.lane.length) {
+        fullestLane = d;
       }
     }
-    fullestLane.push(subject);
+    fullestLane.lane.push(subject);
+    pageNo = fullestLane.page;
   }
+
+  return pageNo;
 }
 
 // subjects api route
@@ -114,6 +118,7 @@ router.get('/', async (req, res) => {
   let to = req.query.to;
   let kind = req.query.kind;
   let page = req.query.page;
+  let subject = req.query.subject;
 
   if (!from) {
     from = -4600000000; // Earliest date of the pre-cambrian
@@ -127,7 +132,7 @@ router.get('/', async (req, res) => {
     to = parseInt(to);
   }
 
-  if (page < 1) {
+  if (page && page < 1) {
     const err = new Error("The minimum value for 'page' is 1 rather than 0 and cannot be negative");
     logger.error(err);
     res.status(500).send(err);
@@ -178,17 +183,28 @@ router.get('/', async (req, res) => {
         .exec();
 
       let pages = [];
+      let subjectPageIdx = -1;
 
       for (let i = 0; i < subjects.length; ++i) {
-        const subject = subjects[i];
-        addSubjectToPages(pages, subject);
+        const s = subjects[i];
+        const pageIdx = addSubjectToPages(pages, s);
+        if (subject === s._id) {
+          subjectPageIdx = pageIdx;
+        }
       }
 
-      // Filter the pages return based on page parameter
+      //
+      // Filter the pages return based on page or subject parameters
+      // If page is defined then drop subject
+      // If page not defined then try and return page with subject
+      //
       if (page) {
         // page is defined as minimum of 1 as start so subtract 1 to get array position
         kindResults[kind] = { pages: pages.slice((page - 1), page) };
         kindResults[kind].page = parseInt(page);
+      } else if (subject && subjectPageIdx >= 0) {
+        kindResults[kind] = { pages: pages.slice(subjectPageIdx, subjectPageIdx + 1) };
+        kindResults[kind].page = subjectPageIdx;
       } else {
         kindResults[kind] = { pages: pages };
         kindResults[kind].page = parseInt(1);

@@ -60,7 +60,6 @@ export default class SubjectVisual extends React.Component {
   }
 
   chartify(interval, categories, kindData) {
-    console.log(kindData);
     //
     // Base object to return results
     //
@@ -89,6 +88,15 @@ export default class SubjectVisual extends React.Component {
         page = kindData[kind].pages[0];
       } else {
         // Give page 1 arbitrary empty lane
+        page.push([]);
+      }
+
+      //
+      // Avoid the kinds becoming too narrow and lost
+      // by padding with a couple of blank lanes either side
+      //
+      if (page.length < 3) {
+        page.unshift([]);
         page.push([]);
       }
 
@@ -157,14 +165,17 @@ export default class SubjectVisual extends React.Component {
     return visualData;
   }
 
-  fetchSubjects(interval, categories, page, kind) {
+  fetchSubjects(criteria) {
+    console.log("fetchSubjects - criteria ---->");
+    console.log(criteria);
+
     this.setState({
       loading: true,
       errorMsg: "",
       error: null,
     })
 
-    if (! interval) {
+    if (! criteria.interval) {
       this.setState({
         loading: false,
         kindData: {}
@@ -172,28 +183,31 @@ export default class SubjectVisual extends React.Component {
       return;
     }
 
+    const subjectId = criteria.subject ? criteria.subject._id : null;
+
     //
     // Fetch the subject data from the backend service
     //
-    api.subjectsWithin(interval.from, interval.to, kind, page)
+    api.subjectsWithin(criteria.interval.from, criteria.interval.to, criteria.kind, criteria.page, subjectId)
       .then((res) => {
         let newKindData = {};
         if (!res.data || res.data.length === 0) {
-          if (kind) {
+          if (criteria.kind) {
             // Only remove the data relevant to the kind searched for
             newKindData = _.cloneDeep(this.state.kindData);
-            newKindData[kind] = [];
+            newKindData[criteria.kind] = [];
           }
         } else {
-          if (kind) {
+          if (criteria.kind) {
             newKindData = _.cloneDeep(this.state.kindData);
-            newKindData[kind] = res.data[kind];
+            newKindData[criteria.kind] = res.data[criteria.kind];
           } else {
             newKindData = res.data;
           }
         }
 
-        const visualData = this.chartify(interval, categories, newKindData);
+        const visualData = this.chartify(criteria.interval, criteria.categories, newKindData);
+        console.log("VisualData ---->");
         console.log(visualData);
 
         this.setState({
@@ -228,7 +242,11 @@ export default class SubjectVisual extends React.Component {
 
   componentDidMount() {
     this.dimensions();
-    this.fetchSubjects(this.props.interval, this.props.categories, 1);
+    this.fetchSubjects({
+      interval: this.props.interval,
+      categories: this.props.categories,
+      subject: this.props.subject
+    });
     window.addEventListener('resize', this.handleResize);
   }
 
@@ -241,20 +259,59 @@ export default class SubjectVisual extends React.Component {
     if (this.props.subject) {
       console.log("SubjectVisual - ComponentDidupdate Subject: " + this.props.subject.name);
     }
+    console.log("SubjectVisual - ComponentDidupdate Categories: ---->");
+    console.log(this.props.categories);
 
-    if (prevProps.interval === this.props.interval &&
-        prevProps.categories === this.props.categories) {
-      console.log("SubjectVisual - props are same ... returning");
+    if (_.isEqual(prevProps.interval, this.props.interval) &&
+        _.isEqual(prevProps.categories, this.props.categories) &&
+        _.isEqual(prevProps.subject, this.props.subject)) {
+      console.log("SubjectVisual - interval / categories / subject props are same ... returning");
       return;
+    } else {
+      // What difference?
+      if (prevProps.interval !== this.props.interval) {
+        console.log("Interval is different");
+      }
+      if (prevProps.categories !== this.props.categories) {
+        console.log("Categories is different");
+      }
+      if (prevProps.subject !== this.props.subject) {
+        console.log("Subject is different");
+        console.log("PrevProps: ");
+        console.log(prevProps.subject);
+        console.log(this.props.subject);
+      }
     }
 
+    //
+    // Is subject in visualData, ie. already displayed
+    //
+    if (this.state.visualData && this.props.subject) {
+      for (const s of this.state.visualData.subjects) {
+        if (s._id === this.props.subject._id) {
+          return true
+        }
+      }
+    }
+
+    console.log("SubjectVisual - updating subjects");
+
     this.dimensions();
-    this.fetchSubjects(this.props.interval, this.props.categories, 1);
+    this.fetchSubjects({
+      interval: this.props.interval,
+      categories: this.props.categories,
+      subject: this.props.subject
+    });
   }
 
   onUpdateKindPage(kind, page) {
     console.log("Kind: " + kind + " New Page: " + page);
-    this.fetchSubjects(this.props.interval, this.props.categories, page, kind);
+    this.fetchSubjects({
+      interval: this.props.interval,
+      categories: this.props.categories,
+      kind: kind,
+      page: page
+    });
   }
 
   render() {
@@ -276,8 +333,7 @@ export default class SubjectVisual extends React.Component {
       <SubjectSwimLane
         width = {this.state.width}
         height = {this.state.height}
-        onSelectedSubjectChange = {this.props.onSelectedSubjectChange}
-        onSelectedIntervalChange = {this.props.onSelectedIntervalChange}
+        onSelectedChange={this.props.onSelectedChange}
         onUpdateCategoryFilter = {this.props.onUpdateCategoryFilter}
         onUpdateLegendVisible = {this.props.onUpdateLegendVisible}
         onUpdateKindPage = {this.onUpdateKindPage}
@@ -333,26 +389,24 @@ class SubjectSwimLane extends React.Component {
       console.log("SubjectSwimLane - ComponentDidupdate Subject: " + this.props.subject.name);
     }
 
-    if (this.props.subject && this.props.subject.owner === this.svgId) {
+    if (this.props.subject && _.isEqual(this.props.subject.owner, this.svgId)) {
       // We called for this update with our own clicks so no need to update
       console.log("SubjectSwimLane - props are same ... returning");
       return;
     }
 
-    console.log(this.props.interval);
+    console.log("SubjectSwimLane - ComponentDidupdate Data ----->");
     console.log(this.props.data);
+    console.log("=== SubjectSwimlane - subject ===");
+    console.log(prevProps.subject);
+    console.log(this.props.subject);
 
-    // TODO
-    // Fix following use-case
-    // Click on Hadean
-    // Search for Cambrian
-    // Click on Cambrian Explosion
-    // Still displays Haden visual
-
-    if (prevProps.subject === this.props.subject &&
-       prevProps.interval === this.props.interval &&
-       prevProps.width === this.props.width &&
-       prevProps.height === this.props.height) {
+    if (prevProps.width === this.props.width &&
+        prevProps.height === this.props.height &&
+        _.isEqual(prevProps.interval, this.props.interval) &&
+        _.isEqual(prevProps.subject, this.props.subject) &&
+        _.isEqual(prevProps.data, this.props.data)
+       ) {
 
        //
        // Check legend visible state (done in renderSwimlanes())
@@ -463,7 +517,7 @@ class SubjectSwimLane extends React.Component {
       // Tag the data with this as the owner
       //
       this.selected.current.owner = this.svgId;
-      this.props.onSelectedSubjectChange(this.selected.current);
+      this.props.onSelectedChange(this.props.interval, this.selected.current);
     }, this.clickDelay);
   }
 
@@ -495,8 +549,7 @@ class SubjectSwimLane extends React.Component {
           // Selected the returned interval
           //
           console.log("SubjectVisual - handleVisualDoubleClick() " + res.data[0].name);
-          this.props.onSelectedIntervalChange(res.data[0]);
-          this.props.onSelectedSubjectChange(d);
+          this.props.onSelectedChange(res.data[0], d);
         }
       }).catch((err) => {
         this.setState({
@@ -779,6 +832,16 @@ class SubjectSwimLane extends React.Component {
       .append('g')
       .attr("class", "subject-container");
 
+    this.gchart
+      .append('rect')
+      .attr('x', this.margins.left + 10)
+      .attr('y', this.margins.top)
+      .attr('width', this.zoomSystem.innerWidth - 10)
+      .attr('height', this.zoomSystem.innerHeight)
+      .attr('stroke', 'black')
+      .attr('stroke-width', 4)
+      .attr('fill', 'white');
+
     const xScale = d3ScaleLinear()
       .domain([this.props.interval.from, this.props.interval.to]).nice()
       .range([0, this.zoomSystem.innerWidth]);
@@ -818,7 +881,8 @@ class SubjectSwimLane extends React.Component {
       .join('line')
       .classed('laneLines', true)
       .attr("transform", this.marginTranslation())
-      .attr('stroke', d => d.kindLane ? 'black' : 'lightgray');
+      .attr('stroke', d => d.kindLane ? 'black' : 'lightgray')
+      .attr('stroke-width', d => d.kindLane ? 5 : 1);
 
     console.log(this.props.data.kinds);
 
@@ -831,8 +895,7 @@ class SubjectSwimLane extends React.Component {
       .join("rect")
       .classed('laneBackground', true)
       .attr("transform", this.marginTranslation())
-      .attr('fill', d => "url(#gradient-" + common.identifier(d.name) + ")")
-      .attr('fill-opacity', 0.3);
+      .attr('fill', d => "url(#gradient-" + common.identifier(d.name) + ")");
 
     // Add the data items
     this.subjectItems = this.gchart.append('g')

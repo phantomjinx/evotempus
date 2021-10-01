@@ -119,7 +119,7 @@ export default class Search extends React.Component {
 
     switch (target.fieldType) {
       case 'interval':
-        this.props.onSelectedIntervalChange(target);
+        this.props.onSelectedChange(target, null);
         break;
       case 'subject':
         api.intervalEncloses(target.from, target.to)
@@ -133,9 +133,8 @@ export default class Search extends React.Component {
               // Selected the returned interval
               //
               console.log("Selecting Search Interval Target: " + res.data[0].name);
-              this.props.onSelectedIntervalChange(res.data[0]);
               console.log("Selecting Search Subject Target: " + target.name);
-              this.props.onSelectedSubjectChange(target);
+              this.props.onSelectedChange(res.data[0], target);
             }
           }).catch((err) => {
             this.setState({

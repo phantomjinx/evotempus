@@ -66,7 +66,7 @@ export function subjectById(id) {
   });
 }
 
-export function subjectsWithin(from, to, kind, page) {
+export function subjectsWithin(from, to, kind, page, subjectId) {
   return instance({
     'method':'GET',
     'url':'/api/subjects',
@@ -75,6 +75,7 @@ export function subjectsWithin(from, to, kind, page) {
       'to':to,
       'kind': kind,
       'page': page,
+      'subject': subjectId,
       'outputsize':'compact',
       'datatype':'json'
     },

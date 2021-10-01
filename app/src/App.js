@@ -34,8 +34,7 @@ class App extends React.Component {
 
     this.intervalVisualRef = React.createRef();
     this.subjectVisualRef = React.createRef();
-    this.handleIntervalChange = this.handleIntervalChange.bind(this);
-    this.handleSubjectChange = this.handleSubjectChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.updateCategoryFilter = this.updateCategoryFilter.bind(this);
     this.onUpdateLegendVisible = this.onUpdateLegendVisible.bind(this);
     this.handleWikiClick = this.handleWikiClick.bind(this);
@@ -104,29 +103,28 @@ class App extends React.Component {
     this.fetchCategories();
   }
 
-  handleIntervalChange(interval) {
+  handleChange(interval, subject) {
     if (interval) {
-      console.log("App - handleIntervalChange: " + interval.name);
+      console.log("App - handleChange: " + interval.name);
       console.log(interval);
     }
+    if (subject) {
+      console.log("App - handleChange: " + subject.name);
+      console.log(subject);
+    }
 
-    if (interval && this.state.interval && interval._id === this.state.interval._id) {
-      // Nothing to do
+    if ((interval && this.state.interval && interval._id === this.state.interval._id) &&
+        (subject && this.state.subject && subject._id === this.state.subject._id)) {
+        // Nothing to do
       return;
     }
 
-    //
-    // Reset the subject since the interval may not contain it.
-    // Keeping it puts 'focus' back on to it when the interval
-    // has been changed. To restore such focus, handleSubjectChange
-    // should be called after this.
-    //
     this.setState({
       interval: interval,
-      subject: null,
+      subject: subject,
       topicTarget: {
-        type: 'interval',
-        item: interval
+        type: subject ? 'subject' : 'interval',
+        item: subject ? subject : interval
       },
       help: false
     });
@@ -164,16 +162,6 @@ class App extends React.Component {
   onUpdateLegendVisible(visible) {
     this.setState({
       legendVisible: visible
-    });
-  }
-
-  handleSubjectChange(subject) {
-    this.setState({
-      subject: subject,
-      topicTarget: {
-        type: 'subject',
-        item: subject
-      }
     });
   }
 
@@ -215,6 +203,7 @@ class App extends React.Component {
         width="312" height="185"
         interval={this.state.interval}
         onSelectedIntervalChange={this.handleIntervalChange}
+        onSelectedChange={this.handleChange}
       />
     )
 
@@ -226,8 +215,7 @@ class App extends React.Component {
         kinds={this.state.kinds}
         categories={this.state.categories}
         legendVisible={this.state.legendVisible}
-        onSelectedIntervalChange={this.handleIntervalChange}
-        onSelectedSubjectChange={this.handleSubjectChange}
+        onSelectedChange={this.handleChange}
         onUpdateCategoryFilter={this.updateCategoryFilter}
         onUpdateLegendVisible={this.onUpdateLegendVisible}
       />
@@ -252,8 +240,7 @@ class App extends React.Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <Search
-              onSelectedIntervalChange={this.handleIntervalChange}
-              onSelectedSubjectChange={this.handleSubjectChange}
+              onSelectedChange={this.handleChange}
             />
           </div>
         </nav>

@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from "lodash";
 import {stratify as d3Stratify, partition as d3Partition} from 'd3-hierarchy';
 import {interpolate as d3Interpolate, quantize as d3Quantize} from 'd3-interpolate';
 //
@@ -114,7 +115,7 @@ export default class IntervalVisual extends React.Component {
         width = {this.state.width}
         height = {this.state.height}
         interval={this.props.interval}
-        onSelectedIntervalChange = {this.props.onSelectedIntervalChange}
+        onSelectedChange = {this.props.onSelectedChange}
         data = {this.state.data}/>
     );
   }
@@ -148,7 +149,7 @@ class IntervalSunburst extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.interval === this.props.interval) {
+    if (_.isEqual(prevProps.interval, this.props.interval)) {
       return;
     }
 
@@ -340,10 +341,10 @@ class IntervalSunburst extends React.Component {
     //
     // Try and reselect the currently selected if still visible
     //
-    this.select(this.selected);
+    this.select(this.selected, true);
   }
 
-  select(interval) {
+  select(interval, notify) {
     this.displaySelectionOutline(this.selected, false);
 
     if (!interval || !interval.visible || interval === this.root) {
@@ -361,7 +362,10 @@ class IntervalSunburst extends React.Component {
       //
       this.selected.data.owner = this.svgId;
       console.log("IntervalVisual: select() " + this.selected.data.name);
-      this.props.onSelectedIntervalChange(this.selected.data);
+
+      if (notify) {
+        this.props.onSelectedChange(this.selected.data, null);
+      }
     }
   }
 
@@ -379,7 +383,7 @@ class IntervalSunburst extends React.Component {
         return;
       }
 
-      this.select(p);
+      this.select(p, true);
 
     }, this.clickDelay);
   }
@@ -387,7 +391,7 @@ class IntervalSunburst extends React.Component {
   //
   // Walk the hierarchy and 'zoom' into the chosen interval
   //
-  traverseToInterval(interval) {
+  traverseToInterval(interval, notify) {
     if (! interval) {
       return;
     }
@@ -398,9 +402,7 @@ class IntervalSunburst extends React.Component {
     //
     let visInterval = null;
     this.root.each(d => {
-      console.log("IntervalVisual - Finding interval: " + d.id + " v " + interval._id);
       if (d.id === interval._id) {
-        console.log("Found interval !!!");
         visInterval = d; // Found it!
         return;
       }
@@ -427,7 +429,7 @@ class IntervalSunburst extends React.Component {
     }
 
     console.log("IntervalVisual - traverseToInterval() select: " + visInterval.id);
-    this.select(visInterval);
+    this.select(visInterval, notify);
   }
 
   scaleCanvas(transform) {
@@ -664,7 +666,7 @@ class IntervalSunburst extends React.Component {
     // After complete rendering if an interval
     // has been assigned then traverse to it
     //
-    this.traverseToInterval(this.props.interval);
+    this.traverseToInterval(this.props.interval, false);
   }
 
   render() {

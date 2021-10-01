@@ -55,10 +55,10 @@ readfile() {
     local cres; cres=$(curl --silent "${url}/${link}")
     local pres; pres=$(echo "${cres}" | grep "${phylum}")
     if [ $? -eq 1 ]; then
-      local rres; rres=$(echo "${cres}" | grep "may refer to")
+      local rres; rres=$(echo "${cres}" | grep "refer to")
       if [ $? -eq 0 ]; then
         echo " No Ref"
-        echo "${target}  REFER" >> ${ERRORS_FILE}
+        echo "${target} ${phylum}  REFER" >> ${ERRORS_FILE}
       else
         echo " No"
         echo "${target}" >> ${ERRORS_FILE}

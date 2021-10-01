@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-  echo "$0 <file>"
+  echo "$0 <file|directory>"
   exit 1
 fi
 
@@ -22,7 +22,7 @@ readfile() {
     local phylum=$(echo ${line} | awk '{print $5}')
     local link=$(echo ${line} | awk '{print $11}')
 
-    echo -n "Checking ${target} at ${url}/${link} for ${phylum} ..."
+    echo -n "Checking ${target} at ${url}/${link} for constants ..."
 
     local exists; exists=$(grep ${target} ${ERRORS_FILE})
     if [ $? -eq 0 ]; then
@@ -53,16 +53,22 @@ readfile() {
     # Something does exist but need to confirm what it is
     # Need to separate declaration from assignment for eq test to work
     local cres; cres=$(curl --silent "${url}/${link}")
-    local pres; pres=$(echo "${cres}" | grep "${phylum}")
+    local scclass; scclass=$(echo "${cres}" | grep "Scientific classification")
     if [ $? -eq 1 ]; then
-      local rres; rres=$(echo "${cres}" | grep "refer to")
-      if [ $? -eq 0 ]; then
-        echo " No Ref"
-        echo "${target} ${phylum}  REFER" >> ${ERRORS_FILE}
-      else
-        echo " No"
-        echo "${target}" >> ${ERRORS_FILE}
-      fi
+      echo " No"
+      echo "${target} ${phylum}" >> ${ERRORS_FILE}
+    fi
+
+    local genus; genus=$(echo "${cres}" | grep "Genus:")
+    if [ $? -eq 1 ]; then
+      echo " No"
+      echo "${target} ${phylum}" >> ${ERRORS_FILE}
+    fi
+
+    local glink; glink=$(echo "${cres}" | grep "<i>${target}</i>")
+    if [ $? -eq 1 ]; then
+      echo " No"
+      echo "${target} ${phylum}" >> ${ERRORS_FILE}
     else
       echo " Yes"
     fi

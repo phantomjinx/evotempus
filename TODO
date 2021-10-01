@@ -1,62 +1,15 @@
+* Rename categories to more useful names where appropriate
+ - birds - Aves
+ - dinosaurs - Dinosauria
+ - mammals
+ - hominids
+ - fish
+
+* Take all unfound and add links for their families / orders ? (too much data??)
+
 * Add a Readme for github
 
-* Create limit queries for subjects to return MAX (TBD)
- ** 857 plants
- ** Bin-packing algorithm to group the plants into non-overlapping 'bins'
- ** Bin optimisation to have tolerance of X number of lanes (X TBD)
-  - ie. If 2 plants overlap then can add 2nd up to X lanes
- ** Deduce minimum number of bins by experimenting with tolerance
-
-    X                  XY                 Y
-    |      --A-- --B--  |  --C-- --D--    |
-    |        --E-- --F--|     --G-- --H-- |
-
-THE PROBLEM
-1. I want to return a page of 50 subjects to display in my kind block
- Q. Which 50 do I pick?
- Q. What's the next 50 I pick?
-2. My kind for the whole interval could contain up to 20000 subjects
- Q. Which 50 do I pick from 20000?
- Q. Do I sort them into categories?
- - Adv: All Molluscs displayed together.
- - Dis: Have to scroll through Molluscs to get to Chordata
- - Dis: Lots of Molluscs may be all the same time-frame so packing doesn't work
- - Dis: Not sorting them causes confusion as to what a page means
-3. What am I trying to show?
- - For each interval (even whole), visualise subject existence in relation to one another
-  eg. where was Stegosaurus in relation to T-Rex?
-
-* Add a page column to subject:
-  Name    Kind       From  To  Page  Lane
-  T-Rex   Dinosauria --    --  8     12
-  YYY     Chordata   --    -   9      4
-
-* if 9000 in a 'group' then 50 / page --> 180 pages
-
-//
-// TODO
-//
-// To incorporate this new projection of data, we need to:
-// 1. 5 queries with kind rather than 1 big one in to allow scaling
-// 2. Look at subjectVisual and fetch the headings separately from hints
-// 3. Then we can display a blank version of the visual complete with 15 lanes
-// 4. On loading of the visual for the firstime, page will be set to 1
-// 5. Worry about search later
-// 6. Clicking on next with up page to 2 and we return 2
-// 7. Make sure a count of all subjects is added to projection so client knows to enable next
-// 8. Only re-render the SVG parts for the kind being updated
-//
-
-* What to return the same order of subjects each time so that I can flick to the same page and
-  find the same subjects
-
-* Create visual "next" / "prev" for displaying next MAX
-
-* Search will search for subject then show MAX that contains it
-
-* Need more obvious selection highlighting
-
-* Search still seems to show interval rather than subject use "Aspidella" to debug
+* Fix legend to correctly filter and reload based on categories removed
 
 * Add lower margin to bottom of legend to show there is no overflow
 

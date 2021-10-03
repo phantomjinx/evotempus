@@ -4,7 +4,9 @@
   "scripts": {
     "build": "cd app && yarn build:prod",
     "init-app": "cd app && yarn install",
-    "heroku-postbuild": "npm run init-app && npm run build",
+    "init-server": "cd backend && npm install",
+    "init": "npm run init-app && npm run init-server",
+    "heroku-postbuild": "npm run init && npm run build",
     "start": "node backend/src/server.js"
   },
   "repository": {

@@ -43,7 +43,7 @@ Amechilus                                | Animal    | Arthropoda               
 Amorphognathus                           | Animal    | Chordata                   | -478600000    | -466000000   | Amorphognathus
 Amplexograptus                           | Animal    | Hemichordata               | -478600000    | -466000000   | <>
 Amplexopora                              | Animal    | Bryozoa                    | -485400000    | -443400000   | Amplexopora
-Ampyx                                    | Animal    | Arthropoda                 | -478600000    | -466000000   | Ampyx
+Ampyx                                    | Animal    | Arthropoda                 | -478600000    | -466000000   | Ampyx_(trilobite)
 Ampyxina                                 | Animal    | Arthropoda                 | -478600000    | -460900000   | <>
 Amsassia                                 | Animal    | Porifera                   | -485400000    | -477700000   | <>
 Amzasskiella                             | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
@@ -130,7 +130,7 @@ Babinka                                  | Animal    | Mollusca                 
 Bactroceras                              | Animal    | Mollusca                   | -478600000    | -466000000   | Bactroceras
 Balanocystites                           | Animal    | Echinodermata              | -478600000    | -466000000   | <>
 Balantiocystis                           | Animal    | Echinodermata              | -478600000    | -466000000   | <>
-Balnibarbi                               | Animal    | Arthropoda                 | -478600000    | -471800000   | Balnibarbi
+Balnibarbi                               | Animal    | Arthropoda                 | -478600000    | -471800000   | <>
 Baltiscanella                            | Animal    | Mollusca                   | -485400000    | -443400000   | <>
 Baltograptus                             | Animal    | Hemichordata               | -478600000    | -466000000   | <>
 Baltoniodus                              | Animal    | Chordata                   | -478600000    | -466000000   | Baltoniodus
@@ -154,7 +154,7 @@ Beatricea                                | Micro     | Radiolaria               
 Belemnites                               | Animal    | Mollusca                   | -541000000    | -252170000   | Belemnites_(genus)
 Bellaspidella                            | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
 Bellefontia                              | Animal    | Arthropoda                 | -485400000    | -468100000   | <>
-Bellerophon                              | Animal    | Mollusca                   | -485400000    | -477700000   | Bellerophon
+Bellerophon                              | Animal    | Mollusca                   | -485400000    | -477700000   | Bellerophon_(genus)
 Belodina                                 | Animal    | Chordata                   | -478600000    | -466000000   | <>
 Beltella                                 | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
 Benedettia                               | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
@@ -397,7 +397,7 @@ Diencobolus                              | Animal    | Brachiopoda              
 Dikelokephalina                          | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Dilobella                                | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Dimeropygiella                           | Animal    | Arthropoda                 | -478600000    | -468100000   | Dimeropygiella
-Dindymene                                | Animal    | Arthropoda                 | -478600000    | -466000000   | Dindymene
+Dindymene                                | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Dinobolus                                | Animal    | Brachiopoda                | -478600000    | -466000000   | <>
 Dinorthis                                | Animal    | Brachiopoda                | -478600000    | -466000000   | <>
 Dionide                                  | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
@@ -443,7 +443,7 @@ Ectenonotus                              | Animal    | Arthropoda               
 Ectillaenus                              | Animal    | Arthropoda                 | -478600000    | -466000000   | Ectillaenus
 Ectocycloceras                           | Animal    | Mollusca                   | -478600000    | -468100000   | <>
 Ectomaria                                | Animal    | Mollusca                   | -478600000    | -466000000   | <>
-Egania                                   | Animal    | Porifera                   | -478600000    | -468100000   | Egania
+Egania                                   | Animal    | Porifera                   | -478600000    | -468100000   | <>
 Eichwaldopora                            | Animal    | Bryozoa                    | -478600000    | -460900000   | <>
 Eisarkaspis                              | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Ekaterodonta                             | Animal    | Mollusca                   | -478600000    | -466000000   | <>
@@ -598,7 +598,7 @@ Hallograptus                             | Animal    | Hemichordata             
 Halysis                                  | Plant     | Rhodophyta                 | -478600000    | -466000000   | Halysis
 Hamptonia                                | Animal    | Porifera                   | -485400000    | -477700000   | Hamptonia
 Hanchungolithus                          | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
-Haniwa                                   | Animal    | Arthropoda                 | -485400000    | -478600000   | Haniwa
+Haniwa                                   | Animal    | Arthropoda                 | -485400000    | -478600000   | <>
 Hapalopleura                             | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
 Haplograptus                             | Animal    | Hemichordata               | -485400000    | -477700000   | <>
 Haploprimitia                            | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
@@ -634,7 +634,7 @@ Hexacopyge                               | Animal    | Arthropoda               
 Hexaporites                              | Animal    | Bryozoa                    | -478600000    | -466000000   | <>
 Highgatella                              | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
 Hillyardina                              | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
-Hindia                                   | Animal    | Porifera                   | -485400000    | -443400000   | Hindia
+Hindia                                   | Animal    | Porifera                   | -485400000    | -443400000   | <>
 Hintzecurus                              | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
 Hintzeia                                 | Animal    | Arthropoda                 | -478600000    | -468100000   | Hintzeia
 Hippomya                                 | Animal    | Mollusca                   | -478600000    | -466000000   | <>
@@ -785,7 +785,7 @@ Lichakephalus                            | Animal    | Arthropoda               
 Lichenaria                               | Animal    | Cnidaria                   | -485400000    | -468100000   | <>
 Licnocephala                             | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Linchengoceras                           | Animal    | Mollusca                   | -478600000    | -466000000   | <>
-Lingula                                  | Animal    | Brachiopoda                | -478600000    | -466000000   | Lingula
+Lingula                                  | Animal    | Brachiopoda                | -478600000    | -466000000   | Lingula_(brachiopod)
 Lingulella                               | Animal    | Brachiopoda                | -478600000    | -449500000   | Lingulella
 Lingulepis                               | Animal    | Brachiopoda                | -478600000    | -466000000   | Lingulepis
 Lingulobolus                             | Animal    | Brachiopoda                | -478600000    | -466000000   | <>
@@ -820,7 +820,7 @@ Loxoplocus                               | Animal    | Mollusca                 
 Lunacrania                               | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
 Lutesvillia                              | Animal    | Arthropoda                 | -478600000    | -468100000   | Lutesvillia
 Lycophoria                               | Animal    | Brachiopoda                | -478600000    | -466000000   | <>
-Lycophron                                | Animal    | Arthropoda                 | -478600000    | -466000000   | Lycophron
+Lycophron                                | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Lyrapyge                                 | Animal    | Arthropoda                 | -478600000    | -471800000   | Lyrapyge
 Lyrodesma                                | Animal    | Mollusca                   | -478600000    | -466000000   | <>
 Macerodus                                | Animal    | Chordata                   | -485400000    | -478600000   | <>
@@ -843,7 +843,7 @@ Martellia                                | Animal    | Brachiopoda              
 Mastigograptus                           | Animal    | Hemichordata               | -478600000    | -466000000   | <>
 Matherella                               | Animal    | Mollusca                   | -478600000    | -468100000   | <>
 Matthevia                                | Animal    | Mollusca                   | -485400000    | -477700000   | Matthevia
-Maydena                                  | Animal    | Echinodermata              | -485400000    | -476800000   | Maydena
+Maydena                                  | Animal    | Echinodermata              | -485400000    | -476800000   | <>
 Mccluskiceras                            | Animal    | Mollusca                   | -485400000    | -478600000   | <>
 Mcqueenoceras                            | Animal    | Mollusca                   | -478600000    | -466000000   | Mcqueenoceras
 Medessia                                 | Animal    | Brachiopoda                | -478600000    | -471800000   | <>
@@ -927,7 +927,7 @@ Ningkianites                             | Animal    | Arthropoda               
 Ningkianolithus                          | Animal    | Arthropoda                 | -478600000    | -466000000   | Ningkianolithus
 Niobe                                    | Animal    | Arthropoda                 | -478600000    | -466000000   | Niobe_(trilobite)
 Niobella                                 | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
-Niobides                                 | Animal    | Arthropoda                 | -478600000    | -466000000   | Niobides
+Niobides                                 | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Niobina                                  | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
 Niquivilia                               | Animal    | Brachiopoda                | -478600000    | -466000000   | <>
 Nocturnellia                             | Animal    | Brachiopoda                | -478600000    | -466000000   | <>
@@ -943,11 +943,11 @@ Nucula                                   | Animal    | Mollusca                 
 Nuculana                                 | Animal    | Mollusca                   | -478600000    | -466000000   | Nuculana
 Nuculites                                | Animal    | Mollusca                   | -478600000    | -466000000   | <>
 Numericoma                               | Animal    | Brachiopoda                | -478600000    | -471800000   | <>
-Nyaya                                    | Animal    | Arthropoda                 | -485400000    | -476800000   | Nyaya
+Nyaya                                    | Animal    | Arthropoda                 | -485400000    | -476800000   | <>
 Nybyoceras                               | Animal    | Mollusca                   | -478600000    | -466000000   | Nybyoceras
 Oaxaquiatreta                            | Animal    | Brachiopoda                | -485400000    | -477700000   | <>
 Obliteraspis                             | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
-Obolus                                   | Animal    | Brachiopoda                | -478600000    | -466000000   | Obolus
+Obolus                                   | Animal    | Brachiopoda                | -478600000    | -466000000   | <>
 Ocnerorthis                              | Animal    | Brachiopoda                | -485400000    | -477700000   | <>
 Oderoceras                               | Animal    | Mollusca                   | -478600000    | -466000000   | <>
 Oelandoceras                             | Animal    | Mollusca                   | -478600000    | -463500000   | <>
@@ -962,7 +962,7 @@ Ogygiocaris                              | Animal    | Arthropoda               
 Ogygites                                 | Animal    | Arthropoda                 | -485400000    | -477700000   | Ogygites
 Ogygitoides                              | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Oistodus                                 | Animal    | Chordata                   | -478600000    | -460900000   | <>
-Olenus                                   | Animal    | Arthropoda                 | -494000000    | -485000000   | Olenus
+Olenus                                   | Animal    | Arthropoda                 | -494000000    | -485000000   | <>
 Oligorthis                               | Animal    | Brachiopoda                | -478600000    | -466000000   | <>
 Omeipsis                                 | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Omuliovia                                | Animal    | Arthropoda                 | -485400000    | -468100000   | <>
@@ -1308,7 +1308,7 @@ Robertorthis                             | Animal    | Brachiopoda              
 Robsonoceras                             | Animal    | Mollusca                   | -478600000    | -463500000   | <>
 Robustum                                 | Animal    | Mollusca                   | -485400000    | -477700000   | Robustum
 Rollia                                   | Animal    | Arthropoda                 | -485400000    | -468100000   | <>
-Rosella                                  | Animal    | Porifera                   | -478600000    | -468100000   | Rosella
+Rosella                                  | Animal    | Porifera                   | -478600000    | -468100000   | <>
 Rosobolus                                | Animal    | Brachiopoda                | -478600000    | -471800000   | <>
 Rossaspis                                | Animal    | Arthropoda                 | -485400000    | -471800000   | <>
 Rossicurus                               | Animal    | Arthropoda                 | -485400000    | -478600000   | <>
@@ -1449,7 +1449,7 @@ Talassoceras                             | Animal    | Mollusca                 
 Tallinnella                              | Animal    | Arthropoda                 | -478600000    | -471800000   | <>
 Tangshanodus                             | Animal    | Chordata                   | -478600000    | -466000000   | <>
 Taphrorthis                              | Animal    | Brachiopoda                | -478600000    | -466000000   | <>
-Tarfaya                                  | Animal    | Brachiopoda                | -485400000    | -477700000   | Tarfaya
+Tarfaya                                  | Animal    | Brachiopoda                | -485400000    | -477700000   | <>
 Tarphyceras                              | Animal    | Mollusca                   | -478600000    | -466000000   | Tarphyceras
 Taselasmodum                             | Animal    | Mollusca                   | -478600000    | -470000000   | <>
 Tasmanaspis                              | Animal    | Arthropoda                 | -485400000    | -473900000   | <>
@@ -1532,7 +1532,7 @@ Ucumaropsis                              | Animal    | Mollusca                 
 Ulrichaspis                              | Animal    | Arthropoda                 | -485400000    | -477700000   | <>
 Ulrichocystis                            | Animal    | Echinodermata              | -485400000    | -443400000   | <>
 Ulrichodina                              | Animal    | Chordata                   | -478600000    | -466000000   | <>
-Ungula                                   | Animal    | Brachiopoda                | -484500000    | -471800000   | Ungula
+Ungula                                   | Animal    | Brachiopoda                | -484500000    | -471800000   | <>
 Uralichas                                | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Uromystrum                               | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Utahconus                                | Animal    | Chordata                   | -485400000    | -443400000   | Utahconus

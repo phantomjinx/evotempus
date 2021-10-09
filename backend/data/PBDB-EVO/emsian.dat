@@ -35,7 +35,7 @@ Aenigmaticumcrinus                       | Animal    | Echinodermata            
 Aesopomum                                | Animal    | Brachiopoda                | -409100000    | -391900000   | <>
 Agoniatites                              | Animal    | Mollusca                   | -419200000    | -358900000   | Agoniatites
 Akrosphaerorthoceras                     | Animal    | Mollusca                   | -423000000    | -391900000   | <>
-Alaina                                   | Animal    | Lophotrochozoa             | -402500000    | -391900000   | Alaina
+Alaina                                   | Animal    | Lophotrochozoa             | -402500000    | -391900000   | <>
 Alaskacirrus                             | Animal    | Mollusca                   | -409100000    | -402500000   | <>
 Alaskiella                               | Animal    | Mollusca                   | -409100000    | -402500000   | <>
 Alaskospira                              | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
@@ -186,7 +186,7 @@ Beichuania                               | Animal    | Mollusca                 
 Belemnites                               | Animal    | Mollusca                   | -541000000    | -252170000   | Belemnites_(genus)
 Belenopyge                               | Animal    | Arthropoda                 | -402500000    | -391900000   | <>
 Belinurus                                | Animal    | Arthropoda                 | -409100000    | -402500000   | Belinurus
-Bellerophon                              | Animal    | Mollusca                   | -407600000    | -393300000   | Bellerophon
+Bellerophon                              | Animal    | Mollusca                   | -407600000    | -393300000   | Bellerophon_(genus)
 Belodella                                | Animal    | Chordata                   | -402500000    | -391900000   | <>
 Bembexia                                 | Animal    | Mollusca                   | -407600000    | -393300000   | Bembexia
 Bensbergia                               | Animal    | Mollusca                   | -407600000    | -393300000   | <>
@@ -512,7 +512,7 @@ Duncanella                               | Animal    | Cnidaria                 
 Dvorakia                                 | Animal    | Chordata                   | -407600000    | -393300000   | <>
 Dyticospirifer                           | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
 Earlandia                                | Micro     | Foraminifera               | -409100000    | -402500000   | Earlandia
-Eatonia                                  | Animal    | Brachiopoda                | -407600000    | -393300000   | Eatonia
+Eatonia                                  | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
 Eccentricosta                            | Animal    | Brachiopoda                | -419200000    | -393300000   | <>
 Echinasterella                           | Animal    | Echinodermata              | -407600000    | -387700000   | <>
 Echinocoelia                             | Animal    | Brachiopoda                | -402500000    | -387700000   | <>
@@ -605,7 +605,7 @@ Fasciphyllum                             | Animal    | Cnidaria                 
 Favistella                               | Animal    | Cnidaria                   | -409100000    | -402500000   | <>
 Favosites                                | Animal    | Cnidaria                   | -402500000    | -387700000   | Favosites
 Fellerites                               | Animal    | Arthropoda                 | -410800000    | -402500000   | <>
-Fenestella                               | Animal    | Bryozoa                    | -402500000    | -387700000   | Fenestella
+Fenestella                               | Animal    | Bryozoa                    | -402500000    | -387700000   | Fenestella_(bryozoan)
 Fenestrapora                             | Animal    | Bryozoa                    | -402500000    | -391900000   | <>
 Fenestrellina                            | Animal    | Bryozoa                    | -407600000    | -393300000   | <>
 Ferestromatopora                         | Animal    | Porifera                   | -407600000    | -393300000   | <>
@@ -655,7 +655,7 @@ Gillocystis                              | Animal    | Echinodermata            
 Girvanella                               | Micro     | Cyanobacteria              | -407600000    | -387700000   | Girvanella
 Gissocrinus                              | Animal    | Echinodermata              | -409100000    | -402500000   | <>
 Gladiostrophia                           | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
-Glassia                                  | Animal    | Brachiopoda                | -402500000    | -391900000   | Glassia
+Glassia                                  | Animal    | Brachiopoda                | -402500000    | -391900000   | <>
 Globithyris                              | Animal    | Brachiopoda                | -407600000    | -387700000   | <>
 Globonema                                | Animal    | Mollusca                   | -407600000    | -393300000   | <>
 Glossinotoechia                          | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
@@ -900,7 +900,7 @@ Limoptera                                | Animal    | Mollusca                 
 Lindstroemia                             | Animal    | Cnidaria                   | -410800000    | -402500000   | <>
 Linguacycloides                          | Animal    | Echinodermata              | -407600000    | -393300000   | <>
 Linguaserra                              | Animal    | Echinodermata              | -407600000    | -393300000   | <>
-Lingula                                  | Animal    | Brachiopoda                | -407600000    | -387700000   | Lingula
+Lingula                                  | Animal    | Brachiopoda                | -407600000    | -387700000   | Lingula_(brachiopod)
 Linguopugnoides                          | Animal    | Brachiopoda                | -409100000    | -391900000   | <>
 Linograptus                              | Animal    | Hemichordata               | -419200000    | -391900000   | <>
 Lioharpes                                | Animal    | Arthropoda                 | -409100000    | -388100000   | <>
@@ -962,7 +962,7 @@ Medfrazyga                               | Animal    | Mollusca                 
 Medusaster                               | Animal    | Echinodermata              | -409100000    | -402500000   | <>
 Meekechinus                              | Animal    | Echinodermata              | -407600000    | -393300000   | <>
 Megakozlowskiella                        | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
-Megalodon                                | Animal    | Mollusca                   | -410800000    | -402500000   | Megalodon
+Megalodon                                | Animal    | Mollusca                   | -410800000    | -402500000   | <>
 Megamyonia                               | Animal    | Brachiopoda                | -423000000    | -391900000   | <>
 Meganterella                             | Animal    | Brachiopoda                | -419200000    | -393300000   | <>
 Meganteris                               | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
@@ -988,7 +988,7 @@ Mesophyllum Digonophyllidae              | Animal    | Cnidaria                 
 Metabactrites                            | Animal    | Mollusca                   | -409100000    | -402500000   | <>
 Metacanthina                             | Animal    | Arthropoda                 | -402500000    | -391900000   | <>
 Metacryphaeus                            | Animal    | Arthropoda                 | -407600000    | -387700000   | Metacryphaeus
-Metaplasia                               | Animal    | Brachiopoda                | -402500000    | -391900000   | Metaplasia
+Metaplasia                               | Animal    | Brachiopoda                | -402500000    | -391900000   | <>
 Metarmenoceras                           | Animal    | Mollusca                   | -409100000    | -391900000   | <>
 Metascutellum                            | Animal    | Arthropoda                 | -410800000    | -382700000   | <>
 Metastyliolina                           | Animal    | Lophotrochozoa             | -402500000    | -387700000   | <>
@@ -1002,7 +1002,7 @@ Microalveolites                          | Animal    | Cnidaria                 
 Microcampylus                            | Animal    | Bryozoa                    | -407600000    | -387700000   | <>
 Microcheilinella                         | Animal    | Arthropoda                 | -402500000    | -391900000   | <>
 Microcyclus                              | Animal    | Cnidaria                   | -409100000    | -402500000   | Microcyclus
-Microplasma                              | Animal    | Cnidaria                   | -402500000    | -391900000   | Microplasma
+Microplasma                              | Animal    | Cnidaria                   | -402500000    | -391900000   | <>
 Microscutellum                           | Animal    | Arthropoda                 | -410800000    | -382700000   | <>
 Mictophyllum                             | Animal    | Cnidaria                   | -407600000    | -393300000   | <>
 Mimagoniatites                           | Animal    | Mollusca                   | -402500000    | -387700000   | Mimagoniatites
@@ -1012,7 +1012,7 @@ Mimosphinctes                            | Animal    | Mollusca                 
 Minicrinus                               | Animal    | Echinodermata              | -402500000    | -391900000   | <>
 Miniprokopia                             | Animal    | Brachiopoda                | -419200000    | -387700000   | <>
 Miospondylus                             | Animal    | Echinodermata              | -409100000    | -402500000   | <>
-Miraculum                                | Animal    | Arthropoda                 | -402500000    | -387700000   | Miraculum
+Miraculum                                | Animal    | Arthropoda                 | -402500000    | -387700000   | <>
 Mitchellia                               | Animal    | Mollusca                   | -407600000    | -393300000   | <>
 Mitrocystites                            | Animal    | Echinodermata              | -409100000    | -402500000   | <>
 Modiella                                 | Animal    | Mollusca                   | -407600000    | -393300000   | <>
@@ -1242,7 +1242,7 @@ Pelekysgnathus                           | Animal    | Chordata                 
 Peneckiella                              | Animal    | Cnidaria                   | -419200000    | -358900000   | <>
 Pennaia                                  | Animal    | Arthropoda                 | -407600000    | -387700000   | <>
 Penniretepora                            | Animal    | Bryozoa                    | -402500000    | -387700000   | <>
-Pentagonia                               | Animal    | Brachiopoda                | -407600000    | -387700000   | Pentagonia
+Pentagonia                               | Animal    | Brachiopoda                | -407600000    | -387700000   | <>
 Pentagonocyclicus                        | Animal    | Echinodermata              | -409100000    | -402500000   | <>
 Pentamerella                             | Animal    | Brachiopoda                | -407600000    | -387700000   | <>
 Pentamerus                               | Animal    | Brachiopoda                | -409100000    | -402500000   | Pentamerus
@@ -1258,7 +1258,7 @@ Petridictyum                             | Animal    | Cnidaria                 
 Petridiostroma                           | Animal    | Porifera                   | -402500000    | -391900000   | <>
 Petrochus                                | Animal    | Mollusca                   | -407600000    | -393300000   | <>
 Petrocrania                              | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
-Petronella                               | Animal    | Cnidaria                   | -407600000    | -393300000   | Petronella
+Petronella                               | Animal    | Cnidaria                   | -407600000    | -393300000   | <>
 Phacellophyllum                          | Animal    | Cnidaria                   | -402500000    | -383700000   | <>
 Phacopidella                             | Animal    | Arthropoda                 | -407600000    | -393300000   | <>
 Phacopina                                | Animal    | Arthropoda                 | -407600000    | -387700000   | Phacopina
@@ -1271,7 +1271,7 @@ Phillipsastrea                           | Animal    | Cnidaria                 
 Phoenicitoechia                          | Animal    | Brachiopoda                | -419200000    | -393300000   | <>
 Pholadella                               | Animal    | Mollusca                   | -407600000    | -387700000   | <>
 Pholidostrophia                          | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
-Phragmophora                             | Animal    | Brachiopoda                | -407600000    | -393300000   | Phragmophora
+Phragmophora                             | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
 Phragmostrophia                          | Animal    | Brachiopoda                | -402500000    | -391900000   | <>
 Phthonia                                 | Animal    | Mollusca                   | -407600000    | -387700000   | <>
 Physallidopora                           | Animal    | Bryozoa                    | -402500000    | -391900000   | <>
@@ -1344,7 +1344,7 @@ Prodrevermannia                          | Animal    | Arthropoda               
 Productella                              | Animal    | Brachiopoda                | -402500000    | -391900000   | <>
 Proetopeltis                             | Animal    | Arthropoda                 | -409100000    | -387700000   | <>
 Proetus                                  | Animal    | Arthropoda                 | -402500000    | -391900000   | Proetus_(trilobite)
-Prokopia                                 | Animal    | Brachiopoda                | -402500000    | -391900000   | Prokopia
+Prokopia                                 | Animal    | Brachiopoda                | -402500000    | -391900000   | <>
 Prolixicella                             | Animal    | Bryozoa                    | -407600000    | -393300000   | <>
 Promopalaeaster                          | Animal    | Echinodermata              | -419200000    | -393300000   | <>
 Propoteriocrinus                         | Animal    | Echinodermata              | -409100000    | -402500000   | <>
@@ -1414,7 +1414,7 @@ Ptychopleurella                          | Animal    | Brachiopoda              
 Ptychopteria                             | Animal    | Mollusca                   | -402500000    | -391900000   | <>
 Ptychosphaera                            | Animal    | Mollusca                   | -407600000    | -393300000   | <>
 Ptylopora                                | Animal    | Bryozoa                    | -407600000    | -393300000   | <>
-Pugnax                                   | Animal    | Brachiopoda                | -407600000    | -393300000   | Pugnax
+Pugnax                                   | Animal    | Brachiopoda                | -407600000    | -393300000   | <>
 Punctatrypa                              | Animal    | Brachiopoda                | -402500000    | -387700000   | <>
 Pustulatia                               | Animal    | Brachiopoda                | -407600000    | -387700000   | <>
 Pygolfia                                 | Animal    | Mollusca                   | -423000000    | -391900000   | <>
@@ -1511,7 +1511,7 @@ Scaphiocoelia                            | Animal    | Brachiopoda              
 Scenophyllum                             | Animal    | Cnidaria                   | -407600000    | -387700000   | <>
 Scharyia                                 | Animal    | Arthropoda                 | -402500000    | -387700000   | <>
 Schellwienella                           | Animal    | Brachiopoda                | -407600000    | -387700000   | <>
-Schinderhannes                           | Animal    | Arthropoda                 | -407600000    | -393300000   | Schinderhannes
+Schinderhannes                           | Animal    | Arthropoda                 | -407600000    | -393300000   | <>
 Schischcatella                           | Animal    | Bryozoa                    | -407600000    | -393300000   | <>
 Schistodictyon                           | Animal    | Porifera                   | -407600000    | -393300000   | <>
 Schizodus                                | Animal    | Mollusca                   | -407600000    | -393300000   | Schizodus
@@ -1644,7 +1644,7 @@ Stylonurus                               | Animal    | Arthropoda               
 Subanarcestes                            | Animal    | Mollusca                   | -402500000    | -387700000   | <>
 Subcuspidella                            | Animal    | Brachiopoda                | -402500000    | -391900000   | <>
 Subdoloceras                             | Animal    | Mollusca                   | -409100000    | -391900000   | <>
-Subligaculum                             | Animal    | Arthropoda                 | -419200000    | -358900000   | Subligaculum
+Subligaculum                             | Animal    | Arthropoda                 | -419200000    | -358900000   | <>
 Subormoceras                             | Animal    | Mollusca                   | -409100000    | -391900000   | <>
 Sulcatiella                              | Animal    | Arthropoda                 | -402500000    | -391900000   | <>
 Sulcicuneus                              | Animal    | Arthropoda                 | -402500000    | -391900000   | <>
@@ -1804,7 +1804,7 @@ Wolayella                                | Animal    | Arthropoda               
 Wurmiella                                | Animal    | Chordata                   | -416000000    | -402500000   | Wurmiella
 Wuxuanites                               | Animal    | Mollusca                   | -402500000    | -391900000   | <>
 Wyella                                   | Animal    | Brachiopoda                | -410800000    | -393300000   | <>
-Xana                                     | Animal    | Brachiopoda                | -409100000    | -402500000   | Xana
+Xana                                     | Animal    | Brachiopoda                | -409100000    | -402500000   | <>
 Xenarachne                               | Animal    | Arthropoda                 | -409100000    | -402500000   | <>
 Xenoemmonsia                             | Animal    | Cnidaria                   | -407600000    | -393300000   | <>
 Xenomartinia                             | Animal    | Brachiopoda                | -419200000    | -387700000   | <>

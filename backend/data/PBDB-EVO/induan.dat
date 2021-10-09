@@ -127,7 +127,7 @@ Bauria                                   | Animal    | Chordata                 
 Beatites                                 | Animal    | Mollusca                   | -251300000    | -247200000   | Beatites
 Bektasia                                 | Animal    | Arthropoda                 | -251300000    | -242000000   | <>
 Belemnocerca                             | Animal    | Chordata                   | -251300000    | -247200000   | <>
-Bellerophon                              | Animal    | Mollusca                   | -252170000    | -247200000   | Bellerophon
+Bellerophon                              | Animal    | Mollusca                   | -252170000    | -247200000   | Bellerophon_(genus)
 Belonorhynchus                           | Animal    | Chordata                   | -251300000    | -242000000   | <>
 Beltanodus                               | Animal    | Chordata                   | -252170000    | -247200000   | Beltanodus
 Benthosphenus                            | Animal    | Chordata                   | -251300000    | -247200000   | Benthosphenus
@@ -179,7 +179,7 @@ Carteria                                 | Animal    | Mollusca                 
 Cartorhynchus                            | Animal    | Chordata                   | -251300000    | -247200000   | Cartorhynchus
 Caseodus                                 | Animal    | Chordata                   | -251300000    | -247200000   | Caseodus
 Catalecanites                            | Animal    | Mollusca                   | -251300000    | -247200000   | <>
-Cathaysia                                | Animal    | Brachiopoda                | -252170000    | -251300000   | Cathaysia
+Cathaysia                                | Animal    | Brachiopoda                | -252170000    | -251300000   | <>
 Cauletella                               | Micro     | Radiolaria                 | -252170000    | -251300000   | <>
 Caulopteris                              | Plant     | Pteridophyta               | -252170000    | -247200000   | <>
 Cavellina                                | Animal    | Arthropoda                 | -252170000    | -251300000   | <>
@@ -198,12 +198,12 @@ Chasmatosuchus                           | Animal    | Chordata                 
 Chauliodites                             | Animal    | Arthropoda                 | -251300000    | -247200000   | <>
 Chelepteris                              | Plant     | Pteridophyta               | -252170000    | -251200000   | <>
 Chelichnus                               | Animal    | Chordata                   | -252170000    | -247200000   | Chelichnus
-Chelonipus                               | Animal    | Chordata                   | -251300000    | -247200000   | Chelonipus
+Chelonipus                               | Animal    | Chordata                   | -251300000    | -247200000   | <>
 Chioceras                                | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Chiosella                                | Animal    | Chordata                   | -251300000    | -247200000   | Chiosella
 Chiotites                                | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Chirotherium                             | Animal    | Chordata                   | -251300000    | -247200000   | Chirotherium
-Chlamys                                  | Animal    | Mollusca                   | -251300000    | -247200000   | Chlamys
+Chlamys                                  | Animal    | Mollusca                   | -251300000    | -247200000   | Chlamys_(bivalve)
 Chomatobatrachus                         | Animal    | Chordata                   | -252170000    | -251200000   | Chomatobatrachus
 Chonetes                                 | Animal    | Brachiopoda                | -252170000    | -251300000   | Chonetes
 Chordites                                | Plant     | Ochrophyta                 | -252170000    | -247200000   | <>
@@ -314,7 +314,7 @@ Discophiceras                            | Animal    | Mollusca                 
 Discoproptychites                        | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Discretella                              | Animal    | Chordata                   | -251300000    | -247200000   | <>
 Dobrogeria                               | Animal    | Chordata                   | -251300000    | -247200000   | <>
-Donaldina                                | Animal    | Mollusca                   | -251300000    | -247200000   | Donaldina
+Donaldina                                | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Dorikranites                             | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Dromotectum                              | Animal    | Chordata                   | -252170000    | -247200000   | Dromotectum
 Duckworthia                              | Plant     | Lycophyta                  | -252170000    | -251200000   | <>
@@ -476,7 +476,7 @@ Hemilecanites                            | Animal    | Mollusca                 
 Hemilopas                                | Animal    | Chordata                   | -251300000    | -247200000   | <>
 Heminajas                                | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Hemiprionites                            | Animal    | Mollusca                   | -251300000    | -247200000   | <>
-Hepaticites                              | Plant     | Bryophyta                  | -252170000    | -251200000   | Hepaticites
+Hepaticites                              | Plant     | Bryophyta                  | -252170000    | -251200000   | Pallaviciniites
 Hermannites                              | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Heterelasma                              | Animal    | Brachiopoda                | -251300000    | -247200000   | <>
 Heteropecten                             | Animal    | Mollusca                   | -252170000    | -251300000   | <>
@@ -529,7 +529,7 @@ Jupiteria                                | Animal    | Mollusca                 
 Jurongia                                 | Animal    | Chordata                   | -251300000    | -247200000   | <>
 Juvenites                                | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Juxathyris                               | Animal    | Brachiopoda                | -252170000    | -251300000   | <>
-Kadimakara                               | Animal    | Chordata                   | -252170000    | -251200000   | Kadimakara
+Kadimakara                               | Animal    | Chordata                   | -252170000    | -251200000   | <>
 Kalisuchus                               | Animal    | Chordata                   | -252170000    | -251200000   | Kalisuchus
 Kamenushkaites                           | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Kannemeyeria                             | Animal    | Chordata                   | -252170000    | -247200000   | Kannemeyeria
@@ -604,7 +604,7 @@ Ligulacaris                              | Animal    | Arthropoda               
 Lima                                     | Animal    | Mollusca                   | -252170000    | -201300000   | Lima
 Limnadia                                 | Animal    | Arthropoda                 | -252170000    | -251300000   | <>
 Limnopus                                 | Animal    | Chordata                   | -252170000    | -247200000   | Limnopus
-Lingula                                  | Animal    | Brachiopoda                | -251300000    | -247200000   | Lingula
+Lingula                                  | Animal    | Brachiopoda                | -251300000    | -247200000   | Lingula_(brachiopod)
 Lingularia                               | Animal    | Brachiopoda                | -251300000    | -247200000   | <>
 Lingulina                                | Micro     | Foraminifera               | -252170000    | -251300000   | <>
 Lingyunites                              | Animal    | Mollusca                   | -251300000    | -247200000   | <>
@@ -717,7 +717,7 @@ Neospathodus                             | Animal    | Chordata                 
 Neostrachanognathus                      | Animal    | Chordata                   | -251300000    | -247200000   | <>
 Neritaria                                | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Neuropteridium                           | Plant     | Pteridophyta               | -252170000    | -242000000   | <>
-Nidia                                    | Plant     | Peltaspermophyta           | -252170000    | -247200000   | Nidia
+Nidia                                    | Plant     | Peltaspermophyta           | -252170000    | -247200000   | <>
 Nidistrobus                              | Plant     | Peltaspermophyta           | -252170000    | -247200000   | <>
 Nilsonia                                 | Plant     | Cycadophyta                | -251300000    | -242000000   | <>
 Nodosaria                                | Micro     | Foraminifera               | -251300000    | -247200000   | <>
@@ -772,11 +772,11 @@ Otozamites                               | Plant     | Cycadeoideophyta         
 Oulodus                                  | Animal    | Chordata                   | -252170000    | -247200000   | Oulodus
 Ovalipollis                              | Plant     | Tracheophyta               | -252170000    | -242000000   | <>
 Owenetta                                 | Animal    | Chordata                   | -252170000    | -247200000   | Owenetta
-Owenites                                 | Animal    | Mollusca                   | -251300000    | -247200000   | Owenites
+Owenites                                 | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Oxytoma                                  | Animal    | Mollusca                   | -251300000    | -247200000   | Oxytoma
 Oxyussuria                               | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Ozarkodina                               | Animal    | Chordata                   | -251300000    | -247200000   | Ozarkodina
-Pachus                                   | Micro     | Radiolaria                 | -295500000    | -174100000   | Pachus
+Pachus                                   | Micro     | Radiolaria                 | -295500000    | -174100000   | <>
 Pachycladina                             | Animal    | Chordata                   | -251300000    | -247200000   | <>
 Pachyomphalus                            | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Pachyproptychites                        | Animal    | Mollusca                   | -252170000    | -251300000   | <>
@@ -845,7 +845,7 @@ Pecopteris                               | Plant     | Pteridophyta             
 Pecten                                   | Animal    | Mollusca                   | -251300000    | -247200000   | Pecten_(bivalve)
 Pegmavalvula                             | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Pegoxystris                              | Micro     | Radiolaria                 | -251300000    | -247200000   | <>
-Peia                                     | Animal    | Chordata                   | -251300000    | -247200000   | Peia
+Peia                                     | Animal    | Chordata                   | -251300000    | -247200000   | <>
 Peltaspermum                             | Plant     | Peltaspermophyta           | -252170000    | -247200000   | <>
 Peltopleurus                             | Animal    | Chordata                   | -251300000    | -242000000   | Peltopleurus
 Peltostega                               | Animal    | Chordata                   | -251300000    | -247200000   | Peltostega
@@ -1061,7 +1061,7 @@ Samarella                                | Animal    | Arthropoda               
 Samaropsis                               | Plant     | Coniferophyta              | -252170000    | -247200000   | Samaropsis
 Sangaia                                  | Animal    | Chordata                   | -252170000    | -247200000   | Sangaia
 Santaisaurus                             | Animal    | Chordata                   | -252170000    | -251200000   | <>
-Sarepta                                  | Animal    | Mollusca                   | -251300000    | -247200000   | Sarepta
+Sarepta                                  | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Sassenia                                 | Animal    | Chordata                   | -251300000    | -247200000   | Sassenia
 Saurichthys                              | Animal    | Chordata                   | -251300000    | -247200000   | Saurichthys
 Saurodektes                              | Animal    | Chordata                   | -252170000    | -247200000   | Saurodektes
@@ -1101,7 +1101,7 @@ Sinoglottidia                            | Animal    | Brachiopoda              
 Sinolingularia                           | Animal    | Brachiopoda                | -252170000    | -251300000   | <>
 Sinuarbullina                            | Animal    | Mollusca                   | -252170000    | -251300000   | <>
 Smithodus                                | Animal    | Chordata                   | -251300000    | -247200000   | <>
-Sobytie                                  | Animal    | Arthropoda                 | -252170000    | -251300000   | Sobytie
+Sobytie                                  | Animal    | Arthropoda                 | -252170000    | -251300000   | <>
 Solariconulus                            | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Solemya                                  | Animal    | Mollusca                   | -251300000    | -247200000   | Solemya
 Soleniscus                               | Animal    | Mollusca                   | -251300000    | -247200000   | <>
@@ -1309,7 +1309,7 @@ Wordieoceras                             | Animal    | Mollusca                 
 Worthenia                                | Animal    | Mollusca                   | -251300000    | -247200000   | Worthenia
 Wortheniella                             | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Wortheniopsis                            | Animal    | Mollusca                   | -251300000    | -247200000   | <>
-Wyomingites                              | Animal    | Mollusca                   | -251300000    | -247200000   | Wyomingites
+Wyomingites                              | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Xaniognathus                             | Animal    | Chordata                   | -251300000    | -247200000   | <>
 Xenobrachyops                            | Animal    | Chordata                   | -252170000    | -251200000   | Xenobrachyops
 Xenoceltites                             | Animal    | Mollusca                   | -251300000    | -247200000   | Xenoceltites
@@ -1318,11 +1318,11 @@ Xenodiscus                               | Animal    | Mollusca                 
 Xiaohenautilus                           | Animal    | Mollusca                   | -252170000    | -251300000   | <>
 Xiaoqiaoceras                            | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Yarengia                                 | Animal    | Chordata                   | -251300000    | -247200000   | Yarengia
-Yontala                                  | Animal    | Arthropoda                 | -252170000    | -251300000   | Yontala
+Yontala                                  | Animal    | Arthropoda                 | -252170000    | -251300000   | <>
 Youngetta                                | Animal    | Chordata                   | -252170000    | -247200000   | <>
 Yvesgalleticeras                         | Animal    | Mollusca                   | -251300000    | -247200000   | <>
 Zamites                                  | Plant     | Cycadeoideophyta           | -252170000    | -242000000   | Zamites
-Zamolxis                                 | Micro     | Radiolaria                 | -251300000    | -247200000   | Zamolxis
+Zamolxis                                 | Micro     | Radiolaria                 | -251300000    | -247200000   | <>
 Zaphrenthis                              | Animal    | Cnidaria                   | -358900000    | -201300000   | <>
 Zenoites                                 | Animal    | Mollusca                   | -251300000    | -247200000   | Zenoites
 Ziyunites                                | Animal    | Mollusca                   | -251300000    | -247200000   | Ziyunites

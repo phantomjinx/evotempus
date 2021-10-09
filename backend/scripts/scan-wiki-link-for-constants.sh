@@ -53,16 +53,18 @@ readfile() {
     # Something does exist but need to confirm what it is
     # Need to separate declaration from assignment for eq test to work
     local cres; cres=$(curl --silent "${url}/${link}")
-    local scclass; scclass=$(echo "${cres}" | grep "Scientific classification")
+    local spec; spec=$(echo "${cres}" | grep "species")
     if [ $? -eq 1 ]; then
       echo " No"
       echo "${target} ${phylum}" >> ${ERRORS_FILE}
+      continue
     fi
 
-    local genus; genus=$(echo "${cres}" | grep "Genus:")
+    local genus; genus=$(echo "${cres}" | grep "genus")
     if [ $? -eq 1 ]; then
       echo " No"
       echo "${target} ${phylum}" >> ${ERRORS_FILE}
+      continue
     fi
 
     local glink; glink=$(echo "${cres}" | grep "<i>${target}</i>")

@@ -1355,7 +1355,7 @@ Ortonella                                | Micro     | Cyanobacteria            
 Ortonella                                | Animal    | Mollusca                   | -315200000    | -307000000   | <>
 Oryctomastax                             | Animal    | Arthropoda                 | -314600000    | -314600000   | <>
 Osnogerarus                              | Animal    | Arthropoda                 | -311450000    | -306950000   | <>
-Ostrava                                  | Animal    | Arthropoda                 | -318100000    | -314600000   | Ostrava
+Ostrava                                  | Animal    | Arthropoda                 | -318100000    | -314600000   | <>
 Ottokaria                                | Plant     | Pteridospermophyta         | -358900000    | -279300000   | <>
 Oulodus                                  | Animal    | Chordata                   | -313800000    | -305900000   | Oulodus
 Ovatia                                   | Animal    | Brachiopoda                | -318100000    | -305900000   | <>
@@ -1373,7 +1373,7 @@ Paecilodus                               | Animal    | Chordata                 
 Paeckelmanella                           | Animal    | Brachiopoda                | -323200000    | -298900000   | <>
 Paffrathopsis                            | Animal    | Mollusca                   | -313800000    | -305900000   | <>
 Pagiophyllum                             | Plant     | Pinophyta                  | -358900000    | -252170000   | Pagiophyllum
-Paladin                                  | Animal    | Arthropoda                 | -315200000    | -307000000   | Paladin
+Paladin                                  | Animal    | Arthropoda                 | -315200000    | -307000000   | Paladin_(trilobite)
 Palaeoaplysina                           | Plant     | Rhodophyta                 | -313800000    | -305900000   | Palaeoaplysina
 Palaeobuthus                             | Animal    | Arthropoda                 | -311450000    | -306950000   | <>
 Palaeocampa                              | Animal    | Annelida                   | -311450000    | -306950000   | <>
@@ -1467,7 +1467,7 @@ Paucijaculum                             | Animal    | Chaetognatha             
 Paucipora                                | Animal    | Bryozoa                    | -315200000    | -307000000   | <>
 Pecopteridium                            | Plant     | Pteridophyta               | -358900000    | -298900000   | <>
 Pecopteris                               | Plant     | Pteridophyta               | -311450000    | -300200000   | Pecopteris
-Pecten                                   | Animal    | Mollusca                   | -318100000    | -306950000   | Pecten
+Pecten                                   | Animal    | Mollusca                   | -318100000    | -306950000   | Pecten_(bivalve)
 Pedanochiton                             | Animal    | Mollusca                   | -313800000    | -306950000   | Pedanochiton
 Penniretepora                            | Animal    | Bryozoa                    | -313800000    | -305900000   | <>
 Pennoceras                               | Animal    | Mollusca                   | -315200000    | -307000000   | <>
@@ -1587,7 +1587,7 @@ Polyetes                                 | Animal    | Arthropoda               
 Polyetoblatta                            | Animal    | Arthropoda                 | -311450000    | -306950000   | <>
 Polygnathus                              | Animal    | Chordata                   | -318100000    | -314600000   | Polygnathus
 Polypora                                 | Animal    | Bryozoa                    | -313800000    | -305900000   | <>
-Polytaxis                                | Micro     | Foraminifera               | -313800000    | -305900000   | Polytaxis
+Polytaxis                                | Micro     | Foraminifera               | -313800000    | -305900000   | <>
 Porcellia                                | Animal    | Mollusca                   | -313800000    | -305900000   | <>
 Poroblattina                             | Animal    | Arthropoda                 | -311450000    | -306950000   | <>
 Posidonia Posidoniidae                   | Animal    | Mollusca                   | -313800000    | -306950000   | <>
@@ -1692,7 +1692,7 @@ Pseudozygopleura                         | Animal    | Mollusca                 
 Psilocamara                              | Animal    | Brachiopoda                | -315200000    | -307000000   | <>
 Psilophyton                              | Plant     | Psilophytophyta            | -318100000    | -314600000   | Psilophyton
 Ptenodera                                | Animal    | Arthropoda                 | -314600000    | -314600000   | <>
-Pteria                                   | Animal    | Mollusca                   | -358900000    | -201300000   | Pteria
+Pteria                                   | Animal    | Mollusca                   | -358900000    | -201300000   | Pteria_(bivalve)
 Pteridomylacris                          | Animal    | Arthropoda                 | -314600000    | -306950000   | <>
 Pteridotheca                             | Plant     | Pteridophyta               | -318100000    | -314600000   | <>
 Pterinopecten                            | Animal    | Mollusca                   | -358900000    | -298900000   | <>
@@ -1813,7 +1813,7 @@ Schizodus                                | Animal    | Mollusca                 
 Schizophoria                             | Animal    | Brachiopoda                | -315200000    | -307000000   | <>
 Schizopteris                             | Plant     | Pteridophyta               | -323200000    | -298900000   | <>
 Schmidtopteron                           | Animal    | Arthropoda                 | -318100000    | -314600000   | <>
-Schrenkiella                             | Animal    | Brachiopoda                | -318100000    | -314600000   | Schrenkiella
+Schrenkiella                             | Animal    | Brachiopoda                | -318100000    | -314600000   | <>
 Schubertella                             | Micro     | Foraminifera               | -313800000    | -309000000   | <>
 Schubertina                              | Micro     | Foraminifera               | -315200000    | -307000000   | <>
 Schuchertella                            | Animal    | Brachiopoda                | -323200000    | -295500000   | <>
@@ -1859,7 +1859,7 @@ Silenites                                | Animal    | Arthropoda               
 Silesiapteron                            | Animal    | Arthropoda                 | -318100000    | -314600000   | <>
 Silphion                                 | Animal    | Arthropoda                 | -311450000    | -306950000   | Silphion
 Similihariotta                           | Animal    | Chordata                   | -315200000    | -307000000   | <>
-Simplicius                               | Animal    | Arthropoda                 | -311450000    | -306950000   | Simplicius
+Simplicius                               | Animal    | Arthropoda                 | -311450000    | -306950000   | <>
 Sinocrinus                               | Animal    | Echinodermata              | -315200000    | -307000000   | <>
 Sinodiapha                               | Animal    | Arthropoda                 | -314600000    | -311450000   | <>
 Sinodunbaria                             | Animal    | Arthropoda                 | -314600000    | -311450000   | <>

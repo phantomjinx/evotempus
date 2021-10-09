@@ -5,11 +5,11 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-while getopts ":d:r:" opt ; do
+while getopts ":d:f:" opt ; do
 
  case "$opt" in
     d) DIR=${OPTARG} ;;
-    r) READFILE=${OPTARG} ;;
+    f) READFILE=${OPTARG} ;;
     \\?) exit 1
    ;;
   esac

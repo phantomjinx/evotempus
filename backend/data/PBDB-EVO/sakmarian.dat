@@ -966,7 +966,7 @@ Paucineura                               | Animal    | Arthropoda               
 Paucipora                                | Animal    | Bryozoa                    | -295500000    | -290100000   | <>
 Payuella                                 | Animal    | Brachiopoda                | -298900000    | -252170000   | <>
 Pecopteris                               | Plant     | Pteridophyta               | -295500000    | -272300000   | Pecopteris
-Pecten                                   | Animal    | Mollusca                   | -295500000    | -290100000   | Pecten
+Pecten                                   | Animal    | Mollusca                   | -295500000    | -290100000   | Pecten_(bivalve)
 Peiraphyllum                             | Animal    | Cnidaria                   | -295500000    | -290100000   | <>
 Pemmatites                               | Animal    | Porifera                   | -295500000    | -290100000   | <>
 Peniculauris                             | Animal    | Brachiopoda                | -295500000    | -290100000   | <>
@@ -1006,7 +1006,7 @@ Phyloblatta                              | Animal    | Arthropoda               
 Pilasporites                             | Plant     | Gymnospermophyta           | -298900000    | -252170000   | <>
 Pileopsis                                | Animal    | Mollusca                   | -295500000    | -290100000   | <>
 Pinegopora                               | Animal    | Bryozoa                    | -295500000    | -290100000   | <>
-Pinna                                    | Animal    | Mollusca                   | -298900000    | -252170000   | Pinna
+Pinna                                    | Animal    | Mollusca                   | -298900000    | -252170000   | Pinna_(bivalve)
 Pinnatopora                              | Animal    | Bryozoa                    | -298900000    | -252170000   | <>
 Pinnularia Pinnulariaceae                | Plant     | Ochrophyta                 | -295500000    | -290100000   | Pinnularia
 Pisirhynchia                             | Animal    | Brachiopoda                | -295500000    | -290100000   | <>
@@ -1015,7 +1015,7 @@ Placentammina                            | Micro     | Foraminifera             
 Placidea                                 | Animal    | Arthropoda                 | -295500000    | -290100000   | <>
 Placopsilina                             | Micro     | Foraminifera               | -295500000    | -290100000   | <>
 Plafkerium                               | Micro     | Radiolaria                 | -295500000    | -174100000   | <>
-Plagiostoma                              | Animal    | Mollusca                   | -295500000    | -290100000   | Plagiostoma
+Plagiostoma                              | Animal    | Mollusca                   | -295500000    | -290100000   | Plagiostoma_(bivalve)
 Plagiozamites                            | Plant     | Cycadophyta                | -298900000    | -295000000   | <>
 Platyacanthus                            | Animal    | Chordata                   | -298900000    | -252170000   | <>
 Platyceras                               | Animal    | Mollusca                   | -295500000    | -290100000   | Platyceras
@@ -1113,7 +1113,7 @@ Pseudovermiporella                       | Plant     | Chlorophyta              
 Pseudovoltzia                            | Plant     | Pinophyta                  | -298900000    | -252170000   | <>
 Pseudozaphrentoides                      | Animal    | Cnidaria                   | -295500000    | -290100000   | <>
 Pseudozygopleura                         | Animal    | Mollusca                   | -298900000    | -290100000   | <>
-Pteria                                   | Animal    | Mollusca                   | -358900000    | -201300000   | Pteria
+Pteria                                   | Animal    | Mollusca                   | -358900000    | -201300000   | Pteria_(bivalve)
 Pterochiton                              | Animal    | Mollusca                   | -296400000    | -268000000   | Pterochiton
 Ptychocarpus                             | Plant     | Pteridophyta               | -298900000    | -252170000   | <>
 Ptychomphalina                           | Animal    | Mollusca                   | -295500000    | -290100000   | <>
@@ -1213,7 +1213,7 @@ Schizophorites                           | Animal    | Cnidaria                 
 Schizopteris                             | Plant     | Pteridophyta               | -298900000    | -272300000   | <>
 Schizostachys                            | Plant     | Pteridophyta               | -298900000    | -272300000   | <>
 Schoenfelderpeton                        | Animal    | Chordata                   | -298900000    | -295000000   | Schoenfelderpeton
-Schrenkiella                             | Animal    | Brachiopoda                | -295500000    | -290100000   | Schrenkiella
+Schrenkiella                             | Animal    | Brachiopoda                | -295500000    | -290100000   | <>
 Schubertella                             | Micro     | Foraminifera               | -295500000    | -290100000   | <>
 Schuchertella                            | Animal    | Brachiopoda                | -298900000    | -252170000   | <>
 Schwagerina                              | Micro     | Foraminifera               | -293000000    | -290100000   | Schwagerina
@@ -1240,7 +1240,7 @@ Silenites                                | Animal    | Arthropoda               
 Simplicisulcus                           | Animal    | Brachiopoda                | -295500000    | -290100000   | <>
 Sinoedischia                             | Animal    | Arthropoda                 | -295500000    | -290100000   | <>
 Sinohymen                                | Animal    | Arthropoda                 | -295500000    | -290100000   | <>
-Sinopora                                 | Animal    | Cnidaria                   | -295500000    | -290100000   | Sinopora
+Sinopora                                 | Animal    | Cnidaria                   | -295500000    | -290100000   | <>
 Siphonodendron                           | Animal    | Cnidaria                   | -295500000    | -290100000   | Siphonodendron
 Siphonophrentis                          | Animal    | Cnidaria                   | -541000000    | -252170000   | <>
 Sochkineophyllum                         | Animal    | Cnidaria                   | -295500000    | -290100000   | <>
@@ -1276,7 +1276,7 @@ Spiroplectammina                         | Micro     | Foraminifera             
 Spirorbis                                | Animal    | Annelida                   | -295500000    | -290100000   | Spirorbis
 Spirovallum                              | Animal    | Mollusca                   | -295500000    | -290100000   | <>
 Spyridiophora                            | Animal    | Brachiopoda                | -295500000    | -290100000   | <>
-Squama                                   | Plant     | Coniferophyta              | -295500000    | -290100000   | Squama
+Squama                                   | Plant     | Coniferophyta              | -295500000    | -290100000   | <>
 Squamaria                                | Animal    | Brachiopoda                | -295500000    | -290100000   | <>
 Squamularia                              | Animal    | Brachiopoda                | -295500000    | -290100000   | <>
 Squamuliferipecten                       | Animal    | Mollusca                   | -295500000    | -290100000   | <>

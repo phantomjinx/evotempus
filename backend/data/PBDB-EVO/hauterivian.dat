@@ -1238,7 +1238,6 @@ Lingulina                                | Micro     | Foraminifera             
 Lingulonodosaria                         | Micro     | Foraminifera               | -136400000    | -130000000   | <>
 Linotrigonia                             | Animal    | Mollusca                   | -132900000    | -129400000   | <>
 Linuparus                                | Animal    | Arthropoda                 | -145000000    | -100500000   | Linuparus
-Liocarenus                               | Animal    | Mollusca                   | -130000000    | -125450000   | <>
 Lioplax                                  | Animal    | Mollusca                   | -139800000    | -125000000   | Lioplax
 Liostrea                                 | Animal    | Mollusca                   | -145000000    | -66000000    | <>
 Liriophyllum                             | Plant     | Spermatophyta              | -145000000    | -66000000    | <>
@@ -1346,7 +1345,7 @@ Mesasimulium                             | Animal    | Arthropoda               
 Mesenteripora                            | Animal    | Bryozoa                    | -130000000    | -125450000   | <>
 Mesoblattina                             | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Mesobolbomyia                            | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
-Mesochara                                | Plant     | Charophyta                 | -139800000    | -130000000   | <>
+Mesochara                                | Plant     | Chlorophyta                 | -139800000    | -130000000   | <>
 Mesochlorogomphus                        | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Mesocupes                                | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Mesodescolea                             | Plant     | Pteridophyta               | -152100000    | -129400000   | Mesodescolea
@@ -1453,7 +1452,7 @@ Myrica                                   | Plant     | Spermatophyta            
 Myriophyllia                             | Animal    | Cnidaria                   | -130000000    | -125450000   | <>
 Myrtaceidites                            | Plant     | Spermatophyta              | -145000000    | -100500000   | <>
 Mytiloides                               | Animal    | Mollusca                   | -145000000    | -66000000    | <>
-Mytilus                                  | Animal    | Mollusca                   | -132900000    | -125000000   | Mytilus
+Mytilus                                  | Animal    | Mollusca                   | -132900000    | -125000000   | Mytilus_(bivalve)
 Nageiopsis                               | Plant     | Cycadophyta                | -145000000    | -66000000    | <>
 Nakamuranaia                             | Animal    | Mollusca                   | -145000000    | -100500000   | <>
 Nannoaeschnidium                         | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
@@ -1574,7 +1573,7 @@ Orbitolinopsis                           | Micro     | Foraminifera             
 Ordexallopus                             | Animal    | Chordata                   | -130000000    | -125450000   | <>
 Ordosemys                                | Animal    | Chordata                   | -130000000    | -122460000   | Ordosemys
 Orienantius                              | Animal    | Chordata                   | -132900000    | -129400000   | <>
-Orithopsis                               | Animal    | Echinodermata              | -145000000    | -66000000    | <>
+Orithopsis                               | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Ornithocheirus                           | Animal    | Chordata                   | -132900000    | -129400000   | Ornithocheirus
 Ornithopsis                              | Animal    | Chordata                   | -136400000    | -122460000   | Ornithopsis
 Oropsis                                  | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
@@ -1631,7 +1630,7 @@ Palinurus                                | Animal    | Arthropoda               
 Palissya                                 | Plant     | Coniferophyta              | -145000000    | -130000000   | Palissya
 Palorbitolina                            | Micro     | Foraminifera               | -130000000    | -125450000   | <>
 Paludina                                 | Animal    | Mollusca                   | -130000000    | -122460000   | Paludina
-Panopea                                  | Animal    | Mollusca                   | -130000000    | -125450000   | Panopea
+Panopea                                  | Animal    | Mollusca                   | -130000000    | -125450000   | Panopea_(bivalve)
 Panorpidium                              | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Pantanellium                             | Micro     | Radiolaria                 | -130000000    | -122460000   | <>
 Paraberotha                              | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
@@ -1681,7 +1680,7 @@ Patellacythere                           | Animal    | Arthropoda               
 Patruliusiceras                          | Animal    | Mollusca                   | -130000000    | -125450000   | <>
 Patulibracchium                          | Micro     | Radiolaria                 | -152100000    | -100500000   | <>
 Pecopteris                               | Plant     | Pteridophyta               | -132900000    | -129400000   | Pecopteris
-Pecten                                   | Animal    | Mollusca                   | -132900000    | -129400000   | Pecten
+Pecten                                   | Animal    | Mollusca                   | -132900000    | -129400000   | Pecten_(bivalve)
 Pectinatites                             | Animal    | Mollusca                   | -139800000    | -129400000   | Pectinatites
 Peculneithyris                           | Animal    | Brachiopoda                | -132900000    | -125000000   | <>
 Pedupycnolepas                           | Animal    | Arthropoda                 | -136400000    | -130000000   | <>
@@ -1711,7 +1710,7 @@ Perinopollenites                         | Plant     | Gymnospermophyta         
 Periplomya                               | Animal    | Mollusca                   | -132900000    | -125450000   | <>
 Periseris                                | Animal    | Cnidaria                   | -132900000    | -129400000   | <>
 Permocalculus                            | Plant     | Rhodophyta                 | -130000000    | -113000000   | Permocalculus
-Perna                                    | Animal    | Mollusca                   | -132900000    | -129400000   | Perna
+Perna                                    | Animal    | Mollusca                   | -132900000    | -129400000   | Perna_(bivalve)
 Peronidella                              | Animal    | Porifera                   | -130000000    | -125450000   | Peronidella
 Perotrilites                             | Plant     | Pteridophyta               | -163500000    | -100500000   | <>
 Petalodontia                             | Animal    | Mollusca                   | -132900000    | -125000000   | <>
@@ -1740,7 +1739,7 @@ Picea                                    | Plant     | Pinophyta                
 Pileolus                                 | Animal    | Mollusca                   | -130000000    | -125450000   | Pileolus
 Pilosisporites                           | Plant     | Pteridophyta               | -130000000    | -122460000   | <>
 Pinacosaurus                             | Animal    | Chordata                   | -145000000    | -100500000   | Pinacosaurus
-Pinna                                    | Animal    | Mollusca                   | -130000000    | -125450000   | Pinna
+Pinna                                    | Animal    | Mollusca                   | -130000000    | -125450000   | Pinna_(bivalve)
 Pinus                                    | Plant     | Pinophyta                  | -145000000    | -100500000   | Pinus
 Piscindusia                              | Animal    | Arthropoda                 | -136400000    | -130000000   | <>
 Pityophyllum                             | Plant     | Gnetophyta                 | -145000000    | -100500000   | <>
@@ -1749,9 +1748,9 @@ Placophyllia                             | Animal    | Cnidaria                 
 Placopsilina                             | Micro     | Foraminifera               | -132900000    | -129400000   | <>
 Placostegus                              | Animal    | Annelida                   | -130000000    | -125450000   | <>
 Placunopsis                              | Animal    | Mollusca                   | -140200000    | -122460000   | <>
-Plagiochasma                             | Animal    | Echinodermata              | -132900000    | -129400000   | Plagiochasma
+Plagiochasma                             | Animal    | Echinodermata              | -132900000    | -129400000   | Plagiochasma_(echinoderm)
 Plagiophthalmus                          | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
-Plagiostoma                              | Animal    | Mollusca                   | -132900000    | -129400000   | Plagiostoma
+Plagiostoma                              | Animal    | Mollusca                   | -132900000    | -129400000   | Plagiostoma_(bivalve)
 Planocarcinus                            | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Planocorystes                            | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Planoheterohelix                         | Micro     | Foraminifera               | -145000000    | -66000000    | <>
@@ -1940,7 +1939,7 @@ Psilotissotia                            | Animal    | Mollusca                 
 Psittacosaurus                           | Animal    | Chordata                   | -130000000    | -113000000   | Psittacosaurus
 Psychopsites                             | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Pteraichnus                              | Animal    | Chordata                   | -130000000    | -113000000   | Pteraichnus
-Pteria                                   | Animal    | Mollusca                   | -132900000    | -113000000   | Pteria
+Pteria                                   | Animal    | Mollusca                   | -132900000    | -113000000   | Pteria_(bivalve)
 Pterinella                               | Animal    | Mollusca                   | -145000000    | -130000000   | <>
 Pterinoblattina                          | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Pterisorus                               | Plant     | Pteridophyta               | -140200000    | -130000000   | <>
@@ -1987,7 +1986,7 @@ Raniliformis                             | Animal    | Arthropoda               
 Raninella                                | Animal    | Arthropoda                 | -145000000    | -100500000   | <>
 Raninoides                               | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Raphaelia                                | Plant     | Pteridophyta               | -152100000    | -125000000   | <>
-Raphidonema                              | Animal    | Porifera                   | -132900000    | -129400000   | Raphidonema
+Raphidonema                              | Animal    | Porifera                   | -132900000    | -129400000   | Raphidonema_(sponge)
 Raptorapax                               | Animal    | Arthropoda                 | -130000000    | -125450000   | Raptorapax
 Rastellum                                | Animal    | Mollusca                   | -132900000    | -129400000   | <>
 Rectoglandulina                          | Micro     | Foraminifera               | -130000000    | -125450000   | <>
@@ -1999,7 +1998,7 @@ Reophax                                  | Micro     | Foraminifera             
 Reptocavea                               | Animal    | Bryozoa                    | -136400000    | -130000000   | <>
 Reptoclausa                              | Animal    | Bryozoa                    | -130000000    | -125450000   | <>
 Reptomulticava                           | Animal    | Bryozoa                    | -130000000    | -125450000   | <>
-Requienia                                | Animal    | Mollusca                   | -130000000    | -125450000   | Requienia
+Requienia                                | Animal    | Mollusca                   | -130000000    | -125450000   | Requienia_(bivalve)
 Resatrix                                 | Animal    | Mollusca                   | -130000000    | -125450000   | <>
 Retecapsa                                | Plant     | Haptophyta                 | -136400000    | -130000000   | <>
 Reteporella                              | Animal    | Bryozoa                    | -132900000    | -129400000   | Reteporella
@@ -2027,7 +2026,7 @@ Rhynchoteuthis                           | Animal    | Mollusca                 
 Richardoestesia                          | Animal    | Chordata                   | -130000000    | -113000000   | Richardoestesia
 Rigauxia                                 | Animal    | Mollusca                   | -130000000    | -125450000   | <>
 Rissoa                                   | Animal    | Mollusca                   | -130000000    | -125450000   | Rissoa
-Ristola                                  | Micro     | Radiolaria                 | -130000000    | -122460000   | Ristola
+Ristola                                  | Micro     | Radiolaria                 | -130000000    | -122460000   | <>
 Roemerus                                 | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Rohrthrips                               | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Rossaeschnidium                          | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
@@ -2093,7 +2092,7 @@ Semicytherura                            | Animal    | Arthropoda               
 Semiometra                               | Animal    | Echinodermata              | -130000000    | -125450000   | <>
 Sensuitrochus                            | Animal    | Mollusca                   | -130000000    | -125450000   | <>
 Septaliphoria                            | Animal    | Brachiopoda                | -132900000    | -129400000   | <>
-Sequoia                                  | Plant     | Pinophyta                  | -145000000    | -100500000   | Sequoia
+Sequoia                                  | Plant     | Pinophyta                  | -145000000    | -100500000   | Sequoia_(genus)
 Serpula                                  | Animal    | Annelida                   | -132900000    | -129400000   | Serpula
 Sestrosporites                           | Plant     | Pteridophyta               | -174100000    | -93500000    | <>
 Sethocapsa                               | Micro     | Radiolaria                 | -130000000    | -122460000   | <>
@@ -2140,7 +2139,7 @@ Siphonocoelia                            | Animal    | Porifera                 
 Smirnovina                               | Animal    | Brachiopoda                | -136400000    | -130000000   | <>
 Sodakus                                  | Animal    | Arthropoda                 | -145000000    | -66000000    | <>
 Solariella                               | Animal    | Mollusca                   | -130000000    | -125450000   | Solariella
-Solea                                    | Animal    | Chordata                   | -130000000    | -125450000   | Solea
+Solea                                    | Animal    | Chordata                   | -130000000    | -125450000   | Solea_(fish)
 Solemya                                  | Animal    | Mollusca                   | -130000000    | -125450000   | Solemya
 Solenopora                               | Plant     | Rhodophyta                 | -132900000    | -129400000   | Solenopora
 Solenostelopteris                        | Plant     | Pteridophyta               | -140200000    | -130000000   | <>
@@ -2266,7 +2265,7 @@ Tepexicarcinus                           | Animal    | Arthropoda               
 Terebella                                | Animal    | Annelida                   | -132900000    | -129400000   | Terebella
 Terebratula                              | Animal    | Brachiopoda                | -132900000    | -129400000   | Terebratula
 Terebratulina                            | Animal    | Brachiopoda                | -130000000    | -125450000   | Terebratulina
-Teredo                                   | Animal    | Mollusca                   | -130000000    | -125450000   | Teredo
+Teredo                                   | Animal    | Mollusca                   | -130000000    | -125450000   | Teredo_(bivalve)
 Terquemella                              | Plant     | Chlorophyta                | -136400000    | -130000000   | <>
 Tessarolax                               | Animal    | Mollusca                   | -132900000    | -125450000   | Tessarolax
 Testudoolithus                           | Animal    | Chordata                   | -136400000    | -125450000   | <>
@@ -2347,7 +2346,7 @@ Trigonarca                               | Animal    | Mollusca                 
 Trigonia                                 | Animal    | Mollusca                   | -130000000    | -125450000   | Trigonia
 Trigonioides                             | Animal    | Mollusca                   | -130000000    | -113000000   | <>
 Trigonoolithus                           | Animal    | Chordata                   | -130000000    | -125450000   | Trigonoolithus
-Trilemma                                 | Animal    | Mollusca                   | -130000000    | -125450000   | Trilemma
+Trilemma                                 | Animal    | Mollusca                   | -130000000    | -125450000   | <>
 Triletes                                 | Plant     | Pteridophyta               | -130000000    | -113000000   | <>
 Trilites                                 | Plant     | Pteridophyta               | -139800000    | -125000000   | <>
 Trilobosporites                          | Plant     | Pteridophyta               | -132900000    | -129400000   | <>
@@ -2395,7 +2394,7 @@ Ulmiphyllum                              | Plant     | Spermatophyta            
 Unasuchus                                | Animal    | Chordata                   | -130000000    | -125450000   | Unasuchus
 Undatoma                                 | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
 Undulatisporites                         | Plant     | Pteridophyta               | -130000000    | -125450000   | <>
-Unio                                     | Animal    | Mollusca                   | -130000000    | -122460000   | Unio
+Unio                                     | Animal    | Mollusca                   | -130000000    | -122460000   | Unio_(bivalve)
 Urgonella                                | Animal    | Mollusca                   | -130000000    | -125450000   | <>
 Uroperla                                 | Animal    | Arthropoda                 | -132900000    | -129400000   | <>
 Utanaboilus                              | Animal    | Arthropoda                 | -132900000    | -129400000   | <>
@@ -2423,7 +2422,7 @@ Venericardia                             | Animal    | Mollusca                 
 Venerupis                                | Animal    | Mollusca                   | -132900000    | -129400000   | Venerupis
 Venilicardia                             | Animal    | Mollusca                   | -139800000    | -129400000   | <>
 Ventriculites                            | Animal    | Porifera                   | -132900000    | -129400000   | <>
-Venus                                    | Animal    | Mollusca                   | -132900000    | -129400000   | Venus
+Venus                                    | Animal    | Mollusca                   | -132900000    | -129400000   | <>
 Vercorsella                              | Micro     | Foraminifera               | -130000000    | -125450000   | <>
 Vermetus                                 | Animal    | Mollusca                   | -132900000    | -129400000   | Vermetus
 Verneuilina                              | Micro     | Foraminifera               | -136400000    | -130000000   | <>
@@ -2453,7 +2452,7 @@ Wellsimeandra                            | Animal    | Cnidaria                 
 Westratia                                | Animal    | Arthropoda                 | -139800000    | -125000000   | <>
 Widdringtonites                          | Plant     | Pinophyta                  | -145000000    | -66000000    | <>
 Williamsicoccus                          | Animal    | Arthropoda                 | -130000000    | -125450000   | <>
-Williamsonia                             | Plant     | Cycadeoideophyta           | -130000000    | -125450000   | Williamsonia
+Williamsonia                             | Plant     | Cycadeoideophyta           | -130000000    | -125450000   | Williamsonia_(plant)
 Williriedellum                           | Micro     | Radiolaria                 | -132900000    | -113000000   | <>
 Wintonopus                               | Animal    | Chordata                   | -139800000    | -125000000   | Wintonopus
 Wrangellium                              | Micro     | Radiolaria                 | -130000000    | -122460000   | <>

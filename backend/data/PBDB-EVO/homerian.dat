@@ -842,7 +842,7 @@ Nalivkinia                               | Animal    | Brachiopoda              
 Nanahughmilleria                         | Animal    | Arthropoda                 | -443400000    | -419200000   | Nanahughmilleria
 Nanshanophyllum                          | Animal    | Cnidaria                   | -433400000    | -423000000   | <>
 Nanukidium                               | Animal    | Brachiopoda                | -443400000    | -419200000   | <>
-Naos                                     | Animal    | Cnidaria                   | -433400000    | -427400000   | Naos
+Naos                                     | Animal    | Cnidaria                   | -433400000    | -427400000   | <>
 Naticonema                               | Animal    | Mollusca                   | -433400000    | -427400000   | <>
 Naticopsis                               | Animal    | Mollusca                   | -430500000    | -427400000   | Naticopsis
 Navispira                                | Animal    | Brachiopoda                | -430500000    | -427400000   | <>
@@ -888,7 +888,7 @@ Oeselaspis                               | Animal    | Chordata                 
 Offacolus                                | Animal    | Arthropoda                 | -433400000    | -427400000   | Offacolus
 Oktavites                                | Animal    | Hemichordata               | -433400000    | -423000000   | <>
 Oligophyllum                             | Animal    | Cnidaria                   | -443400000    | -419200000   | <>
-Oliveria                                 | Animal    | Cnidaria                   | -443400000    | -419200000   | Oliveria
+Oliveria                                 | Animal    | Cnidaria                   | -443400000    | -419200000   | <>
 Onniella                                 | Animal    | Brachiopoda                | -428200000    | -422900000   | <>
 Onychotreta                              | Animal    | Brachiopoda                | -433400000    | -427400000   | <>
 Onycopyge                                | Animal    | Arthropoda                 | -430500000    | -425600000   | <>
@@ -940,7 +940,7 @@ Paleofavosites                           | Animal    | Cnidaria                 
 Paltodus                                 | Animal    | Chordata                   | -443400000    | -419200000   | <>
 Panderodus                               | Animal    | Chordata                   | -430500000    | -425600000   | <>
 Pandocrinus                              | Animal    | Echinodermata              | -433400000    | -427400000   | <>
-Panenka                                  | Animal    | Mollusca                   | -433400000    | -427400000   | Panenka
+Panenka                                  | Animal    | Mollusca                   | -433400000    | -427400000   | Panenka_(bivalve)
 Parabolbina                              | Animal    | Arthropoda                 | -443400000    | -419200000   | <>
 Paracarcinosoma                          | Animal    | Arthropoda                 | -443400000    | -427400000   | Paracarcinosoma
 Parachaetetes                            | Plant     | Rhodophyta                 | -433400000    | -427400000   | <>
@@ -1065,7 +1065,7 @@ Pristeroceras                            | Animal    | Mollusca                 
 Pristiograptus                           | Animal    | Hemichordata               | -430500000    | -427400000   | <>
 Procarinaria                             | Animal    | Mollusca                   | -430500000    | -427400000   | <>
 Procarinatina                            | Animal    | Brachiopoda                | -433400000    | -427400000   | <>
-Proetus                                  | Animal    | Arthropoda                 | -428200000    | -422900000   | Proetus
+Proetus                                  | Animal    | Arthropoda                 | -428200000    | -422900000   | Proetus_(trilobite)
 Prokopicrinus                            | Animal    | Echinodermata              | -433400000    | -427400000   | <>
 Promourlonia                             | Animal    | Mollusca                   | -430500000    | -427400000   | <>
 Propora                                  | Animal    | Cnidaria                   | -430500000    | -427400000   | <>
@@ -1216,7 +1216,7 @@ Schlotheimophyllum                       | Animal    | Cnidaria                 
 Schrenckia                               | Animal    | Arthropoda                 | -430500000    | -425600000   | <>
 Schuchertella                            | Animal    | Brachiopoda                | -433400000    | -423000000   | <>
 Scotoharpes                              | Animal    | Arthropoda                 | -433400000    | -423000000   | <>
-Scutellum                                | Animal    | Arthropoda                 | -433400000    | -419200000   | Scutellum
+Scutellum                                | Animal    | Arthropoda                 | -433400000    | -419200000   | Scutellum_(trilobite)
 Scyphocrinites                           | Animal    | Echinodermata              | -443400000    | -419200000   | <>
 Semicoscinium                            | Animal    | Bryozoa                    | -433400000    | -427400000   | <>
 Septatrypa                               | Animal    | Brachiopoda                | -428200000    | -422900000   | <>
@@ -1237,7 +1237,7 @@ Siluraster                               | Animal    | Echinodermata            
 Similodonta                              | Animal    | Mollusca                   | -430500000    | -427400000   | Similodonta
 Simplexodictyon                          | Animal    | Porifera                   | -428200000    | -422900000   | <>
 Sinacanthus                              | Animal    | Chordata                   | -433400000    | -427400000   | <>
-Sinopora                                 | Animal    | Cnidaria                   | -439000000    | -428200000   | Sinopora
+Sinopora                                 | Animal    | Cnidaria                   | -439000000    | -428200000   | <>
 Sinutropis                               | Animal    | Mollusca                   | -438500000    | -427400000   | Sinutropis
 Siphonocrinus                            | Animal    | Echinodermata              | -433400000    | -423000000   | <>
 Siphonophrentis                          | Animal    | Cnidaria                   | -541000000    | -252170000   | <>
@@ -1295,7 +1295,7 @@ Stenorhynchia                            | Animal    | Brachiopoda              
 Stephanocrinus                           | Animal    | Echinodermata              | -433400000    | -427400000   | <>
 Sthenarocalymene                         | Animal    | Arthropoda                 | -433400000    | -427400000   | <>
 Stictotrypa                              | Animal    | Bryozoa                    | -433400000    | -427400000   | <>
-Stigmatella                              | Animal    | Bryozoa                    | -433400000    | -427400000   | Stigmatella
+Stigmatella                              | Animal    | Bryozoa                    | -433400000    | -427400000   | Stigmatella_(bryozoan)
 Stimulograptus                           | Animal    | Hemichordata               | -443400000    | -419200000   | <>
 Stipespongia                             | Animal    | Porifera                   | -433400000    | -423000000   | <>
 Stiptocrinus                             | Animal    | Echinodermata              | -433400000    | -427400000   | <>
@@ -1432,7 +1432,7 @@ Virginiata                               | Animal    | Brachiopoda              
 Virgulaspongia                           | Animal    | Porifera                   | -433400000    | -423000000   | <>
 Visbyella                                | Animal    | Brachiopoda                | -428200000    | -422900000   | <>
 Visbylites                               | Animal    | Cnidaria                   | -433400000    | -427400000   | <>
-Vlasta                                   | Animal    | Mollusca                   | -443400000    | -419200000   | Vlasta
+Vlasta                                   | Animal    | Mollusca                   | -443400000    | -419200000   | <>
 Volynites                                | Animal    | Lophotrochozoa             | -430500000    | -427400000   | <>
 Vosmiverstum                             | Animal    | Brachiopoda                | -433400000    | -427400000   | <>
 Walliserodus                             | Animal    | Chordata                   | -430500000    | -425600000   | <>

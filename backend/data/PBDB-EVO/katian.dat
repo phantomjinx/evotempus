@@ -1534,7 +1534,7 @@ Nikolaispira                             | Animal    | Brachiopoda              
 Nileoides                                | Animal    | Arthropoda                 | -468100000    | -449500000   | <>
 Nileus                                   | Animal    | Arthropoda                 | -449500000    | -443700000   | <>
 Ningkianolithus                          | Animal    | Arthropoda                 | -460900000    | -449500000   | Ningkianolithus
-Niobe                                    | Animal    | Arthropoda                 | -460900000    | -449500000   | Niobe
+Niobe                                    | Animal    | Arthropoda                 | -460900000    | -449500000   | Niobe_(trilobite)
 Nobiliasaphus                            | Animal    | Arthropoda                 | -449500000    | -443700000   | <>
 Nodambichilina                           | Animal    | Arthropoda                 | -460900000    | -449500000   | <>
 Noixodontus                              | Animal    | Chordata                   | -449500000    | -443700000   | <>
@@ -1584,7 +1584,7 @@ Omospira                                 | Animal    | Mollusca                 
 Onchometopus                             | Animal    | Arthropoda                 | -449500000    | -443700000   | <>
 Oncoceras                                | Animal    | Mollusca                   | -449500000    | -443700000   | Oncoceras
 Oneotodus                                | Animal    | Chordata                   | -460900000    | -449500000   | <>
-Onnia                                    | Animal    | Arthropoda                 | -445600000    | -443700000   | Onnia
+Onnia                                    | Animal    | Arthropoda                 | -445600000    | -443700000   | Onnia_(trilobite)
 Onnicalymene                             | Animal    | Arthropoda                 | -455800000    | -449500000   | <>
 Onniella                                 | Animal    | Brachiopoda                | -445600000    | -443700000   | <>
 Onychoplecia                             | Animal    | Brachiopoda                | -455800000    | -452000000   | <>
@@ -1908,7 +1908,7 @@ Procatenipora                            | Animal    | Cnidaria                 
 Proclinorthis                            | Animal    | Brachiopoda                | -460900000    | -445600000   | <>
 Proconchidium                            | Animal    | Brachiopoda                | -449500000    | -443700000   | <>
 Productorthis                            | Animal    | Brachiopoda                | -460900000    | -449500000   | <>
-Proetus                                  | Animal    | Arthropoda                 | -449500000    | -443400000   | Proetus
+Proetus                                  | Animal    | Arthropoda                 | -449500000    | -443400000   | Proetus_(trilobite)
 Proheliolites                            | Animal    | Cnidaria                   | -449500000    | -443700000   | <>
 Prokopius                                | Animal    | Echinodermata              | -460900000    | -449500000   | Prokopius
 Prolasiograptus                          | Animal    | Hemichordata               | -457500000    | -449500000   | <>
@@ -2104,7 +2104,7 @@ Rigbyetia                                | Animal    | Porifera                 
 Rigidella                                | Animal    | Arthropoda                 | -460900000    | -449500000   | Rigidella
 Ringoceras                               | Animal    | Mollusca                   | -449500000    | -445600000   | <>
 Ristnacrinus                             | Animal    | Echinodermata              | -449500000    | -443700000   | <>
-Rivularia                                | Micro     | Cyanobacteria              | -455800000    | -445600000   | Rivularia
+Rivularia                                | Micro     | Cyanobacteria              | -455800000    | -445600000   | Rivularia_(cyanobacteria)
 Rizoceras                                | Animal    | Mollusca                   | -449500000    | -443700000   | <>
 Robergia                                 | Animal    | Arthropoda                 | -449500000    | -443700000   | Robergia
 Robergiella                              | Animal    | Arthropoda                 | -457500000    | -452500000   | <>
@@ -2145,7 +2145,7 @@ Salvadorea                               | Animal    | Cnidaria                 
 Sambremeusaspis                          | Animal    | Arthropoda                 | -455800000    | -445600000   | <>
 Sampo                                    | Animal    | Brachiopoda                | -449500000    | -443700000   | Sampo
 Sandivia                                 | Animal    | Chordata                   | -449500000    | -443700000   | <>
-Sarcinula                                | Animal    | Cnidaria                   | -449500000    | -443700000   | Sarcinula
+Sarcinula                                | Animal    | Cnidaria                   | -449500000    | -443700000   | <>
 Sarkanella                               | Animal    | Mollusca                   | -457500000    | -445600000   | <>
 Saucrorthis                              | Animal    | Brachiopoda                | -460900000    | -449500000   | <>
 Saukrodictya                             | Animal    | Brachiopoda                | -449500000    | -445600000   | <>
@@ -2188,7 +2188,7 @@ Scotiella                                | Animal    | Arthropoda               
 Scotoharpes                              | Animal    | Arthropoda                 | -453000000    | -445200000   | <>
 Sculptaspis                              | Animal    | Arthropoda                 | -457500000    | -452000000   | <>
 Sculptella                               | Animal    | Arthropoda                 | -460900000    | -449500000   | <>
-Scutellum                                | Animal    | Arthropoda                 | -455800000    | -449500000   | Scutellum
+Scutellum                                | Animal    | Arthropoda                 | -455800000    | -449500000   | Scutellum_(trilobite)
 Scyphiodus                               | Animal    | Chordata                   | -460900000    | -449500000   | <>
 Secuicollacta                            | Micro     | Radiolaria                 | -453000000    | -443400000   | <>
 Sedgwickia                               | Animal    | Mollusca                   | -452000000    | -449500000   | <>
@@ -2233,7 +2233,7 @@ Sinoceras                                | Animal    | Mollusca                 
 Sinocybele                               | Animal    | Arthropoda                 | -449500000    | -443700000   | <>
 Sinocystis                               | Animal    | Echinodermata              | -466000000    | -449500000   | <>
 Sinograptus                              | Animal    | Hemichordata               | -460900000    | -449500000   | <>
-Sinopora                                 | Animal    | Cnidaria                   | -449500000    | -443700000   | Sinopora
+Sinopora                                 | Animal    | Cnidaria                   | -449500000    | -443700000   | <>
 Sinorthis                                | Animal    | Brachiopoda                | -466000000    | -449500000   | <>
 Sinuites                                 | Animal    | Mollusca                   | -449500000    | -443700000   | <>
 Sinuitina                                | Animal    | Mollusca                   | -455800000    | -445600000   | <>
@@ -2309,7 +2309,7 @@ Sthenarocalymene                         | Animal    | Arthropoda               
 Stichocystis                             | Animal    | Echinodermata              | -453000000    | -445200000   | <>
 Stictopora                               | Animal    | Bryozoa                    | -445600000    | -443700000   | <>
 Stictoporella                            | Animal    | Bryozoa                    | -445600000    | -443700000   | <>
-Stigmatella                              | Animal    | Bryozoa                    | -449500000    | -443700000   | Stigmatella
+Stigmatella                              | Animal    | Bryozoa                    | -449500000    | -443700000   | Stigmatella_(bryozoan)
 Stigmosphaerostylus                      | Micro     | Radiolaria                 | -460900000    | -449500000   | <>
 Stolbovoceras                            | Animal    | Mollusca                   | -466000000    | -449500000   | <>
 Stomatopora                              | Animal    | Bryozoa                    | -449500000    | -443700000   | <>
@@ -2551,7 +2551,7 @@ Warthinia                                | Animal    | Arthropoda               
 Webbyspira                               | Animal    | Brachiopoda                | -456100000    | -449500000   | <>
 Wellerocystis                            | Animal    | Echinodermata              | -460900000    | -449500000   | <>
 Westheadocrinus                          | Animal    | Echinodermata              | -455800000    | -445600000   | <>
-Westonia                                 | Animal    | Brachiopoda                | -466000000    | -449500000   | Westonia
+Westonia                                 | Animal    | Brachiopoda                | -466000000    | -449500000   | <>
 Westonoceras                             | Animal    | Mollusca                   | -449500000    | -443700000   | Westonoceras
 Wetherbyoceras                           | Animal    | Mollusca                   | -452000000    | -449500000   | <>
 Whiteavesia                              | Animal    | Mollusca                   | -449500000    | -443700000   | Whiteavesia

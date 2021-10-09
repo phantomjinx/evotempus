@@ -827,7 +827,7 @@ Nuculana                                 | Animal    | Mollusca                 
 Nuculopsis                               | Animal    | Mollusca                   | -353800000    | -342800000   | <>
 Nunnacrinus                              | Animal    | Echinodermata              | -358900000    | -353800000   | <>
 Nunnaspis                                | Animal    | Arthropoda                 | -353800000    | -342800000   | <>
-Occidens                                 | Animal    | Chordata                   | -358900000    | -330900000   | Occidens
+Occidens                                 | Animal    | Chordata                   | -358900000    | -330900000   | <>
 Odontopteris                             | Plant     | Peltaspermophyta           | -358900000    | -252170000   | <>
 Oehlertella                              | Animal    | Brachiopoda                | -358900000    | -346700000   | <>
 Oligocarpia                              | Plant     | Pteridophyta               | -358900000    | -298900000   | <>
@@ -859,7 +859,7 @@ Ozawainella                              | Micro     | Foraminifera             
 Pachylocrinus                            | Animal    | Echinodermata              | -353800000    | -342800000   | <>
 Paecilodus                               | Animal    | Chordata                   | -358900000    | -323200000   | <>
 Pagiophyllum                             | Plant     | Pinophyta                  | -358900000    | -252170000   | Pagiophyllum
-Paladin                                  | Animal    | Arthropoda                 | -353800000    | -345300000   | Paladin
+Paladin                                  | Animal    | Arthropoda                 | -353800000    | -345300000   | Paladin_(trilobite)
 Palaeacis                                | Animal    | Cnidaria                   | -353800000    | -342800000   | <>
 Palaeoalvania                            | Animal    | Mollusca                   | -358900000    | -346700000   | <>
 Palaeocapulus                            | Animal    | Mollusca                   | -353800000    | -342800000   | <>
@@ -875,7 +875,7 @@ Palaeospiroplectammina                   | Micro     | Foraminifera             
 Palaeovittaria                           | Plant     | Pteridophyta               | -358900000    | -279300000   | <>
 Palaeozygopleura                         | Animal    | Mollusca                   | -353800000    | -342800000   | <>
 Paleotaxites                             | Plant     | Coniferophyta              | -358900000    | -252170000   | <>
-Panenka                                  | Animal    | Mollusca                   | -358900000    | -353800000   | Panenka
+Panenka                                  | Animal    | Mollusca                   | -358900000    | -353800000   | Panenka_(bivalve)
 Paprothites                              | Animal    | Mollusca                   | -358900000    | -346700000   | <>
 Paraberounella                           | Animal    | Arthropoda                 | -358900000    | -346700000   | <>
 Parachaetetes                            | Plant     | Rhodophyta                 | -358900000    | -323200000   | <>
@@ -907,7 +907,7 @@ Paurogastroderhynchus                    | Animal    | Brachiopoda              
 Paurorhyncha                             | Animal    | Brachiopoda                | -358900000    | -323200000   | <>
 Pecopteridium                            | Plant     | Pteridophyta               | -358900000    | -298900000   | <>
 Pecopteris                               | Plant     | Pteridophyta               | -358900000    | -252170000   | Pecopteris
-Pecten                                   | Animal    | Mollusca                   | -358900000    | -252170000   | Pecten
+Pecten                                   | Animal    | Mollusca                   | -358900000    | -252170000   | Pecten_(bivalve)
 Pederpes                                 | Animal    | Chordata                   | -353800000    | -345300000   | Pederpes
 Pedinocoryphe                            | Animal    | Arthropoda                 | -358900000    | -353800000   | <>
 Pelecocrinus                             | Animal    | Echinodermata              | -353800000    | -342800000   | <>
@@ -919,7 +919,7 @@ Pentremites                              | Animal    | Echinodermata            
 Pentremoblastus                          | Animal    | Echinodermata              | -358900000    | -353800000   | <>
 Perditocardinia                          | Animal    | Brachiopoda                | -353800000    | -342800000   | <>
 Perexigupyge                             | Animal    | Arthropoda                 | -353800000    | -342800000   | <>
-Periastron                               | Plant     | Pteridospermophyta         | -358900000    | -323200000   | Periastron
+Periastron                               | Plant     | Pteridospermophyta         | -358900000    | -323200000   | <>
 Pericyclus                               | Animal    | Mollusca                   | -353800000    | -342800000   | <>
 Periechocrinus                           | Animal    | Echinodermata              | -358900000    | -323200000   | Periechocrinus
 Peripristis                              | Animal    | Chordata                   | -358900000    | -323200000   | <>
@@ -946,7 +946,7 @@ Phymatopleura                            | Animal    | Mollusca                 
 Physonemus                               | Animal    | Chordata                   | -358900000    | -323200000   | <>
 Piloricilla                              | Animal    | Brachiopoda                | -358900000    | -346700000   | <>
 Piltonia                                 | Animal    | Arthropoda                 | -353800000    | -342800000   | <>
-Pinna                                    | Animal    | Mollusca                   | -358900000    | -323200000   | Pinna
+Pinna                                    | Animal    | Mollusca                   | -358900000    | -323200000   | Pinna_(bivalve)
 Pinnatopora                              | Animal    | Bryozoa                    | -358900000    | -323200000   | <>
 Pinnularia Pinnulariaceae                | Plant     | Ochrophyta                 | -358900000    | -298900000   | Pinnularia
 Pinnularia Calamitaceae                  | Plant     | Sphenophyta                | -358900000    | -298900000   | <>
@@ -1005,7 +1005,7 @@ Productellina                            | Animal    | Brachiopoda              
 Productina                               | Animal    | Brachiopoda                | -353800000    | -342800000   | <>
 Productus                                | Animal    | Brachiopoda                | -353800000    | -342800000   | Productus
 Proetides                                | Animal    | Arthropoda                 | -353800000    | -342800000   | <>
-Proetus                                  | Animal    | Arthropoda                 | -358900000    | -323200000   | Proetus
+Proetus                                  | Animal    | Arthropoda                 | -358900000    | -323200000   | Proetus_(trilobite)
 Profusulinella                           | Micro     | Foraminifera               | -358900000    | -298900000   | <>
 Progoniatites                            | Animal    | Mollusca                   | -358900000    | -346700000   | <>
 Prolecanites                             | Animal    | Mollusca                   | -358900000    | -345300000   | <>
@@ -1051,7 +1051,7 @@ Pseudowaribole                           | Animal    | Arthropoda               
 Pseudozygopleura                         | Animal    | Mollusca                   | -353800000    | -342800000   | <>
 Psilokirkbyella                          | Animal    | Arthropoda                 | -358900000    | -353800000   | <>
 Psilophyton                              | Plant     | Psilophytophyta            | -358900000    | -323200000   | Psilophyton
-Pteria                                   | Animal    | Mollusca                   | -353800000    | -342800000   | Pteria
+Pteria                                   | Animal    | Mollusca                   | -353800000    | -342800000   | Pteria_(bivalve)
 Pterinea                                 | Animal    | Mollusca                   | -358900000    | -323200000   | <>
 Pterinopecten                            | Animal    | Mollusca                   | -358900000    | -298900000   | <>
 Pterinopectinella                        | Animal    | Mollusca                   | -353800000    | -345000000   | <>

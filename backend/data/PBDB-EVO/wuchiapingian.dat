@@ -1398,7 +1398,7 @@ Patellilabia                             | Animal    | Mollusca                 
 Paucispinauria                           | Animal    | Brachiopoda                | -259900000    | -254170000   | <>
 Payuella                                 | Animal    | Brachiopoda                | -298900000    | -252170000   | <>
 Pecopteris                               | Plant     | Pteridophyta               | -259000000    | -252300000   | Pecopteris
-Pecten                                   | Animal    | Mollusca                   | -358900000    | -252170000   | Pecten
+Pecten                                   | Animal    | Mollusca                   | -358900000    | -252170000   | Pecten_(bivalve)
 Pedinocrinus                             | Animal    | Echinodermata              | -259900000    | -254170000   | <>
 Pegmavalvula                             | Animal    | Mollusca                   | -259900000    | -254170000   | <>
 Pelanomodon                              | Animal    | Chordata                   | -259900000    | -252170000   | Pelanomodon
@@ -1471,14 +1471,14 @@ Phymatopleura                            | Animal    | Mollusca                 
 Pilasporites                             | Plant     | Gymnospermophyta           | -272500000    | -252300000   | <>
 Pinegathyris                             | Animal    | Brachiopoda                | -259900000    | -252170000   | <>
 Pinnachorista                            | Animal    | Arthropoda                 | -259900000    | -254170000   | <>
-Pinna                                    | Animal    | Mollusca                   | -259900000    | -252170000   | Pinna
+Pinna                                    | Animal    | Mollusca                   | -259900000    | -252170000   | Pinna_(bivalve)
 Pinnatopora                              | Animal    | Bryozoa                    | -298900000    | -252170000   | <>
 Pinzonella                               | Animal    | Mollusca                   | -265100000    | -254170000   | <>
 Pithodea                                 | Animal    | Mollusca                   | -259900000    | -254170000   | <>
 Pityosporites                            | Plant     | Pinophyta                  | -259900000    | -252170000   | <>
 Plafkerium                               | Micro     | Radiolaria                 | -295500000    | -174100000   | <>
 Plagioglypta                             | Animal    | Mollusca                   | -259900000    | -254170000   | <>
-Plagiostoma                              | Animal    | Mollusca                   | -259900000    | -254170000   | Plagiostoma
+Plagiostoma                              | Animal    | Mollusca                   | -259900000    | -254170000   | Plagiostoma_(bivalve)
 Plagiozamites                            | Plant     | Cycadophyta                | -259900000    | -252170000   | <>
 Planetoceras                             | Animal    | Mollusca                   | -259900000    | -254170000   | <>
 Planipes                                 | Animal    | Chordata                   | -259900000    | -252170000   | <>
@@ -1635,7 +1635,7 @@ Pseudowanganella                         | Micro     | Foraminifera             
 Pseudowellerella                         | Animal    | Brachiopoda                | -259900000    | -254170000   | <>
 Pseudozygopleura                         | Animal    | Mollusca                   | -259900000    | -254170000   | <>
 Psilocamara                              | Animal    | Brachiopoda                | -259900000    | -254170000   | <>
-Pteria                                   | Animal    | Mollusca                   | -358900000    | -201300000   | Pteria
+Pteria                                   | Animal    | Mollusca                   | -358900000    | -201300000   | Pteria_(bivalve)
 Pteronautilus                            | Animal    | Mollusca                   | -259900000    | -254170000   | <>
 Pteronilssonia                           | Plant     | Cycadophyta                | -268800000    | -252170000   | <>
 Pteronites                               | Animal    | Mollusca                   | -259900000    | -254170000   | <>
@@ -1866,7 +1866,7 @@ Spitzbergenia                            | Animal    | Brachiopoda              
 Spondylolestes                           | Animal    | Chordata                   | -259900000    | -252170000   | <>
 Spongotripus                             | Micro     | Radiolaria                 | -259900000    | -254170000   | <>
 Spyridiophora                            | Animal    | Brachiopoda                | -259900000    | -252170000   | <>
-Squama                                   | Plant     | Coniferophyta              | -268800000    | -252170000   | Squama
+Squama                                   | Plant     | Coniferophyta              | -268800000    | -252170000   | <>
 Squamaria                                | Animal    | Brachiopoda                | -259900000    | -254170000   | <>
 Squamularia                              | Animal    | Brachiopoda                | -259900000    | -254170000   | <>
 Stachella                                | Animal    | Mollusca                   | -259900000    | -252170000   | <>
@@ -2056,7 +2056,7 @@ Tubulikirkbya                            | Animal    | Arthropoda               
 Tungussocarpus                           | Plant     | Gymnospermophyta           | -259900000    | -252170000   | <>
 Tungussogyrinus                          | Animal    | Chordata                   | -259900000    | -247200000   | Tungussogyrinus
 Tungussopteris                           | Plant     | Pteridophyta               | -265100000    | -252170000   | <>
-Tunstallia                               | Animal    | Mollusca                   | -259900000    | -254170000   | Tunstallia
+Tunstallia                               | Animal    | Mollusca                   | -259900000    | -254170000   | <>
 Turbinilopsis                            | Animal    | Mollusca                   | -259900000    | -254170000   | <>
 Turbonellina                             | Animal    | Mollusca                   | -272300000    | -254170000   | <>
 Turfanodon                               | Animal    | Chordata                   | -259900000    | -252170000   | Turfanodon
@@ -2090,7 +2090,7 @@ Urushtenia                               | Animal    | Brachiopoda              
 Urushtenoidea                            | Animal    | Brachiopoda                | -259900000    | -252170000   | <>
 Uskatelytrum                             | Animal    | Arthropoda                 | -259900000    | -252170000   | <>
 Uskatocoleus                             | Animal    | Arthropoda                 | -259900000    | -252170000   | <>
-Ustia                                    | Animal    | Chordata                   | -265000000    | -254000000   | Ustia
+Ustia                                    | Animal    | Chordata                   | -265000000    | -254000000   | Ustia_(therapsid)
 Uvaesporites                             | Plant     | Pteridophyta               | -259000000    | -252300000   | <>
 Vacunella                                | Animal    | Mollusca                   | -259900000    | -254170000   | <>
 Varanopus                                | Animal    | Chordata                   | -259900000    | -252170000   | <>
@@ -2120,7 +2120,7 @@ Waagenoconcha                            | Animal    | Brachiopoda              
 Waagenophyllum                           | Animal    | Cnidaria                   | -259900000    | -252170000   | <>
 Walchia                                  | Plant     | Coniferophyta              | -259900000    | -254170000   | Walchia
 Walnichollsia                            | Animal    | Mollusca                   | -259900000    | -254170000   | <>
-Wanganella                               | Micro     | Foraminifera               | -259900000    | -254170000   | Wanganella
+Wanganella                               | Micro     | Foraminifera               | -259900000    | -254170000   | <>
 Wannerophyllum                           | Animal    | Cnidaria                   | -259900000    | -254170000   | <>
 Warthia                                  | Animal    | Mollusca                   | -259900000    | -252170000   | <>
 Waterhouseiella                          | Animal    | Brachiopoda                | -259900000    | -254170000   | <>

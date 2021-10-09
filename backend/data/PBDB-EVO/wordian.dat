@@ -1120,7 +1120,7 @@ Myalina                                  | Animal    | Mollusca                 
 Myoconcha                                | Animal    | Mollusca                   | -268800000    | -265100000   | <>
 Myonia                                   | Animal    | Mollusca                   | -268800000    | -254170000   | Myonia
 Mysidioptera                             | Animal    | Mollusca                   | -298900000    | -252170000   | <>
-Mytilus                                  | Animal    | Mollusca                   | -279500000    | -268000000   | Mytilus
+Mytilus                                  | Animal    | Mollusca                   | -279500000    | -268000000   | Mytilus_(bivalve)
 Namaichthys                              | Animal    | Chordata                   | -268800000    | -265100000   | <>
 Nanjinoporella                           | Plant     | Chlorophyta                | -279500000    | -252170000   | <>
 Nankinella                               | Micro     | Foraminifera               | -268800000    | -265100000   | <>
@@ -1245,7 +1245,7 @@ Paffrathopsis                            | Animal    | Mollusca                 
 Pagiophyllum                             | Plant     | Pinophyta                  | -358900000    | -252170000   | Pagiophyllum
 Paikhoia                                 | Plant     | Lycopodophyta              | -268800000    | -259900000   | <>
 Palademosyne                             | Animal    | Arthropoda                 | -268800000    | -265100000   | <>
-Paladin                                  | Animal    | Arthropoda                 | -272300000    | -259900000   | Paladin
+Paladin                                  | Animal    | Arthropoda                 | -272300000    | -259900000   | Paladin_(trilobite)
 Palaeanodonta                            | Animal    | Mollusca                   | -298900000    | -252170000   | Palaeanodonta
 Palaeoaplysina                           | Plant     | Rhodophyta                 | -296400000    | -268000000   | Palaeoaplysina
 Palaeocapulus                            | Animal    | Mollusca                   | -290100000    | -259900000   | <>
@@ -1333,7 +1333,7 @@ Paucispinauria                           | Animal    | Brachiopoda              
 Paucispinifera                           | Animal    | Brachiopoda                | -268800000    | -265100000   | <>
 Payuella                                 | Animal    | Brachiopoda                | -298900000    | -252170000   | <>
 Pecopteris                               | Plant     | Pteridophyta               | -268800000    | -259900000   | Pecopteris
-Pecten                                   | Animal    | Mollusca                   | -268800000    | -265100000   | Pecten
+Pecten                                   | Animal    | Mollusca                   | -268800000    | -265100000   | Pecten_(bivalve)
 Pediculicaudina                          | Animal    | Echinodermata              | -268800000    | -265100000   | <>
 Pegmavalvula                             | Animal    | Mollusca                   | -268800000    | -265100000   | <>
 Peltichia                                | Animal    | Brachiopoda                | -268800000    | -265100000   | <>
@@ -1402,7 +1402,7 @@ Pilammina                                | Micro     | Foraminifera             
 Pilasporites                             | Plant     | Gymnospermophyta           | -272500000    | -252300000   | <>
 Pinegathyris                             | Animal    | Brachiopoda                | -268800000    | -265100000   | <>
 Pinegopora                               | Animal    | Bryozoa                    | -268800000    | -265100000   | <>
-Pinna                                    | Animal    | Mollusca                   | -268800000    | -265100000   | Pinna
+Pinna                                    | Animal    | Mollusca                   | -268800000    | -265100000   | Pinna_(bivalve)
 Pinnatopora                              | Animal    | Bryozoa                    | -298900000    | -252170000   | <>
 Pinzonella                               | Animal    | Mollusca                   | -268800000    | -254170000   | <>
 Pirgulia                                 | Animal    | Brachiopoda                | -268800000    | -265100000   | <>
@@ -1450,7 +1450,7 @@ Polypora                                 | Animal    | Bryozoa                  
 Polyporella                              | Animal    | Bryozoa                    | -268800000    | -265100000   | <>
 Polysiphonella                           | Animal    | Porifera                   | -268800000    | -265100000   | <>
 Polysiphon                               | Animal    | Porifera                   | -268800000    | -265100000   | <>
-Polytaxis                                | Micro     | Foraminifera               | -268800000    | -265100000   | Polytaxis
+Polytaxis                                | Micro     | Foraminifera               | -268800000    | -265100000   | <>
 Polythecalis                             | Animal    | Cnidaria                   | -268800000    | -265100000   | <>
 Polytheca                                | Plant     | Pteridophyta               | -268800000    | -252170000   | <>
 Polytubifungia                           | Animal    | Porifera                   | -268800000    | -265100000   | <>
@@ -1556,7 +1556,7 @@ Pseudovoltzia                            | Plant     | Pinophyta                
 Pseudozaphrentoides                      | Animal    | Cnidaria                   | -296400000    | -268000000   | <>
 Pseudozygopleura                         | Animal    | Mollusca                   | -268800000    | -265100000   | <>
 Psilocamara                              | Animal    | Brachiopoda                | -268800000    | -265100000   | <>
-Pteria                                   | Animal    | Mollusca                   | -272300000    | -259900000   | Pteria
+Pteria                                   | Animal    | Mollusca                   | -272300000    | -259900000   | Pteria_(bivalve)
 Pterinopectinella                        | Animal    | Mollusca                   | -268800000    | -265100000   | <>
 Pterochiton                              | Animal    | Mollusca                   | -272300000    | -259900000   | Pterochiton
 Pteronilssonia                           | Plant     | Cycadophyta                | -268800000    | -252170000   | <>
@@ -1721,7 +1721,7 @@ Sicilioceras                             | Animal    | Mollusca                 
 Sicularia                                | Animal    | Brachiopoda                | -268800000    | -259900000   | <>
 Sigmophlebia                             | Animal    | Arthropoda                 | -268000000    | -265000000   | <>
 Sinophyllum                              | Plant     | Chlorophyta                | -268800000    | -265100000   | <>
-Sinopora                                 | Animal    | Cnidaria                   | -268000000    | -265000000   | Sinopora
+Sinopora                                 | Animal    | Cnidaria                   | -268000000    | -265000000   | <>
 Siphogrammysia                           | Animal    | Mollusca                   | -268800000    | -265100000   | <>
 Siphonophrentis                          | Animal    | Cnidaria                   | -541000000    | -252170000   | <>
 Siphonotreta                             | Animal    | Brachiopoda                | -268800000    | -265100000   | Siphonotreta
@@ -1772,7 +1772,7 @@ Spirisosium                              | Animal    | Brachiopoda              
 Spiroplectammina                         | Micro     | Foraminifera               | -268000000    | -265000000   | <>
 Spitzbergenia                            | Animal    | Brachiopoda                | -268800000    | -265100000   | <>
 Spumisclera                              | Animal    | Porifera                   | -268800000    | -265100000   | <>
-Squama                                   | Plant     | Coniferophyta              | -268800000    | -252170000   | Squama
+Squama                                   | Plant     | Coniferophyta              | -268800000    | -252170000   | <>
 Squamaria                                | Animal    | Brachiopoda                | -290100000    | -268000000   | <>
 Squamularia                              | Animal    | Brachiopoda                | -268800000    | -265100000   | <>
 Squamuliferipecten                       | Animal    | Mollusca                   | -268800000    | -265100000   | <>

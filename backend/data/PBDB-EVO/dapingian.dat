@@ -922,7 +922,7 @@ Nileus                                   | Animal    | Arthropoda               
 Nilssonoceras                            | Animal    | Mollusca                   | -468100000    | -463500000   | <>
 Ningkianites                             | Animal    | Arthropoda                 | -477700000    | -467300000   | <>
 Ningkianolithus                          | Animal    | Arthropoda                 | -470000000    | -467300000   | Ningkianolithus
-Niobe                                    | Animal    | Arthropoda                 | -468100000    | -460900000   | Niobe
+Niobe                                    | Animal    | Arthropoda                 | -468100000    | -460900000   | Niobe_(trilobite)
 Niobella                                 | Animal    | Arthropoda                 | -471800000    | -466000000   | <>
 Niobides                                 | Animal    | Arthropoda                 | -478600000    | -466000000   | Niobides
 Niquivilia                               | Animal    | Brachiopoda                | -470000000    | -467300000   | <>
@@ -1246,7 +1246,7 @@ Ptychopyge                               | Animal    | Arthropoda               
 Ptyocephalus                             | Animal    | Arthropoda                 | -471800000    | -457500000   | <>
 Pulchrilamina                            | Animal    | Porifera                   | -468100000    | -460900000   | <>
 Punctolira                               | Animal    | Brachiopoda                | -470000000    | -467300000   | <>
-Punka                                    | Animal    | Arthropoda                 | -471800000    | -457500000   | Punka
+Punka                                    | Animal    | Arthropoda                 | -471800000    | -457500000   | <>
 Pycnoceras                               | Animal    | Mollusca                   | -485400000    | -468100000   | <>
 Pygodus                                  | Animal    | Chordata                   | -468100000    | -460900000   | <>
 Pyritonema                               | Animal    | Porifera                   | -478600000    | -466000000   | <>
@@ -1401,7 +1401,7 @@ Steusloffina                             | Animal    | Arthropoda               
 Stichotrophia                            | Animal    | Brachiopoda                | -485400000    | -468100000   | <>
 Stictopora                               | Animal    | Bryozoa                    | -468100000    | -460900000   | <>
 Stictoporella                            | Animal    | Bryozoa                    | -468100000    | -460900000   | <>
-Stigmatella                              | Animal    | Bryozoa                    | -468100000    | -463500000   | Stigmatella
+Stigmatella                              | Animal    | Bryozoa                    | -468100000    | -463500000   | Stigmatella_(bryozoan)
 Stolbovoceras                            | Animal    | Mollusca                   | -478600000    | -466000000   | <>
 Stolodus                                 | Animal    | Chordata                   | -478600000    | -466000000   | <>
 Strachanognathus                         | Animal    | Chordata                   | -470000000    | -467300000   | <>
@@ -1418,7 +1418,7 @@ Styracograptus                           | Animal    | Hemichordata             
 Subulites                                | Animal    | Mollusca                   | -470000000    | -458400000   | Subulites
 Sulcatorthis                             | Animal    | Brachiopoda                | -478600000    | -466000000   | <>
 Sulevorthis                              | Animal    | Brachiopoda                | -468100000    | -460900000   | <>
-Suria                                    | Animal    | Mollusca                   | -478600000    | -466000000   | Suria
+Suria                                    | Animal    | Mollusca                   | -478600000    | -466000000   | <>
 Suriaspis                                | Animal    | Arthropoda                 | -478600000    | -466000000   | <>
 Suriorthis                               | Animal    | Brachiopoda                | -478600000    | -468100000   | <>
 Svalbardites                             | Animal    | Arthropoda                 | -478600000    | -466000000   | Svalbardites
@@ -1545,7 +1545,7 @@ Wahwahlingula                            | Animal    | Brachiopoda              
 Walencrinuroides                         | Animal    | Arthropoda                 | -468100000    | -449500000   | <>
 Walliserodus                             | Animal    | Chordata                   | -471800000    | -466000000   | <>
 Westergaardodina                         | Animal    | Chordata                   | -478600000    | -466000000   | Westergaardodina
-Westonia                                 | Animal    | Brachiopoda                | -472000000    | -466000000   | Westonia
+Westonia                                 | Animal    | Brachiopoda                | -472000000    | -466000000   | <>
 Westonoceras                             | Animal    | Mollusca                   | -470000000    | -443400000   | Westonoceras
 Whitfieldoceras                          | Animal    | Mollusca                   | -470000000    | -443400000   | <>
 Wichitoceras                             | Animal    | Mollusca                   | -478600000    | -468100000   | <>

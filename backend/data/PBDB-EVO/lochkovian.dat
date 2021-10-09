@@ -832,7 +832,7 @@ Myoproetus                               | Animal    | Arthropoda               
 Myriospirifer                            | Animal    | Brachiopoda                | -419200000    | -393300000   | <>
 Mystrophora                              | Animal    | Brachiopoda                | -419200000    | -391900000   | <>
 Mytilarca                                | Animal    | Mollusca                   | -419200000    | -393300000   | <>
-Mytilus                                  | Animal    | Mollusca                   | -419200000    | -410800000   | Mytilus
+Mytilus                                  | Animal    | Mollusca                   | -419200000    | -410800000   | Mytilus_(bivalve)
 Nabarredia                               | Animal    | Brachiopoda                | -419200000    | -410800000   | <>
 Nadiastrophia                            | Animal    | Brachiopoda                | -419200000    | -410800000   | <>
 Najadospirifer                           | Animal    | Brachiopoda                | -416000000    | -393300000   | <>
@@ -937,7 +937,7 @@ Panderodus                               | Animal    | Chordata                 
 Pandocrinus                              | Animal    | Echinodermata              | -412300000    | -409100000   | <>
 Pandorinella                             | Animal    | Chordata                   | -419200000    | -410800000   | <>
 Pandorinellina                           | Animal    | Chordata                   | -416000000    | -402500000   | <>
-Panenka                                  | Animal    | Mollusca                   | -419200000    | -382700000   | Panenka
+Panenka                                  | Animal    | Mollusca                   | -419200000    | -382700000   | Panenka_(bivalve)
 Pantata                                  | Animal    | Mollusca                   | -419200000    | -387700000   | <>
 Papiliophyllum                           | Animal    | Cnidaria                   | -416000000    | -391900000   | <>
 Parabairdiacypris                        | Animal    | Arthropoda                 | -423000000    | -410800000   | <>
@@ -1075,7 +1075,7 @@ Prodavidsonia                            | Animal    | Brachiopoda              
 Prodrevermannia                          | Animal    | Arthropoda                 | -419200000    | -410800000   | <>
 Productella                              | Animal    | Brachiopoda                | -419200000    | -410800000   | <>
 Proetopeltis                             | Animal    | Arthropoda                 | -419200000    | -393300000   | <>
-Proetus                                  | Animal    | Arthropoda                 | -416000000    | -391900000   | Proetus
+Proetus                                  | Animal    | Arthropoda                 | -416000000    | -391900000   | Proetus_(trilobite)
 Prokopia                                 | Animal    | Brachiopoda                | -419200000    | -387700000   | Prokopia
 Promopalaeaster                          | Animal    | Echinodermata              | -419200000    | -393300000   | <>
 Proschizophoria                          | Animal    | Brachiopoda                | -419200000    | -410800000   | <>
@@ -1116,7 +1116,7 @@ Psilophytites                            | Plant     | Psilophytophyta          
 Psilophyton                              | Plant     | Psilophytophyta            | -419200000    | -358900000   | Psilophyton
 Ptenoceras                               | Animal    | Mollusca                   | -419200000    | -410800000   | <>
 Pteraspis                                | Animal    | Chordata                   | -416000000    | -412300000   | Pteraspis
-Pteria                                   | Animal    | Mollusca                   | -419200000    | -407600000   | Pteria
+Pteria                                   | Animal    | Mollusca                   | -419200000    | -407600000   | Pteria_(bivalve)
 Pterinea                                 | Animal    | Mollusca                   | -412300000    | -409100000   | <>
 Pterinocrinus                            | Animal    | Echinodermata              | -419200000    | -393300000   | <>
 Pterinopecten                            | Animal    | Mollusca                   | -419200000    | -358900000   | <>
@@ -1213,7 +1213,7 @@ Schuchertella                            | Animal    | Brachiopoda              
 Schultzicrinus                           | Animal    | Echinodermata              | -419200000    | -393300000   | <>
 Schyschcatocrinus                        | Animal    | Echinodermata              | -419200000    | -407600000   | <>
 Sculptoproetus                           | Animal    | Arthropoda                 | -419200000    | -387700000   | <>
-Scutellum                                | Animal    | Arthropoda                 | -419200000    | -407600000   | Scutellum
+Scutellum                                | Animal    | Arthropoda                 | -419200000    | -407600000   | Scutellum_(trilobite)
 Scyphocrinites                           | Animal    | Echinodermata              | -419200000    | -391900000   | <>
 Sedgwickia                               | Animal    | Mollusca                   | -419200000    | -410800000   | <>
 Sellanarcestes                           | Animal    | Mollusca                   | -419200000    | -387700000   | <>
@@ -1223,7 +1223,7 @@ Septaparmella                            | Animal    | Brachiopoda              
 Septatrypa                               | Animal    | Brachiopoda                | -416000000    | -391900000   | <>
 Serpulites                               | Animal    | Annelida                   | -419200000    | -358900000   | <>
 Serpulospira                             | Animal    | Mollusca                   | -416000000    | -393300000   | <>
-Sestra                                   | Animal    | Mollusca                   | -419200000    | -387700000   | Sestra
+Sestra                                   | Animal    | Mollusca                   | -419200000    | -387700000   | <>
 Shaleria                                 | Animal    | Brachiopoda                | -419200000    | -410800000   | <>
 Shimantocrinus                           | Animal    | Echinodermata              | -419200000    | -407600000   | <>
 Sibiritoechia                            | Animal    | Brachiopoda                | -419200000    | -410800000   | <>
@@ -1424,7 +1424,7 @@ Vevoda                                   | Animal    | Mollusca                 
 Victoriacystis                           | Animal    | Echinodermata              | -419200000    | -410800000   | <>
 Viriatella                               | Animal    | Lophotrochozoa             | -419200000    | -393300000   | <>
 Viriatellina                             | Animal    | Lophotrochozoa             | -419200000    | -387700000   | <>
-Vlasta                                   | Animal    | Mollusca                   | -419200000    | -410800000   | Vlasta
+Vlasta                                   | Animal    | Mollusca                   | -419200000    | -410800000   | <>
 Vltaviella                               | Animal    | Mollusca                   | -419200000    | -410800000   | <>
 Vltavina                                 | Animal    | Arthropoda                 | -423000000    | -391900000   | <>
 Volynites                                | Animal    | Lophotrochozoa             | -419200000    | -410800000   | <>

@@ -1053,7 +1053,7 @@ Paeckelmanella                           | Animal    | Brachiopoda              
 Paganzophlebia                           | Animal    | Arthropoda                 | -307000000    | -298900000   | <>
 Pagiophyllum                             | Plant     | Pinophyta                  | -358900000    | -252170000   | Pagiophyllum
 Paimbia                                  | Animal    | Arthropoda                 | -307000000    | -298900000   | <>
-Paladin                                  | Animal    | Arthropoda                 | -323200000    | -298900000   | Paladin
+Paladin                                  | Animal    | Arthropoda                 | -323200000    | -298900000   | Paladin_(trilobite)
 Palaeoaplysina                           | Plant     | Rhodophyta                 | -303400000    | -298900000   | Palaeoaplysina
 Palaeocampa                              | Animal    | Annelida                   | -304800000    | -303400000   | <>
 Palaeocaris                              | Animal    | Arthropoda                 | -304800000    | -303400000   | <>
@@ -1116,7 +1116,7 @@ Paucipora                                | Animal    | Bryozoa                  
 Peachocaris                              | Animal    | Arthropoda                 | -305900000    | -303400000   | Peachocaris
 Pecopteridium                            | Plant     | Pteridophyta               | -358900000    | -298900000   | <>
 Pecopteris                               | Plant     | Pteridophyta               | -303400000    | -298900000   | Pecopteris
-Pecten                                   | Animal    | Mollusca                   | -358900000    | -252170000   | Pecten
+Pecten                                   | Animal    | Mollusca                   | -358900000    | -252170000   | Pecten_(bivalve)
 Penniretepora                            | Animal    | Bryozoa                    | -303400000    | -298900000   | <>
 Pennoceras                               | Animal    | Mollusca                   | -303400000    | -298900000   | <>
 Pennsylvanioxylon                        | Plant     | Pinophyta                  | -358900000    | -298900000   | <>
@@ -1151,7 +1151,7 @@ Phylomylacris                            | Animal    | Arthropoda               
 Phymatopleura                            | Animal    | Mollusca                   | -301200000    | -300200000   | <>
 Physonemus                               | Animal    | Chordata                   | -301200000    | -300200000   | <>
 Physostoma                               | Plant     | Pteridospermophyta         | -323200000    | -298900000   | <>
-Pinna                                    | Animal    | Mollusca                   | -303700000    | -298900000   | Pinna
+Pinna                                    | Animal    | Mollusca                   | -303700000    | -298900000   | Pinna_(bivalve)
 Pinnatopora                              | Animal    | Bryozoa                    | -306950000    | -298900000   | <>
 Pinnularia Pinnulariaceae                | Plant     | Ochrophyta                 | -358900000    | -298900000   | Pinnularia
 Pinnularia Calamitaceae                  | Plant     | Sphenophyta                | -358900000    | -298900000   | <>
@@ -1196,7 +1196,7 @@ Polyetopsis                              | Animal    | Arthropoda               
 Polygonocrinus                           | Animal    | Echinodermata              | -305900000    | -303400000   | <>
 Polymorphopteris                         | Plant     | Pteridophyta               | -303400000    | -295000000   | <>
 Polypora                                 | Animal    | Bryozoa                    | -303700000    | -298900000   | <>
-Polytaxis                                | Micro     | Foraminifera               | -303400000    | -298900000   | Polytaxis
+Polytaxis                                | Micro     | Foraminifera               | -303400000    | -298900000   | <>
 Pontisia                                 | Animal    | Brachiopoda                | -303400000    | -298900000   | <>
 Porierpeton                              | Animal    | Chordata                   | -303700000    | -298900000   | <>
 Poroblattina                             | Animal    | Arthropoda                 | -303400000    | -301200000   | <>
@@ -1273,7 +1273,7 @@ Pseudozygopleura                         | Animal    | Mollusca                 
 Psilocamara                              | Animal    | Brachiopoda                | -303700000    | -298900000   | <>
 Psilothorax                              | Animal    | Arthropoda                 | -303700000    | -298900000   | <>
 Psychroptilus                            | Animal    | Arthropoda                 | -303700000    | -298900000   | <>
-Pteria                                   | Animal    | Mollusca                   | -358900000    | -201300000   | Pteria
+Pteria                                   | Animal    | Mollusca                   | -358900000    | -201300000   | Pteria_(bivalve)
 Pterinopecten                            | Animal    | Mollusca                   | -358900000    | -298900000   | <>
 Pterochiton                              | Animal    | Mollusca                   | -303700000    | -298900000   | Pterochiton
 Pteronites                               | Animal    | Mollusca                   | -303400000    | -298900000   | <>
@@ -1374,7 +1374,7 @@ Schizolepis                              | Plant     | Coniferophyta            
 Schizophoria                             | Animal    | Brachiopoda                | -303700000    | -272300000   | <>
 Schizopteris                             | Plant     | Pteridophyta               | -323200000    | -298900000   | <>
 Schlechtendaliola                        | Animal    | Arthropoda                 | -303400000    | -301200000   | <>
-Schrenkiella                             | Animal    | Brachiopoda                | -323200000    | -298900000   | Schrenkiella
+Schrenkiella                             | Animal    | Brachiopoda                | -323200000    | -298900000   | <>
 Schubertella                             | Micro     | Foraminifera               | -301200000    | -300200000   | <>
 Schubertina                              | Micro     | Foraminifera               | -303700000    | -298900000   | <>
 Schuchertella                            | Animal    | Brachiopoda                | -303700000    | -272300000   | <>

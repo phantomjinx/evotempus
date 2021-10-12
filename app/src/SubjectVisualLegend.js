@@ -1,5 +1,4 @@
 import React from 'react';
-import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
 import Pagination from "react-pagination-js";
 import "react-pagination-js/dist/styles.css"; // import css
 import {color as d3Color} from 'd3-color';

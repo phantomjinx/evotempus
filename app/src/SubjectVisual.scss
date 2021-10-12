@@ -78,19 +78,18 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
         }
       }
 
-      .pageLeftBtn, .pageRightBtn {
+      .pageUpBtn, .pageDownBtn {
         @include fontawesome-icon;
         cursor: pointer;
+        fill: black;
       }
 
       .pageBtnHide {
         visibility: hidden;
+        opacity: 0;
       }
 
       .laneBackground {
-        // stroke-width: 8;
-        // stroke: $bg-border-color;
-        // stroke-opacity: 1.0;
         fill-opacity: 0.3;
       }
 

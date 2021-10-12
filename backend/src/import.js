@@ -150,6 +150,11 @@ async function createSubject(id, name, kind, category, from, to, linkId) {
     return;
   }
 
+  if (category === "Problematica") {
+    logger.debug("Ignoring row with problematic phylum: %s %s %s %s %d %d", id, name, kind, category, from, to);
+    return;
+  }
+
   logger.debug("Creating subject: id: " + id + " kind: " + kind + " category: " + category + " from: " + from + " to: " + to);
 
   // New id subject

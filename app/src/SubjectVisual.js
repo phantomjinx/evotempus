@@ -14,7 +14,6 @@ import {color as d3Color} from 'd3-color';
 import {zoom as d3Zoom} from 'd3-zoom';
 import {select as d3Select} from 'd3-selection';
 import {interpolateRound as d3InterpolateRound} from 'd3-interpolate';
-import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
 import Loading from './loading/Loading.js';
 import ErrorMsg from './ErrorMsg.js';
 import SubjectVisualLegend from './SubjectVisualLegend.js';
@@ -92,11 +91,14 @@ export default class SubjectVisual extends React.Component {
       }
 
       //
-      // Avoid the kinds becoming too narrow and lost
+      // Avoid losing the divisions between the kinds
       // by padding with a couple of blank lanes either side
       //
-      if (page.length < 3) {
+      if (page[0].length > 0) {
         page.unshift([]);
+      }
+
+      if (page[page.length - 1].length > 0) {
         page.push([]);
       }
 
@@ -434,9 +436,9 @@ class SubjectSwimLane extends React.Component {
     }
 
     var page;
-    if (event.target.id.includes("left") && d.page > 0) {
+    if (event.target.id.includes("up") && d.page > 0) {
       page =  d.page - 1;
-    } else if (event.target.id.includes("right") && d.page < d.pages) {
+    } else if (event.target.id.includes("down") && d.page < d.pages) {
       page = d.page + 1;
     }
 
@@ -471,7 +473,7 @@ class SubjectSwimLane extends React.Component {
       .attr('class', 'pageBtnTooltip');
 
     this.pageBtnTooltip
-      .html(d.page + " / " + d.pages)
+      .html("Page " + d.page + " of " + d.pages)
       .style("top", (event.layerY + 25) + "px")
       .style("left", event.layerX + "px");
   }
@@ -692,6 +694,36 @@ class SubjectSwimLane extends React.Component {
   }
 
   //
+  // Create a clip path for bounding the visual
+  //
+  createClipPath(defsElement, id, x, y) {
+    defsElement.append('clipPath')
+      .attr('id', id)
+      .append('rect')
+        .attr('x', x).attr('y', y)
+        .attr('width', this.zoomSystem.innerWidth)
+        .attr('height', this.zoomSystem.innerHeight);
+  }
+
+  //
+  // Filter for the background of the page buttons
+  //
+  createPageButtonFilter(defsElement) {
+    const pgBtnFilter = defsElement.append('filter')
+      .attr("id", "pgBtnBackground")
+      .attr("x", '15%').attr("y", '15%')
+      .attr("width", '70%').attr("height", '70%');
+
+    pgBtnFilter.append("feFlood")
+      .attr("flood-color", "white")
+      .attr("result","txtBackground");
+
+    const mergeFilter = pgBtnFilter.append("feMerge");
+    mergeFilter.append("feMergeNode").attr('in', 'txtBackground');
+    mergeFilter.append("feMergeNode").attr('in', 'SourceGraphic');
+  }
+
+  //
   // Create the bounding blocks of the interval limits
   //
   createIntervalBounds(parent) {
@@ -811,22 +843,9 @@ class SubjectSwimLane extends React.Component {
 
     this.createGradient(defs, this.props.data.categoryNames, this.subjectColorCycle);
     this.createGradient(defs, kindNames, laneColorCycle);
-
-    defs.append('clipPath')
-      .attr('id', 'data-clip')
-      .append('rect')
-      .attr('x', this.margins.left)
-      .attr('y', this.margins.top)
-      .attr('width', this.zoomSystem.innerWidth)
-      .attr('height', this.zoomSystem.innerHeight);
-
-    defs.append('clipPath')
-      .attr('id', 'label-clip')
-      .append('rect')
-      .attr('x', -10)
-      .attr('y', this.margins.top)
-      .attr('width', this.zoomSystem.innerWidth)
-      .attr('height', this.zoomSystem.innerHeight);
+    this.createClipPath(defs, 'data-clip', this.margins.left, this.margins.top);
+    this.createClipPath(defs, 'label-clip', -10, this.margins.top);
+    this.createPageButtonFilter(defs);
 
     this.gchart = this.svg
       .append('g')
@@ -931,51 +950,59 @@ class SubjectSwimLane extends React.Component {
             .classed('pageBtnTooltipHide', true);
 
     // draw the lane text
-    const laneText = this.gchart.append('g')
+    this.gchart.append('g')
       .attr("id", "lane-names")
       .attr('clip-path', 'url(#label-clip)')
       .selectAll('.laneText')
       .data(this.props.data.kinds)
       .join('text')
       .classed('laneText', true)
+      .text(d => d.name)
       .attr('text-anchor', 'end')
       .attr("transform", this.marginTranslation());
 
-
-    laneText.append('tspan')
-      .attr('dx', (this.margins.left / 7))
-      .text(d => d.name);
-
     //
-    // The page left button for the kind
+    // The page up button for the kind
     //
-    laneText.append('tspan')
-      .attr("id", d => { return d.name + "-lane-page-left-btn" } )
-      .classed('fas', true)
-      .classed('pageLeftBtn', true)
+    this.gchart.append('g')
+      .attr("id", "lane-page-up-btns")
+      .attr('clip-path', 'url(#data-clip)')
+      .selectAll('.pageUpBtn')
+      .data(this.props.data.kinds)
+      .join('text')
+      .attr("id", d => { return d.name + "-lane-page-up-btn" } )
+      .classed('pageUpBtn', true)
       .classed('pageBtnHide', d => { return (d.page <= 1); })
-      .attr('dx', 50)
+      .text('\uf151')
+      .attr('text-anchor', 'end')
+      .attr('dx', -25)
+      .attr('dominant-baseline', 'hanging') // fonts rendered to 'sit on the line' by default
       .attr("cursor", "pointer")
-      .text('\uf137')
+      .attr('filter', 'url(#pgBtnBackground')
+      .attr("transform", this.marginTranslation())
       .on("click", this.handlePageClick)
       .on("mousedown", this.handlePageMouseDown)
       .on("mouseup", this.handlePageMouseUp)
       .on("mouseover", this.handlePageMouseOver)
       .on("mouseout", this.handlePageMouseOut);
 
-    // draw the lane page right button
+      //
+      // The page down button for the kind
+      //
     this.gchart.append('g')
-      .attr("id", "lane-page-right-btns")
-      .selectAll('.pageRightBtn')
+      .attr("id", "lane-page-down-btns")
+      .attr('clip-path', 'url(#data-clip)')
+      .selectAll('.pageDownBtn')
       .data(this.props.data.kinds)
       .join('text')
-      .attr("id", d => { return d.name + "-lane-page-right-btn" } )
-      .classed('pageRightBtn', true)
+      .attr("id", d => { return d.name + "-lane-page-down-btn" } )
+      .classed('pageDownBtn', true)
       .classed('pageBtnHide', d => { return (d.page >= d.pages); })
-      .text('\uf138')
+      .text('\uf150')
       .attr('text-anchor', 'end')
-      .attr('dx', -50)
+      .attr('dx', -25)
       .attr("cursor", "pointer")
+      .attr('filter', 'url(#pgBtnBackground')
       .attr("transform", this.marginTranslation())
       .on("click", this.handlePageClick)
       .on("mousedown", this.handlePageMouseDown)
@@ -1096,15 +1123,17 @@ class SubjectSwimLane extends React.Component {
       .attr('x2', this.zoomSystem.innerWidth)
       .attr('y2', d => parseFloat(yScale(d.id) + 0.5));
 
-    // Update the page right buttons
+    // Update the page up button
     this.gchart
-      .selectAll('.pageRightBtn')
+      .selectAll('.pageUpBtn')
       .attr('x', this.zoomSystem.innerWidth)
-      .attr('y', d => {
-        let yn = parseFloat(yScale(d.laneStartIdx + (d.lanes / 2))) + 0.5;
-        const fontHeight = 30;
-        return yn + fontHeight;
-      });
+      .attr('y', d => parseFloat(yScale(d.laneStartIdx + 1)));
+
+    // Update the page down button
+    this.gchart
+      .selectAll('.pageDownBtn')
+      .attr('x', this.zoomSystem.innerWidth)
+      .attr('y', d => parseFloat(yScale(d.laneStartIdx + d.lanes - 1)));
 
     // Update the interval boundaries
     this.updateIntervalBounds(this.gchart,

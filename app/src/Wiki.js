@@ -91,7 +91,7 @@ export default class Wiki extends React.Component {
       return "";
     }
 
-    return "from " + common.present(this.props.topic.item.from) + " to " + common.present(this.props.topic.item.to);
+    return "from approximately " + common.present(this.props.topic.item.from) + " to " + common.present(this.props.topic.item.to);
   }
 
   displayHeaderTitle() {

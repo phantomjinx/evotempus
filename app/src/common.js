@@ -39,17 +39,22 @@ export var colourRange = [
 
 var hints = {};
 var kinds = [];
+var categoryHints = [];
+
 export function setHints(hintArr) {
   hints = {};
   for (const h of hintArr.values()) {
     hints[h._id] = {
       colour: h.colour,
       link: h.link,
-      order: h.order
+      order: h.order,
+      parent: h.parent
     };
 
     if (h.type === 'Kind') {
       kinds.push(h._id);
+    } else if (h.type === 'Category') {
+      categoryHints.push(h._id);
     }
   }
 
@@ -59,6 +64,11 @@ export function setHints(hintArr) {
 export function getKinds() {
   return kinds;
 }
+
+export function getCategoryHints() {
+  return categoryHints;
+}
+
 
 export function sortKinds(kindArr) {
   kindArr.sort((a, b) => {
@@ -76,21 +86,16 @@ export function hasHintLink(hint) {
   return hint && hint.link && hint.link.length > 0;
 }
 
-export function calcKindColours(kinds) {
-  const colours = [];
-  let i = 20;
-  for (const kind of kinds.values()) {
-    const hint = hints[kind];
-    colours.push(hasHintColour(hint) ? hint.colour : colourRange[i++]);
-  }
-  return colours;
+export function getHint(name) {
+  const hint = hints[name];
+  return (hint) ? hint : {};
 }
 
-export function calcCategoryColours(categories) {
+export function calcColours(names) {
   const colours = [];
-  let i = 0;
-  for (const category of categories.values()) {
-    const hint = hints[category];
+  let i = 20;
+  for (const name of names.values()) {
+    const hint = hints[name];
     colours.push(hasHintColour(hint) ? hint.colour : colourRange[i++]);
   }
   return colours;

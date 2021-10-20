@@ -825,13 +825,13 @@ class SubjectSwimLane extends React.Component {
     let categoryNames = this.props.categories.map(a => a.name);
     this.subjectColorCycle = d3ScaleOrdinal()
       .domain(categoryNames)
-      .range(common.calcCategoryColours(categoryNames));
+      .range(common.calcColours(categoryNames));
 
     const kindNames = this.props.data.kinds.map(a => a.name);
 
     const laneColorCycle = d3ScaleOrdinal()
       .domain(kindNames)
-      .range(common.calcKindColours(kindNames));
+      .range(common.calcColours(kindNames));
 
     this.svg = d3Select('#' + this.svgId);
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Pagination from "react-pagination-js";
+import Tabs from "./Tabs.js";
 import "react-pagination-js/dist/styles.css"; // import css
 import {color as d3Color} from 'd3-color';
 import * as common from './common';
@@ -31,7 +32,7 @@ export default class SubjectVisualLegend extends React.Component {
   // a single page
   //
   calcTotalPerPage() {
-    const total = Math.min(10, (this.props.height * 0.75) / 40);
+    const total = Math.min(10, (this.props.height * 0.5) / 40);
 
     this.setState({
       totalPerPage: total
@@ -69,11 +70,11 @@ export default class SubjectVisualLegend extends React.Component {
     return category != null ? category.filtered : false;
   }
 
-  paginateLegend() {
-    const colorRange = common.calcCategoryColours(this.props.names);
+  renderKindBlock(title, categories) {
+    const colorRange = common.calcColours(categories);
 
     let items = [];
-    if (this.props.names.length === 0) {
+    if (categories.length === 0) {
       items.push(
         <p className="subject-legend-content-none-found">No categories to display</p>
       )
@@ -81,8 +82,8 @@ export default class SubjectVisualLegend extends React.Component {
 
     const height = (this.props.height * 0.5) / this.state.totalPerPage;
 
-    for (let i = 0; i < this.props.names.length; ++i) {
-      const category = this.props.names[i];
+    for (let i = 0; i < categories.length; ++i) {
+      const category = categories[i];
       const colour = colorRange[i];
 
       items.push(
@@ -121,7 +122,7 @@ export default class SubjectVisualLegend extends React.Component {
       paginate = (
         <Pagination
           currentPage={this.state.currentPage}
-          totalSize={this.props.names.length}
+          totalSize={categories.length}
           sizePerPage={this.state.totalPerPage}
           changeCurrentPage={this.handlePageClick}
           theme="border-bottom"
@@ -130,13 +131,45 @@ export default class SubjectVisualLegend extends React.Component {
     }
 
     return (
-      <div className="subject-visual-legend-paginate">
+      <div label={title} className="subject-visual-legend-paginate">
+        <div className="subject-visual-legend-items">
+          <ul className="subject-visual-legend-items-inner">
+            {items}
+          </ul>
+        </div>
         {paginate}
-        <ul className="subject-visual-legend-items">
-          {items}
-        </ul>
       </div>
     )
+  }
+
+  renderKinds() {
+    let kinds = new Map();
+
+    //
+    // Create map of kinds from the categories
+    //
+    for (const category of this.props.names) {
+      const hint = common.getHint(category);
+      const kind = hint.parent;
+      let items = kinds.get(kind);
+      if (! items) {
+        items = [];
+        kinds.set(kind, items);
+      }
+      items.push(category);
+    }
+
+    // Create the paginated tabs of categories
+    const kindTabs = [];
+    Array.from(kinds, ([key, value]) => {
+      kindTabs.push(this.renderKindBlock(key, value));
+    });
+
+    return (
+      <Tabs>
+        {kindTabs}
+      </Tabs>
+    );
   }
 
   render() {
@@ -155,8 +188,8 @@ export default class SubjectVisualLegend extends React.Component {
               Click again to restore.
             </p>
           </div>
-          <div className="subject-visual-legend-paginated">
-            {this.paginateLegend()}
+          <div className="subject-visual-legend-kinds">
+            {this.renderKinds()}
           </div>
         </div>
       </div>

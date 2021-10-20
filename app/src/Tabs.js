@@ -32,21 +32,24 @@ class Tabs extends Component {
 
     return (
       <div className="tabs">
-        <ol className="tab-list">
-          {
-            children.map((child) => {
-            const { label } = child.props;
+        <div className="tab-header">
+          <ol className="tab-list">
+            {
+              children.map((child) => {
+                const { label } = child.props;
 
-            return (
-              <Tab
-                activeTab={activeTab}
-                key={label}
-                label={label}
-                onClick={onClickTabItem}
-            />
-          );
-          })}
-        </ol>
+                return (
+                  <Tab
+                    activeTab={activeTab}
+                    key={label}
+                    label={label}
+                    onClick={onClickTabItem}
+                  />
+                );
+              })
+            }
+          </ol>
+        </div>
         <div className="tab-content">
           {
             children.map((child) => {

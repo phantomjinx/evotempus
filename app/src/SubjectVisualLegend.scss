@@ -33,7 +33,6 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
   background-color: white;
   height: 100%;
   z-index: 1000;
-  overflow: hidden;
 
   .subject-visual-legend-content {
     display: flex;
@@ -41,6 +40,7 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
     height: 100%;
 
     .subject-visual-legend-title-row {
+      flex: 0 0 0;
       margin-top: 0.2em;
       margin-bottom: 0.2em;
 
@@ -58,77 +58,91 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
       }
     }
 
-    [class^="react-pagination-js-"] {
-      float: right;
-      padding-bottom: 0.5em;
+    .subject-visual-legend-text {
+      flex: 0 0 auto;
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+      font-size: x-small;
+      font-style: italic;
     }
 
-    .subject-visual-legend-paginated {
-      display: flex;
-      align-items: flex-start;
-      height: 100%;
+    .subject-visual-legend-kinds {
+      flex: 1 1 1px;
+      width: 100%;
 
-      .subject-visual-legend-paginate {
-        width: 100%;
+      .tabs {
+        .tab-content {
+          display: flex;
+          flex-direction: column;
+          padding-top: 1.5em;
 
-        .subject-visual-legend-items {
-          clear: both;
-          padding-left: 0.5em;
-          padding-right: 0.5em;
-          font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
+          .subject-visual-legend-items {
+            flex: 1 1 1px;
+            overflow: auto;
 
-          li {
-            list-style-type: none;
+            .subject-visual-legend-items-inner {
+              clear: both;
+              margin-left: auto;
+              margin-right: auto;
 
-            .category-checkbox-label {
-              display: block;
-              position: relative;
-              cursor: pointer;
+              li {
+                list-style-type: none;
 
-              svg {
-                display: inline-block;
-                vertical-align: middle;
-                margin-bottom: .2em;
-                width: 2em;
-                height: 2em;
+                .category-checkbox-label {
+                  display: block;
+                  position: relative;
+                  cursor: pointer;
 
-                rect {
-                  transition: fill .4s linear;
+                  svg {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-bottom: .2em;
+                    width: 2em;
+                    height: 2em;
+
+                    rect {
+                      transition: fill .4s linear;
+                    }
+                  }
+
+                  span {
+                    padding-left: 0.2em;
+                  }
+
+                  input[type="checkbox"] {
+                    position: absolute;
+                    width: 2em;
+                    height: 2em;
+                    opacity: 0.00001;
+                    cursor: pointer;
+                  }
+
+                  input[type="checkbox"]:checked + svg rect {
+                    fill: #eee;
+                    stroke: black;
+                  }
+
+                  input[type="checkbox"]:checked + svg + span {
+                    color: #aaaaaa;
+                  }
                 }
               }
+            }
+          }
 
-              span {
-                padding-left: 0.2em;
-              }
+          [class^="react-pagination-js-"] {
+            flex: 0 0 0;
+            margin-bottom: 1em;
+            width: 100%;
 
-              input[type="checkbox"] {
-                position: absolute;
-                width: 2em;
-                height: 2em;
-                opacity: 0.00001;
-                cursor: pointer;
-              }
-
-              input[type="checkbox"]:checked + svg rect {
-                fill: #eee;
-                stroke: black;
-              }
-
-              input[type="checkbox"]:checked + svg + span {
-                color: #aaaaaa;
-              }
+            ul {
+              float: right;
             }
           }
         }
       }
     }
 
-    .subject-visual-legend-text {
-      margin-left: 0.5em;
-      margin-right: 0.5em;
-      font-size: x-small;
-      font-style: italic;
-    }
   }
 }
 

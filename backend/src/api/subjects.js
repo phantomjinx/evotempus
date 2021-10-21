@@ -113,12 +113,15 @@ function addSubjectToPages(pages, subject) {
 }
 
 // subjects api route
-router.get('/', async (req, res) => {
-  let from = req.query.from;
-  let to = req.query.to;
-  let kind = req.query.kind;
-  let page = req.query.page;
-  let subject = req.query.subject;
+router.post('/', async (req, res) => {
+  let from = req.body.from;
+  let to = req.body.to;
+  let kind = req.body.kind;
+  let page = req.body.page;
+  let subject = req.body.subject;
+  let excluded = req.body.excluded;
+
+  console.log(req);
 
   if (!from) {
     from = -4600000000; // Earliest date of the pre-cambrian
@@ -148,6 +151,10 @@ router.get('/', async (req, res) => {
       .exec();
   }
 
+  if (! excluded) {
+    excluded = [];
+  }
+
   //
   // {
   //   Event: {
@@ -161,6 +168,10 @@ router.get('/', async (req, res) => {
   try {
     for (let i = 0; i < kinds.length; i++) {
       const kind = kinds[i]._id;
+      kindResults[kind] = {
+        categories: []
+      };
+
       const subjects = await Subject
         .aggregate([{
           $match: {
@@ -187,6 +198,14 @@ router.get('/', async (req, res) => {
 
       for (let i = 0; i < subjects.length; ++i) {
         const s = subjects[i];
+        // Add all subject categories whether excluded or not
+        if (! kindResults[kind].categories.includes(s.category)) {
+          kindResults[kind].categories.push(s.category);
+        }
+
+        if (excluded.includes(s.category)) {
+          continue; // do not include subject in data
+        }
         const pageIdx = addSubjectToPages(pages, s);
         if (subject === s._id) {
           subjectPageIdx = pageIdx;
@@ -200,13 +219,13 @@ router.get('/', async (req, res) => {
       //
       if (page) {
         // page is defined as minimum of 1 as start so subtract 1 to get array position
-        kindResults[kind] = { pages: pages.slice((page - 1), page) };
+        kindResults[kind].pages = pages.slice((page - 1), page);
         kindResults[kind].page = parseInt(page);
       } else if (subject && subjectPageIdx >= 0) {
-        kindResults[kind] = { pages: pages.slice(subjectPageIdx, subjectPageIdx + 1) };
+        kindResults[kind].pages = pages.slice(subjectPageIdx, subjectPageIdx + 1);
         kindResults[kind].page = subjectPageIdx;
       } else {
-        kindResults[kind] = { pages: pages };
+        kindResults[kind].pages = pages;
         kindResults[kind].page = parseInt(1);
       }
 

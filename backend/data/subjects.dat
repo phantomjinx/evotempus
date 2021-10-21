@@ -24,7 +24,7 @@ late-heavy-bombardment                   | Event     | Celestial Event          
 acasta-gneiss                            | Geology   | Geological Development     | -4031000000   | -3058000000  | Acasta_Gneiss
 laurentia-craton                         | Geology   | Continental Drift          | -4031000000   | 2030         | Laurentia
 isua-greenstone-belt                     | Geology   | Geological Development     | -3800000000   | -3700000000  | Isua_Greenstone_Belt
-last-universal-common-ancestor           | Animal    | Early Form of Life         | -3800000000   | -3500000000  | Last_universal_common_ancestor
+last-universal-common-ancestor           | Event     | Early Form of Life         | -3800000000   | -3500000000  | Last_universal_common_ancestor
 vaalbara-supercontinent                  | Geology   | Continental Drift          | -3636000000   | -2803000000  | Vaalbara
 barberton-greenstone-belt                | Geology   | Geological Development     | -3500000000   | -3200000000  | Barberton_Greenstone_Belt
 earliest-form-of-life                    | Event     | Biological Development     | -3500000000   | -3480000000  | Microbial_mat
@@ -59,7 +59,6 @@ bangiomorpha                             | Plant     | Algae                    
 rigolet-orogeny                          | Geology   | Geological Development     | -1010000000   | -980000000   | Grenville_orogeny
 pan-african-ocean                        | Geology   | Marine Geology             | -987500000    | -605000000   | Pan-African_Ocean
 pan-african-orogeny                      | Geology   | Geological Development     | -950000000    | -550000000   | Pan-African_orogeny
-aspidella                                | Animal    | Early Form of Life         | -770000000    | -550000000   | Aspidella
 otavia-antiqua-sponge                    | Animal    | Porifera                   | -760000000    | -550000000   | Otavia
 panthalassa-ocean                        | Geology   | Marine Geology             | -750000000    | -173000000   | Panthalassa
 arcellinida                              | Micro     | Amoebozoa                  | -720000000    | 2030         | Arcellinida
@@ -80,9 +79,7 @@ charniodiscus                            | Animal    | Rangeomorpha             
 kimberella                               | Animal    | Bilaterian                 | -558000000    | -541000000   | Kimberella
 gondwana-supercontinent                  | Geology   | Continental Drift          | -550000000    | -175000000   | Gondwana
 proto-tethys-ocean                       | Geology   | Marine Geology             | -550000000    | -330000000   | Proto-Tethys_Ocean
-small-shelly-fauna                       | Animal    | Early Form of Life         | -547000000    | -520000000   | Small_shelly_fauna
 ediacaran-extinction                     | Event     | Extinction Event           | -542000000    | -541000000   | End-Ediacaran_extinction
-treptichnus-pedum                        | Animal    | Early Form of Life         | -542000000    | -99700000    | Treptichnus_pedum
 cambrian-explosion                       | Event     | Biological Development     | -541000000    | -516000000   | Cambrian_explosion
 coral                                    | Animal    | Cnidaria                   | -535000000    | 2030         | Coral
 haikouichthys                            | Animal    | Agnatha                    | -535000000    | -520000000   | Haikouichthys
@@ -326,7 +323,7 @@ homo-sapien                              | Animal    | Hominid                  
 ipswichian-stage                         | Event     | Climate Changes            | -130000       | -115000      | Eemian
 quaternary-extinction                    | Event     | Extinction Event           | -130000       | -8000        | Quaternary_extinction
 last-glacial-period                      | Event     | Climate Changes            | -115000       | -11700       | Last_Glacial_Period
-laschamp-event                           | Event     | Geological Change          | -41400        | -40900       | Laschamp_event
+laschamp-event                           | Event     | Structural Change          | -41400        | -40900       | Laschamp_event
 mezolithic                               | Event     | Archaeological Age         | -11500        | -8000        | Mezolithic
 neolithic                                | Event     | Archaeological Age         | -10200        | -1700        | Neolithic
 holocene-extinction                      | Event     | Extinction Event           | -10000        | 2030         | Holocene_extinction

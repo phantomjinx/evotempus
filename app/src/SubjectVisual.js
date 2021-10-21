@@ -36,7 +36,8 @@ export default class SubjectVisual extends React.Component {
   }
 
   logErrorState(errorMsg, error) {
-    console.log("Error: " + errorMsg + "\n Detail: " + error);
+    console.log("Error: " + errorMsg + "\nDetail: ");
+    console.log(error);
     this.setState({
       errorMsg: errorMsg,
       error: error,
@@ -69,7 +70,7 @@ export default class SubjectVisual extends React.Component {
       categoryNames: []
     };
 
-    const categorySet = new Set();
+    let categorySet = new Set();
 
     let kindIdx = 0;
     let laneIdx = 0;
@@ -82,6 +83,8 @@ export default class SubjectVisual extends React.Component {
     // sort the kind names
     kindNames = common.sortKinds(kindNames);
     for (const kind of kindNames) {
+      categorySet = new Set([...categorySet, ...kindData[kind].categories]);
+
       let page = [];
       if (kindData[kind].pages.length > 0) {
         page = kindData[kind].pages[0];
@@ -114,26 +117,10 @@ export default class SubjectVisual extends React.Component {
           subject.laneId = laneIdx;
           subject.kindId = kindIdx;
 
-          const subjectCat = categories.find(category => {
-            return category.name === subject.category;
-          });
-
-          //
-          // Add the category whether filtered or not so
-          // the legend can list it
-          //
-          categorySet.add(subjectCat.name);
-
           //
           // Preserve original datum for export from component
           //
           subject.current = Object.assign({}, subject);
-
-          //
-          // Do we consider the subject
-          //
-          // Still have these subjects in the data, just never drawn
-          subject.filtered = (subjectCat.filtered === true);
 
           //
           // Limit subject from to value of interval from
@@ -157,7 +144,7 @@ export default class SubjectVisual extends React.Component {
         lanes: page.length,
         laneStartIdx: (laneIdx - page.length),
         page: kindData[kind].page,
-        pages: kindData[kind].count
+        pages: kindData[kind].count,
       });
 
       kindIdx++;
@@ -187,10 +174,21 @@ export default class SubjectVisual extends React.Component {
 
     const subjectId = criteria.subject ? criteria.subject._id : null;
 
+    const filtered = criteria.categories
+      .filter(category => {
+        return category.filtered;
+      })
+      .map(category => {
+        return category.name;
+      });
+
+    console.log("Filtered Categories");
+    console.log(filtered);
     //
     // Fetch the subject data from the backend service
     //
-    api.subjectsWithin(criteria.interval.from, criteria.interval.to, criteria.kind, criteria.page, subjectId)
+    api.subjectsWithin(criteria.interval.from, criteria.interval.to,
+                       criteria.kind, criteria.page, subjectId, filtered)
       .then((res) => {
         let newKindData = {};
         if (!res.data || res.data.length === 0) {
@@ -208,6 +206,7 @@ export default class SubjectVisual extends React.Component {
           }
         }
 
+        console.log(newKindData);
         const visualData = this.chartify(criteria.interval, criteria.categories, newKindData);
         console.log("VisualData ---->");
         console.log(visualData);
@@ -219,6 +218,7 @@ export default class SubjectVisual extends React.Component {
         });
 
       }).catch((err) => {
+        console.log(err);
         this.logErrorState("Failed to fetch interval data", err);
       });
   }
@@ -262,6 +262,7 @@ export default class SubjectVisual extends React.Component {
       console.log("SubjectVisual - ComponentDidupdate Subject: " + this.props.subject.name);
     }
     console.log("SubjectVisual - ComponentDidupdate Categories: ---->");
+    console.log(prevProps.categories);
     console.log(this.props.categories);
 
     if (_.isEqual(prevProps.interval, this.props.interval) &&
@@ -291,7 +292,7 @@ export default class SubjectVisual extends React.Component {
     if (this.state.visualData && this.props.subject) {
       for (const s of this.state.visualData.subjects) {
         if (s._id === this.props.subject._id) {
-          return true
+          return;
         }
       }
     }
@@ -337,12 +338,12 @@ export default class SubjectVisual extends React.Component {
         height = {this.state.height}
         onSelectedChange={this.props.onSelectedChange}
         onUpdateCategoryFilter = {this.props.onUpdateCategoryFilter}
-        onUpdateLegendVisible = {this.props.onUpdateLegendVisible}
+        onUpdateLegend = {this.props.onUpdateLegend}
         onUpdateKindPage = {this.onUpdateKindPage}
         interval = {this.props.interval}
         subject = {this.props.subject}
         categories = {this.props.categories}
-        legendVisible = {this.props.legendVisible}
+        legend = {this.props.legend}
         data = {this.state.visualData}
         />
     );
@@ -365,7 +366,6 @@ class SubjectSwimLane extends React.Component {
 
     // This binding is necessary to make `this` work in the callback
     this.handleLegendClick = this.handleLegendClick.bind(this);
-    this.toggleLegend = this.toggleLegend.bind(this);
     this.resetCategories = this.resetCategories.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
     this.handlePageMouseUp = this.handlePageMouseUp.bind(this);
@@ -563,12 +563,11 @@ class SubjectSwimLane extends React.Component {
   }
 
   handleLegendClick(event) {
-    this.toggleLegend();
+    this.props.onUpdateLegend({
+      activeTab: this.props.legend.activeTab,
+      visible: !this.props.legend.visible
+    });
     event.stopPropagation();
-  }
-
-  toggleLegend() {
-    this.props.onUpdateLegendVisible(!this.props.legendVisible);
   }
 
   //
@@ -1169,8 +1168,8 @@ class SubjectSwimLane extends React.Component {
         <SubjectVisualLegend
           width = { this.props.width }
           height = { this.props.height }
-          visible = { this.props.legendVisible }
-          onToggleLegend = {this.toggleLegend}
+          legend = { this.props.legend }
+          onUpdateLegend = {this.props.onUpdateLegend}
           categories = { this.props.categories }
           names = { this.props.data.categoryNames }
           onUpdateFilterCategory={this.props.onUpdateCategoryFilter}

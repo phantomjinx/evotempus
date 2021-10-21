@@ -59,7 +59,7 @@ Cyanobacteria            | Category | Micro   | <>      | Cyanobacteria         
 Cycadeoideophyta         | Category | Plant   | <>      | <>                     |  <>   |
 Cycadophyta              | Category | Plant   | <>      | Cycadophyta            |  <>   |
 Dinosaur                 | Category | Animal  | #a57800 | Dinosaur               |  <>   | Light shade brown
-Early Form of Life       | Category | Animal  | #694a30 | Evolution              |  <>   | Light shade brown
+Early Form of Life       | Category | Animal  | #694a30 | Multicellular_organism |  <>   | Light shade brown
 Echinodermata            | Category | Animal  | <>      | Echinodermata          |  <>   |
 Ecological Migration     | Category | Event   | #00e229 | Migration_(ecology)    |  <>   | Light green
 Entoprocta               | Category | Animal  | <>      | Entoprocta             |  <>   |
@@ -69,8 +69,8 @@ Filicophyta              | Category | Plant   | <>      | Fern                  
 Fish                     | Category | Animal  | #ababab | Fish                   |  <>   | Silver
 Flying Reptile           | Category | Animal  | #f5881b | Pterosaur              |  <>   |
 Foraminifera             | Category | Micro   | <>      | Foraminifera           |  <>   |
-Geological Change        | Category | Event   | #543ed8 | <>                     |  <>   | Purple
-Geological Development   | Category | Geology | #5b5753 | <>                     |  <>   | Grey
+Structural Change        | Category | Event   | #543ed8 | Structure_of_Earth     |  <>   | Purple
+Geological Development   | Category | Geology | #5b5753 | Geology                |  <>   | Grey
 Ginkgophyta              | Category | Plant   | <>      | Ginkgophyta            |  <>   |
 Gnetophyta               | Category | Plant   | <>      | Gnetophyta             |  <>   |
 Gymnospermophyta         | Category | Plant   | <>      | Gymnospermophyta       |  <>   |

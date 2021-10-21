@@ -27,7 +27,10 @@ class App extends React.Component {
        */
       categories: [],
       subject: undefined,
-      legendVisible: false,
+      legend: {
+        visible: false,
+        activeTab: ''
+      },
       wikiVisible: false,
       wikiPosition: "interval"
     };
@@ -36,14 +39,15 @@ class App extends React.Component {
     this.subjectVisualRef = React.createRef();
     this.handleChange = this.handleChange.bind(this);
     this.updateCategoryFilter = this.updateCategoryFilter.bind(this);
-    this.onUpdateLegendVisible = this.onUpdateLegendVisible.bind(this);
+    this.onUpdateLegend = this.onUpdateLegend.bind(this);
     this.handleWikiClick = this.handleWikiClick.bind(this);
     this.toggleWiki = this.toggleWiki.bind(this);
     this.toggleHelp = this.toggleHelp.bind(this);
   }
 
   logErrorState(errorMsg, error) {
-    console.log("Error: " + errorMsg + "\n Detail: " + error);
+    console.log("Error: " + errorMsg + "\nDetail: ");
+    console.log(error);
     this.setState({
       errorMsg: errorMsg,
       error: error
@@ -99,7 +103,7 @@ class App extends React.Component {
     this.fetchCategories();
   }
 
-  handleChange(interval, subject) {
+  handleChange(interval, subject, categories) {
     if (interval) {
       console.log("App - handleChange: " + interval.name);
       console.log(interval);
@@ -107,6 +111,10 @@ class App extends React.Component {
     if (subject) {
       console.log("App - handleChange: " + subject.name);
       console.log(subject);
+    }
+
+    if (! categories) {
+      categories = this.state.categories;
     }
 
     if ((interval && this.state.interval && interval._id === this.state.interval._id) &&
@@ -122,11 +130,14 @@ class App extends React.Component {
         type: subject ? 'subject' : 'interval',
         item: subject ? subject : interval
       },
+      categories: categories,
       help: false
     });
   }
 
   updateCategoryFilter(names, filter) {
+    console.log("Set filter on names: " + names[0] + "  " + filter);
+
     if (!names || names.length === 0) {
       return;
     }
@@ -150,14 +161,12 @@ class App extends React.Component {
       copyCategories[idx] = copyCat;
     });
 
-    this.setState({
-      categories: copyCategories
-    });
+    this.handleChange(this.state.interval, undefined, copyCategories);
   }
 
-  onUpdateLegendVisible(visible) {
+  onUpdateLegend(legend) {
     this.setState({
-      legendVisible: visible
+      legend: legend
     });
   }
 
@@ -209,10 +218,10 @@ class App extends React.Component {
         interval={this.state.interval}
         subject={this.state.subject}
         categories={this.state.categories}
-        legendVisible={this.state.legendVisible}
+        legend={this.state.legend}
         onSelectedChange={this.handleChange}
         onUpdateCategoryFilter={this.updateCategoryFilter}
-        onUpdateLegendVisible={this.onUpdateLegendVisible}
+        onUpdateLegend={this.onUpdateLegend}
       />
     )
 

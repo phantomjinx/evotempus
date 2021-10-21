@@ -10,8 +10,6 @@ export default class Wiki extends React.Component {
   constructor(props) {
     super(props);
 
-    this.wikiLink = "https://en.wikipedia.org/wiki/";
-
     const clickMsg = "To read further, click here";
 
     this.state = {
@@ -22,7 +20,8 @@ export default class Wiki extends React.Component {
   }
 
   logErrorState(errorMsg, error) {
-    console.log("Error: " + errorMsg + "\n Detail: " + error);
+    console.log("Error: " + errorMsg + "\nDetail: ");
+    console.log(error);
     this.setState({
       errorMsg: errorMsg,
       error: error,
@@ -130,7 +129,7 @@ export default class Wiki extends React.Component {
 
     const footer = (
       <div id="wiki-footer">
-        <a id="wiki-footer-logo" href={this.wikiLink + this.state.linkId} target="_blank" rel="noopener noreferrer">
+        <a id="wiki-footer-logo" href={common.wikiLink + this.state.linkId} target="_blank" rel="noopener noreferrer">
           <img src="/wikipedia-logo-with-label.svg" alt="Wikipedia"/>
         </a>
         <p id="link-instruction-arrow">&rarr;</p>
@@ -138,12 +137,12 @@ export default class Wiki extends React.Component {
 
         <p id="unit-defn" className="fade-in">
           <span>
-            <a href={this.wikiLink + "Year#SI_prefix_multipliers"} target="_blank" rel="noopener noreferrer">
+            <a href={common.wikiLink + "Year#SI_prefix_multipliers"} target="_blank" rel="noopener noreferrer">
               Ma: 1 million years
             </a>
           </span>
           <span>
-            <a href={this.wikiLink + "Year#SI_prefix_multipliers"} target="_blank" rel="noopener noreferrer">
+            <a href={common.wikiLink + "Year#SI_prefix_multipliers"} target="_blank" rel="noopener noreferrer">
               ka: 1 thousand years
             </a>
           </span>

@@ -66,16 +66,19 @@ export function subjectById(id) {
   });
 }
 
-export function subjectsWithin(from, to, kind, page, subjectId) {
+export function subjectsWithin(from, to, kind, page, subjectId, excludedCategories) {
   return instance({
-    'method':'GET',
+    'method':'POST',
     'url':'/api/subjects',
-    'params': {
-      'from':from,
-      'to':to,
+    'data': {
+      'from': from,
+      'to': to,
       'kind': kind,
       'page': page,
       'subject': subjectId,
+      'excluded': excludedCategories
+    },
+    'params': {
       'outputsize':'compact',
       'datatype':'json'
     },

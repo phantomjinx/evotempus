@@ -38,6 +38,7 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
 
     .subject-visual-legend-title-row {
       flex: 0 0 0;
@@ -71,6 +72,9 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
       width: 100%;
 
       .tabs {
+        .tab-list {
+          font-size: small;
+        }
         .tab-content {
           display: flex;
           flex-direction: column;
@@ -80,6 +84,13 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
             flex: 1 1 1px;
             overflow: auto;
 
+            .subject-legend-content-none-found {
+              text-align: center;
+              width: 100%;
+              font-weight: bold;
+              font-style: italic;
+            }
+
             .subject-visual-legend-items-inner {
               clear: both;
               margin-left: auto;
@@ -88,8 +99,8 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
               li {
                 list-style-type: none;
 
-                .category-checkbox-label {
-                  display: block;
+                div {
+                  display: inline-block;
                   position: relative;
                   cursor: pointer;
 
@@ -104,28 +115,8 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
                       transition: fill .4s linear;
                     }
                   }
-
-                  span {
-                    padding-left: 0.2em;
-                  }
-
-                  input[type="checkbox"] {
-                    position: absolute;
-                    width: 2em;
-                    height: 2em;
-                    opacity: 0.00001;
-                    cursor: pointer;
-                  }
-
-                  input[type="checkbox"]:checked + svg rect {
-                    fill: #eee;
-                    stroke: black;
-                  }
-
-                  input[type="checkbox"]:checked + svg + span {
-                    color: #aaaaaa;
-                  }
                 }
+
               }
             }
           }
@@ -142,7 +133,6 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
         }
       }
     }
-
   }
 }
 

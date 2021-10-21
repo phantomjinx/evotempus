@@ -32,7 +32,8 @@ export default class IntervalVisual extends React.Component {
   }
 
   logErrorState(errorMsg, error) {
-    console.log("Error: " + errorMsg + "\n Detail: " + error);
+    console.log("Error: " + errorMsg + "\nDetail: ");
+    console.log(error);
     this.setState({
       errorMsg: errorMsg,
       error: error,

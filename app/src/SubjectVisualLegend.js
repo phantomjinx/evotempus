@@ -16,13 +16,17 @@ export default class SubjectVisualLegend extends React.Component {
     };
 
     this.state = {
+      keySymbols: [],
       currentPage: 1,
-      totalPerPage: 10
+      totalPerPage: 10,
+      activeTab: ''
     };
 
+    this.close = this.close.bind(this);
+    this.cacheActiveTab = this.cacheActiveTab.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
     this.filterCategory = this.filterCategory.bind(this);
-    this.isFilteredCategory = this.isFilteredCategory.bind(this);
+
   }
 
   //
@@ -32,15 +36,36 @@ export default class SubjectVisualLegend extends React.Component {
   // a single page
   //
   calcTotalPerPage() {
-    const total = Math.min(10, (this.props.height * 0.5) / 40);
-
-    this.setState({
-      totalPerPage: total
-    })
+    return Math.min(10, (this.props.height * 0.5) / 40);
   }
 
   componentDidMount() {
-    this.calcTotalPerPage();
+    let keySymbols = [];
+
+    const colourRange = common.calcColours(this.props.names);
+
+    for (let i = 0; i < this.props.names.length; ++i) {
+      const name = this.props.names[i];
+      const colour = colourRange[i];
+
+      const category = this.props.categories.find(category => {
+        return category.name === name;
+      });
+      const hint = common.getHint(name);
+      const keySymbol = {
+        ...category,
+        ...hint
+      };
+
+      keySymbol.colour = colour;
+      keySymbols.push(keySymbol);
+    }
+
+    this.setState({
+      totalPerPage: this.calcTotalPerPage(),
+      keySymbols: keySymbols,
+      activeTab: this.props.legend.activeTab
+    });
   }
 
   componentDidUpdate(prevProps) {
@@ -49,7 +74,24 @@ export default class SubjectVisualLegend extends React.Component {
       return;
     }
 
-    this.calcTotalPerPage();
+    this.setState({
+      totalPerPage: this.calcTotalPerPage()
+    });
+
+  }
+
+  close() {
+    this.props.onUpdateLegend({
+      activeTab: this.props.legend.activeTab,
+      visible: false
+    });
+  }
+
+  cacheActiveTab(tabName) {
+    this.props.onUpdateLegend({
+      activeTab: tabName,
+      visible: this.props.legend.visible
+    });
   }
 
   handlePageClick(newPage) {
@@ -58,58 +100,71 @@ export default class SubjectVisualLegend extends React.Component {
     })
   }
 
-  filterCategory(e, name) {
-    this.props.onUpdateFilterCategory([name], e.target.checked);
+  filterCategory(e, keySymbol) {
+    this.props.onUpdateFilterCategory([keySymbol.name], !keySymbol.filtered);
   }
 
-  isFilteredCategory(name) {
-    const category = this.props.categories.find(category => {
-      return category.name === name;
-    });
-
-    return category != null ? category.filtered : false;
-  }
-
-  renderKindBlock(title, categories) {
-    const colorRange = common.calcColours(categories);
-
+  renderKindBlock(title, keySymbols) {
     let items = [];
-    if (categories.length === 0) {
-      items.push(
-        <p className="subject-legend-content-none-found">No categories to display</p>
+    if (keySymbols.length === 0) {
+      return (
+        <div label={title} className="subject-visual-legend-paginate">
+          <div className="subject-visual-legend-items">
+            <p className="subject-legend-content-none-found">No categories</p>
+          </div>
+        </div>
       )
     }
 
     const height = (this.props.height * 0.5) / this.state.totalPerPage;
 
-    for (let i = 0; i < categories.length; ++i) {
-      const category = categories[i];
-      const colour = colorRange[i];
+    for (const keySymbol of keySymbols) {
+
+      let symText = "";
+      if (keySymbol.link === '') {
+        symText = (
+          <span style = {{opacity: keySymbol.filtered ? '0.2' : '1'}}>
+            {keySymbol.name}
+          </span>
+        );
+      } else {
+        symText = (
+          <a
+            href = {common.wikiLink + keySymbol.link}
+            style = {{opacity: keySymbol.filtered ? '0.2' : '1'}}
+            target = "_blank" rel="noopener noreferrer">
+            {keySymbol.name}
+          </a>
+        );
+      }
 
       items.push(
-        <li key={category}>
-          <label className="category-checkbox-label">
-            <input type = "checkbox"
-              defaultChecked = { this.isFilteredCategory(category) }
-              onChange = {e => {}}
-              onClick = {(event) => this.filterCategory(event, category)}>
-            </input>
+        <li key={title + '-' + keySymbol.name}>
+
+          <div style = {{height: height + 'px', width: height + 'px'}}
+               onClick = {(event) => this.filterCategory(event, keySymbol)}>
+
             <svg height = {height} width = {height}>
               <defs>
                 <radialGradient cx = "50%" cy = "50%" r = "85%"
-                  id = { "legend-gradient-" + common.identifier(category) }>
-                  <stop offset = "0%" stopColor = { d3Color(colour).brighter().brighter() }/>
-                  <stop offset = "90%" stopColor = {colour}/>
+                  id = { "legend-gradient-" + common.identifier(keySymbol.name) }>
+                  <stop offset = "0%" stopColor = { d3Color(keySymbol.colour).brighter().brighter() }/>
+                  <stop offset = "90%" stopColor = {keySymbol.colour}/>
                 </radialGradient>
               </defs>
               <rect
-                width = {height}
-                height = {height}
-                fill = {"url(#legend-gradient-" + common.identifier(category) + ")"}
+                x = {(height - (height * 0.75)) / 2}
+                y = {(height - (height * 0.75)) / 2}
+                width = {height * 0.75}
+                height = {height * 0.75}
+                fill = {"url(#legend-gradient-" + common.identifier(keySymbol.name) + ")"}
+                strokeWidth = {keySymbol.filtered ? '1' : '0'}
+                stroke = {keySymbol.filtered ? 'black' : ''}
+                opacity = {keySymbol.filtered ? '0.2' : '1'}
               />
             </svg>
-            <span>{category}</span>
-          </label>
+          </div>
+          {symText}
         </li>
       );
     }
@@ -122,7 +177,7 @@ export default class SubjectVisualLegend extends React.Component {
       paginate = (
         <Pagination
           currentPage={this.state.currentPage}
-          totalSize={categories.length}
+          totalSize={keySymbols.length}
           sizePerPage={this.state.totalPerPage}
           changeCurrentPage={this.handlePageClick}
           theme="border-bottom"
@@ -143,20 +198,22 @@ export default class SubjectVisualLegend extends React.Component {
   }
 
   renderKinds() {
+    if (this.state.keySymbols.length === 0) {
+      return;
+    }
+
     let kinds = new Map();
 
     //
     // Create map of kinds from the categories
     //
-    for (const category of this.props.names) {
-      const hint = common.getHint(category);
-      const kind = hint.parent;
-      let items = kinds.get(kind);
-      if (! items) {
-        items = [];
-        kinds.set(kind, items);
-      }
-      items.push(category);
+    for (const kind of common.getKinds()) {
+      kinds.set(kind, []);
+    }
+
+    for (const keySymbol of this.state.keySymbols) {
+      let items = kinds.get(keySymbol.parent);
+      items.push(keySymbol);
     }
 
     // Create the paginated tabs of categories
@@ -166,7 +223,9 @@ export default class SubjectVisualLegend extends React.Component {
     });
 
     return (
-      <Tabs>
+      <Tabs
+        activeTab={this.props.legend.activeTab}
+        onTabClicked={this.cacheActiveTab}>
         {kindTabs}
       </Tabs>
     );
@@ -174,18 +233,17 @@ export default class SubjectVisualLegend extends React.Component {
 
   render() {
     return (
-      <div id="subject-visual-legend" className={this.props.visible ? 'show' : 'hide'}>
+      <div id="subject-visual-legend" className={this.props.legend.visible ? 'show' : 'hide'}>
         <div className="subject-visual-legend-content">
           <div className="subject-visual-legend-title-row">
             <button
               className="subject-visual-legend-closebtn fas fa-times"
-              onClick={this.props.onToggleLegend}>
+              onClick={this.close}>
             </button>
           </div>
           <div className="subject-visual-legend-text">
             <p>
-              Click on each icon to exclude the category.<br/>
-              Click again to restore.
+              Click on the category icon to filter
             </p>
           </div>
           <div className="subject-visual-legend-kinds">

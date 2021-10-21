@@ -1,5 +1,6 @@
 export var million = 1000000;
 export var thousand = 1000;
+export var wikiLink = "https://en.wikipedia.org/wiki/";
 
 export var colourRange = [
   "#18c61a", "#2706de", "#8d070c", "#24b7f1", "#fb7fdd", "#224d22", "#d6a401", "#0c3e9a", "#cea194", "#17c28a",

@@ -15,8 +15,22 @@ class Tabs extends Component {
     };
   }
 
+  componentDidMount() {
+    const child = this.props.children.find(child => {
+      return child.props && child.props.label === this.props.activeTab;
+    });
+
+    if (child) {
+      this.setState({activeTab: child.props.label})
+    }
+  }
+
   onClickTabItem = (tab) => {
     this.setState({ activeTab: tab });
+
+    if (this.props.onTabClicked) {
+      this.props.onTabClicked(tab);
+    }
   }
 
   render() {

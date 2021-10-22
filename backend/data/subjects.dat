@@ -78,191 +78,242 @@ Fusulinida                               | Micro     | Retaria                  
 Francevillian-biota                      | Micro     | Early Form of Life         | -2150000000   | -2050000000  | Francevillian_biota                                 | <>
 Arcellinida                              | Micro     | Amoebozoa                  | -720000000    | 2030         | Arcellinida                                         | <>
 Bangiomorpha                             | Plant     | Algae                      | -1064000000   | -1030000000  | Bangiomorpha                                        | <>
-Conifer                                  | Plant     | Pinophyta                  | -358900000    | 2030         | Conifer                                             | <>
-Pine-tree                                | Plant     | Pinophyta                  | -130000000    | 2030         | Pinaceae                                            | <>
-Haikouichthys                            | Animal    | Agnatha                    | -535000000    | -520000000   | Haikouichthys                                       | <>
-Acanthostega                             | Animal    | Amphibian                  | -365000000    | -360000000   | Acanthostega                                        | <>
-Hynerpeton                               | Animal    | Amphibian                  | -365000000    | -363000000   | Hynerpeton                                          | <>
-Ichthyostega                             | Animal    | Amphibian                  | -365000000    | -360000000   | Ichthyostega                                        | <>
-Proterogyrinus                           | Animal    | Amphibian                  | -331000000    | -323000000   | Proterogyrinus                                      | <>
-Rhinesuchus                              | Animal    | Amphibian                  | -272950000    | -259100000   | Rhinesuchus                                         | <>
-Koolasuchus                              | Animal    | Amphibian                  | -120500000    | -119500000   | Koolasuchus                                         | <>
-Hylidae                                  | Animal    | Amphibian                  | -70600000     | 2030         | Hylidae                                             | <>
-Seymouria                                | Animal    | Amphibian                  | -298900000    | -290000000   | Seymouria                                           | <>
-Trilobite                                | Animal    | Arthropoda                 | -521000000    | -251902000   | Trilobite                                           | <>
-Anomalocaris                             | Animal    | Arthropoda                 | -520000000    | -499000000   | Anomalocaris                                        | <>
-Eurypterid                               | Animal    | Arthropoda                 | -467300000    | -251900000   | Eurypterid                                          | <>
-Pterygotus                               | Animal    | Arthropoda                 | -428000000    | -372200000   | Pterygotus                                          | <>
-Brontoscorpio                            | Animal    | Arthropoda                 | -416000000    | -412300000   | Brontoscorpio                                       | <>
-Jaekelopterus                            | Animal    | Arthropoda                 | -410800000    | -402500000   | Jaekelopterus                                       | <>
-Alkenopterus                             | Animal    | Arthropoda                 | -409000000    | -402500000   | Alkenopterus                                        | <>
-Adelophthalmus                           | Animal    | Arthropoda                 | -407600000    | -283500000   | Adelophthalmus                                      | <>
-Arthropleura                             | Animal    | Arthropoda                 | -345000000    | -295000000   | Arthropleura                                        | <>
-Mesothelae                               | Animal    | Arthropoda                 | -323200000    | 2030         | Mesothelae                                          | <>
-Mesolimulus                              | Animal    | Arthropoda                 | -242000000    | -93900000    | Mesolimulus                                         | <>
-Giant-wētā                               | Animal    | Arthropoda                 | -106000000    | 2030         | Giant_wētā                                          | <>
+Conifer                                  | Plant     | Pinophyta                  | -358900000    | 2030         | Conifer                                             | Tree,Walking-With-Monsters
+Pine-tree                                | Plant     | Pinophyta                  | -130000000    | 2030         | Pinaceae                                            | Tree
+Haikouichthys                            | Animal    | Chordata                   | -516000000    | -520000000   | Haikouichthys                                       | Agnatha,Walking-With-Monsters
+Acanthostega                             | Animal    | Chordata                   | -364700000    | -360700000   | Acanthostega                                        | Amphibian,Walking-With-Monsters
+Hynerpeton                               | Animal    | Chordata                   | -364700000    | -360700000   | Hynerpeton                                          | Amphibian,Walking-With-Monsters
+Ichthyostega                             | Animal    | Chordata                   | -364700000    | -360700000   | Ichthyostega                                        | Amphibian,Walking-With-Monsters
+Proterogyrinus                           | Animal    | Chordata                   | -326400000    | -318100000   | Proterogyrinus                                      | Amphibian,Walking-With-Monsters
+Rhinesuchus                              | Animal    | Chordata                   | -252170000    | -247200000   | Rhinesuchus                                         | Amphibian,Walking-With-Monsters
+Koolasuchus                              | Animal    | Chordata                   | -122460000    | -112030000   | Koolasuchus                                         | Amphibian,Walking-With-Dinosaurs
+Seymouria                                | Animal    | Chordata                   | -290100000    | -279300000   | Seymouria                                           | Amphibian,Walking-With-Monsters
+Eoredlichia                              | Animal    | Arthropoda                 | -516000000    | -513000000   | Eoredlichia                                         | Trilobite
+Buenellus                                | Animal    | Arthropoda                 | -530000000    | -516000000   | Buenellus                                           | Trilobite
+Olenellus                                | Animal    | Arthropoda                 | -513000000    | -501000000   | Olenellus                                           | Trilobite
+Ellipsocephalus                          | Animal    | Arthropoda                 | -530000000    | -513000000   | Ellipsocephalus                                     | Trilobite
+Elrathia                                 | Animal    | Arthropoda                 | -501000000    | -485400000   | Elrathia                                            | Trilobite
+Paradoxides                              | Animal    | Arthropoda                 | -513000000    | -498500000   | Paradoxides                                         | Trilobite
+Peronopsis                               | Animal    | Arthropoda                 | -501000000    | -485400000   | Peronopsis                                          | Trilobite
+Xiuqiella                                | Animal    | Arthropoda                 | -516000000    | -513000000   | Xiuqiella                                           | Trilobite
+Yiliangella                              | Animal    | Arthropoda                 | -516000000    | -513000000   | Yiliangella                                         | Trilobite
+Olenus                                   | Animal    | Arthropoda                 | -501000000    | -485400000   | <>                                                  | Trilobite
+Cyclopyge                                | Animal    | Arthropoda                 | -471800000    | -468100000   | Cyclopyge                                           | Trilobite
+Selenopeltis                             | Animal    | Arthropoda                 | -440800000    | -438500000   | Selenopeltis                                        | Trilobite
+Cheirurus                                | Animal    | Arthropoda                 | -440800000    | -438500000   | Cheirurus                                           | Trilobite
+Eodalmanitina                            | Animal    | Arthropoda                 | -470000000    | -458400000   | Eodalmanitina                                       | Trilobite
+Triarthrus                               | Animal    | Arthropoda                 | -468100000    | -460900000   | Triarthrus                                          | Trilobite
+Dalmanites                               | Animal    | Arthropoda                 | -440800000    | -433400000   | Dalmanites                                          | Trilobite,Walking-With-Monsters
+Calymene                                 | Animal    | Arthropoda                 | -439000000    | -428200000   | Calymene                                            | Trilobite,Walking-With-Monsters
+Encrinurus                               | Animal    | Arthropoda                 | -439000000    | -428200000   | Encrinurus                                          | Trilobite,Walking-With-Monsters
+Exallaspis                               | Animal    | Arthropoda                 | -440800000    | -433400000   | <>                                                  | Trilobite,Walking-With-Monsters
+Paralejurus                              | Animal    | Arthropoda                 | -393300000    | -387700000   | Paralejurus                                         | Trilobite,Walking-With-Monsters
+Lioharpes                                | Animal    | Arthropoda                 | -393300000    | -387700000   | <>                                                  | Trilobite,Walking-With-Monsters
+Phacops                                  | Animal    | Arthropoda                 | -440800000    | -433400000   | Phacops                                             | Trilobite,Walking-With-Monsters
+Archegonus                               | Animal    | Arthropoda                 | -336000000    | -326400000   | <>                                                  | Trilobite
+Hesslerides                              | Animal    | Arthropoda                 | -353800000    | -336000000   | <>                                                  | Trilobite
+Endops                                   | Animal    | Arthropoda                 | -265100000    | -259900000   | Endops                                              | Trilobite
+Triproetus                               | Animal    | Arthropoda                 | -290100000    | -279300000   | Triproetus                                          | Trilobite
+Ditomopyge                               | Animal    | Arthropoda                 | -290100000    | -279300000   | <>                                                  | Trilobite
+Anomalocaris                             | Animal    | Arthropoda                 | -513000000    | -498500000   | Anomalocaris                                        | Arthropod,Walking-With-Monsters
+Pterygotus                               | Animal    | Arthropoda                 | -443400000    | -419200000   | Pterygotus                                          | Arthropod,Sea-Scorpion,Walking-With-Monsters
+Brontoscorpio                            | Animal    | Arthropoda                 | -419200000    | -410800000   | Brontoscorpio                                       | Arthropod,Walking-With-Monsters
+Jaekelopterus                            | Animal    | Arthropoda                 | -409100000    | -402500000   | Jaekelopterus                                       | Arthropod,Walking-With-Monsters
+Alkenopterus                             | Animal    | Arthropoda                 | -409100000    | -402500000   | Alkenopterus                                        | Arthropod,Walking-With-Monsters
+Adelophthalmus                           | Animal    | Arthropoda                 | -318100000    | -314600000   | Adelophthalmus                                      | Arthropod,Walking-With-Monsters
+Arthropleura                             | Animal    | Arthropoda                 | -318100000    | -306950000   | Arthropleura                                        | Arthropod,Walking-With-Monsters
+Palaeothele                              | Animal    | Arthropoda                 | -304800000    | -303400000   | Palaeothele                                         | Arthropod,Mesothelae,Walking-With-Monsters
+Mesolimulus                              | Animal    | Arthropoda                 | -99600000     | -93500000    | Mesolimulus                                         | Arthropod,Walking-With-Dinosaurs
+Deinacrida                               | Animal    | Arthropoda                 | -106000000    | 2030         | Giant_wētā                                          | Giant_wētā,Walking-With-Dinosaurs
 Kimberella                               | Animal    | Bilaterian                 | -558000000    | -541000000   | Kimberella                                          | <>
-Gastornis                                | Animal    | Bird                       | -56000000     | -45000000    | Gastornis                                           | <>
-Archaeopteryx                            | Animal    | Bird                       | -150800000    | -148500000   | Archaeopteryx                                       | <>
-Iberomesornis                            | Animal    | Bird                       | -72000000     | 2030         | Iberomesornis                                       | <>
-Perisphinctes                            | Animal    | Cephalopod                 | -247200000    | -237000000   | Perisphinctes                                       | <>
-Endocerida                               | Animal    | Cephalopod                 | -477700000    | -443800000   | Endocerida                                          | <>
-Cylindroteuthis                          | Animal    | Cephalopod                 | -201300000    | -145000000   | Cylindroteuthis                                     | <>
-Coral                                    | Animal    | Cnidaria                   | -535000000    | 2030         | Coral                                               | <>
-Jellyfish                                | Animal    | Cnidaria                   | -635000000    | 2030         | Jellyfish                                           | <>
-Utahraptor                               | Animal    | Dinosaur                   | -139000000    | -134600000   | Utahraptor                                          | <>
-Polacanthus                              | Animal    | Dinosaur                   | -130000000    | -125000000   | Polacanthus                                         | <>
-Plateosaurus                             | Animal    | Dinosaur                   | -214000000    | -204000000   | Plateosaurus                                        | <>
-Coelophysis                              | Animal    | Dinosaur                   | -212000000    | -196000000   | Coelophysis                                         | <>
-Dakotadon                                | Animal    | Dinosaur                   | -129400000    | -125000000   | Dakotadon                                           | <>
-Eustreptospondylus                       | Animal    | Dinosaur                   | -163000000    | -154000000   | Eustreptospondylus                                  | <>
-Allosaurus                               | Animal    | Dinosaur                   | -155000000    | -145000000   | Allosaurus                                          | <>
-Dryosaurus                               | Animal    | Dinosaur                   | -155000000    | -145000000   | Dryosaurus                                          | <>
-Stegosaurus                              | Animal    | Dinosaur                   | -155000000    | -150000000   | Stegosaurus                                         | <>
-Brachiosaurus                            | Animal    | Dinosaur                   | -154000000    | -153000000   | Brachiosaurus                                       | <>
-Diplodocus                               | Animal    | Dinosaur                   | -154000000    | -152000000   | Diplodocus                                          | <>
-Ornitholestes                            | Animal    | Dinosaur                   | -154000000    | -154000000   | Ornitholestes                                       | <>
-Iguanodon                                | Animal    | Dinosaur                   | -126000000    | -122000000   | Iguanodon                                           | <>
-Deinonychus                              | Animal    | Dinosaur                   | -115000000    | -108000000   | Deinonychus                                         | <>
-Leaellynasaura                           | Animal    | Dinosaur                   | -113000000    | -110000000   | Leaellynasaura                                      | <>
-Dreadnoughtus                            | Animal    | Dinosaur                   | -86300000     | -66000000    | Dreadnoughtus                                       | <>
-Muttaburrasaurus                         | Animal    | Dinosaur                   | -107000000    | -103000000   | Muttaburrasaurus                                    | <>
-Protoceratops                            | Animal    | Dinosaur                   | -83500000     | -70600000    | Protoceratops                                       | <>
-Dromaeosaurus                            | Animal    | Dinosaur                   | -80000000     | -69100000    | Dromaeosaurus                                       | <>
-Ornithomimus                             | Animal    | Dinosaur                   | -75500000     | -66000000    | Ornithomimus                                        | <>
-Struthiomimus                            | Animal    | Dinosaur                   | -75000000     | -66000000    | Struthiomimus                                       | <>
-Velociraptor                             | Animal    | Dinosaur                   | -75000000     | -71000000    | Velociraptor                                        | <>
-Rahiolisaurus                            | Animal    | Dinosaur                   | -72100000     | -66000000    | Rahiolisaurus                                       | <>
-Albertosaurus                            | Animal    | Dinosaur                   | -71000000     | -68000000    | Albertosaurus                                       | <>
-Gallimimus                               | Animal    | Dinosaur                   | -70000000     | -70000000    | Gallimimus                                          | <>
-Tarbosaurus                              | Animal    | Dinosaur                   | -70000000     | -66000000    | Tarbosaurus                                         | <>
-Rajasaurus                               | Animal    | Dinosaur                   | -69000000     | -69000000    | Rajasaurus                                          | <>
-Ankylosaurus                             | Animal    | Dinosaur                   | -68000000     | -66000000    | Ankylosaurus                                        | <>
-Edmontosaurus                            | Animal    | Dinosaur                   | -68000000     | -66000000    | Edmontosaurus_annectens                             | <>
-Thescelosaurus                           | Animal    | Dinosaur                   | -68000000     | -66000000    | Thescelosaurus                                      | <>
-Torosaurus                               | Animal    | Dinosaur                   | -68000000     | -66000000    | Torosaurus                                          | <>
-Lungfish                                 | Animal    | Fish                       | -419200000    | 2030         | Lungfish                                            | <>
-Cephalaspis                              | Animal    | Fish                       | -415000000    | -398000000   | Cephalaspis                                         | <>
-Hybodus                                  | Animal    | Fish                       | -260000000    | -66000000    | Hybodus                                             | <>
-Leptolepis                               | Animal    | Fish                       | -242000000    | -112600000   | Leptolepis                                          | <>
-Eusthenopteron                           | Animal    | Fish                       | -385000000    | -377000000   | Eusthenopteron                                      | <>
-Panderichthys                            | Animal    | Fish                       | -385000000    | -377000000   | Panderichthys                                       | <>
-Stethacanthus                            | Animal    | Fish                       | -382700000    | -298900000   | Stethacanthus                                       | <>
-Tiktaalik                                | Animal    | Fish                       | -380000000    | -370000000   | Tiktaalik                                           | <>
-Hyneria                                  | Animal    | Fish                       | -372200000    | -358900000   | Hyneria                                             | <>
-Peteinosaurus                            | Animal    | Flying Reptile             | -221000000    | -210000000   | Peteinosaurus                                       | <>
-Pterodactylus                            | Animal    | Flying Reptile             | -150800000    | -148500000   | Pterodactylus                                       | <>
-Anurognathus                             | Animal    | Flying Reptile             | -150800000    | -148500000   | Anurognathus                                        | <>
-Rhamphorhynchus                          | Animal    | Flying Reptile             | -150800000    | -148500000   | Rhamphorhynchus                                     | <>
-Tapejara                                 | Animal    | Flying Reptile             | -112500000    | -111500000   | Tapejara_wellnhoferi                                | <>
-Ornithocheirus                           | Animal    | Flying Reptile             | -105000000    | -100000000   | Ornithocheirus                                      | <>
-Pteranodon                               | Animal    | Flying Reptile             | -86000000     | -84500000    | Pteranodon                                          | <>
-Nyctosaurus                              | Animal    | Flying Reptile             | -85000000     | -84500000    | Nyctosaurus                                         | <>
-Quetzalcoatlus                           | Animal    | Flying Reptile             | -68000000     | -66000000    | Quetzalcoatlus                                      | <>
-Ardipithecus-kadabba                     | Animal    | Hominid                    | -6500000      | -5500000     | Ardipithecus_kadabba                                | <>
-Ardipithecus-ramidus                     | Animal    | Hominid                    | -4510000      | -4320000     | Ardipithecus_ramidus                                | <>
-Australopithecus-anamensis               | Animal    | Hominid                    | -4200000      | -3800000     | Australopithecus_anamensis                          | <>
-Australopithecus-afarensis               | Animal    | Hominid                    | -3900000      | -2900000     | Australopithecus_afarensis                          | <>
-Australopithecus-africanus               | Animal    | Hominid                    | -3670000      | -2000000     | Australopithecus_africanus                          | <>
-Australopithecus-bahrelghazali           | Animal    | Hominid                    | -3500000      | -2800000     | Australopithecus_bahrelghazali                      | <>
-Australopithecus-deyiremeda              | Animal    | Hominid                    | -3500000      | -3300000     | Australopithecus_deyiremeda                         | <>
-Kenyanthropus                            | Animal    | Hominid                    | -3500000      | -3200000     | Kenyanthropus                                       | <>
-Ld-350-1                                 | Animal    | Hominid                    | -2800000      | -2750000     | LD_350-1                                            | <>
-Paranthropus-aethiopicus                 | Animal    | Hominid                    | -2700000      | -2300000     | Paranthropus_aethiopicus                            | <>
-Australopithecus-garhi                   | Animal    | Hominid                    | -2600000      | -2500000     | Australopithecus_garhi                              | <>
-Homo-habilis                             | Animal    | Hominid                    | -2310000      | -1650000     | Homo_habilis                                        | <>
-Homo-rudolfensis                         | Animal    | Hominid                    | -2310000      | -1550000     | Homo_rudolfensis                                    | <>
-Paranthropus-boisei                      | Animal    | Hominid                    | -2300000      | -1340000     | Paranthropus_boisei                                 | <>
-Homo-erectus                             | Animal    | Hominid                    | -2000000      | -600000      | Homo_ergaster                                       | <>
-Paranthropus-robustus                    | Animal    | Hominid                    | -2000000      | -600000      | Paranthropus_robustus                               | <>
-Australopithecus-sediba                  | Animal    | Hominid                    | -1980000      | -1950000     | Australopithecus_sediba                             | <>
-Homo-heidelbergensis                     | Animal    | Hominid                    | -600000       | -200000      | Homo_heidelbergensis                                | <>
-Homo-neanderthalensis                    | Animal    | Hominid                    | -430000       | -40000       | Neanderthal                                         | <>
-Homo-naledi                              | Animal    | Hominid                    | -335000       | -236000      | Homo_naledi                                         | <>
-Homo-sapien                              | Animal    | Hominid                    | -300000       |  2000        | Human                                               | <>
-Butterflies                              | Animal    | Insect                     | -56000000     | 2030         | Butterfly                                           | <>
-Cricket                                  | Animal    | Insect                     | -251902000    | 2030         | Cricket_(insect)                                    | <>
-Meganeura                                | Animal    | Insect                     | -305000000    | -299000000   | Meganeura                                           | <>
-Damselfly                                | Animal    | Insect                     | -271000000    | 2030         | Damselfly                                           | <>
-Dragonfly                                | Animal    | Insect                     | -201300000    | 2030         | Dragonfly                                           | <>
-Wasp                                     | Animal    | Insect                     | -201300000    | 2030         | Wasp                                                | <>
-Saurophthirus                            | Animal    | Insect                     | -145000000    | -100500000   | Saurophthirus                                       | <>
-Bark-beetle                              | Animal    | Insect                     | -129400000    | 2030         | Bark_beetle                                         | <>
-Titanomyrma                              | Animal    | Insect                     | -50500000     | -48500000    | Titanomyrma                                         | <>
-Arctocyonidae                            | Animal    | Mammal                     | -66000000     | -50000000    | Arctocyonidae                                       | <>
-Chriacus                                 | Animal    | Mammal                     | -66000000     | -33900000    | Chriacus                                            | <>
-Didelphodon                              | Animal    | Mammal                     | -73000000     | -66000000    | Didelphodon                                         | <>
-Dissacus                                 | Animal    | Mammal                     | -66000000     | -50300000    | Dissacus                                            | <>
-Purgatorius                              | Animal    | Mammal                     | -66000000     | -63000000    | Purgatorius                                         | <>
-Triisodontidae                           | Animal    | Mammal                     | -66000000     | -33900000    | Triisodontidae                                      | <>
-Yantanglestes                            | Animal    | Mammal                     | -66000000     | -56000000    | Yantanglestes                                       | <>
-Ankalagon                                | Animal    | Mammal                     | -63300000     | -60200000    | Ankalagon_saurognathus                              | <>
-Hukoutherium                             | Animal    | Mammal                     | -61600000     | -41200000    | Hukoutherium                                        | <>
-Jiangxia                                 | Animal    | Mammal                     | -61600000     | -56000000    | Jiangxia_(mammal)                                   | <>
-Miacis                                   | Animal    | Mammal                     | -59200000     | -33900000    | Miacis                                              | <>
-Pachyaena                                | Animal    | Mammal                     | -59200000     | -47800000    | Pachyaena                                           | <>
-Uintacyon                                | Animal    | Mammal                     | -59200000     | -41200000    | Uintacyon                                           | <>
-Sinonyx                                  | Animal    | Mammal                     | -57000000     | -56000000    | Sinonyx                                             | <>
-Palaeonictis                             | Animal    | Mammal                     | -56200000     | -50500000    | Palaeonictis                                        | <>
-Dormaalocyon                             | Animal    | Mammal                     | -56000000     | -47800000    | Dormaalocyon                                        | <>
-Eofelis                                  | Animal    | Mammal                     | -56000000     | -20440000    | Eofelis                                             | <>
-Godinotia                                | Animal    | Mammal                     | -56000000     | -47800000    | Godinotia                                           | <>
-Gracilocyon                              | Animal    | Mammal                     | -56000000     | -47800000    | Gracilocyon                                         | <>
-Hapalodectes                             | Animal    | Mammal                     | -56000000     | -47800000    | Hapalodectes                                        | <>
-Hapalorestes                             | Animal    | Mammal                     | -56000000     | -41200000    | Hapalorestes                                        | <>
-Mesonyx                                  | Animal    | Mammal                     | -56000000     | -33900000    | Mesonyx                                             | <>
-Messelogale                              | Animal    | Mammal                     | -56000000     | -37800000    | Messelogale                                         | <>
-Metahapalodectes                         | Animal    | Mammal                     | -56000000     | -33900000    | Metahapalodectes                                    | <>
-Gypsonictops                             | Animal    | Mammal                     | -100500000    | -66000000    | Gypsonictops                                        | <>
-Meniscoessus                             | Animal    | Mammal                     | -100500000    | -66000000    | Meniscoessus                                        | <>
-Steropodon                               | Animal    | Mammal                     | -100500000    | -93300000    | Steropodon                                          | <>
-Miocyon                                  | Animal    | Mammal                     | -56000000     | -37800000    | Miocyon                                             | <>
-Mongolestes                              | Animal    | Mammal                     | -56000000     | -23030000    | Mongolestes                                         | <>
-Oxyaena                                  | Animal    | Mammal                     | -56000000     | -50300000    | Oxyaena                                             | <>
-Paramiacis                               | Animal    | Mammal                     | -56000000     | -33900000    | Paramiacis                                          | <>
-Propalaeotherium                         | Animal    | Mammal                     | -56000000     | -33900000    | Propalaeotherium                                    | <>
-Quercygale                               | Animal    | Mammal                     | -56000000     | -33900000    | Quercygale                                          | <>
-Vassacyon                                | Animal    | Mammal                     | -56000000     | -41200000    | Vassacyon                                           | <>
-Vulpavus                                 | Animal    | Mammal                     | -56000000     | -37800000    | Vulpavus                                            | <>
-Machaeroides                             | Animal    | Mammal                     | -54900000     | -46200000    | Machaeroides                                        | <>
-Mesonyx                                  | Animal    | Mammal                     | -51800000     | -51700000    | Mesonyx                                             | <>
-Cynohyaenodon                            | Animal    | Mammal                     | -50800000     | -37800000    | Cynohyaenodon                                       | <>
-Eurotherium                              | Animal    | Mammal                     | -50800000     | -41200000    | Eurotherium                                         | <>
-Patriofelis                              | Animal    | Mammal                     | -50500000     | -39700000    | Patriofelis                                         | <>
-Leptictidium                             | Animal    | Mammal                     | -50000000     | -35000000    | Leptictidium                                        | <>
-Paroodectes                              | Animal    | Mammal                     | -48600000     | -40400000    | Paroodectes                                         | <>
-Sarkastodon                              | Animal    | Mammal                     | -48600000     | -37200000    | Sarkastodon                                         | <>
-Dawsonicyon                              | Animal    | Mammal                     | -47800000     | -37800000    | Dawsonicyon                                         | <>
-Eurotamandua                             | Animal    | Mammal                     | -47800000     | -46300000    | Eurotamandua                                        | <>
-Lohoodon                                 | Animal    | Mammal                     | -47800000     | -37800000    | Lohoodon                                            | <>
-Mongolonyx                               | Animal    | Mammal                     | -47800000     | -27800000    | Mongolonyx                                          | <>
-Synoplotherium                           | Animal    | Mammal                     | -47800000     | -33900000    | Synoplotherium                                      | <>
-Lycophocyon                              | Animal    | Mammal                     | -43000000     | -40000000    | Lycophocyon                                         | <>
-Hyaenodon                                | Animal    | Mammal                     | -42000000     | -15970000    | Hyaenodon                                           | <>
-Harpagolestes                            | Animal    | Mammal                     | -41200000     | -33900000    | Harpagolestes                                       | <>
-Honanodon                                | Animal    | Mammal                     | -41200000     | -33900000    | Honanodon                                           | <>
-Guilestes                                | Animal    | Mammal                     | -37800000     | -33900000    | Guilestes                                           | <>
-Maofelis                                 | Animal    | Mammal                     | -37800000     | -33900000    | Maofelis                                            | <>
-Dinictis                                 | Animal    | Mammal                     | -37200000     | -20400000    | Dinictis                                            | <>
-Entelodont                               | Animal    | Mammal                     | -37200000     | -19000000    | Entelodont                                          | <>
-Hoplophoneus                             | Animal    | Mammal                     | -35000000     | -29000000    | Hoplophoneus                                        | <>
-Nanosmilus                               | Animal    | Mammal                     | -33900000     | -27800000    | Nanosmilus                                          | <>
-Palaeogale                               | Animal    | Mammal                     | -33900000     | -15970000    | Palaeogale                                          | <>
-Pogonodon                                | Animal    | Mammal                     | -33900000     | -23030000    | Pogonodon                                           | <>
-Quercylurus                              | Animal    | Mammal                     | -33900000     | -23030000    | Quercylurus                                         | <>
-Nimravus                                 | Animal    | Mammal                     | -33300000     | -26300000    | Nimravus                                            | <>
-Dinaelurus                               | Animal    | Mammal                     | -30800000     | -20600000    | Dinaelurus                                          | <>
-Dinailurictis                            | Animal    | Mammal                     | -27800000     | -23030000    | Dinailurictis                                       | <>
-Hyainailouros                            | Animal    | Mammal                     | -23030000     | -5333000     | Hyainailouros                                       | <>
-Ambulocetus                              | Animal    | Marine Mammal              | -48000000     | -47000000    | Ambulocetus                                         | <>
-Cryptoclidus                             | Animal    | Marine Reptile             | -166000000    | -160000000   | Cryptoclidus                                        | <>
-Liopleurodon                             | Animal    | Marine Reptile             | -166000000    | -155000000   | Liopleurodon                                        | <>
-Ophthalmosaurus                          | Animal    | Marine Reptile             | -165000000    | -160000000   | Ophthalmosaurus                                     | <>
-Plesiosauroidea                          | Animal    | Marine Reptile             | -210000000    | -66000000    | Plesiosauroidea                                     | <>
-Ichthyosaur                              | Animal    | Marine Reptile             | -250000000    | -90000000    | Ichthyosaur                                         | <>
-Pliosauroidea                            | Animal    | Marine Reptile             | -208000000    | -893000000   | Pliosauroidea                                       | <>
-Sea-turtle                               | Animal    | Marine Reptile             | -110000000    | 2030         | Sea_turtle                                          | <>
-Plesiopleurodon                          | Animal    | Marine Reptile             | -98500000     | -97500000    | Plesiopleurodon                                     | <>
+Gastornis                                | Animal    | Chordata                   | -55800000     | -48600000    | Gastornis                                           | Bird,Aves,Walking-With-Beasts
+Archaeopteryx                            | Animal    | Chordata                   | -150800000    | -145000000   | Archaeopteryx                                       | Bird,Aves,Walking-With-Dinosaurs
+Iberomesornis                            | Animal    | Chordata                   | -130000000    | -125450000   | Iberomesornis                                       | Bird,Aves,Walking-With-Dinosaurs
+Perisphinctes                            | Animal    | Mollusca                   | -150800000    | -145000000   | Perisphinctes                                       | Cephalopod,Walking-With-Dinosaurs
+Cylindroteuthis                          | Animal    | Mollusca                   | -150800000    | -145000000   | Cylindroteuthis                                     | Cephalopod,Walking-With-Dinosaurs
+Coralliobia                              | Animal    | Mollusca                   | -126000       | -11700       | Coral                                               | <>
+Utahraptor                               | Animal    | Chordata                   | -139800000    | -132900000   | Utahraptor                                          | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Polacanthus                              | Animal    | Chordata                   | -105300000    | -99600000    | Polacanthus                                         | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Plateosaurus                             | Animal    | Chordata                   | -201300000    | -199300000   | Plateosaurus                                        | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Coelophysis                              | Animal    | Chordata                   | -199300000    | -182700000   | Coelophysis                                         | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Dakotadon                                | Animal    | Chordata                   | -139800000    | -132900000   | Dakotadon                                           | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Eustreptospondylus                       | Animal    | Chordata                   | -164700000    | -161200000   | Eustreptospondylus                                  | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Allosaurus                               | Animal    | Chordata                   | -99600000     | -89300000    | Allosaurus                                          | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Dryosaurus                               | Animal    | Chordata                   | -150800000    | -145000000   | Dryosaurus                                          | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Stegosaurus                              | Animal    | Chordata                   | -150800000    | -145000000   | Stegosaurus                                         | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Brachiosaurus                            | Animal    | Chordata                   | -150800000    | -145000000   | Brachiosaurus                                       | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Diplodocus                               | Animal    | Chordata                   | -150800000    | -145000000   | Diplodocus                                          | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Ornitholestes                            | Animal    | Chordata                   | -155700000    | -145000000   | Ornitholestes                                       | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Iguanodon                                | Animal    | Chordata                   | -83600000     | -66000000    | Iguanodon                                           | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Deinonychus                              | Animal    | Chordata                   | -145000000    | -129400000   | Deinonychus                                         | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Leaellynasaura                           | Animal    | Chordata                   | -122460000    | -109000000   | Leaellynasaura                                      | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Dreadnoughtus                            | Animal    | Chordata                   | -83600000     | -66000000    | Dreadnoughtus                                       | Dinosaur,Dinosauria
+Muttaburrasaurus                         | Animal    | Chordata                   | -105300000    | -93500000    | Muttaburrasaurus                                    | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Protoceratops                            | Animal    | Chordata                   | -100500000    | -66000000    | Protoceratops                                       | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Dromaeosaurus                            | Animal    | Chordata                   | -70600000     | -66000000    | Dromaeosaurus                                       | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Ornithomimus                             | Animal    | Chordata                   | -70600000     | -66000000    | Ornithomimus                                        | Dinosaur,Dinosauria
+Struthiomimus                            | Animal    | Chordata                   | -70600000     | -66000000    | Struthiomimus                                       | Dinosaur,Dinosauria
+Velociraptor                             | Animal    | Chordata                   | -100500000    | -66000000    | Velociraptor                                        | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Rahiolisaurus                            | Animal    | Chordata                   | -72100000     | -66000000    | Rahiolisaurus                                       | Dinosaur,Dinosauria
+Albertosaurus                            | Animal    | Chordata                   | -70600000     | -66000000    | Albertosaurus                                       | Dinosaur,Dinosauria
+Gallimimus                               | Animal    | Chordata                   | -72100000     | -66000000    | Gallimimus                                          | Dinosaur,Dinosauria
+Tarbosaurus                              | Animal    | Chordata                   | -70600000     | -66000000    | Tarbosaurus                                         | Dinosaur,Dinosauria
+Rajasaurus                               | Animal    | Chordata                   | -72100000     | -66000000    | Rajasaurus                                          | Dinosaur,Dinosauria
+Ankylosaurus                             | Animal    | Chordata                   | -70600000     | -66000000    | Ankylosaurus                                        | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Edmontosaurus                            | Animal    | Chordata                   | -70600000     | -66000000    | Edmontosaurus                                       | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Thescelosaurus                           | Animal    | Chordata                   | -70600000     | -66000000    | Thescelosaurus                                      | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Torosaurus                               | Animal    | Chordata                   | -70600000     | -66000000    | Torosaurus                                          | Dinosaur,Dinosauria,Walking-With-Dinosaurs
+Uranolophus                              | Animal    | Chordata                   | -407600000    | -393300000   | Uranolophus                                         | Fish,Lungfish
+Melanognathus                            | Animal    | Chordata                   | -407600000    | -393300000   | Melanognathus                                       | Fish,Lungfish
+Diabolepis                               | Animal    | Chordata                   | -419200000    | -410800000   | Diabolepis                                          | Fish,Lungfish
+Dipnorhynchus                            | Animal    | Chordata                   | -409100000    | -391900000   | Dipnorhynchus                                       | Fish,Lungfish
+Ganorhynchus                             | Animal    | Chordata                   | -372200000    | -358900000   | Ganorhynchus                                        | Fish,Lungfish
+Chirodipterus                            | Animal    | Chordata                   | -393300000    | -382700000   | Chirodipterus                                       | Fish,Lungfish
+Amadeodipterus                           | Animal    | Chordata                   | -407600000    | -387700000   | Amadeodipterus                                      | Fish,Lungfish
+Conchodus                                | Animal    | Chordata                   | -382700000    | -358900000   | Conchodus                                           | Fish,Lungfish
+Dipterus                                 | Animal    | Chordata                   | -364700000    | -360700000   | Dipterus                                            | Fish,Lungfish
+Soederberghia                            | Animal    | Chordata                   | -372200000    | -358900000   | Soederberghia                                       | Fish,Lungfish
+Ctenodus                                 | Animal    | Chordata                   | -358900000    | -346700000   | Ctenodus                                            | Fish,Lungfish
+Ceratodus                                | Animal    | Chordata                   | -105300000    | -93500000    | Ceratodus                                           | Fish,Lungfish,Walking-With-Dinosaurs
+Sagenodus                                | Animal    | Chordata                   | -247200000    | -242000000   | Sagenodus                                           | Fish,Lungfish
+Gnathorhiza                              | Animal    | Chordata                   | -290100000    | -268000000   | Gnathorhiza                                         | Fish,Lungfish
+Monongahela                              | Animal    | Chordata                   | -298900000    | -295500000   | Monongahela_(fish)                                  | Fish,Lungfish
+Beltanodus                               | Animal    | Chordata                   | -252170000    | -247200000   | Beltanodus                                          | Fish,Lungfish
+Microceratodus                           | Animal    | Chordata                   | -252170000    | -247200000   | Microceratodus                                      | Fish,Lungfish
+Ptychoceratodus                          | Animal    | Chordata                   | -174100000    | -163500000   | Ptychoceratodus                                     | Fish,Lungfish
+Lepidosiren                              | Animal    | Chordata                   | -66000000     | -61600000    | Lepidosiren                                         | Fish,Lungfish
+Protopterus                              | Animal    | Chordata                   | -23030000     | -15970000    | Protopterus                                         | Fish,Lungfish
+Cephalaspis                              | Animal    | Chordata                   | -415000000    | -398000000   | Cephalaspis                                         | Fish,Walking-With-Monsters
+Hybodus                                  | Animal    | Chordata                   | -247200000    | -237000000   | Hybodus                                             | Fish,Walking-With-Dinosaurs
+Leptolepis                               | Animal    | Chordata                   | -150800000    | -145000000   | Leptolepis                                          | Fish,Walking-With-Dinosaurs
+Eusthenopteron                           | Animal    | Chordata                   | -382700000    | -372200000   | Eusthenopteron                                      | Fish,Walking-With-Monsters
+Panderichthys                            | Animal    | Chordata                   | -383700000    | -382400000   | Panderichthys                                       | Fish,Walking-With-Monsters
+Stethacanthus                            | Animal    | Chordata                   | -326400000    | -318100000   | Stethacanthus                                       | Fish,Walking-With-Monsters
+Tiktaalik                                | Animal    | Chordata                   | -382700000    | -372200000   | Tiktaalik                                           | Fish,Walking-With-Monsters
+Hyneria                                  | Animal    | Chordata                   | -382700000    | -358900000   | Hyneria                                             | Fish,Walking-With-Monsters
+Peteinosaurus                            | Animal    | Chordata                   | -215560000    | -212000000   | Peteinosaurus                                       | Flying Reptile,Walking-With-Dinosaurs
+Pterodactylus                            | Animal    | Chordata                   | -150800000    | -145000000   | Pterodactylus                                       | Flying Reptile,Walking-With-Dinosaurs
+Anurognathus                             | Animal    | Chordata                   | -150800000    | -145000000   | Anurognathus                                        | Flying Reptile,Walking-With-Dinosaurs
+Rhamphorhynchus                          | Animal    | Chordata                   | -150800000    | -145000000   | Rhamphorhynchus                                     | Flying Reptile,Walking-With-Dinosaurs
+Tapejara                                 | Animal    | Chordata                   | -112030000    | -109000000   | Tapejara_wellnhoferi                                | Flying Reptile,Walking-With-Dinosaurs
+Ornithocheirus                           | Animal    | Chordata                   | -100500000    | -89800000    | Ornithocheirus                                      | Flying Reptile,Walking-With-Dinosaurs
+Pteranodon                               | Animal    | Chordata                   | -83500000     | -70600000    | Pteranodon                                          | Flying Reptile,Walking-With-Dinosaurs
+Nyctosaurus                              | Animal    | Chordata                   | -72100000     | -66000000    | Nyctosaurus                                         | Flying Reptile
+Quetzalcoatlus                           | Animal    | Chordata                   | -70600000     | -66000000    | Quetzalcoatlus                                      | Flying Reptile,Walking-With-Dinosaurs
+Ardipithecus-kadabba                     | Animal    | Chordata                   | -6500000      | -5500000     | Ardipithecus_kadabba                                | Hominid,Ardipithecus
+Ardipithecus-ramidus                     | Animal    | Chordata                   | -4510000      | -4320000     | Ardipithecus_ramidus                                | Hominid,Ardipithecus
+Australopithecus-anamensis               | Animal    | Chordata                   | -4200000      | -3800000     | Australopithecus_anamensis                          | Hominid,Australopithecine,Australopithecus
+Australopithecus-afarensis               | Animal    | Chordata                   | -3900000      | -2900000     | Australopithecus_afarensis                          | Hominid,Australopithecine,Australopithecus,Walking-With-Beasts
+Australopithecus-africanus               | Animal    | Chordata                   | -3670000      | -2000000     | Australopithecus_africanus                          | Hominid,Australopithecine,Australopithecus
+Australopithecus-bahrelghazali           | Animal    | Chordata                   | -3500000      | -2800000     | Australopithecus_bahrelghazali                      | Hominid,Australopithecine,Australopithecus
+Australopithecus-deyiremeda              | Animal    | Chordata                   | -3500000      | -3300000     | Australopithecus_deyiremeda                         | Hominid,Australopithecine,Australopithecus
+Kenyanthropus                            | Animal    | Chordata                   | -3500000      | -3200000     | Kenyanthropus                                       | Hominid
+Ld-350-1                                 | Animal    | Chordata                   | -2800000      | -2750000     | LD_350-1                                            | Hominid,Homo
+Paranthropus-aethiopicus                 | Animal    | Chordata                   | -2700000      | -2300000     | Paranthropus_aethiopicus                            | Hominid,Australopithecine.Paranthropus
+Australopithecus-garhi                   | Animal    | Chordata                   | -2600000      | -2500000     | Australopithecus_garhi                              | Hominid,Australopithecine,Australopithecus
+Homo-habilis                             | Animal    | Chordata                   | -2310000      | -1650000     | Homo_habilis                                        | Hominid,Homo
+Homo-rudolfensis                         | Animal    | Chordata                   | -2310000      | -1550000     | Homo_rudolfensis                                    | Hominid,Homo
+Paranthropus-boisei                      | Animal    | Chordata                   | -2300000      | -1340000     | Paranthropus_boisei                                 | Hominid,Australopithecine,Paranthropus
+Homo-erectus                             | Animal    | Chordata                   | -2000000      | -600000      | Homo_ergaster                                       | Hominid,Homo
+Paranthropus-robustus                    | Animal    | Chordata                   | -2000000      | -600000      | Paranthropus_robustus                               | Hominid,Australopithecine,Paranthropus
+Australopithecus-sediba                  | Animal    | Chordata                   | -1980000      | -1950000     | Australopithecus_sediba                             | Hominid,Australopithecine,Australopithecus
+Homo-heidelbergensis                     | Animal    | Chordata                   | -600000       | -200000      | Homo_heidelbergensis                                | Hominid,Homo
+Homo-neanderthalensis                    | Animal    | Chordata                   | -430000       | -40000       | Neanderthal                                         | Hominid,Homo,Neanderthal,Walking-With-Beasts
+Homo-naledi                              | Animal    | Chordata                   | -335000       | -236000      | Homo_naledi                                         | Hominid,Homo
+Homo-sapien                              | Animal    | Chordata                   | -300000       | 2000         | Human                                               | Hominid,Man,Walking-With-Beasts
+Meganeura                                | Animal    | Arthropoda                 | -303700000    | -298900000   | Meganeura                                           | Insect,Walking-With-Monsters
+Saurophthirus                            | Animal    | Arthropoda                 | -125000000    | -113000000   | Saurophthirus                                       | Insect,Walking-With-Dinosaurs
+Titanomyrma                              | Animal    | Arthropoda                 | -48600000     | -40400000    | Titanomyrma                                         | Insect,Walking-With-Beasts
+Chriacus                                 | Animal    | Chordata                   | -55800000     | -48600000    | Chriacus                                            | Mammal
+Didelphodon                              | Animal    | Chordata                   | -70600000     | -66000000    | Didelphodon                                         | Mammal,Walking-With-Dinosaurs,Walking-With-Beasts
+Dissacus                                 | Animal    | Chordata                   | -55800000     | -48600000    | Dissacus                                            | Mammal
+Purgatorius                              | Animal    | Chordata                   | -61700000     | -56800000    | Purgatorius                                         | Mammal,Walking-With-Dinosaurs
+Yantanglestes                            | Animal    | Chordata                   | -61700000     | -58700000    | Yantanglestes                                       | Mammal
+Ankalagon                                | Animal    | Chordata                   | -63300000     | -61700000    | Ankalagon                                           | Mammal
+Hukoutherium                             | Animal    | Chordata                   | -66000000     | -61700000    | Hukoutherium                                        | Mammal
+Jiangxia                                 | Animal    | Chordata                   | -61700000     | -58700000    | Jiangxia_(mammal)                                   | Mammal
+Miacis                                   | Animal    | Chordata                   | -48600000     | -37200000    | Miacis                                              | Mammal
+Pachyaena                                | Animal    | Chordata                   | -48600000     | -37200000    | Pachyaena                                           | Mammal
+Uintacyon                                | Animal    | Chordata                   | -50300000     | -46200000    | Uintacyon                                           | Mammal
+Sinonyx                                  | Animal    | Chordata                   | -58700000     | -55800000    | Sinonyx                                             | Mammal
+Palaeonictis                             | Animal    | Chordata                   | -55800000     | -48600000    | Palaeonictis                                        | Mammal
+Dormaalocyon                             | Animal    | Chordata                   | -55800000     | -48600000    | Dormaalocyon                                        | Mammal
+Eofelis                                  | Animal    | Chordata                   | -33900000     | -23030000    | Eofelis                                             | Mammal
+Godinotia                                | Animal    | Chordata                   | -56000000     | -47800000    | Godinotia                                           | Mammal,Walking-With-Beasts
+Gracilocyon                              | Animal    | Chordata                   | -55800000     | -48600000    | Gracilocyon                                         | Mammal
+Hapalodectes                             | Animal    | Chordata                   | -48600000     | -37200000    | Hapalodectes                                        | Mammal,Walking-With-Beasts
+Hapalorestes                             | Animal    | Chordata                   | -50300000     | -46200000    | Hapalorestes                                        | Mammal
+Mesonyx                                  | Animal    | Chordata                   | -48600000     | -37200000    | Mesonyx                                             | Mammal,Walking-With-Beasts
+Messelogale                              | Animal    | Chordata                   | -56000000     | -37800000    | Messelogale                                         | Mammal
+Metahapalodectes                         | Animal    | Chordata                   | -48600000     | -37200000    | Metahapalodectes                                    | Mammal
+Gypsonictops                             | Animal    | Chordata                   | -70600000     | -66000000    | Gypsonictops                                        | Mammal,Walking-With-Beasts
+Meniscoessus                             | Animal    | Chordata                   | -70600000     | -66000000    | Meniscoessus                                        | Mammal,Walking-With-Beasts
+Steropodon                               | Animal    | Chordata                   | -99600000     | -93500000    | Steropodon                                          | Mammal,Walking-With-Dinosaurs
+Miocyon                                  | Animal    | Chordata                   | -50300000     | -46200000    | Miocyon                                             | Mammal
+Mongolestes                              | Animal    | Chordata                   | -48600000     | -37200000    | Mongolestes                                         | Mammal
+Oxyaena                                  | Animal    | Chordata                   | -55800000     | -48600000    | Oxyaena                                             | Mammal
+Paramiacis                               | Animal    | Chordata                   | -56000000     | -33900000    | Paramiacis                                          | Mammal
+Propalaeotherium                         | Animal    | Chordata                   | -48600000     | -37200000    | Propalaeotherium                                    | Mammal,Walking-With-Beasts
+Quercygale                               | Animal    | Chordata                   | -48600000     | -40400000    | Quercygale                                          | Mammal
+Vassacyon                                | Animal    | Chordata                   | -50300000     | -46200000    | Vassacyon                                           | Mammal
+Vulpavus                                 | Animal    | Chordata                   | -50300000     | -46200000    | Vulpavus                                            | Mammal
+Machaeroides                             | Animal    | Chordata                   | -50300000     | -46200000    | Machaeroides                                        | Mammal
+Mesonyx                                  | Animal    | Chordata                   | -48600000     | -37200000    | Mesonyx                                             | Mammal,Walking-With-Beasts
+Cynohyaenodon                            | Animal    | Chordata                   | -41300000     | -38000000    | Cynohyaenodon                                       | Mammal
+Eurotherium                              | Animal    | Chordata                   | -55800000     | -48600000    | Eurotherium                                         | Mammal
+Patriofelis                              | Animal    | Chordata                   | -50300000     | -46200000    | Patriofelis                                         | Mammal
+Leptictidium                             | Animal    | Chordata                   | -48600000     | -40400000    | Leptictidium                                        | Mammal,Walking-With-Beasts
+Paroodectes                              | Animal    | Chordata                   | -48600000     | -40400000    | Paroodectes                                         | Mammal
+Sarkastodon                              | Animal    | Chordata                   | -48600000     | -37200000    | Sarkastodon                                         | Mammal
+Dawsonicyon                              | Animal    | Chordata                   | -50300000     | -46200000    | Dawsonicyon                                         | Mammal
+Eurotamandua                             | Animal    | Chordata                   | -47800000     | -46300000    | Eurotamandua                                        | Mammal,Walking-With-Beasts
+Lohoodon                                 | Animal    | Chordata                   | -47800000     | -37800000    | Lohoodon                                            | Mammal
+Mongolonyx                               | Animal    | Chordata                   | -55800000     | -48600000    | Mongolonyx                                          | Mammal
+Synoplotherium                           | Animal    | Chordata                   | -47800000     | -33900000    | Synoplotherium                                      | Mammal
+Lycophocyon                              | Animal    | Chordata                   | -40400000     | -37200000    | Lycophocyon                                         | Mammal
+Hyaenodon                                | Animal    | Chordata                   | -48600000     | -37200000    | Hyaenodon                                           | Mammal,Walking-With-Beasts
+Harpagolestes                            | Animal    | Chordata                   | -48600000     | -37200000    | Harpagolestes                                       | Mammal
+Honanodon                                | Animal    | Chordata                   | -48600000     | -37200000    | Honanodon                                           | Mammal
+Guilestes                                | Animal    | Chordata                   | -37200000     | -33900000    | Guilestes                                           | Mammal
+Maofelis                                 | Animal    | Chordata                   | -37200000     | -33900000    | Maofelis                                            | Mammal
+Dinictis                                 | Animal    | Chordata                   | -30800000     | -20430000    | Dinictis                                            | Mammal
+Archaeotherium                           | Animal    | Chordata                   | -23030000     | -15970000    | Archaeotherium                                      | Mammal,Entelodont
+Brachyhyops                              | Animal    | Chordata                   | -40400000     | -37200000    | Brachyhyops                                         | Mammal,Entelodont
+Daeodon                                  | Animal    | Chordata                   | -30800000     | -20430000    | Daeodon                                             | Mammal,Entelodont
+Entelodon                                | Animal    | Chordata                   | -48600000     | -37200000    | Entelodon                                           | Mammal,Entelodont,Walking-With-Beasts
+Paraentelodon                            | Animal    | Chordata                   | -28400000     | -15970000    | Paraentelodon                                       | Mammal,Entelodont
+Proentelodon                             | Animal    | Chordata                   | -48600000     | -37200000    | Proentelodon                                        | Mammal,Entelodont
+Hoplophoneus                             | Animal    | Chordata                   | -30800000     | -20430000    | Hoplophoneus                                        | Mammal
+Nanosmilus                               | Animal    | Chordata                   | -33900000     | -33300000    | Nanosmilus                                          | Mammal
+Palaeogale                               | Animal    | Chordata                   | -70600000     | -61600000    | Palaeogale                                          | Mammal
+Pogonodon                                | Animal    | Chordata                   | -30800000     | -20430000    | Pogonodon                                           | Mammal
+Quercylurus                              | Animal    | Chordata                   | -33900000     | -23030000    | Quercylurus                                         | Mammal
+Nimravus                                 | Animal    | Chordata                   | -28400000     | -23030000    | Nimravus                                            | Mammal
+Dinaelurus                               | Animal    | Chordata                   | -30800000     | -20430000    | Dinaelurus                                          | Mammal
+Dinailurictis                            | Animal    | Chordata                   | -33900000     | -23030000    | Dinailurictis                                       | Mammal
+Hyainailouros                            | Animal    | Chordata                   | -28400000     | -23030000    | Hyainailouros                                       | Mammal,Walking-With-Beasts
+Ambulocetus                              | Animal    | Chordata                   | -47800000     | -41300000    | Ambulocetus                                         | Marine Mammal,Walking-With-Beasts
+Cryptoclidus                             | Animal    | Chordata                   | -150800000    | -145000000   | Cryptoclidus                                        | Marine Reptile,Walking-With-Dinosaurs
+Liopleurodon                             | Animal    | Chordata                   | -161200000    | -155700000   | Liopleurodon                                        | Marine Reptile,Walking-With-Dinosaurs
+Ophthalmosaurus                          | Animal    | Chordata                   | -150800000    | -139800000   | Ophthalmosaurus                                     | Marine Reptile,Walking-With-Dinosaurs
+Plesiosaurus                             | Animal    | Chordata                   | -180100000    | -170300000   | Plesiosaurus                                        | Marine Reptile,Plesiosauroidea
+Ichthyosaurus                            | Animal    | Chordata                   | -105300000    | -99600000    | Ichthyosaur                                         | Marine Reptile
+Pliosaurus                               | Animal    | Chordata                   | -201300000    | -145000000   | Pliosaurus                                          | Marine Reptile,Pliosauroidea
+Plesiochelys                             | Animal    | Chordata                   | -174100000    | -163500000   | Plesiochelys                                        | Marine Reptile,Sea-turtle,Walking-With-Dinosaurs
+Nichollsemys                             | Animal    | Chordata                   | -83500000     | -70600000    | Nichollsemys                                        | Marine Reptile,Sea-turtle
+Allopleuron                              | Animal    | Chordata                   | -41300000     | -38000000    | Allopleuron                                         | Marine Reptile,Sea-turtle
+Argillochelys                            | Animal    | Chordata                   | -41300000     | -38000000    | Argillochelys                                       | Marine Reptile,Sea-turtle
+Procolpochelys                           | Animal    | Chordata                   | -28100000     | -23030000    | Procolpochelys                                      | Marine Reptile,Sea-turtle
+Eochelone                                | Animal    | Chordata                   | -41300000     | -38000000    | Eochelone                                           | Marine Reptile,Sea-turtle
+Puppigerus                               | Animal    | Chordata                   | -41300000     | -38000000    | Puppigerus                                          | Marine Reptile,Sea-turtle,Walking-With-Beasts
+Ctenochelys                              | Animal    | Chordata                   | -83500000     | -70600000    | Ctenochelys                                         | Marine Reptile,Sea-turtle
+Peritresius                              | Animal    | Chordata                   | -100500000    | -66000000    | Peritresius                                         | Marine Reptile,Sea-turtle
+Cabindachelys                            | Animal    | Chordata                   | -61600000     | -59200000    | Cabindachelys                                       | Marine Reptile,Sea-turtle
+Caretta                                  | Animal    | Chordata                   | -1800000      | -300000      | Caretta                                             | Marine Reptile,Sea-turtle
+Lepidochelys                             | Animal    | Chordata                   | -10300000     | -4900000     | Lepidochelys                                        | Marine Reptile,Sea-turtle
+Chelonia                                 | Animal    | Chordata                   | -23030000     | -15970000    | Chelonia                                            | Marine Reptile,Sea-turtle
+Eretmochelys                             | Animal    | Chordata                   | -11700        | 2030         | Eretmochelys                                        | Marine Reptile,Sea-turtle
+Plesiopleurodon                          | Animal    | Chordata                   | -99600000     | -93500000    | Plesiopleurodon                                     | Marine Reptile,Walking-With-Dinosaurs
 Archaeocyathids                          | Animal    | Porifera                   | -530000000    | -490000000   | Archaeocyathids                                     | <>
 Otavia-antiqua-sponge                    | Animal    | Porifera                   | -760000000    | -550000000   | Otavia                                              | <>
 Sponges                                  | Animal    | Porifera                   | -635000000    | 2030         | Sponge                                              | <>
@@ -270,26 +321,33 @@ Dickinsonia                              | Animal    | Proarticulata            
 Fractofusus                              | Animal    | Rangeomorpha               | -575000000    | -541000000   | Fractofusus_misrai                                  | <>
 Charnia                                  | Animal    | Rangeomorpha               | -570000000    | -541000000   | Charnia                                             | <>
 Charniodiscus                            | Animal    | Rangeomorpha               | -565000000    | -555000000   | Charniodiscus                                       | <>
-Dinilysia                                | Animal    | Reptile                    | -85500000     | -84500000    | Dinilysia                                           | <>
-Palaeopython                             | Animal    | Reptile                    | -48000000     | -34000000    | Palaeopython                                        | <>
-Petrolacosaurus                          | Animal    | Reptile                    | -323200000    | -298900000   | Petrolacosaurus                                     | <>
-Tuatara                                  | Animal    | Reptile                    | -19000000     | 2030         | Tuatara                                             | <>
-Kentisuchus                              | Animal    | Reptile                    | -56000000     | -47800000    | Kentisuchus                                         | <>
-Deinosuchus                              | Animal    | Reptile                    | -82000000     | -73000000    | Deinosuchus                                         | <>
-Gecko                                    | Animal    | Reptile                    | -110000000    | 2030         | Gecko                                               | <>
-Scutosaurus                              | Animal    | Reptile                    | -259100000    | -251900000   | Scutosaurus                                         | <>
-Proterosuchus                            | Animal    | Reptile                    | -252000000    | -250000000   | Proterosuchus                                       | <>
-Euparkeria                               | Animal    | Reptile                    | -245000000    | -230000000   | Euparkeria                                          | <>
-Postosuchus                              | Animal    | Reptile                    | -221000000    | -203000000   | Postosuchus                                         | <>
-Edaphosaurus                             | Animal    | Synapsid                   | -303400000    | -272500000   | Edaphosaurus                                        | <>
-Dimetrodon                               | Animal    | Synapsid                   | -295000000    | -272000000   | Dimetrodon                                          | <>
-Diictodon                                | Animal    | Therapsid                  | -259800000    | -254100000   | Diictodon                                           | <>
-Gorgonops                                | Animal    | Therapsid                  | -260000000    | -254000000   | Gorgonops                                           | <>
-Traversodontidae                         | Animal    | Therapsid                  | -245000000    | -201300000   | Traversodontidae                                    | <>
-Euchambersia                             | Animal    | Therapsid                  | -256000000    | -255000000   | Euchambersia                                        | <>
-Lystrosaurus                             | Animal    | Therapsid                  | -255000000    | -250000000   | Lystrosaurus                                        | <>
-Thrinaxodon                              | Animal    | Therapsid                  | -251000000    | -247000000   | Thrinaxodon                                         | <>
-Placerias                                | Animal    | Therapsid                  | -220000000    | -216000000   | Placerias                                           | <>
+Dinilysia                                | Animal    | Chordata                   | -83500000     | -70600000    | Dinilysia                                           | Reptile,Walking-With-Dinosaurs
+Palaeopython                             | Animal    | Chordata                   | -48600000     | -40400000    | Palaeopython                                        | Reptile,
+Petrolacosaurus                          | Animal    | Chordata                   | -305900000    | -303400000   | Petrolacosaurus                                     | Reptile,Walking-With-Monsters
+Sphenodon                                | Animal    | Chordata                   | -19000000     | -15900000    | Sphenodon                                           | Reptile,Tuatara
+Kentisuchus                              | Animal    | Chordata                   | -55800000     | -48600000    | Kentisuchus                                         | Reptile,Walking-With-Beasts
+Deinosuchus                              | Animal    | Chordata                   | -83500000     | -70600000    | Deinosuchus                                         | Reptile,Walking-With-Dinosaurs
+Geckolepis                               | Animal    | Chordata                   | -11700        | 2030         | Gecko                                               | Reptile
+Scutosaurus                              | Animal    | Chordata                   | -265000000    | -252300000   | Scutosaurus                                         | Reptile,Walking-With-Monsters
+Proterosuchus                            | Animal    | Chordata                   | -252170000    | -247200000   | Proterosuchus                                       | Reptile,Walking-With-Monsters
+Euparkeria                               | Animal    | Chordata                   | -247200000    | -242000000   | Euparkeria                                          | Reptile,Walking-With-Dinosaurs
+Postosuchus                              | Animal    | Chordata                   | -237000000    | -208500000   | Postosuchus                                         | Reptile,Walking-With-Dinosaurs
+Edaphosaurus                             | Animal    | Chordata                   | -290100000    | -268000000   | Edaphosaurus                                        | Synapsid,Walking-With-Monsters
+Dimetrodon                               | Animal    | Chordata                   | -290100000    | -268000000   | Dimetrodon                                          | Synapsid,Walking-With-Monsters
+Diictodon                                | Animal    | Chordata                   | -298900000    | -252170000   | Diictodon                                           | Therapsid,Walking-With-Monsters
+Gorgonops                                | Animal    | Chordata                   | -265100000    | -254170000   | Gorgonops                                           | Therapsid,Walking-With-Monsters
+Euchambersia                             | Animal    | Chordata                   | -259900000    | -254170000   | Euchambersia                                        | Therapsid,Walking-With-Monsters
+Lystrosaurus                             | Animal    | Chordata                   | -251200000    | -247200000   | Lystrosaurus                                        | Therapsid,Walking-With-Monsters
+Thrinaxodon                              | Animal    | Chordata                   | -252170000    | -247200000   | Thrinaxodon                                         | Therapsid,Walking-With-Dinosaurs
+Placerias                                | Animal    | Chordata                   | -237000000    | -228000000   | Placerias                                           | Therapsid,Walking-With-Dinosaurs
+Panthera                                 | Animal    | Chordata                   | -11700        | 2030         | Panthera                                            | Cave-Lion,Walking-With-Beasts
+Canis                                    | Animal    | Chordata                   | -23030000     | -2588000     | Canis                                               | Wolf,Dog,Jackal,Walking-With-Beasts
+Sciurus                                  | Animal    | Chordata                   | -23030000     | -11620000    | Sciurus                                             | Squirrel,Walking-With-Beasts
+Phacochoerus                             | Animal    | Chordata                   | -1806000      | -781000      | Phacochoerus                                        | Warthog,Walking-With-Beasts
+Ceratotherium                            | Animal    | Chordata                   | -23030000     | -11700       | Ceratotherium                                       | Rhinoceros,Walking-With-Beasts
+Saiga                                    | Animal    | Chordata                   | -1800000      | -300000      | Saiga                                               | Siaga-Antelope,Antelope,Walking-With-Beasts
+Mammuthus                                | Animal    | Chordata                   | -15970000     | -781000      | Mammuthus                                           | Wooly-Mammoth,Mammoth,Walking-With-Beasts
+Coelodonta                               | Animal    | Chordata                   | -126000       | 2030         | Coelodonta                                          | Wooly-Rhinoceros,Walking-With-Beasts
 Moon-crust-formation                     | Geology   | Celestial Geology          | -4533000000   | -3920000000  | Pre-Nectarian                                       | <>
 Pangaea-supercontinent                   | Geology   | Continental Drift          | -336000000    | -175000000   | Pangaea                                             | <>
 Pannotia-supercontinent                  | Geology   | Continental Drift          | -633000000    | -573000000   | Pannotia                                            | <>

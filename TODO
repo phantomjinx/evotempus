@@ -1,25 +1,13 @@
-* Rename categories to more useful names where appropriate
- - birds - Aves
- - dinosaurs - Dinosauria
- - mammals
- - hominids
- - fish
-
-* Take all unfound and add links for their families / orders ? (too much data??)
-
-* Add a Readme for github
-
-* Fix legend to correctly filter and reload based on categories removed
-
-* Add lower margin to bottom of legend to show there is no overflow
-
-* Data to Fix
- ** Nypa or NYPA may refer to: Nypa (plant), a genus of palms New York Power Authority Not Your Personal Army, a phrase commonly used by Anonymous
+* Removes all console.log debug comments
 
 =====
 
+*
 * Next Version
- * Clock overlay
+*
+
+* Clock overlay
+ * Recolour with geological timeline colour scheme?
 
 * cat * | awk '{print $1}' | sort | uniq | wc -l => 62436
  * Consider including those without wikilinks
@@ -27,3 +15,20 @@
   * https://paleobiodb.org/data1.2/taxa/single.txt?name=Annea&show=ref   <---- taxon_id
   * Needs to extract basic useful info using API - https://paleobiodb.org/data1.2/
   * https://paleobiodb.org/classic/basicTaxonInfo?taxon_no=${taxon_id}   <---- webpage only
+
+* Tooltips to quick wiki definition
+
+* Create a "Walking with Dinosaurs" query
+ * Finds and returns all those organisms 'tagged' with a specific tag
+ * Tags become categories?
+  * Rather than changing the phylum why not add these as tags
+   - birds - Aves
+   - dinosaurs - Dinosauria
+   - mammals
+   - hominids
+   - fish
+
+* Filtering on legend
+ * Consider how to multi-select then do 1 update
+ * Filter by search-term, ie. only show those that conform with terms,
+   eg. only show "australopithecus" or "*saurus" or "Dino*"

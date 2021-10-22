@@ -72,6 +72,8 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
       width: 100%;
 
       .tabs {
+        height: calc(100% - 0.5em);
+
         .tab-list {
           font-size: small;
         }
@@ -116,19 +118,16 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
                     }
                   }
                 }
-
               }
             }
           }
 
-          [class^="react-pagination-js-"] {
-            flex: 0 0 0;
-            margin-bottom: 1em;
+          .subject-visual-legend-footer {
+            flex: 0 0 auto;
+            height: 1em;
+            max-height: 1em;
             width: 100%;
-
-            ul {
-              float: right;
-            }
+            background-image: linear-gradient(to top, #ab8dcc 0.2em, white 0.8em, white);
           }
         }
       }

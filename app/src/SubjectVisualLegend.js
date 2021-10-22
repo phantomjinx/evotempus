@@ -42,11 +42,9 @@ export default class SubjectVisualLegend extends React.Component {
   componentDidMount() {
     let keySymbols = [];
 
-    const colourRange = common.calcColours(this.props.names);
-
     for (let i = 0; i < this.props.names.length; ++i) {
       const name = this.props.names[i];
-      const colour = colourRange[i];
+      const colour = common.calcColour(name);
 
       const category = this.props.categories.find(category => {
         return category.name === name;
@@ -169,30 +167,15 @@ export default class SubjectVisualLegend extends React.Component {
       );
     }
 
-    let paginate = '';
-    if (items.length > this.state.totalPerPage) {
-      const offset = (this.state.currentPage - 1) * this.state.totalPerPage;
-      items = items.slice(offset, offset + this.state.totalPerPage);
-
-      paginate = (
-        <Pagination
-          currentPage={this.state.currentPage}
-          totalSize={keySymbols.length}
-          sizePerPage={this.state.totalPerPage}
-          changeCurrentPage={this.handlePageClick}
-          theme="border-bottom"
-        />
-      );
-    }
-
     return (
-      <div label={title} className="subject-visual-legend-paginate">
+      <div label={title}>
         <div className="subject-visual-legend-items">
           <ul className="subject-visual-legend-items-inner">
             {items}
           </ul>
         </div>
-        {paginate}
+        <div className="subject-visual-legend-footer">
+        </div>
       </div>
     )
   }

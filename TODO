@@ -1,10 +1,10 @@
-* Removes all console.log debug comments
-
-=====
-
 *
 * Next Version
 *
+
+* Address logging to console - maybe use react-native-logging?
+
+* Help buttons for each visual, inc. legend
 
 * Clock overlay
  * Recolour with geological timeline colour scheme?

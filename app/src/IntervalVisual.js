@@ -32,8 +32,8 @@ export default class IntervalVisual extends React.Component {
   }
 
   logErrorState(errorMsg, error) {
-    console.log("Error: " + errorMsg + "\nDetail: ");
-    console.log(error);
+    common.consoleLog("Error: " + errorMsg + "\nDetail: ");
+    common.consoleLog(error);
     this.setState({
       errorMsg: errorMsg,
       error: error,
@@ -43,7 +43,7 @@ export default class IntervalVisual extends React.Component {
 
   static getDerivedStateFromError(error) {
     const errorMsg = "Error received from Interval Visual";
-    console.log("Error: " + errorMsg + "\n Detail: " + error);
+    common.consoleLog("Error: " + errorMsg + "\n Detail: " + error);
     return {
       errorMsg: errorMsg,
       error: error,
@@ -67,7 +67,7 @@ export default class IntervalVisual extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    console.log(error);
+    common.consoleLog(error);
   }
 
   componentDidMount() {
@@ -362,7 +362,7 @@ class IntervalSunburst extends React.Component {
       // Tag the data with this as the owner
       //
       this.selected.data.owner = this.svgId;
-      console.log("IntervalVisual: select() " + this.selected.data.name);
+      common.consoleLog("IntervalVisual: select() " + this.selected.data.name);
 
       if (notify) {
         this.props.onSelectedChange(this.selected.data, null);
@@ -396,7 +396,7 @@ class IntervalSunburst extends React.Component {
     if (! interval) {
       return;
     }
-    console.log("IntervalVisual - traverseToInterval() " + interval.name);
+    common.consoleLog("IntervalVisual - traverseToInterval() " + interval.name);
 
     //
     // Find the actual interval in our hierarchy
@@ -410,11 +410,11 @@ class IntervalSunburst extends React.Component {
     });
 
     if (! visInterval) {
-      console.log("Error: Cannot proceed due to failure to find navigated interval");
+      common.consoleLog("Error: Cannot proceed due to failure to find navigated interval");
       return;
     }
 
-    console.log("IntervalVisual - traverseToInterval() visInterval: " + visInterval.id);
+    common.consoleLog("IntervalVisual - traverseToInterval() visInterval: " + visInterval.id);
 
     if (visInterval.children) {
       //
@@ -429,7 +429,7 @@ class IntervalSunburst extends React.Component {
       this.navigate(visInterval.parent);
     }
 
-    console.log("IntervalVisual - traverseToInterval() select: " + visInterval.id);
+    common.consoleLog("IntervalVisual - traverseToInterval() select: " + visInterval.id);
     this.select(visInterval, notify);
   }
 

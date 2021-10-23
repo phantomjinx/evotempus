@@ -36,8 +36,8 @@ export default class SubjectVisual extends React.Component {
   }
 
   logErrorState(errorMsg, error) {
-    console.log("Error: " + errorMsg + "\nDetail: ");
-    console.log(error);
+    common.consoleLog("Error: " + errorMsg + "\nDetail: ");
+    common.consoleLog(error);
     this.setState({
       errorMsg: errorMsg,
       error: error,
@@ -47,7 +47,7 @@ export default class SubjectVisual extends React.Component {
 
   static getDerivedStateFromError(error) {
     const errorMsg = "Error received from Subject Visual";
-    console.log("Error: " + errorMsg + "\n Detail: " + error);
+    common.consoleLog("Error: " + errorMsg + "\n Detail: " + error);
     return {
       errorMsg: errorMsg,
       error: error,
@@ -56,7 +56,7 @@ export default class SubjectVisual extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    console.log(error);
+    common.consoleLog(error);
   }
 
   chartify(interval, categories, kindData) {
@@ -155,8 +155,8 @@ export default class SubjectVisual extends React.Component {
   }
 
   fetchSubjects(criteria) {
-    console.log("fetchSubjects - criteria ---->");
-    console.log(criteria);
+    common.consoleLog("fetchSubjects - criteria ---->");
+    common.consoleLog(criteria);
 
     this.setState({
       loading: true,
@@ -182,8 +182,8 @@ export default class SubjectVisual extends React.Component {
         return category.name;
       });
 
-    console.log("Filtered Categories");
-    console.log(filtered);
+    common.consoleLog("Filtered Categories");
+    common.consoleLog(filtered);
     //
     // Fetch the subject data from the backend service
     //
@@ -206,10 +206,10 @@ export default class SubjectVisual extends React.Component {
           }
         }
 
-        console.log(newKindData);
+        common.consoleLog(newKindData);
         const visualData = this.chartify(criteria.interval, criteria.categories, newKindData);
-        console.log("VisualData ---->");
-        console.log(visualData);
+        common.consoleLog("VisualData ---->");
+        common.consoleLog(visualData);
 
         this.setState({
           loading: false,
@@ -218,7 +218,7 @@ export default class SubjectVisual extends React.Component {
         });
 
       }).catch((err) => {
-        console.log(err);
+        common.consoleLog(err);
         this.logErrorState("Failed to fetch interval data", err);
       });
   }
@@ -257,32 +257,32 @@ export default class SubjectVisual extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log("SubjectVisual - ComponentDidupdate Interval: " + this.props.interval.name);
+    common.consoleLog("SubjectVisual - ComponentDidupdate Interval: " + this.props.interval.name);
     if (this.props.subject) {
-      console.log("SubjectVisual - ComponentDidupdate Subject: " + this.props.subject.name);
+      common.consoleLog("SubjectVisual - ComponentDidupdate Subject: " + this.props.subject.name);
     }
-    console.log("SubjectVisual - ComponentDidupdate Categories: ---->");
-    console.log(prevProps.categories);
-    console.log(this.props.categories);
+    common.consoleLog("SubjectVisual - ComponentDidupdate Categories: ---->");
+    common.consoleLog(prevProps.categories);
+    common.consoleLog(this.props.categories);
 
     if (_.isEqual(prevProps.interval, this.props.interval) &&
         _.isEqual(prevProps.categories, this.props.categories) &&
         _.isEqual(prevProps.subject, this.props.subject)) {
-      console.log("SubjectVisual - interval / categories / subject props are same ... returning");
+      common.consoleLog("SubjectVisual - interval / categories / subject props are same ... returning");
       return;
     } else {
       // What difference?
       if (prevProps.interval !== this.props.interval) {
-        console.log("Interval is different");
+        common.consoleLog("Interval is different");
       }
       if (prevProps.categories !== this.props.categories) {
-        console.log("Categories is different");
+        common.consoleLog("Categories is different");
       }
       if (prevProps.subject !== this.props.subject) {
-        console.log("Subject is different");
-        console.log("PrevProps: ");
-        console.log(prevProps.subject);
-        console.log(this.props.subject);
+        common.consoleLog("Subject is different");
+        common.consoleLog("PrevProps: ");
+        common.consoleLog(prevProps.subject);
+        common.consoleLog(this.props.subject);
       }
     }
 
@@ -297,7 +297,7 @@ export default class SubjectVisual extends React.Component {
       }
     }
 
-    console.log("SubjectVisual - updating subjects");
+    common.consoleLog("SubjectVisual - updating subjects");
 
     this.dimensions();
     this.fetchSubjects({
@@ -308,7 +308,7 @@ export default class SubjectVisual extends React.Component {
   }
 
   onUpdateKindPage(kind, page) {
-    console.log("Kind: " + kind + " New Page: " + page);
+    common.consoleLog("Kind: " + kind + " New Page: " + page);
     this.fetchSubjects({
       interval: this.props.interval,
       categories: this.props.categories,
@@ -374,6 +374,7 @@ class SubjectSwimLane extends React.Component {
     this.handlePageMouseOut = this.handlePageMouseOut.bind(this);
     this.handleVisualClick = this.handleVisualClick.bind(this);
     this.handleVisualDoubleClick = this.handleVisualDoubleClick.bind(this);
+    this.displaySelectionOutline = this.displaySelectionOutline.bind(this);
 
     this.clickTimer = 0;
     this.clickDelay = 200;
@@ -381,27 +382,27 @@ class SubjectSwimLane extends React.Component {
   }
 
   componentDidMount() {
-    console.log("SubjectSwimlane ComponentDidMount: STARTING");
+    common.consoleLog("SubjectSwimlane ComponentDidMount: STARTING");
     this.renderSwimlanes();
   }
 
   componentDidUpdate(prevProps) {
-    console.log("SubjectSwimLane - ComponentDidupdate Interval: " + this.props.interval.name);
+    common.consoleLog("SubjectSwimLane - ComponentDidupdate Interval: " + this.props.interval.name);
     if (this.props.subject) {
-      console.log("SubjectSwimLane - ComponentDidupdate Subject: " + this.props.subject.name);
+      common.consoleLog("SubjectSwimLane - ComponentDidupdate Subject: " + this.props.subject.name);
     }
 
     if (this.props.subject && _.isEqual(this.props.subject.owner, this.svgId)) {
       // We called for this update with our own clicks so no need to update
-      console.log("SubjectSwimLane - props are same ... returning");
+      common.consoleLog("SubjectSwimLane - props are same ... returning");
       return;
     }
 
-    console.log("SubjectSwimLane - ComponentDidupdate Data ----->");
-    console.log(this.props.data);
-    console.log("=== SubjectSwimlane - subject ===");
-    console.log(prevProps.subject);
-    console.log(this.props.subject);
+    common.consoleLog("SubjectSwimLane - ComponentDidupdate Data ----->");
+    common.consoleLog(this.props.data);
+    common.consoleLog("=== SubjectSwimlane - subject ===");
+    common.consoleLog(prevProps.subject);
+    common.consoleLog(this.props.subject);
 
     if (prevProps.width === this.props.width &&
         prevProps.height === this.props.height &&
@@ -409,6 +410,11 @@ class SubjectSwimLane extends React.Component {
         _.isEqual(prevProps.subject, this.props.subject) &&
         _.isEqual(prevProps.data, this.props.data)
        ) {
+
+      //
+      // Show the subject as selected if displayed
+      //
+      this.displaySelectionOutline(this.props.subject, true);
 
        //
        // Check legend visible state (done in renderSwimlanes())
@@ -422,8 +428,8 @@ class SubjectSwimLane extends React.Component {
 
       return;
     }
-    console.log("SubjectSwimLane - ComponentDidupdate: PROCEEDING #2");
-    console.log("SubjectSwimLane ComponentDidupdate: RENDERING SWIMLANES");
+    common.consoleLog("SubjectSwimLane - ComponentDidupdate: PROCEEDING #2");
+    common.consoleLog("SubjectSwimLane ComponentDidupdate: RENDERING SWIMLANES");
     this.renderSwimlanes();
   }
 
@@ -550,7 +556,7 @@ class SubjectSwimLane extends React.Component {
           //
           // Selected the returned interval
           //
-          console.log("SubjectVisual - handleVisualDoubleClick() " + res.data[0].name);
+          common.consoleLog("SubjectVisual - handleVisualDoubleClick() " + res.data[0].name);
           this.props.onSelectedChange(res.data[0], d);
         }
       }).catch((err) => {
@@ -901,8 +907,6 @@ class SubjectSwimLane extends React.Component {
       .attr("transform", this.marginTranslation())
       .attr('stroke', d => d.kindLane ? 'black' : 'lightgray')
       .attr('stroke-width', d => d.kindLane ? 5 : 1);
-
-    console.log(this.props.data.kinds);
 
     // Paint the backgrounds of the lanes
     this.gchart.append('g')

@@ -1,5 +1,6 @@
 import ColorHash from 'color-hash'
 
+export var DEBUG = false;
 export var million = 1000000;
 export var thousand = 1000;
 export var wikiLink = "https://en.wikipedia.org/wiki/";
@@ -101,4 +102,12 @@ export function idToTitle(id) {
   }
 
   return s.join(' ');
+}
+
+export function consoleLog(msg) {
+  if (! DEBUG) {
+    return;
+  }
+
+  console.log(msg);
 }

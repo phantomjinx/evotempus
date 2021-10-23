@@ -1,13 +1,13 @@
 {
   "name": "evotempus",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "build": "cd app && yarn build:prod",
     "init-app": "cd app && yarn install",
     "init-server": "cd backend && npm install",
     "init": "npm run init-app && npm run init-server",
     "heroku-postbuild": "npm run init && npm run build",
-    "start": "node backend/src/server.js"
+    "start": "./run-prod-local.sh"
   },
   "repository": {
     "type": "git",

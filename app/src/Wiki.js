@@ -20,8 +20,8 @@ export default class Wiki extends React.Component {
   }
 
   logErrorState(errorMsg, error) {
-    console.log("Error: " + errorMsg + "\nDetail: ");
-    console.log(error);
+    common.consoleLog("Error: " + errorMsg + "\nDetail: ");
+    common.consoleLog(error);
     this.setState({
       errorMsg: errorMsg,
       error: error,

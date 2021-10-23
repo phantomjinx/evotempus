@@ -1,5 +1,4 @@
 import React from 'react';
-import Pagination from "react-pagination-js";
 import Tabs from "./Tabs.js";
 import "react-pagination-js/dist/styles.css"; // import css
 import {color as d3Color} from 'd3-color';
@@ -200,9 +199,8 @@ export default class SubjectVisualLegend extends React.Component {
     }
 
     // Create the paginated tabs of categories
-    const kindTabs = [];
-    Array.from(kinds, ([key, value]) => {
-      kindTabs.push(this.renderKindBlock(key, value));
+    let kindTabs = Array.from(kinds, ([key, value]) => {
+      return this.renderKindBlock(key, value);
     });
 
     return (

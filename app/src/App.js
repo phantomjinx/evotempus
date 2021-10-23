@@ -46,8 +46,8 @@ class App extends React.Component {
   }
 
   logErrorState(errorMsg, error) {
-    console.log("Error: " + errorMsg + "\nDetail: ");
-    console.log(error);
+    common.consoleLog("Error: " + errorMsg + "\nDetail: ");
+    common.consoleLog(error);
     this.setState({
       errorMsg: errorMsg,
       error: error
@@ -105,12 +105,12 @@ class App extends React.Component {
 
   handleChange(interval, subject, categories) {
     if (interval) {
-      console.log("App - handleChange: " + interval.name);
-      console.log(interval);
+      common.consoleLog("App - handleChange: " + interval.name);
+      common.consoleLog(interval);
     }
     if (subject) {
-      console.log("App - handleChange: " + subject.name);
-      console.log(subject);
+      common.consoleLog("App - handleChange: " + subject.name);
+      common.consoleLog(subject);
     }
 
     if (! categories) {
@@ -136,7 +136,7 @@ class App extends React.Component {
   }
 
   updateCategoryFilter(names, filter) {
-    console.log("Set filter on names: " + names[0] + "  " + filter);
+    common.consoleLog("Set filter on names: " + names[0] + "  " + filter);
 
     if (!names || names.length === 0) {
       return;

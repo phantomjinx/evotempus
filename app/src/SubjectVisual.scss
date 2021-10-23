@@ -1,7 +1,9 @@
 @import "common.scss";
 
 $max-height: 65vh;
-$font: bold calc(max(5vw, 5vh)) firasans;
+$font-family: firasans;
+$font-weight: bold;
+$font-size: clamp(4rem, calc(max(5vw, 5vh)), 8rem);
 $bg-border-color: rgb(0,0,0);
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 $clicked-shadow: drop-shadow(0px 0px 10px black);
@@ -52,17 +54,21 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
       margin: 0;
       padding: 0;
       color: blue;
-      font-family: firasans;
+      font-family: $font-family;
     }
   }
 
   #subject-visual-component-svg {
-    font: $font;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-size: $font-size;
 
     .subject-container {
 
       .axis {
-        font: $font;
+        font-family: $font-family;
+        font-weight: $font-weight;
+        font-size: $font-size;
       }
 
       #subjects {

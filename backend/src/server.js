@@ -73,6 +73,8 @@ async function importDbData(conn) {
     return;
   }
 
+  logger.info("INFO: Database importing commencing ...");
+
   try {
     // Import the data if required into database
     await importing.importIntervals(dbConfig.intervals);
@@ -85,7 +87,7 @@ async function importDbData(conn) {
 
     importing.reportStats();
 
-    logger.debug("INFO: Database importing complete");
+    logger.info("INFO: Database importing complete");
 
   } catch (err) {
     logger.error(err);

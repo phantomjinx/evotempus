@@ -121,8 +121,6 @@ router.post('/', async (req, res) => {
   let subject = req.body.subject;
   let excluded = req.body.excluded;
 
-  console.log(req);
-
   if (!from) {
     from = -4600000000; // Earliest date of the pre-cambrian
   } else {

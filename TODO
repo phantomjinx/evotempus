@@ -2,6 +2,9 @@
 * Next Version
 *
 
+* Cretaceous - Paleogene Extinction Event does not show at end of Late Cretaecous due to being
+  66-65Ma. Might be good to modify values so it starts to show.
+
 * Address logging to console - maybe use react-native-logging?
 
 * Help buttons for each visual, inc. legend

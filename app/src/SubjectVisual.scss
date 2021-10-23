@@ -3,11 +3,28 @@
 $max-height: 65vh;
 $font-family: firasans;
 $font-weight: bold;
-$font-size: clamp(4rem, calc(max(5vw, 5vh)), 8rem);
 $bg-border-color: rgb(0,0,0);
 $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 $clicked-shadow: drop-shadow(0px 0px 10px black);
 $hover-shadow: drop-shadow(0px 0px 15px orange);
+
+@include media-breakpoint-between(xs, sm) {
+  #subject-visual-component-svg {
+    font-size: clamp(2rem, calc(max(5vw, 5vh)), 4rem);
+  }
+}
+
+@include media-breakpoint-between(sm, md) {
+  #subject-visual-component-svg {
+    font-size: clamp(3rem, calc(max(5vw, 5vh)), 6rem);
+  }
+}
+
+@include media-breakpoint-between(lg, xl) {
+  #subject-visual-component-svg {
+    font-size: clamp(4rem, calc(max(5vw, 5vh)), 8rem);
+  }
+}
 
 .subject-visual-loading {
   display: flex;
@@ -61,16 +78,8 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
   #subject-visual-component-svg {
     font-family: $font-family;
     font-weight: $font-weight;
-    font-size: $font-size;
 
     .subject-container {
-
-      .axis {
-        font-family: $font-family;
-        font-weight: $font-weight;
-        font-size: $font-size;
-      }
-
       #subjects {
         rect {
           cursor: pointer;

@@ -862,6 +862,14 @@ class SubjectSwimLane extends React.Component {
       .attr("transform", this.marginTranslation())
       .call(this.xDateAxis);
 
+    //
+    // Workaround for stopping these attributes
+    // being default set when call function is executed
+    //
+    this.gxAxis
+      .attr('font-size', '')
+      .attr('font-family', '');
+
     // draw the lanes for the chart
     this.gchart.append('g')
       .attr("id", "lane-lines")

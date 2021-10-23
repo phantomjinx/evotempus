@@ -257,33 +257,11 @@ export default class SubjectVisual extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    common.consoleLog("SubjectVisual - ComponentDidupdate Interval: " + this.props.interval.name);
-    if (this.props.subject) {
-      common.consoleLog("SubjectVisual - ComponentDidupdate Subject: " + this.props.subject.name);
-    }
-    common.consoleLog("SubjectVisual - ComponentDidupdate Categories: ---->");
-    common.consoleLog(prevProps.categories);
-    common.consoleLog(this.props.categories);
-
     if (_.isEqual(prevProps.interval, this.props.interval) &&
         _.isEqual(prevProps.categories, this.props.categories) &&
         _.isEqual(prevProps.subject, this.props.subject)) {
       common.consoleLog("SubjectVisual - interval / categories / subject props are same ... returning");
       return;
-    } else {
-      // What difference?
-      if (prevProps.interval !== this.props.interval) {
-        common.consoleLog("Interval is different");
-      }
-      if (prevProps.categories !== this.props.categories) {
-        common.consoleLog("Categories is different");
-      }
-      if (prevProps.subject !== this.props.subject) {
-        common.consoleLog("Subject is different");
-        common.consoleLog("PrevProps: ");
-        common.consoleLog(prevProps.subject);
-        common.consoleLog(this.props.subject);
-      }
     }
 
     //
@@ -387,22 +365,11 @@ class SubjectSwimLane extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    common.consoleLog("SubjectSwimLane - ComponentDidupdate Interval: " + this.props.interval.name);
-    if (this.props.subject) {
-      common.consoleLog("SubjectSwimLane - ComponentDidupdate Subject: " + this.props.subject.name);
-    }
-
     if (this.props.subject && _.isEqual(this.props.subject.owner, this.svgId)) {
       // We called for this update with our own clicks so no need to update
       common.consoleLog("SubjectSwimLane - props are same ... returning");
       return;
     }
-
-    common.consoleLog("SubjectSwimLane - ComponentDidupdate Data ----->");
-    common.consoleLog(this.props.data);
-    common.consoleLog("=== SubjectSwimlane - subject ===");
-    common.consoleLog(prevProps.subject);
-    common.consoleLog(this.props.subject);
 
     if (prevProps.width === this.props.width &&
         prevProps.height === this.props.height &&
@@ -428,8 +395,7 @@ class SubjectSwimLane extends React.Component {
 
       return;
     }
-    common.consoleLog("SubjectSwimLane - ComponentDidupdate: PROCEEDING #2");
-    common.consoleLog("SubjectSwimLane ComponentDidupdate: RENDERING SWIMLANES");
+
     this.renderSwimlanes();
   }
 
@@ -1147,7 +1113,11 @@ class SubjectSwimLane extends React.Component {
   render() {
     if (! this.props.interval) {
       return (
-        <div className="subject-visual-component"/>
+        <div className="subject-visual-component">
+          <div className="subject-visual-nocontent">
+            <p>No geological interval. Try clicking on the Geological Timescale.</p>
+          </div>
+        </div>
       )
     }
 

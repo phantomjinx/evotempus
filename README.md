@@ -1,5 +1,5 @@
 ## Welcome to EvoTempus
-        
+
 An index of the evolution of Planet Earth, from its birth 4.5 billion years. Its easy to get confused over dates and names of ages so this attempts to provide context using the time scale of the planetary geological intervals. Ever wondered how the Stone Age (Paleolithic) relates to the Cenozoic? Hopefully this should help.
 
 The circular visual illustrates Earth's geological intervals, as classified by
@@ -44,6 +44,24 @@ $ npm run build
 # Run the node server, which serves the frontend and backend
 $ ./run-prod-local.sh
 ```
+
+### Developing
+
+Both parts of the application can be executed independantly in development mode, using `yarn` and `gulp`.
+
+```
+$ cd backend && gulp
+# Use gulp import to seed a new mongo database with the data
+
+$ cd app && yarn start
+```
+
+To access a development application from multiples clients.
+1. Bring up the production environment by executling `./run-prod-local.sh`
+1. Start a web server with a virtual host configured to a specific port, eg. 8443
+2. Configure a proxy-passthrough to the application running on localhost:3000
+2. Use the host IP adddess and port to access the application, eg. 192.168.1.5:8443
+
 
 ### Licence
 The project is licensed under the <a href="https://github.com/phantomjinx/evotempus/blob/master/LICENSE">GPLv3</a>.

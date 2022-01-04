@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+       "name": "evotempus",
+       "cwd": "${HOME}/evotempus",
+       "script": "npm",
+       "args" : "start"
+    }
+  ]
+}

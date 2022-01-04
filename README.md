@@ -42,7 +42,7 @@ $ npm run init
 $ npm run build
 
 # Run the node server, which serves the frontend and backend
-$ ./run-prod-local.sh
+$ npm start
 ```
 
 ### Developing

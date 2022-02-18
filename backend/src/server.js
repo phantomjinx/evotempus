@@ -21,6 +21,7 @@
 // modules =================================================
 const express = require('express');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const helmet = require("helmet");
 const mongoose = require('mongoose');
 const app = express();
@@ -103,7 +104,7 @@ async function indexDb(conn) {
   logger.debug("INFO: Database indexing complete");
 }
 
-function init() {
+function init(conn) {
   logger.debug("INFO: Initialising the server application on port " + port);
 
   // Log middleware requests
@@ -121,8 +122,14 @@ function init() {
     saveUninitialized: true,
     cookie : {
       sameSite: 'strict',
-    }
+    },
+    store: MongoStore.create(conn),
   };
+
+  if (environment !== 'development') {
+    app.set('trust proxy', 1); // trust first proxy
+    sessionConfig.cookie.secure = true; // serve secure cookies
+  }
 
   app.use(session(sessionConfig));
 
@@ -217,7 +224,7 @@ async function prepareDatabase() {
 
     // await groupSubjects(evoDb.conn);
 
-    init();
+    init(evoDb.conn);
   } catch (err) {
     logger.error(err);
     evoDb.terminate();

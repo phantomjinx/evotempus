@@ -1,9 +1,9 @@
 #!/bin/bash
 
-while getopts ":k" opt; do
+while getopts ":i" opt; do
   case "${opt}" in
-    k)
-      KEEP_COLLECTIONS=1
+    i)
+      IMPORT_COLLECTIONS=1
       ;;
     :)
       echo "ERROR: Option -$OPTARG requires an argument"
@@ -17,13 +17,32 @@ while getopts ":k" opt; do
 done
 shift $((OPTIND-1))
 
-if [ -n "${KEEP_COLLECTIONS}" ]; then
-  KEEP_COLLECTIONS=false
-else
-  KEEP_COLLECTIONS=true
+if [ ! -d backend ]; then
+  echo "Error: please execute this script from the root of the project"
+  exit 1
 fi
 
-pushd app && yarn build:prod && popd > /dev/null
+if [ -n "${IMPORT_COLLECTIONS}" ]; then
+  #
+  # Default running will NOT import
+  #
+  KEEP_COLLECTIONS=true
+else
+  #
+  # Only with -i will import take place
+  #
+  KEEP_COLLECTIONS=false
+fi
+
+if [ ! -d app/build ]; then
+  echo "Error: No app build directory detected. Have you run compile-app yet?"
+  exit 1
+fi
+
+if [ ! "$(ls -A app/build)" ]; then
+  echo "Error: No app build detected. Have you run compile-app yet?"
+  exit 1
+fi
 
 export DROP_COLLECTIONS=${KEEP_COLLECTIONS}
 export IMPORT_DB=${KEEP_COLLECTIONS}

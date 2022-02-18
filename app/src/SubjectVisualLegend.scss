@@ -40,7 +40,7 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
     height: 100%;
     position: relative;
 
-    .subject-visual-legend-title-row {
+    .subject-visual-legend-title-row-1 {
       flex: 0 0 0;
       margin-top: 0.2em;
       margin-bottom: 0.2em;
@@ -59,12 +59,24 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
       }
     }
 
-    .subject-visual-legend-text {
-      flex: 0 0 auto;
-      margin-left: 0.5em;
-      margin-right: 0.5em;
-      font-size: x-small;
-      font-style: italic;
+    .subject-visual-legend-title-row-2 {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      .subject-visual-legend-text {
+        flex: 0 0 auto;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        font-size: x-small;
+        font-style: italic;
+
+        .subject-visual-legend-text-apply {
+          @include fontawesome-icon;
+          color: #ab8dcc;
+          margin-left: 0.2em;
+        }
+      }
     }
 
     .subject-visual-legend-kinds {
@@ -124,14 +136,64 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
 
           .subject-visual-legend-footer {
             flex: 0 0 auto;
-            height: 1em;
-            max-height: 1em;
+            height: 2.5em;
+            max-height: 2.5em;
             width: 100%;
             background-image: linear-gradient(to top, #ab8dcc 0.2em, white 0.8em, white);
+
+            #subject-visual-legend-apply:hover {
+              .subject-visual-legend-apply-tooltip {
+                display: inline-block;
+                visibility: visible;
+              }
+            }
+
+            #subject-visual-legend-apply {
+              flex: 1 0 auto;
+              position: relative;
+
+              .subject-visual-legend-apply-tooltip {
+                display: none;
+                visibility: hidden;
+                position: absolute;
+                z-index: 1000;
+                bottom: 100%;
+                left: 70%;
+                text-align: center;
+                width: 6em;
+                background-color: white;
+                color: black;
+                border-style: solid;
+                border-width: 1px;
+                border-radius: 5px;
+                padding: 2px;
+                box-shadow: $tile-shadow;
+              }
+
+              .subject-visual-legend-apply-btn {
+                @include fontawesome-icon;
+                float:right;
+                margin-right: 0.75em;
+                font-size: 16pt;
+                color: #ab8dcc;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+              }
+            }
+
+            .subject-visual-legend-apply-show {
+              display: block;
+            }
+
+            .subject-visual-legend-apply-hide {
+              display: none;
+            }
           }
         }
       }
     }
+
   }
 }
 

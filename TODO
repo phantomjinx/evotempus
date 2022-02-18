@@ -29,6 +29,5 @@
    - fish
 
 * Filtering on legend
- * Consider how to multi-select then do 1 update
  * Filter by search-term, ie. only show those that conform with terms,
    eg. only show "australopithecus" or "*saurus" or "Dino*"

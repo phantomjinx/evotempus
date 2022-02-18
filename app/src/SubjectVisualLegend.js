@@ -14,8 +14,10 @@ export default class SubjectVisualLegend extends React.Component {
       this.setState({ intervalPage: newPage });
     };
 
+
     this.state = {
       keySymbols: [],
+      changedSymbols: [],
       currentPage: 1,
       totalPerPage: 10,
       activeTab: ''
@@ -98,7 +100,45 @@ export default class SubjectVisualLegend extends React.Component {
   }
 
   filterCategory(e, keySymbol) {
-    this.props.onUpdateFilterCategory([keySymbol.name], !keySymbol.filtered);
+    // Make a shallow copy of the keys and filtered keys
+    let keySymbols = [...this.state.keySymbols];
+    let changedSymbols = [...this.state.changedSymbols];
+
+    // Make a shallow copy of the symbol to mutate
+    let keyIdx = keySymbols.indexOf(keySymbol);
+    let ks = {...keySymbols[keyIdx]};
+
+    // Modify the filtered property
+    ks.filtered = ! keySymbol.filtered;
+
+    // Put it back into key array.
+    keySymbols[keyIdx] = ks;
+
+    // Add / Remove from changedSymbols
+    let chgIdx = changedSymbols.indexOf(keySymbol);
+    if (chgIdx < 0) {
+      // Not been changed before so add to changedSymbols
+      changedSymbols.push(ks);
+    } else {
+      // Already in changedSymbols so being changed back
+      // so remove from changedSymbols
+      changedSymbols.splice(chgIdx, 1);
+    }
+
+    // Set the state to the new copies
+    this.setState({
+      keySymbols: keySymbols,
+      changedSymbols: changedSymbols
+    });
+  }
+
+  applyFilter() {
+    this.props.onUpdateFilterCategory(this.state.changedSymbols.map(a => {
+      return {
+        name: a.name,
+        filtered: a.filtered
+      };
+    }));
   }
 
   renderKindBlock(title, keySymbols) {
@@ -174,6 +214,15 @@ export default class SubjectVisualLegend extends React.Component {
           </ul>
         </div>
         <div className="subject-visual-legend-footer">
+          <div
+            id="subject-visual-legend-apply"
+            className={this.state.changedSymbols.length > 0 ? 'subject-visual-legend-apply-show' : 'subject-visual-legend-apply-hide'}>
+            <span className="subject-visual-legend-apply-tooltip">Apply Filter</span>
+            <button
+              className="subject-visual-legend-apply-btn fas fa-check-circle"
+              onClick={(event) => this.applyFilter(event)}>
+            </button>
+          </div>
         </div>
       </div>
     )
@@ -216,17 +265,21 @@ export default class SubjectVisualLegend extends React.Component {
     return (
       <div id="subject-visual-legend" className={this.props.legend.visible ? 'show' : 'hide'}>
         <div className="subject-visual-legend-content">
-          <div className="subject-visual-legend-title-row">
+          <div className="subject-visual-legend-title-row-1">
             <button
               className="subject-visual-legend-closebtn fas fa-times"
               onClick={this.close}>
             </button>
           </div>
-          <div className="subject-visual-legend-text">
-            <p>
-              Click on the category icon to filter
-            </p>
+          <div className="subject-visual-legend-title-row-2">
+            <div className="subject-visual-legend-text">
+              <p>
+                Select icons to filter then click
+                <i className="subject-visual-legend-text-apply fas fa-check-circle"></i>
+              </p>
+            </div>
           </div>
+
           <div className="subject-visual-legend-kinds">
             {this.renderKinds()}
           </div>

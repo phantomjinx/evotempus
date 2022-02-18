@@ -135,18 +135,21 @@ class App extends React.Component {
     });
   }
 
-  updateCategoryFilter(names, filter) {
-    common.consoleLog("Set filter on names: " + names[0] + "  " + filter);
+  //
+  // changedCategories is array of {name: ..., filtered: true|false}
+  //
+  updateCategoryFilter(changedCategories) {
 
-    if (!names || names.length === 0) {
+    if (!changedCategories || changedCategories.length === 0) {
       return;
     }
+    common.consoleLog("Set filter on categories: " + changedCategories[0].name + "  " + changedCategories[0].filtered);
 
     let copyCategories = [...this.state.categories];
 
-    names.forEach(name => {
+    changedCategories.forEach(changedCategory => {
       const idx = this.state.categories.findIndex(category => {
-        return category.name === name;
+        return category.name === changedCategory.name;
       })
 
       if (idx === -1) {
@@ -155,7 +158,7 @@ class App extends React.Component {
 
       let copyCat = {
         ...copyCategories[idx],
-        filtered: filter
+        filtered: changedCategory.filtered
       }
 
       copyCategories[idx] = copyCat;

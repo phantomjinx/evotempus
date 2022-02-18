@@ -546,7 +546,12 @@ class SubjectSwimLane extends React.Component {
   // Reset all categories back to visible
   //
   resetCategories(event) {
-    this.props.onUpdateCategoryFilter(this.props.categories.map(a => a.name), false);
+    this.props.onUpdateCategoryFilter(this.props.categories.map(a => {
+      return {
+        name: a.name,
+        filtered: false
+      };
+    }));
 
     if (event) {
       event.preventDefault();

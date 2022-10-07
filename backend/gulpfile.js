@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-  gutil = require('gulp-util'),
   path = require('path'),
   jshint = require('gulp-jshint'),
   nodemon = require('gulp-nodemon'),

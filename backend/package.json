@@ -16,30 +16,29 @@
   },
   "homepage": "https://github.com/phantomjinx/evotempus#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "connect-mongo": "^4.6.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-pino-logger": "^5.0.0",
-    "express-session": "^1.17.1",
+    "express": "^4.18.1",
+    "express-pino-logger": "^7.0.0",
+    "express-session": "^1.17.3",
     "fs": "0.0.1-security",
-    "helmet": "^4.2.0",
+    "helmet": "^6.0.0",
     "method-override": "^3.0.0",
-    "mongoose": "^5.10.9",
-    "n-readlines": "^1.0.0",
-    "pino": "^6.7.0",
+    "mongoose": "5.13.15",
+    "n-readlines": "^1.0.3",
+    "pino": "^8.6.1",
     "request": "^2.88.2",
-    "wikijs": "^6.0.1"
+    "wikijs": "^6.3.3"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-jshint": "^2.1.0",
-    "gulp-load-plugins": "^2.0.5",
+    "gulp-load-plugins": "^2.0.8",
     "gulp-nodemon": "^2.5.0",
-    "gulp-util": "^3.0.8",
-    "jshint": "^2.12.0",
+    "jshint": "^2.13.5",
     "jshint-stylish": "^2.2.1",
-    "nodemon": "^2.0.6",
-    "pino-pretty": "^4.3.0"
+    "nodemon": "^2.0.20",
+    "pino-pretty": "^9.1.1"
   }
 }

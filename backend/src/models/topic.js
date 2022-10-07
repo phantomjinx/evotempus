@@ -19,6 +19,12 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
+//
+// topic:         id of a subject or interval
+// topicTarget:   type of topic
+// linkId:        identifier of the link
+// description:   downloaded description from the linkId
+//
 var TopicSchema = new Schema({
     topic: {
       type: String,

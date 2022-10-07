@@ -48,7 +48,16 @@ var SubjectSchema = new Schema({
     link: String,
     from: Number,
     to:   Number,
-    icon: String
+    icon: String,
+    tags: [{
+      type: String,
+      validate: {
+        validator: function(v) {
+          return Hint.findById(v);
+        },
+        message: props => `${props.value} is an invalid Tag`
+      },
+    }],
 },
 { versionKey: 'version' });
 

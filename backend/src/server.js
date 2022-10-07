@@ -86,6 +86,8 @@ async function importDbData(conn) {
 
     await importing.importSubjects(dbConfig.subjects);
 
+    await importing.importTags(dbConfig.tags);
+
     importing.reportStats();
 
     logger.info("INFO: Database importing complete");
@@ -98,7 +100,7 @@ async function importDbData(conn) {
 
 async function indexDb(conn) {
   await Interval.collection.createIndex({ name: 'text', kind: 'text' });
-  await Topic.collection.createIndex({ topic: 'text', description: 'text' });
+  await Topic.collection.createIndex({ topic: 'text', linkId: 'text' });
   await Subject.collection.createIndex({ name: 'text', kind: 'text', category: 'text' });
 
   logger.debug("INFO: Database indexing complete");

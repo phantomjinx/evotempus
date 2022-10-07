@@ -231,6 +231,33 @@ async function createOrUpdateSubject(dataRow) {
   }
 }
 
+async function tagSubject(dataRow) {
+  if (dataRow.length < 2) {
+    logger.error("ERROR: Cannot tag subject as number of columns in data is smaller than expected: %s", dataRow[0]);
+    evoDb.terminate();
+  }
+
+  const subjectId = dataRow[0].trim();
+  const tagId = dataRow[1].trim();
+
+  logger.debug("Tagging subject: id: " + subjectId + " tag: " + tagId);
+
+  const subject = await Subject.findById(subjectId).exec();
+  if (subject == null) {
+    logger.error("ERROR: Cannot find subject " + subjectId + " while tagging");
+    evoDb.terminate();
+  }
+
+  if (subject.tags.indexOf(tagId) < 0) {
+    subject.tags.push(tagId);
+
+    //
+    // Vaidator of subject should detect whether tag is valid
+    //
+    await subject.save();
+  }
+}
+
 async function createHint(dataRow) {
   if (dataRow.length < 5) {
     logger.error("ERROR: Cannot create hint as number of columns in data is smaller than expected: %s", dataRow[0]);
@@ -359,9 +386,13 @@ async function importSubjects(pathOrPaths) {
   logger.debug("INFO: import of subjects complete");
 }
 
+async function importTags(pathOrPaths) {
+  await importContent(pathOrPaths, 2, tagSubject);
+}
+
 function reportStats() {
   logger.info("*** Intervals: %d  Topics: %d  Hints: %d  Subjects: %d  Ignored Subjects: %d ***",
    stats.intervals, stats.topics, stats.hints, stats.subjects, stats.ignoredSubjects);
 }
 
-module.exports = { importIntervals, importIntervalTopics, importHints, importSubjects, reportStats};
+module.exports = { importIntervals, importIntervalTopics, importHints, importSubjects, importTags, reportStats};

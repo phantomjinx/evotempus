@@ -26,12 +26,12 @@
     "install": "^0.13.0",
     "jquery": "^3.6.0",
     "lodash": "^4.17.20",
-    "node-sass": "^4.14.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-pagination-js": "^2.0.0",
     "react-scripts": "3.4.4",
-    "react-tooltip": "^4.2.10"
+    "react-tooltip": "^4.2.10",
+    "sass": "^1.55.0"
   },
   "scripts": {
     "build": "react-app-env --env-file=config/${BUILD_ENV}.env build",

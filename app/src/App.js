@@ -12,6 +12,8 @@ import SubjectVisual from './SubjectVisual.js';
 import HelpPage from './HelpPage.js';
 import * as api from './api';
 import * as common from './common';
+import wikiLogoV2 from './images/wikipedia-logo-v2.svg';
+import geoclock from './images/geologic-clock.png';
 
 class App extends React.Component {
 
@@ -259,7 +261,7 @@ class App extends React.Component {
             {intervalVisual}
             <div id="interval-wiki-card-btn-container" className={this.state.topicTarget && this.state.topicTarget.type === 'interval' ? 'show' : 'hide'}>
               <button id="interval-wiki-card-btn" onClick={(event) => this.handleWikiClick(event, "interval")}>
-                <img src="/wikipedia-logo-v2.svg" alt="W"/>
+                <img src={wikiLogoV2} alt="W"/>
               </button>
             </div>
           </div>
@@ -268,7 +270,7 @@ class App extends React.Component {
           {subjectVisual}
           <div id="subject-wiki-card-btn-container" className={this.state.topicTarget && this.state.topicTarget.type === 'subject' ? 'show' : 'hide'}>
             <button id="subject-wiki-card-btn" onClick={(event) => this.handleWikiClick(event, "subject")}>
-              <img src="/wikipedia-logo-v2.svg" alt="W"/>
+              <img src={wikiLogoV2} alt="W"/>
             </button>
           </div>
         </div>
@@ -284,7 +286,7 @@ class App extends React.Component {
           </p>
           <a id="app-footer-logo" href="https://en.wikipedia.org/wiki/Geologic_time_scale"
             target="_blank" rel="noopener noreferrer">
-            <img src="/geologic-clock.png" alt="geo-clock"/>
+            <img src={geoclock} alt="geo-clock"/>
           </a>
         </footer>
       </div>

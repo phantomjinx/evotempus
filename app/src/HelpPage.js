@@ -17,8 +17,8 @@ export default class HelpPage extends React.Component {
             <div className="card">
               <div id="headingIntro" className="card-header">
                 <h5 className="help-page-title-text">
-                  <button className="btn" data-toggle="collapse"
-                          data-target="#collapseIntro" aria-expanded="true" aria-controls="collapseIntro">
+                  <button className="btn" data-bs-toggle="collapse"
+                          data-bs-target="#collapseIntro" aria-expanded="true" aria-controls="collapseIntro">
                     Introduction
                   </button>
                 </h5>
@@ -41,8 +41,8 @@ export default class HelpPage extends React.Component {
             <div className="card">
               <div id="headerUsage" className="card-header">
                 <h5 className="help-page-title-text">
-                  <button className="btn" data-toggle="collapse"
-                          data-target="#collapseUsage" aria-expanded="true" aria-controls="collapseUsage">
+                  <button className="btn" data-bs-toggle="collapse"
+                          data-bs-target="#collapseUsage" aria-expanded="true" aria-controls="collapseUsage">
                     Usage
                   </button>
                 </h5>
@@ -116,8 +116,8 @@ export default class HelpPage extends React.Component {
             <div className="card">
               <div id="headerAck" className="card-header">
                 <h5 className="help-page-title-text">
-                  <button className="btn" data-toggle="collapse"
-                          data-target="#collapseAck" aria-expanded="true" aria-controls="collapseAck">
+                  <button className="btn" data-bs-toggle="collapse"
+                          data-bs-target="#collapseAck" aria-expanded="true" aria-controls="collapseAck">
                     Acknowledgement
                   </button>
                 </h5>
@@ -147,8 +147,8 @@ export default class HelpPage extends React.Component {
             <div className="card">
               <div id="headerContrib" className="card-header">
                 <h5 className="help-page-title-text">
-                  <button className="btn" data-toggle="collapse"
-                          data-target="#collapseContrib" aria-expanded="true" aria-controls="collapseContrib">
+                  <button className="btn" data-bs-toggle="collapse"
+                          data-bs-target="#collapseContrib" aria-expanded="true" aria-controls="collapseContrib">
                     Contributing
                   </button>
                 </h5>

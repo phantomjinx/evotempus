@@ -117,7 +117,7 @@ $app-right-margin: 2vh;
   }
 }
 
-@include media-breakpoint-between(lg, xl) {
+@include media-breakpoint-up(md) {
   .app {
     grid-template-rows: auto 1fr auto 3vh;
     grid-template-columns: 30vw 1fr;

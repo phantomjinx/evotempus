@@ -14,7 +14,7 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
   }
 }
 
-@include media-breakpoint-between(lg, xl) {
+@include media-breakpoint-up(md) {
   .evo-search {
     .search-results {
       width: 50%;

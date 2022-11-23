@@ -18,7 +18,7 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
   }
 }
 
-@include media-breakpoint-between(lg, xl) {
+@include media-breakpoint-up(md) {
 
   #subject-visual-legend.show {
     max-width: 30%;

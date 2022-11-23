@@ -242,16 +242,18 @@ class App extends React.Component {
     return (
       <div className="app grid-container">
         <nav className="header navbar navbar-expand-lg">
-          <p className="header-title">EvoTempus</p>
-          <p className="header-title collapse navbar-collapse">Dashboard of Earth History</p>
-          <button id="collapsible" className="navbar-toggler fas fa-bars" type="button" data-toggle="collapse"
-                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                  aria-expanded="false" aria-label="Toggle navigation">
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <Search
-              onSelectedChange={this.handleChange}
-            />
+          <div class="container-fluid">
+            <p className="header-title">EvoTempus</p>
+            <p className="header-title collapse navbar-collapse">Dashboard of Earth History</p>
+            <button id="collapsible" className="navbar-toggler fas fa-bars" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <Search
+                onSelectedChange={this.handleChange}
+              />
+            </div>
           </div>
         </nav>
         <div className="interval-visual-group">

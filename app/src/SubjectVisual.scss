@@ -20,7 +20,7 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
   }
 }
 
-@include media-breakpoint-between(lg, xl) {
+@include media-breakpoint-up(md) {
   #subject-visual-component-svg {
     font-size: clamp(4rem, calc(max(5vw, 5vh)), 8rem);
   }

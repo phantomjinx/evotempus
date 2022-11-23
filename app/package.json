@@ -30,8 +30,8 @@
     "react-dom": "^17.0.0",
     "react-pagination-js": "^2.0.0",
     "react-scripts": "3.4.4",
-    "react-tooltip": "^4.2.10",
-    "sass": "^1.55.0"
+    "react-tooltip": "^4.5.1",
+    "sass": "^1.56.1"
   },
   "scripts": {
     "build": "react-app-env --env-file=config/${BUILD_ENV}.env build",

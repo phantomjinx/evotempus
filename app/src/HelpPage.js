@@ -51,8 +51,10 @@ export default class HelpPage extends React.Component {
                    aria-labelledby="headerUsage" data-parent="#help-page-content">
                 <div className="card-body">
                   <p className="card-text">
-                    The circular visual illustrates Earth's geological intervals, as classified by the
-                    <a href="https://stratigraphy.org" target="_blank" rel="noopener noreferrer">International Commission on Stratigraphy</a>.
+                    The circular visual illustrates Earth's geological intervals, as classified by the&nbsp;
+                    <a href="https://stratigraphy.org" target="_blank" rel="noopener noreferrer">
+                      International Commission on Stratigraphy
+                    </a>.
                     Starting at the top, moving clockwise, it displays the chronological sequence of
                     ages from oldest to youngest. Those intervals nearest the centre are parents of the
                     intervals further out, eg. the PreCambrian encapsulates the Hadean, Archaen and
@@ -72,21 +74,21 @@ export default class HelpPage extends React.Component {
                   </p>
                   <p className="card-text">
                     A <em>Single-Click</em> on an interval selects it, leading to:
-                    <ul className="list-group list-group-flush">
-                      <li className="list-group-item">
-                        A timeline visualization of subjects (Events, Geological, Faunal and Floral) being
-                        displayed. All the subjects occurred within the limits of the geological interval,
-                        although some may begin in prior intervals and/or end in subsequent intervals.
-                      </li>
-                      <li className="list-group-item">
-                        A pane is displayed providing an explanation of the interval selected. On smaller
-                        screens, a buttton is provided instead, which when pressed with display the pane
-                        as a slide-in window. The content is a brief summary description of the interval,
-                        according to <a href="https://www.wikipedia.org">Wikipedia</a>. The whole
-                        Wikipedia article can be accessed using the button at the bottom-right of the pane.
-                      </li>
-                    </ul>
                   </p>
+                  <ul className="list-group list-group-flush">
+                    <li className="list-group-item">
+                      A timeline visualization of subjects (Events, Geological, Faunal and Floral) being
+                      displayed. All the subjects occurred within the limits of the geological interval,
+                      although some may begin in prior intervals and/or end in subsequent intervals.
+                    </li>
+                    <li className="list-group-item">
+                      A pane is displayed providing an explanation of the interval selected. On smaller
+                      screens, a buttton is provided instead, which when pressed with display the pane
+                      as a slide-in window. The content is a brief summary description of the interval,
+                      according to <a href="https://www.wikipedia.org">Wikipedia</a>. The whole
+                      Wikipedia article can be accessed using the button at the bottom-right of the pane.
+                    </li>
+                  </ul>
                   <p className="card-text">
                     A <em>Single-Click</em> on any subject in the timeline visualization, selects it and
                     displays a description in the same way as clicking an interval.
@@ -128,13 +130,13 @@ export default class HelpPage extends React.Component {
                   <p className="card-text">
                     The data was downloaded from the <a href="https://paleobiodb.org">Paleobiology Database</a> on
                     8th July, 2021 using the following parameters:
-                    <ul className="list-group list-group-flush help-page-smaller-italic">
-                      <li className="list-group-item">taxon_reso: genus</li>
-                      <li className="list-group-item">interval: [NAMED GEOLOGICAL TIME PERIOD | xMa],[NAMED GEOLOGICAL TIME PERIOD | xMa]</li>
-                      <li className="list-group-item">time_rule: overlap</li>
-                      <li className="list-group-item">show: class,taphonomy,paleoloc,geo</li>
-                    </ul>
                   </p>
+                  <ul className="list-group list-group-flush help-page-smaller-italic">
+                    <li className="list-group-item">taxon_reso: genus</li>
+                    <li className="list-group-item">interval: [NAMED GEOLOGICAL TIME PERIOD | xMa],[NAMED GEOLOGICAL TIME PERIOD | xMa]</li>
+                    <li className="list-group-item">time_rule: overlap</li>
+                    <li className="list-group-item">show: class,taphonomy,paleoloc,geo</li>
+                  </ul>
                   <p className="card-text">
                     The data includes records from all collections spanning the GSA Geological Time
                     Scale so impractical to cite all the contributors individually so please extend

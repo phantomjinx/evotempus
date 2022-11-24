@@ -242,7 +242,7 @@ class App extends React.Component {
     return (
       <div className="app grid-container">
         <nav className="header navbar navbar-expand-lg">
-          <div class="container-fluid">
+          <div className="container-fluid">
             <p className="header-title">EvoTempus</p>
             <p className="header-title collapse navbar-collapse">Dashboard of Earth History</p>
             <button id="collapsible" className="navbar-toggler fas fa-bars" type="button"

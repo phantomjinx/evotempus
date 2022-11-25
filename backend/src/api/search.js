@@ -29,15 +29,36 @@ const logger = loggerUtils.logger;
 router.get('/', (req, res) => {
 
   if (! req.query.query) {
-    res.status(500).send("Error: no search query specified");
+    res.status(500).send("No search query specified");
+    return;
+  }
+
+  if (req.query.query.length < 3) {
+    res.status(500).send("Query text must be 3 or more characters");
+    return;
   }
 
   logger.info("Search: " + req.query.query);
 
   Promise.all([
-    Interval.find({ $text: { $search: req.query.query } }),
-    Subject.find({ $text: { $search: req.query.query } }),
-    Topic.find({ $text: { $search: req.query.query } })
+    Interval.find({
+      $or: [
+        { $text:       { $search: req.query.query } },
+        { name:        { $regex: '.*' + req.query.query + '.*', $options: 'i' } }
+      ]}),
+    Subject.find({
+      $or: [
+        { $text:       { $search: req.query.query } },
+        { name:        { $regex: '.*' + req.query.query + '.*', $options: 'i' } },
+        { tags:        { $regex: '.*' + req.query.query + '.*', $options: 'i' } }
+      ]}),
+    Topic.find({
+      $or: [
+        { $text:       { $search: req.query.query } },
+        { topic:       { $regex: '.*' + req.query.query + '.*', $options: 'i' } },
+        { topicTarget: { $regex: '.*' + req.query.query + '.*', $options: 'i' } },
+        { description: { $regex: '.*' + req.query.query + '.*', $options: 'i' } }
+      ]})
   ]).then(answer => {
 
     const r = {

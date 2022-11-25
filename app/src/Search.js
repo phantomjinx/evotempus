@@ -48,10 +48,14 @@ export default class Search extends React.Component {
 
   handleSearch(event) {
     if (!this.state.searchTerm) {
+      this.setState({ error: undefined });
       return;
     }
 
-    this.setState({ resultsClass: 'search-results-waiting' });
+    this.setState({
+      resultsClass: 'search-results-waiting',
+      error: undefined
+    });
 
     //
     // Search the backend service

@@ -52,7 +52,7 @@ const description = (res, type, id) => {
   )
   .then(topic => {
     if (topic == null) {
-      res.status(500).send("Error: No topic with interval id " + id + " found");
+      res.status(500).send("No topic with interval id " + id + " found");
       return;
     }
 

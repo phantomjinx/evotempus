@@ -99,9 +99,17 @@ async function importDbData(conn) {
 }
 
 async function indexDb(conn) {
-  await Interval.collection.createIndex({ name: 'text', kind: 'text' });
-  await Topic.collection.createIndex({ topic: 'text', linkId: 'text' });
-  await Subject.collection.createIndex({ name: 'text', kind: 'text', category: 'text' });
+  await Interval.collection.createIndex({ "$**": "text" });
+  await Interval.collection.createIndex({ "name": 1 });
+
+  await Topic.collection.createIndex({ "$**": "text" });
+  await Topic.collection.createIndex({ "topic": 1 });
+  await Topic.collection.createIndex({ "topicTarget": 1 });
+  await Topic.collection.createIndex({ "description": 1 });
+
+  await Subject.collection.createIndex({ "$**": "text" });
+  await Subject.collection.createIndex({ "name": 1 });
+  await Subject.collection.createIndex({ "tags": 1 });
 
   logger.debug("INFO: Database indexing complete");
 }

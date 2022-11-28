@@ -109,10 +109,18 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
       }
 
       .subject-outline-clicked {
-        stroke-width: 15 !important;
+        stroke-width: 10 !important;
         stroke: black !important;
         filter: $clicked-shadow !important;
         cursor: grabbing;
+        stroke-dasharray: 50;
+        animation: dash 5s linear normal infinite;
+      }
+
+      @keyframes dash {
+        to {
+          stroke-dashoffset: 1000;
+        }
       }
     }
   }

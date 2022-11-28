@@ -599,7 +599,6 @@ class SubjectSwimLane extends React.Component {
     }
 
     const id = '#subject-' + common.identifier(node._id);
-    d3Select(id).classed('subject-outline-hover', false);
     d3Select(id).classed('subject-outline-clicked', select);
   }
 

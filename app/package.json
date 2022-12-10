@@ -35,11 +35,11 @@
     "sass": "^1.56.1"
   },
   "scripts": {
-    "build": "react-app-env --env-file=config/${BUILD_ENV}.env build",
+    "build": "react-app-env --env-file=env/${BUILD_ENV}.env build",
     "build:dev": "BUILD_ENV=development npm run build",
     "build:prod": "IMAGE_INLINE_SIZE_LIMIT=0 INLINE_RUNTIME_CHUNK=false BUILD_ENV=production npm run build",
-    "start": "react-app-env --env-file=config/development.env start",
-    "test": "react-app-env --env-file=config/development.env test",
+    "start": "react-app-env --env-file=env/development.env start",
+    "test": "react-app-env --env-file=env/development.env test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

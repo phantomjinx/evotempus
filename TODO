@@ -2,6 +2,10 @@
 * Next Version
 *
 
+* Migration to webpack / babel manually from react-scripts
+
+* Conversion to Typescript
+
 * Address logging to console - maybe use react-native-logging?
 
 * Help buttons for each visual, inc. legend

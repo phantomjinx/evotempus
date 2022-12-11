@@ -5,4 +5,4 @@ if [ ! -d app ]; then
   exit 1
 fi
 
-pushd app && yarn build:prod && popd
+pushd app && npm build:prod && popd

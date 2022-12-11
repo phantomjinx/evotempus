@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const instance = axios.create({
     // Allows for repointing to an alternative backend server:port if required
-    baseURL: process.env.REACT_APP_DATA_SERVER_HOST || '/',
+    baseURL: process.env.DATA_SERVER_HOST || '/',
     headers: {
         // Any headers that are required
     }

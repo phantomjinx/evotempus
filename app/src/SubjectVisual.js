@@ -1,5 +1,6 @@
 import React from 'react';
-import _ from "lodash";
+import isEqual from "lodash.isequal";
+import cloneDeep from "lodash.clonedeep";
 import {axisTop as d3AxisTop} from 'd3-axis';
 import {
   extent as d3Extent,
@@ -194,12 +195,12 @@ export default class SubjectVisual extends React.Component {
         if (!res.data || res.data.length === 0) {
           if (criteria.kind) {
             // Only remove the data relevant to the kind searched for
-            newKindData = _.cloneDeep(this.state.kindData);
+            newKindData = cloneDeep(this.state.kindData);
             newKindData[criteria.kind] = [];
           }
         } else {
           if (criteria.kind) {
-            newKindData = _.cloneDeep(this.state.kindData);
+            newKindData = cloneDeep(this.state.kindData);
             newKindData[criteria.kind] = res.data[criteria.kind];
           } else {
             newKindData = res.data;
@@ -257,9 +258,9 @@ export default class SubjectVisual extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (_.isEqual(prevProps.interval, this.props.interval) &&
-        _.isEqual(prevProps.categories, this.props.categories) &&
-        _.isEqual(prevProps.subject, this.props.subject)) {
+    if (isEqual(prevProps.interval, this.props.interval) &&
+        isEqual(prevProps.categories, this.props.categories) &&
+        isEqual(prevProps.subject, this.props.subject)) {
       common.consoleLog("SubjectVisual - interval / categories / subject props are same ... returning");
       return;
     }
@@ -365,7 +366,7 @@ class SubjectSwimLane extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.subject && _.isEqual(this.props.subject.owner, this.svgId)) {
+    if (this.props.subject && isEqual(this.props.subject.owner, this.svgId)) {
       // We called for this update with our own clicks so no need to update
       common.consoleLog("SubjectSwimLane - props are same ... returning");
       return;
@@ -373,9 +374,9 @@ class SubjectSwimLane extends React.Component {
 
     if (prevProps.width === this.props.width &&
         prevProps.height === this.props.height &&
-        _.isEqual(prevProps.interval, this.props.interval) &&
-        _.isEqual(prevProps.subject, this.props.subject) &&
-        _.isEqual(prevProps.data, this.props.data)
+        isEqual(prevProps.interval, this.props.interval) &&
+        isEqual(prevProps.subject, this.props.subject) &&
+        isEqual(prevProps.data, this.props.data)
        ) {
 
       //

@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from "lodash";
+import isEqual from "lodash.isequal";
 import {stratify as d3Stratify, partition as d3Partition} from 'd3-hierarchy';
 import {interpolate as d3Interpolate, quantize as d3Quantize} from 'd3-interpolate';
 //
@@ -150,7 +150,7 @@ class IntervalSunburst extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (_.isEqual(prevProps.interval, this.props.interval)) {
+    if (isEqual(prevProps.interval, this.props.interval)) {
       return;
     }
 

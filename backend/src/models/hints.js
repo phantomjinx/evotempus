@@ -21,7 +21,7 @@ var Schema = mongoose.Schema;
 
 var HintSchema = new Schema({
     _id: {type: String, required: true},
-    type:  {type: String, enum: ['Kind', 'Category']},
+    type:  {type: String, enum: ['Kind', 'Category', 'Tag']},
     parent: {type: String, ref: 'Hint'},
     colour: String,
     link: String,

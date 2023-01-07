@@ -4,8 +4,8 @@ import ErrorMsg from './ErrorMsg.js';
 import * as api from './api.js';
 import * as common from './common';
 import './Wiki.scss';
-import geoclock from './images/geologic-clock.png';
-import wikiLogo from './images/wikipedia-logo-with-label.svg';
+import geoclock from './assets/images/geologic-clock.png';
+import wikiLogo from './assets/images/wikipedia-logo-with-label.svg';
 
 export default class Wiki extends React.Component {
 

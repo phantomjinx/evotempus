@@ -1,7 +1,15 @@
 import React from 'react';
 import './ErrorMsg.scss';
 
-class ErrorMsg extends React.Component {
+interface ErrorProps {
+  errorMsg?: string,
+  error?: Error
+}
+
+interface ErrorState {
+}
+
+class ErrorMsg extends React.Component<ErrorProps, ErrorState> {
 
   render() {
     return (

@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const appRoot = path.resolve(__dirname, '../');
 const src = path.resolve(appRoot, 'src');
@@ -8,7 +9,7 @@ const public = path.resolve(appRoot, 'public');
 
 module.exports = {
   entry: {
-    App: src + '/index.js'
+    App: src + '/index.tsx'
   },
   output: {
     path: build,
@@ -18,9 +19,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
+        test: /\.(tsx|ts|jsx)?$/,
+        use: ["ts-loader"],
       },
       {
         test: /\.(css|less)$/,
@@ -35,10 +35,10 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(svg|jpg|jpeg|png|gif)$/i,
         exclude: /node_modules/,
-        type: 'asset/resource',
-      }
+        type: 'asset/inline',
+      },
     ]
   },
   plugins: [
@@ -46,9 +46,19 @@ module.exports = {
      * Make available no js files to bundling
      */
      new HtmlWebpackPlugin({
-       favicon: path.resolve(src, 'images', 'favicon.ico'),
+       favicon: path.resolve(src, 'assets', 'images', 'favicon.ico'),
        template: path.resolve(public, 'index.html'),
        manifest: path.resolve(public, 'manifest.json'),
      }),
-  ]
+  ],
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx', '.jsx'],
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: path.resolve(appRoot, './tsconfig.json'),
+      }),
+    ],
+    symlinks: false,
+    cacheWithContext: false,
+  }
 };

@@ -1,7 +1,22 @@
+import {
+  Interval,
+  Subject,
+  Topic
+} from '@evotempus/types';
+
 export var DEBUG = false;
 export var million = 1000000;
 export var thousand = 1000;
 export var wikiLink = "https://en.wikipedia.org/wiki/";
+
+import geoclockIcon from '@evotempus/assets/images/geologic-clock-icon32.png';
+import topicIcon from '@evotempus/assets/images/topic-icon.png';
+import animalIcon from '@evotempus/assets/images/animal-icon.png';
+import eventIcon from '@evotempus/assets/images/event-icon.png';
+import geologyIcon from '@evotempus/assets/images/geology-icon.png';
+import microIcon from '@evotempus/assets/images/micro-icon.png';
+import fungusIcon from '@evotempus/assets/images/fungus-icon.png';
+import plantIcon from '@evotempus/assets/images/plant-icon.png';
 
 export function displayYear(year: number) {
   if (Math.abs(year) > million) {
@@ -41,4 +56,43 @@ export function consoleLog(obj: any) {
   }
 
   console.log(obj);
+}
+
+export function isInterval(object: any): boolean {
+  return (object as Interval).parent !== undefined;
+}
+
+export function isSubject(object: any): boolean {
+  return (object as Subject).category !== undefined;
+}
+
+export function isTopic(object: any): boolean {
+  return (object as Topic).topicTarget !== undefined;
+}
+
+export function getListIcon(object: any): string {
+
+  if (isInterval(object)) {
+    return geoclockIcon;
+  } else if (isTopic(object)) {
+    return topicIcon;
+  } else if (isSubject(object)) {
+    const subject = object as Subject;
+    switch (subject.kind) {
+      case 'Animal':
+        return animalIcon;
+      case 'Event':
+        return eventIcon;
+      case 'Geology':
+        return geologyIcon;
+      case 'Micro':
+        return microIcon;
+      case 'Fungus':
+        return fungusIcon;
+      case 'Plant':
+        return plantIcon;
+    }
+  }
+
+  return geoclockIcon;
 }

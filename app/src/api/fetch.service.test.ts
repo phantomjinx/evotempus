@@ -5,13 +5,7 @@ import axiosInstance from './axios.http';
 jest.mock('./axios.http');
 const mockedAxios = axiosInstance as jest.Mocked<typeof axiosInstance>;
 
-import { FetchService } from './fetch.service';
-
-var fetchService: FetchService;
-
-beforeEach(() => {
-  fetchService = new FetchService();
-});
+import { fetchService } from './fetch.service';
 
 describe("fetch.service.test", () => {
   test("fetch hints", async () => {

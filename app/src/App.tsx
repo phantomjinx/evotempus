@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import '@fortawesome/fontawesome-free/css/solid.css';
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/v5-font-face.css';
@@ -6,9 +7,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 import './App.scss';
+import { AppContext } from './AppContext';
 import {
-  HintService,
-  FetchService,
+  fetchService,
+  hintService
 } from '@evotempus/api';
 import {
   FilteredCategory,
@@ -17,84 +19,59 @@ import {
   Subject,
   TopicTarget,
 } from '@evotempus/types';
+import {
+  Search
+} from '@evotempus/components';
 // import { Search, Wiki, IntervalVisual, SubjectVisual, HelpPage } from '@evotempus/components';
-import { consoleLog, present } from '@evotempus/utils';
+import {
+  consoleLog,
+  present
+} from '@evotempus/utils';
 // import wikiLogoV2 from './assets/images/wikipedia-logo-v2.svg';
-import geoclock from './assets/images/geologic-clock.png';
+import geoclock from '@evotempus/assets/images/geologic-clock.png';
 
 interface AppProps {
 }
 
-interface AppState {
-  categories: FilteredCategory[],
-  errorMsg?: string,
-  error?: Error,
-  help: boolean,
-  hintService: HintService | undefined,
-  interval: Interval | undefined,
-  legend: Legend,
-  subject: Subject | undefined,
-  topicTarget: TopicTarget | undefined,
-  wikiVisible: boolean,
-  wikiPosition: string
-}
+export const App: React.FunctionComponent<AppProps> = () => {
 
-export default class App extends React.Component<AppProps, AppState> {
-
-  state: AppState = {
-    /*
-    * empty array of category objects
-    * with schema { id (string), name (string), filtered (boolean) }
-    */
-    categories: [],
-    help: true,
-    hintService: undefined,
-    interval: undefined,
-    legend: {
-      visible: false,
-      activeTab: ''
-    },
-    subject: undefined,
-    topicTarget: undefined,
-    wikiVisible: false,
-    wikiPosition: "interval"
-  };
-
-  private fetchService: FetchService = new FetchService();
+  const [filteredCategories, setFilteredCategories] = useState<FilteredCategory[]>([]);
+  const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined);
+  const [error, setError] = useState<Error | undefined>(undefined);
+  const [help, showHelp] = useState<boolean>(true);
+  const [interval, setInterval] = useState<Interval | undefined>(undefined);
+  const [legend, setLegend] = useState<Legend>({
+    visible: false,
+    activeTab: ''
+  });
+  const [subject, setSubject] = useState<Subject | undefined>(undefined);
+  const [topicTarget, setTopicTarget] = useState<TopicTarget | undefined>(undefined);
+  const [wikiVisible, showWiki] = useState<boolean>(false);
+  const [wikiPosition, setWikiPosition] = useState<string | undefined>('interval');
 
   // private intervalVisualRef = React.createRef<App>();
   // private subjectVisualRef = React.createRef<App>();
 
-  constructor (props: AppProps) {
-    super(props);
-  }
-
-  logErrorState(errorMsg: string, error: Error) {
-    consoleLog("Error: " + errorMsg + "\nDetail: ");
-    consoleLog(error);
-    this.setState({
-      errorMsg: errorMsg,
-      error: error
-    });
-  }
+  useEffect(() => {
+    console.log('component mounted!')
+    initHints();
+    initCategories();
+  },[])
 
   //
   // Fetch all the hints from the backend service
   // This needs to be done once then retained in HintService
   //
-  private initHints() {
-    this.fetchService.hints()
+  const initHints = () => {
+    fetchService.hints()
       .then((res) => {
         if (!res.data || res.data.length === 0) {
-          this.logErrorState("Failed to fetch hints", new Error("Response data payload was empty."));
+          logErrorState("Failed to fetch hints", new Error("Response data payload was empty."));
         } else {
-          const hintService: HintService = new HintService(res.data);
-          this.setState({
-            hintService: hintService
-          });
+          hintService.setHints(res.data);
         }
       }).catch((err) => {
-        this.logErrorState("Failed to fetch hints data", err);
+        logErrorState("Failed to fetch hints data", err);
       });
   }
 
@@ -102,77 +79,78 @@ export default class App extends React.Component<AppProps, AppState> {
   // Fetch all the categories from the backend service
   // This needs to be done once then retained and passed to the subject Swimlane component
   //
-  private initCategories() {
-    this.fetchService.subjectCategories()
+  const initCategories = () => {
+    fetchService.subjectCategories()
       .then((res) => {
         if (!res.data || res.data.length === 0) {
-          this.logErrorState("Failed to fetch categories be fetched", new Error("Response data payload was empty."));
+          logErrorState("Failed to fetch categories be fetched", new Error("Response data payload was empty."));
         } else {
-          let catObjs: FilteredCategory[] = [];
+          const filteredCategories: FilteredCategory[] = []
           for (const category of res.data.values()) {
-            catObjs.push({
+            filteredCategories.push({
               name: category,
               filtered: false
             });
           }
-
-          this.setState({
-            categories: catObjs
-          })
+          setFilteredCategories(filteredCategories);
         }
       }).catch((err) => {
-        this.logErrorState("Failed to fetch interval data", err);
+        logErrorState("Failed to fetch interval data", err);
       });
   }
 
-  componentDidMount() {
-    this.initHints();
-    this.initCategories();
+  const logErrorState = (errorMsg: string, error: Error) => {
+    consoleLog("Error: " + errorMsg + "\nDetail: ");
+    consoleLog(error);
+    setErrorMsg(errorMsg)
+    setError(error)
   }
 
-  handleChange = (interval: Interval | undefined, subject: Subject | undefined, categories: FilteredCategory[]) => {
-    if (interval) {
-      consoleLog("App - handleChange: " + interval.name);
-      consoleLog(interval);
-    }
-    if (subject) {
-      consoleLog("App - handleChange: " + subject.name);
-      consoleLog(subject);
-    }
+  const handleChange = (
+    newInterval: Interval | undefined,
+    newSubject?: Subject | undefined,
+    newCategories?: FilteredCategory[] | undefined) => {
 
-    if (! categories) {
-      categories = this.state.categories;
-    }
+      if (newInterval) {
+        consoleLog("App - handleChange: " + newInterval.name);
+        consoleLog(newInterval);
+      }
+      if (newSubject) {
+        consoleLog("App - handleChange: " + newSubject.name);
+        consoleLog(newSubject);
+      }
 
-    if ((interval && this.state.interval && interval._id === this.state.interval._id) &&
-        (subject && this.state.subject && subject._id === this.state.subject._id)) {
-        // Nothing to do
-      return;
-    }
+      if (! newCategories) {
+        newCategories = filteredCategories;
+      }
 
-    this.setState({
-      interval: interval,
-      subject: subject,
-      topicTarget: subject ? subject : interval,
-      categories: categories,
-      help: false
-    });
+      if ((newInterval && interval && newInterval._id === interval._id) &&
+          (newSubject && subject && newSubject._id === subject._id)) {
+            // Nothing to do
+            return;
+      }
+
+      setInterval(newInterval);
+      setSubject(newSubject);
+      setTopicTarget(subject ? subject : interval);
+      setFilteredCategories(newCategories);
+      showHelp(false);
   }
 
   //
   // changedCategories is array of {name: ..., filtered: true|false}
   //
-  updateCategoryFilter = (changedCategories: FilteredCategory[]) => {
+  const updateCategoryFilter = (changedCategories: FilteredCategory[]) => {
 
     if (!changedCategories || changedCategories.length === 0) {
       return;
     }
     consoleLog("Set filter on categories: " + changedCategories[0].name + "  " + changedCategories[0].filtered);
 
-    let copyCategories = [...this.state.categories];
+    let copyCategories = [...filteredCategories];
 
     changedCategories.forEach((changedCategory: FilteredCategory) => {
-      const idx = this.state.categories.findIndex(category => {
+      const idx = filteredCategories.findIndex(category => {
         return category.name === changedCategory.name;
       })
 
@@ -188,13 +166,11 @@ export default class App extends React.Component<AppProps, AppState> {
       copyCategories[idx] = copyCat;
     });
 
-    this.handleChange(this.state.interval, undefined, copyCategories);
+    handleChange(interval, undefined, copyCategories);
   }
 
-  onUpdateLegend = (legend: Legend) => {
-    this.setState({
-      legend: legend
-    });
+  const onUpdateLegend = (legend: Legend) => {
+    setLegend(legend);
   }
 
   /*
@@ -202,35 +178,30 @@ export default class App extends React.Component<AppProps, AppState> {
    *
    * type: determines which button was clicked to open the wiki (interval or subject)
    */
-  handleWikiClick = (event: any, type: string) => {
-    this.toggleWiki(event, type);
+  const handleWikiClick = (event: any, type: string) => {
+    toggleWiki(event, type);
     event.stopPropagation();
   }
-  //
+
   /*
    * Used when display in mobile and the wiki is a dialog
    * displayed using the wiki button
    */
    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
    // @ts-ignore
-  toggleWiki = (event: any, type: string) => {
+  const toggleWiki = (event: any, type: string | undefined) => {
     if (!type) {
-      type = this.state.wikiPosition;
+      type = wikiPosition;
     }
 
-    this.setState({
-      wikiVisible: !this.state.wikiVisible,
-      wikiPosition: type
-    });
+    showWiki(! wikiVisible);
+    setWikiPosition(type);
   }
 
-  toggleHelp = () => {
-    this.setState({
-      help: ! this.state.help
-    });
+  const toggleHelp = () => {
+    showHelp(! help);
   }
 
-  render() {
     // const intervalVisual = (
     //   <IntervalVisual
     //     parent = { this.intervalVisualRef }
@@ -262,22 +233,35 @@ export default class App extends React.Component<AppProps, AppState> {
     //
     // const subjectVisual = this.state.help ? showHelp : subjectViz;
 
-    return (
-      <div className="app grid-container">
+  return (
+    <div className="app grid-container">
+      <nav className="header navbar navbar-expand-lg">
+        <div className="container-fluid">
+          <p className="header-title">EvoTempus</p>
+          <p className="header-title collapse navbar-collapse">Dashboard of Earth History</p>
+          <button id="collapsible" className="navbar-toggler fas fa-bars" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <Search
+              onSelectedChange={handleChange}
+            />
+          </div>
+        </div>
+      </nav>
 
 
 
-
-        <footer className="footer">
-          <p id="app-footer-copyright">
-            &copy; P. G. Richardson {present(2030)} - Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL 3.0 or later</a>
-          </p>
-          <a id="app-footer-logo" href="https://en.wikipedia.org/wiki/Geologic_time_scale"
-            target="_blank" rel="noopener noreferrer">
-            <img src={geoclock} alt="geo-clock"/>
-          </a>
-        </footer>
-      </div>
-    );
-  }
+      <footer className="footer">
+        <p id="app-footer-copyright">
+          &copy; P. G. Richardson {present(2030)} - Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL 3.0 or later</a>
+        </p>
+        <a id="app-footer-logo" href="https://en.wikipedia.org/wiki/Geologic_time_scale"
+          target="_blank" rel="noopener noreferrer">
+          <img src={geoclock} alt="geo-clock"/>
+        </a>
+      </footer>
+    </div>
+  );
 }

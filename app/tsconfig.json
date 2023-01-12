@@ -11,12 +11,12 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false, // Change to true for production
+    "noUnusedParameters": false, // Change to true for production
     "paths": {
       "*": ["*", "types/*"],
       "@evotempus/api": ["./src/api"],
-      "@evotempus/assets": ["./src/assets"],
+      "@evotempus/assets/*": ["./src/assets/*"],
       "@evotempus/components": ["./src/components"],
       "@evotempus/layout": ["./src/layout"],
       "@evotempus/types": ["./src/types"],

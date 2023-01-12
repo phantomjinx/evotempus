@@ -6,11 +6,7 @@ export class HintService {
   private hints: HintMap = {};
   private colorHash = new ColorHash();
 
-  constructor(hints: Hint[]) {
-    this.setHints(hints);
-  }
-
-  private setHints(hintArr: Hint[]) {
+  setHints(hintArr: Hint[]) {
     if (! hintArr) {
       throw new Error('Hints passed to hint service is null');
     }
@@ -87,3 +83,5 @@ export class HintService {
     return colours;
   }
 }
+
+export const hintService = new HintService()

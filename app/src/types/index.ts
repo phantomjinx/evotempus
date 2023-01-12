@@ -11,8 +11,11 @@ export interface HintMap {
   [key: string]: Partial<Hint>
 }
 
-export interface TopicTarget {
+export interface Identified {
   _id: string,
+}
+
+export interface TopicTarget extends Identified {
   name: string,
   kind: string,
   from: number,
@@ -29,6 +32,19 @@ export interface Subject extends TopicTarget {
   link: string,
   icon: string,
   tags: string[],
+}
+
+export interface Topic extends Identified {
+  topic: string,
+  topicTarget: string,
+  linkId: string,
+  description: string,
+}
+
+export interface Results {
+  intervals: Interval[],
+  subjects: Subject[],
+  topics: Topic[],
 }
 
 export interface FilteredCategory {

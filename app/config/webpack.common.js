@@ -60,5 +60,9 @@ module.exports = {
     ],
     symlinks: false,
     cacheWithContext: false,
+    alias: {
+      assets: path.resolve(appRoot, src, 'assets'),
+      utils: path.resolve(appRoot, src, 'utils'),
+    },
   }
 };

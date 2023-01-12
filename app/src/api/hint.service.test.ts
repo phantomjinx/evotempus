@@ -1,18 +1,17 @@
 import { expect, test } from '@jest/globals';
 import { hints } from './support.test';
-import { HintService } from './hint.service';
+import { hintService, HintService } from './hint.service';
 import { Hint } from '@evotempus/types';
 
-var hintService: HintService;
-
 beforeEach(() => {
-  hintService = new HintService(hints);
+  hintService.setHints(hints);
 });
 
 describe("hint.service.test", () => {
   test("should throw error if hints is null", () => {
     const noHints = null;
-    expect(() => { new HintService(noHints!); }).toThrow(Error);
+    const emptyHS = new HintService();
+    expect(() => { emptyHS.setHints(noHints!); }).toThrow(Error);
   });
 
   test("should set the hints of the hint service", () => {

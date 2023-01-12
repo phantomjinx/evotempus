@@ -1,26 +1,29 @@
 import http from './axios.http'
-import { Hint } from '@evotempus/types';
+import {
+  Hint,
+  Results
+} from '@evotempus/types';
 
-export class FetchService {
+class FetchService {
 
   intervals() {
     return http({
-      'method':'GET',
-      'url':'/api/intervals'
+      'method': 'GET',
+      'url': '/api/intervals'
     });
   }
 
   intervalById(id: string) {
     return http({
-      'method':'GET',
-      'url':'/api/intervals/' + id
+      'method': 'GET',
+      'url': '/api/intervals/' + id
     });
   }
 
-  intervalEncloses(from: string, to: string) {
+  intervalEncloses(from: number, to: number) {
     return http({
-      'method':'GET',
-      'url':'/api/intervals',
+      'method': 'GET',
+      'url': '/api/intervals',
       'params': {
         'from': from,
         'to': to,
@@ -31,22 +34,22 @@ export class FetchService {
 
   description(topicType: string, topicId: string) {
     return http({
-      'method':'GET',
-      'url':'/api/' + topicType + 's/description/' + topicId
+      'method': 'GET',
+      'url': '/api/' + topicType + 's/description/' + topicId
     });
   }
 
   subjectById(id: string) {
     return http({
-      'method':'GET',
-    'url':'/api/subjects/' + id
+      'method': 'GET',
+      'url': '/api/subjects/' + id
     });
   }
 
   subjectsWithin(from: string, to: string, kind: string, page: number, subjectId: string, excludedCategories: boolean) {
     return http({
-      'method':'POST',
-      'url':'/api/subjects',
+      'method': 'POST',
+      'url': '/api/subjects',
       'data': {
         'from': from,
         'to': to,
@@ -63,16 +66,16 @@ export class FetchService {
   }
 
   search(searchTerm: string) {
-    return http({
-      'method':'GET',
-      'url':'/api/search',
+    return http.get<Results>('/api/search', {
       'params': {
-        'query':searchTerm
+        'query': searchTerm
       }
     });
   }
 
   hints() {
-    return http.get<Hint[]>('/api/hints')
+    return http.get<Hint[]>('/api/hints');
   }
 }
+
+export const fetchService = new FetchService()

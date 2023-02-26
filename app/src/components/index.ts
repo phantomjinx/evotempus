@@ -1,3 +1,4 @@
-export * from './ErrorMsg';
-export * from './Search';
-export * from './Tabs';
+export { ErrorMsg } from './ErrorMsg';
+export { Search } from './Search';
+export { Tabs } from './Tabs';
+export { HelpPage } from './HelpPage'

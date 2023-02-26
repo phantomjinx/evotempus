@@ -20,14 +20,17 @@ import {
   TopicTarget,
 } from '@evotempus/types';
 import {
-  Search
+  Search,
+  HelpPage
 } from '@evotempus/components';
-// import { Search, Wiki, IntervalVisual, SubjectVisual, HelpPage } from '@evotempus/components';
+// import { Wiki, IntervalVisual, SubjectVisual } from '@evotempus/components';
 import {
   consoleLog,
-  present
+  present,
+  isSubject,
+  isInterval
 } from '@evotempus/utils';
-// import wikiLogoV2 from './assets/images/wikipedia-logo-v2.svg';
+import wikiLogoV2 from '@evotempus/assets/images/wikipedia-logo-v2.svg';
 import geoclock from '@evotempus/assets/images/geologic-clock.png';
 
 interface AppProps {
@@ -48,9 +51,6 @@ export const App: React.FunctionComponent<AppProps> = () => {
   const [topicTarget, setTopicTarget] = useState<TopicTarget | undefined>(undefined);
   const [wikiVisible, showWiki] = useState<boolean>(false);
   const [wikiPosition, setWikiPosition] = useState<string | undefined>('interval');
-
-  // private intervalVisualRef = React.createRef<App>();
-  // private subjectVisualRef = React.createRef<App>();
 
   useEffect(() => {
     console.log('component mounted!')
@@ -212,7 +212,8 @@ export const App: React.FunctionComponent<AppProps> = () => {
     //   />
     // )
     //
-    // const subjectViz = (
+  const subjectViz = (
+    <></>
     //   <SubjectVisual
     //     parent = { this.subjectVisualRef }
     //     interval={this.state.interval}
@@ -223,15 +224,13 @@ export const App: React.FunctionComponent<AppProps> = () => {
     //     onUpdateCategoryFilter={this.updateCategoryFilter}
     //     onUpdateLegend={this.onUpdateLegend}
     //   />
-    // )
-    //
-    // const showHelp = (
-    //   <HelpPage
-    //     onToggleHelp={this.toggleHelp}
-    //   />
-    // )
-    //
-    // const subjectVisual = this.state.help ? showHelp : subjectViz;
+  )
+
+  const helpPage = (
+    <HelpPage onToggleHelp={toggleHelp}/>
+  )
+
+  const subjectHelpVisual = help ? helpPage : subjectViz;
 
   return (
     <div className="app grid-container">
@@ -251,7 +250,27 @@ export const App: React.FunctionComponent<AppProps> = () => {
         </div>
       </nav>
 
-
+      <div className="interval-visual-group">
+        <div className="interval-visual-help">
+          <button id="interval-visual-help-btn" className="fas fa-question-circle" onClick={() => toggleHelp()}/>
+        </div>
+        <div className="interval-visual">
+          {/*intervalVisual*/}
+          <div id="interval-wiki-card-btn-container" className={topicTarget && isInterval(topicTarget) ? 'show' : 'hide'}>
+            <button id="interval-wiki-card-btn" onClick={(event) => handleWikiClick(event, "interval")}>
+              <img src={wikiLogoV2} alt="W"/>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="subject-visual">
+        {subjectHelpVisual}
+        <div id="subject-wiki-card-btn-container" className={topicTarget && isSubject(topicTarget) ? 'show' : 'hide'}>
+          <button id="subject-wiki-card-btn" onClick={(event) => handleWikiClick(event, "subject")}>
+            <img src={wikiLogoV2} alt="W"/>
+          </button>
+        </div>
+      </div>
 
       <footer className="footer">
         <p id="app-footer-copyright">

@@ -4,7 +4,12 @@ import {
   Topic
 } from '@evotempus/types';
 
-export var DEBUG = false;
+/*
+ * Defined using webpack variable injection. Value is provided
+ * by DotEnvPlugin in respective mode webpack config env files
+ */
+export const DEBUG = process.env.DEBUG;
+
 export var million = 1000000;
 export var thousand = 1000;
 export var wikiLink = "https://en.wikipedia.org/wiki/";

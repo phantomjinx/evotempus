@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { AppContext } from '@evotempus/components'
 import './Search.scss';
 import {
@@ -24,24 +24,17 @@ import * as common from '@evotempus/utils';
 import Pagination from 'react-pagination-js';
 import "react-pagination-js/dist/styles.css"; // import css
 
-interface SearchProps {
-  onSelectedChange: (
-    newInterval: Interval | undefined,
-    newSubject?: Subject | undefined,
-    newCategories?: FilteredCategory[] | undefined
-  ) => void,
-}
+export const Search: React.FunctionComponent = () => {
 
-export const Search: React.FunctionComponent<SearchProps> = (props: SearchProps) => {
-
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [msg, setMessage] = useState<string>('');
-  const [msgClass, setMessageClass] = useState<string>('');
-  const [error, setError] = useState<Error | undefined>(undefined);
-  const [intervalPage, setIntervalPage] = useState<number>(1);
-  const [subjectPage, setSubjectPage] = useState<number>(1);
-  const [topicPage, setTopicPage] = useState<number>(1);
-  const [results, setResults] = useState<Results>({
+  const { setInterval, setSubject } = useContext(AppContext)
+  const [ searchTerm, setSearchTerm ] = useState<string>('');
+  const [ msg, setMessage ] = useState<string>('');
+  const [ msgClass, setMessageClass ] = useState<string>('');
+  const [ error, setError ] = useState<Error | undefined>(undefined);
+  const [ intervalPage, setIntervalPage ] = useState<number>(1);
+  const [ subjectPage, setSubjectPage ] = useState<number>(1);
+  const [ topicPage, setTopicPage ] = useState<number>(1);
+  const [ results, setResults ] = useState<Results>({
     intervals: [],
     subjects: [],
     topics: []
@@ -132,7 +125,7 @@ export const Search: React.FunctionComponent<SearchProps> = (props: SearchProps)
     setMessage(resultsMsg(results.intervals, results.subjects, results.topics));
 
     if (common.isInterval(target)) {
-      props.onSelectedChange(target as Interval);
+      setInterval(target as Interval);
     }
     else if (common.isSubject(target)) {
       const subject: Subject = target as Subject;
@@ -146,7 +139,8 @@ export const Search: React.FunctionComponent<SearchProps> = (props: SearchProps)
             //
             common.consoleLog("Selecting Search Interval Target: " + res.data[0].name);
             common.consoleLog("Selecting Search Subject Target: " + subject.name);
-            props.onSelectedChange(res.data[0], subject);
+            setInterval(res.data[0]);
+            setSubject(subject);
           }
         }).catch((err) => {
           setMessage('An error occurred whilst trying to navigate to subject');

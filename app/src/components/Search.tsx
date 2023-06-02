@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { AppContext } from '@evotempus/components'
 import './Search.scss';
 import {
   ErrorMsg,

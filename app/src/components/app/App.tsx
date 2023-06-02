@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import '@fortawesome/fontawesome-free/css/solid.css';
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/v5-font-face.css';
@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 import './App.scss';
-import { AppContext } from './AppContext';
+import { AppContext } from './context';
 import {
   fetchService,
   hintService
@@ -20,10 +20,11 @@ import {
   TopicTarget,
 } from '@evotempus/types';
 import {
+  IntervalVisual,
   Search,
   HelpPage
 } from '@evotempus/components';
-// import { Wiki, IntervalVisual, SubjectVisual } from '@evotempus/components';
+// import { Wiki, SubjectVisual } from '@evotempus/components';
 import {
   consoleLog,
   present,
@@ -32,31 +33,39 @@ import {
 } from '@evotempus/utils';
 import wikiLogoV2 from '@evotempus/assets/images/wikipedia-logo-v2.svg';
 import geoclock from '@evotempus/assets/images/geologic-clock.png';
+import { Loading } from 'src/layout';
 
-interface AppProps {
-}
+//
+// Ensure hints and categories initialised only once
+//
+let initialised = false;
 
-export const App: React.FunctionComponent<AppProps> = () => {
+export const App: React.FunctionComponent = () => {
 
-  const [filteredCategories, setFilteredCategories] = useState<FilteredCategory[]>([]);
-  const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined);
-  const [error, setError] = useState<Error | undefined>(undefined);
-  const [help, showHelp] = useState<boolean>(true);
   const [interval, setInterval] = useState<Interval | undefined>(undefined);
+  const [subject, setSubject] = useState<Subject | undefined>(undefined);
+  const [filteredCategories, setFilteredCategories] = useState<FilteredCategory[]>([]);
+
+  const [ errorMsg, setErrorMsg ] = useState<string | undefined>(undefined);
+  const [ error, setError ] = useState<Error | undefined>(undefined);
+  const [ help, showHelp ] = useState<boolean>(true);
+  const [ appWidth, setAppWidth ] = useState<number>(312);
+  const [ appHeight, setAppHeight ] = useState<number>(185);
+
   const [legend, setLegend] = useState<Legend>({
     visible: false,
     activeTab: ''
   });
-  const [subject, setSubject] = useState<Subject | undefined>(undefined);
-  const [topicTarget, setTopicTarget] = useState<TopicTarget | undefined>(undefined);
+
+  const [topicTarget, setTopicTarget] = useState<TopicTarget | undefined>(subject ? subject : interval);
   const [wikiVisible, showWiki] = useState<boolean>(false);
   const [wikiPosition, setWikiPosition] = useState<string | undefined>('interval');
 
-  useEffect(() => {
-    console.log('component mounted!')
-    initHints();
-    initCategories();
-  },[])
+  const logErrorState = (errorMsg: string, error: Error) => {
+    consoleLog({prefix: "Error", message: errorMsg + "\nDetail: ", object: error});
+    setErrorMsg(errorMsg)
+    setError(error)
+  }
 
   //
   // Fetch all the hints from the backend service
@@ -99,43 +108,42 @@ export const App: React.FunctionComponent<AppProps> = () => {
       });
   }
 
-  const logErrorState = (errorMsg: string, error: Error) => {
-    consoleLog("Error: " + errorMsg + "\nDetail: ");
-    consoleLog(error);
-    setErrorMsg(errorMsg)
-    setError(error)
+  useEffect(() => {
+    if (!initialised) {
+      initialised = true;
+      initHints();
+      initCategories();
+    }
+  }, []);
+
+  if (!initialised) {
+    return (
+      <div className="app-loading">
+        <Loading/>
+      </div>
+    );
   }
 
-  const handleChange = (
-    newInterval: Interval | undefined,
-    newSubject?: Subject | undefined,
-    newCategories?: FilteredCategory[] | undefined) => {
-
-      if (newInterval) {
-        consoleLog("App - handleChange: " + newInterval.name);
-        consoleLog(newInterval);
-      }
-      if (newSubject) {
-        consoleLog("App - handleChange: " + newSubject.name);
-        consoleLog(newSubject);
-      }
-
-      if (! newCategories) {
-        newCategories = filteredCategories;
-      }
-
-      if ((newInterval && interval && newInterval._id === interval._id) &&
-          (newSubject && subject && newSubject._id === subject._id)) {
-            // Nothing to do
-            return;
-      }
-
-      setInterval(newInterval);
-      setSubject(newSubject);
-      setTopicTarget(subject ? subject : interval);
-      setFilteredCategories(newCategories);
+  const handleIntervalSelection = (interval: Interval) => {
+    if (interval) {
+      setTopicTarget(interval);
       showHelp(false);
+    }
+
+    setInterval(interval);
   }
+
+  const handleSubjectSelection = (subject: Subject) => {
+    if (subject) {
+      setTopicTarget(subject);
+      showHelp(false);
+    }
+
+    setInterval(interval);
+  }
+
+  consoleLog({prefix: 'App', message: "Interval selected: " + interval?._id});
+  consoleLog({prefix: 'App', message: "Subject selected: " + subject?._id});
 
   //
   // changedCategories is array of {name: ..., filtered: true|false}
@@ -145,7 +153,7 @@ export const App: React.FunctionComponent<AppProps> = () => {
     if (!changedCategories || changedCategories.length === 0) {
       return;
     }
-    consoleLog("Set filter on categories: " + changedCategories[0].name + "  " + changedCategories[0].filtered);
+    consoleLog({prefix: 'App', message: "Set filter on categories: " + changedCategories[0].name + "  " + changedCategories[0].filtered});
 
     let copyCategories = [...filteredCategories];
 
@@ -166,7 +174,7 @@ export const App: React.FunctionComponent<AppProps> = () => {
       copyCategories[idx] = copyCat;
     });
 
-    handleChange(interval, undefined, copyCategories);
+    setFilteredCategories(copyCategories);
   }
 
   const onUpdateLegend = (legend: Legend) => {
@@ -202,16 +210,6 @@ export const App: React.FunctionComponent<AppProps> = () => {
     showHelp(! help);
   }
 
-    // const intervalVisual = (
-    //   <IntervalVisual
-    //     parent = { this.intervalVisualRef }
-    //     width="312" height="185"
-    //     interval={this.state.interval}
-    //     onSelectedIntervalChange={this.handleIntervalChange}
-    //     onSelectedChange={this.handleChange}
-    //   />
-    // )
-    //
   const subjectViz = (
     <></>
     //   <SubjectVisual
@@ -234,43 +232,49 @@ export const App: React.FunctionComponent<AppProps> = () => {
 
   return (
     <div className="app grid-container">
+
       <nav className="header navbar navbar-expand-lg">
         <div className="container-fluid">
           <p className="header-title">EvoTempus</p>
           <p className="header-title collapse navbar-collapse">Dashboard of Earth History</p>
           <button id="collapsible" className="navbar-toggler fas fa-bars" type="button"
-                  data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <Search
-              onSelectedChange={handleChange}
-            />
+            <Search/>
           </div>
         </div>
       </nav>
 
-      <div className="interval-visual-group">
-        <div className="interval-visual-help">
-          <button id="interval-visual-help-btn" className="fas fa-question-circle" onClick={() => toggleHelp()}/>
+      <AppContext.Provider value={{
+          appWidth, appHeight,
+          interval, setInterval: handleIntervalSelection,
+          subject, setSubject: handleSubjectSelection,
+          filteredCategories, setFilteredCategories
+        }}>
+        <div className="interval-visual-group">
+          <div className="interval-visual-help">
+            <button id="interval-visual-help-btn" className="fas fa-question-circle" onClick={() => toggleHelp()}/>
+          </div>
+          <div id="interval-visual" className="interval-visual">
+            <IntervalVisual />
+            <div id="interval-wiki-card-btn-container" className={topicTarget && isInterval(topicTarget) ? 'show' : 'hide'}>
+              <button id="interval-wiki-card-btn" onClick={(event) => handleWikiClick(event, "interval")}>
+                <img src={wikiLogoV2} alt="W"/>
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="interval-visual">
-          {/*intervalVisual*/}
-          <div id="interval-wiki-card-btn-container" className={topicTarget && isInterval(topicTarget) ? 'show' : 'hide'}>
-            <button id="interval-wiki-card-btn" onClick={(event) => handleWikiClick(event, "interval")}>
+        <div className="subject-visual">
+          {subjectHelpVisual}
+          <div id="subject-wiki-card-btn-container" className={topicTarget && isSubject(topicTarget) ? 'show' : 'hide'}>
+            <button id="subject-wiki-card-btn" onClick={(event) => handleWikiClick(event, "subject")}>
               <img src={wikiLogoV2} alt="W"/>
             </button>
           </div>
         </div>
-      </div>
-      <div className="subject-visual">
-        {subjectHelpVisual}
-        <div id="subject-wiki-card-btn-container" className={topicTarget && isSubject(topicTarget) ? 'show' : 'hide'}>
-          <button id="subject-wiki-card-btn" onClick={(event) => handleWikiClick(event, "subject")}>
-            <img src={wikiLogoV2} alt="W"/>
-          </button>
-        </div>
-      </div>
+      </AppContext.Provider>
 
       <footer className="footer">
         <p id="app-footer-copyright">

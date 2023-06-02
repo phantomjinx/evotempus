@@ -10,9 +10,9 @@ import {
  */
 export const DEBUG = process.env.DEBUG;
 
-export var million = 1000000;
-export var thousand = 1000;
-export var wikiLink = "https://en.wikipedia.org/wiki/";
+export const million = 1000000;
+export const thousand = 1000;
+export const wikiLink = "https://en.wikipedia.org/wiki/";
 
 import geoclockIcon from '@evotempus/assets/images/geologic-clock-icon32.png';
 import topicIcon from '@evotempus/assets/images/topic-icon.png';
@@ -55,12 +55,21 @@ export function idToTitle(id: string) {
   return s.join(' ');
 }
 
-export function consoleLog(obj: any) {
+export interface LogConfig {
+  prefix? : string,
+  message? : string,
+  object? : any,
+}
+
+export function consoleLog(logging: LogConfig) {
   if (! DEBUG) {
     return;
   }
 
-  console.log(obj);
+  let msg: string = ((logging.prefix) ? logging.prefix + ': ' : '') + ((logging.message) ? logging.message : '');
+
+  if (msg.length > 0) console.log(msg);
+  if (logging.object) console.log(logging.object);
 }
 
 export function isInterval(object: any): boolean {

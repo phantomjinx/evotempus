@@ -137,8 +137,8 @@ export const Search: React.FunctionComponent = () => {
             //
             // Selected the returned interval
             //
-            common.consoleLog("Selecting Search Interval Target: " + res.data[0].name);
-            common.consoleLog("Selecting Search Subject Target: " + subject.name);
+            common.consoleLog({prefix: 'Search', message: 'Selecting Search Interval Target: ' + res.data[0].name});
+            common.consoleLog({prefix: 'Search', message: "Selecting Search Subject Target: " + subject.name});
             setInterval(res.data[0]);
             setSubject(subject);
           }

@@ -36,7 +36,7 @@ export default class SubjectVisual extends React.Component {
     this.onUpdateKindPage = this.onUpdateKindPage.bind(this);
   }
 
-  logErrorState(errorMsg, error) {
+  logErrorState(errorMsg, error) { consoleLog({prefix: "Error", message: errorMsg + "\nDetail: ", object: error});
     common.consoleLog("Error: " + errorMsg + "\nDetail: ");
     common.consoleLog(error);
     this.setState({

@@ -125,6 +125,8 @@ export const App: React.FunctionComponent = () => {
   }
 
   const handleIntervalSelection = (interval: Interval) => {
+    console.log("Calling App: handleIntervalSelection on interval: " + interval._id);
+
     if (interval) {
       setTopicTarget(interval);
       showHelp(false);
@@ -233,26 +235,26 @@ export const App: React.FunctionComponent = () => {
   return (
     <div className="app grid-container">
 
-      <nav className="header navbar navbar-expand-lg">
-        <div className="container-fluid">
-          <p className="header-title">EvoTempus</p>
-          <p className="header-title collapse navbar-collapse">Dashboard of Earth History</p>
-          <button id="collapsible" className="navbar-toggler fas fa-bars" type="button"
+      <AppContext.Provider value={{
+        appWidth, appHeight,
+        interval, setInterval: handleIntervalSelection,
+        subject, setSubject: handleSubjectSelection,
+        filteredCategories, setFilteredCategories
+      }}>
+        <nav className="header navbar navbar-expand-lg">
+          <div className="container-fluid">
+            <p className="header-title">EvoTempus</p>
+            <p className="header-title collapse navbar-collapse">Dashboard of Earth History</p>
+            <button id="collapsible" className="navbar-toggler fas fa-bars" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <Search/>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <Search/>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
 
-      <AppContext.Provider value={{
-          appWidth, appHeight,
-          interval, setInterval: handleIntervalSelection,
-          subject, setSubject: handleSubjectSelection,
-          filteredCategories, setFilteredCategories
-        }}>
         <div className="interval-visual-group">
           <div className="interval-visual-help">
             <button id="interval-visual-help-btn" className="fas fa-question-circle" onClick={() => toggleHelp()}/>

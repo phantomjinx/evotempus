@@ -24,7 +24,7 @@ export interface TopicTarget extends Identified {
 
 export interface Interval extends TopicTarget {
   parent: string,
-  children: string[],
+  children: string[]
 }
 
 export interface Subject extends TopicTarget {

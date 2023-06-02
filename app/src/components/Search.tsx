@@ -19,8 +19,11 @@ import {
 import {
   isTopic,
   getListIcon,
+  consoleLog,
+  idToTitle,
+  isInterval,
+  isSubject,
 } from '@evotempus/utils';
-import * as common from '@evotempus/utils';
 import Pagination from 'react-pagination-js';
 import "react-pagination-js/dist/styles.css"; // import css
 
@@ -124,10 +127,10 @@ export const Search: React.FunctionComponent = () => {
     closeSearchResults();
     setMessage(resultsMsg(results.intervals, results.subjects, results.topics));
 
-    if (common.isInterval(target)) {
+    if (isInterval(target)) {
       setInterval(target as Interval);
     }
-    else if (common.isSubject(target)) {
+    else if (isSubject(target)) {
       const subject: Subject = target as Subject;
       fetchService.intervalEncloses(subject.from, subject.to)
         .then((res) => {
@@ -137,8 +140,8 @@ export const Search: React.FunctionComponent = () => {
             //
             // Selected the returned interval
             //
-            common.consoleLog({prefix: 'Search', message: 'Selecting Search Interval Target: ' + res.data[0].name});
-            common.consoleLog({prefix: 'Search', message: "Selecting Search Subject Target: " + subject.name});
+            consoleLog({prefix: 'Search', message: 'Selecting Search Interval Target: ' + res.data[0].name});
+            consoleLog({prefix: 'Search', message: "Selecting Search Subject Target: " + subject.name});
             setInterval(res.data[0]);
             setSubject(subject);
           }
@@ -147,7 +150,7 @@ export const Search: React.FunctionComponent = () => {
           setMessageClass('search-msg-error');
           setError(err);
         });
-    } else if (common.isTopic(target)) {
+    } else if (isTopic(target)) {
       const topic: Topic = target as Topic;
       if (topic.topicTarget === 'Subject') {
         fetchService.subjectById(topic.topic)
@@ -220,7 +223,7 @@ export const Search: React.FunctionComponent = () => {
         items.push(
           <li key={value._id} style={{ listStyleImage: styleImage }}>
             <button className="link-button" onClick={handleNavigate.bind(this, value)}>
-              {common.idToTitle(label)}
+              {idToTitle(label)}
             </button>
           </li>
         );

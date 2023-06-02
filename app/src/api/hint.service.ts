@@ -22,6 +22,10 @@ export class HintService {
     }
   }
 
+  length() {
+    return Object.entries(this.hints).length;
+  }
+
   getKindIds(): string[] {
     const ids: string[] = [];
     Object.entries(this.hints)
@@ -68,7 +72,7 @@ export class HintService {
 
   calcColour(name: string): string {
     const hint: Partial<Hint> = this.hints[name];
-    if (hint.colour && hint.colour.length > 0) {
+    if (hint?.colour && hint?.colour.length > 0) {
       return hint.colour;
     }
 

@@ -1,1 +1,1 @@
-declare module 'react-pagination-js';
+declare module 'react-pagination-js'

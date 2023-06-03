@@ -1,1 +1,1 @@
-export { IntervalVisual } from './IntervalVisual';
+export { IntervalVisual } from './IntervalVisual'

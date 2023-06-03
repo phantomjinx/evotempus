@@ -10,7 +10,8 @@
     "build:prod": "IMAGE_INLINE_SIZE_LIMIT=0 INLINE_RUNTIME_CHUNK=false npm run build",
     "lint": "eslint --ext .ts,.tsx,.js ./src",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "format:check": "yarn prettier --check 'src/**/*.{ts,tsx,css,md,json}'",
+    "format:fix": "yarn prettier --write 'src/**/*.{ts,tsx,css,md,json}'",
     "test": "jest --coverage src/**/*.test.ts*",
     "test:watch": "jest --watch --verbose --coverage"
   },

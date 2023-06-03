@@ -1,1 +1,11 @@
+build
+config
+coverage
+env
+extra
+node_modules
+public
+scripts
 package.json
+tsconfig.json
+stats.json

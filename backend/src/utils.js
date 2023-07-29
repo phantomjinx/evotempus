@@ -32,8 +32,8 @@ function displayName(id) {
   name = id.replace(/-/g, " ");
 
   // Capitalize all words
-  var s = name.toLowerCase().split(' ');
-  for (var i = 0; i < s.length; i++) {
+  const s = name.toLowerCase().split(' ');
+  for (let i = 0; i < s.length; i++) {
     // Assign it back to the array
     s[i] = s[i].charAt(0).toUpperCase() + s[i].substring(1);
   }

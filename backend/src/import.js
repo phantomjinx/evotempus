@@ -38,7 +38,7 @@ function ImportStats() {
   this.ignoredSubjects = 0;
 }
 
-var stats = new ImportStats();
+const stats = new ImportStats();
 
 async function createInterval(dataRow) {
   if (dataRow.length < 5) {
@@ -59,7 +59,7 @@ async function createInterval(dataRow) {
     //
     // Check the children for empty dataRow
     //
-    var c = [];
+    const c = [];
     for (let i = 0; i < children.length; i++) {
       children[i] = children[i].trim();
       if (children[i].length > 0) {
@@ -72,7 +72,7 @@ async function createInterval(dataRow) {
   //
   // Only insert a children array if not empty
   //
-  var set = {
+  const set = {
     name: name,
     kind: kind,
     from: from,
@@ -158,7 +158,7 @@ async function createSubject(id, name, kind, category, from, to, linkId) {
   logger.debug("Creating subject: id: " + id + " kind: " + kind + " category: " + category + " from: " + from + " to: " + to);
 
   // New id subject
-  var new_subject = new Subject({
+  const new_subject = new Subject({
     _id: id,
     name: name,
     kind: kind,

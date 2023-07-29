@@ -15,11 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var IntervalSchema = new Schema({
+const IntervalSchema = new Schema({
     _id: {type: String, required: true},
     name: String,
     kind: {type: String, enum: ['Root', 'SuperEon', 'Eon', 'Era', 'Period', 'Sub-Period', 'Epoch', 'Age']},

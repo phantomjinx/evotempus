@@ -15,9 +15,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 //
 // topic:         id of a subject or interval
@@ -25,7 +25,7 @@ var Schema = mongoose.Schema;
 // linkId:        identifier of the link
 // description:   downloaded description from the linkId
 //
-var TopicSchema = new Schema({
+const TopicSchema = new Schema({
     topic: {
       type: String,
       refPath: 'topicTarget',

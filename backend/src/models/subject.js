@@ -15,12 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const Hint = require('./hints').Hint;
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var SubjectSchema = new Schema({
+const SubjectSchema = new Schema({
     _id: {type: String, required: true},
     name: String,
     kind: {

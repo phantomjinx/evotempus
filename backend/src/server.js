@@ -59,7 +59,7 @@ async function cleanDb(conn) {
   logger.debug('INFO: Dropping collections from database');
 
   const collections = await evoDb.conn.db.listCollections().toArray();
-  for (var i = 0; i < collections.length; ++i) {
+  for (let i = 0; i < collections.length; ++i) {
     if (collections[i].name === 'intervals' || collections[i].name === 'subjects' ||
         collections[i].name === 'topics' ||collections[i].name === 'hints') {
         await evoDb.conn.db.dropCollection(collections[i].name);
@@ -187,7 +187,7 @@ function init(conn) {
       break;
     default:
       logger.info('INFO: ** PRODUCTION **');
-      var appBuild = path.resolve(__dirname, '..', '..', 'app/build');
+      const appBuild = path.resolve(__dirname, '..', '..', 'app/build');
       app.use('/', express.static(appBuild));
       break;
   }

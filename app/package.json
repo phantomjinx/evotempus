@@ -8,7 +8,7 @@
     "build:dev": "webpack --mode production --env config=development --config ./config/webpack.dev.js",
     "build:dev:stats": "webpack --mode production --env config=development --config ./config/webpack.dev.js --profile --json > stats.json",
     "build:prod": "IMAGE_INLINE_SIZE_LIMIT=0 INLINE_RUNTIME_CHUNK=false npm run build",
-    "lint": "eslint --ext .ts,.tsx,.js ./src",
+    "lint": "eslint --ext .ts,.tsx ./src",
     "lint:fix": "eslint --fix",
     "format:check": "yarn prettier --check 'src/**/*.{ts,tsx,css,md,json}'",
     "format:fix": "yarn prettier --write 'src/**/*.{ts,tsx,css,md,json}'",

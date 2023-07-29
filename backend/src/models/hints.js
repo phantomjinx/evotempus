@@ -15,11 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var HintSchema = new Schema({
+const HintSchema = new Schema({
     _id: {type: String, required: true},
     type:  {type: String, enum: ['Kind', 'Category', 'Tag']},
     parent: {type: String, ref: 'Hint'},

@@ -3,7 +3,9 @@
   "version": "0.5.0",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "dev:start": "gulp",
+    "dev:import": "gulp import"
   },
   "repository": {
     "type": "git",

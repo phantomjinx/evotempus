@@ -1,6 +1,4 @@
-@import "bootstrap/scss/_functions.scss";
-@import "bootstrap/scss/_variables.scss";
-@import "bootstrap/scss/_mixins.scss";
+@import "utils/common.scss";
 
 $max-height: 65vh;
 $clicked-shadow: drop-shadow(0px 0px 15px yellow);
@@ -30,9 +28,7 @@ $clicked-shadow: drop-shadow(0px 0px 15px yellow);
 }
 
 .interval-visual-loading {
-  display: flex;
-  justify-content: center;
-  margin-top: 5em;
+  @include loading-position
 }
 
 #interval-visual-component {

@@ -1,10 +1,5 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import '@fortawesome/fontawesome-free/css/solid.css'
-import '@fortawesome/fontawesome-free/css/fontawesome.css'
-import '@fortawesome/fontawesome-free/css/v5-font-face.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 import './App.scss'
 import { AppContext } from './context'
@@ -15,7 +10,7 @@ import { IntervalVisual, Search, HelpPage } from '@evotempus/components'
 import { consoleLog, present, isSubject, isInterval } from '@evotempus/utils'
 import wikiLogoV2 from '@evotempus/assets/images/wikipedia-logo-v2.svg'
 import geoclock from '@evotempus/assets/images/geologic-clock.png'
-import { Loading } from 'src/layout'
+import { Loading } from '@evotempus/layout'
 
 //
 // Ensure hints and categories initialised only once

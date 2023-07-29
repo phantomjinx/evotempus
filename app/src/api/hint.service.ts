@@ -28,7 +28,7 @@ export class HintService {
   getKindIds(): string[] {
     const ids: string[] = []
     Object.entries(this.hints).forEach(([k, v]) => {
-      if (v.type == 'Kind') {
+      if (v.type === 'Kind') {
         ids.push(k)
       }
     })
@@ -39,7 +39,7 @@ export class HintService {
   getCategoryIds(): string[] {
     const ids: string[] = []
     Object.entries(this.hints).forEach(([k, v]) => {
-      if (v.type == 'Category') {
+      if (v.type === 'Category') {
         ids.push(k)
       }
     })
@@ -50,7 +50,7 @@ export class HintService {
   getTagIds(): string[] {
     const ids: string[] = []
     Object.entries(this.hints).forEach(([k, v]) => {
-      if (v.type == 'Tag') {
+      if (v.type === 'Tag') {
         ids.push(k)
       }
     })

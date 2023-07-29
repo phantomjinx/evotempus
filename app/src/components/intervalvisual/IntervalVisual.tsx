@@ -60,7 +60,7 @@ export const IntervalVisual: React.FunctionComponent = () => {
   }
 
   return (
-    <IntervalVisualContext.Provider value={{ interval, setInterval, filteredCategories, setFilteredCategories, data }}>
+    <IntervalVisualContext.Provider value={{ interval, setInterval, data }}>
       <IntervalSunburst />
     </IntervalVisualContext.Provider>
   )

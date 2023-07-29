@@ -1,4 +1,12 @@
 import { Interval, Subject, Topic } from '@evotempus/types'
+import geoclockIcon from '@evotempus/assets/images/geologic-clock-icon32.png'
+import topicIcon from '@evotempus/assets/images/topic-icon.png'
+import animalIcon from '@evotempus/assets/images/animal-icon.png'
+import eventIcon from '@evotempus/assets/images/event-icon.png'
+import geologyIcon from '@evotempus/assets/images/geology-icon.png'
+import microIcon from '@evotempus/assets/images/micro-icon.png'
+import fungusIcon from '@evotempus/assets/images/fungus-icon.png'
+import plantIcon from '@evotempus/assets/images/plant-icon.png'
 
 /*
  * Defined using webpack variable injection. Value is provided
@@ -10,14 +18,6 @@ export const million = 1000000
 export const thousand = 1000
 export const wikiLink = 'https://en.wikipedia.org/wiki/'
 
-import geoclockIcon from '@evotempus/assets/images/geologic-clock-icon32.png'
-import topicIcon from '@evotempus/assets/images/topic-icon.png'
-import animalIcon from '@evotempus/assets/images/animal-icon.png'
-import eventIcon from '@evotempus/assets/images/event-icon.png'
-import geologyIcon from '@evotempus/assets/images/geology-icon.png'
-import microIcon from '@evotempus/assets/images/micro-icon.png'
-import fungusIcon from '@evotempus/assets/images/fungus-icon.png'
-import plantIcon from '@evotempus/assets/images/plant-icon.png'
 
 export function displayYear(year: number) {
   if (Math.abs(year) > million) {
@@ -43,7 +43,7 @@ export function idToTitle(id: string) {
 
   // Capitalize all words
   const s = name.toLowerCase().split(' ')
-  for (var i = 0; i < s.length; i++) {
+  for (let i = 0; i < s.length; i++) {
     // Assign it back to the array
     s[i] = s[i].charAt(0).toUpperCase() + s[i].substring(1)
   }
@@ -54,7 +54,7 @@ export function idToTitle(id: string) {
 export interface LogConfig {
   prefix?: string
   message?: string
-  object?: any
+  object?: unknown
 }
 
 export function consoleLog(logging: LogConfig) {
@@ -62,25 +62,33 @@ export function consoleLog(logging: LogConfig) {
     return
   }
 
-  let msg: string = (logging.prefix ? logging.prefix + ': ' : '') + (logging.message ? logging.message : '')
+  const msg: string = (logging.prefix ? logging.prefix + ': ' : '') + (logging.message ? logging.message : '')
 
   if (msg.length > 0) console.log(msg)
   if (logging.object) console.log(logging.object)
 }
 
-export function isInterval(object: any): boolean {
-  return (object as Interval).parent !== undefined
+export function isObject(value: unknown): value is object {
+  const type = typeof value
+  return value != null && (type === 'object' || type === 'function')
 }
 
-export function isSubject(object: any): boolean {
-  return (object as Subject).category !== undefined
+export function isInterval(value: unknown): value is Interval {
+  if (! isObject(value)) return false
+  return 'parent' in value
 }
 
-export function isTopic(object: any): boolean {
-  return (object as Topic).topicTarget !== undefined
+export function isSubject(value: unknown): value is Subject {
+  if (! isObject(value)) return false
+  return 'category' in value
 }
 
-export function getListIcon(object: any): string {
+export function isTopic(value: unknown): value is Topic {
+  if (! isObject(value)) return false
+  return 'topicTarget' in value
+}
+
+export function getListIcon(object: unknown): string {
   if (isInterval(object)) {
     return geoclockIcon
   } else if (isTopic(object)) {

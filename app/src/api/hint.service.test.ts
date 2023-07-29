@@ -12,6 +12,7 @@ describe('hint.service.test', () => {
     const noHints = null
     const emptyHS = new HintService()
     expect(() => {
+      // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
       emptyHS.setHints(noHints!)
     }).toThrow(Error)
   })
@@ -53,13 +54,13 @@ describe('hint.service.test', () => {
     }).toThrow(Error)
   })
 
+  function hintMatcher(hint: Hint): string | RegExp {
+    return (hint.colour.length > 0) ? hint.colour : /#[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]/
+  }
+
   test('should calculate hint colour', () => {
     for (let i = 0; i < hints.length; ++i) {
-      if (hints[i].colour.length > 0) {
-        expect(hintService.calcColour(hints[i]._id)).toEqual(hints[i].colour)
-      } else {
-        expect(hintService.calcColour(hints[i]._id)).toMatch(/#[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]/)
-      }
+      expect(hintService.calcColour(hints[i]._id)).toMatch(hintMatcher(hints[i]))
     }
   })
 
@@ -71,11 +72,7 @@ describe('hint.service.test', () => {
     const colours: string[] = hintService.calcColours(hintIds)
     expect(colours.length).toEqual(hints.length)
     for (let i = 0; i < hints.length; ++i) {
-      if (hints[i].colour.length > 0) {
-        expect(colours[i]).toEqual(hints[i].colour)
-      } else {
-        expect(colours[i]).toMatch(/#[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]/)
-      }
+      expect(colours[i]).toMatch(hintMatcher(hints[i]))
     }
   })
 })

@@ -1,5 +1,5 @@
 import { zoom as d3Zoom } from 'd3-zoom'
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { stratify as d3Stratify, partition as d3Partition } from 'd3-hierarchy'
 import { select as d3Select } from 'd3-selection'
 import { Interval } from '@evotempus/types'
@@ -7,17 +7,14 @@ import { consoleLog } from '@evotempus/utils'
 import { useElementSize } from './../useElement'
 import './IntervalVisual.scss'
 import { IntervalVisualContext } from './context'
-import { Dimensions, svgId, ViewInterval, ViewNode, ZoomSystem } from './globals'
+import { Dimensions, svgId, ViewInterval, ViewNode } from './globals'
 import { IntervalSunburstDefs } from './IntervalSunburstDefs'
 import { IntervalSunburstParent } from './IntervalSunburstParent'
 import { IntervalSunburstSegments } from './IntervalSunburstSegments'
 
 export const IntervalSunburst: React.FunctionComponent = () => {
   const [dimRef, { width, height }] = useElementSize()
-  const { interval, setInterval, filteredCategories, setFilteredCategories, data } = useContext(IntervalVisualContext)
-  const [zoomSystem, setZoomSystem] = useState<ZoomSystem>({ viewPort: 5, ox: -1, oy: -1 })
-  const [radius, setRadius] = useState<number>(1)
-
+  const { interval, setInterval, data } = useContext(IntervalVisualContext)
   const [parent, setParent] = useState<ViewNode>()
   const [selected, setSelected] = useState<ViewNode>()
 
@@ -80,18 +77,25 @@ export const IntervalSunburst: React.FunctionComponent = () => {
   }
 
   /*
+   * Calculates the zoom system and radius then caches unless
+   * the width and height changes
+   */
+  const {zoomSystem, radius} = useMemo(() => {
+    const viewPort = 5
+    const zoomSystem = {
+      ox: (width * viewPort) / 2,
+      oy: (height * viewPort) / 2,
+      viewPort: viewPort
+    }
+
+    const radius = Math.min(width, height) * 0.8
+    return {zoomSystem, radius}
+  }, [width, height])
+
+  /*
    * Provides the zoom and pan capabilities of the svg
    */
-  const renderSvg = () => {
-    const nZoomSystem = { ...zoomSystem }
-
-    nZoomSystem.ox = (width * zoomSystem.viewPort) / 2
-    nZoomSystem.oy = (height * zoomSystem.viewPort) / 2
-    setZoomSystem(nZoomSystem)
-
-    const nRadius = Math.min(width, height) * 0.8
-    setRadius(nRadius)
-
+  const renderSvg = useCallback(() => {
     //
     // Select the existing svg created by the initial render
     //
@@ -108,7 +112,7 @@ export const IntervalSunburst: React.FunctionComponent = () => {
           }),
       )
       .on('dblclick.zoom', null)
-  }
+  }, [])
 
   /*
    * Expensive operation like partition from data
@@ -148,77 +152,7 @@ export const IntervalSunburst: React.FunctionComponent = () => {
     return { rootNode, nodeDescendents: rootNode.descendants().slice(1) }
   }, [data])
 
-  /**
-   * Effect will occur when the interval has been changed, for example
-   * when a search result is clicked on to select the interval and
-   * traverse to it
-   */
-  useEffect(() => {
-    //
-    // Walk the hierarchy and 'zoom' into the chosen interval
-    //
-    if (!interval) {
-      return // nothing to do
-    }
-
-    consoleLog({ prefix: 'IntervalSunburst', message: 'traverseToViewNode ' + interval?._id })
-
-    //
-    // Find the actual interval in our hierarchy
-    //
-    let intervalNode!: ViewNode
-    rootNode.each((d) => {
-      if (d.id === interval._id) {
-        intervalNode = d // Found it!
-        return
-      }
-    })
-
-    if (!intervalNode) {
-      consoleLog({
-        prefix: 'IntervalSunburst',
-        message: 'Error: Cannot traverseToViewNode due to failure to find navigated interval ' + interval._id,
-      })
-      return
-    }
-
-    if (intervalNode.data.id() === selected?.data.id()) {
-      consoleLog({ prefix: 'IntervalSunburst', message: 'traverseToViewNode aborted as interval already selected' })
-      return
-    }
-
-    if (intervalNode.children) {
-      //
-      // Has children so can become the central circle
-      //
-      consoleLog({ prefix: 'IntervalSunburst', message: 'traverseToViewNode ' + intervalNode.id + ' as has children' })
-      handleNavigate(intervalNode)
-    } else if (intervalNode.parent && intervalNode.parent !== parent) {
-      //
-      // If intervalNode's parent is already the parent then
-      // no need to navigate as we are already there
-      //
-      // No children so select its parent instead then
-      // highlight it to display its information
-      //
-      consoleLog({
-        prefix: 'IntervalSunburst',
-        message: 'traverseToViewNode ' + intervalNode.parent.id + ' as is parent of ' + intervalNode.id,
-      })
-      handleNavigate(intervalNode.parent)
-    }
-
-    consoleLog({ prefix: 'IntervalSunburst', message: 'traverseToViewNode selecting ' + intervalNode.id })
-    handleSelection(intervalNode, false)
-  }, [interval])
-
-  useEffect(() => {
-    if (width === 0 && height === 0) return
-
-    renderSvg()
-  }, [width, height])
-
-  const handleSelection = (newSelected: ViewNode, notify: boolean) => {
+  const handleSelection = useCallback((newSelected: ViewNode, notify: boolean) => {
     console.log('IntervalSunburst: handleSelection: ' + newSelected.id)
 
     if (!newSelected) return
@@ -253,9 +187,9 @@ export const IntervalSunburst: React.FunctionComponent = () => {
         setInterval(interval)
       })
     }
-  }
+  }, [rootNode, setInterval])
 
-  const handleNavigate = (intervalNode: ViewNode) => {
+  const handleNavigate = useCallback((intervalNode: ViewNode) => {
     consoleLog({ prefix: 'IntervalSunburst', message: 'Calling navigate to ' + intervalNode.data.id() })
     if (!intervalNode) return
 
@@ -312,7 +246,81 @@ export const IntervalSunburst: React.FunctionComponent = () => {
     newParent.data.visible = true
     console.log('Setting parent to ' + newParent.id + ' which is visible: ' + newParent.data.visible)
     setParent(newParent)
-  }
+  }, [rootNode, parent])
+
+  const traverseToViewNode = useCallback(() => {
+    //
+    // Walk the hierarchy and 'zoom' into the chosen interval
+    //
+    if (!interval) {
+      return // nothing to do
+    }
+
+    consoleLog({ prefix: 'IntervalSunburst', message: 'traverseToViewNode ' + interval?._id })
+
+    //
+    // Find the actual interval in our hierarchy
+    //
+    let intervalNode!: ViewNode
+    rootNode.each((d) => {
+      if (d.id === interval._id) {
+        intervalNode = d // Found it!
+        return
+      }
+    })
+
+    if (!intervalNode) {
+      consoleLog({
+        prefix: 'IntervalSunburst',
+        message: 'Error: Cannot traverseToViewNode due to failure to find navigated interval ' + interval._id,
+      })
+      return
+    }
+
+    if (intervalNode.data.id() === selected?.data.id()) {
+      consoleLog({ prefix: 'IntervalSunburst', message: 'traverseToViewNode aborted as interval already selected' })
+      return
+    }
+
+    if (intervalNode.children) {
+      //
+      // Has children so can become the central circle
+      //
+      consoleLog({ prefix: 'IntervalSunburst', message: 'traverseToViewNode ' + intervalNode.id + ' as has children' })
+      handleNavigate(intervalNode)
+    } else if (intervalNode.parent && intervalNode.parent !== parent) {
+      //
+      // If intervalNode's parent is already the parent then
+      // no need to navigate as we are already there
+      //
+      // No children so select its parent instead then
+      // highlight it to display its information
+      //
+      consoleLog({
+        prefix: 'IntervalSunburst',
+        message: 'traverseToViewNode ' + intervalNode.parent.id + ' as is parent of ' + intervalNode.id,
+      })
+      handleNavigate(intervalNode.parent)
+    }
+
+    consoleLog({ prefix: 'IntervalSunburst', message: 'traverseToViewNode selecting ' + intervalNode.id })
+    handleSelection(intervalNode, false)
+  }, [interval, parent, rootNode, selected, handleNavigate, handleSelection])
+
+  /**
+   * Effect will occur when the interval has been changed, for example
+   * when a search result is clicked on to select the interval and
+   * traverse to it
+   */
+  useEffect(() => {
+    traverseToViewNode()
+  }, [interval, traverseToViewNode])
+
+  useEffect(() => {
+    if (width === 0 && height === 0) return
+
+    renderSvg()
+  }, [width, height, renderSvg])
 
   return (
     <div id='interval-visual-component' ref={dimRef}>

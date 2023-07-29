@@ -6,8 +6,6 @@ interface ErrorProps {
   error?: Error
 }
 
-interface ErrorState {}
-
 export const ErrorMsg: React.FunctionComponent<ErrorProps> = (props: ErrorProps) => {
   return (
     <div className='error-msg'>

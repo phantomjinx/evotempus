@@ -61,7 +61,7 @@ export const HelpPage: React.FunctionComponent<HelpPageProps> = (props: HelpPage
             <div id='collapseUsage' className='collapse' aria-labelledby='headerUsage' data-parent='#help-page-content'>
               <div className='card-body'>
                 <p className='card-text'>
-                  The circular visual illustrates Earth's geological intervals, as classified by the&nbsp;
+                  The circular visual illustrates Earth&apos;s geological intervals, as classified by the&nbsp;
                   <a href='https://stratigraphy.org' target='_blank' rel='noopener noreferrer'>
                     International Commission on Stratigraphy
                   </a>
@@ -104,7 +104,7 @@ export const HelpPage: React.FunctionComponent<HelpPageProps> = (props: HelpPage
                 </p>
                 <p className='card-text'>
                   A <em>Double-Click</em> on any subject in the timeline visualization will attempt to present it in the
-                  most accurate geological interval according to the subject's date range. If the subject happens to
+                  most accurate geological interval according to the subject&apos;s date range. If the subject happens to
                   cross boundaries then this can result in the geological interval being the base &quot;Geological
                   Timescale&quot;.
                 </p>

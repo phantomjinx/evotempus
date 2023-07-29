@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext } from 'react'
 import { FilteredCategory, Interval, Subject } from '@evotempus/types'
 
 export type AppContext = {

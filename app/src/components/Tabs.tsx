@@ -22,7 +22,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps) => {
     }
 
     setActiveTab(title)
-  }, [])
+  }, [props.children])
 
   const onClickTabItem = (tab: string) => {
     setActiveTab(tab)

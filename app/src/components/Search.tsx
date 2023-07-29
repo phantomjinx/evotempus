@@ -4,7 +4,7 @@ import { AppContext } from '@evotempus/components'
 import './Search.scss'
 import { ErrorMsg, Tabs } from '@evotempus/components'
 import { fetchService } from '@evotempus/api'
-import { Interval, Subject, Topic, Results, FilteredCategory } from '@evotempus/types'
+import { Interval, Subject, Topic, Results } from '@evotempus/types'
 import { isTopic, getListIcon, consoleLog, idToTitle, isInterval, isSubject } from '@evotempus/utils'
 import Pagination from 'react-pagination-js'
 import 'react-pagination-js/dist/styles.css' // import css
@@ -25,7 +25,7 @@ export const Search: React.FunctionComponent = () => {
   })
   const [resultsClass, setResultsClass] = useState<string>('search-results-hide')
 
-  const totalPerPage: number = 10
+  const totalPerPage = 10
 
   const pageFn = {
     interval: (newPage: number) => {
@@ -39,9 +39,7 @@ export const Search: React.FunctionComponent = () => {
     },
   }
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const handleSearch = (event: any) => {
+  const handleSearch = (event: React.SyntheticEvent) => {
     if (!searchTerm) {
       setError(undefined)
       return
@@ -88,9 +86,7 @@ export const Search: React.FunctionComponent = () => {
     return 'Found ' + total + ' results'
   }
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const handleChange = (event: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value)
   }
 
@@ -100,7 +96,7 @@ export const Search: React.FunctionComponent = () => {
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  const handleNavigate = (target: Interval | Subject | Topic, event?: any) => {
+  const handleNavigate = (target: Interval | Subject | Topic, event?: React.SyntheticEvent) => {
     if (event) {
       event.preventDefault()
     }
@@ -284,7 +280,7 @@ export const Search: React.FunctionComponent = () => {
   // using a props var or other value causes problems when selecting other tabs or the
   // content paging numbers.
   //
-  if (hasResults() && resultsClass == 'search-results-show') {
+  if (hasResults() && resultsClass === 'search-results-show') {
     resultsTabs = (
       <Tabs>
         {resultBlock(

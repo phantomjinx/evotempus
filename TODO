@@ -4,6 +4,8 @@
 
 * Migration to webpack / babel manually from react-scripts
 
+* Replacement of gulp in backend?
+
 * Conversion to Typescript
 
 * Address logging to console - maybe use react-native-logging?

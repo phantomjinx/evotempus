@@ -1,11 +1,10 @@
 import { expect, test, jest } from '@jest/globals'
 import { hints } from './support.test'
-import axiosInstance from './axios.http'
+import { instance as http } from './axios.http'
+import { fetchService } from './fetch.service'
 
 jest.mock('./axios.http')
-const mockedAxios = axiosInstance as jest.Mocked<typeof axiosInstance>
-
-import { fetchService } from './fetch.service'
+const mockedAxios = http as jest.Mocked<typeof http>
 
 describe('fetch.service.test', () => {
   test('fetch hints', async () => {

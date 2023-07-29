@@ -6,7 +6,6 @@
     "init-app": "cd app && yarn install",
     "init-server": "cd backend && npm install",
     "init": "npm run init-app && npm run init-server",
-    "heroku-postbuild": "npm run init && npm run build",
     "start": "./production/run-prod-local.sh"
   },
   "repository": {

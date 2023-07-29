@@ -1,5 +1,4 @@
 import React, { useMemo, useRef } from 'react'
-import { consoleLog } from 'src/utils'
 import { clickDelay, ViewNode, ZoomSystem } from './globals'
 
 type SunburstParentProps = {

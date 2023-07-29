@@ -5,13 +5,13 @@ export const svgId = 'interval-visual-component-svg'
 
 export const ELLIPSIS = '...'
 export const TEXT_LENGTH = 7
-export const clickDelay: number = 200
+export const clickDelay = 200
 
 export class Dimensions {
-  public x0: number = 0
-  public y0: number = 0
-  public x1: number = 0
-  public y1: number = 0
+  x0 = 0
+  y0 = 0
+  x1 = 0
+  y1 = 0
 
   constructor({ x0 = 0, x1 = 0, y0 = 0, y1 = 0 }) {
     this.x0 = x0
@@ -20,7 +20,7 @@ export class Dimensions {
     this.y1 = y1
   }
 
-  protected interpolateValue(current: number, target: number, step: number, exclusiveMax: number): number {
+  protected interpolateValue(current: number, target: number, step: number, exclusiveMax: number) {
     /*
      * As the max is exclusive, we need to substract 1 from it
      * to ensure the interpolate value is correctly evaluated
@@ -71,11 +71,11 @@ export type ViewNode = HierarchyRectangularNode<ViewInterval>
 export class ViewInterval {
   private interval: Interval
 
-  visible: boolean = false
-  wasVisible: boolean = false
+  visible = false
+  wasVisible = false
   current: Dimensions | null
   target: Dimensions | null
-  selected: boolean = false
+  selected = false
   markers?: Record<string, string | number>
 
   constructor(interval: Interval) {
@@ -104,15 +104,15 @@ export class ViewInterval {
     return this.interval.parent
   }
 
-  to(): number {
+  to() {
     return this.interval.to
   }
 
-  from(): number {
+  from() {
     return this.interval.from
   }
 
-  progeny(): number {
+  progeny() {
     return this.interval.children.length
   }
 

@@ -1,4 +1,4 @@
-import http from './axios.http'
+import { instance as http } from './axios.http'
 import { Hint, Results } from '@evotempus/types'
 
 class FetchService {

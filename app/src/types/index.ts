@@ -34,11 +34,27 @@ export interface Subject extends TopicTarget {
   tags: string[]
 }
 
+export enum TopicType {
+  subject = 'Subject',
+  interval = 'Interval'
+}
+
+/**
+ * Server-side topic object
+ */
 export interface Topic extends Identified {
-  topic: string
+  topic: TopicType
   topicTarget: string
   linkId: string
   description: string
+}
+
+/**
+ * Client-side topic request object for finding a topic based on its target
+ */
+export interface TopicRequest {
+  type: TopicType // type of the topic to request
+  topicTarget: TopicTarget // the actual topic object to find
 }
 
 export interface Results {

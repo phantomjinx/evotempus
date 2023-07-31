@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react'
 import './App.scss'
 import { AppContext } from './context'
 import { fetchService, hintService } from '@evotempus/api'
-import { FilteredCategory, Interval, Legend, Subject, TopicTarget } from '@evotempus/types'
-import { IntervalVisual, Search, HelpPage } from '@evotempus/components'
-// import { Wiki, SubjectVisual } from '@evotempus/components';
+import { FilteredCategory, Interval, Legend, Subject, Topic, TopicRequest, TopicTarget, TopicType } from '@evotempus/types'
+import { IntervalVisual, Search, HelpPage, Wiki } from '@evotempus/components'
+// import { SubjectVisual } from '@evotempus/components';
 import { consoleLog, present, isSubject, isInterval } from '@evotempus/utils'
 import wikiLogoV2 from '@evotempus/assets/images/wikipedia-logo-v2.svg'
 import geoclock from '@evotempus/assets/images/geologic-clock.png'
@@ -33,7 +33,7 @@ export const App: React.FunctionComponent = () => {
     activeTab: '',
   })
 
-  const [topicTarget, setTopicTarget] = useState<TopicTarget | undefined>(subject ? subject : interval)
+  const [topicRequest, setTopicRequest] = useState<TopicRequest | undefined>()
   const [wikiVisible, showWiki] = useState<boolean>(false)
   const [wikiPosition, setWikiPosition] = useState<string | undefined>('interval')
 
@@ -108,7 +108,7 @@ export const App: React.FunctionComponent = () => {
     console.log('Calling App: handleIntervalSelection on interval: ' + interval._id)
 
     if (interval) {
-      setTopicTarget(interval)
+      setTopicRequest({type: TopicType.interval, topicTarget: interval})
       showHelp(false)
     }
 
@@ -117,7 +117,7 @@ export const App: React.FunctionComponent = () => {
 
   const handleSubjectSelection = (subject: Subject) => {
     if (subject) {
-      setTopicTarget(subject)
+      setTopicRequest({type: TopicType.subject, topicTarget: subject})
       showHelp(false)
     }
 
@@ -254,7 +254,7 @@ export const App: React.FunctionComponent = () => {
             <IntervalVisual />
             <div
               id='interval-wiki-card-btn-container'
-              className={topicTarget && isInterval(topicTarget) ? 'show' : 'hide'}
+              className={topicRequest && isInterval(topicRequest.topicTarget) ? 'show' : 'hide'}
             >
               <button id='interval-wiki-card-btn' onClick={(event) => handleWikiClick(event, 'interval')}>
                 <img src={wikiLogoV2} alt='W' />
@@ -262,13 +262,22 @@ export const App: React.FunctionComponent = () => {
             </div>
           </div>
         </div>
+
         <div className='subject-visual'>
           {subjectHelpVisual}
-          <div id='subject-wiki-card-btn-container' className={topicTarget && isSubject(topicTarget) ? 'show' : 'hide'}>
+          <div id='subject-wiki-card-btn-container'
+            className={topicRequest && isSubject(topicRequest.topicTarget) ? 'show' : 'hide'}>
             <button id='subject-wiki-card-btn' onClick={(event) => handleWikiClick(event, 'subject')}>
               <img src={wikiLogoV2} alt='W' />
             </button>
           </div>
+        </div>
+
+        <div id="wiki-card" className={`${wikiVisible ? 'show' : 'hide'} ${wikiPosition}`}>
+          <Wiki
+            topicRequest={topicRequest}
+            toggleWiki={toggleWiki}
+          />
         </div>
       </AppContext.Provider>
 

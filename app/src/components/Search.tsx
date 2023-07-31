@@ -4,7 +4,7 @@ import { AppContext } from '@evotempus/components'
 import './Search.scss'
 import { ErrorMsg, Tabs } from '@evotempus/components'
 import { fetchService } from '@evotempus/api'
-import { Interval, Subject, Topic, Results } from '@evotempus/types'
+import { Interval, Subject, Topic, Results, TopicType } from '@evotempus/types'
 import { isTopic, getListIcon, consoleLog, idToTitle, isInterval, isSubject } from '@evotempus/utils'
 import Pagination from 'react-pagination-js'
 import 'react-pagination-js/dist/styles.css' // import css
@@ -130,7 +130,7 @@ export const Search: React.FunctionComponent = () => {
         })
     } else if (isTopic(target)) {
       const topic: Topic = target as Topic
-      if (topic.topicTarget === 'Subject') {
+      if (topic.topicTarget === TopicType.subject) {
         fetchService
           .subjectById(topic.topic)
           .then((res) => {
@@ -150,7 +150,7 @@ export const Search: React.FunctionComponent = () => {
             setMessageClass('search-msg-info')
             setError(err)
           })
-      } else if (topic.topicTarget === 'Interval') {
+      } else if (topic.topicTarget === TopicType.interval) {
         fetchService
           .intervalById(topic.topic)
           .then((res) => {

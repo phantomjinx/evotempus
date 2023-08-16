@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Paul G. Richardson
+ * Copyright (C) 2023 Paul G. Richardson
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -7,20 +7,29 @@
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * but WITHOUT ANY WARRANTY without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+import { Connection, ConnectOptions } from 'mongoose'
 
-// modules =================================================
-const fs = require("fs");
-const path = require("path");
-const wiki = require("wikijs").default;
+export interface EvoDb {
+  conn?: Connection,
+  options: ConnectOptions,
+  terminate: () => void
+}
 
-wiki()
-    .page('Proterozoic')
-    .then(page => page.summary())
-    .then(summary => console.log(summary));
+export const evoDb: EvoDb = {
+  options: {
+    autoIndex: true
+  },
+  terminate: () => {
+    if (evoDb.conn) {
+      evoDb.conn.close()
+    }
+    process.exit(1)
+  }
+}

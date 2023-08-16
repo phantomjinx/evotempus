@@ -1,0 +1,1 @@
+export { evoDataConfig } from './data'

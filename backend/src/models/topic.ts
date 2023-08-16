@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Paul G. Richardson
+ * Copyright (C) 2023 Paul G. Richardson
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -7,7 +7,7 @@
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * but WITHOUT ANY WARRANTY without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
@@ -15,9 +15,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
+
+export interface ITopic {
+  topic: string,
+  topicTarget: string,
+  linkId?: string,
+  description?: string // Empty by default but used to cache data as its queried
+}
 
 //
 // topic:         id of a subject or interval
@@ -25,9 +32,10 @@ const Schema = mongoose.Schema;
 // linkId:        identifier of the link
 // description:   downloaded description from the linkId
 //
-const TopicSchema = new Schema({
+export const TopicSchema = new Schema({
     topic: {
       type: String,
+      required: true,
       refPath: 'topicTarget',
     },
     topicTarget: {
@@ -38,11 +46,6 @@ const TopicSchema = new Schema({
     linkId: String,
     description: String // Empty by default but used to cache data as its queried
 },
-{ versionKey: 'version' });
+{ versionKey: 'version' })
 
-// Create index after import
-
-// define our interval descrption model
-module.exports = {
-  Topic: mongoose.model('Topic', TopicSchema)
-};
+export const TopicModel = mongoose.model('Topic', TopicSchema)

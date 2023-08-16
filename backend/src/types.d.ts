@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Paul G. Richardson
+ * Copyright (C) 2023 Paul G. Richardson
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -7,29 +7,10 @@
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * but WITHOUT ANY WARRANTY without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-const mongoose = require('mongoose');
-
-const Schema = mongoose.Schema;
-
-const HintSchema = new Schema({
-    _id: {type: String, required: true},
-    type:  {type: String, enum: ['Kind', 'Category', 'Tag']},
-    parent: {type: String, ref: 'Hint'},
-    colour: String,
-    link: String,
-    order: Number
-},
-{ versionKey: 'version' });
-
-// define our interval model
-module.exports = {
-  Hint: mongoose.model('Hint', HintSchema)
-};

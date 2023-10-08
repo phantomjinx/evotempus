@@ -29,9 +29,7 @@ import { evoDb } from './connection'
 import {
   ISubject, SubjectModel,
   IInterval, IntervalModel,
-  ITopic, TopicModel,
-  IHint, HintModel } from './models'
-import { Document } from 'mongoose'
+  TopicModel, HintModel } from './models'
 
 export interface ImportStats {
   intervals: number,
@@ -52,7 +50,7 @@ const stats: ImportStats = {
 type ImportFn = ((dataRow: string[]) => Promise<void>)
 
 function isString(value: unknown): value is string {
-  return typeof value === 'string';
+  return typeof value === 'string'
 }
 
 function expectPopulated(dataArr: string[], dataType: string, expectedSize: number) {
@@ -297,7 +295,7 @@ export async function createHint(dataRow: string[]) {
   let parent = (dataRow[2] as string).trim()
   let colour = (dataRow[3] as string).trim()
   let link = (dataRow[4] as string).trim()
-  let orderStr = (dataRow[5] || '').trim()
+  const orderStr = (dataRow[5] || '').trim()
 
   if (parent == '<>') {
     parent = ''
@@ -348,7 +346,7 @@ export async function importReader(path: string, expectedCols: number, importFn:
   const liner = new readlines(path)
 
   let next
-  while (next = liner.next()) { // jshint ignore:line
+  while ((next = liner.next()) !== false) { // jshint ignore:line
     const line = next.toString('ascii')
 
     if (line.startsWith('#') || line.length == 0) {

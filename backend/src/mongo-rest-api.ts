@@ -199,11 +199,12 @@ function init(evoDb: EvoDb) {
       logger.info('INFO: ** DEV **')
       app.use('/', express.static('./'))
       break
-    default:
+    default: {
       logger.info('INFO: ** PRODUCTION **')
       const appBuild = path.resolve(__dirname, '..', '..', 'app/build')
       app.use('/', express.static(appBuild))
       break
+    }
   }
 
   // startup app at http://localhost:{PORT}

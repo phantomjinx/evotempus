@@ -19,7 +19,6 @@ import { HydratedDocument } from 'mongoose'
 import { HintModel, ISubject, SubjectModel } from '../models'
 import { logger } from '../logger'
 import { description } from './topics'
-import bodyParser from 'body-parser'
 import createHttpError from 'http-errors'
 
 export const subjectApi = Router()
@@ -221,7 +220,7 @@ subjectApi.post('/', async (req, res, next) => {
         ])
         .exec()
 
-      let pages: Pages = []
+      const pages: Pages = []
       let subjectPageIdx = -1
 
       for (const subject of subjects) {

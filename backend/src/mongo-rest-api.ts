@@ -48,6 +48,14 @@ const dropCollections = utils.toBoolean(process.env.DROP_COLLECTIONS, true)
 const mongoDbURI = process.env.MONGODB_URI || 'mongodb://localhost/evotempus'
 const port = process.env.PORT || 3000
 
+console.log('**************************************')
+console.log(`* Environment:      ${environment}`)
+console.log(`* Do Import:        ${doImport}`)
+console.log(`* Drop Collections: ${dropCollections}`)
+console.log(`* Mongo Db URI:     ${mongoDbURI}`)
+console.log(`* Server Port:      ${port}`)
+console.log('**************************************')
+
 //
 // Load categories in first
 // The load subject, if no category then do not use - rules out phylum unspecified

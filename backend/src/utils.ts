@@ -49,12 +49,25 @@ export function displayName(id: string) {
 export function parseNumber(numStr: string, id: string) {
   const n = parseInt(numStr.trim())
   if (isNaN(n)) {
-    throw "ERROR: Cannot convert 'from' value: " + numStr.trim() + " for id: " + id
+    throw "ERROR: Cannot convert value: " + numStr.trim() + " for id: " + id
   }
 
   return n
 }
 
-export function valueUnknown(value: string) {
+export function trim(value: string | undefined): string {
+  if (!value) return ''
+
+  let v = value.trim()
+  if (v.endsWith(',')) v = v.slice(0, -1)
+  return v
+}
+
+export function noValue(value: string) {
   return value == '<>'
+}
+
+export function replaceNoValue(value: string | undefined) {
+  const v = trim(value)
+  return noValue(v) ? '' : v
 }

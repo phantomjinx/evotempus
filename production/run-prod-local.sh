@@ -49,4 +49,4 @@ export IMPORT_DB=${KEEP_COLLECTIONS}
 export NODE_ENV=production
 export MONGODB_URI=mongodb://localhost/evotempus
 
-node backend/src/server.js
+node backend/dist/mongo-rest-api.js

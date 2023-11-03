@@ -64,7 +64,7 @@ Capitanian-mass-extinction               | Event     | Extinction Event         
 Great-dying                              | Event     | Extinction Event           | -251978000    | -251490000   | Permian-Triassic_extinction_event                   | <>
 Carnian-pluvial-event                    | Event     | Extinction Event           | -234000000    | -232000000   | Carnian_Pluvial_Event                               | <>
 Triassic-jurassic-extinction             | Event     | Extinction Event           | -201300000    | -201290000   | Triassic-Jurassic_extinction_event                  | <>
-Toarcian-turnover                        | Event     | Extinction Event           | -183500000    | -182500000   | Jurassic#Toarcian_Oceanic_Anoxic_Event                              | <>
+Toarcian-turnover                        | Event     | Extinction Event           | -183500000    | -182500000   | Jurassic#Toarcian_Oceanic_Anoxic_Event              | <>
 Aptian_extinction                        | Event     | Extinction Event           | -117500000    | -115500000   | Aptian_extinction                                   | <>
 Cenomanian-turonian-boundary-event       | Event     | Extinction Event           | -100100000    | -82900000    | Cenomanian-Turonian_boundary_event                  | <>
 Cretaceous-paleogene-extinction          | Event     | Extinction Event           | -66054000     | -66239000    | Cretaceous-Paleogene_extinction_event               | <>
@@ -124,7 +124,7 @@ Adelophthalmus                           | Animal    | Arthropoda               
 Arthropleura                             | Animal    | Arthropoda                 | -318100000    | -306950000   | Arthropleura                                        | Arthropod,Walking-With-Monsters
 Palaeothele                              | Animal    | Arthropoda                 | -304800000    | -303400000   | Palaeothele                                         | Arthropod,Mesothelae,Walking-With-Monsters
 Mesolimulus                              | Animal    | Arthropoda                 | -99600000     | -93500000    | Mesolimulus                                         | Arthropod,Walking-With-Dinosaurs
-Deinacrida                               | Animal    | Arthropoda                 | -106000000    | 2030         | Giant_wētā                                          | Giant_wētā,Walking-With-Dinosaurs
+Deinacrida                               | Animal    | Arthropoda                 | -106000000    | 2030         | Giant_wētā                                          | Giant Wētā,Walking-With-Dinosaurs
 Kimberella                               | Animal    | Bilaterian                 | -558000000    | -541000000   | Kimberella                                          | <>
 Gastornis                                | Animal    | Chordata                   | -55800000     | -48600000    | Gastornis                                           | Bird,Aves,Walking-With-Beasts
 Archaeopteryx                            | Animal    | Chordata                   | -150800000    | -145000000   | Archaeopteryx                                       | Bird,Aves,Walking-With-Dinosaurs
@@ -209,7 +209,7 @@ Australopithecus-bahrelghazali           | Animal    | Chordata                 
 Australopithecus-deyiremeda              | Animal    | Chordata                   | -3500000      | -3300000     | Australopithecus_deyiremeda                         | Hominid,Australopithecine,Australopithecus
 Kenyanthropus                            | Animal    | Chordata                   | -3500000      | -3200000     | Kenyanthropus                                       | Hominid
 Ld-350-1                                 | Animal    | Chordata                   | -2800000      | -2750000     | LD_350-1                                            | Hominid,Homo
-Paranthropus-aethiopicus                 | Animal    | Chordata                   | -2700000      | -2300000     | Paranthropus_aethiopicus                            | Hominid,Australopithecine.Paranthropus
+Paranthropus-aethiopicus                 | Animal    | Chordata                   | -2700000      | -2300000     | Paranthropus_aethiopicus                            | Hominid,Australopithecine,Paranthropus
 Australopithecus-garhi                   | Animal    | Chordata                   | -2600000      | -2500000     | Australopithecus_garhi                              | Hominid,Australopithecine,Australopithecus
 Homo-habilis                             | Animal    | Chordata                   | -2310000      | -1650000     | Homo_habilis                                        | Hominid,Homo
 Homo-rudolfensis                         | Animal    | Chordata                   | -2310000      | -1550000     | Homo_rudolfensis                                    | Hominid,Homo
@@ -296,23 +296,23 @@ Ambulocetus                              | Animal    | Chordata                 
 Cryptoclidus                             | Animal    | Chordata                   | -150800000    | -145000000   | Cryptoclidus                                        | Marine Reptile,Walking-With-Dinosaurs
 Liopleurodon                             | Animal    | Chordata                   | -161200000    | -155700000   | Liopleurodon                                        | Marine Reptile,Walking-With-Dinosaurs
 Ophthalmosaurus                          | Animal    | Chordata                   | -150800000    | -139800000   | Ophthalmosaurus                                     | Marine Reptile,Walking-With-Dinosaurs
-Plesiosaurus                             | Animal    | Chordata                   | -180100000    | -170300000   | Plesiosaurus                                        | Marine Reptile,Plesiosauroidea
+Plesiosaurus                             | Animal    | Chordata                   | -180100000    | -170300000   | Plesiosaurus                                        | Marine Reptile
 Ichthyosaurus                            | Animal    | Chordata                   | -105300000    | -99600000    | Ichthyosaur                                         | Marine Reptile
-Pliosaurus                               | Animal    | Chordata                   | -201300000    | -145000000   | Pliosaurus                                          | Marine Reptile,Pliosauroidea
-Plesiochelys                             | Animal    | Chordata                   | -174100000    | -163500000   | Plesiochelys                                        | Marine Reptile,Sea-turtle,Walking-With-Dinosaurs
-Nichollsemys                             | Animal    | Chordata                   | -83500000     | -70600000    | Nichollsemys                                        | Marine Reptile,Sea-turtle
-Allopleuron                              | Animal    | Chordata                   | -41300000     | -38000000    | Allopleuron                                         | Marine Reptile,Sea-turtle
-Argillochelys                            | Animal    | Chordata                   | -41300000     | -38000000    | Argillochelys                                       | Marine Reptile,Sea-turtle
-Procolpochelys                           | Animal    | Chordata                   | -28100000     | -23030000    | Procolpochelys                                      | Marine Reptile,Sea-turtle
-Eochelone                                | Animal    | Chordata                   | -41300000     | -38000000    | Eochelone                                           | Marine Reptile,Sea-turtle
-Puppigerus                               | Animal    | Chordata                   | -41300000     | -38000000    | Puppigerus                                          | Marine Reptile,Sea-turtle,Walking-With-Beasts
-Ctenochelys                              | Animal    | Chordata                   | -83500000     | -70600000    | Ctenochelys                                         | Marine Reptile,Sea-turtle
-Peritresius                              | Animal    | Chordata                   | -100500000    | -66000000    | Peritresius                                         | Marine Reptile,Sea-turtle
-Cabindachelys                            | Animal    | Chordata                   | -61600000     | -59200000    | Cabindachelys                                       | Marine Reptile,Sea-turtle
-Caretta                                  | Animal    | Chordata                   | -1800000      | -300000      | Caretta                                             | Marine Reptile,Sea-turtle
-Lepidochelys                             | Animal    | Chordata                   | -10300000     | -4900000     | Lepidochelys                                        | Marine Reptile,Sea-turtle
-Chelonia                                 | Animal    | Chordata                   | -23030000     | -15970000    | Chelonia                                            | Marine Reptile,Sea-turtle
-Eretmochelys                             | Animal    | Chordata                   | -11700        | 2030         | Eretmochelys                                        | Marine Reptile,Sea-turtle
+Pliosaurus                               | Animal    | Chordata                   | -201300000    | -145000000   | Pliosaurus                                          | Marine Reptile
+Plesiochelys                             | Animal    | Chordata                   | -174100000    | -163500000   | Plesiochelys                                        | Marine Reptile,Sea-Turtle,Walking-With-Dinosaurs
+Nichollsemys                             | Animal    | Chordata                   | -83500000     | -70600000    | Nichollsemys                                        | Marine Reptile,Sea-Turtle
+Allopleuron                              | Animal    | Chordata                   | -41300000     | -38000000    | Allopleuron                                         | Marine Reptile,Sea-Turtle
+Argillochelys                            | Animal    | Chordata                   | -41300000     | -38000000    | Argillochelys                                       | Marine Reptile,Sea-Turtle
+Procolpochelys                           | Animal    | Chordata                   | -28100000     | -23030000    | Procolpochelys                                      | Marine Reptile,Sea-Turtle
+Eochelone                                | Animal    | Chordata                   | -41300000     | -38000000    | Eochelone                                           | Marine Reptile,Sea-Turtle
+Puppigerus                               | Animal    | Chordata                   | -41300000     | -38000000    | Puppigerus                                          | Marine Reptile,Sea-Turtle,Walking-With-Beasts
+Ctenochelys                              | Animal    | Chordata                   | -83500000     | -70600000    | Ctenochelys                                         | Marine Reptile,Sea-Turtle
+Peritresius                              | Animal    | Chordata                   | -100500000    | -66000000    | Peritresius                                         | Marine Reptile,Sea-Turtle
+Cabindachelys                            | Animal    | Chordata                   | -61600000     | -59200000    | Cabindachelys                                       | Marine Reptile,Sea-Turtle
+Caretta                                  | Animal    | Chordata                   | -1800000      | -300000      | Caretta                                             | Marine Reptile,Sea-Turtle
+Lepidochelys                             | Animal    | Chordata                   | -10300000     | -4900000     | Lepidochelys                                        | Marine Reptile,Sea-Turtle
+Chelonia                                 | Animal    | Chordata                   | -23030000     | -15970000    | Chelonia                                            | Marine Reptile,Sea-Turtle
+Eretmochelys                             | Animal    | Chordata                   | -11700        | 2030         | Eretmochelys                                        | Marine Reptile,Sea-Turtle
 Plesiopleurodon                          | Animal    | Chordata                   | -99600000     | -93500000    | Plesiopleurodon                                     | Marine Reptile,Walking-With-Dinosaurs
 Archaeocyathids                          | Animal    | Porifera                   | -530000000    | -490000000   | Archaeocyathids                                     | <>
 Otavia-antiqua-sponge                    | Animal    | Porifera                   | -760000000    | -550000000   | Otavia                                              | <>
@@ -322,9 +322,9 @@ Fractofusus                              | Animal    | Rangeomorpha             
 Charnia                                  | Animal    | Rangeomorpha               | -570000000    | -541000000   | Charnia                                             | <>
 Charniodiscus                            | Animal    | Rangeomorpha               | -565000000    | -555000000   | Charniodiscus                                       | <>
 Dinilysia                                | Animal    | Chordata                   | -83500000     | -70600000    | Dinilysia                                           | Reptile,Walking-With-Dinosaurs
-Palaeopython                             | Animal    | Chordata                   | -48600000     | -40400000    | Palaeopython                                        | Reptile,
+Palaeopython                             | Animal    | Chordata                   | -48600000     | -40400000    | Palaeopython                                        | Reptile,Walking-With-Monsters
 Petrolacosaurus                          | Animal    | Chordata                   | -305900000    | -303400000   | Petrolacosaurus                                     | Reptile,Walking-With-Monsters
-Sphenodon                                | Animal    | Chordata                   | -19000000     | -15900000    | Sphenodon                                           | Reptile,Tuatara
+Sphenodon                                | Animal    | Chordata                   | -19000000     | -15900000    | Sphenodon                                           | Reptile
 Kentisuchus                              | Animal    | Chordata                   | -55800000     | -48600000    | Kentisuchus                                         | Reptile,Walking-With-Beasts
 Deinosuchus                              | Animal    | Chordata                   | -83500000     | -70600000    | Deinosuchus                                         | Reptile,Walking-With-Dinosaurs
 Geckolepis                               | Animal    | Chordata                   | -11700        | 2030         | Gecko                                               | Reptile

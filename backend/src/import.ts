@@ -29,7 +29,7 @@ import { evoDb } from './connection'
 import {
   ISubject, SubjectModel,
   IInterval, IntervalModel,
-  TopicModel, HintModel } from './models'
+  TopicModel, HintModel, IHint } from './models'
 
 export interface ImportStats {
   intervals: number,
@@ -47,7 +47,7 @@ const stats: ImportStats = {
   ignoredSubjects: 0
 }
 
-type ImportFn = ((dataRow: string[]) => Promise<void>)
+type ImportFn = ((dataRow: string[], minimumCols: number) => Promise<void>)
 
 function isString(value: unknown): value is string {
   return typeof value === 'string'
@@ -55,8 +55,8 @@ function isString(value: unknown): value is string {
 
 function expectPopulated(dataArr: string[], dataType: string, expectedSize: number) {
   try {
-    if (dataArr.length !== expectedSize) {
-      throw new Error(`ERROR: Number of ${dataType} columns in data is smaller than expected: ${dataArr}`)
+    if (dataArr.length < expectedSize) {
+      throw new Error(`ERROR: Number of ${dataType} columns in data is less than expected: [${dataArr}]: { actual: ${dataArr.length}, expected: ${expectedSize} }`)
     }
 
     for (let i = 0; i < expectedSize; ++i) {
@@ -69,15 +69,15 @@ function expectPopulated(dataArr: string[], dataType: string, expectedSize: numb
   }
 }
 
-export async function createInterval(dataRow: string[]) {
-  expectPopulated(dataRow, 'interval', 5)
+export async function createInterval(dataRow: string[], minimumCols: number) {
+  expectPopulated(dataRow, 'interval', minimumCols)
 
-  const id = (dataRow[0] as string).trim()
+  const id = utils.trim(dataRow[0])
   const name = utils.displayName(id)
-  const kind = (dataRow[1] as string).trim() as string
-  const from = utils.parseNumber(dataRow[2] as string, id)
-  const to = utils.parseNumber(dataRow[3] as string, id)
-  const parent = (dataRow[4] as string).trim()
+  const kind = utils.trim(dataRow[1])
+  const from = utils.parseNumber(utils.trim(dataRow[2]), id)
+  const to = utils.parseNumber(utils.trim(dataRow[3]), id)
+  const parent = utils.trim(dataRow[4])
 
   let children: string[] = []
   if (dataRow.length > 5 && isString(dataRow[5])) {
@@ -97,9 +97,9 @@ export async function createInterval(dataRow: string[]) {
     children = c
   }
 
-  //
-  // Only insert a children array if not empty
-  //
+  const existing = await IntervalModel.findById(id).exec()
+  if (existing) return
+
   const set: IInterval = {
     _id: id,
     name: name,
@@ -109,70 +109,55 @@ export async function createInterval(dataRow: string[]) {
     parent: parent
   }
 
+  //
+  // Only insert a children array if not empty
+  //
   if (children.length > 0) {
     set.children = children
   }
 
-  //
-  // Automatically deduplicates
-  //
-  IntervalModel.findByIdAndUpdate({
-    _id: id
-  }, {
-    '$set': set,
-    '$setOnInsert': {
-      _id: id
-    }
-  }, {
-    upsert: true,
-    new: true
-  }).exec()
+  // New interval
+  const newInterval = new IntervalModel(set)
+  await newInterval.save()
 
   stats.intervals++
 }
 
-export async function createTopic(dataRow: string[], topicTgt: string) {
-  expectPopulated(dataRow, 'topic', 2)
+export async function createTopic(dataRow: string[], topicTgt: string, minimumCols: number) {
+  expectPopulated(dataRow, 'topic', minimumCols)
 
   //
   // Ensure all whitespace is removed
   //
-  const id = (dataRow[0] as string).trim()
-  const linkId = (dataRow[1] as string).trim()
+  const topicId = utils.trim(dataRow[0])
+  const linkId = utils.trim(dataRow[1])
   topicTgt = topicTgt.trim()
 
-  //
-  // Automatically deduplicates
-  //
-  await TopicModel.findOneAndUpdate({
-    topic: id
-  }, {
-    '$set': {
-      linkId: linkId,
-      topicTarget: topicTgt
-    },
-    '$setOnInsert': {
-      topic: id
-    }
-  }, {
-    upsert: true,
-    new: true
-  }).exec()
+  const existing = await TopicModel.findOne({topic: topicId}).exec()
+  if (existing) return
+
+  // New id subject
+  const newTopic = new TopicModel({
+    topic: topicId,
+    linkId: linkId,
+    topicTarget: topicTgt
+  })
+  await newTopic.save()
 
   stats.topics++
 }
 
-export async function createIntervalTopic(dataRow: string[]) {
-  createTopic(dataRow, 'Interval')
+export async function createIntervalTopic(dataRow: string[], minimumCols: number) {
+  createTopic(dataRow, 'Interval', minimumCols)
 }
 
-export async function createSubjectTopic(dataRow: string[]) {
-  createTopic(dataRow, 'Subject')
+export async function createSubjectTopic(dataRow: string[], minimumCols: number) {
+  createTopic(dataRow, 'Subject', minimumCols)
 }
 
 export async function createSubject(
   id: string, name: string, kind: string, category: string,
-  from: number, to: number, linkId: string) {
+  from: number, to: number, linkId: string, tags: string[]) {
 
   if (id === 'NO_GENUS_SPECIFIED') {
     logger.debug('Ignoring row with no genus: %s %s %s %s %d %d', id, name, kind, category, from, to)
@@ -184,28 +169,32 @@ export async function createSubject(
     return
   }
 
-  logger.debug('Creating subject: id: ' + id + ' kind: ' + kind + ' category: ' + category + ' from: ' + from + ' to: ' + to)
+  logger.debug('Creating subject: id: ' + id + ' kind: ' + kind + ' category: ' + category + ' from: ' + from + ' to: ' + to + ' tags: ' + tags.toString())
+
+  tags = tags.filter((item) => item.length === 0)
 
   // New id subject
-  const new_subject = new SubjectModel({
+  const newSubject = new SubjectModel({
     _id: id,
     name: name,
     kind: kind,
     category: category,
     from: from,
-    to: to
+    to: to,
+    tags: tags
   })
-  await new_subject.save()
-  await createSubjectTopic([id, linkId])
+
+  await newSubject.save()
+  await createSubjectTopic([id, linkId], 2)
 
   stats.subjects++
 }
 
 export async function updateSubject(
   subject: HydratedDocument<ISubject>, id: string, name: string, kind: string,
-  category: string, from: number, to: number) {
+  category: string, from: number, to: number, tags: string[]) {
 
-  logger.debug('Updating subject: id: ' + id + ' kind: ' + kind + ' category: ' + category + ' from: ' + from + ' to: ' + to)
+  logger.debug('Updating subject: id: ' + id + ' kind: ' + kind + ' category: ' + category + ' from: ' + from + ' to: ' + to + ' tags: ' + tags.toString())
 
   // Subject exists so need to check and update
   if (subject.name !== name) {
@@ -232,38 +221,53 @@ export async function updateSubject(
     subject.to = to
   }
 
+  if (tags.length > 0) {
+    const dTags = tags.concat(subject.tags)
+    subject.tags = dTags.filter((item, pos) => {
+      return item.length === 0 || dTags.indexOf(item) === pos
+    })
+  }
+
   await subject.save()
 }
 
-export async function createOrUpdateSubject(dataRow: string[]) {
-  expectPopulated(dataRow, 'subject', 6)
+export async function createOrUpdateSubject(dataRow: string[], minimumCols: number) {
+  expectPopulated(dataRow, 'subject', minimumCols)
 
-  const id = (dataRow[0] as string).trim() as string
+  const id = utils.trim(dataRow[0])
   const name = utils.displayName(id)
-  const kind = (dataRow[1] as string).trim() as string
-  const category = (dataRow[2] as string).trim()
-  const from = utils.parseNumber(dataRow[3] as string, id)
-  const to = utils.parseNumber(dataRow[4] as string, id)
-  const linkId = (dataRow[5] as string).trim()
+  const kind = utils.trim(dataRow[1])
+  const category = utils.trim(dataRow[2])
+  const from = utils.parseNumber(utils.trim(dataRow[3]), id)
+  const to = utils.parseNumber(utils.trim(dataRow[4]), id)
+  const linkId = utils.trim(dataRow[5])
 
-  if (utils.valueUnknown(linkId)) {
+  let tags: string[] = []
+  if (dataRow.length > 6) {
+    const tagStr = utils.trim(dataRow[6])
+    if (! utils.noValue(tagStr)) {
+      tags = tagStr.split(',')
+    }
+  }
+
+  if (utils.noValue(linkId)) {
     stats.ignoredSubjects++
     return // Only import subjects with a wikipedia link id
   }
 
-  const subject = await SubjectModel.findById(id).exec()
-  if (subject == null) {
-    await createSubject(id, name, kind, category, from, to, linkId)
+  let subject = await SubjectModel.findById(id).exec()
+  if (!subject) {
+    await createSubject(id, name, kind, category, from, to, linkId, tags)
   } else {
-    await updateSubject(subject, id, name, kind, category, from, to)
+    await updateSubject(subject, id, name, kind, category, from, to, tags)
   }
 }
 
-export async function tagSubject(dataRow: string[]) {
-  expectPopulated(dataRow, 'tag', 2)
+export async function tagSubject(dataRow: string[], minimumCols: number) {
+  expectPopulated(dataRow, 'tag', minimumCols)
 
-  const subjectId = (dataRow[0] as string).trim()
-  const tagId = (dataRow[1] as string).trim()
+  const subjectId = utils.trim(dataRow[0])
+  const tagId = utils.trim(dataRow[1])
 
   logger.debug('Tagging subject: id: ' + subjectId + ' tag: ' + tagId)
 
@@ -278,69 +282,51 @@ export async function tagSubject(dataRow: string[]) {
     subject?.tags.push(tagId)
 
     //
-    // Vaidator of subject should detect whether tag is valid
+    // Validator of subject should detect whether tag is valid
     //
     await subject?.save()
   }
 }
 
-export async function createHint(dataRow: string[]) {
-  expectPopulated(dataRow, 'hint', 5)
+export async function createHint(dataRow: string[], minimumCols: number) {
+  expectPopulated(dataRow, 'hint', minimumCols)
+
+  const calcOrder = (orderStr: string, id: string): number => {
+    let order = 0
+    if (! utils.noValue(orderStr)) {
+      order = utils.parseNumber(orderStr, id)
+    }
+    return order
+  }
 
   //
   // Ensure all whitespace is removed
   //
-  const id = (dataRow[0] as string).trim()
-  const type = (dataRow[1] as string).trim()
-  let parent = (dataRow[2] as string).trim()
-  let colour = (dataRow[3] as string).trim()
-  let link = (dataRow[4] as string).trim()
-  const orderStr = (dataRow[5] || '').trim()
+  const id = utils.trim(dataRow[0])
 
-  if (parent == '<>') {
-    parent = ''
+  const existing = await HintModel.findById(id).exec()
+  if (existing) return
+
+  const set: IHint = {
+    _id: id,
+    type: utils.trim(dataRow[1]),
+    parent: utils.replaceNoValue(dataRow[2]),
+    colour: utils.replaceNoValue(dataRow[3]),
+    link: utils.replaceNoValue(dataRow[4]),
+    order: calcOrder(utils.trim(dataRow[5]), id)
   }
 
-  if (utils.valueUnknown(colour)) {
-    colour = ''
-  }
+  logger.debug(`Creating hint`)
+  logger.debug(set)
 
-  if (utils.valueUnknown(link)) {
-    link = ''
-  }
-
-  let order = 0
-  if (! utils.valueUnknown(orderStr)) {
-    order = utils.parseNumber(orderStr, id)
-  }
-
-  logger.debug('Creating hint: id: ' + id + ' type: ' + type + ' parent: ' + parent + ' colour: ' + colour + ' link: ' + link + ' order: ' + order)
-
-  //
-  // Automatically deduplicates and finish in its own time
-  //
-  await HintModel.findByIdAndUpdate({
-    _id: id
-  }, {
-    '$set': {
-      type: type,
-      parent: parent,
-      colour: colour,
-      link: link,
-      order: order
-    },
-    '$setOnInsert': {
-      _id: id
-    }
-  }, {
-    upsert: true,
-    new: true
-  }).exec()
+  // New Hint
+  const newHint = new HintModel(set)
+  await newHint.save()
 
   stats.hints++
 }
 
-export async function importReader(path: string, expectedCols: number, importFn: ImportFn) {
+export async function importReader(path: string, minimumCols: number, importFn: ImportFn) {
   logger.debug('INFO: Starting importing data from ' + path)
 
   const liner = new readlines(path)
@@ -354,24 +340,26 @@ export async function importReader(path: string, expectedCols: number, importFn:
     }
 
     const dataRow = line.split('|')
-    if (dataRow.length < expectedCols) {
+    if (dataRow.length < minimumCols) {
       logger.error('ERROR: Number of columns in record is smaller than expected: ' + line)
       evoDb.terminate()
     }
 
-    await importFn(dataRow)
+    await importFn(dataRow, minimumCols)
   }
 
   logger.debug('INFO: Completed importing data from ' + path)
 }
 
-export async function importContent(pathOrPaths: string|string[], expectedCols: number, importFn: ImportFn) {
+export async function importContent(pathOrPaths: string|string[], minimumCols: number, importFn: ImportFn) {
   let paths: string[] = []
   if (Array.isArray(pathOrPaths)) {
     paths = paths.concat(pathOrPaths)
   } else {
     paths.push(pathOrPaths)
   }
+
+  logger.debug(`Import path: ${paths}`)
 
   for (let i = 0; i < paths.length; i++) {
     const fullPath = path.resolve(__dirname, '..', paths[i] as string)
@@ -383,17 +371,17 @@ export async function importContent(pathOrPaths: string|string[], expectedCols: 
         const file = files[j] as string
 
         if (path.extname(file) === '.dat') {
-          await importReader(path.resolve(fullPath, file), expectedCols, importFn)
+          await importReader(path.resolve(fullPath, file), minimumCols, importFn)
         }
       }
     } else {
-      await importReader(fullPath, expectedCols, importFn)
+      await importReader(fullPath, minimumCols, importFn)
     }
   }
 }
 
 export async function importIntervals(pathOrPaths: string|string[]) {
-  await importContent(pathOrPaths, 5, createInterval)
+  await importContent(pathOrPaths, 6, createInterval)
   logger.debug('INFO: import of intervals complete')
 }
 
@@ -403,7 +391,7 @@ export async function importIntervalTopics(pathOrPaths: string|string[]) {
 }
 
 export async function importHints(pathOrPaths: string|string[]) {
-  await importContent(pathOrPaths, 5, createHint)
+  await importContent(pathOrPaths, 7, createHint)
   logger.debug('INFO: import of hints complete')
 }
 

@@ -255,7 +255,7 @@ export async function createOrUpdateSubject(dataRow: string[], minimumCols: numb
     return // Only import subjects with a wikipedia link id
   }
 
-  let subject = await SubjectModel.findById(id).exec()
+  const subject = await SubjectModel.findById(id).exec()
   if (!subject) {
     await createSubject(id, name, kind, category, from, to, linkId, tags)
   } else {

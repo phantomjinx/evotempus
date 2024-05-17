@@ -1,5 +1,5 @@
 import { HierarchyRectangularNode } from 'd3-hierarchy'
-import { Interval } from 'src/types'
+import { Interval } from '@evotempus/types'
 
 export const svgId = 'interval-visual-component-svg'
 
@@ -54,10 +54,15 @@ export class Dimensions {
   }
 }
 
-export interface ZoomSystem {
+export interface SunburstZoomSystem {
   viewPort: number
   ox: number
   oy: number
+}
+
+export interface SunburstSystemInfo {
+  zoomSystem: SunburstZoomSystem
+  radius: number
 }
 
 /**

@@ -1,7 +1,7 @@
 import React from 'react'
 import { color as d3Color, RGBColor } from 'd3-color'
+import { hintService } from '@evotempus/api'
 import { ViewNode } from './globals'
-import { hintService } from 'src/api'
 
 type SunburstDefProps = {
   rootNode: ViewNode

@@ -1,23 +1,20 @@
-import React, { useContext } from 'react'
-import { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Loading } from '@evotempus/layout'
 import { fetchService } from '@evotempus/api'
 import { Interval } from '@evotempus/types'
 import { consoleLog } from '@evotempus/utils'
-import { ErrorMsg } from './../ErrorMsg'
-import './IntervalVisual.scss'
+import { ErrorMsg } from '../ErrorMsg'
+import { AppContext } from '@evotempus/components/app'
 import { IntervalSunburst } from './IntervalSunburst'
-import { IntervalVisualContext } from './context'
-import { AppContext } from '../app'
+import './IntervalVisual.scss'
 
 let intervalsInit = false
 
 export const IntervalVisual: React.FunctionComponent = () => {
-  const { interval, setInterval, filteredCategories, setFilteredCategories } = useContext(AppContext)
   const [errorMsg, setErrorMsg] = useState<string>()
   const [error, setError] = useState<Error>()
   const [loading, setLoading] = useState<boolean>(true)
-  const [data, setData] = useState<Interval[]>([])
+  const [visualIntervals, setVisualIntervals] = useState<Interval[]>([])
 
   const logErrorState = (errorMsg: string, error: Error) => {
     consoleLog({ prefix: 'Error', message: errorMsg + '\nDetail: ', object: error })
@@ -39,7 +36,7 @@ export const IntervalVisual: React.FunctionComponent = () => {
           logErrorState('Data failed to be fetched', new Error('Response data payload was empty.'))
         } else {
           setLoading(false)
-          setData(res.data)
+          setVisualIntervals(res.data)
         }
       })
       .catch((err: Error) => {
@@ -60,8 +57,6 @@ export const IntervalVisual: React.FunctionComponent = () => {
   }
 
   return (
-    <IntervalVisualContext.Provider value={{ interval, setInterval, data }}>
-      <IntervalSunburst />
-    </IntervalVisualContext.Provider>
+    <IntervalSunburst visualIntervals={visualIntervals}/>
   )
 }

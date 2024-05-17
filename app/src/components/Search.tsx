@@ -1,12 +1,10 @@
-import React from 'react'
-import { useContext, useState } from 'react'
-import { AppContext } from '@evotempus/components'
-import './Search.scss'
-import { ErrorMsg, Tabs } from '@evotempus/components'
+import React, { useContext, useState } from 'react'
+import Pagination from 'react-pagination-js'
 import { fetchService } from '@evotempus/api'
+import { AppContext, ErrorMsg, Tabs } from '@evotempus/components'
 import { Interval, Subject, Topic, Results, TopicType } from '@evotempus/types'
 import { isTopic, getListIcon, consoleLog, idToTitle, isInterval, isSubject } from '@evotempus/utils'
-import Pagination from 'react-pagination-js'
+import './Search.scss'
 import 'react-pagination-js/dist/styles.css' // import css
 
 export const Search: React.FunctionComponent = () => {

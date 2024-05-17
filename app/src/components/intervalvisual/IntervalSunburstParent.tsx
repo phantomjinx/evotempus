@@ -1,10 +1,10 @@
 import React, { useMemo, useRef } from 'react'
-import { clickDelay, ViewNode, ZoomSystem } from './globals'
+import { clickDelay, SunburstZoomSystem, ViewNode } from './globals'
 
 type SunburstParentProps = {
   parent: ViewNode | undefined
   radius: number
-  zoomSystem: ZoomSystem
+  zoomSystem: SunburstZoomSystem
   setSelected: (selected: ViewNode, notify: boolean) => void
   navigate: (intervalNode: ViewNode) => void
 }

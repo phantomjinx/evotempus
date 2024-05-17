@@ -18,6 +18,7 @@
       "@evotempus/api": ["./src/api"],
       "@evotempus/assets/*": ["./src/assets/*"],
       "@evotempus/components": ["./src/components"],
+      "@evotempus/components/app": ["./src/components/app"],
       "@evotempus/layout": ["./src/layout"],
       "@evotempus/types": ["./src/types"],
       "@evotempus/utils": ["./src/utils"]

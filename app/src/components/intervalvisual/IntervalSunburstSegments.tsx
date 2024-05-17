@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { ViewNode, ZoomSystem } from './globals'
+import { SunburstZoomSystem, ViewNode } from './globals'
 import { IntervalSunburstSegmentPaths } from './IntervalSunburstSegmentPaths'
 import { IntervalSunburstSegmentLabels } from './IntervalSunburstSegmentsLabels'
 
@@ -7,7 +7,7 @@ type SunburstSegmentsProps = {
   nodes: ViewNode[]
   parent: ViewNode | undefined
   radius: number
-  zoomSystem: ZoomSystem
+  zoomSystem: SunburstZoomSystem
   selected: ViewNode | undefined
   setSelected: (selected: ViewNode, notify: boolean) => void
   navigate: (intervalNode: ViewNode) => void

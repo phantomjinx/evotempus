@@ -1,4 +1,4 @@
-export { App, AppContext } from './app'
+export { App, AppContext } from '@evotempus/components/app'
 export { ErrorMsg } from './ErrorMsg'
 export { Search } from './Search'
 export { Tabs } from './Tabs'

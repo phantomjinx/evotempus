@@ -1,95 +1,36 @@
 import { zoom as d3Zoom } from 'd3-zoom'
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
-import { stratify as d3Stratify, partition as d3Partition } from 'd3-hierarchy'
 import { select as d3Select } from 'd3-selection'
 import { Interval } from '@evotempus/types'
+import { AppContext } from '@evotempus/components/app'
 import { consoleLog } from '@evotempus/utils'
 import { useElementSize } from './../useElement'
+import * as service from './interval-sunburst-service'
 import './IntervalVisual.scss'
-import { IntervalVisualContext } from './context'
 import { Dimensions, svgId, ViewInterval, ViewNode } from './globals'
 import { IntervalSunburstDefs } from './IntervalSunburstDefs'
 import { IntervalSunburstParent } from './IntervalSunburstParent'
 import { IntervalSunburstSegments } from './IntervalSunburstSegments'
 
-export const IntervalSunburst: React.FunctionComponent = () => {
+type SunburstProps = {
+  visualIntervals: Interval[]
+}
+
+export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: SunburstProps) => {
   const [dimRef, { width, height }] = useElementSize()
-  const { interval, setInterval, data } = useContext(IntervalVisualContext)
+
+  const { interval, setInterval } = useContext(AppContext)
   const [parent, setParent] = useState<ViewNode>()
   const [selected, setSelected] = useState<ViewNode>()
 
   const svgRef = useRef<SVGSVGElement>(null)
 
   /*
-   * Makes a hierarchy of the json data
-   * then partitions it ready for layout
-   */
-  const partition = (data: Interval[]): ViewNode => {
-    const viewData: ViewInterval[] = []
-    for (const interval of data) {
-      const v: ViewInterval = new ViewInterval(interval)
-      viewData.push(v)
-    }
-
-    const newRootNode = d3Stratify<ViewInterval>()
-      .id((d: ViewInterval) => d.id())
-      .parentId((d: ViewInterval) => d.parent())(viewData)
-
-    //
-    // rootNode.sum calculates the value that the node represents
-    // This is essential for a partition layout since they're
-    // relative areas are determined by node.value
-    //
-    newRootNode
-      .sum((d: ViewInterval) => {
-        //
-        // The computation takes this value and adds it to
-        // the value of any children belonging to it. So to
-        // get properly finished circles we should only consider
-        // the leaf data only.
-        //
-        return d.progeny() === 0 ? d.to() - d.from() : 0
-      })
-      .sort((a, b) => {
-        //
-        // Whereas sum above uses the actual data objects, sort does not;
-        // it uses the HierarchyRectangularNode<ViewInterval>.
-        // Therefore, we have to use ...data.from rather than ...from.
-        //
-        const r = a.data.from() - b.data.from()
-        return r
-      })
-
-    //
-    // Effectively calling partition(rootNode)
-    // Adds properties to rootNode and all its children, such as x0, y0, x1, y1
-    // size() will calculate the width and height
-    //
-    return d3Partition<ViewInterval>().size([2 * Math.PI, newRootNode.height + 1])(newRootNode)
-  }
-
-  /*
-   * Determines if an arc should be visible
-   * based on its position in the hierarchy
-   */
-  const arcVisible = (d: Dimensions): boolean => {
-    return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0
-  }
-
-  /*
    * Calculates the zoom system and radius then caches unless
    * the width and height changes
    */
-  const {zoomSystem, radius} = useMemo(() => {
-    const viewPort = 5
-    const zoomSystem = {
-      ox: (width * viewPort) / 2,
-      oy: (height * viewPort) / 2,
-      viewPort: viewPort
-    }
-
-    const radius = Math.min(width, height) * 0.8
-    return {zoomSystem, radius}
+  const systemInfo = useMemo(() => {
+    return service.calculateSystemInfo(width, height)
   }, [width, height])
 
   /*
@@ -123,7 +64,7 @@ export const IntervalSunburst: React.FunctionComponent = () => {
     //
     // Start to structure the data according to a partition heirarchical layout
     //
-    const rootNode = partition(data)
+    const rootNode = service.partition(props.visualIntervals)
 
     rootNode.each<ViewInterval>((d: ViewNode) => {
       //
@@ -134,7 +75,7 @@ export const IntervalSunburst: React.FunctionComponent = () => {
       //
       // Cache the result of arcVisible for quick reads later
       //
-      d.data.visible = arcVisible(d.data.current)
+      d.data.visible = service.arcVisible(d.data.current)
 
       // consoleLog({prefix: 'partition', message: d.data.id() + ' has depth of ' + d.depth});
       // consoleLog({prefix: 'partition', message: d.data.id() + ' has coordinates of ' + '(x0: ' + d.x0 + ', x1: ' + d.x1 + ', y0: ' + d.y0 + ', y1: ' + d.y1 + ')'});
@@ -150,7 +91,7 @@ export const IntervalSunburst: React.FunctionComponent = () => {
     setParent(rootNode)
 
     return { rootNode, nodeDescendents: rootNode.descendants().slice(1) }
-  }, [data])
+  }, [props.visualIntervals])
 
   const handleSelection = useCallback((newSelected: ViewNode, notify: boolean) => {
     console.log('IntervalSunburst: handleSelection: ' + newSelected.id)
@@ -240,7 +181,7 @@ export const IntervalSunburst: React.FunctionComponent = () => {
       // logic of arcVisible
       //
       d.data.wasVisible = d.data.visible
-      d.data.visible = arcVisible(d.data.target)
+      d.data.visible = service.arcVisible(d.data.target)
     })
 
     newParent.data.visible = true
@@ -316,6 +257,9 @@ export const IntervalSunburst: React.FunctionComponent = () => {
     traverseToViewNode()
   }, [interval, traverseToViewNode])
 
+  /**
+   * Effect will occur when the width or height are modified (resized)
+   */
   useEffect(() => {
     if (width === 0 && height === 0) return
 
@@ -329,7 +273,7 @@ export const IntervalSunburst: React.FunctionComponent = () => {
         width={width}
         height={height}
         id={svgId}
-        viewBox={'0 0 ' + width * zoomSystem.viewPort + ' ' + height * zoomSystem.viewPort}
+        viewBox={'0 0 ' + width * systemInfo.zoomSystem.viewPort + ' ' + height * systemInfo.zoomSystem.viewPort}
         preserveAspectRatio='xMidYMid slice'
       >
         <IntervalSunburstDefs rootNode={rootNode} />
@@ -337,8 +281,8 @@ export const IntervalSunburst: React.FunctionComponent = () => {
           <IntervalSunburstSegments
             nodes={nodeDescendents}
             parent={parent}
-            radius={radius}
-            zoomSystem={zoomSystem}
+            radius={systemInfo.radius}
+            zoomSystem={systemInfo.zoomSystem}
             selected={selected}
             setSelected={handleSelection}
             navigate={handleNavigate}
@@ -346,8 +290,8 @@ export const IntervalSunburst: React.FunctionComponent = () => {
 
           <IntervalSunburstParent
             parent={parent}
-            radius={radius}
-            zoomSystem={zoomSystem}
+            radius={systemInfo.radius}
+            zoomSystem={systemInfo.zoomSystem}
             setSelected={handleSelection}
             navigate={handleNavigate}
           />

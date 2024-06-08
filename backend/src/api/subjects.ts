@@ -229,9 +229,9 @@ subjectApi.post('/', async (req, res, next) => {
           kindResult.categories.push(subject.category)
         }
 
-        if (excluded.includes(subject.category)) {
-          return // do not include subject in data
-        }
+        if (excluded.includes(subject.category))
+          continue // do not include subject in data
+
         const pageIdx = addSubjectToPages(pages, subject)
         if (subjectId === subject._id) {
           subjectPageIdx = pageIdx
@@ -256,7 +256,7 @@ subjectApi.post('/', async (req, res, next) => {
         kindResult.page = 1
       }
 
-      kindResult.count = pages.length
+      kindResult.count = kindResult.pages.length
       kindResults[kind] = kindResult
     }
 

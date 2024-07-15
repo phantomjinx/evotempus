@@ -4,6 +4,8 @@ import ErrorMsg from './ErrorMsg.js';
 import * as api from './api.js';
 import * as common from './common';
 import './Wiki.scss';
+import geoclock from './images/geologic-clock.png';
+import wikiLogo from './images/wikipedia-logo-with-label.svg';
 
 export default class Wiki extends React.Component {
 
@@ -104,7 +106,7 @@ export default class Wiki extends React.Component {
     const headerLogo = (
       <a id="wiki-header-logo" href="https://en.wikipedia.org/wiki/Geologic_time_scale"
         target="_blank" rel="noopener noreferrer">
-        <img src="/geologic-clock.png" alt="geo-clock"/>
+        <img src={geoclock} alt="geo-clock"/>
       </a>
     )
 
@@ -130,7 +132,7 @@ export default class Wiki extends React.Component {
     const footer = (
       <div id="wiki-footer">
         <a id="wiki-footer-logo" href={common.wikiLink + this.state.linkId} target="_blank" rel="noopener noreferrer">
-          <img src="/wikipedia-logo-with-label.svg" alt="Wikipedia"/>
+          <img src={wikiLogo} alt="Wikipedia"/>
         </a>
         <p id="link-instruction-arrow">&rarr;</p>
         <p id="link-instruction-text">{this.state.clickMsg}</p>

@@ -11,8 +11,8 @@ $app-height: 100vh;
 $app-left-margin: 1vh;
 $app-right-margin: 2vh;
 
-@font-face { font-family: blackchancery; src: url('/fonts/black-chancery.ttf'); }
-@font-face { font-family: firasans; src: url('/fonts/firasans/FiraSans-Regular.ttf'); }
+@font-face { font-family: blackchancery; src: url('fonts/black-chancery.ttf'); }
+@font-face { font-family: firasans; src: url('fonts/firasans/FiraSans-Regular.ttf'); }
 
 @mixin component-wiki-card-btn {
   position: absolute;

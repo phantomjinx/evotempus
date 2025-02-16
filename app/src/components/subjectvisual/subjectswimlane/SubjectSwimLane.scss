@@ -26,10 +26,6 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
   }
 }
 
-.subject-visual-loading {
-  @include loading-position
-}
-
 .subject-visual-component {
   position: relative;
   display: flex;
@@ -128,12 +124,15 @@ $hover-shadow: drop-shadow(0px 0px 15px orange);
     opacity: 0.9;
     z-index: 100;
     background-color: white;
-    color: black;
+    color: darkred;
+    font-weight: bold;
     border-style: solid;
     border-width: 1px;
     border-radius: 5px;
     padding: 2px;
     box-shadow: $tile-shadow;
+    top: 0px;
+    right: 0px;
   }
 
   .pageBtnTooltipHide {

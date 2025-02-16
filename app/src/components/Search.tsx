@@ -3,7 +3,7 @@ import Pagination from 'react-pagination-js'
 import { fetchService } from '@evotempus/api'
 import { AppContext, ErrorMsg, Tabs } from '@evotempus/components'
 import { Interval, Subject, Topic, Results, TopicType } from '@evotempus/types'
-import { isTopic, getListIcon, consoleLog, idToTitle, isInterval, isSubject } from '@evotempus/utils'
+import { isTopic, getListIcon, idToTitle, isInterval, isSubject } from '@evotempus/utils'
 import './Search.scss'
 import 'react-pagination-js/dist/styles.css' // import css
 
@@ -115,8 +115,6 @@ export const Search: React.FunctionComponent = () => {
             //
             // Selected the returned interval
             //
-            consoleLog({ prefix: 'Search', message: 'Selecting Search Interval Target: ' + res.data[0].name })
-            consoleLog({ prefix: 'Search', message: 'Selecting Search Subject Target: ' + subject.name })
             setInterval(res.data[0])
             setSubject(subject)
           }
@@ -194,17 +192,18 @@ export const Search: React.FunctionComponent = () => {
           <p className='search-results-content-none-found'>No results found for this category.</p>
         </li>,
       )
-    }
-    for (const value of results.values()) {
-      const styleImage: string = 'url(' + getListIcon(value) + ')'
-      const label = isTopic(value) ? (value as Topic).topic : (value as Interval | Subject).name
-      items.push(
-        <li key={value._id} style={{ listStyleImage: styleImage }}>
-          <button className='link-button' onClick={handleNavigate.bind(this, value)}>
-            {idToTitle(label)}
-          </button>
-        </li>,
-      )
+    } else {
+      for (const value of results.values()) {
+        const styleImage: string = 'url(' + getListIcon(value) + ')'
+        const label = isTopic(value) ? (value as Topic).topic : (value as Interval | Subject).name
+        items.push(
+          <li key={value._id} style={{ listStyleImage: styleImage }}>
+            <button className='link-button' onClick={handleNavigate.bind(this, value)}>
+              {idToTitle(label)}
+            </button>
+          </li>,
+        )
+      }
     }
 
     let paginate: JSX.Element = <></>
@@ -223,7 +222,9 @@ export const Search: React.FunctionComponent = () => {
     }
 
     return (
-      <div title={title} className={myClass}>
+      // Ignore the entryCount attribute not being a recognised property of <div>
+      // @ts-ignore
+      <div title={title} entryCount={results.length} className={myClass}>
         {paginate}
         <ul className='search-results-content-items'>{items}</ul>
       </div>

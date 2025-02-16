@@ -28,6 +28,15 @@ export interface Interval extends TopicTarget {
 }
 
 export interface Subject extends TopicTarget {
+  meta?: {
+    laneId: number
+    kindId: number
+    current: Subject
+    limit: {
+      from: number
+      to: number
+    }
+  }
   category: string
   link: string
   icon: string
@@ -71,4 +80,46 @@ export interface FilteredCategory {
 export interface Legend {
   visible: boolean
   activeTab: string
+}
+
+export interface Lane {
+  meta?: {
+    id: number
+    kind: {
+      id: number
+      lane: boolean
+    }
+    count: number
+  }
+  subjects: Subject[]
+}
+
+export interface Page {
+  lanes: Lane[]
+}
+
+export type Pages = Page[]
+
+export interface PageLane {
+  page: number,
+  lane: Lane
+}
+
+export interface SubjectCriteria {
+  interval?: Interval
+  subjectId?: string
+  excludedCategories: string[]
+  kind?: string
+  page?: number
+}
+
+export interface KindResult {
+  categories?: string[],
+  count: number
+  page: number,
+  pages: Pages,
+}
+
+export interface KindResults {
+  [indexer: string] : KindResult
 }

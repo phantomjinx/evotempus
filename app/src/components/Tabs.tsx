@@ -4,28 +4,34 @@ import './Tabs.scss'
 interface TabsProps {
   children: JSX.Element[]
   activeTab?: string
+  onTabClicked?: (name: string)  => void
 }
 
 export const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps) => {
-  const [activeTab, setActiveTab] = useState<string>('')
+  const [activeTab, setActiveTab] = useState<string>(props.activeTab ?? '')
 
   useEffect(() => {
-    let title = props.children[0].props.title
-
-    if (title.includes('(0)')) {
-      for (let i = 1; i < props.children.length; ++i) {
-        if (!props.children[i].props.title.includes('(0)')) {
+    //
+    // Skip to the first populated tab if activeTab is empty
+    //
+    if (!props.activeTab || props.activeTab.length === 0) {
+      let title = props.children[0].props.title
+      for (let i = 0; i < props.children.length; ++i) {
+        if (props.children[i].props.entryCount > 0) {
           title = props.children[i].props.title
           break
         }
       }
+      setActiveTab(title)
     }
-
-    setActiveTab(title)
   }, [props.children])
 
   const onClickTabItem = (tab: string) => {
     setActiveTab(tab)
+
+    if (props.onTabClicked) {
+      props.onTabClicked(tab)
+    }
   }
 
   return (
@@ -34,7 +40,14 @@ export const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps) => {
         <ol className='tab-list'>
           {props.children.map((child: JSX.Element, index: number) => {
             const title: string = child.props.title
-            return <Tab activeTab={activeTab} title={title} selectTab={onClickTabItem} key={index} />
+            const entryCount: number = child.props.entryCount
+            return <Tab
+              activeTab={activeTab}
+              title={title}
+              entryCount={entryCount}
+              selectTab={onClickTabItem}
+              key={index}
+            />
           })}
         </ol>
       </div>
@@ -52,6 +65,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps) => {
 
 interface TabProps {
   title: string
+  entryCount: number
   activeTab?: string
   selectTab: (title: string) => void
 }
@@ -63,7 +77,6 @@ export const Tab: React.FunctionComponent<TabProps> = (props: TabProps) => {
   }
 
   let className = 'tab-list-item'
-
   if (props.activeTab === props.title) {
     className += ' tab-list-active'
   }

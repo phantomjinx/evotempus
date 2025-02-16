@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useCallback, useRef } from 'react'
 import { useEffect, useState } from 'react'
 
 import './App.scss'
 import { AppContext } from './context'
 import { fetchService, hintService } from '@evotempus/api'
-import { FilteredCategory, Interval, Legend, Subject, Topic, TopicRequest, TopicTarget, TopicType } from '@evotempus/types'
+import { FilteredCategory, Interval, Subject, Topic, TopicRequest, TopicTarget, TopicType } from '@evotempus/types'
 import { IntervalVisual, Search, HelpPage, Wiki } from '@evotempus/components'
-// import { SubjectVisual } from '@evotempus/components';
-import { consoleLog, present, isSubject, isInterval } from '@evotempus/utils'
+import { SubjectVisual } from '@evotempus/components'
+import {  consoleLog, present, isSubject, isInterval } from '@evotempus/utils'
 import wikiLogoV2 from '@evotempus/assets/images/wikipedia-logo-v2.svg'
 import geoclock from '@evotempus/assets/images/geologic-clock.png'
 import { Loading } from '@evotempus/layout'
@@ -28,14 +28,11 @@ export const App: React.FunctionComponent = () => {
   const [appWidth, setAppWidth] = useState<number>(312)
   const [appHeight, setAppHeight] = useState<number>(185)
 
-  const [legend, setLegend] = useState<Legend>({
-    visible: false,
-    activeTab: '',
-  })
-
   const [topicRequest, setTopicRequest] = useState<TopicRequest | undefined>()
   const [wikiVisible, showWiki] = useState<boolean>(false)
   const [wikiPosition, setWikiPosition] = useState<string | undefined>('interval')
+
+  const subjectVisualRef = useRef<HTMLDivElement>(null)
 
   const logErrorState = (errorMsg: string, error: Error) => {
     consoleLog({ prefix: 'Error', message: errorMsg + '\nDetail: ', object: error })
@@ -88,6 +85,15 @@ export const App: React.FunctionComponent = () => {
       })
   }
 
+  const handleSubjectSelection = useCallback((subject: Subject) => {
+    if (subject) {
+      setTopicRequest({type: TopicType.subject, topicTarget: subject})
+      showHelp(false)
+    }
+
+    setSubject(subject)
+  }, [subject])
+
   useEffect(() => {
     if (!initialised) {
       initialised = true
@@ -104,28 +110,18 @@ export const App: React.FunctionComponent = () => {
     )
   }
 
-  const handleIntervalSelection = (interval: Interval) => {
-    console.log('Calling App: handleIntervalSelection on interval: ' + interval._id)
+  const handleIntervalSelection = (newInterval: Interval) => {
 
-    if (interval) {
-      setTopicRequest({type: TopicType.interval, topicTarget: interval})
+    if (interval === newInterval)
+      return
+
+    if (newInterval) {
+      setTopicRequest({type: TopicType.interval, topicTarget: newInterval})
       showHelp(false)
     }
 
-    setInterval(interval)
+    setInterval(newInterval)
   }
-
-  const handleSubjectSelection = (subject: Subject) => {
-    if (subject) {
-      setTopicRequest({type: TopicType.subject, topicTarget: subject})
-      showHelp(false)
-    }
-
-    setInterval(interval)
-  }
-
-  consoleLog({ prefix: 'App', message: 'Interval selected: ' + interval?._id })
-  consoleLog({ prefix: 'App', message: 'Subject selected: ' + subject?._id })
 
   //
   // changedCategories is array of {name: ..., filtered: true|false}
@@ -134,12 +130,8 @@ export const App: React.FunctionComponent = () => {
     if (!changedCategories || changedCategories.length === 0) {
       return
     }
-    consoleLog({
-      prefix: 'App',
-      message: 'Set filter on categories: ' + changedCategories[0].name + '  ' + changedCategories[0].filtered,
-    })
 
-    let copyCategories = [...filteredCategories]
+    const copyCategories = [...filteredCategories]
 
     changedCategories.forEach((changedCategory: FilteredCategory) => {
       const idx = filteredCategories.findIndex((category) => {
@@ -150,7 +142,7 @@ export const App: React.FunctionComponent = () => {
         return
       }
 
-      let copyCat = {
+      const copyCat = {
         ...copyCategories[idx],
         filtered: changedCategory.filtered,
       }
@@ -159,10 +151,6 @@ export const App: React.FunctionComponent = () => {
     })
 
     setFilteredCategories(copyCategories)
-  }
-
-  const onUpdateLegend = (legend: Legend) => {
-    setLegend(legend)
   }
 
   /*
@@ -194,18 +182,13 @@ export const App: React.FunctionComponent = () => {
     showHelp(!help)
   }
 
+
   const subjectViz = (
-    <></>
-    //   <SubjectVisual
-    //     parent = { this.subjectVisualRef }
-    //     interval={this.state.interval}
-    //     subject={this.state.subject}
-    //     categories={this.state.categories}
-    //     legend={this.state.legend}
-    //     onSelectedChange={this.handleChange}
-    //     onUpdateCategoryFilter={this.updateCategoryFilter}
-    //     onUpdateLegend={this.onUpdateLegend}
-    //   />
+      <SubjectVisual
+        parent = { subjectVisualRef }
+      //  onSelectedSubject={handleSubjectSelection}
+      //   onUpdateCategoryFilter={this.updateCategoryFilter}
+      />
   )
 
   const helpPage = <HelpPage onToggleHelp={toggleHelp} />
@@ -223,7 +206,7 @@ export const App: React.FunctionComponent = () => {
           subject,
           setSubject: handleSubjectSelection,
           filteredCategories,
-          setFilteredCategories,
+          setFilteredCategories
         }}
       >
         <nav className='header navbar navbar-expand-lg'>
@@ -263,7 +246,7 @@ export const App: React.FunctionComponent = () => {
           </div>
         </div>
 
-        <div className='subject-visual'>
+        <div className='subject-visual' ref={subjectVisualRef}>
           {subjectHelpVisual}
           <div id='subject-wiki-card-btn-container'
             className={topicRequest && isSubject(topicRequest.topicTarget) ? 'show' : 'hide'}>

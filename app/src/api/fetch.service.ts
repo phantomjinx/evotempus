@@ -1,5 +1,5 @@
 import { instance as http } from './axios.http'
-import { Hint, Results } from '@evotempus/types'
+import { Hint, Results, SubjectCriteria } from '@evotempus/types'
 
 class FetchService {
   intervals() {
@@ -42,17 +42,17 @@ class FetchService {
     })
   }
 
-  subjectsWithin(from: string, to: string, kind: string, page: number, subjectId: string, excludedCategories: boolean) {
+  subjectsWithin(criteria: SubjectCriteria) {
     return http({
       method: 'POST',
       url: '/api/subjects',
       data: {
-        from: from,
-        to: to,
-        kind: kind,
-        page: page,
-        subject: subjectId,
-        excluded: excludedCategories,
+        from: criteria.interval ? criteria.interval.from : undefined,
+        to: criteria.interval ? criteria.interval.to : undefined,
+        kind: criteria.kind,
+        page: criteria.page,
+        subject: criteria.subjectId,
+        excluded: criteria.excludedCategories,
       },
     })
   }

@@ -62,7 +62,7 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
    */
   const { rootNode, nodeDescendents } = useMemo(() => {
     //
-    // Start to structure the data according to a partition heirarchical layout
+    // Start to structure the data according to a partition hierarchical layout
     //
     const rootNode = service.partition(props.visualIntervals)
 
@@ -94,7 +94,7 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
   }, [props.visualIntervals])
 
   const handleSelection = useCallback((newSelected: ViewNode, notify: boolean) => {
-    console.log('IntervalSunburst: handleSelection: ' + newSelected.id)
+
 
     if (!newSelected) return
 
@@ -131,7 +131,6 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
   }, [rootNode, setInterval])
 
   const handleNavigate = useCallback((intervalNode: ViewNode) => {
-    consoleLog({ prefix: 'IntervalSunburst', message: 'Calling navigate to ' + intervalNode.data.id() })
     if (!intervalNode) return
 
     if (!parent || !rootNode) {
@@ -141,7 +140,6 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
 
     if (intervalNode === rootNode && rootNode.data.visible) {
       // Nothing to do. Already at rootNode and already visible
-      consoleLog({ prefix: 'IntervalSunburst', message: 'Not doing anything as rootNode & visible' })
       return
     }
 
@@ -155,13 +153,6 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
     //
     let newParent = intervalNode
     if (intervalNode === parent) {
-      consoleLog({
-        prefix: 'Navigate',
-        message:
-          intervalNode.data.id() +
-          ' is already the parent so setting its parent as parent: ' +
-          (intervalNode.parent?.data.id() || rootNode.data.id()),
-      })
       newParent = intervalNode.parent || rootNode
     }
 
@@ -185,7 +176,7 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
     })
 
     newParent.data.visible = true
-    console.log('Setting parent to ' + newParent.id + ' which is visible: ' + newParent.data.visible)
+
     setParent(newParent)
   }, [rootNode, parent])
 
@@ -196,8 +187,6 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
     if (!interval) {
       return // nothing to do
     }
-
-    consoleLog({ prefix: 'IntervalSunburst', message: 'traverseToViewNode ' + interval?._id })
 
     //
     // Find the actual interval in our hierarchy
@@ -211,15 +200,10 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
     })
 
     if (!intervalNode) {
-      consoleLog({
-        prefix: 'IntervalSunburst',
-        message: 'Error: Cannot traverseToViewNode due to failure to find navigated interval ' + interval._id,
-      })
       return
     }
 
     if (intervalNode.data.id() === selected?.data.id()) {
-      consoleLog({ prefix: 'IntervalSunburst', message: 'traverseToViewNode aborted as interval already selected' })
       return
     }
 
@@ -227,7 +211,6 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
       //
       // Has children so can become the central circle
       //
-      consoleLog({ prefix: 'IntervalSunburst', message: 'traverseToViewNode ' + intervalNode.id + ' as has children' })
       handleNavigate(intervalNode)
     } else if (intervalNode.parent && intervalNode.parent !== parent) {
       //
@@ -237,14 +220,9 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
       // No children so select its parent instead then
       // highlight it to display its information
       //
-      consoleLog({
-        prefix: 'IntervalSunburst',
-        message: 'traverseToViewNode ' + intervalNode.parent.id + ' as is parent of ' + intervalNode.id,
-      })
       handleNavigate(intervalNode.parent)
     }
 
-    consoleLog({ prefix: 'IntervalSunburst', message: 'traverseToViewNode selecting ' + intervalNode.id })
     handleSelection(intervalNode, false)
   }, [interval, parent, rootNode, selected, handleNavigate, handleSelection])
 

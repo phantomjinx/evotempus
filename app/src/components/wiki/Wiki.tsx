@@ -50,7 +50,7 @@ export const Wiki: React.FunctionComponent<WikiProps> = (props: WikiProps) => {
         }
       })
       .catch((err) => {
-        logErrorState("Failed to fetch description", err);
+        logErrorState("Failed to fetch description", err)
       })
   }, [props.topicRequest])
 

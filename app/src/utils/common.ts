@@ -19,14 +19,13 @@ export const thousand = 1000
 export const wikiLink = 'https://en.wikipedia.org/wiki/'
 
 
-export function displayYear(year: number) {
-  if (Math.abs(year) > million) {
+export function displayYear(year: number): string {
+  if (Math.abs(year) > million)
     return year / million + 'Ma'
-  } else if (Math.abs(year) > thousand) {
+  else if (Math.abs(year) > thousand)
     return year / thousand + 'ka'
-  } else {
-    return year
-  }
+  else
+    return `${year}`
 }
 
 export function present(year: number) {
@@ -112,4 +111,8 @@ export function getListIcon(object: unknown): string {
   }
 
   return geoclockIcon
+}
+
+export function deepEqual(object1: unknown, object2: unknown) {
+  return JSON.stringify(object1) === JSON.stringify(object2)
 }

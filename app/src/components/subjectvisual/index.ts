@@ -1,0 +1,1 @@
+export { SubjectVisual } from './SubjectVisual'

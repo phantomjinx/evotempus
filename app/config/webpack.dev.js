@@ -1,12 +1,12 @@
-const { merge } = require('webpack-merge');
-const DotEnvPlugin = require('dotenv-webpack');
-const path = require('path');
-const common = require('./webpack.common.js');
+const { merge } = require('webpack-merge')
+const DotEnvPlugin = require('dotenv-webpack')
+const path = require('path')
+const common = require('./webpack.common.js')
 
-const appRoot = path.resolve(__dirname, '../');
-const src = path.resolve(appRoot, 'src');
-const build = path.resolve(appRoot, 'build');
-const public = path.resolve(appRoot, 'public');
+const appRoot = path.resolve(__dirname, '../')
+const src = path.resolve(appRoot, 'src')
+const build = path.resolve(appRoot, 'build')
+const public = path.resolve(appRoot, 'public')
 
 module.exports = merge(common, {
 

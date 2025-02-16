@@ -1,0 +1,1 @@
+export { SubjectVisualLegend } from './SubjectVisualLegend'

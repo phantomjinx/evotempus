@@ -10,7 +10,6 @@ import { App } from '@evotempus/components'
 import * as serviceWorker from './serviceWorker'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as Element)
-
 root.render(
   <React.StrictMode>
     <App />

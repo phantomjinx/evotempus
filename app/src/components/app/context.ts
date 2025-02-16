@@ -26,5 +26,5 @@ export const AppContext = createContext<AppContext>({
   filteredCategories: [],
   setFilteredCategories: () => {
     /* no-op */
-  },
+  }
 })

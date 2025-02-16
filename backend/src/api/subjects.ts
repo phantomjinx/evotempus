@@ -25,8 +25,14 @@ export const subjectApi = Router()
 
 const laneMAX = 15
 
-type Lane = HydratedDocument<ISubject>[]
-type Page = Lane[]
+interface Lane {
+  subjects: HydratedDocument<ISubject>[]
+}
+
+interface Page {
+  lanes: Lane[]
+}
+
 type Pages = Page[]
 
 interface PageLane {
@@ -48,8 +54,8 @@ interface KindResults {
 function subjectOverlaps(lane: Lane, subject: HydratedDocument<ISubject>) {
   const buffer = Math.abs(0.01 * Math.max(subject.from, subject.to))
 
-  for (let i = 0; i < lane.length; ++i) {
-    const s = lane[i]
+  for (let i = 0; i < lane.subjects.length; ++i) {
+    const s = lane.subjects[i]
     if (!s) continue
 
     const bufferedFrom = subject.from - buffer
@@ -77,7 +83,7 @@ function subjectOverlaps(lane: Lane, subject: HydratedDocument<ISubject>) {
 function canAddSubjectToPage(page: Page, subject: HydratedDocument<ISubject>) {
   const lanes: Lane[] = []
 
-  for (const lane of page) {
+  for (const lane of page.lanes) {
     const overlaps = subjectOverlaps(lane, subject)
     if (! overlaps) {
       lanes.push(lane)
@@ -90,7 +96,7 @@ function canAddSubjectToPage(page: Page, subject: HydratedDocument<ISubject>) {
 function findAvailablePage(pages: Pages) {
   let idx = -1
   for (const [i, page] of pages.entries()) {
-    if (page.length < laneMAX)
+    if (page.lanes.length < laneMAX)
       idx = i
   }
 
@@ -98,15 +104,15 @@ function findAvailablePage(pages: Pages) {
     return idx
 
   // Create a new page
-  const page: Page = []
+  const page: Page = {lanes: []}
   pages.push(page)
   return (pages.length - 1)
 }
 
 function createLaneInPage(page: Page, subject: HydratedDocument<ISubject>) {
-  const lane: Lane = []
-  lane.push(subject)
-  page.push(lane)
+  const lane: Lane = {subjects: []}
+  lane.subjects.push(subject)
+  page.lanes.push(lane)
 }
 
 function addSubjectToPages(pages: Pages, subject: HydratedDocument<ISubject>) {
@@ -128,13 +134,13 @@ function addSubjectToPages(pages: Pages, subject: HydratedDocument<ISubject>) {
 
   let fullestLane
   for (const lane of possLanes) {
-    if (!fullestLane || fullestLane.lane.length < lane.lane.length)
+    if (!fullestLane || fullestLane.lane.subjects.length < lane.lane.subjects.length)
       fullestLane = lane
   }
 
   if (!fullestLane) throw new Error('Failed to find fullest lane. Something has gone wrong!')
 
-  fullestLane.lane.push(subject)
+  fullestLane.lane.subjects.push(subject)
   return fullestLane.page
 }
 
@@ -250,7 +256,7 @@ subjectApi.post('/', async (req, res, next) => {
       } else if (subjectId && subjectPageIdx >= 0) {
         console.log("Subject defined so return specific page")
         kindResult.pages = pages.slice(subjectPageIdx, subjectPageIdx + 1)
-        kindResult.page = subjectPageIdx
+        kindResult.page = (subjectPageIdx + 1)
       } else {
         kindResult.pages = pages
         kindResult.page = 1

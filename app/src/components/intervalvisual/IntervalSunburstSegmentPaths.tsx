@@ -36,7 +36,6 @@ export const IntervalSunburstSegmentPaths: React.FunctionComponent<SunburstSegme
       return
     }
 
-    consoleLog({ prefix: 'IntervalSunburstSegments', message: 'IntervalVisual: select() ' + intervalNode.data.name() })
     props.setSelected(intervalNode, notify)
   }
 
@@ -50,8 +49,6 @@ export const IntervalSunburstSegmentPaths: React.FunctionComponent<SunburstSegme
         clickPreventRef.current = false
         return
       }
-
-      consoleLog({ prefix: 'IntervalSunburstSegments', message: `Clicking on ${node?.data.id()} node` })
       select(node, true)
     }, clickDelay)
   }
@@ -67,8 +64,6 @@ export const IntervalSunburstSegmentPaths: React.FunctionComponent<SunburstSegme
     clickPreventRef.current = true
 
     if (!node) return
-
-    consoleLog({ prefix: 'IntervalSunburstSegments', message: 'Double-clicking on ' + node.data.id() })
 
     if (node.data.progeny() === 0) return
 
@@ -190,17 +185,6 @@ export const IntervalSunburstSegmentPaths: React.FunctionComponent<SunburstSegme
           }
 
           node.data.current = node.data.current.interpolate(node.data.target, value, ARC_STEPS_MAX)
-
-          // if (node.data.id().includes('hadean')) {
-          //   consoleLog({prefix: node.data.id(), message: "children : " + node.data.progeny()});
-          //   consoleLog({prefix: node.data.id(), message: "was visible : " + node.data.wasVisible});
-          //   consoleLog({prefix: node.data.id(), message: "visible : " + node.data.visible});
-          //   consoleLog({prefix: node.data.id(), message: 'dimensions before: '
-          //     + '\n\t(Co-ordinates: ' + node.y0 + ' ' + node.y1 + ')'
-          //     + '\n\t(Current: ' + ' ' + node.data?.current?.y0 + ' ' + node.data?.current?.y1 + ')'
-          //     + '\n\t(Target: ' + ' ' + node.data?.target?.y0 + ' ' + node.data?.target?.y1 + ')'});
-          // }
-
           return nodeArc(node.data.current)
         })}
         style={{ cursor: node.data.progeny() > 0 ? 'pointer' : 'grabbing' }}

@@ -1,5 +1,5 @@
 import React from 'react'
-import geoclock from '@evotempus/assets/images/geologic-clock.png';
+import geoclock from '@evotempus/assets/images/geologic-clock.png'
 
 export const HeaderLogo: React.FunctionComponent = () => {
 

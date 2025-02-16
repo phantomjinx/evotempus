@@ -11,9 +11,13 @@ export const ErrorMsg: React.FunctionComponent<ErrorProps> = (props: ErrorProps)
     <div className='error-msg'>
       <h3>Error Occurred:</h3>
       <h4>{props.errorMsg}</h4>
-      <details style={{ whiteSpace: 'pre-wrap' }} open={true}>
-        {props.error && props.error.toString()}
-      </details>
+
+      {
+        props.error && (
+          <details style={{ whiteSpace: 'pre-wrap' }} open={true}>
+            {props.error.stack}
+          </details>)
+      }
     </div>
   )
 }

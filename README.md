@@ -47,11 +47,11 @@ $ npm start
 
 ### Developing
 
-Both parts of the application can be executed independantly in development mode, using `yarn` and `gulp`.
+Both parts of the application can be executed independantly in development mode, using `yarn` (app) and `npm` (backend).
 
 ```
-$ cd backend && gulp
-# Use gulp import to seed a new mongo database with the data
+$ cd backend && npm dev:start
+# Use `npm dev:import` to seed a new mongo database with the data
 
 $ cd app && yarn start
 ```

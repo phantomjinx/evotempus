@@ -2,10 +2,8 @@
   "name": "evotempus",
   "version": "0.5.0",
   "scripts": {
-    "build": "cd app && yarn build:prod",
-    "init-app": "cd app && yarn install",
-    "init-server": "cd backend && npm install",
-    "init": "npm run init-app && npm run init-server",
+    "build:app": "cd app && yarn install && yarn build:prod",
+    "build:server": "cd backend && npm install && npm run build",
     "start": "./production/run-prod-local.sh"
   },
   "repository": {

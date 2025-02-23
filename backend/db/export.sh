@@ -24,3 +24,7 @@ mongoexport --collection=intervals --db=${DATABASE} --out=intervals.json
 mongoexport --collection=intervaldescs --db=${DATABASE} --out=intervaldescs.json
 
 mongoexport --collection=subjects  --db=${DATABASE} --out=subjects.json
+
+mongoexport --collection=topics  --db=${DATABASE} --out=topics.json
+
+mongoexport --collection=hints  --db=${DATABASE} --out=hints.json

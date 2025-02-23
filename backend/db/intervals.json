@@ -1,179 +1,179 @@
-{"_id":"geological-timescale","children":["precambrian","phanerozoic"],"from":-4.6E+09,"kind":"Root","name":"Geological Timescale","to":2030,"version":0}
-{"_id":"precambrian","children":["hadean","archean","proterozoic"],"from":-4.6E+09,"kind":"SuperEon","name":"Precambrian","to":-541000000,"version":0,"parent":"geological-timescale"}
-{"_id":"hadean","from":-4.6E+09,"kind":"Eon","name":"Hadean","to":-4E+09,"version":0,"parent":"precambrian"}
-{"_id":"archean","children":["eoarchean","paleoarchean","mesoarchean","neoarchean"],"from":-4E+09,"kind":"Eon","name":"Archean","to":-2.5E+09,"version":0,"parent":"precambrian"}
-{"_id":"proterozoic","children":["paleoproterozoic","mesoproterozoic","neoproterozoic"],"from":-2.5E+09,"kind":"Eon","name":"Proterozoic","to":-541000000,"version":0,"parent":"precambrian"}
-{"_id":"phanerozoic","children":["paleozoic","mesozoic","cenozoic"],"from":-541000000,"kind":"Eon","name":"Phanerozoic","to":2030,"version":0,"parent":"geological-timescale"}
-{"_id":"eoarchean","from":-4E+09,"kind":"Era","name":"Eoarchean","to":-3.6E+09,"version":0,"parent":"archean"}
-{"_id":"paleoarchean","from":-3.6E+09,"kind":"Era","name":"Paleoarchean","to":-3.2E+09,"version":0,"parent":"archean"}
-{"_id":"mesoarchean","from":-3.2E+09,"kind":"Era","name":"Mesoarchean","to":-2.8E+09,"version":0,"parent":"archean"}
-{"_id":"neoarchean","from":-2.8E+09,"kind":"Era","name":"Neoarchean","to":-2.5E+09,"version":0,"parent":"archean"}
-{"_id":"paleoproterozoic","children":["siderian","rhyacian","orosirian","statherian"],"from":-2.5E+09,"kind":"Era","name":"Paleoproterozoic","to":-1600000000,"version":0,"parent":"proterozoic"}
-{"_id":"mesoproterozoic","children":["calymmian","ectasian","stenian"],"from":-1600000000,"kind":"Era","name":"Mesoproterozoic","to":-1000000000,"version":0,"parent":"proterozoic"}
-{"_id":"neoproterozoic","children":["tonian","cryogenian","ediacaran"],"from":-1000000000,"kind":"Era","name":"Neoproterozoic","to":-541000000,"version":0,"parent":"proterozoic"}
-{"_id":"paleozoic","children":["cambrian","ordovician","silurian","devonian","carboniferous","permian"],"from":-541000000,"kind":"Era","name":"Paleozoic","to":-252000000,"version":0,"parent":"phanerozoic"}
-{"_id":"mesozoic","children":["triassic","jurassic","cretaceous"],"from":-251902000,"kind":"Era","name":"Mesozoic","to":-66000000,"version":0,"parent":"phanerozoic"}
-{"_id":"cenozoic","children":["paleogene","neogene","quarternary"],"from":-66000000,"kind":"Era","name":"Cenozoic","to":2030,"version":0,"parent":"phanerozoic"}
-{"_id":"siderian","from":-2.5E+09,"kind":"Period","name":"Siderian","to":-2.3E+09,"version":0,"parent":"paleoproterozoic"}
-{"_id":"rhyacian","from":-2.3E+09,"kind":"Period","name":"Rhyacian","to":-2050000000,"version":0,"parent":"paleoproterozoic"}
-{"_id":"orosirian","from":-2050000000,"kind":"Period","name":"Orosirian","to":-1800000000,"version":0,"parent":"paleoproterozoic"}
-{"_id":"statherian","from":-1800000000,"kind":"Period","name":"Statherian","to":-1600000000,"version":0,"parent":"paleoproterozoic"}
-{"_id":"calymmian","from":-1600000000,"kind":"Period","name":"Calymmian","to":-1400000000,"version":0,"parent":"mesoproterozoic"}
-{"_id":"ectasian","from":-1400000000,"kind":"Period","name":"Ectasian","to":-1200000000,"version":0,"parent":"mesoproterozoic"}
-{"_id":"stenian","from":-1200000000,"kind":"Period","name":"Stenian","to":-1000000000,"version":0,"parent":"mesoproterozoic"}
-{"_id":"tonian","from":-1000000000,"kind":"Period","name":"Tonian","to":-720000000,"version":0,"parent":"neoproterozoic"}
-{"_id":"cryogenian","from":-720000000,"kind":"Period","name":"Cryogenian","to":-635000000,"version":0,"parent":"neoproterozoic"}
-{"_id":"ediacaran","from":-635000000,"kind":"Period","name":"Ediacaran","to":-541000000,"version":0,"parent":"neoproterozoic"}
-{"_id":"cambrian","children":["terreneuvian","cambrian-series-2","miaolingian","furongian"],"from":-541000000,"kind":"Period","name":"Cambrian","to":-485400000,"version":0,"parent":"paleozoic"}
-{"_id":"ordovician","children":["early-ordovician","middle-ordovician","late-ordovician"],"from":-485400000,"kind":"Period","name":"Ordovician","to":-443800000,"version":0,"parent":"paleozoic"}
-{"_id":"silurian","children":["llandovery","wenlock","ludlow","pE\u0019C-dolC-"],"from":-443800000,"kind":"Period","name":"Silurian","to":-419200000,"version":0,"parent":"paleozoic"}
-{"_id":"devonian","children":["lower-devonian","middle-devonian","upper-devonian"],"from":-419200000,"kind":"Period","name":"Devonian","to":-358900000,"version":0,"parent":"paleozoic"}
-{"_id":"carboniferous","children":["mississippian","pennsylvanian"],"from":-358900000,"kind":"Period","name":"Carboniferous","to":-298900000,"version":0,"parent":"paleozoic"}
-{"_id":"permian","children":["cisuralian","guadalupian","lopingian"],"from":-298900000,"kind":"Period","name":"Permian","to":-251902000,"version":0,"parent":"paleozoic"}
-{"_id":"triassic","children":["lower-triassic","middle-triassic","upper-triassic"],"from":-251902000,"kind":"Period","name":"Triassic","to":-201300000,"version":0,"parent":"mesozoic"}
-{"_id":"jurassic","children":["lower-jurassic","middle-jurassic","upper-jurassic"],"from":-201300000,"kind":"Period","name":"Jurassic","to":-145000000,"version":0,"parent":"mesozoic"}
-{"_id":"cretaceous","children":["early-cretaceous","late-cretaceous"],"from":-145000000,"kind":"Period","name":"Cretaceous","to":-66000000,"version":0,"parent":"mesozoic"}
-{"_id":"paleogene","children":["paleocene","eocene","oligocene"],"from":-66000000,"kind":"Period","name":"Paleogene","to":-23030000,"version":0,"parent":"cenozoic"}
-{"_id":"neogene","children":["miocene","pliocene"],"from":-23030000,"kind":"Period","name":"Neogene","to":-2580000,"version":0,"parent":"cenozoic"}
-{"_id":"quarternary","children":["pleistocene","holocene"],"from":-2580000,"kind":"Period","name":"Quarternary","to":2030,"version":0,"parent":"cenozoic"}
-{"_id":"mississippian","children":["lower-mississippian","middle-mississippian","upper-mississippian"],"from":-358900000,"kind":"Sub-Period","name":"Mississippian","to":-323200000,"version":0,"parent":"carboniferous"}
-{"_id":"pennsylvanian","children":["lower-pennsylvanian","middle-pennsylvanian","upper-pennsylvanian"],"from":-323200000,"kind":"Sub-Period","name":"Pennsylvanian","to":-298900000,"version":0,"parent":"carboniferous"}
-{"_id":"terreneuvian","children":["fortunian","stage-2"],"from":-541000000,"kind":"Epoch","name":"Terreneuvian","to":-521000000,"version":0,"parent":"cambrian"}
-{"_id":"cambrian-series-2","children":["stage-3","stage-4"],"from":-521000000,"kind":"Epoch","name":"Cambrian Series 2","to":-509000000,"version":0,"parent":"cambrian"}
-{"_id":"miaolingian","children":["wuliuan","drumian","guzhangian"],"from":-509000000,"kind":"Epoch","name":"Miaolingian","to":-497000000,"version":0,"parent":"cambrian"}
-{"_id":"furongian","children":["paibian","jiangshanian","stage-10"],"from":-497000000,"kind":"Epoch","name":"Furongian","to":-485400000,"version":0,"parent":"cambrian"}
-{"_id":"early-ordovician","children":["tremadocian","floian"],"from":-485400000,"kind":"Epoch","name":"Early Ordovician","to":-470000000,"version":0,"parent":"ordovician"}
-{"_id":"middle-ordovician","children":["dapingian","darriwilian"],"from":-470000000,"kind":"Epoch","name":"Middle Ordovician","to":-458400000,"version":0,"parent":"ordovician"}
-{"_id":"late-ordovician","children":["sandbian","katian","hirnantian"],"from":-458400000,"kind":"Epoch","name":"Late Ordovician","to":-443800000,"version":0,"parent":"ordovician"}
-{"_id":"llandovery","children":["rhuddanian","aeronian","telychian"],"from":-443800000,"kind":"Epoch","name":"Llandovery","to":-433400000,"version":0,"parent":"silurian"}
-{"_id":"wenlock","children":["sheinwoodian","homerian"],"from":-433400000,"kind":"Epoch","name":"Wenlock","to":-427400000,"version":0,"parent":"silurian"}
-{"_id":"ludlow","children":["gorstian","ludfordian"],"from":-427400000,"kind":"Epoch","name":"Ludlow","to":-423000000,"version":0,"parent":"silurian"}
-{"_id":"pridoli","from":-423000000,"kind":"Epoch","name":"Pridoli","to":-419200000,"version":0,"parent":"silurian"}
-{"_id":"lower-devonian","children":["lochkovian","pragian","emsian"],"from":-419200000,"kind":"Epoch","name":"Lower Devonian","to":-393000000,"version":0,"parent":"devonian"}
-{"_id":"middle-devonian","children":["eifelian","givetian"],"from":-393000000,"kind":"Epoch","name":"Middle Devonian","to":-382700000,"version":0,"parent":"devonian"}
-{"_id":"upper-devonian","children":["frasnian","fammenian"],"from":-382700000,"kind":"Epoch","name":"Upper Devonian","to":-358900000,"version":0,"parent":"devonian"}
-{"_id":"lower-mississippian","children":["tournaisian"],"from":-358900000,"kind":"Epoch","name":"Lower Mississippian","to":-346700000,"version":0,"parent":"mississippian"}
-{"_id":"middle-mississippian","children":["visean"],"from":-346700000,"kind":"Epoch","name":"Middle Mississippian","to":-330900000,"version":0,"parent":"mississippian"}
-{"_id":"upper-mississippian","children":["serpukhovian"],"from":-330900000,"kind":"Epoch","name":"Upper Mississippian","to":-323200000,"version":0,"parent":"mississippian"}
-{"_id":"lower-pennsylvanian","children":["bashkirian"],"from":-323200000,"kind":"Epoch","name":"Lower Pennsylvanian","to":-315200000,"version":0,"parent":"pennsylvanian"}
-{"_id":"middle-pennsylvanian","children":["mosocovian"],"from":-315200000,"kind":"Epoch","name":"Middle Pennsylvanian","to":-307000000,"version":0,"parent":"pennsylvanian"}
-{"_id":"upper-pennsylvanian","children":["kasimovian","gzhelian"],"from":-307000000,"kind":"Epoch","name":"Upper Pennsylvanian","to":-298900000,"version":0,"parent":"pennsylvanian"}
-{"_id":"cisuralian","children":["asselian","sakmarian","artinskian","kungurian"],"from":-298900000,"kind":"Epoch","name":"Cisuralian","to":-272950000,"version":0,"parent":"permian"}
-{"_id":"guadalupian","children":["roadian","wordian","capitanian"],"from":-272950000,"kind":"Epoch","name":"Guadalupian","to":-259100000,"version":0,"parent":"permian"}
-{"_id":"lopingian","children":["wuchiapingian","changhsingian"],"from":-259100000,"kind":"Epoch","name":"Lopingian","to":-251902000,"version":0,"parent":"permian"}
-{"_id":"lower-triassic","children":["induan","olenekian"],"from":-251902000,"kind":"Epoch","name":"Lower Triassic","to":-247200000,"version":0,"parent":"triassic"}
-{"_id":"middle-triassic","children":["anisian","ladinian"],"from":-247200000,"kind":"Epoch","name":"Middle Triassic","to":-237000000,"version":0,"parent":"triassic"}
-{"_id":"upper-triassic","children":["carnian","norian","rhaetian"],"from":-237000000,"kind":"Epoch","name":"Upper Triassic","to":-201300000,"version":0,"parent":"triassic"}
-{"_id":"lower-jurassic","children":["hettangian","sinemurian","pliensbachian","toarchian"],"from":-201300000,"kind":"Epoch","name":"Lower Jurassic","to":-174100000,"version":0,"parent":"jurassic"}
-{"_id":"middle-jurassic","children":["aalenian","bajocian","bathonian","callovian"],"from":-174100000,"kind":"Epoch","name":"Middle Jurassic","to":-163500000,"version":0,"parent":"jurassic"}
-{"_id":"upper-jurassic","children":["oxfordian","kimmeridgian","tithonian"],"from":-163500000,"kind":"Epoch","name":"Upper Jurassic","to":-145000000,"version":0,"parent":"jurassic"}
-{"_id":"early-cretaceous","children":["berriasian","valanginian","hauterivian","barremian","aptian","albian"],"from":-145000000,"kind":"Epoch","name":"Early Cretaceous","to":-100500000,"version":0,"parent":"cretaceous"}
-{"_id":"late-cretaceous","children":["cenomanian","turonian","coniacian","santonian","campanian","maastrichtian"],"from":-100500000,"kind":"Epoch","name":"Late Cretaceous","to":-66000000,"version":0,"parent":"cretaceous"}
-{"_id":"paleocene","children":["danian","selandian","thanetian"],"from":-66000000,"kind":"Epoch","name":"Paleocene","to":-56000000,"version":0,"parent":"paleogene"}
-{"_id":"eocene","children":["ypresian","lutetian","bartonian","priabonian"],"from":-56000000,"kind":"Epoch","name":"Eocene","to":-33900000,"version":0,"parent":"paleogene"}
-{"_id":"oligocene","children":["rupelian","chattian"],"from":-33900000,"kind":"Epoch","name":"Oligocene","to":-23030000,"version":0,"parent":"paleogene"}
-{"_id":"miocene","children":["aquitanian","burdigalian","langhian","serravallian","tortonian","messinian"],"from":-23030000,"kind":"Epoch","name":"Miocene","to":-5333000,"version":0,"parent":"neogene"}
-{"_id":"pliocene","children":["zanclean","piacenzian"],"from":-5333000,"kind":"Epoch","name":"Pliocene","to":-2580000,"version":0,"parent":"neogene"}
-{"_id":"pleistocene","children":["gelasian","calabrian","chibanian","upper-pleistocene"],"from":-2580000,"kind":"Epoch","name":"Pleistocene","to":-11700,"version":0,"parent":"quarternary"}
-{"_id":"holocene","children":["greenlandian","northgrippian","meghalayan"],"from":-11700,"kind":"Epoch","name":"Holocene","to":2030,"version":0,"parent":"quarternary"}
-{"_id":"fortunian","from":-541000000,"kind":"Age","name":"Fortunian","to":-529000000,"version":0,"parent":"terreneuvian"}
-{"_id":"stage-2","from":-529000000,"kind":"Age","name":"Stage 2","to":-521000000,"version":0,"parent":"terreneuvian"}
-{"_id":"stage-3","from":-521000000,"kind":"Age","name":"Stage 3","to":-514000000,"version":0,"parent":"cambrian-series-2"}
-{"_id":"stage-4","from":-514000000,"kind":"Age","name":"Stage 4","to":-509100000,"version":0,"parent":"cambrian-series-2"}
-{"_id":"wuliuan","from":-509100000,"kind":"Age","name":"Wuliuan","to":-504500000,"version":0,"parent":"miaolingian"}
-{"_id":"drumian","from":-504500000,"kind":"Age","name":"Drumian","to":-500500000,"version":0,"parent":"miaolingian"}
-{"_id":"guzhangian","from":-529000000,"kind":"Age","name":"Guzhangian","to":-497000000,"version":0,"parent":"miaolingian"}
-{"_id":"paibian","from":-497000000,"kind":"Age","name":"Paibian","to":-494000000,"version":0,"parent":"furongian"}
-{"_id":"jiangshanian","from":-494000000,"kind":"Age","name":"Jiangshanian","to":-489500000,"version":0,"parent":"furongian"}
-{"_id":"stage-10","from":-489500000,"kind":"Age","name":"Stage 10","to":-485400000,"version":0,"parent":"furongian"}
-{"_id":"tremadocian","from":-485400000,"kind":"Age","name":"Tremadocian","to":-477700000,"version":0,"parent":"early-ordovician"}
-{"_id":"floian","from":-477700000,"kind":"Age","name":"Floian","to":-470000000,"version":0,"parent":"early-ordovician"}
-{"_id":"dapingian","from":-470000000,"kind":"Age","name":"Dapingian","to":-467300000,"version":0,"parent":"middle-ordovician"}
-{"_id":"darriwilian","from":-467300000,"kind":"Age","name":"Darriwilian","to":-458400000,"version":0,"parent":"middle-ordovician"}
-{"_id":"sandbian","from":-458400000,"kind":"Age","name":"Sandbian","to":-453000000,"version":0,"parent":"late-ordovician"}
-{"_id":"katian","from":-453000000,"kind":"Age","name":"Katian","to":-445200000,"version":0,"parent":"late-ordovician"}
-{"_id":"hirnantian","from":-445200000,"kind":"Age","name":"Hirnantian","to":-443800000,"version":0,"parent":"late-ordovician"}
-{"_id":"rhuddanian","from":-443800000,"kind":"Age","name":"Rhuddanian","to":-440800000,"version":0,"parent":"llandovery"}
-{"_id":"aeronian","from":-440800000,"kind":"Age","name":"Aeronian","to":-438500000,"version":0,"parent":"llandovery"}
-{"_id":"telychian","from":-438500000,"kind":"Age","name":"Telychian","to":-433400000,"version":0,"parent":"llandovery"}
-{"_id":"sheinwoodian","from":-433400000,"kind":"Age","name":"Sheinwoodian","to":-430500000,"version":0,"parent":"wenlock"}
-{"_id":"homerian","from":-430500000,"kind":"Age","name":"Homerian","to":-427400000,"version":0,"parent":"wenlock"}
-{"_id":"gorstian","from":-427400000,"kind":"Age","name":"Gorstian","to":-425600000,"version":0,"parent":"ludlow"}
-{"_id":"ludfordian","from":-425600000,"kind":"Age","name":"Ludfordian","to":-423000000,"version":0,"parent":"ludlow"}
-{"_id":"lochkovian","from":-419200000,"kind":"Age","name":"Lochkovian","to":-410800000,"version":0,"parent":"lower-devonian"}
-{"_id":"pragian","from":-410800000,"kind":"Age","name":"Pragian","to":-407600000,"version":0,"parent":"lower-devonian"}
-{"_id":"emsian","from":-407600000,"kind":"Age","name":"Emsian","to":-393000000,"version":0,"parent":"lower-devonian"}
-{"_id":"eifelian","from":-393000000,"kind":"Age","name":"Eifelian","to":-387700000,"version":0,"parent":"middle-devonian"}
-{"_id":"givetian","from":-387700000,"kind":"Age","name":"Givetian","to":-382700000,"version":0,"parent":"middle-devonian"}
-{"_id":"frasnian","from":-382700000,"kind":"Age","name":"Frasnian","to":-372200000,"version":0,"parent":"upper-devonian"}
-{"_id":"fammenian","from":-372200000,"kind":"Age","name":"Fammenian","to":-358900000,"version":0,"parent":"upper-devonian"}
-{"_id":"tournaisian","from":-358900000,"kind":"Age","name":"Tournaisian","to":-346700000,"version":0,"parent":"lower-mississippian"}
-{"_id":"visean","from":-346700000,"kind":"Age","name":"Visean","to":-330900000,"version":0,"parent":"middle-mississippian"}
-{"_id":"serpukhovian","from":-330900000,"kind":"Age","name":"Serpukhovian","to":-323200000,"version":0,"parent":"upper-mississippian"}
-{"_id":"bashkirian","from":-323200000,"kind":"Age","name":"Bashkirian","to":-315200000,"version":0,"parent":"lower-pennsylvanian"}
-{"_id":"mosocovian","from":-315200000,"kind":"Age","name":"Mosocovian","to":-307000000,"version":0,"parent":"middle-pennsylvanian"}
-{"_id":"kasimovian","from":-307000000,"kind":"Age","name":"Kasimovian","to":-303700000,"version":0,"parent":"upper-pennsylvanian"}
-{"_id":"gzhelian","from":-303700000,"kind":"Age","name":"Gzhelian","to":-298900000,"version":0,"parent":"upper-pennsylvanian"}
-{"_id":"asselian","from":-298900000,"kind":"Age","name":"Asselian","to":-295000000,"version":0,"parent":"cisuralian"}
-{"_id":"sakmarian","from":-295000000,"kind":"Age","name":"Sakmarian","to":-290100000,"version":0,"parent":"cisuralian"}
-{"_id":"artinskian","from":-290100000,"kind":"Age","name":"Artinskian","to":-283500000,"version":0,"parent":"cisuralian"}
-{"_id":"kungurian","from":-283500000,"kind":"Age","name":"Kungurian","to":-272950000,"version":0,"parent":"cisuralian"}
-{"_id":"roadian","from":-272950000,"kind":"Age","name":"Roadian","to":-268800000,"version":0,"parent":"guadalupian"}
-{"_id":"wordian","from":-268800000,"kind":"Age","name":"Wordian","to":-265100000,"version":0,"parent":"guadalupian"}
-{"_id":"capitanian","from":-265100000,"kind":"Age","name":"Capitanian","to":-259100000,"version":0,"parent":"guadalupian"}
-{"_id":"wuchiapingian","from":-259100000,"kind":"Age","name":"Wuchiapingian","to":-254140000,"version":0,"parent":"lopingian"}
-{"_id":"changhsingian","from":-254140000,"kind":"Age","name":"Changhsingian","to":-251902000,"version":0,"parent":"lopingian"}
-{"_id":"induan","from":-251902000,"kind":"Age","name":"Induan","to":-251200000,"version":0,"parent":"lower-triassic"}
-{"_id":"olenekian","from":-251200000,"kind":"Age","name":"Olenekian","to":-247200000,"version":0,"parent":"lower-triassic"}
-{"_id":"anisian","from":-247200000,"kind":"Age","name":"Anisian","to":-242000000,"version":0,"parent":"middle-triassic"}
-{"_id":"ladinian","from":-242000000,"kind":"Age","name":"Ladinian","to":-237000000,"version":0,"parent":"middle-triassic"}
-{"_id":"carnian","from":-237000000,"kind":"Age","name":"Carnian","to":-227000000,"version":0,"parent":"upper-triassic"}
-{"_id":"norian","from":-227000000,"kind":"Age","name":"Norian","to":-208500000,"version":0,"parent":"upper-triassic"}
-{"_id":"rhaetian","from":-208500000,"kind":"Age","name":"Rhaetian","to":-201300000,"version":0,"parent":"upper-triassic"}
-{"_id":"hettangian","from":-201300000,"kind":"Age","name":"Hettangian","to":-199300000,"version":0,"parent":"lower-jurassic"}
-{"_id":"sinemurian","from":-199300000,"kind":"Age","name":"Sinemurian","to":-190800000,"version":0,"parent":"lower-jurassic"}
-{"_id":"pliensbachian","from":-190800000,"kind":"Age","name":"Pliensbachian","to":-182700000,"version":0,"parent":"lower-jurassic"}
-{"_id":"toarchian","from":-182700000,"kind":"Age","name":"Toarchian","to":-174100000,"version":0,"parent":"lower-jurassic"}
-{"_id":"aalenian","from":-174100000,"kind":"Age","name":"Aalenian","to":-170300000,"version":0,"parent":"middle-jurassic"}
-{"_id":"bajocian","from":-170300000,"kind":"Age","name":"Bajocian","to":-168300000,"version":0,"parent":"middle-jurassic"}
-{"_id":"bathonian","from":-168300000,"kind":"Age","name":"Bathonian","to":-166100000,"version":0,"parent":"middle-jurassic"}
-{"_id":"callovian","from":-166100000,"kind":"Age","name":"Callovian","to":-163500000,"version":0,"parent":"middle-jurassic"}
-{"_id":"oxfordian","from":-163500000,"kind":"Age","name":"Oxfordian","to":-157300000,"version":0,"parent":"upper-jurassic"}
-{"_id":"kimmeridgian","from":-157300000,"kind":"Age","name":"Kimmeridgian","to":-152100000,"version":0,"parent":"upper-jurassic"}
-{"_id":"tithonian","from":-152100000,"kind":"Age","name":"Tithonian","to":-145000000,"version":0,"parent":"upper-jurassic"}
-{"_id":"berriasian","from":-145000000,"kind":"Age","name":"Berriasian","to":-139800000,"version":0,"parent":"early-cretaceous"}
-{"_id":"valanginian","from":-139800000,"kind":"Age","name":"Valanginian","to":-132900000,"version":0,"parent":"early-cretaceous"}
-{"_id":"hauterivian","from":-132900000,"kind":"Age","name":"Hauterivian","to":-129400000,"version":0,"parent":"early-cretaceous"}
-{"_id":"barremian","from":-129400000,"kind":"Age","name":"Barremian","to":-125000000,"version":0,"parent":"early-cretaceous"}
-{"_id":"aptian","from":-125000000,"kind":"Age","name":"Aptian","to":-113000000,"version":0,"parent":"early-cretaceous"}
-{"_id":"albian","from":-113000000,"kind":"Age","name":"Albian","to":-100500000,"version":0,"parent":"early-cretaceous"}
-{"_id":"cenomanian","from":-100500000,"kind":"Age","name":"Cenomanian","to":-93900000,"version":0,"parent":"late-cretaceous"}
-{"_id":"turonian","from":-93900000,"kind":"Age","name":"Turonian","to":-89800000,"version":0,"parent":"late-cretaceous"}
-{"_id":"coniacian","from":-89800000,"kind":"Age","name":"Coniacian","to":-86300000,"version":0,"parent":"late-cretaceous"}
-{"_id":"santonian","from":-86300000,"kind":"Age","name":"Santonian","to":-83600000,"version":0,"parent":"late-cretaceous"}
-{"_id":"campanian","from":-83600000,"kind":"Age","name":"Campanian","to":-72100000,"version":0,"parent":"late-cretaceous"}
-{"_id":"maastrichtian","from":-72100000,"kind":"Age","name":"Maastrichtian","to":-66000000,"version":0,"parent":"late-cretaceous"}
-{"_id":"danian","from":-66000000,"kind":"Age","name":"Danian","to":-61600000,"version":0,"parent":"paleocene"}
-{"_id":"selandian","from":-61600000,"kind":"Age","name":"Selandian","to":-59200000,"version":0,"parent":"paleocene"}
-{"_id":"thanetian","from":-59200000,"kind":"Age","name":"Thanetian","to":-56000000,"version":0,"parent":"paleocene"}
-{"_id":"ypresian","from":-56000000,"kind":"Age","name":"Ypresian","to":-47800000,"version":0,"parent":"eocene"}
-{"_id":"lutetian","from":-47800000,"kind":"Age","name":"Lutetian","to":-41200000,"version":0,"parent":"eocene"}
-{"_id":"bartonian","from":-41200000,"kind":"Age","name":"Bartonian","to":-37800000,"version":0,"parent":"eocene"}
-{"_id":"priabonian","from":-37800000,"kind":"Age","name":"Priabonian","to":-33900000,"version":0,"parent":"eocene"}
-{"_id":"rupelian","from":-33900000,"kind":"Age","name":"Rupelian","to":-27800000,"version":0,"parent":"oligocene"}
-{"_id":"chattian","from":-27800000,"kind":"Age","name":"Chattian","to":-23030000,"version":0,"parent":"oligocene"}
-{"_id":"aquitanian","from":-23030000,"kind":"Age","name":"Aquitanian","to":-20440000,"version":0,"parent":"miocene"}
-{"_id":"burdigalian","from":-20440000,"kind":"Age","name":"Burdigalian","to":-15970000,"version":0,"parent":"miocene"}
-{"_id":"langhian","from":-15970000,"kind":"Age","name":"Langhian","to":-13820000,"version":0,"parent":"miocene"}
-{"_id":"serravallian","from":-13820000,"kind":"Age","name":"Serravallian","to":-11630000,"version":0,"parent":"miocene"}
-{"_id":"tortonian","from":-11630000,"kind":"Age","name":"Tortonian","to":-7246000,"version":0,"parent":"miocene"}
-{"_id":"messinian","from":-7246000,"kind":"Age","name":"Messinian","to":-5333000,"version":0,"parent":"miocene"}
-{"_id":"zanclean","from":-5333000,"kind":"Age","name":"Zanclean","to":-3600000,"version":0,"parent":"pliocene"}
-{"_id":"piacenzian","from":-3600000,"kind":"Age","name":"Piacenzian","to":-2580000,"version":0,"parent":"pliocene"}
-{"_id":"gelasian","from":-2580000,"kind":"Age","name":"Gelasian","to":-1800000,"version":0,"parent":"pleistocene"}
-{"_id":"calabrian","from":-1800000,"kind":"Age","name":"Calabrian","to":-774000,"version":0,"parent":"pleistocene"}
-{"_id":"chibanian","from":-774000,"kind":"Age","name":"Chibanian","to":-129000,"version":0,"parent":"pleistocene"}
-{"_id":"upper-pleistocene","from":-129000,"kind":"Age","name":"Upper Pleistocene","to":-11700,"version":0,"parent":"pleistocene"}
-{"_id":"greenlandian","from":-11700,"kind":"Age","name":"Greenlandian","to":-8200,"version":0,"parent":"holocene"}
-{"_id":"northgrippian","from":-8200,"kind":"Age","name":"Northgrippian","to":-4200,"version":0,"parent":"holocene"}
-{"_id":"meghalayan","from":-4200,"kind":"Age","name":"Meghalayan","to":2030,"version":0,"parent":"holocene"}
+{"_id":"geological-timescale","name":"Geological Timescale","kind":"Root","from":-4.6E+09,"to":2030,"parent":"","children":["precambrian","phanerozoic"],"tags":[],"version":0}
+{"_id":"precambrian","name":"Precambrian","kind":"SuperEon","from":-4.6E+09,"to":-541000000,"parent":"geological-timescale","children":["hadean","archean","proterozoic"],"tags":["Walking-With-Monsters"],"version":1}
+{"_id":"hadean","name":"Hadean","kind":"Eon","from":-4.6E+09,"to":-4E+09,"parent":"precambrian","children":[],"tags":[],"version":0}
+{"_id":"archean","name":"Archean","kind":"Eon","from":-4E+09,"to":-2.5E+09,"parent":"precambrian","children":["eoarchean","paleoarchean","mesoarchean","neoarchean"],"tags":[],"version":0}
+{"_id":"proterozoic","name":"Proterozoic","kind":"Eon","from":-2.5E+09,"to":-541000000,"parent":"precambrian","children":["paleoproterozoic","mesoproterozoic","neoproterozoic"],"tags":[],"version":0}
+{"_id":"phanerozoic","name":"Phanerozoic","kind":"Eon","from":-541000000,"to":2030,"parent":"geological-timescale","children":["paleozoic","mesozoic","cenozoic"],"tags":[],"version":0}
+{"_id":"eoarchean","name":"Eoarchean","kind":"Era","from":-4E+09,"to":-3.6E+09,"parent":"archean","children":[],"tags":[],"version":0}
+{"_id":"paleoarchean","name":"Paleoarchean","kind":"Era","from":-3.6E+09,"to":-3.2E+09,"parent":"archean","children":[],"tags":[],"version":0}
+{"_id":"mesoarchean","name":"Mesoarchean","kind":"Era","from":-3.2E+09,"to":-2.8E+09,"parent":"archean","children":[],"tags":[],"version":0}
+{"_id":"neoarchean","name":"Neoarchean","kind":"Era","from":-2.8E+09,"to":-2.5E+09,"parent":"archean","children":[],"tags":[],"version":0}
+{"_id":"paleoproterozoic","name":"Paleoproterozoic","kind":"Era","from":-2.5E+09,"to":-1600000000,"parent":"proterozoic","children":["siderian","rhyacian","orosirian","statherian"],"tags":[],"version":0}
+{"_id":"mesoproterozoic","name":"Mesoproterozoic","kind":"Era","from":-1600000000,"to":-1000000000,"parent":"proterozoic","children":["calymmian","ectasian","stenian"],"tags":[],"version":0}
+{"_id":"neoproterozoic","name":"Neoproterozoic","kind":"Era","from":-1000000000,"to":-541000000,"parent":"proterozoic","children":["tonian","cryogenian","ediacaran"],"tags":[],"version":0}
+{"_id":"paleozoic","name":"Paleozoic","kind":"Era","from":-541000000,"to":-252000000,"parent":"phanerozoic","children":["cambrian","ordovician","silurian","devonian","carboniferous","permian"],"tags":["Walking-With-Monsters"],"version":1}
+{"_id":"mesozoic","name":"Mesozoic","kind":"Era","from":-251902000,"to":-66000000,"parent":"phanerozoic","children":["triassic","jurassic","cretaceous"],"tags":[],"version":0}
+{"_id":"cenozoic","name":"Cenozoic","kind":"Era","from":-66000000,"to":2030,"parent":"phanerozoic","children":["paleogene","neogene","quarternary"],"tags":["Walking-With-Beasts"],"version":1}
+{"_id":"siderian","name":"Siderian","kind":"Period","from":-2.5E+09,"to":-2.3E+09,"parent":"paleoproterozoic","children":[],"tags":[],"version":0}
+{"_id":"rhyacian","name":"Rhyacian","kind":"Period","from":-2.3E+09,"to":-2050000000,"parent":"paleoproterozoic","children":[],"tags":[],"version":0}
+{"_id":"orosirian","name":"Orosirian","kind":"Period","from":-2050000000,"to":-1800000000,"parent":"paleoproterozoic","children":[],"tags":[],"version":0}
+{"_id":"statherian","name":"Statherian","kind":"Period","from":-1800000000,"to":-1600000000,"parent":"paleoproterozoic","children":[],"tags":[],"version":0}
+{"_id":"calymmian","name":"Calymmian","kind":"Period","from":-1600000000,"to":-1400000000,"parent":"mesoproterozoic","children":[],"tags":[],"version":0}
+{"_id":"ectasian","name":"Ectasian","kind":"Period","from":-1400000000,"to":-1200000000,"parent":"mesoproterozoic","children":[],"tags":[],"version":0}
+{"_id":"stenian","name":"Stenian","kind":"Period","from":-1200000000,"to":-1000000000,"parent":"mesoproterozoic","children":[],"tags":[],"version":0}
+{"_id":"tonian","name":"Tonian","kind":"Period","from":-1000000000,"to":-720000000,"parent":"neoproterozoic","children":[],"tags":[],"version":0}
+{"_id":"cryogenian","name":"Cryogenian","kind":"Period","from":-720000000,"to":-635000000,"parent":"neoproterozoic","children":[],"tags":[],"version":0}
+{"_id":"ediacaran","name":"Ediacaran","kind":"Period","from":-635000000,"to":-541000000,"parent":"neoproterozoic","children":[],"tags":[],"version":0}
+{"_id":"cambrian","name":"Cambrian","kind":"Period","from":-541000000,"to":-485400000,"parent":"paleozoic","children":["terreneuvian","cambrian-series-2","miaolingian","furongian"],"tags":["Walking-With-Monsters"],"version":1}
+{"_id":"ordovician","name":"Ordovician","kind":"Period","from":-485400000,"to":-443800000,"parent":"paleozoic","children":["early-ordovician","middle-ordovician","late-ordovician"],"tags":[],"version":0}
+{"_id":"silurian","name":"Silurian","kind":"Period","from":-443800000,"to":-419200000,"parent":"paleozoic","children":["llandovery","wenlock","ludlow","pridoli"],"tags":[],"version":0}
+{"_id":"devonian","name":"Devonian","kind":"Period","from":-419200000,"to":-358900000,"parent":"paleozoic","children":["lower-devonian","middle-devonian","upper-devonian"],"tags":[],"version":0}
+{"_id":"carboniferous","name":"Carboniferous","kind":"Period","from":-358900000,"to":-298900000,"parent":"paleozoic","children":["mississippian","pennsylvanian"],"tags":["Walking-With-Monsters"],"version":1}
+{"_id":"permian","name":"Permian","kind":"Period","from":-298900000,"to":-251902000,"parent":"paleozoic","children":["cisuralian","guadalupian","lopingian"],"tags":["Walking-With-Monsters"],"version":1}
+{"_id":"triassic","name":"Triassic","kind":"Period","from":-251902000,"to":-201300000,"parent":"mesozoic","children":["lower-triassic","middle-triassic","upper-triassic"],"tags":["Walking-With-Dinosaurs"],"version":1}
+{"_id":"jurassic","name":"Jurassic","kind":"Period","from":-201300000,"to":-145000000,"parent":"mesozoic","children":["lower-jurassic","middle-jurassic","upper-jurassic"],"tags":["Walking-With-Dinosaurs"],"version":1}
+{"_id":"cretaceous","name":"Cretaceous","kind":"Period","from":-145000000,"to":-66000000,"parent":"mesozoic","children":["early-cretaceous","late-cretaceous"],"tags":["Walking-With-Dinosaurs"],"version":1}
+{"_id":"paleogene","name":"Paleogene","kind":"Period","from":-66000000,"to":-23030000,"parent":"cenozoic","children":["paleocene","eocene","oligocene"],"tags":[],"version":0}
+{"_id":"neogene","name":"Neogene","kind":"Period","from":-23030000,"to":-2580000,"parent":"cenozoic","children":["miocene","pliocene"],"tags":[],"version":0}
+{"_id":"quarternary","name":"Quarternary","kind":"Period","from":-2580000,"to":2030,"parent":"cenozoic","children":["pleistocene","holocene"],"tags":[],"version":0}
+{"_id":"mississippian","name":"Mississippian","kind":"Sub-Period","from":-358900000,"to":-323200000,"parent":"carboniferous","children":["lower-mississippian","middle-mississippian","upper-mississippian"],"tags":[],"version":0}
+{"_id":"pennsylvanian","name":"Pennsylvanian","kind":"Sub-Period","from":-323200000,"to":-298900000,"parent":"carboniferous","children":["lower-pennsylvanian","middle-pennsylvanian","upper-pennsylvanian"],"tags":[],"version":0}
+{"_id":"terreneuvian","name":"Terreneuvian","kind":"Epoch","from":-541000000,"to":-521000000,"parent":"cambrian","children":["fortunian","stage-2"],"tags":[],"version":0}
+{"_id":"cambrian-series-2","name":"Cambrian Series 2","kind":"Epoch","from":-521000000,"to":-509000000,"parent":"cambrian","children":["stage-3","stage-4"],"tags":[],"version":0}
+{"_id":"miaolingian","name":"Miaolingian","kind":"Epoch","from":-509000000,"to":-497000000,"parent":"cambrian","children":["wuliuan","drumian","guzhangian"],"tags":[],"version":0}
+{"_id":"furongian","name":"Furongian","kind":"Epoch","from":-497000000,"to":-485400000,"parent":"cambrian","children":["paibian","jiangshanian","stage-10"],"tags":[],"version":0}
+{"_id":"early-ordovician","name":"Early Ordovician","kind":"Epoch","from":-485400000,"to":-470000000,"parent":"ordovician","children":["tremadocian","floian"],"tags":[],"version":0}
+{"_id":"middle-ordovician","name":"Middle Ordovician","kind":"Epoch","from":-470000000,"to":-458400000,"parent":"ordovician","children":["dapingian","darriwilian"],"tags":[],"version":0}
+{"_id":"late-ordovician","name":"Late Ordovician","kind":"Epoch","from":-458400000,"to":-443800000,"parent":"ordovician","children":["sandbian","katian","hirnantian"],"tags":[],"version":0}
+{"_id":"llandovery","name":"Llandovery","kind":"Epoch","from":-443800000,"to":-433400000,"parent":"silurian","children":["rhuddanian","aeronian","telychian"],"tags":[],"version":0}
+{"_id":"wenlock","name":"Wenlock","kind":"Epoch","from":-433400000,"to":-427400000,"parent":"silurian","children":["sheinwoodian","homerian"],"tags":[],"version":0}
+{"_id":"ludlow","name":"Ludlow","kind":"Epoch","from":-427400000,"to":-423000000,"parent":"silurian","children":["gorstian","ludfordian"],"tags":[],"version":0}
+{"_id":"pridoli","name":"Pridoli","kind":"Epoch","from":-423000000,"to":-419200000,"parent":"silurian","children":[],"tags":[],"version":0}
+{"_id":"lower-devonian","name":"Lower Devonian","kind":"Epoch","from":-419200000,"to":-393000000,"parent":"devonian","children":["lochkovian","pragian","emsian"],"tags":[],"version":0}
+{"_id":"middle-devonian","name":"Middle Devonian","kind":"Epoch","from":-393000000,"to":-382700000,"parent":"devonian","children":["eifelian","givetian"],"tags":[],"version":0}
+{"_id":"upper-devonian","name":"Upper Devonian","kind":"Epoch","from":-382700000,"to":-358900000,"parent":"devonian","children":["frasnian","fammenian"],"tags":[],"version":0}
+{"_id":"lower-mississippian","name":"Lower Mississippian","kind":"Epoch","from":-358900000,"to":-346700000,"parent":"mississippian","children":["tournaisian"],"tags":[],"version":0}
+{"_id":"middle-mississippian","name":"Middle Mississippian","kind":"Epoch","from":-346700000,"to":-330900000,"parent":"mississippian","children":["visean"],"tags":[],"version":0}
+{"_id":"upper-mississippian","name":"Upper Mississippian","kind":"Epoch","from":-330900000,"to":-323200000,"parent":"mississippian","children":["serpukhovian"],"tags":[],"version":0}
+{"_id":"lower-pennsylvanian","name":"Lower Pennsylvanian","kind":"Epoch","from":-323200000,"to":-315200000,"parent":"pennsylvanian","children":["bashkirian"],"tags":[],"version":0}
+{"_id":"middle-pennsylvanian","name":"Middle Pennsylvanian","kind":"Epoch","from":-315200000,"to":-307000000,"parent":"pennsylvanian","children":["mosocovian"],"tags":[],"version":0}
+{"_id":"upper-pennsylvanian","name":"Upper Pennsylvanian","kind":"Epoch","from":-307000000,"to":-298900000,"parent":"pennsylvanian","children":["kasimovian","gzhelian"],"tags":[],"version":0}
+{"_id":"cisuralian","name":"Cisuralian","kind":"Epoch","from":-298900000,"to":-272950000,"parent":"permian","children":["asselian","sakmarian","artinskian","kungurian"],"tags":[],"version":0}
+{"_id":"guadalupian","name":"Guadalupian","kind":"Epoch","from":-272950000,"to":-259100000,"parent":"permian","children":["roadian","wordian","capitanian"],"tags":[],"version":0}
+{"_id":"lopingian","name":"Lopingian","kind":"Epoch","from":-259100000,"to":-251902000,"parent":"permian","children":["wuchiapingian","changhsingian"],"tags":[],"version":0}
+{"_id":"lower-triassic","name":"Lower Triassic","kind":"Epoch","from":-251902000,"to":-247200000,"parent":"triassic","children":["induan","olenekian"],"tags":[],"version":0}
+{"_id":"middle-triassic","name":"Middle Triassic","kind":"Epoch","from":-247200000,"to":-237000000,"parent":"triassic","children":["anisian","ladinian"],"tags":[],"version":0}
+{"_id":"upper-triassic","name":"Upper Triassic","kind":"Epoch","from":-237000000,"to":-201300000,"parent":"triassic","children":["carnian","norian","rhaetian"],"tags":[],"version":0}
+{"_id":"lower-jurassic","name":"Lower Jurassic","kind":"Epoch","from":-201300000,"to":-174100000,"parent":"jurassic","children":["hettangian","sinemurian","pliensbachian","toarchian"],"tags":[],"version":0}
+{"_id":"middle-jurassic","name":"Middle Jurassic","kind":"Epoch","from":-174100000,"to":-163500000,"parent":"jurassic","children":["aalenian","bajocian","bathonian","callovian"],"tags":[],"version":0}
+{"_id":"upper-jurassic","name":"Upper Jurassic","kind":"Epoch","from":-163500000,"to":-145000000,"parent":"jurassic","children":["oxfordian","kimmeridgian","tithonian"],"tags":[],"version":0}
+{"_id":"early-cretaceous","name":"Early Cretaceous","kind":"Epoch","from":-145000000,"to":-100500000,"parent":"cretaceous","children":["berriasian","valanginian","hauterivian","barremian","aptian","albian"],"tags":[],"version":0}
+{"_id":"late-cretaceous","name":"Late Cretaceous","kind":"Epoch","from":-100500000,"to":-66000000,"parent":"cretaceous","children":["cenomanian","turonian","coniacian","santonian","campanian","maastrichtian"],"tags":[],"version":0}
+{"_id":"paleocene","name":"Paleocene","kind":"Epoch","from":-66000000,"to":-56000000,"parent":"paleogene","children":["danian","selandian","thanetian"],"tags":[],"version":0}
+{"_id":"eocene","name":"Eocene","kind":"Epoch","from":-56000000,"to":-33900000,"parent":"paleogene","children":["ypresian","lutetian","bartonian","priabonian"],"tags":["Walking-With-Beasts"],"version":1}
+{"_id":"oligocene","name":"Oligocene","kind":"Epoch","from":-33900000,"to":-23030000,"parent":"paleogene","children":["rupelian","chattian"],"tags":["Walking-With-Beasts"],"version":1}
+{"_id":"miocene","name":"Miocene","kind":"Epoch","from":-23030000,"to":-5333000,"parent":"neogene","children":["aquitanian","burdigalian","langhian","serravallian","tortonian","messinian"],"tags":[],"version":0}
+{"_id":"pliocene","name":"Pliocene","kind":"Epoch","from":-5333000,"to":-2580000,"parent":"neogene","children":["zanclean","piacenzian"],"tags":["Walking-With-Beasts"],"version":1}
+{"_id":"pleistocene","name":"Pleistocene","kind":"Epoch","from":-2580000,"to":-11700,"parent":"quarternary","children":["gelasian","calabrian","chibanian","upper-pleistocene"],"tags":["Walking-With-Beasts"],"version":1}
+{"_id":"holocene","name":"Holocene","kind":"Epoch","from":-11700,"to":2030,"parent":"quarternary","children":["greenlandian","northgrippian","meghalayan"],"tags":[],"version":0}
+{"_id":"fortunian","name":"Fortunian","kind":"Age","from":-541000000,"to":-529000000,"parent":"terreneuvian","children":[],"tags":[],"version":0}
+{"_id":"stage-2","name":"Stage 2","kind":"Age","from":-529000000,"to":-521000000,"parent":"terreneuvian","children":[],"tags":[],"version":0}
+{"_id":"stage-3","name":"Stage 3","kind":"Age","from":-521000000,"to":-514000000,"parent":"cambrian-series-2","children":[],"tags":[],"version":0}
+{"_id":"stage-4","name":"Stage 4","kind":"Age","from":-514000000,"to":-509100000,"parent":"cambrian-series-2","children":[],"tags":[],"version":0}
+{"_id":"wuliuan","name":"Wuliuan","kind":"Age","from":-509100000,"to":-504500000,"parent":"miaolingian","children":[],"tags":[],"version":0}
+{"_id":"drumian","name":"Drumian","kind":"Age","from":-504500000,"to":-500500000,"parent":"miaolingian","children":[],"tags":[],"version":0}
+{"_id":"guzhangian","name":"Guzhangian","kind":"Age","from":-529000000,"to":-497000000,"parent":"miaolingian","children":[],"tags":[],"version":0}
+{"_id":"paibian","name":"Paibian","kind":"Age","from":-497000000,"to":-494000000,"parent":"furongian","children":[],"tags":[],"version":0}
+{"_id":"jiangshanian","name":"Jiangshanian","kind":"Age","from":-494000000,"to":-489500000,"parent":"furongian","children":[],"tags":[],"version":0}
+{"_id":"stage-10","name":"Stage 10","kind":"Age","from":-489500000,"to":-485400000,"parent":"furongian","children":[],"tags":[],"version":0}
+{"_id":"tremadocian","name":"Tremadocian","kind":"Age","from":-485400000,"to":-477700000,"parent":"early-ordovician","children":[],"tags":[],"version":0}
+{"_id":"floian","name":"Floian","kind":"Age","from":-477700000,"to":-470000000,"parent":"early-ordovician","children":[],"tags":[],"version":0}
+{"_id":"dapingian","name":"Dapingian","kind":"Age","from":-470000000,"to":-467300000,"parent":"middle-ordovician","children":[],"tags":[],"version":0}
+{"_id":"darriwilian","name":"Darriwilian","kind":"Age","from":-467300000,"to":-458400000,"parent":"middle-ordovician","children":[],"tags":[],"version":0}
+{"_id":"sandbian","name":"Sandbian","kind":"Age","from":-458400000,"to":-453000000,"parent":"late-ordovician","children":[],"tags":[],"version":0}
+{"_id":"katian","name":"Katian","kind":"Age","from":-453000000,"to":-445200000,"parent":"late-ordovician","children":[],"tags":[],"version":0}
+{"_id":"hirnantian","name":"Hirnantian","kind":"Age","from":-445200000,"to":-443800000,"parent":"late-ordovician","children":[],"tags":[],"version":0}
+{"_id":"rhuddanian","name":"Rhuddanian","kind":"Age","from":-443800000,"to":-440800000,"parent":"llandovery","children":[],"tags":[],"version":0}
+{"_id":"aeronian","name":"Aeronian","kind":"Age","from":-440800000,"to":-438500000,"parent":"llandovery","children":[],"tags":[],"version":0}
+{"_id":"telychian","name":"Telychian","kind":"Age","from":-438500000,"to":-433400000,"parent":"llandovery","children":[],"tags":[],"version":0}
+{"_id":"sheinwoodian","name":"Sheinwoodian","kind":"Age","from":-433400000,"to":-430500000,"parent":"wenlock","children":[],"tags":[],"version":0}
+{"_id":"homerian","name":"Homerian","kind":"Age","from":-430500000,"to":-427400000,"parent":"wenlock","children":[],"tags":[],"version":0}
+{"_id":"gorstian","name":"Gorstian","kind":"Age","from":-427400000,"to":-425600000,"parent":"ludlow","children":[],"tags":[],"version":0}
+{"_id":"ludfordian","name":"Ludfordian","kind":"Age","from":-425600000,"to":-423000000,"parent":"ludlow","children":[],"tags":[],"version":0}
+{"_id":"lochkovian","name":"Lochkovian","kind":"Age","from":-419200000,"to":-410800000,"parent":"lower-devonian","children":[],"tags":[],"version":0}
+{"_id":"pragian","name":"Pragian","kind":"Age","from":-410800000,"to":-407600000,"parent":"lower-devonian","children":[],"tags":[],"version":0}
+{"_id":"emsian","name":"Emsian","kind":"Age","from":-407600000,"to":-393000000,"parent":"lower-devonian","children":[],"tags":[],"version":0}
+{"_id":"eifelian","name":"Eifelian","kind":"Age","from":-393000000,"to":-387700000,"parent":"middle-devonian","children":[],"tags":[],"version":0}
+{"_id":"givetian","name":"Givetian","kind":"Age","from":-387700000,"to":-382700000,"parent":"middle-devonian","children":[],"tags":[],"version":0}
+{"_id":"frasnian","name":"Frasnian","kind":"Age","from":-382700000,"to":-372200000,"parent":"upper-devonian","children":[],"tags":[],"version":0}
+{"_id":"fammenian","name":"Fammenian","kind":"Age","from":-372200000,"to":-358900000,"parent":"upper-devonian","children":[],"tags":[],"version":0}
+{"_id":"tournaisian","name":"Tournaisian","kind":"Age","from":-358900000,"to":-346700000,"parent":"lower-mississippian","children":[],"tags":[],"version":0}
+{"_id":"visean","name":"Visean","kind":"Age","from":-346700000,"to":-330900000,"parent":"middle-mississippian","children":[],"tags":[],"version":0}
+{"_id":"serpukhovian","name":"Serpukhovian","kind":"Age","from":-330900000,"to":-323200000,"parent":"upper-mississippian","children":[],"tags":[],"version":0}
+{"_id":"bashkirian","name":"Bashkirian","kind":"Age","from":-323200000,"to":-315200000,"parent":"lower-pennsylvanian","children":[],"tags":[],"version":0}
+{"_id":"mosocovian","name":"Mosocovian","kind":"Age","from":-315200000,"to":-307000000,"parent":"middle-pennsylvanian","children":[],"tags":[],"version":0}
+{"_id":"kasimovian","name":"Kasimovian","kind":"Age","from":-307000000,"to":-303700000,"parent":"upper-pennsylvanian","children":[],"tags":[],"version":0}
+{"_id":"gzhelian","name":"Gzhelian","kind":"Age","from":-303700000,"to":-298900000,"parent":"upper-pennsylvanian","children":[],"tags":[],"version":0}
+{"_id":"asselian","name":"Asselian","kind":"Age","from":-298900000,"to":-295000000,"parent":"cisuralian","children":[],"tags":[],"version":0}
+{"_id":"sakmarian","name":"Sakmarian","kind":"Age","from":-295000000,"to":-290100000,"parent":"cisuralian","children":[],"tags":[],"version":0}
+{"_id":"artinskian","name":"Artinskian","kind":"Age","from":-290100000,"to":-283500000,"parent":"cisuralian","children":[],"tags":[],"version":0}
+{"_id":"kungurian","name":"Kungurian","kind":"Age","from":-283500000,"to":-272950000,"parent":"cisuralian","children":[],"tags":[],"version":0}
+{"_id":"roadian","name":"Roadian","kind":"Age","from":-272950000,"to":-268800000,"parent":"guadalupian","children":[],"tags":[],"version":0}
+{"_id":"wordian","name":"Wordian","kind":"Age","from":-268800000,"to":-265100000,"parent":"guadalupian","children":[],"tags":[],"version":0}
+{"_id":"capitanian","name":"Capitanian","kind":"Age","from":-265100000,"to":-259100000,"parent":"guadalupian","children":[],"tags":[],"version":0}
+{"_id":"wuchiapingian","name":"Wuchiapingian","kind":"Age","from":-259100000,"to":-254140000,"parent":"lopingian","children":[],"tags":[],"version":0}
+{"_id":"changhsingian","name":"Changhsingian","kind":"Age","from":-254140000,"to":-251902000,"parent":"lopingian","children":[],"tags":[],"version":0}
+{"_id":"induan","name":"Induan","kind":"Age","from":-251902000,"to":-251200000,"parent":"lower-triassic","children":[],"tags":[],"version":0}
+{"_id":"olenekian","name":"Olenekian","kind":"Age","from":-251200000,"to":-247200000,"parent":"lower-triassic","children":[],"tags":[],"version":0}
+{"_id":"anisian","name":"Anisian","kind":"Age","from":-247200000,"to":-242000000,"parent":"middle-triassic","children":[],"tags":[],"version":0}
+{"_id":"ladinian","name":"Ladinian","kind":"Age","from":-242000000,"to":-237000000,"parent":"middle-triassic","children":[],"tags":[],"version":0}
+{"_id":"carnian","name":"Carnian","kind":"Age","from":-237000000,"to":-227000000,"parent":"upper-triassic","children":[],"tags":[],"version":0}
+{"_id":"norian","name":"Norian","kind":"Age","from":-227000000,"to":-208500000,"parent":"upper-triassic","children":[],"tags":[],"version":0}
+{"_id":"rhaetian","name":"Rhaetian","kind":"Age","from":-208500000,"to":-201300000,"parent":"upper-triassic","children":[],"tags":[],"version":0}
+{"_id":"hettangian","name":"Hettangian","kind":"Age","from":-201300000,"to":-199300000,"parent":"lower-jurassic","children":[],"tags":[],"version":0}
+{"_id":"sinemurian","name":"Sinemurian","kind":"Age","from":-199300000,"to":-190800000,"parent":"lower-jurassic","children":[],"tags":[],"version":0}
+{"_id":"pliensbachian","name":"Pliensbachian","kind":"Age","from":-190800000,"to":-182700000,"parent":"lower-jurassic","children":[],"tags":[],"version":0}
+{"_id":"toarchian","name":"Toarchian","kind":"Age","from":-182700000,"to":-174100000,"parent":"lower-jurassic","children":[],"tags":[],"version":0}
+{"_id":"aalenian","name":"Aalenian","kind":"Age","from":-174100000,"to":-170300000,"parent":"middle-jurassic","children":[],"tags":[],"version":0}
+{"_id":"bajocian","name":"Bajocian","kind":"Age","from":-170300000,"to":-168300000,"parent":"middle-jurassic","children":[],"tags":[],"version":0}
+{"_id":"bathonian","name":"Bathonian","kind":"Age","from":-168300000,"to":-166100000,"parent":"middle-jurassic","children":[],"tags":[],"version":0}
+{"_id":"callovian","name":"Callovian","kind":"Age","from":-166100000,"to":-163500000,"parent":"middle-jurassic","children":[],"tags":[],"version":0}
+{"_id":"oxfordian","name":"Oxfordian","kind":"Age","from":-163500000,"to":-157300000,"parent":"upper-jurassic","children":[],"tags":[],"version":0}
+{"_id":"kimmeridgian","name":"Kimmeridgian","kind":"Age","from":-157300000,"to":-152100000,"parent":"upper-jurassic","children":[],"tags":[],"version":0}
+{"_id":"tithonian","name":"Tithonian","kind":"Age","from":-152100000,"to":-145000000,"parent":"upper-jurassic","children":[],"tags":[],"version":0}
+{"_id":"berriasian","name":"Berriasian","kind":"Age","from":-145000000,"to":-139800000,"parent":"early-cretaceous","children":[],"tags":[],"version":0}
+{"_id":"valanginian","name":"Valanginian","kind":"Age","from":-139800000,"to":-132900000,"parent":"early-cretaceous","children":[],"tags":[],"version":0}
+{"_id":"hauterivian","name":"Hauterivian","kind":"Age","from":-132900000,"to":-129400000,"parent":"early-cretaceous","children":[],"tags":[],"version":0}
+{"_id":"barremian","name":"Barremian","kind":"Age","from":-129400000,"to":-125000000,"parent":"early-cretaceous","children":[],"tags":[],"version":0}
+{"_id":"aptian","name":"Aptian","kind":"Age","from":-125000000,"to":-113000000,"parent":"early-cretaceous","children":[],"tags":[],"version":0}
+{"_id":"albian","name":"Albian","kind":"Age","from":-113000000,"to":-100500000,"parent":"early-cretaceous","children":[],"tags":[],"version":0}
+{"_id":"cenomanian","name":"Cenomanian","kind":"Age","from":-100500000,"to":-93900000,"parent":"late-cretaceous","children":[],"tags":[],"version":0}
+{"_id":"turonian","name":"Turonian","kind":"Age","from":-93900000,"to":-89800000,"parent":"late-cretaceous","children":[],"tags":[],"version":0}
+{"_id":"coniacian","name":"Coniacian","kind":"Age","from":-89800000,"to":-86300000,"parent":"late-cretaceous","children":[],"tags":[],"version":0}
+{"_id":"santonian","name":"Santonian","kind":"Age","from":-86300000,"to":-83600000,"parent":"late-cretaceous","children":[],"tags":[],"version":0}
+{"_id":"campanian","name":"Campanian","kind":"Age","from":-83600000,"to":-72100000,"parent":"late-cretaceous","children":[],"tags":[],"version":0}
+{"_id":"maastrichtian","name":"Maastrichtian","kind":"Age","from":-72100000,"to":-66000000,"parent":"late-cretaceous","children":[],"tags":[],"version":0}
+{"_id":"danian","name":"Danian","kind":"Age","from":-66000000,"to":-61600000,"parent":"paleocene","children":[],"tags":[],"version":0}
+{"_id":"selandian","name":"Selandian","kind":"Age","from":-61600000,"to":-59200000,"parent":"paleocene","children":[],"tags":[],"version":0}
+{"_id":"thanetian","name":"Thanetian","kind":"Age","from":-59200000,"to":-56000000,"parent":"paleocene","children":[],"tags":[],"version":0}
+{"_id":"ypresian","name":"Ypresian","kind":"Age","from":-56000000,"to":-47800000,"parent":"eocene","children":[],"tags":[],"version":0}
+{"_id":"lutetian","name":"Lutetian","kind":"Age","from":-47800000,"to":-41200000,"parent":"eocene","children":[],"tags":[],"version":0}
+{"_id":"bartonian","name":"Bartonian","kind":"Age","from":-41200000,"to":-37800000,"parent":"eocene","children":[],"tags":[],"version":0}
+{"_id":"priabonian","name":"Priabonian","kind":"Age","from":-37800000,"to":-33900000,"parent":"eocene","children":[],"tags":[],"version":0}
+{"_id":"rupelian","name":"Rupelian","kind":"Age","from":-33900000,"to":-27800000,"parent":"oligocene","children":[],"tags":[],"version":0}
+{"_id":"chattian","name":"Chattian","kind":"Age","from":-27800000,"to":-23030000,"parent":"oligocene","children":[],"tags":[],"version":0}
+{"_id":"aquitanian","name":"Aquitanian","kind":"Age","from":-23030000,"to":-20440000,"parent":"miocene","children":[],"tags":[],"version":0}
+{"_id":"burdigalian","name":"Burdigalian","kind":"Age","from":-20440000,"to":-15970000,"parent":"miocene","children":[],"tags":[],"version":0}
+{"_id":"langhian","name":"Langhian","kind":"Age","from":-15970000,"to":-13820000,"parent":"miocene","children":[],"tags":[],"version":0}
+{"_id":"serravallian","name":"Serravallian","kind":"Age","from":-13820000,"to":-11630000,"parent":"miocene","children":[],"tags":[],"version":0}
+{"_id":"tortonian","name":"Tortonian","kind":"Age","from":-11630000,"to":-7246000,"parent":"miocene","children":[],"tags":[],"version":0}
+{"_id":"messinian","name":"Messinian","kind":"Age","from":-7246000,"to":-5333000,"parent":"miocene","children":[],"tags":[],"version":0}
+{"_id":"zanclean","name":"Zanclean","kind":"Age","from":-5333000,"to":-3600000,"parent":"pliocene","children":[],"tags":[],"version":0}
+{"_id":"piacenzian","name":"Piacenzian","kind":"Age","from":-3600000,"to":-2580000,"parent":"pliocene","children":[],"tags":[],"version":0}
+{"_id":"gelasian","name":"Gelasian","kind":"Age","from":-2580000,"to":-1800000,"parent":"pleistocene","children":[],"tags":[],"version":0}
+{"_id":"calabrian","name":"Calabrian","kind":"Age","from":-1800000,"to":-774000,"parent":"pleistocene","children":[],"tags":[],"version":0}
+{"_id":"chibanian","name":"Chibanian","kind":"Age","from":-774000,"to":-129000,"parent":"pleistocene","children":[],"tags":[],"version":0}
+{"_id":"upper-pleistocene","name":"Upper Pleistocene","kind":"Age","from":-129000,"to":-11700,"parent":"pleistocene","children":[],"tags":[],"version":0}
+{"_id":"greenlandian","name":"Greenlandian","kind":"Age","from":-11700,"to":-8200,"parent":"holocene","children":[],"tags":[],"version":0}
+{"_id":"northgrippian","name":"Northgrippian","kind":"Age","from":-8200,"to":-4200,"parent":"holocene","children":[],"tags":[],"version":0}
+{"_id":"meghalayan","name":"Meghalayan","kind":"Age","from":-4200,"to":2030,"parent":"holocene","children":[],"tags":[],"version":0}

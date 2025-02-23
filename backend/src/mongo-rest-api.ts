@@ -128,6 +128,7 @@ async function importDbData(evoDb: EvoDb) {
 async function indexDb() {
   await IntervalModel.collection.createIndex({ "$**": "text" })
   await IntervalModel.collection.createIndex({ "name": 1 })
+  await IntervalModel.collection.createIndex({ "tags": 1 })
 
   await TopicModel.collection.createIndex({ "$**": "text" })
   await TopicModel.collection.createIndex({ "topic": 1 })

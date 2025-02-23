@@ -15,7 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import mongoose from 'mongoose'
+import mongoose, { ValidatorProps } from 'mongoose'
+import { HintModel } from './hint'
 
 const Schema = mongoose.Schema
 
@@ -26,7 +27,8 @@ export interface IInterval {
   from: number,
   to:   number,
   parent?: string,
-  children?: string[]
+  children?: string[],
+  tags: string[]
 }
 
 export const IntervalSchema = new Schema<IInterval>({
@@ -36,7 +38,17 @@ export const IntervalSchema = new Schema<IInterval>({
   from: Number,
   to:   Number,
   parent: { type: String, ref: 'Interval' },
-  children: [{ type: String, ref: 'Interval' }]
+  children: [{ type: String, ref: 'Interval' }],
+  tags: [{
+    type: String,
+    validate: {
+      validator: (v: string) => {
+        console.log(`Validating ${v} against hints`)
+        return HintModel.findById(v)
+      },
+      message: (props: ValidatorProps) => `${props.value} is an invalid Tag`
+    },
+  }],
 },
 { versionKey: 'version' })
 

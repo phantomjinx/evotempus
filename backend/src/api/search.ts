@@ -52,7 +52,8 @@ searchApi.get('/', async (req, res, next) => {
       IntervalModel.find({
         $or: [
           { $text:       { $search: query } },
-          { name:        { $regex: '.*' + query + '.*', $options: 'i' } }
+          { name:        { $regex: '.*' + query + '.*', $options: 'i' } },
+          { tags:        { $regex: '.*' + query + '.*', $options: 'i' } }
         ]}).exec(),
       SubjectModel.find({
         $or: [

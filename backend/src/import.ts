@@ -106,7 +106,8 @@ export async function createInterval(dataRow: string[], minimumCols: number) {
     kind: kind,
     from: from,
     to: to,
-    parent: parent
+    parent: parent,
+    tags: []
   }
 
   //
@@ -263,28 +264,41 @@ export async function createOrUpdateSubject(dataRow: string[], minimumCols: numb
   }
 }
 
-export async function tagSubject(dataRow: string[], minimumCols: number) {
+export async function tagIntervalOrSubject(dataRow: string[], minimumCols: number) {
   expectPopulated(dataRow, 'tag', minimumCols)
 
-  const subjectId = utils.trim(dataRow[0])
+  const intervalOrsubjectId = utils.trim(dataRow[0])
   const tagId = utils.trim(dataRow[1])
 
-  logger.debug('Tagging subject: id: ' + subjectId + ' tag: ' + tagId)
+  logger.debug('Tagging interval or subject: id: ' + intervalOrsubjectId + ' tag: ' + tagId)
 
-  const subject = await SubjectModel.findById(subjectId).exec()
-  if (!subject) {
-    logger.error('ERROR: Cannot find subject ' + subjectId + ' while tagging')
-    evoDb.terminate()
-  }
+  const interval = await IntervalModel.findById(intervalOrsubjectId).exec()
+  if (interval) {
+    const tags = interval?.tags || []
+    if (tags?.indexOf(tagId) < 0) {
+      interval?.tags.push(tagId)
+      //
+      // Validator of subject should detect whether tag is valid
+      //
+      await interval?.save()
+    }
+  } else {
+    const subject = await SubjectModel.findById(intervalOrsubjectId).exec()
+    if (!subject) {
+      logger.error('ERROR: Cannot find interval or subject ' + intervalOrsubjectId + ' while tagging')
+      evoDb.terminate()
+      return
+    }
 
-  const tags = subject?.tags || []
-  if (tags?.indexOf(tagId) < 0) {
-    subject?.tags.push(tagId)
+    const tags = subject?.tags || []
+    if (tags?.indexOf(tagId) < 0) {
+      subject?.tags.push(tagId)
 
-    //
-    // Validator of subject should detect whether tag is valid
-    //
-    await subject?.save()
+      //
+      // Validator of subject should detect whether tag is valid
+      //
+      await subject?.save()
+    }
   }
 }
 
@@ -401,7 +415,7 @@ export async function importSubjects(pathOrPaths: string|string[]) {
 }
 
 export async function importTags(pathOrPaths: string|string[]) {
-  await importContent(pathOrPaths, 2, tagSubject)
+  await importContent(pathOrPaths, 2, tagIntervalOrSubject)
 }
 
 export function reportStats() {

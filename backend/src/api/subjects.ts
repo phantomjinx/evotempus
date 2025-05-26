@@ -251,11 +251,13 @@ subjectApi.post('/', async (req, res, next) => {
       //
       if (page) {
         // page is defined as minimum of 1 as start so subtract 1 to get array position
-        kindResult.pages = pages.slice((page - 1), page)
+        // kindResult.pages = pages.slice((page - 1), page)
+        kindResult.pages = pages
         kindResult.page = parseInt(page)
       } else if (subjectId && subjectPageIdx >= 0) {
         console.log("Subject defined so return specific page")
-        kindResult.pages = pages.slice(subjectPageIdx, subjectPageIdx + 1)
+        // kindResult.pages = pages.slice(subjectPageIdx, subjectPageIdx + 1)
+        kindResult.pages = pages
         kindResult.page = (subjectPageIdx + 1)
       } else {
         kindResult.pages = pages

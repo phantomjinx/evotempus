@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState, RefObject, useMemo } from 'react'
+import React, { useCallback, useContext, useEffect, useState, RefObject } from 'react'
 import cloneDeep from "lodash.clonedeep"
 import { fetchService } from '@evotempus/api'
 import { Loading } from '@evotempus/layout'
@@ -6,14 +6,11 @@ import { FilteredCategory, Interval, KindResults, Legend, Subject, SubjectCriter
 import { consoleLog, deepEqual } from '@evotempus/utils'
 import { AppContext } from '@evotempus/components/app'
 import { ErrorMsg } from '../ErrorMsg'
-import { chartify, isSubjectInVisualData } from './subject-visual-service'
+import { chartify, excludedCategories, isSubjectInVisualData, newSubjectCriteria } from './subject-visual-service'
 import './SubjectVisual.scss'
 import { SubjectVisualData } from './globals'
 import { SubjectVisualContext } from './context'
 import { SubjectSwimLane } from './subjectswimlane'
-import isEqual from 'lodash.isequal'
-import { useWhatChanged } from '@simbathesailor/use-what-changed'
-import { usePrevious } from '../usePrevious'
 
 type SubjectVisualProps = {
   parent: RefObject<HTMLDivElement>
@@ -27,13 +24,18 @@ const EMPTY_VISUAL_DATA: SubjectVisualData = {
   categoryNames: []
 }
 
+const EMPTY_CRITERIA: SubjectCriteria = {
+  interval: undefined,
+  subjectId: undefined,
+  excludedCategories: []
+}
+
 export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props: SubjectVisualProps) => {
 
-  const { interval,
-          subject, setSubject,
-          filteredCategories, setFilteredCategories } = useContext(AppContext)
+  const { interval, subject, filteredCategories } = useContext(AppContext)
 
-  const [criteria, setCriteria] = useState<SubjectCriteria>()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, setCriteria] = useState<SubjectCriteria>(EMPTY_CRITERIA)
   const [visualData, setVisualData] = useState<SubjectVisualData>(EMPTY_VISUAL_DATA)
 
   const [errorMsg, setErrorMsg] = useState<string>()
@@ -46,26 +48,6 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
     visible: false,
     activeTab: '',
   })
-
-  console.log('Rendering SubjectVisual')
-
-  //
-  // Names of categories to be excluded from subject data
-  //
-  const excludedCategories = useMemo(() => {
-    return filteredCategories
-    .filter(category => {
-      return category.filtered
-    })
-    .map(category => category.name)
-  }, [filteredCategories])
-
-  /*
-   * Track the previous value of interval so that
-   * if the context changes and this component re-renders
-   * then we can tell if the interval has changed.
-   */
-  const prevInterval = usePrevious(interval)
 
   const logErrorState = (errorMsg: string, error: Error) => {
     consoleLog({prefix: "Error", message: errorMsg + "\nDetail: ", object: error})
@@ -112,11 +94,8 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
         return prev
       }
 
-      console.log(`Creating new visual data: prev=${prev}`)
-      console.log(prev)
 
       const newVisualData = chartify(interval, rawData)
-      console.log(newVisualData)
       if (deepEqual(prev, newVisualData)) {
         return prev
       }
@@ -125,45 +104,60 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
     })
   }, [])
 
-  const fetchSubjects = useCallback((c: SubjectCriteria) => {
-    if (! c) return
-
+  useEffect(() => {
     setCriteria(prev => {
-      // No critera so will assume existing criteria
-      // New criteria equals existing criteria then nothing to do
-      if (deepEqual(prev, c)) {
-        console.log('Criteria is the same so no update necessary')
+      consoleLog({message: 'Setting Criteria', object: prev})
+      const intervalChanged = ! deepEqual(prev.interval, interval)
+      const subjectChanged = ! deepEqual(prev.subjectId, subject?._id)
+      const exCategoriesChanged = ! deepEqual(prev.excludedCategories, excludedCategories(filteredCategories))
+
+      // The visualData changed but the criteria did not so nothing to do
+      if (!intervalChanged && !subjectChanged && !exCategoriesChanged) {
         return prev
-      } else {
-        console.log('setCriteria: Getting new data')
-        console.log(prev)
-        console.log(c)
       }
 
-      /*
-       * Criteria has changed so time for a new visual data
-       */
+      // Prepare a new criteria object
+      const newCriteria = newSubjectCriteria(interval, subject, filteredCategories)
 
       //
       // If no interval then no data to look up
       //
-      if (! c.interval) {
-        updateVisualData(c.interval, undefined)
-        return c
+      if (! interval) {
+        updateVisualData(interval, undefined)
+        return newCriteria
       }
+
+      //
+      // If filters have changed then a new lookup is required
+      // If they haven't then the change could just be a new selection
+      // within the current visual data
+      //
+      if (!exCategoriesChanged && subjectChanged) {
+        if (isSubjectInVisualData(subject, visualData)) {
+          // Filters not changed and subject in visual data
+          // So only reselection will be required
+          return newCriteria
+        }
+      }
+
+      //
+      // Resets the error
+      //
+      setError(undefined)
+      setErrorMsg(undefined)
 
       //
       // Fetch the subject data from the backend service
       //
       setLoading(true)
-      fetchService.subjectsWithin(c)
+      fetchService.subjectsWithin(newCriteria)
         .then((res) => {
           //
           // Updated results received
           //
           const results: KindResults = res.data
           consoleLog({message: 'fetchSubjects: results', object: results})
-          updateVisualData(c.interval, results)
+          updateVisualData(newCriteria.interval, results)
           setLoading(false)
         })
         .catch((err) => {
@@ -171,9 +165,10 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
           setLoading(false)
         })
 
-      return c
+      return newCriteria
     })
-  }, [updateVisualData])
+
+  }, [interval, subject, filteredCategories, updateVisualData, visualData])
 
   useEffect(() => {
     console.log('Calling useEffect:dimensions in SubjectVisual')
@@ -195,31 +190,6 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
 
     return () => window.removeEventListener("resize", dimensions)
   }, [props.parent])
-
-  useEffect(() => {
-    //
-    // If interval had not changed and is subject
-    // in visualData, ie. already displayed
-    //
-    if (deepEqual(prevInterval, interval) && isSubjectInVisualData(subject, visualData)) {
-      return
-    }
-
-    //
-    // Resets the error
-    //
-    setError(undefined)
-    setErrorMsg(undefined)
-
-    const c: SubjectCriteria = {
-      interval: interval,
-      subjectId: subject ? subject._id : undefined,
-      excludedCategories: excludedCategories
-    }
-
-    fetchSubjects(c)
-
-  }, [interval, subject, visualData, excludedCategories, fetchSubjects])
 
   /*
    * increment or decrement the page of the given kind

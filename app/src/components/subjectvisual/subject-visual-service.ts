@@ -1,5 +1,5 @@
 import { hintService } from '@evotempus/api'
-import { FilteredCategory, Interval, KindResult, KindResults, Page, Subject } from '@evotempus/types'
+import { FilteredCategory, Interval, KindResult, KindResults, Page, Subject, SubjectCriteria } from '@evotempus/types'
 import { consoleLog } from '@evotempus/utils'
 import cloneDeep from 'lodash.clonedeep'
 import { SubjectVisualData } from './globals'
@@ -165,4 +165,22 @@ export function chartify(interval: Interval, rawData: KindResults): SubjectVisua
 
 export function isSubjectInVisualData(subject: Subject | undefined, visualData: SubjectVisualData): boolean {
   return !subject ? false : visualData.lanes.some(lane => lane.subjects.some(s => s._id === subject._id))
+}
+
+export function excludedCategories(filteredCategories: FilteredCategory[]): string[] {
+  return filteredCategories
+    .filter(category => {
+      return category.filtered
+    })
+    .map(category => category.name)
+}
+
+export function newSubjectCriteria(interval: Interval|undefined, subject: Subject|undefined, filteredCategories: FilteredCategory[]): SubjectCriteria {
+  const c: SubjectCriteria = {
+    interval: interval,
+    subjectId: subject ? subject._id : undefined,
+    excludedCategories: excludedCategories(filteredCategories)
+  }
+
+  return c
 }

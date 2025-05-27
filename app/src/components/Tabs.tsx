@@ -82,7 +82,7 @@ export const Tab: React.FunctionComponent<TabProps> = (props: TabProps) => {
   }
 
   return (
-    <li key='{props.title}' className={className} onClick={onClick}>
+    <li id={props.title} key={props.title} className={className} onClick={onClick}>
       {props.title}
     </li>
   )

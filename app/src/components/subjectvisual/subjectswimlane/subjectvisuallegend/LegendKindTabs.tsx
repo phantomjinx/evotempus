@@ -112,11 +112,11 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
       items.push(
         // Ignore the entryCount attribute not being a recognised property of <div>
         // @ts-ignore
-        <div title={kind} entryCount={0} className="subject-visual-legend-paginate">
+        <li key={kind} title={kind} entrycount={0} className="subject-visual-legend-paginate">
           <div className="subject-visual-legend-items">
             <p className="subject-legend-content-none-found">No categories</p>
           </div>
-        </div>
+        </li>
       )
     }
     else {
@@ -178,7 +178,7 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
     return (
       // Ignore the entryCount attribute not being a recognised property of <div>
       // @ts-ignore
-      <div title={kind} entryCount={items.length}>
+      <div key={kind} title={kind} entrycount={items.length}>
         {p.pagination}
         <div className="subject-visual-legend-items">
           <ul className="subject-visual-legend-items-inner">

@@ -8,16 +8,9 @@ import microIcon from '@evotempus/assets/images/micro-icon.png'
 import fungusIcon from '@evotempus/assets/images/fungus-icon.png'
 import plantIcon from '@evotempus/assets/images/plant-icon.png'
 
-/*
- * Defined using webpack variable injection. Value is provided
- * by DotEnvPlugin in respective mode webpack config env files
- */
-export const DEBUG = process.env.DEBUG
-
 export const million = 1000000
 export const thousand = 1000
 export const wikiLink = 'https://en.wikipedia.org/wiki/'
-
 
 export function displayYear(year: number): string {
   if (Math.abs(year) > million)
@@ -48,23 +41,6 @@ export function idToTitle(id: string) {
   }
 
   return s.join(' ')
-}
-
-export interface LogConfig {
-  prefix?: string
-  message?: string
-  object?: unknown
-}
-
-export function consoleLog(logging: LogConfig) {
-  if (!DEBUG) {
-    return
-  }
-
-  const msg: string = (logging.prefix ? logging.prefix + ': ' : '') + (logging.message ? logging.message : '')
-
-  if (msg.length > 0) console.log(msg)
-  if (logging.object) console.log(logging.object)
 }
 
 export function isObject(value: unknown): value is object {

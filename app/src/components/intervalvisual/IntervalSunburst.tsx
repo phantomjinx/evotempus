@@ -3,7 +3,7 @@ import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } 
 import { select as d3Select } from 'd3-selection'
 import { Interval } from '@evotempus/types'
 import { AppContext } from '@evotempus/components/app'
-import { consoleLog } from '@evotempus/utils'
+import { log, logError } from '@evotempus/utils'
 import { useElementSize } from './../useElement'
 import * as service from './interval-sunburst-service'
 import './IntervalVisual.scss'
@@ -76,10 +76,6 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
       // Cache the result of arcVisible for quick reads later
       //
       d.data.visible = service.arcVisible(d.data.current)
-
-      // consoleLog({prefix: 'partition', message: d.data.id() + ' has depth of ' + d.depth});
-      // consoleLog({prefix: 'partition', message: d.data.id() + ' has coordinates of ' + '(x0: ' + d.x0 + ', x1: ' + d.x1 + ', y0: ' + d.y0 + ', y1: ' + d.y1 + ')'});
-      // consoleLog({prefix: 'partition', message: d.data.id() + ' has visible of ' + d.data.visible});
     })
 
     // Set rootNode initially visible
@@ -118,7 +114,7 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
     }
 
     if (!toSelect) {
-      consoleLog({ prefix: 'Error', message: 'Selection not in graph - something has gone awry!' })
+      logError({ prefix: 'IntervalSunburst', message: 'Selection not in graph - something has gone awry!' })
     }
 
     setSelected(toSelect)
@@ -134,7 +130,7 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
     if (!intervalNode) return
 
     if (!parent || !rootNode) {
-      consoleLog({ prefix: 'IntervalSunburst', message: 'Development issue: parent should not be null?' })
+      logError({ prefix: 'IntervalSunburst', message: 'Development issue: parent should not be null?' })
       return
     }
 

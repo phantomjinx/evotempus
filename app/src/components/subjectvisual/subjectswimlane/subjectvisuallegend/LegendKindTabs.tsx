@@ -5,7 +5,7 @@ import { hintService } from '@evotempus/api'
 import { Tabs } from '@evotempus/components'
 import { FilteredCategory, Legend } from '@evotempus/types'
 import { CategoryNode } from './globals'
-import { identifier, wikiLink } from '@evotempus/utils'
+import { identifier, logDebug, wikiLink } from '@evotempus/utils'
 
 interface KindPage {
   kind: string
@@ -32,7 +32,7 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
   const [kindPages, setKindPages] = useState<KindPage[]>([])
 
   const cacheActiveTab = (tabName: string) => {
-    console.log(`Caching Active Tab: ${tabName}`)
+    logDebug({prefix: 'LegendKindTabs', message: `Caching Active Tab: ${tabName}`})
     props.onUpdateLegend({
       activeTab: tabName,
       visible: props.legend.visible
@@ -70,6 +70,7 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
   }
 
   const applyFilter = () => {
+    logDebug({prefix: 'LegendKindTabs', message: 'Applying Filter ...'})
     props.onChangedCategories(changedNodes)
   }
 

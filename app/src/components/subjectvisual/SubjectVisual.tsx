@@ -3,7 +3,7 @@ import cloneDeep from "lodash.clonedeep"
 import { fetchService } from '@evotempus/api'
 import { Loading } from '@evotempus/layout'
 import { FilteredCategory, Interval, KindResults, Legend, Subject, SubjectCriteria } from '@evotempus/types'
-import { consoleLog, deepEqual } from '@evotempus/utils'
+import { log, deepEqual, logDebug, logError } from '@evotempus/utils'
 import { AppContext } from '@evotempus/components/app'
 import { ErrorMsg } from '../ErrorMsg'
 import { chartify, excludedCategories, isSubjectInVisualData, newSubjectCriteria } from './subject-visual-service'
@@ -50,7 +50,7 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
   })
 
   const logErrorState = (errorMsg: string, error: Error) => {
-    consoleLog({prefix: "Error", message: errorMsg + "\nDetail: ", object: error})
+    logError({prefix: "SubjectVisual", message: errorMsg + "\nDetail: ", object: error})
     setErrorMsg(errorMsg)
     setError(error)
     setLoading(false)
@@ -66,6 +66,8 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
     // Update the visual data if there are different raw result data
     //
     setVisualData((prev) => {
+      logDebug({prefix: 'SubjectVisual', message: 'Setting new visual data'})
+
       //
       // Construct a new rawData set based on prev.raw
       //
@@ -75,6 +77,7 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
         rawData = newRawData
       }
       else {
+        logDebug({prefix: 'SubjectVisual', message: 'Updating with new visual data'})
         // newRawData may be only a subset if page and kind had been
         // specified so only a subset of the rawData would be overwritten
         rawData = cloneDeep(prev.raw)
@@ -85,17 +88,22 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
           })
       }
 
+      logDebug({prefix: 'SubjectVisual', message: 'updating raw data', object: rawData})
+
       //
       // If Results is the same as before so no point
       // re-chartify the visual data
       //
       if (deepEqual(prev.raw, rawData)) {
-        console.log('results are the same. Returning prev visual data')
+        logDebug({prefix: 'SubjectVisual', message: 'results are the same. Returning prev visual data'})
         return prev
       }
 
+      logDebug({message: 'Creating new visual data - prev', object: prev})
 
       const newVisualData = chartify(interval, rawData)
+
+      logDebug({message: 'Creating new visual data - newVisualData', object: newVisualData})
       if (deepEqual(prev, newVisualData)) {
         return prev
       }
@@ -106,7 +114,7 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
 
   useEffect(() => {
     setCriteria(prev => {
-      consoleLog({message: 'Setting Criteria', object: prev})
+      logDebug({prefix: 'SubjectVisual', message: 'Setting Criteria', object: prev})
       const intervalChanged = ! deepEqual(prev.interval, interval)
       const subjectChanged = ! deepEqual(prev.subjectId, subject?._id)
       const exCategoriesChanged = ! deepEqual(prev.excludedCategories, excludedCategories(filteredCategories))
@@ -156,7 +164,7 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
           // Updated results received
           //
           const results: KindResults = res.data
-          consoleLog({message: 'fetchSubjects: results', object: results})
+          logDebug({prefix: 'SubjectVisual', message: 'fetchSubjects: results', object: results})
           updateVisualData(newCriteria.interval, results)
           setLoading(false)
         })
@@ -171,7 +179,7 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
   }, [interval, subject, filteredCategories, updateVisualData, visualData])
 
   useEffect(() => {
-    console.log('Calling useEffect:dimensions in SubjectVisual')
+    logDebug({prefix: 'SubjectVisual', message: 'Calling useEffect:dimensions in SubjectVisual'})
     const dimensions = () => {
       if (!props.parent || !props.parent.current) {
         return

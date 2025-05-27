@@ -7,7 +7,7 @@ import { fetchService, hintService } from '@evotempus/api'
 import { FilteredCategory, Interval, Subject, Topic, TopicRequest, TopicTarget, TopicType } from '@evotempus/types'
 import { IntervalVisual, Search, HelpPage, Wiki } from '@evotempus/components'
 import { SubjectVisual } from '@evotempus/components'
-import {  consoleLog, present, isSubject, isInterval } from '@evotempus/utils'
+import {  log, present, isSubject, isInterval, logError } from '@evotempus/utils'
 import wikiLogoV2 from '@evotempus/assets/images/wikipedia-logo-v2.svg'
 import geoclock from '@evotempus/assets/images/geologic-clock.png'
 import { Loading } from '@evotempus/layout'
@@ -35,7 +35,7 @@ export const App: React.FunctionComponent = () => {
   const subjectVisualRef = useRef<HTMLDivElement>(null)
 
   const logErrorState = (errorMsg: string, error: Error) => {
-    consoleLog({ prefix: 'Error', message: errorMsg + '\nDetail: ', object: error })
+    logError({ prefix: 'App', message: errorMsg + '\nDetail: ', object: error })
     setErrorMsg(errorMsg)
     setError(error)
   }

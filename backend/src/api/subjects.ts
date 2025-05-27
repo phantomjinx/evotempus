@@ -249,7 +249,9 @@ subjectApi.post('/', async (req, res, next) => {
       // If page is defined then drop subject
       // If page not defined then try and return page with subject
       //
+      console.log(`Returning subject query - kind: ${kind} page: ${page} subjectId: ${subjectId} subjectPageIdx: ${subjectPageIdx}`)
       if (page) {
+        console.log('Page Defined')
         // page is defined as minimum of 1 as start so subtract 1 to get array position
         // kindResult.pages = pages.slice((page - 1), page)
         kindResult.pages = pages
@@ -260,6 +262,7 @@ subjectApi.post('/', async (req, res, next) => {
         kindResult.pages = pages
         kindResult.page = (subjectPageIdx + 1)
       } else {
+        console.log('Page NOT defined and subjectId not defined and subjectPageIdx < 0')
         kindResult.pages = pages
         kindResult.page = 1
       }

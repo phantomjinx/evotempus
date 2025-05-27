@@ -5,6 +5,7 @@ import './SubjectVisualLegend.scss'
 import { initCategoryNodes } from './subject-visual-legend-service'
 import { CategoryNode } from './globals'
 import { LegendKindTabs } from './LegendKindTabs'
+import { log, logDebug } from '@evotempus/utils'
 
 type SubjectVisualLegendProps = {
   height: number
@@ -29,6 +30,7 @@ export const SubjectVisualLegend: React.FunctionComponent<SubjectVisualLegendPro
   }
 
   const onChangedCategories = (changedCategories: CategoryNode[]) => {
+    logDebug({prefix: 'SubjectVisualLegend', message: 'onChangedCategories', object: changedCategories})
     const categories = [...props.categories]
 
     for (let i = 0; i < changedCategories.length; ++i) {

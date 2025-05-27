@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { ScaleLinear, scaleOrdinal as d3ScaleOrdinal } from 'd3-scale'
 import { fetchService, hintService } from '@evotempus/api'
 import { Interval, Subject } from '@evotempus/types'
-import { displayYear, identifier } from "@evotempus/utils"
+import { displayYear, identifier, logDebug } from "@evotempus/utils"
 import { clickDelay, SubjectVisualData, SwimLaneAspect } from "../globals"
 import * as service from './subject-swimlane-service'
 
@@ -54,7 +54,7 @@ export const Subjects: React.FunctionComponent<SubjectsProps> = (props: Subjects
   }
 
   const handleVisualDoubleClick = (event: React.MouseEvent<SVGRectElement, MouseEvent>, subject: Subject) => {
-    console.log('handleVisualDoubleClick')
+    logDebug({prefix: 'Subjects', message: 'handleVisualDoubleClick'})
 
     //
     // Prevent the single click firing when

@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { fetchService } from '@evotempus/api'
 import { Topic, TopicRequest } from '@evotempus/types'
-import { consoleLog } from '@evotempus/utils'
+import { log, logError } from '@evotempus/utils'
 import './Wiki.scss'
 import { Header } from './Header'
 import { Footer } from './Footer'
@@ -21,7 +21,7 @@ export const Wiki: React.FunctionComponent<WikiProps> = (props: WikiProps) => {
   const [errorMsg, setErrorMsg] = useState<string>('')
 
   const logErrorState = (errorMsg: string, error: Error) => {
-    consoleLog({prefix: 'Wiki', message: "Error: " + errorMsg, object: error})
+    logError({prefix: 'Wiki', message: "Error: " + errorMsg, object: error})
     setErrorMsg(errorMsg)
     setError(error)
     setLoading(false)

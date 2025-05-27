@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Loading } from '@evotempus/layout'
 import { fetchService } from '@evotempus/api'
 import { Interval } from '@evotempus/types'
-import { consoleLog } from '@evotempus/utils'
+import { log, logError } from '@evotempus/utils'
 import { ErrorMsg } from '../ErrorMsg'
 import { AppContext } from '@evotempus/components/app'
 import { IntervalSunburst } from './IntervalSunburst'
@@ -17,7 +17,7 @@ export const IntervalVisual: React.FunctionComponent = () => {
   const [visualIntervals, setVisualIntervals] = useState<Interval[]>([])
 
   const logErrorState = (errorMsg: string, error: Error) => {
-    consoleLog({ prefix: 'Error', message: errorMsg + '\nDetail: ', object: error })
+    logError({ prefix: 'IntervalVisual', message: errorMsg + '\nDetail: ', object: error })
 
     setErrorMsg(errorMsg)
     setError(error)

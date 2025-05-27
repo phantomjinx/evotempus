@@ -1,6 +1,6 @@
 import { hintService } from '@evotempus/api'
 import { FilteredCategory, Interval, KindResult, KindResults, Page, Subject, SubjectCriteria } from '@evotempus/types'
-import { consoleLog } from '@evotempus/utils'
+import { log, logDebug } from '@evotempus/utils'
 import cloneDeep from 'lodash.clonedeep'
 import { SubjectVisualData } from './globals'
 
@@ -26,6 +26,8 @@ function emptyPage(): Page {
 }
 
 export function chartify(interval: Interval, rawData: KindResults): SubjectVisualData {
+  logDebug({prefix: 'SubjectVisualService', message: 'Charifying raw data', object: rawData})
+
   //
   // Base object to return results
   //
@@ -53,12 +55,14 @@ export function chartify(interval: Interval, rawData: KindResults): SubjectVisua
     if (! rawData[kind])
       continue
 
-    console.log(`Raw Data Kind ${kind} Page is ${rawData[kind].page}`)
+    logDebug({prefix: 'SubjectVisualService', message: `Raw Data Kind ${kind} Page is ${rawData[kind].page}`})
 
     //
     // Clone the raw data so we can enhance it
     //
     const enhanced: KindResult = cloneDeep(rawData[kind])
+
+    logDebug({prefix: 'SubjectVisualService', message: 'Enhanced Data', object: enhanced})
 
     categorySet = new Set([...categorySet])
     if (enhanced.categories) {
@@ -67,9 +71,12 @@ export function chartify(interval: Interval, rawData: KindResults): SubjectVisua
 
     let page: Page
     const pageIdx = (enhanced.page - 1)
+    logDebug({prefix: 'SubjectVisualService', message: `Kind: ${kind} pageIdx: ${pageIdx} enhanced.pages.length: ${enhanced.pages.length}`})
     if (enhanced.pages.length > 0 && pageIdx >= 0 && pageIdx < enhanced.pages.length) {
+      logDebug({prefix: 'SubjectVisualService', message: `Kind: ${kind} pages not empty and pageIdx >= 0 and pageIdx < pages`})
       page = enhanced.pages[pageIdx]
     } else {
+      logDebug({prefix: 'SubjectVisualService', message: `Kind: ${kind} pages was empty or pageIdx less < 0 or pageIdx > pages`})
       //
       // pages was empty
       // pageIdx was less than 0 so show no data
@@ -146,7 +153,7 @@ export function chartify(interval: Interval, rawData: KindResults): SubjectVisua
       laneIdx++
     }
 
-    console.log(`Kind ${kind} Page is ${rawData[kind].page}`)
+    logDebug({prefix: 'SubjectVisualService', message: `Kind ${kind} Page is ${rawData[kind].page}`})
     visualData.kinds.push({
       name: kind,
       lanes: page.lanes.length,
@@ -159,7 +166,7 @@ export function chartify(interval: Interval, rawData: KindResults): SubjectVisua
   }
 
   visualData.categoryNames = Array.from(categorySet)
-  consoleLog({message: '=== VISUAL DATA', object: visualData})
+  logDebug({prefix: 'SubjectVisualService', message: '=== VISUAL DATA ===', object: visualData})
   return visualData
 }
 

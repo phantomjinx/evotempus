@@ -22,9 +22,8 @@
 import express from 'express'
 import session, { SessionOptions } from 'express-session'
 import MongoStore from 'connect-mongo'
-import { CollectionInfo } from 'mongodb'
+
 import helmet from 'helmet'
-import mongoose, { Connection } from 'mongoose'
 import path from 'path'
 import methodOverride from 'method-override'
 import cors from 'cors'
@@ -33,69 +32,44 @@ import { customErrorHandler } from './error-handler'
 import { SubjectModel, IntervalModel, TopicModel } from './models'
 
 import { logger, expressLogger } from './logger'
-import { EvoDb, evoDb } from './connection'
+import { EvoDbManager } from './connection'
 import { evoDataConfig } from './config'
-import * as importing from './import'
+import { Importer } from './import'
 import * as utils from './utils'
 
 import { intervalApi, subjectApi, topicApi, hintApi, searchApi } from './api'
+import mongoose from 'mongoose'
 
 export const app = express()
 
-const environment = process.env.NODE_ENV || 'development'
+const environment = process.env.NODE_ENV ?? 'development'
+const mongoDbURI = process.env.MONGODB_URI ?? 'mongodb://localhost/evotempus'
 const doImport = utils.toBoolean(process.env.IMPORT_DB, true)
 const dropCollections = utils.toBoolean(process.env.DROP_COLLECTIONS, true)
-const mongoDbURI = process.env.MONGODB_URI || 'mongodb://localhost/evotempus'
-const port = process.env.PORT || 3000
+const user = process.env.USER ?? ''
+const pass = process.env.PASS ?? ''
+const port = process.env.PORT ?? 3001
 
 console.log('**************************************')
 console.log(`* Environment:      ${environment}`)
 console.log(`* Do Import:        ${doImport}`)
 console.log(`* Drop Collections: ${dropCollections}`)
 console.log(`* Mongo Db URI:     ${mongoDbURI}`)
+console.log(`* Mongo Db User:    ${user}`)
+console.log(`* Mongo Db Pass:    ${'*'.repeat(pass.length)}`)
 console.log(`* Server Port:      ${port}`)
+console.log(`* Log Level:        ${process.env.LOG_LEVEL}`)
 console.log('**************************************')
+
+const evoDb = new EvoDbManager(user, pass, dropCollections)
 
 //
 // Load categories in first
 // The load subject, if no category then do not use - rules out phylum unspecified
 //
 
-function checkEvoDbConn(conn: Connection|undefined): conn is Connection {
-  if (! conn) {
-    console.trace()
-    logger.error('ERROR: Database connection failed.')
-    evoDb.terminate()
-  }
-
-  return (conn as Connection).db !== undefined
-}
-
-async function cleanDb(evoDb: EvoDb): Promise<void> {
-  checkEvoDbConn(evoDb.conn)
-
-  if (!dropCollections) {
-    logger.info('Dropping collections not enabled')
-    return
-  }
-
-  logger.debug('INFO: Dropping collections from database')
-
-  const collections = await evoDb?.conn?.db.listCollections().toArray() || []
-  for (let i = 0; i < collections.length; ++i) {
-    const collection = collections[i] as CollectionInfo
-
-    if (collection.name === 'intervals' || collection.name === 'subjects' ||
-        collection.name === 'topics' ||collection.name === 'hints') {
-        await evoDb?.conn?.db.dropCollection(collection.name)
-    }
-  }
-
-  logger.debug('INFO: Dropping collections from database completed')
-}
-
-async function importDbData(evoDb: EvoDb) {
-  checkEvoDbConn(evoDb.conn)
+async function importDbData() {
+  evoDb.checkConn()
 
   if (!doImport) {
     return
@@ -104,18 +78,20 @@ async function importDbData(evoDb: EvoDb) {
   logger.info("INFO: Database importing commencing ...")
 
   try {
+    const importer = new Importer(evoDb)
+
     // Import the data if required into database
-    await importing.importIntervals(evoDataConfig.intervals)
+    await importer.importIntervals(evoDataConfig.intervals)
 
-    await importing.importIntervalTopics(evoDataConfig.intervalTopics)
+    await importer.importIntervalTopics(evoDataConfig.intervalTopics)
 
-    await importing.importHints(evoDataConfig.hints)
+    await importer.importHints(evoDataConfig.hints)
 
-    await importing.importSubjects(evoDataConfig.subjects)
+    await importer.importSubjects(evoDataConfig.subjects)
 
-    await importing.importTags(evoDataConfig.tags)
+    await importer.importTags(evoDataConfig.tags)
 
-    importing.reportStats()
+    importer.reportStats()
 
     logger.info("INFO: Database importing complete")
 
@@ -142,8 +118,8 @@ async function indexDb() {
   logger.debug("INFO: Database indexing complete")
 }
 
-function init(evoDb: EvoDb) {
-  checkEvoDbConn(evoDb.conn)
+function initApi() {
+  evoDb.checkConn()
 
   logger.debug("INFO: Initialising the server application on port " + port)
 
@@ -187,7 +163,6 @@ function init(evoDb: EvoDb) {
   // Cross Origin Support
   app.use(cors())
 
-
   // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
   app.use(methodOverride('X-HTTP-Method-Override'))
 
@@ -225,9 +200,6 @@ function init(evoDb: EvoDb) {
 // connect to our mongoDB database
 mongoose.set('debug', process.env.LOG_LEVEL === 'debug')
 
-console.log(mongoDbURI)
-console.log(evoDb)
-
 mongoose.connect(mongoDbURI, evoDb.options)
   .catch(error => {
     logger.error(error)
@@ -249,15 +221,15 @@ process.on('unhandledRejection', (err) => {
 
 async function prepareDatabase() {
   try {
-    await cleanDb(evoDb)
+    await evoDb.clean()
 
-    await importDbData(evoDb)
+    await importDbData()
 
     await indexDb()
 
     // await groupSubjects(evoDb.conn)
 
-    init(evoDb)
+    initApi()
   } catch (err) {
     logger.error(err)
     evoDb.terminate()
@@ -265,8 +237,7 @@ async function prepareDatabase() {
 }
 
 mongoose.connection.once('open', () => {
-  evoDb.conn = mongoose.connection
-  checkEvoDbConn(evoDb.conn)
+  evoDb.setConn(mongoose.connection)
   logger.info('INFO: Connection established to database on ' + evoDb.conn?.host + ":" + evoDb.conn?.port)
   prepareDatabase()
 })

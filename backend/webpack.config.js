@@ -1,11 +1,17 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 const NodemonPlugin = require('nodemon-webpack-plugin')
+const dotenv = require('dotenv')
 
+dotenv.config()
+
+/*
+ * env will hold dropCollections and importDB
+ */
 module.exports = (env) => {
   return {
     entry: './src/mongo-rest-api.ts',
-    mode: env.buildType,
+    mode: process.env.buildType,
     target: 'node',
 
     module: {
@@ -37,12 +43,14 @@ module.exports = (env) => {
 
         // Environment variables to pass to the script to be restarted
         env: {
-          NODE_ENV: env.build || 'development',
-          MONGODB_URI: 'mongodb://localhost/evotempus',
-          DROP_COLLECTIONS: env.dropCollections || false,
-          IMPORT_DB: env.importDB || false,
-          PORT: env.port || 3001,
-          LOG_LEVEL: env.logLevel || 'info'
+          NODE_ENV: process.env.build ?? 'development',
+          MONGODB_URI: 'mongodb://127.0.0.1:27017/evotempus',
+          DROP_COLLECTIONS: env.dropCollections ?? false,
+          IMPORT_DB: env.importDB ?? false,
+          USER: process.env.user ?? '',
+          PASS: process.env.pass ?? '',
+          PORT: process.env.port ?? 3001,
+          LOG_LEVEL: process.env.logLevel ?? 'info'
         },
       }),
     ],

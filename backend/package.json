@@ -3,8 +3,8 @@
   "version": "0.5.0",
   "main": "src/server.js",
   "scripts": {
-    "dev:start":  "webpack --watch --env buildType='development' --env port=3001 --env dropCollections=false --env importDB=false --env logLevel='debug'",
-    "dev:import": "webpack --watch --env buildType='development' --env port=3001 --env dropCollections=true --env importDB=true --env logLevel='debug'",
+    "dev:start": "webpack --watch --env dropCollections=false --env importDB=false --env logLevel='debug'",
+    "dev:import": "webpack --watch --env dropCollections=true --env importDB=true --env logLevel='debug'",
     "build": "webpack --env buildType='production'",
     "start": "node dist/mongo-rest-api.js",
     "lint": "eslint src/",
@@ -33,6 +33,7 @@
     "body-parser": "^1.20.2",
     "connect-mongo": "^5.0.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "errorhandler": "^1.5.1",
     "express": "^4.18.2",
     "express-pino-logger": "^7.0.0",

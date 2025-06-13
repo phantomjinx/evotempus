@@ -18,17 +18,17 @@
  /* jshint node: true */
  'use strict'
 
-import { HydratedDocument } from 'mongoose'
+import { Model, Document } from 'mongoose'
 import { logger } from './logger'
 import fs from 'fs'
 import path from 'path'
-import readlines from 'n-readlines'
+import readline from 'readline'
 import * as utils from './utils'
 
 import {
   ISubject, SubjectModel,
   IInterval, IntervalModel,
-  TopicModel, HintModel, IHint } from './models'
+  TopicModel, HintModel, IHint, ITopic } from './models'
 import { EvoDbManager } from './connection'
 
 export interface ImportStats {
@@ -36,13 +36,39 @@ export interface ImportStats {
   hints: number,
   topics: number,
   subjects: number,
-  ignoredSubjects: number
+  noLinkSubjects: number
+  noGenusSubjects: number
+  problematicaSubjects: number
 }
 
-type ImportFn = ((dataRow: string[], minimumCols: number) => Promise<void>)
+type TaggableItem = {
+  id: string,
+  tag: string
+}
+
+/**
+ * A specific, self-defined type for our upsert operation object.
+ * It's a generic type that works for any document shape.
+ */
+type UpsertOperation<T> = {
+  updateOne: {
+    filter: object
+    update: object
+    upsert?: boolean
+  }
+}
+
+type Tuple = string[]
+type Tuples = Tuple[]
+
+type TupleFn = (tuple: Tuple) => Promise<void>
+
+// The transform function now knows what shape of object it should return
+type BulkTransformFn<T> = (tuple: Tuple, minimumCols: number) => UpsertOperation<T> | null
 
 export class Importer {
 
+  private readonly batchSize = 500
   private stats: ImportStats
 
   constructor(private readonly evoDb: EvoDbManager) {
@@ -51,7 +77,9 @@ export class Importer {
      hints: 0,
      topics: 0,
      subjects: 0,
-     ignoredSubjects: 0
+     noLinkSubjects: 0,
+     noGenusSubjects: 0,
+     problematicaSubjects: 0,
    }
   }
 
@@ -62,7 +90,7 @@ export class Importer {
     return typeof value === 'string'
   }
 
-  private expectPopulated(dataArr: string[], dataType: string, expectedSize: number) {
+  private expectPopulated(dataArr: Tuple, dataType: string, expectedSize: number) {
     try {
       if (dataArr.length < expectedSize) {
         throw new Error(`ERROR: Number of ${dataType} columns in data is less than expected: [${dataArr}]: { actual: ${dataArr.length}, expected: ${expectedSize} }`)
@@ -78,146 +106,33 @@ export class Importer {
     }
   }
 
-  private async createTopic(dataRow: string[], topicTgt: string, minimumCols: number) {
-    this.expectPopulated(dataRow, 'topic', minimumCols)
-
-    //
-    // Ensure all whitespace is removed
-    //
-    const topicId = utils.trim(dataRow[0])
-    const linkId = utils.trim(dataRow[1])
-    topicTgt = topicTgt.trim()
-
-    const existing = await TopicModel.findOne({topic: topicId}).exec()
-    if (existing) return
-
-    // New id subject
-    const newTopic = new TopicModel({
-      topic: topicId,
-      linkId: linkId,
-      topicTarget: topicTgt
-    })
-    await newTopic.save()
-
-    this.stats.topics++
-  }
-
-  private async createSubjectTopic(dataRow: string[], minimumCols: number) {
-    this.createTopic(dataRow, 'Subject', minimumCols)
-  }
-
-  private async createSubject(
-    id: string, name: string, kind: string, category: string,
-    from: number, to: number, linkId: string, tags: string[]) {
-
-    if (id === 'NO_GENUS_SPECIFIED') {
-      logger.debug('Ignoring row with no genus: %s %s %s %s %d %d', id, name, kind, category, from, to)
-      return
-    }
-
-    if (category === 'Problematica') {
-      logger.debug('Ignoring row with problematic phylum: %s %s %s %s %d %d', id, name, kind, category, from, to)
-      return
-    }
-
-    logger.debug('Creating subject: id: ' + id + ' kind: ' + kind + ' category: ' + category + ' from: ' + from + ' to: ' + to + ' tags: ' + tags.toString())
-
-    tags = tags.filter((item) => item.length === 0)
-
-    // New id subject
-    const newSubject = new SubjectModel({
-      _id: id,
-      name: name,
-      kind: kind,
-      category: category,
-      from: from,
-      to: to,
-      tags: tags
-    })
-
-    await newSubject.save()
-    await this.createSubjectTopic([id, linkId], 2)
-
-    this.stats.subjects++
-  }
-
-  private async updateSubject(
-    subject: HydratedDocument<ISubject>, id: string, name: string, kind: string,
-    category: string, from: number, to: number, tags: string[]) {
-
-    logger.debug('Updating subject: id: ' + id + ' kind: ' + kind + ' category: ' + category + ' from: ' + from + ' to: ' + to + ' tags: ' + tags.toString())
-
-    // Subject exists so need to check and update
-    if (subject.name !== name) {
-      logger.error('ERROR: The subject %s being imported has name %s but existing subject has name %s', id, name, subject.name)
-      this.evoDb.terminate()
-    }
-
-    if (subject.kind !== kind) {
-      logger.error('ERROR: The subject %s being imported has kind %s but existing subject has kind %s', id, kind, subject.kind)
-      this.evoDb.terminate()
-    }
-
-    if (subject.category !== category) {
-      logger.error('ERROR: The subject %s being imported has category %s but existing subject has category %s', id, category, subject.category)
-      this.evoDb.terminate()
-    }
-
-    // Determine widest time span possible
-    if (from < subject.from) {
-      subject.from = from
-    }
-
-    if (to > subject.to) {
-      subject.to = to
-    }
-
-    if (tags.length > 0) {
-      const dTags = tags.concat(subject.tags)
-      subject.tags = dTags.filter((item, pos) => {
-        return item.length === 0 || dTags.indexOf(item) === pos
-      })
-    }
-
-    await subject.save()
-  }
-
   /************************************************
    * ARROW METHODS CALLED AS ImportFn
    * (Need to preserve this binding)
    */
-  private createInterval = async (dataRow: string[], minimumCols: number) => {
-    this.expectPopulated(dataRow, 'interval', minimumCols)
 
-    const id = utils.trim(dataRow[0])
+  private transformIntervalData: BulkTransformFn<IInterval> = (tuple: Tuple, minimumCols: number) => {
+    this.expectPopulated(tuple, 'interval', minimumCols)
+
+    const id = utils.trim(tuple[0])
     const name = utils.displayName(id)
-    const kind = utils.trim(dataRow[1])
-    const from = utils.parseNumber(utils.trim(dataRow[2]), id)
-    const to = utils.parseNumber(utils.trim(dataRow[3]), id)
-    const parent = utils.trim(dataRow[4])
+    const kind = utils.trim(tuple[1])
+    const from = utils.parseNumber(utils.trim(tuple[2]), id)
+    const to = utils.parseNumber(utils.trim(tuple[3]), id)
+    const parent = utils.trim(tuple[4])
 
     let children: string[] = []
-    if (dataRow.length > 5 && this.isString(dataRow[5])) {
-      children = dataRow[5].split(',')
-      //
-      // Check the children for empty dataRow
-      //
-      const c = []
-      for (let i = 0; i < children.length; i++) {
-        let childData = children[i] || ''
-        childData = childData.trim()
 
-        if (childData.length > 0) {
-          c.push(childData)
-        }
-      }
-      children = c
+    if (tuple.length > 5 && this.isString(tuple[5])) {
+      //
+      // Check the children for empty tuple
+      //
+      children = tuple[5].split(',')
+        .map(child => (child ?? '').trim())
+        .filter(child => child.length > 0)
     }
 
-    const existing = await IntervalModel.findById(id).exec()
-    if (existing) return
-
-    const set: IInterval = {
+    const documentData: Partial<IInterval> = {
       _id: id,
       name: name,
       kind: kind,
@@ -231,22 +146,61 @@ export class Importer {
     // Only insert a children array if not empty
     //
     if (children.length > 0) {
-      set.children = children
+      documentData.children = children
     }
 
-    // New interval
-    const newInterval = new IntervalModel(set)
-    await newInterval.save()
-
     this.stats.intervals++
+
+    const uniqueFilter = { _id: id }
+
+    // This return type matches our explicit `UpsertOperation` type.
+    return {
+      updateOne: {
+        filter: uniqueFilter,
+        update: { $set: documentData },
+        upsert: true
+      }
+    }
   }
 
-  private createIntervalTopic = async (dataRow: string[], minimumCols: number) => {
-    this.createTopic(dataRow, 'Interval', minimumCols)
+  private transformTopicData(id: string, linkId: string|null, target: string): UpsertOperation<ITopic> | null {
+    if (! linkId) return null
+
+    // New id topic
+    const documentData: Partial<ITopic> = {
+      topic: id,
+      linkId: linkId,
+      topicTarget: target
+    }
+
+    this.stats.topics++
+
+    const uniqueFilter = { topic: id }
+
+    // This return type matches our explicit `UpsertOperation` type.
+    return {
+      updateOne: {
+        filter: uniqueFilter,
+        update: { $set: documentData },
+        upsert: true
+      }
+    }
   }
 
-  private createHint = async (dataRow: string[], minimumCols: number) => {
-    this.expectPopulated(dataRow, 'hint', minimumCols)
+  private transformIntervalTopicData: BulkTransformFn<ITopic> = (tuple: Tuple, minimumCols: number) => {
+    this.expectPopulated(tuple, 'Interval', minimumCols)
+
+    //
+    // Ensure all whitespace is removed
+    //
+    const topicId = utils.trim(tuple[0])
+    const linkId = utils.trim(tuple[1])
+
+    return this.transformTopicData(topicId, linkId, 'Interval')
+  }
+
+  private transformHintData: BulkTransformFn<IHint> = (tuple: Tuple, minimumCols: number) => {
+    this.expectPopulated(tuple, 'hint', minimumCols)
 
     const calcOrder = (orderStr: string, id: string): number => {
       let order = 0
@@ -259,153 +213,280 @@ export class Importer {
     //
     // Ensure all whitespace is removed
     //
-    const id = utils.trim(dataRow[0])
+    const id = utils.trim(tuple[0])
 
-    const existing = await HintModel.findById(id).exec()
-    if (existing) return
-
-    const set: IHint = {
+    const documentData: Partial<IHint> = {
       _id: id,
-      type: utils.trim(dataRow[1]),
-      parent: utils.replaceNoValue(dataRow[2]),
-      colour: utils.replaceNoValue(dataRow[3]),
-      link: utils.replaceNoValue(dataRow[4]),
-      order: calcOrder(utils.trim(dataRow[5]), id)
+      type: utils.trim(tuple[1]),
+      parent: utils.replaceNoValue(tuple[2]),
+      colour: utils.replaceNoValue(tuple[3]),
+      link: utils.replaceNoValue(tuple[4]),
+      order: calcOrder(utils.trim(tuple[5]), id)
     }
 
-    logger.debug(`Creating hint`)
-    logger.debug(set)
-
-    // New Hint
-    const newHint = new HintModel(set)
-    await newHint.save()
-
     this.stats.hints++
+
+    const uniqueFilter = { _id: id }
+
+    // This return type matches our explicit `UpsertOperation` type.
+    return {
+      updateOne: {
+        filter: uniqueFilter,
+        update: { $set: documentData },
+        upsert: true
+      }
+    }
   }
 
-  private createOrUpdateSubject = async (dataRow: string[], minimumCols: number) => {
-    this.expectPopulated(dataRow, 'subject', minimumCols)
+  private transformTupleToSubject(tuple: Tuple, minimumCols: number): Partial<ISubject> | null {
+    this.expectPopulated(tuple, 'subject', minimumCols)
 
-    const id = utils.trim(dataRow[0])
+    const id = utils.trim(tuple[0])
     const name = utils.displayName(id)
-    const kind = utils.trim(dataRow[1])
-    const category = utils.trim(dataRow[2])
-    const from = utils.parseNumber(utils.trim(dataRow[3]), id)
-    const to = utils.parseNumber(utils.trim(dataRow[4]), id)
-    const linkId = utils.trim(dataRow[5])
+    const kind = utils.trim(tuple[1])
+    const category = utils.trim(tuple[2])
+    const from = utils.parseNumber(utils.trim(tuple[3]), id)
+    const to = utils.parseNumber(utils.trim(tuple[4]), id)
+    const linkId = utils.trim(tuple[5])
 
     let tags: string[] = []
-    if (dataRow.length > 6) {
-      const tagStr = utils.trim(dataRow[6])
+    if (tuple.length > 6) {
+      const tagStr = utils.trim(tuple[6])
       if (! utils.noValue(tagStr)) {
         tags = tagStr.split(',')
       }
     }
+    tags = tags.map(t => t.trim()).filter(t => t.length > 0)
+
+    if (id === 'NO_GENUS_SPECIFIED') {
+      logger.debug('Ignoring row with no genus: %s %s %s %s %d %d', id, name, kind, category, from, to)
+      this.stats.noGenusSubjects++
+      return null
+    }
+
+    if (category === 'Problematica') {
+      logger.debug('Ignoring row with problematic phylum: %s %s %s %s %d %d', id, name, kind, category, from, to)
+      this.stats.problematicaSubjects++
+      return null
+    }
 
     if (utils.noValue(linkId)) {
-      this.stats.ignoredSubjects++
-      return // Only import subjects with a wikipedia link id
+      this.stats.noLinkSubjects++
+      return null // Only import subjects with a wikipedia link id
     }
 
-    const subject = await SubjectModel.findById(id).exec()
-    if (!subject) {
-      await this.createSubject(id, name, kind, category, from, to, linkId, tags)
-    } else {
-      await this.updateSubject(subject, id, name, kind, category, from, to, tags)
+    const documentData: Partial<ISubject> = {
+      _id: id,
+      name: name,
+      kind: kind,
+      category: category,
+      from: from,
+      to: to,
+      tags: tags
     }
-  }
 
-  private tagIntervalOrSubject = async(dataRow: string[], minimumCols: number) => {
-    this.expectPopulated(dataRow, 'tag', minimumCols)
+    this.stats.subjects++
 
-    const intervalOrsubjectId = utils.trim(dataRow[0])
-    const tagId = utils.trim(dataRow[1])
-
-    logger.debug('Tagging interval or subject: id: ' + intervalOrsubjectId + ' tag: ' + tagId)
-
-    const interval = await IntervalModel.findById(intervalOrsubjectId).exec()
-    if (interval) {
-      const tags = interval?.tags || []
-      if (tags?.indexOf(tagId) < 0) {
-        interval?.tags.push(tagId)
-        //
-        // Validator of subject should detect whether tag is valid
-        //
-        await interval?.save()
-      }
-    } else {
-      const subject = await SubjectModel.findById(intervalOrsubjectId).exec()
-      if (!subject) {
-        logger.error('ERROR: Cannot find interval or subject ' + intervalOrsubjectId + ' while tagging')
-        this.evoDb.terminate()
-        return
-      }
-
-      const tags = subject?.tags || []
-      if (tags?.indexOf(tagId) < 0) {
-        subject?.tags.push(tagId)
-
-        //
-        // Validator of subject should detect whether tag is valid
-        //
-        await subject?.save()
-      }
-    }
+    return documentData
   }
 
   /************************************************
-   * READER METHODS
+   * READ AND WRITE METHODS
    */
-  private async importReader(path: string, minimumCols: number, importFn: ImportFn) {
-    logger.debug('INFO: Starting importing data from ' + path)
 
-    const liner = new readlines(path)
+  private async readFile(fullPath: string, minimumCols: number, tupleFn: TupleFn) {
+    const fileStream = fs.createReadStream(fullPath)
+    const rl = readline.createInterface({ input: fileStream, crlfDelay: Infinity })
 
-    let next
-    while ((next = liner.next()) !== false) { // jshint ignore:line
-      const line = next.toString('ascii')
+    for await (const line of rl) {
+      if (line.startsWith('#')) continue
 
-      if (line.startsWith('#') || line.length == 0) {
+      const tuple = line.split('|') as Tuple
+      if (tuple.length < minimumCols) {
+        logger.warn(`WARN: Skipping malformed row in ${fullPath}: ${line}`)
         continue
       }
 
-      const dataRow = line.split('|')
-      if (dataRow.length < minimumCols) {
-        logger.error('ERROR: Number of columns in record is smaller than expected: ' + line)
-        this.evoDb.terminate()
-      }
-
-      await importFn(dataRow, minimumCols)
+      await tupleFn(tuple)
     }
-
-    logger.debug('INFO: Completed importing data from ' + path)
   }
 
-  private async importContent(pathOrPaths: string|string[], minimumCols: number, importFn: ImportFn) {
-    let paths: string[] = []
-    if (Array.isArray(pathOrPaths)) {
-      paths = paths.concat(pathOrPaths)
-    } else {
-      paths.push(pathOrPaths)
+  private async writeBatches<TDoc extends Document>(model: Model<TDoc>, mainOps: UpsertOperation<TDoc>[], topicOps: UpsertOperation<ITopic>[]) {
+    const promises = []
+    if (mainOps.length > 0) {
+      promises.push(model.bulkWrite(mainOps))
     }
 
-    logger.debug(`Import path: ${paths}`)
+    if (topicOps.length > 0) {
+      promises.push(TopicModel.bulkWrite(topicOps))
+    }
 
-    for (let i = 0; i < paths.length; i++) {
-      const fullPath = path.resolve(__dirname, '..', paths[i] as string)
+    if (promises.length > 0) {
+      await Promise.all(promises)
+      logger.debug(`INFO: Wrote batch Main ops: ${mainOps.length}, Topic ops: ${topicOps.length}`)
+    }
+  }
 
-      if (fs.statSync(fullPath).isDirectory()) {
-        const files = fs.readdirSync(fullPath)
+  private async importWithBulkWrite<TDoc extends Document>(
+    fullPath: string, minimumCols: number,
+    model: Model<TDoc>, transformFn: BulkTransformFn<TDoc>) {
 
-        for (let j = 0; j < files.length; j++) {
-          const file = files[j] as string
+    logger.debug(`INFO: Processing upserts from ${fullPath}`)
 
-          if (path.extname(file) === '.dat') {
-            await this.importReader(path.resolve(fullPath, file), minimumCols, importFn)
+    let mainOps: UpsertOperation<TDoc>[] = []
+    let topicOps: UpsertOperation<ITopic>[] = []
+
+    await this.readFile(fullPath, minimumCols, async (tuple: Tuple) => {
+      const op = transformFn(tuple, minimumCols)
+      if (!op) {
+        // row did not create a valid operation
+        return
+      }
+
+      // Always push only the updateOne
+      mainOps.push(op)
+
+      if (mainOps.length >= this.batchSize) {
+        await this.writeBatches(model, mainOps, topicOps)
+        mainOps = []
+        topicOps = []
+      }
+    })
+
+    // Write any remaining operations after the loop finishes.
+    await this.writeBatches(model, mainOps, topicOps)
+    mainOps = []
+    topicOps = []
+  }
+
+  private async getAllFilePaths(pathOrPaths: string | string[]): Promise<string[]> {
+    const initialPaths = Array.isArray(pathOrPaths) ? pathOrPaths : [pathOrPaths]
+    const allFiles: string[] = []
+
+    // This recursive helper is cleaner
+    const findFiles = async (currentPath: string) => {
+      try {
+        // Use readdir with withFileTypes for efficiency
+        const entries = await fs.promises.readdir(currentPath, { withFileTypes: true })
+        for (const entry of entries) {
+          const fullEntryPath = path.join(currentPath, entry.name)
+          if (entry.isDirectory()) {
+            await findFiles(fullEntryPath); // Recurse
+          } else if (path.extname(fullEntryPath) === '.dat') {
+            allFiles.push(fullEntryPath)
           }
         }
+      } catch (error: any) {
+        // This handles cases where the initial path is a file, not a directory
+        if (error.code === 'ENOTDIR' && path.extname(currentPath) === '.dat') {
+          allFiles.push(currentPath)
+        } else {
+          logger.error(`ERROR: Path could not be read: ${currentPath}`, error)
+        }
+      }
+    }
+
+    for (const p of initialPaths) {
+      const fullPath = path.resolve(__dirname, '..', p)
+      await findFiles(fullPath)
+    }
+
+    return allFiles
+  }
+
+  private async importContent<TDoc extends Document>(
+    pathOrPaths: string|string[], minimumCols: number,
+    typeModel: Model<TDoc>, transformFn: BulkTransformFn<TDoc>) {
+
+    // Build a complete, flat list of all file paths.
+    const allFilesToProcess: string[] = await this.getAllFilePaths(pathOrPaths)
+
+    if (allFilesToProcess.length === 0) {
+      logger.warn(`WARN: No files found to import for the given path ${pathOrPaths}`)
+    }
+
+    // Define concurrency limit (how many files to process at once)
+    const chunkSize = 10
+    logger.info(`Processing ${allFilesToProcess.length} files in chunks of ${chunkSize}...`)
+
+    for (let i = 0; i < allFilesToProcess.length; i += chunkSize) {
+      // Get the current chunk of file paths.
+      const chunk = allFilesToProcess.slice(i, i + chunkSize)
+      logger.info(`Processing chunk ${i / chunkSize + 1}: ${chunk.map(p => path.basename(p)).join(', ')}`)
+
+      // Create an array of promises for ONLY the current chunk.
+      const importPromises = chunk.map(filePath =>
+        this.importWithBulkWrite(filePath, minimumCols, typeModel, transformFn)
+      )
+
+      // Wait for the current chunk to complete before starting the next.
+      try {
+        await Promise.all(importPromises)
+      } catch (error) {
+        logger.error(`ERROR: A problem occurred while processing a chunk.`, error)
+      }
+    }
+  }
+
+  private async tagIntervalOrSubject(taggableItems: TaggableItem[]) {
+    if (!taggableItems || taggableItems.length === 0) {
+      logger.warn('No taggable items to tag')
+      return
+    }
+
+    // Gather all unique identifiers from the input data
+    const itemNames = taggableItems.map(item => item.id)
+
+    // Pre-fetch all existing documents from BOTH collections in parallel
+    const [intervals, subjects] = await Promise.all([
+      // Use $in for a single efficient query. Project only the `_id` and `name` for speed.
+      IntervalModel.find({ _id: { $in: itemNames } }).select('_id name').lean(),
+      SubjectModel.find({ _id: { $in: itemNames } }).select('_id name').lean()
+    ])
+
+    // Create fast lookup sets for easy classification
+    const intervalIds = new Set(intervals.map(doc => doc._id))
+    const subjectIds = new Set(subjects.map(doc => doc._id))
+
+    // Build the separate operation arrays
+    const intervalUpdateOps: UpsertOperation<IInterval>[] = []
+    const subjectUpdateOps: UpsertOperation<ISubject>[] = []
+
+    for (const item of taggableItems) {
+      const updateOperation = {
+        filter: { _id: item.id },
+        update: { $addToSet: { tags: item.tag } }
+      }
+
+      // Classify the item and add its operation to the correct batch
+      if (intervalIds.has(item.id)) {
+        intervalUpdateOps.push({ updateOne: updateOperation })
+      } else if (subjectIds.has(item.id)) {
+        subjectUpdateOps.push({ updateOne: updateOperation })
       } else {
-        await this.importReader(fullPath, minimumCols, importFn)
+        logger.warn(`WARN: Item to tag with id '${item.id}' not found in Intervals or Subjects.`)
+        logger.warn(intervalIds)
+      }
+    }
+
+    // Execute both bulk writes in parallel
+    const promisesToExecute = []
+    if (intervalUpdateOps.length > 0) {
+      logger.info(`Tagging ${intervalUpdateOps.length} intervals...`)
+      promisesToExecute.push(IntervalModel.bulkWrite(intervalUpdateOps))
+    }
+
+    if (subjectUpdateOps.length > 0) {
+      logger.info(`Tagging ${subjectUpdateOps.length} subjects...`)
+      promisesToExecute.push(SubjectModel.bulkWrite(subjectUpdateOps))
+    }
+
+    if (promisesToExecute.length > 0) {
+      try {
+        const results = await Promise.all(promisesToExecute)
+        logger.info(`Tagging of ${results.length} intervals and subjects is complete.`)
+      } catch (error) {
+        logger.error('An error occurred during tagging: ', error)
       }
     }
   }
@@ -414,31 +495,210 @@ export class Importer {
    * PUBLIC IMPORT METHODS
    */
   async importIntervals(pathOrPaths: string|string[]) {
-    await this.importContent(pathOrPaths, 6, this.createInterval)
+    await this.importContent(pathOrPaths, 6, IntervalModel, this.transformIntervalData)
     logger.debug('INFO: import of intervals complete')
   }
 
   async importIntervalTopics(pathOrPaths: string|string[]) {
-    await this.importContent(pathOrPaths, 2, this.createIntervalTopic)
+    await this.importContent(pathOrPaths, 2, TopicModel, this.transformIntervalTopicData)
     logger.debug('INFO: import of topics complete')
   }
 
   async importHints(pathOrPaths: string|string[]) {
-    await this.importContent(pathOrPaths, 7, this.createHint)
+    await this.importContent(pathOrPaths, 7, HintModel, this.transformHintData)
     logger.debug('INFO: import of hints complete')
   }
 
   async importSubjects(pathOrPaths: string|string[]) {
-    await this.importContent(pathOrPaths, 6, this.createOrUpdateSubject)
+    const allFiles = await this.getAllFilePaths(pathOrPaths)
+
+    const fileDataMap = new Map<string, Tuples>()
+    let totalFileRows = 0
+
+    for (const filePath of allFiles) {
+      await this.readFile(filePath, 6, async (tuple: Tuple) => {
+        if (tuple.length === 0) {
+          logger.error(`A tuple from file ${filePath} has somehow been added with no length`)
+          return
+        }
+
+        const id = tuple[0]
+        if (!id || id.length === 0) {
+          logger.error(`A tuple id from file ${filePath} has somehow been added with no length`)
+          return
+        }
+
+        // Add a new identified to map if not already
+        if (! fileDataMap.has(id))
+          fileDataMap.set(id, [])
+
+        // Add the new tuple to the id
+        fileDataMap.get(id)!.push(tuple)
+        totalFileRows++
+      })
+    }
+    logger.info(`Extracted ${totalFileRows} rows for ${fileDataMap.size} unique subject IDs from files.`)
+
+    //
+    // Extract from Database
+    // Now, fetch all documents from the DB that match the IDs found in our files.
+    // .lean() is crucial for performance here
+    //
+    const allFileSubjectIDs = Array.from(fileDataMap.keys())
+    const existingSubjectsFromDB = await SubjectModel.find({ _id: { $in: allFileSubjectIDs }}).lean()
+    logger.info(`Fetched ${existingSubjectsFromDB.length} existing subjects from the database.`)
+
+    // Merge DB data and file data, applying aggregation rules.
+
+    // Pre-populate our aggregation map with the current state from the database
+    // Add linkId to the map's type
+    const aggregatedSubjects = new Map<string, Partial<ISubject> & { linkId?: string }>(
+        existingSubjectsFromDB.map(doc => [doc._id, doc])
+    )
+
+    // Now, iterate over the data from the files and apply it to our map.
+    for (const [id, tuples] of fileDataMap.entries()) {
+      for (const tuple of tuples) {
+
+        const subject = this.transformTupleToSubject(tuple, 6)
+        if (!subject) continue
+
+        // Capture the linkId from the file row as not included in subject
+        const linkId = utils.trim(tuple[5])
+
+        const existing = aggregatedSubjects.get(id)
+
+        if (!existing) {
+          // This is a brand new subject (not in DB, and first time we've seen it in the files).
+          // Store the linkId along with the other data.
+          aggregatedSubjects.set(id, { ...subject, linkId: linkId })
+
+        } else {
+          // This subject exists (either from the DB or a previous file). Aggregate it.
+          // Consistency Checks
+          if (existing.name !== subject.name || existing.kind !== subject.kind || existing.category !== subject.category) {
+            logger.error(`FATAL: Data inconsistency for subject ID ${id}. Halting.`)
+            this.evoDb.terminate()
+            return
+          }
+
+          // Make the time span as wide to conform to existing and subject
+          existing.from = Math.min(existing.from!, subject.from!)
+          existing.to = Math.max(existing.to!, subject.to!)
+
+          // Aggregate tags
+          const combinedTags = new Set([...existing.tags!, ...subject.tags!])
+          existing.tags = Array.from(combinedTags)
+
+          // Preserve the linkId if the existing record didn't have one.
+          if (!existing.linkId && linkId) {
+            existing.linkId = linkId
+          }
+        }
+      }
+    }
+    logger.info(`Aggregation complete. Result is ${aggregatedSubjects.size} unique subjects.`)
+
+    // Write the final, aggregated results back to the database.
+    let mainOps: UpsertOperation<ISubject>[] = []
+    let topicOps: UpsertOperation<ITopic>[] = []
+
+    for (const subject of aggregatedSubjects.values()) {
+      // Separate linkId from the actual subject data
+      const { linkId, ...subjectDoc } = subject
+
+      mainOps.push({
+        updateOne: {
+          filter: { _id: subjectDoc._id },
+          update: { $set: subjectDoc },
+          upsert: true
+        }
+      })
+
+      const topicOperation = this.transformTopicData(subjectDoc._id!, linkId ?? null, 'Subject')
+      if (topicOperation) topicOps.push(topicOperation)
+    }
+
+    if (mainOps.length > 0) {
+      for (let i = 0; i < mainOps.length; i += this.batchSize) {
+        const chunk = mainOps.slice(i, i + this.batchSize)
+        try {
+          await this.writeBatches(SubjectModel, chunk, [])
+          logger.info(`Loaded chunk of ${chunk.length} subjects to the database.`)
+        } catch (error) {
+          logger.error('A fatal error occurred during the final bulk write:', error)
+          this.evoDb.terminate()
+        }
+      }
+    }
+
+    if (topicOps.length > 0) {
+      for (let i = 0; i < topicOps.length; i += this.batchSize) {
+        const chunk = topicOps.slice(i, i + this.batchSize)
+        try {
+          await this.writeBatches(SubjectModel, [], chunk)
+          logger.info(`Loaded chunk of ${chunk.length} subject topics to the database.`)
+        } catch (error) {
+          logger.error('A fatal error occurred during the final bulk write:', error)
+          this.evoDb.terminate()
+        }
+      }
+    }
+
+    this.stats.subjects = aggregatedSubjects.size
     logger.debug('INFO: import of subjects complete')
   }
 
   async importTags(pathOrPaths: string|string[]) {
-    await this.importContent(pathOrPaths, 2, this.tagIntervalOrSubject)
+    const minimumCols = 2
+    const allFilesToProcess: string[] = await this.getAllFilePaths(pathOrPaths)
+
+    // Create an array of promises, one for each file import task.
+    const taggablePromises = allFilesToProcess.map(async filePath => {
+      const taggableItems: TaggableItem[] = []
+      const fileStream = fs.createReadStream(filePath)
+      const rl = readline.createInterface({ input: fileStream, crlfDelay: Infinity })
+
+      for await (const line of rl) {
+        if (line.startsWith('#')) continue
+
+        const data = line.split('|')
+        if (data.length < minimumCols) {
+          logger.warn(`WARN: Skipping malformed row in ${filePath}: ${line}`)
+          continue
+        }
+
+        this.expectPopulated(data, 'tag', minimumCols)
+
+        taggableItems.push({
+          id: utils.trim(data[0]),
+          tag: utils.trim(data[1])
+        })
+      }
+
+      return taggableItems
+    })
+
+    // Wait for all file reading to complete
+    const nestedItems = await Promise.all(taggablePromises)
+
+    // Flatten the array of arrays into a single list
+    const taggableItems = nestedItems.flat()
+
+    //
+    // taggableItems should be populated once all have been processed
+    //
+    if (taggableItems.length === 0) {
+      logger.warn('WARN: No files found to tag for the given paths.')
+      return
+    }
+
+    logger.debug(`Processing ${taggableItems.length} tags`)
+
+    await this.tagIntervalOrSubject(taggableItems)
   }
 
   reportStats() {
-    logger.info('*** Intervals: %d  Topics: %d  Hints: %d  Subjects: %d  Ignored Subjects: %d ***',
-     this.stats.intervals, this.stats.topics, this.stats.hints, this.stats.subjects, this.stats.ignoredSubjects)
+     logger.info(this.stats)
   }
 }

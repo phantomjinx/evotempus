@@ -4,7 +4,8 @@
   "main": "src/server.js",
   "scripts": {
     "dev:start": "webpack --watch --env dropCollections=false --env importDB=false --env logLevel='debug'",
-    "dev:import": "webpack --watch --env dropCollections=true --env importDB=true --env logLevel='debug'",
+    "dev:import": "webpack --watch --env dropCollections=false --env importDB=true --env logLevel='debug'",
+    "dev:resetimport": "webpack --watch --env dropCollections=true --env importDB=true --env logLevel='debug'",
     "build": "webpack --env buildType='production'",
     "start": "node dist/mongo-rest-api.js",
     "lint": "eslint src/",

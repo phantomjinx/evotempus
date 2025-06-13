@@ -15,12 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import mongoose, { ValidatorProps } from 'mongoose'
+import mongoose, { Document, ValidatorProps } from 'mongoose'
 import { HintModel } from './hint'
 
 const Schema = mongoose.Schema
 
-export interface IInterval {
+export interface IInterval extends Document {
   _id: string,
   name: string,
   kind: string,
@@ -52,4 +52,4 @@ export const IntervalSchema = new Schema<IInterval>({
 },
 { versionKey: 'version' })
 
-export const IntervalModel = mongoose.model('Interval', IntervalSchema)
+export const IntervalModel = mongoose.model<IInterval>('Interval', IntervalSchema)

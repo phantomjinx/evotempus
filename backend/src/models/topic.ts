@@ -15,11 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import mongoose from 'mongoose'
+import mongoose, { Document } from 'mongoose'
 
 const Schema = mongoose.Schema
 
-export interface ITopic {
+export interface ITopic extends Document {
   topic: string,
   topicTarget: string,
   linkId?: string,
@@ -48,4 +48,4 @@ export const TopicSchema = new Schema({
 },
 { versionKey: 'version' })
 
-export const TopicModel = mongoose.model('Topic', TopicSchema)
+export const TopicModel = mongoose.model<ITopic>('Topic', TopicSchema)

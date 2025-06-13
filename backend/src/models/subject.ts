@@ -15,10 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import mongoose, { ValidatorProps } from 'mongoose'
+import mongoose, { Document, ValidatorProps } from 'mongoose'
 import { HintModel } from './hint'
 
-export interface ISubject {
+export interface ISubject extends Document {
   _id: string,
   name: string,
   kind: string,
@@ -71,4 +71,4 @@ const SubjectSchema = new mongoose.Schema<ISubject>({
 },
 { versionKey: 'version' })
 
-export const SubjectModel = mongoose.model('Subject', SubjectSchema)
+export const SubjectModel = mongoose.model<ISubject>('Subject', SubjectSchema)

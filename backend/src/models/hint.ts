@@ -15,11 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import mongoose from 'mongoose'
+import mongoose, { Document } from 'mongoose'
 
 const Schema = mongoose.Schema
 
-export interface IHint {
+export interface IHint extends Document {
   _id: string,
   type:  string,
   parent: string,
@@ -38,4 +38,4 @@ const HintSchema = new Schema<IHint>({
 },
 { versionKey: 'version' })
 
-export const HintModel = mongoose.model('Hint', HintSchema)
+export const HintModel = mongoose.model<IHint>('Hint', HintSchema)

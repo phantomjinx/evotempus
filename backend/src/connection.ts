@@ -19,63 +19,71 @@ import { Connection, ConnectOptions } from 'mongoose'
 import { logger } from './logger'
 
 export class EvoDbManager {
-  conn?: Connection
-  options: ConnectOptions
+  private _conn?: Connection
+  private _options: ConnectOptions
 
-  constructor(user: string, pass: string, clean: boolean) {
-    this.options = {
+  constructor(user: string, pass: string, private drop: boolean) {
+    this._options = {
       autoIndex: true,
       directConnection: true
     }
 
     if (user && user.length > 0) {
-      this.options.authSource = 'admin'
-      this.options.user = user
-      this.options.pass = pass
+      this._options.authSource = 'admin'
+      this._options.user = user
+      this._options.pass = pass
     }
 
-    this.conn = undefined; // Initialize as undefined
+    this._conn = undefined; // Initialize as undefined
   }
 
   terminate() {
-    if (this.conn) {
-      this.conn.close()
+    if (this._conn) {
+      this._conn.close()
     }
     process.exit(1)
   }
 
   checkConn() {
-    if (! this.conn) {
+    if (! this._conn) {
       console.trace()
       logger.error('ERROR: Database connection failed.')
       this.terminate()
     }
 
-    return (this.conn as Connection).db !== undefined
+    return (this._conn as Connection).db !== undefined
   }
 
-  setConn(connection: Connection) {
-    this.conn = connection
+  get connection(): Connection | undefined {
+    return this._conn
+  }
+
+  set connection(connection: Connection) {
+    this._conn = connection
     this.checkConn()
+  }
+
+  get options() {
+    return this._options
   }
 
   async clean(): Promise<void> {
     this.checkConn()
 
-    if (! this.clean) {
+    if (! this.drop) {
       logger.info('Dropping collections not enabled')
       return
     }
 
     logger.debug('INFO: Dropping collections from database')
 
-    const collections = await this.conn?.db.listCollections().toArray() || []
+    const collections = await this._conn?.db.listCollections().toArray() || []
     for (let i = 0; i < collections.length; ++i) {
       const collection = collections[i] as CollectionInfo
 
       if (collection.name === 'intervals' || collection.name === 'subjects' ||
           collection.name === 'topics' ||collection.name === 'hints') {
-          await this.conn?.db.dropCollection(collection.name)
+          await this._conn?.db.dropCollection(collection.name)
       }
     }
 

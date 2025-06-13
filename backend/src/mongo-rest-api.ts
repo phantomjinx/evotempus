@@ -130,7 +130,7 @@ function initApi() {
   app.use(helmet())
 
   const storeOptions = {
-    client: evoDb.conn?.getClient(),
+    client: evoDb.connection?.getClient(),
     dbName: "evotempus-db-mongoose",
     stringify: false,
     autoRemoveInterval: 1
@@ -237,7 +237,7 @@ async function prepareDatabase() {
 }
 
 mongoose.connection.once('open', () => {
-  evoDb.setConn(mongoose.connection)
-  logger.info('INFO: Connection established to database on ' + evoDb.conn?.host + ":" + evoDb.conn?.port)
+  evoDb.connection = mongoose.connection
+  logger.info('INFO: Connection established to database on ' + evoDb.connection?.host + ":" + evoDb.connection.port)
   prepareDatabase()
 })

@@ -16,6 +16,12 @@ type SunburstProps = {
   visualIntervals: Interval[]
 }
 
+// Define the interface for memoized object
+interface MemoizedHierarchy {
+  rootNode: ViewNode
+  nodeDescendents: ViewNode[]
+}
+
 export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: SunburstProps) => {
   const [dimRef, { width, height }] = useElementSize()
 
@@ -60,7 +66,7 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
    * should happen rarely so add to a memo (caches it) rather than
    * a useEffect which is much less efficient
    */
-  const { rootNode, nodeDescendents } = useMemo(() => {
+  const { rootNode, nodeDescendents } = useMemo<MemoizedHierarchy>(() => {
     //
     // Start to structure the data according to a partition hierarchical layout
     //
@@ -155,7 +161,7 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
     /*
      * Re-calibrate the visible property based on modification to target arc
      */
-    rootNode.each((d) => {
+    rootNode.each((d: ViewNode) => {
       d.data.target = new Dimensions({
         x0: Math.max(0, Math.min(1, (d.x0 - newParent.x0) / (newParent.x1 - newParent.x0))) * 2 * Math.PI,
         x1: Math.max(0, Math.min(1, (d.x1 - newParent.x0) / (newParent.x1 - newParent.x0))) * 2 * Math.PI,
@@ -188,7 +194,7 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
     // Find the actual interval in our hierarchy
     //
     let intervalNode!: ViewNode
-    rootNode.each((d) => {
+    rootNode.each((d: ViewNode) => {
       if (d.id === interval._id) {
         intervalNode = d // Found it!
         return

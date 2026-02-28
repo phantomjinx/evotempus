@@ -25,7 +25,8 @@ export class EvoDbManager {
   constructor(user: string, pass: string, private drop: boolean) {
     this._options = {
       autoIndex: true,
-      directConnection: true
+      directConnection: true,
+      authSource: 'admin'
     }
 
     if (user && user.length > 0) {

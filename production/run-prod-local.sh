@@ -22,24 +22,24 @@ if [ ! -d backend ]; then
   exit 1
 fi
 
-if [ -n "${IMPORT_COLLECTIONS}" ]; then
-  #
-  # Default running will NOT import
-  #
-  KEEP_COLLECTIONS=true
-else
+if [ "${IMPORT_COLLECTIONS}" == "1" ]; then
   #
   # Only with -i will import take place
   #
   KEEP_COLLECTIONS=false
+else
+  #
+  # Default running will NOT import
+  #
+  KEEP_COLLECTIONS=true
 fi
 
-if [ ! -d app/build ]; then
+if [ ! -d app/build && [ ! -d app/dist ]; then
   echo "Error: No app build directory detected. Have you run compile-app yet?"
   exit 1
 fi
 
-if [ ! "$(ls -A app/build)" ]; then
+if [ ! "$(ls -A app/build 2>/dev/null)" ] && [ ! "$(ls -A app/dist 2>/dev/null)" ]; then
   echo "Error: No app build detected. Have you run compile-app yet?"
   exit 1
 fi

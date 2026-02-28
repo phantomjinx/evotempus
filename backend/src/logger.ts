@@ -14,8 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import pino from 'pino'
-import expressPinoLogger from 'express-pino-logger'
+ import pino from 'pino'
+ import pinoHttp from 'pino-http'
 
-export const logger = pino({ level: process.env.LOG_LEVEL || 'info' })
-export const expressLogger = expressPinoLogger({ logger: logger })
+ const level = process.env.LOG_LEVEL || 'info'
+
+ export const logger = pino({ level: level })
+ export const expressLogger = pinoHttp({ logger: logger as pino.Logger })

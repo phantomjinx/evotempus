@@ -37,7 +37,7 @@ export const IntervalSunburstDefs: React.FunctionComponent<SunburstDefProps> = (
    * Create gradient definitions for all the segments so they are coloured differently
    * using the 'color' above but also shade to white to give a sheen effect
    */
-  const nodes = props.rootNode.descendants().slice(1)
+  const nodes: ViewNode[] = props.rootNode.descendants().slice(1)
   const segmentGrads = nodes.map((node) => (
     <radialGradient id={'gradient-' + node.data.id()} cx='30%' cy='30%' r='75%' key={node.data.id()}>
       <stop offset='0%' stopColor='white' />

@@ -381,7 +381,7 @@ export class Importer {
         if (error.code === 'ENOTDIR' && path.extname(currentPath) === '.dat') {
           allFiles.push(currentPath)
         } else {
-          logger.error(`ERROR: Path could not be read: ${currentPath}`, error)
+          logger.error(error, `ERROR: Path could not be read: ${currentPath}`)
         }
       }
     }
@@ -423,7 +423,7 @@ export class Importer {
       try {
         await Promise.all(importPromises)
       } catch (error) {
-        logger.error(`ERROR: A problem occurred while processing a chunk.`, error)
+        logger.error(error, `ERROR: A problem occurred while processing a chunk.`)
       }
     }
   }
@@ -486,7 +486,7 @@ export class Importer {
         const results = await Promise.all(promisesToExecute)
         logger.info(`Tagging of ${results.length} intervals and subjects is complete.`)
       } catch (error) {
-        logger.error('An error occurred during tagging: ', error)
+        logger.error(error, 'An error occurred during tagging: ')
       }
     }
   }
@@ -626,7 +626,7 @@ export class Importer {
           await this.writeBatches(SubjectModel, chunk, [])
           logger.info(`Loaded chunk of ${chunk.length} subjects to the database.`)
         } catch (error) {
-          logger.error('A fatal error occurred during the final bulk write:', error)
+          logger.error(error, 'A fatal error occurred during the final bulk write:')
           this.evoDb.terminate()
         }
       }
@@ -639,7 +639,7 @@ export class Importer {
           await this.writeBatches(SubjectModel, [], chunk)
           logger.info(`Loaded chunk of ${chunk.length} subject topics to the database.`)
         } catch (error) {
-          logger.error('A fatal error occurred during the final bulk write:', error)
+          logger.error(error, 'A fatal error occurred during the final bulk write:')
           this.evoDb.terminate()
         }
       }

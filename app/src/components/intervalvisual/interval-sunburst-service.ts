@@ -1,4 +1,4 @@
-import { stratify as d3Stratify, partition as d3Partition } from 'd3-hierarchy'
+import { stratify as d3Stratify, partition as d3Partition, HierarchyRectangularNode, HierarchyNode } from 'd3-hierarchy'
 import { Interval } from '@evotempus/types'
 import { Dimensions, SunburstSystemInfo, ViewInterval, ViewNode } from './globals'
 
@@ -44,7 +44,7 @@ export function partition(data: Interval[]): ViewNode {
       //
       return d.progeny() === 0 ? d.to() - d.from() : 0
     })
-    .sort((a, b) => {
+    .sort((a: HierarchyNode<ViewInterval>, b: HierarchyNode<ViewInterval>) => {
       //
       // Whereas sum above uses the actual data objects, sort does not;
       // it uses the HierarchyRectangularNode<ViewInterval>.

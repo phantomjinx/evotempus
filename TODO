@@ -1,5 +1,18 @@
 *
-* Next Version
+* Tool and Dependencies
+*
+
+* Migrate from yarn and npm to single pnpm monorepo
+
+* Migrate from useEffect/fetch to Tanstack/Query
+
+* Upgrade to React 19 - React Server Components (RSC)
+
+* Consider employing zustand for state updates replacing contexts
+
+
+*
+* UI Features
 *
 
 * Address logging to console - maybe use react-native-logging?

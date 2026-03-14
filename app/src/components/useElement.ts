@@ -1,4 +1,4 @@
-import { MutableRefObject, useLayoutEffect, useRef, useState } from 'react'
+import { RefObject, useLayoutEffect, useRef, useState } from 'react'
 import useResizeObserver from '@react-hook/resize-observer'
 
 interface Size {
@@ -6,8 +6,8 @@ interface Size {
   height: number
 }
 
-export function useElementSize<T extends HTMLElement = HTMLDivElement>(): [MutableRefObject<T | null>, Size] {
-  const target = useRef<T | null>(null)
+export function useElementSize<T extends HTMLElement = HTMLDivElement>(): [RefObject<T | null>, Size] {
+  const target = useRef<T>(null!)
   const [size, setSize] = useState<Size>({
     width: 0,
     height: 0,

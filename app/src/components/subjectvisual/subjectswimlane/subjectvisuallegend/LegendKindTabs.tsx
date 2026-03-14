@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { JSX, useState } from 'react'
 import Pagination from 'react-pagination-js'
 import {color as d3Color, RGBColor} from 'd3-color'
 import { hintService } from '@evotempus/api'

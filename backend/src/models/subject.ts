@@ -18,8 +18,7 @@
 import mongoose, { Document, ValidatorProps } from 'mongoose'
 import { HintModel } from './hint'
 
-export interface ISubject extends Document {
-  _id: string,
+export interface ISubject extends Document<string> {
   name: string,
   kind: string,
   category: string,
@@ -36,11 +35,14 @@ const SubjectSchema = new mongoose.Schema<ISubject>({
   kind: {
     type: String,
     validate: {
-      validator: (v: string) => {
-        return HintModel.findOne({
+      validator: async (v: string) => {
+        // Use .exists() for performance, which returns { _id: ... } or null
+        const exists = await HintModel.exists({
           _id: v,
           type: 'Kind'
-        }).exec()
+        })
+        // Explicitly return a boolean to satisfy TypeScript
+        return exists !== null
       },
       message: (props: ValidatorProps) => `${props.value} is an invalid Kind`
     }
@@ -48,8 +50,9 @@ const SubjectSchema = new mongoose.Schema<ISubject>({
   category: {
     type: String,
     validate: {
-      validator: (v: string) => {
-        return HintModel.findById(v)
+      validator: async (v: string) => {
+        const exists = await HintModel.exists({ _id: v })
+        return exists !== null
       },
       message: (props: ValidatorProps) => `${props.value} is an invalid Category`
     },
@@ -62,8 +65,9 @@ const SubjectSchema = new mongoose.Schema<ISubject>({
   tags: [{
     type: String,
     validate: {
-      validator: (v: string) => {
-        return HintModel.findById(v)
+      validator: async (v: string) => {
+        const exists = await HintModel.exists({ _id: v })
+        return exists !== null
       },
       message: (props: ValidatorProps) => `${props.value} is an invalid Tag`
     },

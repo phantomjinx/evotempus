@@ -13,7 +13,7 @@ import { SubjectVisualContext } from './context'
 import { SubjectSwimLane } from './subjectswimlane'
 
 type SubjectVisualProps = {
-  parent: RefObject<HTMLDivElement>
+  parent: RefObject<HTMLDivElement|null>
 }
 
 const EMPTY_VISUAL_DATA: SubjectVisualData = {

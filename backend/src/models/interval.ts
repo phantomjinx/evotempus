@@ -20,8 +20,7 @@ import { HintModel } from './hint'
 
 const Schema = mongoose.Schema
 
-export interface IInterval extends Document {
-  _id: string,
+export interface IInterval extends Document<string> {
   name: string,
   kind: string,
   from: number,
@@ -42,9 +41,10 @@ export const IntervalSchema = new Schema<IInterval>({
   tags: [{
     type: String,
     validate: {
-      validator: (v: string) => {
+      validator: async (v: string) => {
         console.log(`Validating ${v} against hints`)
-        return HintModel.findById(v)
+        const exists = await HintModel.exists({ _id: v })
+        return exists !== null
       },
       message: (props: ValidatorProps) => `${props.value} is an invalid Tag`
     },

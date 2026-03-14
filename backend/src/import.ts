@@ -311,7 +311,7 @@ export class Importer {
     }
   }
 
-  private async writeBatches<TDoc extends Document>(model: Model<TDoc>, mainOps: UpsertOperation<TDoc>[], topicOps: UpsertOperation<ITopic>[]) {
+  private async writeBatches<TDoc extends Document<string>>(model: Model<TDoc>, mainOps: UpsertOperation<TDoc>[], topicOps: UpsertOperation<ITopic>[]) {
     const promises = []
     if (mainOps.length > 0) {
       promises.push(model.bulkWrite(mainOps))
@@ -327,7 +327,7 @@ export class Importer {
     }
   }
 
-  private async importWithBulkWrite<TDoc extends Document>(
+  private async importWithBulkWrite<TDoc extends Document<string>>(
     fullPath: string, minimumCols: number,
     model: Model<TDoc>, transformFn: BulkTransformFn<TDoc>) {
 
@@ -394,7 +394,7 @@ export class Importer {
     return allFiles
   }
 
-  private async importContent<TDoc extends Document>(
+  private async importContent<TDoc extends Document<string>>(
     pathOrPaths: string|string[], minimumCols: number,
     typeModel: Model<TDoc>, transformFn: BulkTransformFn<TDoc>) {
 

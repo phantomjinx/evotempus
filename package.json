@@ -10,7 +10,7 @@
     "dev:backend": "pnpm --filter evotempus-backend run dev:start",
     "dev": "pnpm run dev:app & pnpm run dev:backend",
     "build:app": "pnpm --filter evotempus-app run build:prod",
-    "build:server": "pnpm --filter evotempus-backend run build",
+    "build:backend": "pnpm --filter evotempus-backend run build",
     "start": "./production/run-prod-local.sh"
   },
   "repository": {
@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/phantomjinx/evotempus/issues"
   },
-  "homepage": "https://github.com/phantomjinx/evotempus#readme"
+  "homepage": "https://github.com/phantomjinx/evotempus#readme",
+  "pnpm": {
+    "overrides": {
+      "mongodb": "^7.1.0"
+    }
+  }
 }

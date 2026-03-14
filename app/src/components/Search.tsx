@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { JSX, useContext, useState } from 'react'
 import Pagination from 'react-pagination-js'
 import { fetchService } from '@evotempus/api'
 import { AppContext, ErrorMsg, Tabs } from '@evotempus/components'

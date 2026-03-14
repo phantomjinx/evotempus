@@ -19,7 +19,7 @@ import mongoose, { Document } from 'mongoose'
 
 const Schema = mongoose.Schema
 
-export interface ITopic extends Document {
+export interface ITopic extends Document<string> {
   topic: string,
   topicTarget: string,
   linkId?: string,

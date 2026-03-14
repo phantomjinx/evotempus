@@ -19,8 +19,7 @@ import mongoose, { Document } from 'mongoose'
 
 const Schema = mongoose.Schema
 
-export interface IHint extends Document {
-  _id: string,
+export interface IHint extends Document<string> {
   type:  string,
   parent: string,
   colour: string,

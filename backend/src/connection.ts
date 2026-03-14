@@ -78,7 +78,11 @@ export class EvoDbManager {
 
     logger.debug('INFO: Dropping collections from database')
 
-    const collections = await this._conn?.db.listCollections().toArray() || []
+    if (!this._conn || !this._conn.db) {
+      throw new Error('Database connection is not established or .db is missing')
+    }
+
+    const collections = await this._conn.db.listCollections().toArray() || []
     for (let i = 0; i < collections.length; ++i) {
       const collection = collections[i] as CollectionInfo
 

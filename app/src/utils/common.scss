@@ -1,9 +1,12 @@
-@import "bootstrap/scss/_functions.scss";
-@import "bootstrap/scss/_variables.scss";
-@import "bootstrap/scss/_mixins.scss";
-@import "../layout/scss/_loading-mixins.scss";
+@forward "../layout/scss/loading-mixins.scss";
+
+// Deprecated. Update when bootstrap 6 fixes its sass
+@import "bootstrap/scss/functions.scss";
+@import "bootstrap/scss/variables.scss";
+@import "bootstrap/scss/mixins.scss";
+
 
 @mixin fontawesome-icon {
-  font-family: "Font Awesome 6 Free";
+  font-family: "Font Awesome 7 Free";
   font-weight: 900;
 }

@@ -28,7 +28,24 @@ module.exports = {
       },
       {
         test: /\.(s(a|c)ss)$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                // Tells Dart Sass to shut up about Bootstrap's code
+                silenceDeprecations: [
+                  'import',
+                  'global-builtin',
+                  'color-functions',
+                  'if-function'
+                ]
+              },
+            }
+          }
+        ],
       },
       {
         test: /\.(ttf|eot|woff|woff2)$/,

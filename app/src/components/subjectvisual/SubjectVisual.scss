@@ -1,8 +1,8 @@
-@import "utils/common.scss";
+@use "utils/common";
 
 .subject-visual-loading {
   position: relative;
   height: 100%;
 
-  @include loading-position;
+  @include common.loading-position;
 }

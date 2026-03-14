@@ -1,9 +1,9 @@
-@import "utils/common.scss";
+@use "utils/common";
 
 $max-height: 65vh;
 $clicked-shadow: drop-shadow(0px 0px 15px yellow);
 
-@include media-breakpoint-between(xs, sm) {
+@include common.media-breakpoint-between(xs, sm) {
   #interval-visual-component {
     #interval-visual-component-svg {
       font-size: 2em;
@@ -11,7 +11,7 @@ $clicked-shadow: drop-shadow(0px 0px 15px yellow);
   }
 }
 
-@include media-breakpoint-between(sm, md) {
+@include common.media-breakpoint-between(sm, md) {
   #interval-visual-component {
     #interval-visual-component-svg {
       font-size: 2.5em;
@@ -19,7 +19,7 @@ $clicked-shadow: drop-shadow(0px 0px 15px yellow);
   }
 }
 
-@include media-breakpoint-up(md) {
+@include common.media-breakpoint-up(md) {
   #interval-visual-component {
     #interval-visual-component-svg {
       font-size: 3.5em;
@@ -28,7 +28,7 @@ $clicked-shadow: drop-shadow(0px 0px 15px yellow);
 }
 
 .interval-visual-loading {
-  @include loading-position
+  @include common.loading-position
 }
 
 #interval-visual-component {

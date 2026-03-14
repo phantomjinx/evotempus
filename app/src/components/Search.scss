@@ -1,12 +1,9 @@
-@import "bootstrap/scss/_functions.scss";
-@import "bootstrap/scss/_variables.scss";
-@import "bootstrap/scss/_mixins.scss";
-@import "~utils/common.scss";
+@use "utils/common";
 
 $search-bar-color: #ab8dcc;
 $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 
-@include media-breakpoint-between(xs, md) {
+@include common.media-breakpoint-between(xs, md) {
   .evo-search {
     .search-results {
       width: 90%;
@@ -14,7 +11,7 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
   }
 }
 
-@include media-breakpoint-up(md) {
+@include common.media-breakpoint-up(md) {
   .evo-search {
     .search-results {
       width: 50%;
@@ -47,7 +44,7 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
       }
 
       .search-button {
-        @include fontawesome-icon;
+        @include common.fontawesome-icon;
         width: 2em;
         border: 0.2em solid $search-bar-color;
         background: $search-bar-color;
@@ -96,7 +93,7 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
       overflow: auto;
 
       .search-results-closebtn {
-        @include fontawesome-icon;
+        @include common.fontawesome-icon;
         float:right;
         margin-top: 0.5em;
         margin-right: 1em;

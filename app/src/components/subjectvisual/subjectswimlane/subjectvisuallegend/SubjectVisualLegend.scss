@@ -1,7 +1,4 @@
-@import "bootstrap/scss/_functions.scss";
-@import "bootstrap/scss/_variables.scss";
-@import "bootstrap/scss/_mixins.scss";
-@import "utils/common.scss";
+@use "utils/common";
 
 $max-height: 65vh;
 $font: bold 12px firasans;
@@ -10,7 +7,7 @@ $tile-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 $transition-show: max-width 0.3s linear, opacity 0.1s linear, color 0.3s linear 0.1s;
 $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s linear 0.1s;
 
-@include media-breakpoint-between(xs, md) {
+@include common.media-breakpoint-between(xs, md) {
 
   #subject-visual-legend.show {
     max-width: 70%;
@@ -18,7 +15,7 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
   }
 }
 
-@include media-breakpoint-up(md) {
+@include common.media-breakpoint-up(md) {
 
   #subject-visual-legend.show {
     max-width: 30%;
@@ -46,7 +43,7 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
       margin-bottom: 0.2em;
 
       .subject-visual-legend-closebtn {
-        @include fontawesome-icon;
+        @include common.fontawesome-icon;
         float:right;
         margin-right: 0.5em;
         text-decoration: none;
@@ -72,7 +69,7 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
         font-style: italic;
 
         .subject-visual-legend-text-apply {
-          @include fontawesome-icon;
+          @include common.fontawesome-icon;
           color: #ab8dcc;
           margin-left: 0.2em;
         }
@@ -171,7 +168,7 @@ $transition-hide: color 0.3s linear, opacity 0.1s linear 0.1s, max-width 0.3s li
               }
 
               .subject-visual-legend-apply-btn {
-                @include fontawesome-icon;
+                @include common.fontawesome-icon;
                 float:right;
                 margin-right: 0.75em;
                 font-size: 16pt;

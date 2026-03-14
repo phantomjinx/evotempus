@@ -2,14 +2,21 @@
 * Tool and Dependencies
 *
 
-* Migrate from yarn and npm to single pnpm monorepo
-
 * Migrate from useEffect/fetch to Tanstack/Query
 
 * Upgrade to React 19 - React Server Components (RSC)
 
 * Consider employing zustand for state updates replacing contexts
 
+* Relocate filesystem of project to domain layout:
+ - src/api/: Keep this for your base Axios configuration and global generic fetch services.
+ - src/components/: Keep this, but strip it down to only shared UI (e.g., Tabs, Search, ErrorMsg).
+ - src/hooks/: Create this folder. Move usePrevious.ts and useElement.ts out of the components folder and into here, as they are globally shared utilities.
+ - src/features/: Create this folder. This is where your massive domains go.
+  - Move wiki/, subjectvisual/, and intervalvisual/ entirely into this folder.
+ - src/layout/: Keep this for your global wrappers like Loading.tsx.
+ - src/utils/: Keep this for pure JS/TS helper functions like logger.ts.
+ - Remove index.ts files and import directly.
 
 *
 * UI Features

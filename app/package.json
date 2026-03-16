@@ -13,7 +13,7 @@
     "format:check": "yarn prettier --check 'src/**/*.{ts,tsx,css,md,json}'",
     "format:fix": "yarn prettier --write 'src/**/*.{ts,tsx,css,md,json}'",
     "test": "jest --coverage src/**/*.test.ts*",
-    "test:watch": "jest --watch --verbose --coverage"
+    "test:watch": "jest --watch --verbose --coverage=false --silent=false"
   },
   "browserslist": {
     "production": [
@@ -96,7 +96,6 @@
     "react-app-polyfill": "^3.0.0",
     "react-dev-utils": "^12.0.1",
     "react-dom": "^19.2.4",
-    "react-pagination-js": "^2.0.0",
     "react-refresh": "^0.18.0",
     "react-tooltip": "^5.30.0",
     "resolve": "^1.22.11",

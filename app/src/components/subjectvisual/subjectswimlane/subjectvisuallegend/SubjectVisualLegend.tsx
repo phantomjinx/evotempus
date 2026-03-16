@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import "react-pagination-js/dist/styles.css" // import css
 import { FilteredCategory, Legend } from '@evotempus/types'
 import './SubjectVisualLegend.scss'
 import { initCategoryNodes } from './subject-visual-legend-service'

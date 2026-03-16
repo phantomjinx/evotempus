@@ -1,8 +1,7 @@
 import React, { JSX, useState } from 'react'
-import Pagination from 'react-pagination-js'
 import {color as d3Color, RGBColor} from 'd3-color'
 import { hintService } from '@evotempus/api'
-import { Tabs } from '@evotempus/components'
+import { Paginate, Tabs } from '@evotempus/components'
 import { FilteredCategory, Legend } from '@evotempus/types'
 import { CategoryNode } from './globals'
 import { identifier, logDebug, wikiLink } from '@evotempus/utils'
@@ -79,13 +78,14 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
    * categories is larger than the {totalPerPage} constant
    */
   const paginateKindBlock = (kind: string, items: JSX.Element[]): {pagination: JSX.Element, items: JSX.Element[]} => {
-    if (items.length < totalPerPage) {
+    if (items.length <= totalPerPage) {
       return ({pagination: <></>, items: items})
     }
 
     const totalSize = items.length
     const kindPage = kindPages.find((kindPage) => kindPage.kind === kind)
     const currentPage = kindPage?.page ?? 1
+
     const offset = (currentPage - 1) * totalPerPage
     const changePageFn = (newPage: number) => {
       const kp = kindPages.filter((kindPage) => kindPage.kind !== kind)
@@ -94,13 +94,13 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
     }
 
     items = items.slice(offset, offset + totalPerPage)
+
     return {pagination: (
-      <Pagination
+      <Paginate
         currentPage={currentPage}
-        totalSize={totalSize}
-        sizePerPage={totalPerPage}
-        changeCurrentPage={changePageFn}
-        theme='border-bottom'
+        totalItems={totalSize}
+        pageSize={totalPerPage}
+        onPageChange={changePageFn}
       />
     ), items: items}
   }
@@ -180,12 +180,12 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
       // Ignore the entryCount attribute not being a recognised property of <div>
       // @ts-ignore
       <div key={kind} title={kind} entrycount={items.length}>
-        {p.pagination}
         <div className="subject-visual-legend-items">
           <ul className="subject-visual-legend-items-inner">
             {items}
           </ul>
         </div>
+        {p.pagination}
         <div className="subject-visual-legend-footer">
           <div
             id="subject-visual-legend-apply"

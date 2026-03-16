@@ -1,11 +1,9 @@
 import React, { JSX, useContext, useState } from 'react'
-import Pagination from 'react-pagination-js'
 import { fetchService } from '@evotempus/api'
-import { AppContext, ErrorMsg, Tabs } from '@evotempus/components'
+import { AppContext, ErrorMsg, Paginate, Tabs } from '@evotempus/components'
 import { Interval, Subject, Topic, Results, TopicType } from '@evotempus/types'
 import { isTopic, getListIcon, idToTitle, isInterval, isSubject } from '@evotempus/utils'
 import './Search.scss'
-import 'react-pagination-js/dist/styles.css' // import css
 
 export const Search: React.FunctionComponent = () => {
   const { setInterval, setSubject } = useContext(AppContext)
@@ -16,6 +14,7 @@ export const Search: React.FunctionComponent = () => {
   const [intervalPage, setIntervalPage] = useState<number>(1)
   const [subjectPage, setSubjectPage] = useState<number>(1)
   const [topicPage, setTopicPage] = useState<number>(1)
+  const [activeTab, setActiveTab] = useState<string>('')
   const [results, setResults] = useState<Results>({
     intervals: [],
     subjects: [],
@@ -66,6 +65,7 @@ export const Search: React.FunctionComponent = () => {
             subjects: res.data.subjects,
             topics: res.data.topics,
           })
+          setActiveTab('Geological Intervals (' + res.data.intervals.length + ')')
           setResultsClass('search-results-show')
         }
       })
@@ -210,22 +210,12 @@ export const Search: React.FunctionComponent = () => {
     if (items.length > totalPerPage) {
       const offset = (currentPage - 1) * totalPerPage
       items = items.slice(offset, offset + totalPerPage)
-      paginate = (
-        <Pagination
-          currentPage={currentPage}
-          totalSize={results.length}
-          sizePerPage={totalPerPage}
-          changeCurrentPage={changePageFn}
-          theme='border-bottom'
-        />
-      )
     }
 
     return (
       // Ignore the entryCount attribute not being a recognised property of <div>
       // @ts-ignore
       <div title={title} entryCount={results.length} className={myClass}>
-        {paginate}
         <ul className='search-results-content-items'>{items}</ul>
       </div>
     )
@@ -270,6 +260,7 @@ export const Search: React.FunctionComponent = () => {
   }
 
   let resultsTabs: JSX.Element = <></>
+  let activePagination: JSX.Element = <></> // <-- New wrapper for our footer
   //
   // By checking the results class, this ensures that the tabs are unmounted
   // when the results window is closed thereby ensuring that the tabs.useEffects for
@@ -280,8 +271,20 @@ export const Search: React.FunctionComponent = () => {
   // content paging numbers.
   //
   if (hasResults() && resultsClass === 'search-results-show') {
+    // Dynamically figure out which pagination to show in the footer
+    if (activeTab.includes('Geological Intervals') && results.intervals.length > totalPerPage) {
+      activePagination = <Paginate currentPage={intervalPage} totalItems={results.intervals.length} pageSize={totalPerPage} onPageChange={pageFn.interval} />
+    } else if (activeTab.includes('Historical Subjects') && results.subjects.length > totalPerPage) {
+      activePagination = <Paginate currentPage={subjectPage} totalItems={results.subjects.length} pageSize={totalPerPage} onPageChange={pageFn.subject} />
+    } else if (activeTab.includes('Descriptions') && results.topics.length > totalPerPage) {
+      activePagination = <Paginate currentPage={topicPage} totalItems={results.topics.length} pageSize={totalPerPage} onPageChange={pageFn.topic} />
+    }
+
     resultsTabs = (
-      <Tabs>
+      <Tabs
+        activeTab={activeTab}
+        onTabClicked={(tabName) => setActiveTab(tabName)}
+      >
         {resultBlock(
           'Geological Intervals (' + results.intervals.length + ')',
           intervalPage,
@@ -294,7 +297,12 @@ export const Search: React.FunctionComponent = () => {
           pageFn.subject,
           results.subjects,
         )}
-        {resultBlock('Descriptions (' + results.topics.length + ')', topicPage, pageFn.topic, results.topics)}
+        {resultBlock(
+          'Descriptions (' + results.topics.length + ')',
+          topicPage,
+          pageFn.topic,
+          results.topics,
+        )}
       </Tabs>
     )
   }
@@ -308,6 +316,10 @@ export const Search: React.FunctionComponent = () => {
           <div className='search-results-content'>
             <p className={msgClass}>{msg}</p>
             {resultsTabs}
+
+            <div className="search-pagination-wrapper">
+              {activePagination}
+            </div>
           </div>
         </div>
       </div>

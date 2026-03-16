@@ -1,5 +1,6 @@
 export { App, AppContext } from '@evotempus/components/app'
 export { ErrorMsg } from './ErrorMsg'
+export { Paginate } from './Paginate'
 export { Search } from './Search'
 export { Tabs } from './Tabs'
 export { HelpPage } from './HelpPage'

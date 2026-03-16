@@ -91,6 +91,8 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
       right: 0;
       background: white;
       overflow: auto;
+      display: flex;
+      flex-direction: column;
 
       .search-results-closebtn {
         @include common.fontawesome-icon;
@@ -110,9 +112,16 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
         clear: both;
         font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
         padding: 1em;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
 
-        [class^="react-pagination-js-"] {
-          float: right;
+        .search-tab-pane {
+          display: flex;
+          flex-direction: column;
+          // This forces the tab pane to take up the rest of the screen height.
+          // You can tweak this 180px offset if your header/tabs take up more or less space!
+          min-height: calc(100vh - 3em);
         }
 
         .search-results-content-items {
@@ -141,6 +150,14 @@ $tile-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3
               text-decoration: underline;
             }
           }
+        }
+
+        .search-pagination-wrapper {
+          display: flex;
+          justify-content: flex-end; // Aligns the pagination to the right
+          margin-top: auto; // The flexbox magic that permanently pins it to the bottom
+          padding-top: 1rem;
+          padding-bottom: 1rem;
         }
 
         .search-msg-info {

@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { stratify as d3Stratify, partition as d3Partition, HierarchyRectangularNode, HierarchyNode } from 'd3-hierarchy'
+import { stratify as d3Stratify, partition as d3Partition, HierarchyNode } from 'd3-hierarchy'
 import { Interval } from '@evotempus/types'
 import { Dimensions, SunburstSystemInfo, ViewInterval, ViewNode } from './globals'
 

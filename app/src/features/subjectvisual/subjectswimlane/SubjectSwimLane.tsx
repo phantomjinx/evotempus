@@ -16,7 +16,7 @@
  */
 
 import React, { useContext, useMemo, useRef } from 'react'
-import { AppContext } from '@evotempus/components/app'
+import { AppContext } from '@evotempus/core/context'
 import { SubjectVisualContext } from '../context'
 import { SubjectVisualLegend } from './subjectvisuallegend'
 import * as service from './subject-swimlane-service'
@@ -24,7 +24,6 @@ import { Definitions } from './Definitions'
 import { ContainerGroup } from './ContainerGroup'
 import { svgId } from './constants'
 import './SubjectSwimLane.scss'
-import { Subject } from 'src/types'
 
 export const SubjectSwimLane: React.FunctionComponent = () => {
 
@@ -61,7 +60,7 @@ export const SubjectSwimLane: React.FunctionComponent = () => {
     }
   }
 
-  const svgStructure = useMemo(() => {
+  const svgStructure = () => {
     if (! visualData || ! interval ) return (<></>)
 
     return (
@@ -85,7 +84,7 @@ export const SubjectSwimLane: React.FunctionComponent = () => {
         />
       </React.Fragment>
     )
-  }, [sysAspect, interval, filteredCategories, subject, visualData])
+  }
 
   if (! interval) {
     return (
@@ -131,7 +130,7 @@ export const SubjectSwimLane: React.FunctionComponent = () => {
         viewBox = { "0 0 " + (width * sysAspect.viewPort) + " " + (height * sysAspect.viewPort)}
         preserveAspectRatio="xMidYMid slice"
       >
-        {svgStructure}
+        {svgStructure()}
       </svg>
 
       <div id='pageBtnTooltip' className='pageBtnTooltip pageBtnTooltipHide' />

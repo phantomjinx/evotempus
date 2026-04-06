@@ -16,5 +16,6 @@
  */
 
 export { ErrorMsg } from './errormsg/ErrorMsg'
+export { Loading } from './layout/Loading'
 export { Paginate } from './paginate/Paginate'
-export { Tabs } from './tabs/Tabs'
+export { Tabs, TabPane } from './tabs/Tabs'

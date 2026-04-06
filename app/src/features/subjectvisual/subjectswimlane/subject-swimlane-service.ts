@@ -18,7 +18,7 @@
 import {
   ScaleLinear
 } from 'd3-scale'
-import { FilteredCategory, Subject } from '@evotempus/types'
+import { Subject } from '@evotempus/types'
 import { SubjectVisualData, SwimLaneAspect } from '../globals'
 
 export function calculateAspect(width: number, height: number): SwimLaneAspect {

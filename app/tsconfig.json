@@ -19,6 +19,7 @@
       "@evotempus/app": ["./src/app"],
       "@evotempus/assets/*": ["./src/assets/*"],
       "@evotempus/components": ["./src/components"],
+      "@evotempus/core/context": ["./src/core/context"],
       "@evotempus/features": ["./src/features"],
       "@evotempus/hooks": ["./src/hooks"],
       "@evotempus/layout": ["./src/layout"],

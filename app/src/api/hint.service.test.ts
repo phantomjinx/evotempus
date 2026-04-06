@@ -29,7 +29,6 @@ describe('hint.service.test', () => {
     const noHints = null
     const emptyHS = new HintService()
     expect(() => {
-      // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
       emptyHS.setHints(noHints!)
     }).toThrow(Error)
   })

@@ -15,19 +15,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { useCallback, useRef } from 'react'
+import React, { useRef } from 'react'
 import { useEffect, useState } from 'react'
 
 import './App.scss'
-import { AppContext } from './context'
+import { AppContext } from '@evotempus/core/context'
 import { fetchService, hintService } from '@evotempus/api'
+import { ErrorMsg, Loading } from '@evotempus/components'
 import { FilteredCategory, Interval, Subject, TopicRequest, TopicType } from '@evotempus/types'
-import { IntervalVisual, Search, HelpPage, Wiki } from '@evotempus/features'
-import { SubjectVisual } from '@evotempus/components'
-import {  present, isSubject, isInterval, logError } from '@evotempus/utils'
+import { HelpPage, IntervalVisual, Search, SubjectVisual, Wiki } from '@evotempus/features'
+import { present, isSubject, isInterval, logError } from '@evotempus/utils'
 import wikiLogoV2 from '@evotempus/assets/images/wikipedia-logo-v2.svg'
 import geoclock from '@evotempus/assets/images/geologic-clock.png'
-import { Loading } from '@evotempus/layout'
 
 //
 // Ensure hints and categories initialised only once
@@ -42,8 +41,6 @@ export const App: React.FunctionComponent = () => {
   const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined)
   const [error, setError] = useState<Error | undefined>(undefined)
   const [help, showHelp] = useState<boolean>(true)
-  const [appWidth, setAppWidth] = useState<number>(312)
-  const [appHeight, setAppHeight] = useState<number>(185)
 
   const [topicRequest, setTopicRequest] = useState<TopicRequest | undefined>()
   const [wikiVisible, showWiki] = useState<boolean>(false)
@@ -57,61 +54,63 @@ export const App: React.FunctionComponent = () => {
     setError(error)
   }
 
-  //
-  // Fetch all the hints from the backend service
-  // This needs to be done once then retained in HintService
-  //
-  const initHints = () => {
-    fetchService
-      .hints()
-      .then((res) => {
-        if (!res.data || res.data.length === 0) {
-          logErrorState('Failed to fetch hints', new Error('Response data payload was empty.'))
-        } else {
-          hintService.setHints(res.data)
-        }
-      })
-      .catch((err) => {
-        logErrorState('Failed to fetch hints data', err)
-      })
-  }
 
-  //
-  // Fetch all the categories from the backend service
-  // This needs to be done once then retained and passed to the subject Swimlane component
-  //
-  const initCategories = () => {
-    fetchService
-      .subjectCategories()
-      .then((res) => {
-        if (!res.data || res.data.length === 0) {
-          logErrorState('Failed to fetch categories be fetched', new Error('Response data payload was empty.'))
-        } else {
-          const filteredCategories: FilteredCategory[] = []
-          for (const category of res.data.values()) {
-            filteredCategories.push({
-              name: category,
-              filtered: false,
-            })
-          }
-          setFilteredCategories(filteredCategories)
-        }
-      })
-      .catch((err) => {
-        logErrorState('Failed to fetch interval data', err)
-      })
-  }
 
-  const handleSubjectSelection = useCallback((subject: Subject) => {
+  const handleSubjectSelection = (subject: Subject) => {
     if (subject) {
       setTopicRequest({type: TopicType.subject, topicTarget: subject})
       showHelp(false)
     }
 
     setSubject(subject)
-  }, [subject])
+  }
 
   useEffect(() => {
+    //
+    // Fetch all the hints from the backend service
+    // This needs to be done once then retained in HintService
+    //
+    const initHints = () => {
+      fetchService
+        .hints()
+        .then((res) => {
+          if (!res.data || res.data.length === 0) {
+            logErrorState('Failed to fetch hints', new Error('Response data payload was empty.'))
+          } else {
+            hintService.setHints(res.data)
+          }
+        })
+        .catch((err) => {
+          logErrorState('Failed to fetch hints data', err)
+        })
+    }
+
+    //
+    // Fetch all the categories from the backend service
+    // This needs to be done once then retained and passed to the subject Swimlane component
+    //
+    const initCategories = () => {
+      fetchService
+        .subjectCategories()
+        .then((res) => {
+          if (!res.data || res.data.length === 0) {
+            logErrorState('Failed to fetch categories be fetched', new Error('Response data payload was empty.'))
+          } else {
+            const filteredCategories: FilteredCategory[] = []
+            for (const category of res.data.values()) {
+              filteredCategories.push({
+                name: category,
+                filtered: false,
+              })
+            }
+            setFilteredCategories(filteredCategories)
+          }
+        })
+        .catch((err) => {
+          logErrorState('Failed to fetch interval data', err)
+        })
+    }
+
     if (!initialised) {
       initialised = true
       initHints()
@@ -140,43 +139,13 @@ export const App: React.FunctionComponent = () => {
     setInterval(newInterval)
   }
 
-  //
-  // changedCategories is array of {name: ..., filtered: true|false}
-  //
-  const updateCategoryFilter = (changedCategories: FilteredCategory[]) => {
-    if (!changedCategories || changedCategories.length === 0) {
-      return
-    }
-
-    const copyCategories = [...filteredCategories]
-
-    changedCategories.forEach((changedCategory: FilteredCategory) => {
-      const idx = filteredCategories.findIndex((category) => {
-        return category.name === changedCategory.name
-      })
-
-      if (idx === -1) {
-        return
-      }
-
-      const copyCat = {
-        ...copyCategories[idx],
-        filtered: changedCategory.filtered,
-      }
-
-      copyCategories[idx] = copyCat
-    })
-
-    setFilteredCategories(copyCategories)
-  }
-
   /*
    * Used by the mobile version to open the wiki
    *
    * type: determines which button was clicked to open the wiki (interval or subject)
    */
-  const handleWikiClick = (event: any, type: string) => {
-    toggleWiki(event, type)
+  const handleWikiClick = (event: React.MouseEvent<HTMLButtonElement>, type?: string) => {
+    toggleWiki(type)
     event.stopPropagation()
   }
 
@@ -184,9 +153,7 @@ export const App: React.FunctionComponent = () => {
    * Used when display in mobile and the wiki is a dialog
    * displayed using the wiki button
    */
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const toggleWiki = (event: any, type: string | undefined) => {
+  const toggleWiki = (type: string|undefined) => {
     if (!type) {
       type = wikiPosition
     }
@@ -212,12 +179,14 @@ export const App: React.FunctionComponent = () => {
 
   const subjectHelpVisual = help ? helpPage : subjectViz
 
+  if (error) {
+    return <ErrorMsg error={error} errorMsg={errorMsg} />
+  }
+
   return (
     <div className='app grid-container'>
       <AppContext.Provider
         value={{
-          appWidth,
-          appHeight,
           interval,
           setInterval: handleIntervalSelection,
           subject,

@@ -23,7 +23,7 @@ import '@fortawesome/fontawesome-free/css/v5-font-face.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js' // nav bar will not work without this
 import './index.css'
-import { App } from '@evotempus/app'
+import { App } from './app/App'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as Element)
 root.render(

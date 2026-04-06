@@ -18,8 +18,8 @@
 import React, { JSX, useState } from 'react'
 import {color as d3Color, RGBColor} from 'd3-color'
 import { hintService } from '@evotempus/api'
-import { Paginate, Tabs } from '@evotempus/components'
-import { FilteredCategory, Legend } from '@evotempus/types'
+import { Paginate, TabPane, Tabs } from '@evotempus/components'
+import { Legend } from '@evotempus/types'
 import { CategoryNode } from './globals'
 import { identifier, logDebug, wikiLink } from '@evotempus/utils'
 
@@ -42,7 +42,7 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
 
   const totalPerPage = 8
 
-  const [kinds, _] = useState<string[]>(hintService.getKindIds())
+  const [ kinds ] = useState<string[]>(hintService.getKindIds())
 
   const [changedNodes, setChangedNodes] = useState<CategoryNode[]>([])
   const [kindPages, setKindPages] = useState<KindPage[]>([])
@@ -55,14 +55,14 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
     })
   }
 
-  const filterCategory = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, categoryNode: CategoryNode) => {
+  const filterCategory = (categoryNode: CategoryNode) => {
     // Make a shallow copy of the keys and filtered keys
-    let categoryNodes = [...props.categoryNodes]
-    let changed = [...changedNodes]
+    const categoryNodes = [...props.categoryNodes]
+    const changed = [...changedNodes]
 
     // Make a shallow copy of the symbol to mutate
-    let keyIdx = categoryNodes.indexOf(categoryNode)
-    let ks = {...categoryNodes[keyIdx]}
+    const keyIdx = categoryNodes.indexOf(categoryNode)
+    const ks = {...categoryNodes[keyIdx]}
 
     // Modify the filtered property
     ks.filtered = ! categoryNode.filtered
@@ -71,7 +71,7 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
     categoryNodes[keyIdx] = ks
 
     // Add / Remove from changed
-    let chgIdx = changed.indexOf(categoryNode)
+    const chgIdx = changed.indexOf(categoryNode)
     if (chgIdx < 0) {
       // Not been changed before so add to changed
       changed.push(ks)
@@ -128,9 +128,7 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
 
     if (categoryNodes.length === 0) {
       items.push(
-        // Ignore the entryCount attribute not being a recognised property of <div>
-        // @ts-ignore
-        <li key={kind} title={kind} entrycount={0} className="subject-visual-legend-paginate">
+        <li key={kind} title={kind} className="subject-visual-legend-paginate">
           <div className="subject-visual-legend-items">
             <p className="subject-legend-content-none-found">No categories</p>
           </div>
@@ -163,7 +161,7 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
         items.push(
           <li key={kind + '-' + categoryNode.name}>
             <div style = {{height: height + 'px', width: height + 'px'}}
-                 onClick = {(event) => filterCategory(event, categoryNode)}>
+                 onClick = {() => filterCategory(categoryNode)}>
               <svg height = {height} width = {height}>
                 <defs>
                   <radialGradient cx = "50%" cy = "50%" r = "85%"
@@ -194,9 +192,7 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
     items = p.items
 
     return (
-      // Ignore the entryCount attribute not being a recognised property of <div>
-      // @ts-ignore
-      <div key={kind} title={kind} entrycount={items.length}>
+      <TabPane key={kind} title={kind} entryCount={items.length}>
         <div className="subject-visual-legend-items">
           <ul className="subject-visual-legend-items-inner">
             {items}
@@ -210,11 +206,11 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
             <span className="subject-visual-legend-apply-tooltip">Apply Filter</span>
             <button
               className="subject-visual-legend-apply-btn fas fa-check-circle"
-              onClick={(event) => applyFilter()}>
+              onClick={() => applyFilter()}>
             </button>
           </div>
         </div>
-      </div>
+      </TabPane>
     )
   }
 

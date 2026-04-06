@@ -15,11 +15,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { fetchService } from '@evotempus/api'
-import { Topic, TopicRequest } from '@evotempus/types'
-import { log, logError } from '@evotempus/utils'
+import { TopicRequest } from '@evotempus/types'
+import { logError } from '@evotempus/utils'
 import './Wiki.scss'
 import { Header } from './Header'
 import { Footer } from './Footer'
@@ -27,7 +26,7 @@ import { Main } from './Main'
 
 type WikiProps = {
   topicRequest: TopicRequest | undefined
-  toggleWiki: (event: any, type?: string) => void
+  toggleWiki: (type?: string) => void
 }
 
 export const Wiki: React.FunctionComponent<WikiProps> = (props: WikiProps) => {
@@ -45,19 +44,19 @@ export const Wiki: React.FunctionComponent<WikiProps> = (props: WikiProps) => {
   }
 
   useEffect(() => {
-    setLinkId('')
-    setDescription('')
-    setErrorMsg('')
-    setError(undefined)
-    setLoading(true)
-
     if (!props.topicRequest) {
-      setLoading(false)
       return
     }
 
-    fetchService.description(props.topicRequest.type, props.topicRequest.topicTarget._id)
-      .then((res) => {
+    const fetchDescription = async () => {
+      setLinkId('')
+      setDescription('')
+      setErrorMsg('')
+      setError(undefined)
+      setLoading(true)
+
+      const res = await fetchService.description(props.topicRequest!.type, props.topicRequest!.topicTarget._id)
+      try {
         if (!res.data || res.data.length === 0) {
           logErrorState("Description cannot be displayed", new Error("No description could be loaded."))
         } else {
@@ -65,10 +64,13 @@ export const Wiki: React.FunctionComponent<WikiProps> = (props: WikiProps) => {
           setLinkId(res.data.linkId)
           setDescription(res.data.description)
         }
-      })
-      .catch((err) => {
-        logErrorState("Failed to fetch description", err)
-      })
+      } catch(err) {
+        logErrorState("Failed to fetch description", err as Error)
+      }
+    }
+
+    fetchDescription()
+
   }, [props.topicRequest])
 
   if (! props.topicRequest) {

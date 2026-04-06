@@ -18,9 +18,9 @@
 import { createContext } from 'react'
 import { FilteredCategory, Interval, Subject } from '@evotempus/types'
 
-export type AppContext = {
-  appWidth: number
-  appHeight: number
+export type AppContextType = {
+  // appWidth: number
+  // appHeight: number
   interval: Interval | undefined
   setInterval: (interval: Interval) => void
   subject: Subject | undefined
@@ -29,9 +29,9 @@ export type AppContext = {
   setFilteredCategories: (filteredCategories: FilteredCategory[]) => void
 }
 
-export const AppContext = createContext<AppContext>({
-  appWidth: -1,
-  appHeight: -1,
+export const AppContext = createContext<AppContextType>({
+  // appWidth: -1,
+  // appHeight: -1,
   interval: undefined,
   setInterval: () => {
     /* no-op */

@@ -15,12 +15,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useEffect, useRef } from 'react'
+import { useState } from 'react'
 
 export function usePrevious<T>(value: T): T | undefined {
-  const ref = useRef<T | undefined>(undefined)
-  useEffect(() => {
-    ref.current = value
-  }, [value])
-  return ref.current
+  const [current, setCurrent] = useState(value)
+  const [previous, setPrevious] = useState<T | undefined>(undefined)
+
+  // If the incoming value doesn't match tracked current value,
+  // it means a change just happened. Shift the values down!
+  if (value !== current) {
+    setPrevious(current)
+    setCurrent(value)
+  }
+
+  return previous
 }

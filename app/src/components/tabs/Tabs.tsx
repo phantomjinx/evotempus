@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { JSX, useEffect, useState } from 'react'
+import React, { JSX, useState } from 'react'
 import './Tabs.scss'
 
 interface TabsProps {
@@ -27,21 +27,13 @@ interface TabsProps {
 export const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps) => {
   const [activeTab, setActiveTab] = useState<string>(props.activeTab ?? '')
 
-  useEffect(() => {
-    //
-    // Skip to the first populated tab if activeTab is empty
-    //
-    if (!props.activeTab || props.activeTab.length === 0) {
-      let title = props.children[0].props.title
-      for (let i = 0; i < props.children.length; ++i) {
-        if (props.children[i].props.entryCount > 0) {
-          title = props.children[i].props.title
-          break
-        }
-      }
-      setActiveTab(title)
-    }
-  }, [props.children])
+  // Calculate the active tab on the fly during render.
+  // If the user hasn't clicked a tab yet, we find the first populated one.
+  let currentActiveTab = activeTab
+  if (!currentActiveTab) {
+    const firstPopulated = props.children.find(child => child.props.entryCount > 0)
+    currentActiveTab = firstPopulated ? firstPopulated.props.title : (props.children[0]?.props.title ?? '')
+  }
 
   const onClickTabItem = (tab: string) => {
     setActiveTab(tab)
@@ -59,7 +51,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps) => {
             const title: string = child.props.title
             const entryCount: number = child.props.entryCount
             return <Tab
-              activeTab={activeTab}
+              activeTab={currentActiveTab}
               title={title}
               entryCount={entryCount}
               selectTab={onClickTabItem}
@@ -70,7 +62,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps) => {
       </div>
       <div className='tab-content'>
         {props.children.map((child: JSX.Element) => {
-          if (child.props.title !== activeTab) {
+          if (child.props.title !== currentActiveTab) {
             return undefined
           }
           return child.props.children
@@ -103,4 +95,15 @@ export const Tab: React.FunctionComponent<TabProps> = (props: TabProps) => {
       {props.title}
     </li>
   )
+}
+
+export interface TabPaneProps {
+  title: string
+  entryCount: number
+  className?: string
+  children: React.ReactNode
+}
+
+export const TabPane: React.FC<TabPaneProps> = ({ className, children }) => {
+  return <div className={className}>{children}</div>
 }

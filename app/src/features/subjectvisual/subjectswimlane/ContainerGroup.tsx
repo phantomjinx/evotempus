@@ -79,6 +79,31 @@ export const ContainerGroup: React.FunctionComponent<ContainerGroupProps> = (pro
   }
 
   useEffect(() => {
+    const svg = d3Select<SVGSVGElement, unknown>(`#${svgId}`)
+    if (!svg || svg.empty()) return
+
+    const zoom = d3Zoom<SVGSVGElement, unknown>()
+      .scaleExtent([1, 10])
+      // Define the Viewport (Lens) so D3 ignores the SVG margins
+      .extent([[0, 0], [props.sysAspect.innerWidth, props.sysAspect.innerHeight]])
+      // Define the Panning Boundaries to match the Viewport
+      .translateExtent([[0, 0], [props.sysAspect.innerWidth, props.sysAspect.innerHeight]])
+      .on("zoom", (event) => {
+        setCurrentXZoomState(event.transform)
+        setCurrentYZoomState(event.transform)
+      })
+
+    svg
+      .call(zoom)
+      .on("dblclick.zoom", null)
+
+  }, [props.sysAspect.innerWidth, props.sysAspect.innerHeight])
+
+  /*
+   * This is entirely responsible for drawing the axis, so it
+   * MUST re-run every time the xScale changes.
+   */
+  useEffect(() => {
     /*
      * xAxis DOM Element must exist before the xDataAxis function
      * can be executed on it. So use an effect to execute once default
@@ -99,60 +124,7 @@ export const ContainerGroup: React.FunctionComponent<ContainerGroupProps> = (pro
      */
     xAxisElement.attr('font-size', '').attr('font-family', '')
 
-    const svg = d3Select<SVGSVGElement, unknown>(`#${svgId}`)
-    if (! svg || svg.empty()) {
-      return
-    }
-
-    const zoom = d3Zoom<SVGSVGElement, unknown>()
-      .scaleExtent([1, 10])
-      .translateExtent([[0, 0], [props.sysAspect.innerWidth, props.sysAspect.innerHeight]])
-      .on("zoom", (event) => {
-
-        setCurrentXZoomState(_ => {
-          const newState = event.transform
-
-          //
-          // The event transform never returns to the original
-          // identity transform {k:1, x:0, y:0} so progressively
-          // distorts the zoom. Therefore, override it
-          //
-          if (event.transform.k === 1) newState.x = 0
-          return newState
-        })
-
-        setCurrentYZoomState(_ => {
-          const newState = event.transform
-          //
-          // The event transform never returns to the original
-          // identity transform {k:1, x:0, y:0} so progressively
-          // distorts the zoom. Therefore, override it
-          //
-          if (event.transform.k === 1) newState.y = 0
-          return newState
-        })
-      })
-
-
-    svg
-      .call(zoom)
-      .on("dblclick.zoom", null)
-
-    //
-    //   //
-    //   // After complete rendering if a subject
-    //   // has been assigned then traverse to it
-    //   //
-    //   traverseToSubject(subject, handleVisualClick)
-    //
-    //   //
-    //   // Determine whether to re-open the legend
-    //   //
-    //   this.setState({
-    //     legendVisible: legendVisible
-    //   })
-
-  }, [xScale, yScale])
+  }, [xScale])
 
   return (
     <g className='subject-container'>

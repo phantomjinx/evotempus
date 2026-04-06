@@ -19,8 +19,8 @@ import { zoom as d3Zoom } from 'd3-zoom'
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { select as d3Select } from 'd3-selection'
 import { Interval } from '@evotempus/types'
-import { AppContext } from '@evotempus/components/app'
-import { log, logError } from '@evotempus/utils'
+import { AppContext } from '@evotempus/core/context'
+import { logError } from '@evotempus/utils'
 import { useElementSize } from '@evotempus/hooks'
 import * as service from './interval-sunburst-service'
 import './IntervalVisual.scss'
@@ -104,13 +104,19 @@ export const IntervalSunburst: React.FunctionComponent<SunburstProps> = (props: 
     // Set rootNode initially visible
     rootNode.data.visible = true
 
+    return { rootNode, nodeDescendents: rootNode.descendants().slice(1) }
+  }, [props.visualIntervals])
+
+  //
+  // Needs to happen outside of paritioning since that
+  // is calculation and setting parent is rendering
+  //
+  useEffect(() => {
     //
     // Sets the parent for display the first time around
     //
     setParent(rootNode)
-
-    return { rootNode, nodeDescendents: rootNode.descendants().slice(1) }
-  }, [props.visualIntervals])
+  }, [rootNode])
 
   const handleSelection = useCallback((newSelected: ViewNode, notify: boolean) => {
 

@@ -15,14 +15,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { useCallback, useContext, useEffect, useState, RefObject } from 'react'
+import React, { useCallback, useContext, useEffect, useState, RefObject, useRef } from 'react'
 import cloneDeep from "lodash.clonedeep"
 import { fetchService } from '@evotempus/api'
-import { Loading } from '@evotempus/layout'
-import { FilteredCategory, Interval, KindResults, Legend, Subject, SubjectCriteria } from '@evotempus/types'
-import { log, deepEqual, logDebug, logError } from '@evotempus/utils'
-import { AppContext } from '@evotempus/components/app'
-import { ErrorMsg } from '../ErrorMsg'
+import { ErrorMsg, Loading } from '@evotempus/components'
+import { AppContext } from '@evotempus/core/context'
+import { Interval, KindResults, Legend, SubjectCriteria } from '@evotempus/types'
+import { deepEqual, logDebug, logError } from '@evotempus/utils'
 import { chartify, excludedCategories, isSubjectInVisualData, newSubjectCriteria } from './subject-visual-service'
 import './SubjectVisual.scss'
 import { SubjectVisualData } from './globals'
@@ -51,8 +50,7 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
 
   const { interval, subject, filteredCategories } = useContext(AppContext)
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_, setCriteria] = useState<SubjectCriteria>(EMPTY_CRITERIA)
+  const criteriaRef = useRef<SubjectCriteria>(EMPTY_CRITERIA)
   const [visualData, setVisualData] = useState<SubjectVisualData>(EMPTY_VISUAL_DATA)
 
   const [errorMsg, setErrorMsg] = useState<string>()
@@ -129,69 +127,73 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
     })
   }, [])
 
+  // Reset the data during the render phase if the interval is empty.
+  // React will instantly halt and re-render without painting the wrong data.
+  if (!interval && visualData !== EMPTY_VISUAL_DATA) {
+    setVisualData(EMPTY_VISUAL_DATA)
+  }
+
   useEffect(() => {
-    setCriteria(prev => {
-      logDebug({prefix: 'SubjectVisual', message: 'Setting Criteria', object: prev})
-      const intervalChanged = ! deepEqual(prev.interval, interval)
-      const subjectChanged = ! deepEqual(prev.subjectId, subject?._id)
-      const exCategoriesChanged = ! deepEqual(prev.excludedCategories, excludedCategories(filteredCategories))
+    // If there is no interval, return. The render phase already handled it
+    if (!interval) return
 
-      // The visualData changed but the criteria did not so nothing to do
-      if (!intervalChanged && !subjectChanged && !exCategoriesChanged) {
-        return prev
+    const prev = criteriaRef.current
+
+    logDebug({prefix: 'SubjectVisual', message: 'Setting Criteria', object: prev})
+    const intervalChanged = ! deepEqual(prev.interval, interval)
+    const subjectChanged = ! deepEqual(prev.subjectId, subject?._id)
+    const exCategoriesChanged = ! deepEqual(prev.excludedCategories, excludedCategories(filteredCategories))
+
+    // The visualData changed but the criteria did not so nothing to do
+    if (!intervalChanged && !subjectChanged && !exCategoriesChanged) {
+      return
+    }
+
+    // Prepare a new criteria object
+    const newCriteria = newSubjectCriteria(interval, subject, filteredCategories)
+    criteriaRef.current = newCriteria
+
+    //
+    // If filters have changed then a new lookup is required
+    // If they haven't then the change could just be a new selection
+    // within the current visual data
+    //
+    if (!exCategoriesChanged && subjectChanged) {
+      if (isSubjectInVisualData(subject, visualData)) {
+        // Filters not changed and subject in visual data
+        // So only reselection will be required
+        return
       }
+    }
 
-      // Prepare a new criteria object
-      const newCriteria = newSubjectCriteria(interval, subject, filteredCategories)
-
-      //
-      // If no interval then no data to look up
-      //
-      if (! interval) {
-        updateVisualData(interval, undefined)
-        return newCriteria
-      }
-
-      //
-      // If filters have changed then a new lookup is required
-      // If they haven't then the change could just be a new selection
-      // within the current visual data
-      //
-      if (!exCategoriesChanged && subjectChanged) {
-        if (isSubjectInVisualData(subject, visualData)) {
-          // Filters not changed and subject in visual data
-          // So only reselection will be required
-          return newCriteria
-        }
-      }
-
+    //
+    // Fetch the subject data from the backend service
+    //
+    const fetchNewData = async () => {
       //
       // Resets the error
       //
       setError(undefined)
       setErrorMsg(undefined)
-
-      //
-      // Fetch the subject data from the backend service
-      //
       setLoading(true)
-      fetchService.subjectsWithin(newCriteria)
-        .then((res) => {
-          //
-          // Updated results received
-          //
-          const results: KindResults = res.data
-          logDebug({prefix: 'SubjectVisual', message: 'fetchSubjects: results', object: results})
-          updateVisualData(newCriteria.interval, results)
-          setLoading(false)
-        })
-        .catch((err) => {
-          logErrorState("Failed to fetch interval data", err)
-          setLoading(false)
-        })
 
-      return newCriteria
-    })
+      try {
+        const res = await fetchService.subjectsWithin(newCriteria)
+        //
+        // Updated results received
+        //
+        const results: KindResults = res.data
+        logDebug({prefix: 'SubjectVisual', message: 'fetchSubjects: results', object: results})
+        updateVisualData(newCriteria.interval, results)
+        setLoading(false)
+      } catch(err) {
+        logErrorState("Failed to fetch interval data", err as Error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchNewData()
 
   }, [interval, subject, filteredCategories, updateVisualData, visualData])
 

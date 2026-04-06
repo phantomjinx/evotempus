@@ -15,13 +15,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { useContext, useEffect, useState } from 'react'
-import { Loading } from '@evotempus/layout'
+import React, { useEffect, useState } from 'react'
 import { fetchService } from '@evotempus/api'
+import { ErrorMsg, Loading } from '@evotempus/components'
 import { Interval } from '@evotempus/types'
-import { log, logError } from '@evotempus/utils'
-import { ErrorMsg } from '../ErrorMsg'
-import { AppContext } from '@evotempus/components/app'
+import { logError } from '@evotempus/utils'
 import { IntervalSunburst } from './IntervalSunburst'
 import './IntervalVisual.scss'
 

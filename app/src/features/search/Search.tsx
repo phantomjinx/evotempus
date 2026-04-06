@@ -17,7 +17,8 @@
 
 import React, { JSX, useContext, useState } from 'react'
 import { fetchService } from '@evotempus/api'
-import { AppContext, ErrorMsg, Paginate, Tabs } from '@evotempus/components'
+import { ErrorMsg, Paginate, TabPane, Tabs } from '@evotempus/components'
+import { AppContext } from '@evotempus/core/context'
 import { Interval, Subject, Topic, Results, TopicType } from '@evotempus/types'
 import { isTopic, getListIcon, idToTitle, isInterval, isSubject } from '@evotempus/utils'
 import './Search.scss'
@@ -223,18 +224,15 @@ export const Search: React.FunctionComponent = () => {
       }
     }
 
-    let paginate: JSX.Element = <></>
     if (items.length > totalPerPage) {
       const offset = (currentPage - 1) * totalPerPage
       items = items.slice(offset, offset + totalPerPage)
     }
 
     return (
-      // Ignore the entryCount attribute not being a recognised property of <div>
-      // @ts-ignore
-      <div title={title} entryCount={results.length} className={myClass}>
+      <TabPane title={title} entryCount={results.length} className={myClass}>
         <ul className='search-results-content-items'>{items}</ul>
-      </div>
+      </TabPane>
     )
   }
 

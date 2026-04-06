@@ -17,7 +17,7 @@
 
 import { hintService } from '@evotempus/api'
 import { FilteredCategory, Interval, KindResult, KindResults, Page, Subject, SubjectCriteria } from '@evotempus/types'
-import { log, logDebug } from '@evotempus/utils'
+import { logDebug } from '@evotempus/utils'
 import cloneDeep from 'lodash.clonedeep'
 import { SubjectVisualData } from './globals'
 
@@ -31,6 +31,7 @@ function sortKinds(kinds: string[]) {
 
       return aOrder - bOrder
     } catch (err) {
+      logDebug({prefix: 'SubjectVisualService', message: `Error occurred sorting kinds ${a} and ${b}`, object: err})
       return 0
     }
   })

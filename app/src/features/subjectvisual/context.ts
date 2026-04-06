@@ -34,20 +34,20 @@ export const SubjectVisualContext = createContext<SubjectVisualContext>({
   width: 0,
   height: 0,
   visualData: undefined,
-  onUpdateKindPage: (kind: string, page: number) => {
+  onUpdateKindPage: () => {
     /* no-op */
   },
   legend: {
     visible: false,
     activeTab: '',
   },
-  setLegend: (legend: Legend) => {
+  setLegend: () => {
     /* no-op */
   },
-  setError: (error: Error) => {
+  setError: () => {
     /* no-op */
   },
-  setErrorMsg: (msg: string) => {
+  setErrorMsg: () => {
     /* no-op */
   }
 })

@@ -21,7 +21,7 @@ import './SubjectVisualLegend.scss'
 import { initCategoryNodes } from './subject-visual-legend-service'
 import { CategoryNode } from './globals'
 import { LegendKindTabs } from './LegendKindTabs'
-import { log, logDebug } from '@evotempus/utils'
+import { logDebug } from '@evotempus/utils'
 
 type SubjectVisualLegendProps = {
   height: number

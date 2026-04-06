@@ -35,7 +35,8 @@ export function useElementSize<T extends HTMLElement = HTMLDivElement>(): [RefOb
   }
 
   useLayoutEffect(() => {
-    target.current && setRoundedSize(target.current.getBoundingClientRect())
+    if(target.current)
+      setRoundedSize(target.current.getBoundingClientRect())
   }, [target])
 
   useResizeObserver(target, (entry) => {

@@ -16,8 +16,7 @@
  */
 
 import React from 'react'
-import { Loading } from 'src/layout'
-import { ErrorMsg } from '../ErrorMsg'
+import { ErrorMsg, Loading } from '@evotempus/components'
 
 type MainProps = {
   loading: boolean

@@ -18,7 +18,7 @@
 import React, { useRef } from 'react'
 import { useSpring, animated, to, easings } from '@react-spring/web'
 import { arc as d3Arc } from 'd3-shape'
-import { log, displayYear } from '@evotempus/utils'
+import { displayYear } from '@evotempus/utils'
 import { clickDelay, Dimensions, ViewNode } from './globals'
 
 type SunburstSegmentPathsProps = {

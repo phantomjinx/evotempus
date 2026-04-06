@@ -60,7 +60,7 @@ export const LanePageButtons: React.FunctionComponent<LanePageButtonsProps> = (p
   //
   // Mouse Over function for page buttons
   //
-  const handlePageMouseOver = (event: React.MouseEvent<SVGTextElement, MouseEvent>, kind: SubjectVisualKind) => {
+  const handlePageMouseOver = (kind: SubjectVisualKind) => {
     const pageBtnTooltip = d3Select('#pageBtnTooltip')
     if (! pageBtnTooltip) return
 
@@ -75,7 +75,7 @@ export const LanePageButtons: React.FunctionComponent<LanePageButtonsProps> = (p
   //
   // Mouse Out function for page buttons
   //
-  const handlePageMouseOut = (event: React.MouseEvent<SVGTextElement, MouseEvent>, kind: SubjectVisualKind) => {
+  const handlePageMouseOut = () => {
     const pageBtnTooltip = d3Select('#pageBtnTooltip')
     if (! pageBtnTooltip) return
 
@@ -120,8 +120,8 @@ export const LanePageButtons: React.FunctionComponent<LanePageButtonsProps> = (p
               x={props.sysAspect.innerWidth}
               y={props.yScale(kind.laneStartIdx + kind.lanes - 1)}
               onClick={(event) => handlePageClick(event, kind)}
-              onMouseOver={(event) => handlePageMouseOver(event, kind)}
-              onMouseOut={(event) => handlePageMouseOut(event, kind)}
+              onMouseOver={() => handlePageMouseOver(kind)}
+              onMouseOut={() => handlePageMouseOut()}
             >
               {'\uf150'}
             </text>

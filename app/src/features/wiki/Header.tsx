@@ -16,14 +16,14 @@
  */
 
 import React from 'react'
-import { Topic, TopicRequest, TopicTarget } from '@evotempus/types'
+import { TopicTarget } from '@evotempus/types'
 import * as common from '@evotempus/utils'
 import { HeaderCloseButton } from './HeaderCloseButton'
 import { HeaderLogo } from './HeaderLogo'
 
 type HeaderProps = {
   topicTarget: TopicTarget
-  toggleWiki: (event: any, type?: string) => void
+  toggleWiki: (type?: string) => void
 }
 
 export const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {

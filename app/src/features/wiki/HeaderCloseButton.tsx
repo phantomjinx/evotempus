@@ -18,7 +18,7 @@
 import React from 'react'
 
 type HeaderCloseButtonProps = {
-  toggleWiki: (event: any, type?: string) => void
+  toggleWiki: (type?: string) => void
 }
 
 export const HeaderCloseButton: React.FunctionComponent<HeaderCloseButtonProps> = (props: HeaderCloseButtonProps) => {
@@ -27,7 +27,7 @@ export const HeaderCloseButton: React.FunctionComponent<HeaderCloseButtonProps> 
     <React.Fragment>
       <button
         id="wiki-closebtn" className="fa-regular fa-circle-xmark"
-        onClick={props.toggleWiki}>
+        onClick={() => props.toggleWiki()}>
       </button>
     </React.Fragment>
   )

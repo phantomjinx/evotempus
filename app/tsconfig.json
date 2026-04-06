@@ -16,9 +16,11 @@
     "paths": {
       "*": ["*", "types/*"],
       "@evotempus/api": ["./src/api"],
+      "@evotempus/app": ["./src/app"],
       "@evotempus/assets/*": ["./src/assets/*"],
       "@evotempus/components": ["./src/components"],
-      "@evotempus/components/app": ["./src/components/app"],
+      "@evotempus/features": ["./src/features"],
+      "@evotempus/hooks": ["./src/hooks"],
       "@evotempus/layout": ["./src/layout"],
       "@evotempus/types": ["./src/types"],
       "@evotempus/utils": ["./src/utils"]

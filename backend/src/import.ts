@@ -18,7 +18,7 @@
  /* jshint node: true */
  'use strict'
 
-import { Model, Document } from 'mongoose'
+import { AnyBulkWriteOperation, Document } from 'mongoose'
 import { logger } from './logger'
 import fs from 'fs'
 import path from 'path'
@@ -46,25 +46,10 @@ type TaggableItem = {
   tag: string
 }
 
-/**
- * A specific, self-defined type for our upsert operation object.
- * It's a generic type that works for any document shape.
- */
-type UpsertOperation<T> = {
-  updateOne: {
-    filter: object
-    update: object
-    upsert?: boolean
-  }
-}
-
 type Tuple = string[]
 type Tuples = Tuple[]
 
 type TupleFn = (tuple: Tuple) => Promise<void>
-
-// The transform function now knows what shape of object it should return
-type BulkTransformFn<T> = (tuple: Tuple, minimumCols: number) => UpsertOperation<T> | null
 
 export class Importer {
 
@@ -111,7 +96,7 @@ export class Importer {
    * (Need to preserve this binding)
    */
 
-  private transformIntervalData: BulkTransformFn<IInterval> = (tuple: Tuple, minimumCols: number) => {
+  private transformIntervalData = (tuple: Tuple, minimumCols: number): AnyBulkWriteOperation<IInterval> | null => {
     this.expectPopulated(tuple, 'interval', minimumCols)
 
     const id = utils.trim(tuple[0])
@@ -153,7 +138,6 @@ export class Importer {
 
     const uniqueFilter = { _id: id }
 
-    // This return type matches our explicit `UpsertOperation` type.
     return {
       updateOne: {
         filter: uniqueFilter,
@@ -163,7 +147,7 @@ export class Importer {
     }
   }
 
-  private transformTopicData(id: string, linkId: string|null, target: string): UpsertOperation<ITopic> | null {
+  private transformTopicData = (id: string, linkId: string|null, target: string): AnyBulkWriteOperation<ITopic> | null => {
     if (! linkId) return null
 
     // New id topic
@@ -187,7 +171,7 @@ export class Importer {
     }
   }
 
-  private transformIntervalTopicData: BulkTransformFn<ITopic> = (tuple: Tuple, minimumCols: number) => {
+  private transformIntervalTopicData = (tuple: Tuple, minimumCols: number): AnyBulkWriteOperation<ITopic> | null => {
     this.expectPopulated(tuple, 'Interval', minimumCols)
 
     //
@@ -199,7 +183,7 @@ export class Importer {
     return this.transformTopicData(topicId, linkId, 'Interval')
   }
 
-  private transformHintData: BulkTransformFn<IHint> = (tuple: Tuple, minimumCols: number) => {
+  private transformHintData = (tuple: Tuple, minimumCols: number): AnyBulkWriteOperation<IHint> => {
     this.expectPopulated(tuple, 'hint', minimumCols)
 
     const calcOrder = (orderStr: string, id: string): number => {
@@ -238,7 +222,7 @@ export class Importer {
     }
   }
 
-  private transformTupleToSubject(tuple: Tuple, minimumCols: number): Partial<ISubject> | null {
+  private transformTupleToSubject = (tuple: Tuple, minimumCols: number): Partial<ISubject> | null => {
     this.expectPopulated(tuple, 'subject', minimumCols)
 
     const id = utils.trim(tuple[0])
@@ -311,52 +295,34 @@ export class Importer {
     }
   }
 
-  private async writeBatches<TDoc extends Document<string>>(model: Model<TDoc>, mainOps: UpsertOperation<TDoc>[], topicOps: UpsertOperation<ITopic>[]) {
-    const promises = []
-    if (mainOps.length > 0) {
-      promises.push(model.bulkWrite(mainOps))
-    }
+  /**
+   * Reads a file, transforms the rows, and yields them in batches.
+   * Completely decoupled from the database.
+   */
+  private async processFileInBatches<T extends Document<string>>(
+    filePath: string,
+    minimumCols: number,
+    transformFn: (tuple: Tuple, minCols: number) => AnyBulkWriteOperation<T> | null,
+    processBatchFn: (batch: AnyBulkWriteOperation<T>[]) => Promise<void>
+  ) {
+    let batch: AnyBulkWriteOperation<T>[] = []
 
-    if (topicOps.length > 0) {
-      promises.push(TopicModel.bulkWrite(topicOps))
-    }
+    await this.readFile(filePath, minimumCols, async (tuple: Tuple) => {
+      const item = transformFn(tuple, minimumCols)
+      if (!item) return
 
-    if (promises.length > 0) {
-      await Promise.all(promises)
-      logger.debug(`INFO: Wrote batch Main ops: ${mainOps.length}, Topic ops: ${topicOps.length}`)
-    }
-  }
+      batch.push(item)
 
-  private async importWithBulkWrite<TDoc extends Document<string>>(
-    fullPath: string, minimumCols: number,
-    model: Model<TDoc>, transformFn: BulkTransformFn<TDoc>) {
-
-    logger.debug(`INFO: Processing upserts from ${fullPath}`)
-
-    let mainOps: UpsertOperation<TDoc>[] = []
-    let topicOps: UpsertOperation<ITopic>[] = []
-
-    await this.readFile(fullPath, minimumCols, async (tuple: Tuple) => {
-      const op = transformFn(tuple, minimumCols)
-      if (!op) {
-        // row did not create a valid operation
-        return
-      }
-
-      // Always push only the updateOne
-      mainOps.push(op)
-
-      if (mainOps.length >= this.batchSize) {
-        await this.writeBatches(model, mainOps, topicOps)
-        mainOps = []
-        topicOps = []
+      if (batch.length >= this.batchSize) {
+        await processBatchFn(batch)
+        batch = []
       }
     })
 
-    // Write any remaining operations after the loop finishes.
-    await this.writeBatches(model, mainOps, topicOps)
-    mainOps = []
-    topicOps = []
+    // Process the final remainder
+    if (batch.length > 0) {
+      await processBatchFn(batch)
+    }
   }
 
   private async getAllFilePaths(pathOrPaths: string | string[]): Promise<string[]> {
@@ -376,9 +342,12 @@ export class Importer {
             allFiles.push(fullEntryPath)
           }
         }
-      } catch (error: any) {
+      } catch (error: unknown) {
+        // Cast to NodeJS.ErrnoException to safely check for 'ENOTDIR'
+        const err = error as NodeJS.ErrnoException
+
         // This handles cases where the initial path is a file, not a directory
-        if (error.code === 'ENOTDIR' && path.extname(currentPath) === '.dat') {
+        if (err.code === 'ENOTDIR' && path.extname(currentPath) === '.dat') {
           allFiles.push(currentPath)
         } else {
           logger.error(error, `ERROR: Path could not be read: ${currentPath}`)
@@ -392,40 +361,6 @@ export class Importer {
     }
 
     return allFiles
-  }
-
-  private async importContent<TDoc extends Document<string>>(
-    pathOrPaths: string|string[], minimumCols: number,
-    typeModel: Model<TDoc>, transformFn: BulkTransformFn<TDoc>) {
-
-    // Build a complete, flat list of all file paths.
-    const allFilesToProcess: string[] = await this.getAllFilePaths(pathOrPaths)
-
-    if (allFilesToProcess.length === 0) {
-      logger.warn(`WARN: No files found to import for the given path ${pathOrPaths}`)
-    }
-
-    // Define concurrency limit (how many files to process at once)
-    const chunkSize = 10
-    logger.info(`Processing ${allFilesToProcess.length} files in chunks of ${chunkSize}...`)
-
-    for (let i = 0; i < allFilesToProcess.length; i += chunkSize) {
-      // Get the current chunk of file paths.
-      const chunk = allFilesToProcess.slice(i, i + chunkSize)
-      logger.info(`Processing chunk ${i / chunkSize + 1}: ${chunk.map(p => path.basename(p)).join(', ')}`)
-
-      // Create an array of promises for ONLY the current chunk.
-      const importPromises = chunk.map(filePath =>
-        this.importWithBulkWrite(filePath, minimumCols, typeModel, transformFn)
-      )
-
-      // Wait for the current chunk to complete before starting the next.
-      try {
-        await Promise.all(importPromises)
-      } catch (error) {
-        logger.error(error, `ERROR: A problem occurred while processing a chunk.`)
-      }
-    }
   }
 
   private async tagIntervalOrSubject(taggableItems: TaggableItem[]) {
@@ -449,8 +384,8 @@ export class Importer {
     const subjectIds = new Set(subjects.map(doc => doc._id))
 
     // Build the separate operation arrays
-    const intervalUpdateOps: UpsertOperation<IInterval>[] = []
-    const subjectUpdateOps: UpsertOperation<ISubject>[] = []
+    const intervalUpdateOps: AnyBulkWriteOperation<IInterval>[] = []
+    const subjectUpdateOps: AnyBulkWriteOperation<ISubject>[] = []
 
     for (const item of taggableItems) {
       const updateOperation = {
@@ -495,23 +430,55 @@ export class Importer {
    * PUBLIC IMPORT METHODS
    */
   async importIntervals(pathOrPaths: string|string[]) {
-    await this.importContent(pathOrPaths, 6, IntervalModel, this.transformIntervalData)
-    logger.debug('INFO: import of intervals complete')
+    const allFiles = await this.getAllFilePaths(pathOrPaths)
+    for (const filePath of allFiles) {
+      logger.debug(`INFO: Processing Intervals from ${filePath}`)
+
+      await this.processFileInBatches<IInterval>(
+        filePath, 6, this.transformIntervalData,
+        async (batch) => {
+          await IntervalModel.bulkWrite(batch)
+          logger.debug(`INFO: Wrote batch of ${batch.length} Intervals.`)
+        }
+      )
+    }
+    logger.debug('INFO: Import of intervals complete')
   }
 
   async importIntervalTopics(pathOrPaths: string|string[]) {
-    await this.importContent(pathOrPaths, 2, TopicModel, this.transformIntervalTopicData)
+    const allFiles = await this.getAllFilePaths(pathOrPaths)
+    for (const filePath of allFiles) {
+      logger.debug(`INFO: Processing Interval Topics from ${filePath}`)
+
+      await this.processFileInBatches<ITopic>(
+        filePath, 2, this.transformIntervalTopicData,
+        async (batch) => {
+          await TopicModel.bulkWrite(batch)
+          logger.debug(`INFO: Wrote batch of ${batch.length} Intervals.`)
+        }
+      )
+    }
     logger.debug('INFO: import of topics complete')
   }
 
   async importHints(pathOrPaths: string|string[]) {
-    await this.importContent(pathOrPaths, 7, HintModel, this.transformHintData)
+    const allFiles = await this.getAllFilePaths(pathOrPaths)
+    for (const filePath of allFiles) {
+      logger.debug(`INFO: Processing Hints from ${filePath}`)
+
+      await this.processFileInBatches<IHint>(
+        filePath, 7, this.transformHintData,
+        async (batch) => {
+          await HintModel.bulkWrite(batch)
+          logger.debug(`INFO: Wrote batch of ${batch.length} Hints.`)
+        }
+      )
+    }
     logger.debug('INFO: import of hints complete')
   }
 
   async importSubjects(pathOrPaths: string|string[]) {
     const allFiles = await this.getAllFilePaths(pathOrPaths)
-
     const fileDataMap = new Map<string, Tuples>()
     let totalFileRows = 0
 
@@ -600,14 +567,15 @@ export class Importer {
     logger.info(`Aggregation complete. Result is ${aggregatedSubjects.size} unique subjects.`)
 
     // Write the final, aggregated results back to the database.
-    let mainOps: UpsertOperation<ISubject>[] = []
-    let topicOps: UpsertOperation<ITopic>[] = []
+    // Explicitly typed arrays using Mongoose's native types.
+    const subjectOps: AnyBulkWriteOperation<ISubject>[] = []
+    const topicOps: AnyBulkWriteOperation<ITopic>[] = []
 
     for (const subject of aggregatedSubjects.values()) {
-      // Separate linkId from the actual subject data
       const { linkId, ...subjectDoc } = subject
 
-      mainOps.push({
+      // Build the Subject operation
+      subjectOps.push({
         updateOne: {
           filter: { _id: subjectDoc._id },
           update: { $set: subjectDoc },
@@ -615,31 +583,36 @@ export class Importer {
         }
       })
 
+      // Build the Topic operation
       const topicOperation = this.transformTopicData(subjectDoc._id!, linkId ?? null, 'Subject')
       if (topicOperation) topicOps.push(topicOperation)
     }
 
-    if (mainOps.length > 0) {
-      for (let i = 0; i < mainOps.length; i += this.batchSize) {
-        const chunk = mainOps.slice(i, i + this.batchSize)
+    // Write Subjects
+    if (subjectOps.length > 0) {
+      for (let i = 0; i < subjectOps.length; i += this.batchSize) {
+        const chunk = subjectOps.slice(i, i + this.batchSize)
         try {
-          await this.writeBatches(SubjectModel, chunk, [])
+          // Typed call to the Subject Model
+          await SubjectModel.bulkWrite(chunk)
           logger.info(`Loaded chunk of ${chunk.length} subjects to the database.`)
         } catch (error) {
-          logger.error(error, 'A fatal error occurred during the final bulk write:')
+          logger.error(error, 'A fatal error occurred during the Subject bulk write:')
           this.evoDb.terminate()
         }
       }
     }
 
+    // Write Topics
     if (topicOps.length > 0) {
       for (let i = 0; i < topicOps.length; i += this.batchSize) {
         const chunk = topicOps.slice(i, i + this.batchSize)
         try {
-          await this.writeBatches(SubjectModel, [], chunk)
+          // Typed call to the Topic Model
+          await TopicModel.bulkWrite(chunk)
           logger.info(`Loaded chunk of ${chunk.length} subject topics to the database.`)
         } catch (error) {
-          logger.error(error, 'A fatal error occurred during the final bulk write:')
+          logger.error(error, 'A fatal error occurred during the Topic bulk write:')
           this.evoDb.terminate()
         }
       }

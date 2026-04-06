@@ -13,7 +13,10 @@
     "build:backend": "pnpm --filter evotempus-backend run build",
     "start": "./production/run-prod-local.sh",
     "license:check": "node scripts/license-header.mjs",
-    "license:fix": "node scripts/license-header.mjs --fix"
+    "license:fix": "node scripts/license-header.mjs --fix",
+    "lint:app": "pnpm --filter evotempus-app run lint",
+    "lint:backend": "pnpm --filter evotempus-backend run lint",
+    "lint": "pnpm run lint:app & pnpm run lint:backend"
   },
   "repository": {
     "type": "git",

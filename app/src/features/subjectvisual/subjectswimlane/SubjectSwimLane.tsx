@@ -29,7 +29,7 @@ export const SubjectSwimLane: React.FunctionComponent = () => {
 
   const svgRef = useRef<SVGSVGElement>(null)
 
-  const { interval, setInterval, subject, setSubject, filteredCategories, setFilteredCategories } = useContext(AppContext)
+  const { interval, setInterval, subject, setSubject, filteredCategories, toggleCategoryFilter, resetCategoryFilters } = useContext(AppContext)
   const { width, height, visualData, onUpdateKindPage,
           legend, setLegend, setError, setErrorMsg } = useContext(SubjectVisualContext)
 
@@ -51,10 +51,7 @@ export const SubjectSwimLane: React.FunctionComponent = () => {
    * Reset all categories back to visible
    */
   const resetCategories = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setFilteredCategories(filteredCategories.map(fc => {
-      return { name: fc.name, filtered: false }
-    }))
-
+    resetCategoryFilters()
     if (event) {
       event.preventDefault()
     }
@@ -119,7 +116,7 @@ export const SubjectSwimLane: React.FunctionComponent = () => {
         legend = { legend }
         onUpdateLegend = { setLegend }
         categories = { filteredCategories }
-        onUpdateCategories={ setFilteredCategories }
+        onUpdateCategoryFilter={ toggleCategoryFilter }
         displayedCategoryNames = { visualData?.categoryNames ?? [] }
       />
       <svg

@@ -26,7 +26,8 @@ export type AppContextType = {
   subject: Subject | undefined
   setSubject: (subject: Subject) => void
   filteredCategories: FilteredCategory[]
-  setFilteredCategories: (filteredCategories: FilteredCategory[]) => void
+  toggleCategoryFilter: (changedCategories: FilteredCategory[]) => void
+  resetCategoryFilters: () => void
 }
 
 export const AppContext = createContext<AppContextType>({
@@ -41,7 +42,10 @@ export const AppContext = createContext<AppContextType>({
     /* no-op */
   },
   filteredCategories: [],
-  setFilteredCategories: () => {
+  toggleCategoryFilter: () => {
+    /* no-op */
+  },
+  resetCategoryFilters: () => {
     /* no-op */
   }
 })

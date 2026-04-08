@@ -17,3 +17,5 @@
 
 export { useElementSize } from './useElement'
 export { usePrevious } from './usePrevious'
+export { useCategoriesQuery } from './useCategoriesQuery'
+export { useHintsQuery } from './useHintsQuery'

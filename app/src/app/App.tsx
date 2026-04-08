@@ -15,31 +15,36 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { useRef } from 'react'
+import React, { useCallback, useMemo, useRef } from 'react'
 import { useEffect, useState } from 'react'
 
 import './App.scss'
 import { AppContext } from '@evotempus/core/context'
-import { fetchService, hintService } from '@evotempus/api'
+import { hintService } from '@evotempus/api'
 import { ErrorMsg, Loading } from '@evotempus/components'
 import { FilteredCategory, Interval, Subject, TopicRequest, TopicType } from '@evotempus/types'
 import { HelpPage, IntervalVisual, Search, SubjectVisual, Wiki } from '@evotempus/features'
 import { present, isSubject, isInterval, logError } from '@evotempus/utils'
 import wikiLogoV2 from '@evotempus/assets/images/wikipedia-logo-v2.svg'
 import geoclock from '@evotempus/assets/images/geologic-clock.png'
-
-//
-// Ensure hints and categories initialised only once
-//
-let initialised = false
+import { useCategoriesQuery, useHintsQuery } from '@evotempus/hooks'
 
 export const App: React.FunctionComponent = () => {
+  //
+  // Fetch all the hints from the backend service
+  // This needs to be done once then retained in HintService
+  //
+  const { data: hints, isLoading: hintsLoading, error: hintsError } = useHintsQuery()
+  //
+  // Fetch all the categories from the backend service
+  // This needs to be done once then retained and passed to the subject Swimlane component
+  //
+  const { data: categories, isLoading: categoriesLoading, error: categoriesError } = useCategoriesQuery()
+  const [hiddenCategories, setHiddenCategories] = useState<Set<string>>(new Set())
+
   const [interval, setInterval] = useState<Interval | undefined>(undefined)
   const [subject, setSubject] = useState<Subject | undefined>(undefined)
-  const [filteredCategories, setFilteredCategories] = useState<FilteredCategory[]>([])
 
-  const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined)
-  const [error, setError] = useState<Error | undefined>(undefined)
   const [help, showHelp] = useState<boolean>(true)
 
   const [topicRequest, setTopicRequest] = useState<TopicRequest | undefined>()
@@ -48,13 +53,9 @@ export const App: React.FunctionComponent = () => {
 
   const subjectVisualRef = useRef<HTMLDivElement>(null)
 
-  const logErrorState = (errorMsg: string, error: Error) => {
+  const logAppError = (errorMsg: string, error?: Error) => {
     logError({ prefix: 'App', message: errorMsg + '\nDetail: ', object: error })
-    setErrorMsg(errorMsg)
-    setError(error)
   }
-
-
 
   const handleSubjectSelection = (subject: Subject) => {
     if (subject) {
@@ -65,66 +66,46 @@ export const App: React.FunctionComponent = () => {
     setSubject(subject)
   }
 
+  // Initialize HintService when hints data is available
   useEffect(() => {
-    //
-    // Fetch all the hints from the backend service
-    // This needs to be done once then retained in HintService
-    //
-    const initHints = () => {
-      fetchService
-        .hints()
-        .then((res) => {
-          if (!res.data || res.data.length === 0) {
-            logErrorState('Failed to fetch hints', new Error('Response data payload was empty.'))
-          } else {
-            hintService.setHints(res.data)
-          }
-        })
-        .catch((err) => {
-          logErrorState('Failed to fetch hints data', err)
-        })
+    if (hints?.data && hints.data.length > 0) {
+      hintService.setHints(hints.data)
     }
+  }, [hints])
 
-    //
-    // Fetch all the categories from the backend service
-    // This needs to be done once then retained and passed to the subject Swimlane component
-    //
-    const initCategories = () => {
-      fetchService
-        .subjectCategories()
-        .then((res) => {
-          if (!res.data || res.data.length === 0) {
-            logErrorState('Failed to fetch categories be fetched', new Error('Response data payload was empty.'))
-          } else {
-            const filteredCategories: FilteredCategory[] = []
-            for (const category of res.data.values()) {
-              filteredCategories.push({
-                name: category,
-                filtered: false,
-              })
-            }
-            setFilteredCategories(filteredCategories)
-          }
-        })
-        .catch((err) => {
-          logErrorState('Failed to fetch interval data', err)
-        })
-    }
+  // Build filteredCategories from categories data and modify
+  // when the hidden categories set is updated
+  const filteredCategories = useMemo(() => {
+    if (!categories?.data) return []
 
-    if (!initialised) {
-      initialised = true
-      initHints()
-      initCategories()
-    }
+    return Array.from(categories.data.values()).map(category => ({
+      name: category,
+      filtered: hiddenCategories.has(category) // True if the user hid it, false otherwise
+    }))
+  }, [categories, hiddenCategories])
+
+  // Setter for updating the hidden categories
+  const toggleCategoryFilter = useCallback((changedCategories: FilteredCategory[]) => {
+    setHiddenCategories(prev => {
+      const next = new Set(prev)
+      for (let i = 0; i < changedCategories.length; ++i) {
+        const cc = changedCategories[i]
+
+        if (cc.filtered) {
+          next.add(cc.name)    // clicked to hide it
+        } else {
+          next.delete(cc.name) // clicked to show it
+        }
+      }
+
+      return next
+    })
   }, [])
 
-  if (!initialised) {
-    return (
-      <div className='app-loading'>
-        <Loading />
-      </div>
-    )
-  }
+  // Reset the hidden categories
+  const resetCategoryFilters = useCallback(() => {
+    setHiddenCategories(new Set())
+  }, [])
 
   const handleIntervalSelection = (newInterval: Interval) => {
 
@@ -166,21 +147,27 @@ export const App: React.FunctionComponent = () => {
     showHelp(!help)
   }
 
+  if (hintsLoading || categoriesLoading) {
+    return (
+      <div className='app-loading'>
+        <Loading />
+      </div>
+    )
+  }
 
   const subjectViz = (
-      <SubjectVisual
-        parent = { subjectVisualRef }
-      //  onSelectedSubject={handleSubjectSelection}
-      //   onUpdateCategoryFilter={this.updateCategoryFilter}
-      />
+    <SubjectVisual parent = { subjectVisualRef } />
   )
 
   const helpPage = <HelpPage onToggleHelp={toggleHelp} />
 
   const subjectHelpVisual = help ? helpPage : subjectViz
 
-  if (error) {
-    return <ErrorMsg error={error} errorMsg={errorMsg} />
+  if (hintsError || categoriesError) {
+    const errorMsg = hintsError?.message || categoriesError?.message || 'Failed to load data'
+    const combinedError = hintsError || categoriesError
+    logAppError(errorMsg, combinedError || undefined)
+    return <ErrorMsg error={combinedError || undefined} errorMsg={errorMsg} />
   }
 
   return (
@@ -192,7 +179,8 @@ export const App: React.FunctionComponent = () => {
           subject,
           setSubject: handleSubjectSelection,
           filteredCategories,
-          setFilteredCategories
+          toggleCategoryFilter,
+          resetCategoryFilters
         }}
       >
         <nav className='header navbar navbar-expand-lg'>

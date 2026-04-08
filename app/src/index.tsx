@@ -23,11 +23,27 @@ import '@fortawesome/fontawesome-free/css/v5-font-face.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js' // nav bar will not work without this
 import './index.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { App } from './app/App'
+
+//
+// Create a client instance
+//
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // Since hints and categories rarely change, keep them fresh for a while
+      staleTime: 5 * 60 * 1000,
+      refetchOnWindowFocus: false,
+    },
+  },
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root') as Element)
 root.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
   </React.StrictMode>,
 )

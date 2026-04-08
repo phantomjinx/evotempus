@@ -28,7 +28,7 @@ type SubjectVisualLegendProps = {
   legend: Legend
   onUpdateLegend: (legend: Legend) => void
   categories: FilteredCategory[]
-  onUpdateCategories: (categories: FilteredCategory[]) => void
+  onUpdateCategoryFilter: (changedCategories: FilteredCategory[]) => void
   displayedCategoryNames: string[]
 }
 
@@ -57,7 +57,7 @@ export const SubjectVisualLegend: React.FunctionComponent<SubjectVisualLegendPro
       c.filtered = cc.filtered
     }
 
-    props.onUpdateCategories(categories)
+    props.onUpdateCategoryFilter(categories)
   }
 
   return (

@@ -68,17 +68,17 @@ export const App: React.FunctionComponent = () => {
 
   // Initialize HintService when hints data is available
   useEffect(() => {
-    if (hints?.data && hints.data.length > 0) {
-      hintService.setHints(hints.data)
+    if (hints && hints.length > 0) {
+      hintService.setHints(hints)
     }
   }, [hints])
 
   // Build filteredCategories from categories data and modify
   // when the hidden categories set is updated
   const filteredCategories = useMemo(() => {
-    if (!categories?.data) return []
+    if (!categories) return []
 
-    return Array.from(categories.data.values()).map(category => ({
+    return Array.from(categories.values()).map(category => ({
       name: category,
       filtered: hiddenCategories.has(category) // True if the user hid it, false otherwise
     }))
@@ -164,10 +164,10 @@ export const App: React.FunctionComponent = () => {
   const subjectHelpVisual = help ? helpPage : subjectViz
 
   if (hintsError || categoriesError) {
-    const errorMsg = hintsError?.message || categoriesError?.message || 'Failed to load data'
-    const combinedError = hintsError || categoriesError
-    logAppError(errorMsg, combinedError || undefined)
-    return <ErrorMsg error={combinedError || undefined} errorMsg={errorMsg} />
+    const errorMsg = hintsError?.message ?? categoriesError?.message ?? 'Failed to load data'
+    const combinedError = hintsError ?? categoriesError
+    logAppError(errorMsg, combinedError ?? undefined)
+    return <ErrorMsg error={combinedError ?? undefined} errorMsg={errorMsg} />
   }
 
   return (

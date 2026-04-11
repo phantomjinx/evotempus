@@ -4,7 +4,10 @@ import { fetchService } from '@evotempus/api'
 export const useCategoriesQuery = () => {
   return useQuery({
     queryKey: ['categories'],
-    queryFn: () => fetchService.subjectCategories(),
+    queryFn: async () => {
+      const response = await fetchService.subjectCategories()
+      return response.data
+    },
     staleTime: 5 * 60 * 1000,
     refetchOnWindowFocus: false,
   })

@@ -35,11 +35,6 @@ interface Page {
 
 type Pages = Page[]
 
-interface PageLane {
-  page: number,
-  lane: Lane
-}
-
 interface KindResult {
   categories: string[],
   page: number,
@@ -78,70 +73,6 @@ function subjectOverlaps(lane: Lane, subject: HydratedDocument<ISubject>) {
   }
 
   return false
-}
-
-function canAddSubjectToPage(page: Page, subject: HydratedDocument<ISubject>) {
-  const lanes: Lane[] = []
-
-  for (const lane of page.lanes) {
-    const overlaps = subjectOverlaps(lane, subject)
-    if (! overlaps) {
-      lanes.push(lane)
-    }
-  }
-
-  return lanes
-}
-
-function findAvailablePage(pages: Pages) {
-  let idx = -1
-  for (const [i, page] of pages.entries()) {
-    if (page.lanes.length < laneMAX)
-      idx = i
-  }
-
-  if (idx >= 0 && idx < pages.length)
-    return idx
-
-  // Create a new page
-  const page: Page = {lanes: []}
-  pages.push(page)
-  return (pages.length - 1)
-}
-
-function createLaneInPage(page: Page, subject: HydratedDocument<ISubject>) {
-  const lane: Lane = {subjects: []}
-  lane.subjects.push(subject)
-  page.lanes.push(lane)
-}
-
-function addSubjectToPages(pages: Pages, subject: HydratedDocument<ISubject>) {
-  const possLanes: PageLane[] = []
-  pages.forEach((page, i) => {
-    const lanes = canAddSubjectToPage(page, subject)
-    for (const lane of lanes) {
-      const pageLane: PageLane = {page: i, lane: lane}
-      possLanes.push(pageLane)
-    }
-  })
-
-  if (possLanes.length === 0) {
-    const pageNo = findAvailablePage(pages) // will make a new page
-    const page = pages[pageNo] as Page
-    createLaneInPage(page, subject)
-    return pageNo
-  }
-
-  let fullestLane
-  for (const lane of possLanes) {
-    if (!fullestLane || fullestLane.lane.subjects.length < lane.lane.subjects.length)
-      fullestLane = lane
-  }
-
-  if (!fullestLane) throw new Error('Failed to find fullest lane. Something has gone wrong!')
-
-  fullestLane.lane.subjects.push(subject)
-  return fullestLane.page
 }
 
 // subjects api route
@@ -222,12 +153,12 @@ subjectApi.post('/', async (req, res, next) => {
           },
           { $addFields: { 'range': { '$abs': { '$subtract': ['$from', '$to'] } } } },
           { $project: { 'version' : 0 } },
-          { $sort: { 'range': -1 } }
+          { $sort: { 'category': 1, 'from': 1 } } // sort by category and then chronologically earliest
         ])
         .exec()
 
-      const pages: Pages = []
-      let subjectPageIdx = -1
+      // Group subjects by category and build the categories list
+      const subjectsByCategory: Record<string, HydratedDocument<ISubject>[]> = {}
 
       for (const subject of subjects) {
         // Add all subject categories whether excluded or not
@@ -238,10 +169,58 @@ subjectApi.post('/', async (req, res, next) => {
         if (excluded.includes(subject.category))
           continue // do not include subject in data
 
-        const pageIdx = addSubjectToPages(pages, subject)
-        if (subjectId === subject._id) {
-          subjectPageIdx = pageIdx
+        if (!subjectsByCategory[subject.category]) {
+          subjectsByCategory[subject.category] = []
         }
+
+        subjectsByCategory[subject.category]?.push(subject)
+      }
+
+      // Pack lanes optimally within each category block
+      const allLanes: Lane[] = []
+      for (const category of Object.keys(subjectsByCategory)) {
+        const catSubjects = subjectsByCategory[category]
+        if (!catSubjects) continue
+
+        const categoryLanes: Lane[] = []
+        for (const subject of catSubjects) {
+          let placed = false
+
+          // Try to slot into an existing lane for THIS category
+          for (const lane of categoryLanes) {
+            if (!subjectOverlaps(lane, subject)) {
+              lane.subjects.push(subject)
+              placed = true
+              break
+            }
+          }
+
+          // If it overlaps with everything, create a new lane
+          if (!placed) {
+            categoryLanes.push({ subjects: [subject] })
+          }
+        }
+
+        // Append this category's tightly packed lanes to the master list
+        allLanes.push(...categoryLanes)
+      }
+
+      // Chunk the lanes into Pages (15 lanes max per page)
+      const pages: Pages = []
+      for (let i = 0; i < allLanes.length; i += laneMAX) {
+        pages.push({ lanes: allLanes.slice(i, i + laneMAX) })
+      }
+
+      // Find the subjectPageIdx if a specific subject was requested
+      let subjectPageIdx = -1
+      if (subjectId) {
+        pages.forEach((page, pIdx) => {
+          for (const lane of page.lanes) {
+            if (lane.subjects.some(s => s._id.toString() === subjectId)) {
+              subjectPageIdx = pIdx
+            }
+          }
+        })
       }
 
       //

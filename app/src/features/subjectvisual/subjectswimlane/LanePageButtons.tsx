@@ -15,21 +15,24 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
+import React, { useContext } from 'react'
 import { ScaleLinear } from 'd3-scale'
 import { select as d3Select } from 'd3-selection'
 import { SubjectVisualData, SubjectVisualKind, SwimLaneAspect } from "../globals"
 import * as service from './subject-swimlane-service'
+import { SubjectVisualActionContext } from '../context'
 
 type LanePageButtonsProps = {
   sysAspect: SwimLaneAspect
   visualData: SubjectVisualData
   xScale: ScaleLinear<number, number, never>
   yScale: ScaleLinear<number, number, never>
-  onUpdateKindPage: (kind: string, page: number) => void
 }
 
 export const LanePageButtons: React.FunctionComponent<LanePageButtonsProps> = (props: LanePageButtonsProps) => {
+
+  // Subscribing to just the action context avoids re-rendering from the status context
+  const { onUpdateKindPage } = useContext(SubjectVisualActionContext)
 
   const showHidePageUpBtn = (kind: SubjectVisualKind) => {
     return (kind.page <= 1) ? `pageUpBtn pageBtnHide` : 'pageUpBtn'
@@ -54,7 +57,7 @@ export const LanePageButtons: React.FunctionComponent<LanePageButtonsProps> = (p
       page = kind.page + 1
     }
 
-    if (page > 0) props.onUpdateKindPage(kind.name, page)
+    if (page > 0) onUpdateKindPage(kind.name, page)
   }
 
   //

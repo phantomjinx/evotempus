@@ -17,7 +17,7 @@
 
 import React, { useContext, useMemo, useRef } from 'react'
 import { AppContext } from '@evotempus/core/context'
-import { SubjectVisualContext } from '../context'
+import { SubjectVisualActionContext, SubjectVisualStateContext } from '../context'
 import { SubjectVisualLegend } from './subjectvisuallegend'
 import * as service from './subject-swimlane-service'
 import { Definitions } from './Definitions'
@@ -29,9 +29,12 @@ export const SubjectSwimLane: React.FunctionComponent = () => {
 
   const svgRef = useRef<SVGSVGElement>(null)
 
-  const { interval, setInterval, subject, setSubject, filteredCategories, toggleCategoryFilter, resetCategoryFilters } = useContext(AppContext)
-  const { width, height, visualData, onUpdateKindPage,
-          legend, setLegend, setError, setErrorMsg } = useContext(SubjectVisualContext)
+  const { interval, subject, filteredCategories, toggleCategoryFilter, resetCategoryFilters } = useContext(AppContext)
+  const { width, height, visualData, legend } = useContext(SubjectVisualStateContext)
+  const { setLegend } = useContext(SubjectVisualActionContext)
+
+  console.log('SubjectSwimLane categoryNames', visualData?.categoryNames)
+  console.log('SubjectSwimLane filteredCategories', filteredCategories)
 
   /*
    * Calculates the zoom system and radius then caches unless
@@ -72,12 +75,7 @@ export const SubjectSwimLane: React.FunctionComponent = () => {
           sysAspect={sysAspect}
           interval={interval}
           visualData={visualData}
-          onUpdateKindPage={onUpdateKindPage}
-          setInterval={setInterval}
           subject={subject}
-          setSubject={setSubject}
-          setError={setError}
-          setErrorMsg={setErrorMsg}
         />
       </React.Fragment>
     )

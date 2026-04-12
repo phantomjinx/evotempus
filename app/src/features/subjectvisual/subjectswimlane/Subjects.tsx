@@ -15,13 +15,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import { ScaleLinear, scaleOrdinal as d3ScaleOrdinal } from 'd3-scale'
 import { fetchService, hintService } from '@evotempus/api'
-import { Interval, Subject } from '@evotempus/types'
+import { Subject } from '@evotempus/types'
 import { displayYear, identifier, logDebug } from "@evotempus/utils"
+import { SubjectVisualActionContext } from '../context'
 import { clickDelay, SubjectVisualData, SwimLaneAspect } from "../globals"
 import * as service from './subject-swimlane-service'
+import { AppContext } from 'src/core/context'
 
 type SubjectsProps = {
   sysAspect: SwimLaneAspect
@@ -29,13 +31,14 @@ type SubjectsProps = {
   xScale: ScaleLinear<number, number, never>
   yScale: ScaleLinear<number, number, never>
   subject: Subject|undefined
-  setSubject: (subject: Subject) => void
-  setInterval: (interval: Interval) => void
-  setError: (error: Error) => void
-  setErrorMsg: (msg: string) => void
 }
 
 export const Subjects: React.FunctionComponent<SubjectsProps> = (props: SubjectsProps) => {
+
+  const { setSubject, setInterval } = useContext(AppContext)
+
+  // Subscribing to just the action context avoids re-rendering from the status context
+  const { setError, setErrorMsg } = useContext(SubjectVisualActionContext)
 
   const clickTimerRef = useRef<NodeJS.Timeout | null>(null)
   const clickPreventRef = useRef<boolean>(false)
@@ -66,7 +69,7 @@ export const Subjects: React.FunctionComponent<SubjectsProps> = (props: Subjects
       //
       // Tag the data with this as the owner
       //
-      props.setSubject(subject)
+      setSubject(subject)
     }, clickDelay)
   }
 
@@ -92,17 +95,17 @@ export const Subjects: React.FunctionComponent<SubjectsProps> = (props: Subjects
     fetchService.intervalEncloses(subject.from, subject.to)
       .then((res) => {
         if (!res.data || res.data.length === 0) {
-          props.setErrorMsg("Error: Cannot navigate to a direct parent interval of the subject")
+          setErrorMsg("Error: Cannot navigate to a direct parent interval of the subject")
         } else {
           //
           // Selected the returned interval
           //
-          props.setInterval(res.data[0])
-          props.setSubject(subject)
+          setInterval(res.data[0])
+          setSubject(subject)
         }
       }).catch((err) => {
-        props.setError(err)
-        props.setErrorMsg('An error occurred whilst trying to navigate to subject')
+        setError(err)
+        setErrorMsg('An error occurred whilst trying to navigate to subject')
       })
   }
 

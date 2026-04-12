@@ -15,11 +15,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { FilteredCategory, Legend } from '@evotempus/types'
 import './SubjectVisualLegend.scss'
 import { initCategoryNodes } from './subject-visual-legend-service'
-import { CategoryNode } from './globals'
 import { LegendKindTabs } from './LegendKindTabs'
 import { logDebug } from '@evotempus/utils'
 
@@ -34,9 +33,34 @@ type SubjectVisualLegendProps = {
 
 export const SubjectVisualLegend: React.FunctionComponent<SubjectVisualLegendProps> = (props: SubjectVisualLegendProps) => {
 
-  const [categoryNodes, setCategoryNodes] = useState<CategoryNode[]>(initCategoryNodes(props.displayedCategoryNames, props.categories))
   const [totalPerPage] = useState<number>(Math.min(10, (props.height * 0.5) / 40))
   const [activeTab] = useState<string>(props.legend.activeTab)
+
+  // Track what the user has clicked in this session.
+  const [pendingEdits, setPendingEdits] = useState<Record<string, boolean>>({})
+
+  // Recalculates automatically if the interval changes OR if the user clicks
+  const categoryNodes = useMemo(() => {
+    const baseNodes = initCategoryNodes(props.displayedCategoryNames, props.categories)
+
+    return baseNodes.map(node => {
+      // If the user clicked this node, use their pending edit. Otherwise, use global truth.
+      if (pendingEdits[node.name] !== undefined) {
+        return { ...node, filtered: pendingEdits[node.name] }
+      }
+      return node
+    })
+  }, [props.displayedCategoryNames, props.categories, pendingEdits])
+
+  // Record the flip in state of the given category.
+  const toggleNode = (categoryName: string, filtered: boolean) => {
+    setPendingEdits(prev => ({
+      ...prev,
+      [categoryName]: !filtered
+    }))
+  }
+
+  const hasPendingChanges = Object.keys(pendingEdits).length > 0
 
   const close = () => {
     props.onUpdateLegend({
@@ -45,19 +69,17 @@ export const SubjectVisualLegend: React.FunctionComponent<SubjectVisualLegendPro
     })
   }
 
-  const onChangedCategories = (changedCategories: CategoryNode[]) => {
-    logDebug({prefix: 'SubjectVisualLegend', message: 'onChangedCategories', object: changedCategories})
-    const categories = [...props.categories]
+  // Merge the pendingEdits into the categories
+  const applyFilter = () => {
+    logDebug({prefix: 'SubjectVisualLegend', message: 'Applying Filter ...'})
 
-    for (let i = 0; i < changedCategories.length; ++i) {
-      const cc = changedCategories[i]
-      const c = categories.find(category => category.name === cc.name)
-      if (!c) continue
+    const updatedCategories = props.categories.map(cat => ({
+      ...cat,
+      filtered: pendingEdits[cat.name] !== undefined ? pendingEdits[cat.name] : cat.filtered
+    }))
 
-      c.filtered = cc.filtered
-    }
-
-    props.onUpdateCategoryFilter(categories)
+    props.onUpdateCategoryFilter(updatedCategories)
+    setPendingEdits({})
   }
 
   return (
@@ -81,9 +103,10 @@ export const SubjectVisualLegend: React.FunctionComponent<SubjectVisualLegendPro
         <div className="subject-visual-legend-kinds">
           <LegendKindTabs
             height={props.height} categoryNodes={categoryNodes} totalPerPage={totalPerPage}
-            legend={props.legend} onUpdateLegend={props.onUpdateLegend}
-            onUpdateCategoryNodes={setCategoryNodes}
-            onChangedCategories={onChangedCategories}
+            legend={props.legend} hasPendingChanges={hasPendingChanges}
+            onUpdateLegend={props.onUpdateLegend}
+            onToggleNode={toggleNode}
+            onApplyFilter={applyFilter}
           />
         </div>
       </div>

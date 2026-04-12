@@ -91,7 +91,3 @@ export function calcSubjectWidth(subject: Subject, xScale: ScaleLinear<number, n
 export function hasSubjects(visualData: SubjectVisualData | undefined): boolean {
   return !visualData ? false : visualData.lanes.some(lane => lane.subjects.length > 0)
 }
-
-export function findSubjectInVisualData(subjectId: string | undefined, visualData: SubjectVisualData): Subject | undefined {
-  return !subjectId ? undefined : visualData.lanes.flatMap(lane => lane.subjects).find(s => s._id === subjectId)
-}

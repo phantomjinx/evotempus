@@ -19,27 +19,33 @@ import { createContext } from 'react'
 import { Legend } from '@evotempus/types'
 import { SubjectVisualData } from './globals'
 
-interface SubjectVisualContext {
+interface SubjectVisualState {
   width: number
   height: number
   visualData: SubjectVisualData | undefined
-  onUpdateKindPage: (kind: string, page: number) => void
   legend: Legend,
+}
+
+interface SubjectVisualActions {
+  onUpdateKindPage: (kind: string, page: number) => void
   setLegend: (legend: Legend) => void
   setError: (error: Error) => void
   setErrorMsg: (msg: string) => void
 }
 
-export const SubjectVisualContext = createContext<SubjectVisualContext>({
+export const SubjectVisualStateContext = createContext<SubjectVisualState>({
   width: 0,
   height: 0,
   visualData: undefined,
-  onUpdateKindPage: () => {
-    /* no-op */
-  },
   legend: {
     visible: false,
     activeTab: '',
+  },
+})
+
+export const SubjectVisualActionContext = createContext<SubjectVisualActions>({
+  onUpdateKindPage: () => {
+    /* no-op */
   },
   setLegend: () => {
     /* no-op */

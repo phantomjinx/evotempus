@@ -38,15 +38,10 @@ type ContainerGroupProps = {
   sysAspect: SwimLaneAspect
   interval: Interval
   visualData: SubjectVisualData
-  onUpdateKindPage: (kind: string, page: number) => void
-  setInterval: (interval: Interval) => void
   subject: Subject|undefined
-  setSubject: (subject: Subject) => void
-  setError: (error: Error) => void
-  setErrorMsg: (msg: string) => void
 }
 
-export const ContainerGroup: React.FunctionComponent<ContainerGroupProps> = (props: ContainerGroupProps) => {
+export const ContainerGroup = React.memo((props: ContainerGroupProps) => {
 
   /*
    * Restrict the height of the lanes to a maximum of a 1/3 of the height
@@ -144,9 +139,7 @@ export const ContainerGroup: React.FunctionComponent<ContainerGroupProps> = (pro
       <Subjects
         sysAspect={props.sysAspect} visualData={props.visualData}
         xScale={xScale} yScale={yScale}
-        setInterval={props.setInterval}
-        subject={props.subject} setSubject={props.setSubject}
-        setError={props.setError} setErrorMsg={props.setErrorMsg}
+        subject={props.subject}
       />
 
       <IntervalBounds
@@ -157,9 +150,9 @@ export const ContainerGroup: React.FunctionComponent<ContainerGroupProps> = (pro
       <LanePageButtons
         sysAspect={props.sysAspect} visualData={props.visualData}
         xScale={xScale} yScale={yScale}
-        onUpdateKindPage={props.onUpdateKindPage}
       />
-
     </g>
   )
-}
+})
+
+ContainerGroup.displayName = 'ContainerGroup'

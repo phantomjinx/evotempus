@@ -15,17 +15,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { useCallback, useContext, useEffect, useState, RefObject, useRef } from 'react'
-import cloneDeep from "lodash.clonedeep"
-import { fetchService } from '@evotempus/api'
+import React, { useCallback, useContext, useEffect, useState, RefObject, useMemo } from 'react'
 import { ErrorMsg, Loading } from '@evotempus/components'
 import { AppContext } from '@evotempus/core/context'
-import { Interval, KindResults, Legend, SubjectCriteria } from '@evotempus/types'
-import { deepEqual, logDebug, logError } from '@evotempus/utils'
-import { chartify, excludedCategories, isSubjectInVisualData, newSubjectCriteria } from './subject-visual-service'
+import { useSubjectsQuery } from '@evotempus/hooks'
+import { Legend } from '@evotempus/types'
+import { logDebug, logError } from '@evotempus/utils'
+import { chartify, newSubjectCriteria } from './subject-visual-service'
 import './SubjectVisual.scss'
 import { SubjectVisualData } from './globals'
-import { SubjectVisualContext } from './context'
+import { SubjectVisualActionContext, SubjectVisualStateContext } from './context'
 import { SubjectSwimLane } from './subjectswimlane'
 
 type SubjectVisualProps = {
@@ -40,162 +39,50 @@ const EMPTY_VISUAL_DATA: SubjectVisualData = {
   categoryNames: []
 }
 
-const EMPTY_CRITERIA: SubjectCriteria = {
-  interval: undefined,
-  subjectId: undefined,
-  excludedCategories: []
-}
-
 export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props: SubjectVisualProps) => {
 
   const { interval, subject, filteredCategories } = useContext(AppContext)
 
-  const criteriaRef = useRef<SubjectCriteria>(EMPTY_CRITERIA)
-  const [visualData, setVisualData] = useState<SubjectVisualData>(EMPTY_VISUAL_DATA)
-
-  const [errorMsg, setErrorMsg] = useState<string>()
-  const [error, setError] = useState<Error>()
-  const [loading, setLoading] = useState<boolean>(true)
   const [width, setWidth] = useState<number>(0)
   const [height, setHeight] = useState<number>(0)
-
   const [legend, setLegend] = useState<Legend>({
     visible: false,
     activeTab: '',
   })
 
-  const logErrorState = (errorMsg: string, error: Error) => {
-    logError({prefix: "SubjectVisual", message: errorMsg + "\nDetail: ", object: error})
-    setErrorMsg(errorMsg)
-    setError(error)
-    setLoading(false)
-  }
+  // Error state eminating from child components
+  const [localError, setLocalError] = useState<Error>()
+  const [localErrorMsg, setLocalErrorMsg] = useState<string>()
 
-  const updateVisualData = useCallback((interval: Interval | undefined, newRawData: KindResults | undefined) => {
-    if (!interval || ! newRawData) {
-      setVisualData(EMPTY_VISUAL_DATA)
-      return
-    }
+  // Track pagination overrides rather than the whole dataset
+  const [pageOverrides, setPageOverrides] = useState<Record<string, number>>({})
 
-    //
-    // Update the visual data if there are different raw result data
-    //
-    setVisualData((prev) => {
-      logDebug({prefix: 'SubjectVisual', message: 'Setting new visual data'})
+  // Criteria - Query hook uses this as its Cache Key
+  const criteria = useMemo(() =>
+    newSubjectCriteria(interval, subject, filteredCategories),
+  [interval, subject, filteredCategories])
 
-      //
-      // Construct a new rawData set based on prev.raw
-      //
-      let rawData: KindResults
-      if (! prev) {
-        // No previous data so set rawData to newRawData
-        rawData = newRawData
+  // The Query fetches the subjects from the server
+  // Will avoid if no interval and if subject is already visible in the visual
+  const { data: svrSubjectData, isLoading: isSubjectsLoading, error: queryError } = useSubjectsQuery(criteria, {
+    enabled: !!interval
+  })
+
+  // Derived State: Merge Server Data + Local Overrides -> Chartify
+  const visualData = useMemo(() => {
+    if (!svrSubjectData || !interval) return EMPTY_VISUAL_DATA
+
+    // Clone the top level of the server data to apply local page overrides
+    // without mutating Query's internal cache
+    const mergedData = { ...svrSubjectData }
+    Object.keys(pageOverrides).forEach(kind => {
+      if (mergedData[kind]) {
+        mergedData[kind] = { ...mergedData[kind], page: pageOverrides[kind] }
       }
-      else {
-        logDebug({prefix: 'SubjectVisual', message: 'Updating with new visual data'})
-        // newRawData may be only a subset if page and kind had been
-        // specified so only a subset of the rawData would be overwritten
-        rawData = cloneDeep(prev.raw)
-        Object.keys(newRawData)
-          .forEach((key) => {
-            // Overwrite the stashed raw results searched for
-            rawData[key] = newRawData[key]
-          })
-      }
-
-      logDebug({prefix: 'SubjectVisual', message: 'updating raw data', object: rawData})
-
-      //
-      // If Results is the same as before so no point
-      // re-chartify the visual data
-      //
-      if (deepEqual(prev.raw, rawData)) {
-        logDebug({prefix: 'SubjectVisual', message: 'results are the same. Returning prev visual data'})
-        return prev
-      }
-
-      logDebug({message: 'Creating new visual data - prev', object: prev})
-
-      const newVisualData = chartify(interval, rawData)
-
-      logDebug({message: 'Creating new visual data - newVisualData', object: newVisualData})
-      if (deepEqual(prev, newVisualData)) {
-        return prev
-      }
-
-      return newVisualData
     })
-  }, [])
 
-  // Reset the data during the render phase if the interval is empty.
-  // React will instantly halt and re-render without painting the wrong data.
-  if (!interval && visualData !== EMPTY_VISUAL_DATA) {
-    setVisualData(EMPTY_VISUAL_DATA)
-  }
-
-  useEffect(() => {
-    // If there is no interval, return. The render phase already handled it
-    if (!interval) return
-
-    const prev = criteriaRef.current
-
-    logDebug({prefix: 'SubjectVisual', message: 'Setting Criteria', object: prev})
-    const intervalChanged = ! deepEqual(prev.interval, interval)
-    const subjectChanged = ! deepEqual(prev.subjectId, subject?._id)
-    const exCategoriesChanged = ! deepEqual(prev.excludedCategories, excludedCategories(filteredCategories))
-
-    // The visualData changed but the criteria did not so nothing to do
-    if (!intervalChanged && !subjectChanged && !exCategoriesChanged) {
-      return
-    }
-
-    // Prepare a new criteria object
-    const newCriteria = newSubjectCriteria(interval, subject, filteredCategories)
-    criteriaRef.current = newCriteria
-
-    //
-    // If filters have changed then a new lookup is required
-    // If they haven't then the change could just be a new selection
-    // within the current visual data
-    //
-    if (!exCategoriesChanged && subjectChanged) {
-      if (isSubjectInVisualData(subject, visualData)) {
-        // Filters not changed and subject in visual data
-        // So only reselection will be required
-        return
-      }
-    }
-
-    //
-    // Fetch the subject data from the backend service
-    //
-    const fetchNewData = async () => {
-      //
-      // Resets the error
-      //
-      setError(undefined)
-      setErrorMsg(undefined)
-      setLoading(true)
-
-      try {
-        const res = await fetchService.subjectsWithin(newCriteria)
-        //
-        // Updated results received
-        //
-        const results: KindResults = res.data
-        logDebug({prefix: 'SubjectVisual', message: 'fetchSubjects: results', object: results})
-        updateVisualData(newCriteria.interval, results)
-        setLoading(false)
-      } catch(err) {
-        logErrorState("Failed to fetch interval data", err as Error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchNewData()
-
-  }, [interval, subject, filteredCategories, updateVisualData, visualData])
+    return chartify(interval, mergedData)
+  }, [interval, svrSubjectData, pageOverrides])
 
   useEffect(() => {
     logDebug({prefix: 'SubjectVisual', message: 'Calling useEffect:dimensions in SubjectVisual'})
@@ -219,15 +106,15 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
   }, [props.parent])
 
   /*
+   * Pagination Handler:
+   * updates the local override state
    * increment or decrement the page of the given kind
    */
-  const onUpdateKindPage = (kind: string, page: number) => {
-    const rawData = cloneDeep(visualData.raw)
-    rawData[kind].page = page
-    updateVisualData(interval, rawData)
-  }
+  const onUpdateKindPage = useCallback((kind: string, page: number) => {
+    setPageOverrides(prev => ({ ...prev, [kind]: page }))
+  }, [])
 
-  if (loading) {
+  if (isSubjectsLoading) {
     return (
       <div className='subject-visual-loading'>
         <Loading />
@@ -235,18 +122,20 @@ export const SubjectVisual: React.FunctionComponent<SubjectVisualProps> = (props
     )
   }
 
-  if (error || errorMsg) {
-    return <ErrorMsg error={error} errorMsg={errorMsg} />
+  // If either the query fails OR a child throws an error, trigger the Error UI
+  const activeError = queryError || localError
+  const activeErrorMsg = queryError?.message || localErrorMsg
+
+  if (activeError) {
+    logError({prefix: "SubjectVisual", message: activeErrorMsg + "\nDetail: ", object: activeError})
+    return <ErrorMsg error={activeError instanceof Error ? activeError : undefined} errorMsg={activeErrorMsg} />
   }
 
   return (
-    <SubjectVisualContext.Provider value={{
-        width, height,
-        visualData, onUpdateKindPage,
-        legend: legend, setLegend: setLegend,
-        setError: setError, setErrorMsg: setErrorMsg
-      }}>
-      <SubjectSwimLane />
-    </SubjectVisualContext.Provider>
+    <SubjectVisualStateContext.Provider value={{ width, height, visualData, legend }}>
+      <SubjectVisualActionContext.Provider value={{ onUpdateKindPage, setLegend, setError: setLocalError, setErrorMsg: setLocalErrorMsg }}>
+        <SubjectSwimLane />
+      </SubjectVisualActionContext.Provider>
+    </SubjectVisualStateContext.Provider>
   )
 }

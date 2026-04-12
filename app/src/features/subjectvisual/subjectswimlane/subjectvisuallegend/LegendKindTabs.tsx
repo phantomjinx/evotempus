@@ -33,18 +33,17 @@ type LegendKindTabsProps = {
   categoryNodes: CategoryNode[]
   totalPerPage: number
   legend: Legend
+  hasPendingChanges: boolean
   onUpdateLegend: (legend: Legend) => void
-  onUpdateCategoryNodes: (categoryNodes: CategoryNode[]) => void
-  onChangedCategories: (categoryNodes: CategoryNode[]) => void
+  onToggleNode: (categoryName: string, currentlyFiltered: boolean) => void
+  onApplyFilter: () => void
 }
 
 export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (props: LegendKindTabsProps) => {
 
   const totalPerPage = 8
+  const kinds = hintService.getKindIds()
 
-  const [ kinds ] = useState<string[]>(hintService.getKindIds())
-
-  const [changedNodes, setChangedNodes] = useState<CategoryNode[]>([])
   const [kindPages, setKindPages] = useState<KindPage[]>([])
 
   const cacheActiveTab = (tabName: string) => {
@@ -55,39 +54,9 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
     })
   }
 
-  const filterCategory = (categoryNode: CategoryNode) => {
-    // Make a shallow copy of the keys and filtered keys
-    const categoryNodes = [...props.categoryNodes]
-    const changed = [...changedNodes]
-
-    // Make a shallow copy of the symbol to mutate
-    const keyIdx = categoryNodes.indexOf(categoryNode)
-    const ks = {...categoryNodes[keyIdx]}
-
-    // Modify the filtered property
-    ks.filtered = ! categoryNode.filtered
-
-    // Put it back into key array.
-    categoryNodes[keyIdx] = ks
-
-    // Add / Remove from changed
-    const chgIdx = changed.indexOf(categoryNode)
-    if (chgIdx < 0) {
-      // Not been changed before so add to changed
-      changed.push(ks)
-    } else {
-      // Already in changed so being changed back
-      // so remove from changed
-      changed.splice(chgIdx, 1)
-    }
-
-    setChangedNodes(changed)
-    props.onUpdateCategoryNodes(categoryNodes)
-  }
-
   const applyFilter = () => {
     logDebug({prefix: 'LegendKindTabs', message: 'Applying Filter ...'})
-    props.onChangedCategories(changedNodes)
+    props.onApplyFilter()
   }
 
   /*
@@ -161,7 +130,7 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
         items.push(
           <li key={kind + '-' + categoryNode.name}>
             <div style = {{height: height + 'px', width: height + 'px'}}
-                 onClick = {() => filterCategory(categoryNode)}>
+                 onClick = {() => props.onToggleNode(categoryNode.name, categoryNode.filtered)}>
               <svg height = {height} width = {height}>
                 <defs>
                   <radialGradient cx = "50%" cy = "50%" r = "85%"
@@ -202,7 +171,7 @@ export const LegendKindTabs: React.FunctionComponent<LegendKindTabsProps> = (pro
         <div className="subject-visual-legend-footer">
           <div
             id="subject-visual-legend-apply"
-            className={changedNodes.length > 0 ? 'subject-visual-legend-apply-show' : 'subject-visual-legend-apply-hide'}>
+            className={props.hasPendingChanges ? 'subject-visual-legend-apply-show' : 'subject-visual-legend-apply-hide'}>
             <span className="subject-visual-legend-apply-tooltip">Apply Filter</span>
             <button
               className="subject-visual-legend-apply-btn fas fa-check-circle"

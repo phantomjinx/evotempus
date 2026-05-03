@@ -1,0 +1,18 @@
+For 0.6 the process of production has changed.
+
+
+== Backend
+1. Compile the backend into backend/dist
+2. Ensure that the .env file is present and up to date.
+3. Ensure that the pm2 json config on the server is up to date
+   - pm2 delete evotempus.backend
+   - pm2 start evotempus-pm2.json
+
+This will bring up the backend on port 3001 using pm2.
+
+== App
+1. Compile the app into app/build
+2. Take down the nginx server if running
+3. Copy the nginx.conf.evotempus to /etc/nginx/nginx.conf
+4. Copy the contents of app/build to the /usr/share/nginx/html directory.
+5. Start the nginx server.

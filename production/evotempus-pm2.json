@@ -2,9 +2,10 @@
   "apps": [
     {
        "name": "evotempus-backend",
-       "cwd": "${HOME}/evotempus",
-       "script": "pnpm",
-       "args" : "start:backend"
+       "cwd": "/home/phantomjinx/evotempus/backend",
+       "script": "dist/mongo-rest-api.js",
+       "interpreter": "/opt/node/bin/node",
+       "node_args": "--env-file=.env"
     }
   ]
 }

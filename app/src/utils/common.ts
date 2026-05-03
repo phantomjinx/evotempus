@@ -109,3 +109,26 @@ export function getListIcon(object: unknown): string {
 export function deepEqual(object1: unknown, object2: unknown) {
   return JSON.stringify(object1) === JSON.stringify(object2)
 }
+
+/**
+ * Safely converts an unknown error payload into a standard Error object.
+ */
+export function normalizeError(err: unknown): Error {
+  // If it's already an Error, we're good to go
+  if (err instanceof Error) {
+    return err
+  }
+
+  // If someone threw a raw string: `throw "Something went wrong"`
+  if (typeof err === 'string') {
+    return new Error(err)
+  }
+
+  // If it's a custom object with a message property: `throw { message: "Broken" }`
+  if (err !== null && typeof err === 'object' && 'message' in err) {
+    return new Error(String((err as { message: unknown }).message))
+  }
+
+  // Ultimate fallback: JSON stringify whatever it is
+  return new Error(`Unknown error: ${JSON.stringify(err)}`)
+}

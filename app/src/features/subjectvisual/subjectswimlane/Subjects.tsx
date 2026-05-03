@@ -17,9 +17,10 @@
 
 import React, { useContext, useRef } from 'react'
 import { ScaleLinear, scaleOrdinal as d3ScaleOrdinal } from 'd3-scale'
-import { fetchService, hintService } from '@evotempus/api'
+import { hintService } from '@evotempus/api'
 import { Subject } from '@evotempus/types'
-import { displayYear, identifier, logDebug } from "@evotempus/utils"
+import { useIntervalEnclosesFetch } from '@evotempus/hooks'
+import { displayYear, identifier, logDebug, normalizeError } from "@evotempus/utils"
 import { SubjectVisualActionContext } from '../context'
 import { clickDelay, SubjectVisualData, SwimLaneAspect } from "../globals"
 import * as service from './subject-swimlane-service'
@@ -73,7 +74,9 @@ export const Subjects: React.FunctionComponent<SubjectsProps> = (props: Subjects
     }, clickDelay)
   }
 
-  const handleVisualDoubleClick = (event: React.MouseEvent<SVGRectElement, MouseEvent>, subject: Subject) => {
+  const intervalEnclosesFetch = useIntervalEnclosesFetch()
+
+  const handleVisualDoubleClick = async (event: React.MouseEvent<SVGRectElement, MouseEvent>, subject: Subject) => {
     logDebug({prefix: 'Subjects', message: 'handleVisualDoubleClick'})
 
     //
@@ -92,21 +95,24 @@ export const Subjects: React.FunctionComponent<SubjectsProps> = (props: Subjects
       return
     }
 
-    fetchService.intervalEncloses(subject.from, subject.to)
-      .then((res) => {
-        if (!res.data || res.data.length === 0) {
-          setErrorMsg("Error: Cannot navigate to a direct parent interval of the subject")
-        } else {
-          //
-          // Selected the returned interval
-          //
-          setInterval(res.data[0])
-          setSubject(subject)
-        }
-      }).catch((err) => {
-        setError(err)
-        setErrorMsg('An error occurred whilst trying to navigate to subject')
-      })
+    try {
+      // Use fetchQuery for the imperative, event-driven request
+      const res = await intervalEnclosesFetch(subject.from, subject.to)
+      if (!res || res.length === 0) {
+        const errorMsg = "Error: Cannot navigate to a direct parent interval of the subject"
+        setError(new Error(String(errorMsg)))
+        setErrorMsg(errorMsg)
+      } else {
+        console.log(`Setting interval ${res[0]}`)
+        // Selected the returned interval
+        setInterval(res[0])
+        setSubject(subject)
+      }
+    } catch (err) {
+      const error = normalizeError(err)
+      setError(error)
+      setErrorMsg(`An error occurred: ${error.message} whilst trying to navigate to subject`)
+    }
   }
 
   const isSelected = (subject: Subject) => {

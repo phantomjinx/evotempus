@@ -16,11 +16,11 @@
  */
 
 import React, { JSX, useContext, useState } from 'react'
-import { fetchService } from '@evotempus/api'
 import { ErrorMsg, Paginate, TabPane, Tabs } from '@evotempus/components'
 import { AppContext } from '@evotempus/core/context'
+import { useIntervalByIdFetch, useIntervalEnclosesFetch, useSearchFetch, useSubjectByIdFetch } from '@evotempus/hooks'
 import { Interval, Subject, Topic, Results, TopicType } from '@evotempus/types'
-import { isTopic, getListIcon, idToTitle, isInterval, isSubject } from '@evotempus/utils'
+import { isTopic, getListIcon, idToTitle, isInterval, isSubject, normalizeError } from '@evotempus/utils'
 import './Search.scss'
 
 export const Search: React.FunctionComponent = () => {
@@ -54,7 +54,15 @@ export const Search: React.FunctionComponent = () => {
     },
   }
 
-  const handleSearch = (event: React.SyntheticEvent) => {
+  const searchFetch = useSearchFetch()
+  const intervalEnclosesFetch = useIntervalEnclosesFetch()
+  const subjectByIdFetch = useSubjectByIdFetch()
+  const intervalByIdFetch = useIntervalByIdFetch()
+
+  const handleSearch = async (event: React.SyntheticEvent) => {
+    // Stop the browser from refreshing immediately and synchronously
+    event.preventDefault()
+
     if (!searchTerm) {
       setError(undefined)
       return
@@ -66,35 +74,32 @@ export const Search: React.FunctionComponent = () => {
     //
     // Search the backend service
     //
-    fetchService
-      .search(searchTerm)
-      .then((res) => {
-        if (!res.data) {
-          setMessage('No results found')
-          setResultsClass('search-results-show')
-        } else {
-          setMessage(resultsMsg(res.data.intervals, res.data.subjects, res.data.topics))
-          setMessageClass('search-msg-info')
-          setIntervalPage(1)
-          setSubjectPage(1)
-          setTopicPage(1)
-          setResults({
-            intervals: res.data.intervals,
-            subjects: res.data.subjects,
-            topics: res.data.topics,
-          })
-          setActiveTab('Geological Intervals (' + res.data.intervals.length + ')')
-          setResultsClass('search-results-show')
-        }
-      })
-      .catch((err) => {
-        setMessage('An error occurred whilst searching')
-        setMessageClass('search-msg-error')
-        setError(err)
+    try {
+      const res = await searchFetch(searchTerm)
+      if (!res) {
+        setMessage('No results found')
         setResultsClass('search-results-show')
-      })
-
-    event.preventDefault()
+      } else {
+        setMessage(resultsMsg(res.intervals, res.subjects, res.topics))
+        setMessageClass('search-msg-info')
+        setIntervalPage(1)
+        setSubjectPage(1)
+        setTopicPage(1)
+        setResults({
+          intervals: res.intervals,
+          subjects: res.subjects,
+          topics: res.topics,
+        })
+        setActiveTab('Geological Intervals (' + res.intervals.length + ')')
+        setResultsClass('search-results-show')
+      }
+    }
+    catch(err) {
+      setResultsClass('search-results-show')
+      setMessageClass('search-msg-error')
+      setMessage('An error occurred whilst searching')
+      setError(normalizeError(err))
+    }
   }
 
   const resultsMsg = (intervals: Interval[], subjects: Subject[], topics: Topic[]): string => {
@@ -110,9 +115,10 @@ export const Search: React.FunctionComponent = () => {
     setResultsClass('search-results-hide')
   }
 
+
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  const handleNavigate = (target: Interval | Subject | Topic, event?: React.SyntheticEvent) => {
+  const handleNavigate = async (target: Interval | Subject | Topic, event?: React.SyntheticEvent) => {
     if (event) {
       event.preventDefault()
     }
@@ -124,66 +130,60 @@ export const Search: React.FunctionComponent = () => {
       setInterval(target as Interval)
     } else if (isSubject(target)) {
       const subject: Subject = target as Subject
-      fetchService
-        .intervalEncloses(subject.from, subject.to)
-        .then((res) => {
-          if (!res.data || res.data.length === 0) {
-            setMessage('Error: Cannot navigate to a parent interval of the subject')
-          } else {
-            //
-            // Selected the returned interval
-            //
-            setInterval(res.data[0])
-            setSubject(subject)
-          }
-        })
-        .catch((err) => {
-          setMessage('An error occurred whilst trying to navigate to subject')
-          setMessageClass('search-msg-error')
-          setError(err)
-        })
+      try {
+        const res = await intervalEnclosesFetch(subject.from, subject.to)
+        if (!res || res.length === 0) {
+          setMessage('Error: Cannot navigate to a parent interval of the subject')
+        } else {
+          //
+          // Selected the returned interval
+          //
+          setInterval(res[0])
+          setSubject(subject)
+        }
+      } catch(err) {
+        setMessage('An error occurred whilst trying to navigate to subject')
+        setMessageClass('search-msg-error')
+        setError(normalizeError(err))
+      }
     } else if (isTopic(target)) {
       const topic: Topic = target as Topic
       if (topic.topicTarget === TopicType.subject) {
-        fetchService
-          .subjectById(topic.topic)
-          .then((res) => {
-            if (!res.data) {
-              setMessage('Error: Cannot navigate to a parent subject of the description')
-            } else {
-              //
-              // Navigate to the returned interval
-              //
-              const subject = res.data
-              subject.fieldType = 'subject'
-              handleNavigate(subject)
-            }
-          })
-          .catch((err) => {
-            setMessage('An error occurred whilst trying to navigate to description')
-            setMessageClass('search-msg-info')
-            setError(err)
-          })
+        try {
+          const res = await subjectByIdFetch(topic.topic)
+          if (!res) {
+            setMessage('Error: Cannot navigate to a parent subject of the description')
+          } else {
+            //
+            // Navigate to the returned interval
+            //
+            const subject = res.data
+            subject.fieldType = 'subject'
+            handleNavigate(subject)
+          }
+        } catch(err) {
+          setMessage('An error occurred whilst trying to navigate to description')
+          setMessageClass('search-msg-info')
+          setError(normalizeError(err))
+        }
       } else if (topic.topicTarget === TopicType.interval) {
-        fetchService
-          .intervalById(topic.topic)
-          .then((res) => {
-            if (!res.data) {
-              setMessage('Error: Cannot navigate to a parent interval of the description')
-            } else {
-              //
-              // Navigate to the returned interval
-              //
-              const interval = res.data
-              interval.fieldType = 'interval'
-              handleNavigate(interval)
-            }
-          })
-          .catch((err) => {
-            setMessage('An error occurred whilst trying to navigate to description')
-            setMessageClass('search-msg-error')
-            setError(err)
-          })
+        try {
+          const res = await intervalByIdFetch(topic.topic)
+          if (!res) {
+            setMessage('Error: Cannot navigate to a parent interval of the description')
+          } else {
+            //
+            // Navigate to the returned interval
+            //
+            const interval = res.data
+            interval.fieldType = 'interval'
+            handleNavigate(interval)
+          }
+        } catch(err) {
+          setMessage('An error occurred whilst trying to navigate to description')
+          setMessageClass('search-msg-error')
+          setError(normalizeError(err))
+        }
       } else {
         setMessage('Cannot navigate to unknown result')
         setMessageClass('search-msg-error')

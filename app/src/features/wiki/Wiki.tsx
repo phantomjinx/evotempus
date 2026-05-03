@@ -16,9 +16,9 @@
  */
 
 import React, { useEffect, useState } from 'react'
-import { fetchService } from '@evotempus/api'
+import { useTopicDescriptionQuery } from '@evotempus/hooks'
 import { TopicRequest } from '@evotempus/types'
-import { logError } from '@evotempus/utils'
+import { logError, normalizeError } from '@evotempus/utils'
 import './Wiki.scss'
 import { Header } from './Header'
 import { Footer } from './Footer'
@@ -30,57 +30,40 @@ type WikiProps = {
 }
 
 export const Wiki: React.FunctionComponent<WikiProps> = (props: WikiProps) => {
-  const [loading, setLoading] = useState<boolean>(true)
-  const [linkId, setLinkId] = useState<string>('Geologic_time_scale')
-  const [description, setDescription] = useState<string>('')
-  const [error, setError] = useState<Error>()
-  const [errorMsg, setErrorMsg] = useState<string>('')
 
-  const logErrorState = (errorMsg: string, error: Error) => {
-    logError({prefix: 'Wiki', message: "Error: " + errorMsg, object: error})
-    setErrorMsg(errorMsg)
-    setError(error)
-    setLoading(false)
+  if (!props.topicRequest) {
+    return <></>
   }
 
-  useEffect(() => {
-    if (!props.topicRequest) {
-      return
-    }
+  // Declarative fetch based on the props
+  const { data, isPending, isError, error } = useTopicDescriptionQuery(
+    props.topicRequest.type,
+    props.topicRequest.topicTarget._id
+  )
 
-    const fetchDescription = async () => {
-      setLinkId('')
-      setDescription('')
-      setErrorMsg('')
-      setError(undefined)
-      setLoading(true)
+  // Derive our UI variables directly from TanStack state
+  const loading = isPending
+  const linkId = data?.linkId || 'Geologic_time_scale'
+  const description = data?.description || ''
 
-      const res = await fetchService.description(props.topicRequest!.type, props.topicRequest!.topicTarget._id)
-      try {
-        if (!res.data || res.data.length === 0) {
-          logErrorState("Description cannot be displayed", new Error("No description could be loaded."))
-        } else {
-          setLoading(false)
-          setLinkId(res.data.linkId)
-          setDescription(res.data.description)
-        }
-      } catch(err) {
-        logErrorState("Failed to fetch description", err as Error)
-      }
-    }
+  // Custom error logic derivation
+  let currentError: Error | undefined = undefined
+  let currentErrorMsg = ''
 
-    fetchDescription()
-
-  }, [props.topicRequest])
-
-  if (! props.topicRequest) {
-    return <></>
+  if (isError) {
+    currentError = normalizeError(error)
+    currentErrorMsg = 'Failed to fetch description'
+    logError({ prefix: 'Wiki', message: `Error: ${currentErrorMsg}`, object: currentError })
+  } else if (data && !data.description) {
+    currentError = new Error('No description could be loaded.')
+    currentErrorMsg = 'Description cannot be displayed'
+    logError({ prefix: 'Wiki', message: `Error: ${currentErrorMsg}`, object: currentError })
   }
 
   return (
     <div id="wiki-container">
       <Header topicTarget={props.topicRequest.topicTarget} toggleWiki={props.toggleWiki}/>
-      <Main loading={loading} error={error} errorMsg={errorMsg} description={description} />
+      <Main loading={loading} error={currentError} errorMsg={currentErrorMsg} description={description} />
       <Footer linkId={linkId}/>
     </div>
   )

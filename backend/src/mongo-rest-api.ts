@@ -46,7 +46,7 @@ const environment = process.env.NODE_ENV ?? 'development'
 const mongoDbURI = process.env.MONGODB_URI ?? 'mongodb://localhost/evotempus'
 const doImport = utils.toBoolean(process.env.IMPORT_DB, true)
 const dropCollections = utils.toBoolean(process.env.DROP_COLLECTIONS, true)
-const user = process.env.USER ?? ''
+const user = process.env.DB_USER ?? ''
 const pass = process.env.PASS ?? ''
 const port = process.env.PORT ?? 3001
 

@@ -3,10 +3,10 @@
   "version": "0.6.0",
   "main": "src/server.js",
   "scripts": {
-    "dev:start": "webpack --watch --env dropCollections=false --env importDB=false --env logLevel='debug'",
-    "dev:import": "webpack --watch --env dropCollections=false --env importDB=true --env logLevel='debug'",
-    "dev:resetimport": "webpack --watch --env dropCollections=true --env importDB=true --env logLevel='debug'",
-    "build": "webpack --env buildType='production'",
+    "dev:start": "webpack --watch --env DROP_COLLECTIONS=false --env IMPORT_DB=false --env LOG_LEVEL='debug'",
+    "dev:import": "webpack --watch --env DROP_COLLECTIONS=false --env IMPORT_DB=true --env LOG_LEVEL='debug'",
+    "dev:resetimport": "webpack --watch --env DROP_COLLECTIONS=true --env IMPORT_DB=true --env LOG_LEVEL='debug'",
+    "build": "webpack --env NODE_ENV='production'",
     "start": "node dist/mongo-rest-api.js",
     "lint": "eslint src/",
     "lint:fix": "npm run lint --fix"

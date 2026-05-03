@@ -36,22 +36,10 @@ module.exports = (env) => {
         args: [],
 
         // Node arguments.
-        nodeArgs: ['--inspect'],
+        nodeArgs: ['--inspect', '--env-file=.env'],
 
         // Detailed log.
         verbose: true,
-
-        // Environment variables to pass to the script to be restarted
-        env: {
-          NODE_ENV: process.env.build ?? 'development',
-          MONGODB_URI: 'mongodb://127.0.0.1:27017/evotempus',
-          DROP_COLLECTIONS: env.dropCollections ?? false,
-          IMPORT_DB: env.importDB ?? false,
-          USER: process.env.user ?? '',
-          PASS: process.env.pass ?? '',
-          PORT: process.env.port ?? 3001,
-          LOG_LEVEL: process.env.logLevel ?? 'info'
-        },
       }),
     ],
 

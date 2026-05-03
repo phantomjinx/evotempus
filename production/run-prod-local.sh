@@ -49,4 +49,9 @@ export IMPORT_DB=${KEEP_COLLECTIONS}
 export NODE_ENV=production
 export MONGODB_URI=mongodb://localhost/evotempus
 
-node backend/dist/mongo-rest-api.js
+echo "DROP_COLLECTIONS: ${DROP_COLLECTIONS}"
+echo "IMPORT_DB: ${IMPORT_DB}"
+echo "NODE_ENV: ${NODE_ENV}"
+echo "MONGODB_URI: ${MONGODB_URI}"
+
+node --env-file=backend/.env backend/dist/mongo-rest-api.js

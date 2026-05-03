@@ -26,12 +26,14 @@ if [ "${IMPORT_COLLECTIONS}" == "1" ]; then
   #
   # Only with -i will import take place
   #
-  KEEP_COLLECTIONS=false
+  export DROP_COLLECTIONS=true
+  export IMPORT_DB=true
 else
   #
   # Default running will NOT import
   #
-  KEEP_COLLECTIONS=true
+  export DROP_COLLECTIONS=false
+  export IMPORT_DB=false
 fi
 
 if [ ! -d app/build ] && [ ! -d app/dist ]; then
@@ -44,8 +46,6 @@ if [ ! "$(ls -A app/build 2>/dev/null)" ] && [ ! "$(ls -A app/dist 2>/dev/null)"
   exit 1
 fi
 
-export DROP_COLLECTIONS=${KEEP_COLLECTIONS}
-export IMPORT_DB=${KEEP_COLLECTIONS}
 export NODE_ENV=production
 export MONGODB_URI=mongodb://localhost/evotempus
 

@@ -11,7 +11,7 @@
     "dev": "pnpm run dev:app & pnpm run dev:backend",
     "build:app": "pnpm --filter evotempus-app run build:prod",
     "build:backend": "pnpm --filter evotempus-backend run build",
-    "start": "./production/run-prod-local.sh",
+    "start:backend": "./production/run-prod-local.sh",
     "license:check": "node scripts/license-header.mjs",
     "license:fix": "node scripts/license-header.mjs --fix",
     "lint:app": "pnpm --filter evotempus-app run lint",

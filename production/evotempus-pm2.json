@@ -3,7 +3,7 @@
     {
        "name": "evotempus",
        "cwd": "${HOME}/evotempus",
-       "script": "npm",
+       "script": "pnpm",
        "args" : "start"
     }
   ]

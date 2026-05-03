@@ -34,7 +34,7 @@ else
   KEEP_COLLECTIONS=true
 fi
 
-if [ ! -d app/build && [ ! -d app/dist ]; then
+if [ ! -d app/build ] && [ ! -d app/dist ]; then
   echo "Error: No app build directory detected. Have you run compile-app yet?"
   exit 1
 fi

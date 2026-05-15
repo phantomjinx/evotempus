@@ -1,3 +1,35 @@
 packages:
   - 'app'
   - 'backend'
+
+# pnpm install will exit with a non-zero code if any
+# dependency tries to run a lifecycle script that has
+# not been explicitly allowed, turning silent warnings
+# into CI-blocking failures.
+strictDepBuilds: true
+
+# pnpm refuses to install any package version whose
+# trust evidence is weaker than a previously published
+# version of that package.
+trustPolicy: no-downgrade
+
+# Ignore the check for packages published more than 30
+# days ago (pnpm 10.27+)
+# Useful for older packages that pre-date provenance support
+trustPolicyIgnoreAfter: 43200 # minutes (30 days)
+
+# Only direct dependencies (those declared in package.json)
+# are allowed to use exotic sources such as git repositories
+# or tarball URLs. All transitive dependencies must be
+# resolved from the configured registry, local file paths,
+# workspace links, or trusted GitHub repositories.
+blockExoticSubdeps: true
+
+# Delay package installations by setting a minimum release age
+minimumReleaseAge: 20160 # 2 weeks (in minutes)
+
+allowBuilds:
+  '@parcel/watcher': set this to true or false
+  core-js: set this to true or false
+  core-js-pure: set this to true or false
+  unrs-resolver: set this to true or false

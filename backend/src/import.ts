@@ -14,10 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
- /* jshint node: true */
- 'use strict'
-
 import { AnyBulkWriteOperation, Document } from 'mongoose'
 import { logger } from './logger'
 import fs from 'fs'

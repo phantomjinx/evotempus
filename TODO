@@ -2,7 +2,12 @@
 * Tool and Dependencies
 *
 
-* Migrate from useEffect/fetch to Tanstack/Query
+- Bugs:
+  - Searching for Tyrannosaurs in production fails to show it in the subjectvisual
+    when the Animal page has been iterated up or down. It just does not flick the
+    page to the right one for T Rex.
+  - Consider fixing colour scheme so it does not paint bars a similar colour to the
+    background of the subjectvisual.
 
 * Upgrade to React 19 - React Server Components (RSC)
 

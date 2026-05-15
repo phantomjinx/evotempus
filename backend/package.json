@@ -48,7 +48,7 @@
     "@types/cors": "^2.8.19",
     "@types/errorhandler": "^1.5.3",
     "@types/express": "^5.0.6",
-    "@types/express-session": "^1.18.2",
+    "@types/express-session": "^1.19.0",
     "@types/http-errors": "^2.0.5",
     "@types/method-override": "^3.0.0",
     "@types/multer": "^2.0.0",

@@ -29,7 +29,7 @@ blockExoticSubdeps: true
 minimumReleaseAge: 20160 # 2 weeks (in minutes)
 
 allowBuilds:
-  '@parcel/watcher': set this to true or false
-  core-js: set this to true or false
-  core-js-pure: set this to true or false
-  unrs-resolver: set this to true or false
+  '@parcel/watcher': false
+  core-js: false
+  core-js-pure: false
+  unrs-resolver: false

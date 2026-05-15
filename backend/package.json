@@ -44,7 +44,7 @@
     "wikijs": "^6.4.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
+    "@eslint/js": "^10.0.1",
     "@types/cors": "^2.8.19",
     "@types/errorhandler": "^1.5.3",
     "@types/express": "^5.0.6",

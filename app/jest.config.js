@@ -15,11 +15,8 @@ module.exports = {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       path.resolve(__dirname, './src/__mocks__/fileMock.js'),
     '@evotempus/api': path.resolve(__dirname, './src/api'),
-    '@evotempus/assets': path.resolve(__dirname, './src/assets'),
     '@evotempus/components': path.resolve(__dirname, './src/components'),
-    '@evotempus/layout': path.resolve(__dirname, './src/layout'),
     '@evotempus/types': path.resolve(__dirname, './src/types'),
-    '@evotempus/services': path.resolve(__dirname, './src/services'),
     '@evotempus/utils': path.resolve(__dirname, './src/utils'),
   },
 

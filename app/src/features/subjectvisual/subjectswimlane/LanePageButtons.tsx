@@ -16,6 +16,7 @@
  */
 
 import React, { useContext } from 'react'
+import 'd3-transition'
 import { ScaleLinear } from 'd3-scale'
 import { select as d3Select } from 'd3-selection'
 import { SubjectVisualData, SubjectVisualKind, SwimLaneAspect } from "../globals"

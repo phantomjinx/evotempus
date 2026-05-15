@@ -1,0 +1,22 @@
+{
+  "ignoreDependencies": [
+    "@react-spring/animated",
+    "@react-spring/core",
+    "@react-spring/rafz",
+    "@react-spring/shared",
+    "@react-spring/types",
+    "@react-hook/latest",
+    "@react-hook/passive-layout-effect",
+    "@juggle/resize-observer",
+    "d3-dispatch",
+    "d3-drag",
+    "d3-ease",
+    "d3-fetch",
+    "d3-format",
+    "d3-path",
+    "d3-scale-chromatic",
+    "d3-time",
+    "d3-time-format",
+    "d3-timer"
+  ]
+}

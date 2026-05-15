@@ -75,7 +75,6 @@ module.exports = {
         configFile: path.resolve(appRoot, './tsconfig.json'),
       }),
     ],
-    symlinks: false,
     cacheWithContext: false,
     alias: {
       assets: path.resolve(appRoot, src, 'assets'),

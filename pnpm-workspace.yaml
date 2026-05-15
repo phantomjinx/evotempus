@@ -26,10 +26,17 @@ trustPolicyIgnoreAfter: 43200 # minutes (30 days)
 blockExoticSubdeps: true
 
 # Delay package installations by setting a minimum release age
-minimumReleaseAge: 20160 # 2 weeks (in minutes)
+minimumReleaseAge: 12960 # 9 days (in minutes)
 
 allowBuilds:
   '@parcel/watcher': false
   core-js: false
   core-js-pure: false
   unrs-resolver: false
+
+overrides:
+  mongodb: "^7.1.0"
+  "@typescript-eslint/eslint-plugin": "^8.56.1"
+  "@typescript-eslint/parser": "^8.56.1"
+  "fast-uri": "^3.1.2"
+  "cross-spawn": "^6.0.6"

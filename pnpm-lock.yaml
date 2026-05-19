@@ -337,8 +337,8 @@ importers:
         specifier: ^7.1.0
         version: 7.2.0
       mongoose:
-        specifier: 9.2.4
-        version: 9.2.4
+        specifier: 9.6.2
+        version: 9.6.2
       morgan:
         specifier: ^1.10.1
         version: 1.10.1
@@ -4186,8 +4186,8 @@ packages:
     resolution: {integrity: sha512-ZZow9HBI5O6EPgSJLUb8n2NKgmVWTwCvHGwFuJlMjvLFqlGG6pjirPhtdsseaLZjSibD8eegzmYpUZwoIlj2cQ==}
     engines: {node: '>=4.0'}
 
-  kareem@3.2.0:
-    resolution: {integrity: sha512-VS8MWZz/cT+SqBCpVfNN4zoVz5VskR3N4+sTmUXme55e9avQHntpwpNq0yjnosISXqwJ3AQVjlbI4Dyzv//JtA==}
+  kareem@3.3.0:
+    resolution: {integrity: sha512-kpSuLD3/7RenBnjnJdOHXCKC8dTd1JzeOiJhN0necWWci6cC+qX+VuwPnMVgb+a4+KNJSfgqahpnfWaeDXCimw==}
     engines: {node: '>=18.0.0'}
 
   keyv@4.5.4:
@@ -4411,8 +4411,8 @@ packages:
       socks:
         optional: true
 
-  mongoose@9.2.4:
-    resolution: {integrity: sha512-XNh+jiztVMddDFDCv8TWxVxi/rGx+0FfsK3Ftj6hcYzEmhTcos2uC144OJRmUFPHSu3hJr6Pgip++Ab2+Da35Q==}
+  mongoose@9.6.2:
+    resolution: {integrity: sha512-7m8HntjkoRnwEmuPC0kdlwcZXJOQf4twumFj+PNzg/anqqZE2Er7hQslqyzy07mP3JcFjoTSgH5765PyqOXsxw==}
     engines: {node: '>=20.19.0'}
 
   morgan@1.10.1:
@@ -8219,12 +8219,12 @@ snapshots:
   '@webpack-cli/configtest@3.0.1(webpack-cli@6.0.1)(webpack@5.106.2)':
     dependencies:
       webpack: 5.106.2(webpack-cli@6.0.1)
-      webpack-cli: 6.0.1(webpack@5.106.2)
+      webpack-cli: 6.0.1(webpack-dev-server@5.2.3)(webpack@5.106.2)
 
   '@webpack-cli/info@3.0.1(webpack-cli@6.0.1)(webpack@5.106.2)':
     dependencies:
       webpack: 5.106.2(webpack-cli@6.0.1)
-      webpack-cli: 6.0.1(webpack@5.106.2)
+      webpack-cli: 6.0.1(webpack-dev-server@5.2.3)(webpack@5.106.2)
 
   '@webpack-cli/serve@3.0.1(webpack-cli@6.0.1)(webpack-dev-server@5.2.3)(webpack@5.106.2)':
     dependencies:
@@ -10704,7 +10704,7 @@ snapshots:
       object.assign: 4.1.7
       object.values: 1.2.1
 
-  kareem@3.2.0: {}
+  kareem@3.3.0: {}
 
   keyv@4.5.4:
     dependencies:
@@ -10884,9 +10884,9 @@ snapshots:
       bson: 7.2.0
       mongodb-connection-string-url: 7.0.1
 
-  mongoose@9.2.4:
+  mongoose@9.6.2:
     dependencies:
-      kareem: 3.2.0
+      kareem: 3.3.0
       mongodb: 7.2.0
       mpath: 0.9.0
       mquery: 6.0.0
@@ -12590,7 +12590,7 @@ snapshots:
       watchpack: 2.5.1
       webpack-sources: 3.4.1
     optionalDependencies:
-      webpack-cli: 6.0.1(webpack@5.106.2)
+      webpack-cli: 6.0.1(webpack-dev-server@5.2.3)(webpack@5.106.2)
     transitivePeerDependencies:
       - '@swc/core'
       - esbuild

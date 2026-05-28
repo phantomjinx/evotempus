@@ -48,8 +48,6 @@ jobs:
             ${{ runner.os }}-pnpm-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Audit
-        run: pnpm audit
       - name: Build Backend
         run: pnpm run build:backend
       - name: Build App

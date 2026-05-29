@@ -93,7 +93,7 @@
     "@types/d3-zoom": "^3.0.8",
     "@types/jest": "^30.0.0",
     "@types/lodash.clonedeep": "^4.5.9",
-    "@types/node": "^25.3.3",
+    "@types/node": "^25.9.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "css-loader": "^7.1.4",

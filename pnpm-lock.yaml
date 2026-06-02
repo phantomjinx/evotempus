@@ -325,8 +325,8 @@ importers:
         specifier: 0.0.1-security
         version: 0.0.1-security
       helmet:
-        specifier: ^8.1.0
-        version: 8.1.0
+        specifier: ^8.2.0
+        version: 8.2.0
       http-errors:
         specifier: ^2.0.1
         version: 2.0.1
@@ -3590,8 +3590,8 @@ packages:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
 
-  helmet@8.1.0:
-    resolution: {integrity: sha512-jOiHyAZsmnr8LqoPGmCjYAaiuWwjAPLgY8ZX2XrmHawt99/u1y6RgrZMTeoPfpUbV96HOalYgz1qzkRbw54Pmg==}
+  helmet@8.2.0:
+    resolution: {integrity: sha512-DRgTIUgnWcJ62KyarxxziuqYxKGnR6Rgg19BlbucN/dpmJbl1XOit6qvoOX0ZT+HhWe5OUVhU/a1zpGyc1xA0Q==}
     engines: {node: '>=18.0.0'}
 
   help-me@5.0.0:
@@ -9893,7 +9893,7 @@ snapshots:
 
   he@1.2.0: {}
 
-  helmet@8.1.0: {}
+  helmet@8.2.0: {}
 
   help-me@5.0.0: {}
 

@@ -39,8 +39,8 @@ importers:
         specifier: ^10.0.3
         version: 10.0.3(react@19.2.6)
       '@react-spring/rafz':
-        specifier: ^10.0.3
-        version: 10.0.3
+        specifier: ^10.1.0
+        version: 10.1.0
       '@react-spring/shared':
         specifier: ^10.0.3
         version: 10.0.3(react@19.2.6)
@@ -1643,8 +1643,11 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@react-spring/rafz@10.0.3':
-    resolution: {integrity: sha512-Ri2/xqt8OnQ2iFKkxKMSF4Nqv0LSWnxXT4jXFzBDsHgeeH/cHxTLupAWUwmV9hAGgmEhBmh5aONtj3J6R/18wg==}
+  '@react-spring/rafz@10.0.4':
+    resolution: {integrity: sha512-QK/vnFUpgVE1Wm4cvb1vDbhY6Xz4Ywfgkbr30hlXM3XAaMBWv08TWMorZhYb9T+gphHP45t7dUbUtp3r6k2nxA==}
+
+  '@react-spring/rafz@10.1.0':
+    resolution: {integrity: sha512-e/LRnNmvmg8Agl4j3MGcjHuSTSBcCrxr3xeoWdodxpLWeTHY1pHl8PJDOCEJ2Pj6BMdEBaWFRAX7uxRo1FLzCg==}
 
   '@react-spring/shared@10.0.3':
     resolution: {integrity: sha512-geCal66nrkaQzUVhPkGomylo+Jpd5VPK8tPMEDevQEfNSWAQP15swHm+MCRG4wVQrQlTi9lOzKzpRoTL3CA84Q==}
@@ -7554,11 +7557,13 @@ snapshots:
       '@react-spring/types': 10.0.3
       react: 19.2.6
 
-  '@react-spring/rafz@10.0.3': {}
+  '@react-spring/rafz@10.0.4': {}
+
+  '@react-spring/rafz@10.1.0': {}
 
   '@react-spring/shared@10.0.3(react@19.2.6)':
     dependencies:
-      '@react-spring/rafz': 10.0.3
+      '@react-spring/rafz': 10.0.4
       '@react-spring/types': 10.0.3
       react: 19.2.6
 

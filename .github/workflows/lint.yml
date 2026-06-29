@@ -40,7 +40,7 @@ jobs:
       - name: Get pnpm cache directory path
         id: pnpm-cache-dir-path
         run: echo "dir=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v5
+      - uses: actions/cache@v6
         id: pnpm-cache
         with:
           path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
